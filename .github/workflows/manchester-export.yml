@@ -1,0 +1,49 @@
+# Attempt to refresh Manchester Art Gallery event export (browser-style fetch) every fortnight.
+# The site is behind Cloudflare; when the fetch succeeds we commit the JSON so the main scraper uses it.
+name: Manchester Art Gallery – export (attempt)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 1,15 * *'   # 1st and 15th, 8 AM UTC (~9 AM UK)
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./north
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+
+      - name: Fetch Manchester export (Playwright)
+        run: python fetch_manchester_export.py
+        id: fetch
+        continue-on-error: true   # Cloudflare often blocks; job still succeeds, we just don't commit
+
+      - name: Commit and push export file
+        if: steps.fetch.outcome == 'success'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git_root=$(git rev-parse --show-toplevel)
+          git add north/data/manchester_events_export.json
+          git diff --staged --quiet || git commit -m "Auto: Manchester Art Gallery export (fortnightly)"
+          git pull --rebase -X theirs origin main
+          git push
+        continue-on-error: true

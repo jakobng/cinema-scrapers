@@ -1,0 +1,220 @@
+name: London - Scrape & Post
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_type:
+        description: 'Post Type'
+        required: true
+        default: 'cinema'
+        type: choice
+        options:
+        - cinema
+        - movie
+  schedule:
+    # We run at 6, 7, and 8 AM UTC to ensure we hit 7 AM and 8 AM local London time regardless of BST/GMT
+    # GMT (Winter): 7 AM UTC is 7 AM local, 8 AM UTC is 8 AM local.
+    # BST (Summer): 6 AM UTC is 7 AM local, 7 AM UTC is 8 AM local.
+    - cron: '0 6,7,8 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-post:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./london
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # Set Timezone to London
+      - name: Set Timezone
+        run: sudo timedatectl set-timezone Europe/London
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+          sudo apt-get install -y fonts-noto-cjk
+
+      # --- LOGIC: DETERMINE MODE & SCRAPER STATUS ---
+      - name: Determine Run Mode
+        id: mode
+        run: |
+          # Default values
+          TYPE="none"
+          SCRAPE="false"
+          
+          # Check if triggered by Schedule or Manual
+          if [ "${{ github.event_name }}" == "schedule" ]; then
+            current_hour=$(date +%H)
+            echo "Current London Hour: $current_hour"
+            
+            # 7 AM local -> Cinema post daily; scraper runs every other day.
+            if [ "$current_hour" == "07" ]; then
+              TYPE="cinema"
+              day_of_year=$(date +%j)
+              if [ $((10#$day_of_year % 2)) -eq 0 ]; then
+                SCRAPE="true"
+              else
+                SCRAPE="false"
+              fi
+            # 8 AM local -> Skip Scraper + Movie Post
+            elif [ "$current_hour" == "08" ]; then
+              TYPE="movie"
+              SCRAPE="false"
+            fi
+            
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            TYPE="${{ inputs.post_type }}"
+            # If manual 'movie' mode, skip scraper to save time. 
+            if [ "$TYPE" == "movie" ]; then
+              SCRAPE="false"
+            else
+              SCRAPE="true"
+            fi
+          fi
+          
+          echo "Selected Type: $TYPE"
+          echo "Run Scraper: $SCRAPE"
+          
+          # Output variables for next steps
+          echo "post_type=$TYPE" >> $GITHUB_OUTPUT
+          echo "run_scraper=$SCRAPE" >> $GITHUB_OUTPUT
+
+      # Exit if no action needed (for the extra hour in the cron schedule)
+      - name: Check if action needed
+        if: steps.mode.outputs.post_type == 'none'
+        run: |
+          echo "No action scheduled for this hour. Exiting."
+          exit 0
+
+      # --- STEP 1: SCRAPE (CONDITIONAL) ---
+      - name: Run Scraper
+        if: steps.mode.outputs.run_scraper == 'true'
+        run: python main_scraper.py
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      # --- STEP 2: GENERATE CONTENT (SPLIT) ---
+
+      # If CINEMA mode -> Use generate_post.py
+      - name: Generate Cinema Post (V1)
+        if: steps.mode.outputs.post_type == 'cinema'
+        run: python generate_post.py
+        env:
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      # If MOVIE mode -> Use generate_post2.py
+      - name: Generate Movie Post (V2)
+        if: steps.mode.outputs.post_type == 'movie'
+        run: python generate_post2.py
+        env:
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      # --- STEP 3: SAVE DATA ---
+      - name: Commit & Push Data
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Add JSON data and new Images
+          git add data/*.json ig_posts/*.png ig_posts/*.txt
+          
+          # Commit locally
+          git commit -m "Auto-Update London: ${{ steps.mode.outputs.post_type }} content" || echo "No changes to commit"
+
+          # Stash any unstaged changes to prevent rebase failure
+          git stash --include-untracked || true
+
+          # FIX: Rebase to handle race conditions (if repo updated while running)
+          git pull --rebase -X theirs origin main
+          git stash drop || true
+
+          # Push
+          git push
+
+      # --- STEP 4: WAIT FOR GITHUB PAGES TO DEPLOY ---
+      - name: Wait for GitHub Pages deployment
+        run: |
+          echo "⏳ Waiting 90 seconds for GitHub Pages to deploy new images..."
+          sleep 90
+          echo "✅ Wait complete. Proceeding with upload."
+
+      # --- STEP 5: UPLOAD TO INSTAGRAM ---
+      - name: Upload to Instagram
+        id: instagram_upload
+        run: python upload_to_instagram.py --type ${{ steps.mode.outputs.post_type }}
+        env:
+          IG_USER_ID: ${{ secrets.LONDON_IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.LONDON_IG_ACCESS_TOKEN }}
+
+      # --- STEP 6: SEND FAILURE ALERT ---
+      - name: Send Failure Alert Email
+        if: failure() && steps.instagram_upload.outcome == 'failure'
+        run: |
+          python -c "
+          import smtplib
+          from email.mime.text import MIMEText
+          from email.mime.multipart import MIMEMultipart
+          import os
+          from datetime import datetime
+
+          sender = os.environ['SMTP_EMAIL']
+          password = os.environ['SMTP_PASSWORD']
+          recipient = os.environ['ALERT_RECIPIENT_EMAIL']
+
+          msg = MIMEMultipart()
+          msg['From'] = sender
+          msg['To'] = recipient
+          msg['Subject'] = '🚨 Instagram Upload Failed - London Cinema Scraper'
+
+          body = f'''
+          Instagram upload failed for your London cinema scraper.
+
+          Post Type: ${{ steps.mode.outputs.post_type }}
+          Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S London')}
+
+          Common causes:
+          - Instagram access token expired or invalidated
+          - Authentication error (check LONDON_IG_ACCESS_TOKEN secret)
+          - API rate limit exceeded
+
+          View full logs:
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          To fix expired token:
+          1. Go to Facebook Graph API Explorer
+          2. Generate a new long-lived access token
+          3. Update LONDON_IG_ACCESS_TOKEN in repository secrets
+          '''
+
+          msg.attach(MIMEText(body, 'plain'))
+
+          server = smtplib.SMTP('smtp.gmail.com', 587)
+          server.starttls()
+          server.login(sender, password)
+          server.send_message(msg)
+          server.quit()
+          print('✅ Alert email sent successfully')
+          "
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}

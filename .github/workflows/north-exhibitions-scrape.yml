@@ -1,0 +1,51 @@
+name: North Art Exhibitions - Scrape
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run every 3 days at 7 AM UK
+    - cron: '0 7 */3 * *'
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./north
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Set Timezone
+        run: sudo timedatectl set-timezone Europe/London
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Scraper
+        run: python main_scraper.py
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
+
+      - name: Commit & Push Data
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          git_root=$(git rev-parse --show-toplevel)
+          git add north/data/*.json
+          git commit -m "Auto-Update: north art exhibitions scrape data" || echo "No changes to commit"
+          git pull --rebase -X theirs origin main
+          git push

@@ -1,0 +1,255 @@
+name: Tokyo - Scrape & Post
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_type:
+        description: 'Post Type'
+        required: true
+        default: 'cinema'
+        type: choice
+        options:
+        - cinema
+        - movie
+  schedule:
+    # 22:00 UTC = 07:00 JST (Cinema Daily)
+    - cron: '0 22 * * *'
+    # 23:00 UTC = 08:00 JST (Single Movie Spotlight)
+    - cron: '0 23 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-post:
+    runs-on: ubuntu-latest
+    
+    # Run all steps inside the 'tokyo-cinema-scrapers' folder
+    defaults:
+      run:
+        working-directory: ./tokyo
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # Set Timezone to JST
+      - name: Set Timezone
+        run: sudo timedatectl set-timezone Asia/Tokyo
+
+      - name: Install Dependencies
+        # Install from requirements.txt to ensure all dependencies are included
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+          sudo apt-get install -y fonts-noto-cjk
+
+      # --- LOGIC: DETERMINE MODE & SCRAPER STATUS ---
+      - name: Determine Run Mode
+        id: mode
+        run: |
+          # Default values
+          TYPE="cinema"
+          SCRAPE="true"
+          
+          # Check if triggered by Schedule or Manual
+          if [ "${{ github.event_name }}" == "schedule" ]; then
+            current_hour=$(date +%H)
+            echo "Current JST Hour: $current_hour"
+            
+            # 7 AM local -> Cinema post daily; scraper runs every other day.
+            if [ "$current_hour" == "07" ]; then
+              TYPE="cinema"
+              day_of_year=$(date +%j)
+              if [ $((10#$day_of_year % 2)) -eq 0 ]; then
+                SCRAPE="true"
+              else
+                SCRAPE="false"
+              fi
+            # 8 AM local -> Skip Scraper + Movie Post
+            elif [ "$current_hour" == "08" ]; then
+              TYPE="movie"
+              SCRAPE="false"
+            fi
+            
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            TYPE="${{ inputs.post_type }}"
+            # If manual 'movie' mode, skip scraper to save time. 
+            if [ "$TYPE" == "movie" ]; then
+              SCRAPE="false"
+            else
+              SCRAPE="true"
+            fi
+          fi
+          
+          echo "Selected Type: $TYPE"
+          echo "Run Scraper: $SCRAPE"
+          
+          # Output variables for next steps
+          echo "post_type=$TYPE" >> $GITHUB_OUTPUT
+          echo "run_scraper=$SCRAPE" >> $GITHUB_OUTPUT
+
+      # --- STEP 1: SCRAPE (CONDITIONAL) ---
+      - name: Run Scraper
+        if: steps.mode.outputs.run_scraper == 'true'
+        run: python main_scraper.py
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_RESOLVE_TITLES: "1"
+
+      # --- STEP 1b: VALIDATE SCRAPED DATA ---
+      - name: Validate Showtime Data
+        if: steps.mode.outputs.run_scraper == 'true'
+        run: |
+          python -c "
+          import json, sys
+          from datetime import date, timedelta
+          with open('data/showtimes.json', 'r', encoding='utf-8') as f:
+              data = json.load(f)
+          if len(data) < 20:
+              print(f'❌ Only {len(data)} showings found (expected 20+). Scrape may have failed.')
+              sys.exit(1)
+          today = date.today().isoformat()
+          tomorrow = (date.today() + timedelta(days=1)).isoformat()
+          dates = {d.get('date_text') for d in data}
+          if today not in dates and tomorrow not in dates:
+              print(f'⚠️ Warning: No showings found for today ({today}) or tomorrow ({tomorrow})')
+              print(f'   Available dates: {sorted(dates)[:5]}...')
+          print(f'✅ Validated: {len(data)} showings across {len(dates)} dates')
+          "
+
+      # --- STEP 2: GENERATE CONTENT (SPLIT) ---
+
+      # If CINEMA mode -> Use generate_post.py
+      - name: Generate Cinema Post (V1)
+        if: steps.mode.outputs.post_type == 'cinema'
+        run: python generate_post.py
+        env:
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      # If MOVIE mode -> Use generate_post2.py
+      - name: Generate Movie Post (V2)
+        if: steps.mode.outputs.post_type == 'movie'
+        run: python generate_post2.py
+        env:
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      # --- STEP 3: SAVE DATA ---
+      - name: Commit & Push Data
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Add JSON data and new Images
+          git add data/*.json ig_posts/*.png ig_posts/*.txt
+          
+          # Commit locally
+          git commit -m "Auto-Update: ${{ steps.mode.outputs.post_type }} content" || echo "No changes to commit"
+
+          # Rebase to handle race conditions (if repo updated while running)
+          git pull --rebase origin main
+
+          # Push
+          git push
+
+      # --- STEP 4: WAIT FOR GITHUB PAGES TO DEPLOY ---
+      - name: Wait for GitHub Pages deployment
+        run: |
+          echo "⏳ Polling GitHub Pages for image availability..."
+          TEST_FILE=$(ls ig_posts/post_image_01.png ig_posts/post_v2_image_01.png 2>/dev/null | head -1)
+          if [ -z "$TEST_FILE" ]; then
+            echo "No post images found, skipping poll. Waiting 90s as fallback."
+            sleep 90
+          else
+            BASENAME=$(basename "$TEST_FILE")
+            URL="https://jakobng.github.io/cinema-scrapers/tokyo/ig_posts/${BASENAME}?t=$(date +%s)"
+            TIMEOUT=180
+            INTERVAL=10
+            ELAPSED=0
+            while [ $ELAPSED -lt $TIMEOUT ]; do
+              STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL" || echo "000")
+              if [ "$STATUS" == "200" ]; then
+                echo "✅ GitHub Pages is live (HTTP 200 after ${ELAPSED}s)"
+                break
+              fi
+              echo "  Waiting... (${ELAPSED}s elapsed, HTTP $STATUS)"
+              sleep $INTERVAL
+              ELAPSED=$((ELAPSED + INTERVAL))
+            done
+            if [ $ELAPSED -ge $TIMEOUT ]; then
+              echo "⚠️ Timeout after ${TIMEOUT}s. Proceeding anyway."
+            fi
+          fi
+
+      # --- STEP 5: UPLOAD TO INSTAGRAM ---
+      - name: Upload to Instagram
+        id: instagram_upload
+        run: python upload_to_instagram.py --type ${{ steps.mode.outputs.post_type }}
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+
+      # --- STEP 6: SEND FAILURE ALERT ---
+      - name: Send Failure Alert Email
+        if: failure() && steps.instagram_upload.outcome == 'failure'
+        run: |
+          python -c "
+          import smtplib
+          from email.mime.text import MIMEText
+          from email.mime.multipart import MIMEMultipart
+          import os
+          from datetime import datetime
+
+          sender = os.environ['SMTP_EMAIL']
+          password = os.environ['SMTP_PASSWORD']
+          recipient = os.environ['ALERT_RECIPIENT_EMAIL']
+
+          msg = MIMEMultipart()
+          msg['From'] = sender
+          msg['To'] = recipient
+          msg['Subject'] = '🚨 Instagram Upload Failed - Tokyo Cinema Scraper'
+
+          body = f'''
+          Instagram upload failed for your Tokyo cinema scraper.
+
+          Post Type: ${{ steps.mode.outputs.post_type }}
+          Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S JST')}
+
+          Common causes:
+          - Instagram access token expired or invalidated
+          - Authentication error (check IG_ACCESS_TOKEN secret)
+          - API rate limit exceeded
+
+          View full logs:
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          To fix expired token:
+          1. Go to Facebook Graph API Explorer
+          2. Generate a new long-lived access token
+          3. Update IG_ACCESS_TOKEN in repository secrets
+          '''
+
+          msg.attach(MIMEText(body, 'plain'))
+
+          server = smtplib.SMTP('smtp.gmail.com', 587)
+          server.starttls()
+          server.login(sender, password)
+          server.send_message(msg)
+          server.quit()
+          print('✅ Alert email sent successfully')
+          "
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
