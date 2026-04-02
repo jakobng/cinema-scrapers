@@ -129,14 +129,14 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       # --- STEP 3: SAVE DATA ---
-      - name: Commit & Push Data
+      - name: Commit & Push Data (Cinema Scrapers Repo)
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          
+
           # Add JSON data and new Images
           git add data/*.json ig_posts/*.png ig_posts/*.txt
-          
+
           # Commit locally
           git commit -m "Auto-Update London: ${{ steps.mode.outputs.post_type }} content" || echo "No changes to commit"
 
@@ -149,6 +149,27 @@ jobs:
 
           # Push
           git push
+
+      - name: Sync Data to Website1 Repo
+        run: |
+          cd /tmp
+          git clone https://github.com/jakobng/website1.git website1-sync
+          cd website1-sync
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          # Copy showtimes.json to website1
+          cp "$GITHUB_WORKSPACE/data/showtimes.json" london-cinema-scrapers/data/showtimes.json
+
+          # Commit if there are changes
+          git add london-cinema-scrapers/data/showtimes.json
+          git commit -m "Auto-Update: London cinema showtimes sync from cinema-scrapers" || echo "No changes to commit"
+
+          # Push with rebase to handle race conditions
+          git pull --rebase origin main
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # --- STEP 4: WAIT FOR GITHUB PAGES TO DEPLOY ---
       - name: Wait for GitHub Pages deployment

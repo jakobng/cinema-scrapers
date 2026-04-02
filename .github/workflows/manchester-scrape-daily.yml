@@ -116,7 +116,7 @@ jobs:
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      - name: Commit & Push Data
+      - name: Commit & Push Data (Cinema Scrapers Repo)
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -129,6 +129,27 @@ jobs:
           git stash drop || true
 
           git push
+
+      - name: Sync Data to Website1 Repo
+        run: |
+          cd /tmp
+          git clone https://github.com/jakobng/website1.git website1-sync
+          cd website1-sync
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          # Copy showtimes.json to website1
+          cp "$GITHUB_WORKSPACE/data/showtimes.json" manchester_cinema_scrapers/data/showtimes.json
+
+          # Commit if there are changes
+          git add manchester_cinema_scrapers/data/showtimes.json
+          git commit -m "Auto-Update: Manchester cinema showtimes sync from cinema-scrapers" || echo "No changes to commit"
+
+          # Push with rebase to handle race conditions
+          git pull --rebase origin main
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Wait for GitHub Pages deployment
         run: |
