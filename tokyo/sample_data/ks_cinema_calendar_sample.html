@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="UTF-8"><title>K's Cinema Calendar Sample</title></head>
+<body>
+<div class="swiper-slide">
+  <table class="calendar-table">
+    <tbody>
+      <tr class="month">
+        <th colspan="3"><span class="label">11月</span></th>
+      </tr>
+      <tr class="day">
+        <th scope="col">3</th>
+        <th scope="col">4</th>
+        <th scope="col">5</th>
+      </tr>
+      <tr class="movie" data-movie-id="sample-1">
+        <td data-colspan="1">
+          <div class="program">
+            <p class="title title_s">サンプル映画A</p>
+            <a href="/movie/sample-a/"><span class="title-en">Sample Film A</span></a>
+            <ul class="times">
+              <li><span class="time">12:30</span></li>
+              <li><span class="time">15:15</span></li>
+            </ul>
+          </div>
+        </td>
+        <td colspan="2">
+          <div class="program">
+            <span class="movie-title">サンプル映画B</span>
+            <a class="detail" href="/movie/sample-b/">Detail</a>
+            <div class="showtimes">
+              <span class="schedule">11:00</span>
+              <span class="schedule">19:45</span>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr class="movie" data-movie-id="sample-2">
+        <td colspan="3">
+          <a href="/movie/sample-c/" class="program-link">
+            <span class="program-title">サンプル映画C</span>
+          </a>
+          <div class="program-body">
+            <p class="note">舞台挨拶あり</p>
+            <p class="program-time">10:00 / 13:00 / 18:30</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

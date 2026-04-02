@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "theater": {
+        "name": "池袋シネマ・ロサ",
+        "schedules": [
+          {
+            "date": "11/03",
+            "movieGroups": [
+              {
+                "movieTitle": "サンプルシネマR",
+                "screen": {"name": "シネマ・ロサ1"},
+                "schedules": [
+                  {
+                    "startTime": "12:40",
+                    "scheduleId": "sample123",
+                    "detailUrl": "https://schedule.eigaland.com/schedule/detail/sample123"
+                  },
+                  {
+                    "startTime": "18:15",
+                    "bookingUrl": "https://app.eigaland.com/booking?&scheduleId=sample456"
+                  }
+                ]
+              },
+              {
+                "movie": {
+                  "title": "英題付き作品",
+                  "titleEn": "International Feature"
+                },
+                "screenName": "ロサ2",
+                "showtimes": [
+                  {
+                    "start_time": "14:00",
+                    "booking_url": "https://app.eigaland.com/booking?&scheduleId=sample789"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "date": "11/04",
+            "items": [
+              {
+                "title": "深夜特集",
+                "screen": "Midnight",
+                "slots": [
+                  {
+                    "showTime": "22:30"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

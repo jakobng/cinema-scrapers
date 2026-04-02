@@ -1,0 +1,239 @@
+"""
+Analyse Gems (V2): AI-Powered Curation & Discovery.
+1. Discovery: Identifies 30-50 "Hidden Gems" from raw showtimes (using internal knowledge).
+2. Enrichment: Uses Gemini with Google Search Grounding to find metadata & image sources for specific films.
+"""
+import json
+import os
+import re
+import time
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+# --- Configuration ---
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+SHOWTIMES_PATH = DATA_DIR / "showtimes.json"
+DISCOVERED_GEMS_PATH = DATA_DIR / "gems_discovered.json"
+
+# --- Secrets ---
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+
+try:
+    from zoneinfo import ZoneInfo
+    JST = ZoneInfo("Asia/Tokyo")
+except ImportError:
+    JST = timezone(timedelta(hours=9))
+
+# --- Gemini API Setup ---
+try:
+    from google import genai
+    from google.genai import types
+    GEMINI_AVAILABLE = True
+except ImportError:
+    print("⚠️ Google GenAI library not found. Run: pip install google-genai")
+    GEMINI_AVAILABLE = False
+
+# --- Helpers ---
+
+def get_today_jst():
+    return datetime.now(JST)
+
+def load_showtimes():
+    if not SHOWTIMES_PATH.exists():
+        print("❌ showtimes.json not found.")
+        return []
+    with open(SHOWTIMES_PATH, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def clean_title(title):
+    title = re.sub(r'[\(（].*?[\)）]', '', title)
+    title = re.sub(r'[\[【].*?[\]】]', '', title)
+    return title.strip()
+
+# --- PHASE 1: DISCOVERY (Generate the List) ---
+
+def discover_gems():
+    """
+    Analyzes all showtimes and asks Gemini to pick the top 30-50 interesting films.
+    Saves the list to gems_discovered.json.
+    """
+    if not GEMINI_AVAILABLE or not GEMINI_API_KEY:
+        print("❌ Gemini API not configured.")
+        return
+
+    print("🕵️  Scanning showtimes for Hidden Gems...")
+    raw_data = load_showtimes()
+    today_str = get_today_jst().strftime("%Y-%m-%d")
+    tomorrow_str = (get_today_jst() + timedelta(days=1)).strftime("%Y-%m-%d")
+    
+    # Filter candidates (Today + Tomorrow)
+    candidates = {}
+    for item in raw_data:
+        if item.get('date_text') not in [today_str, tomorrow_str]: continue
+        title = item.get('movie_title')
+        if not title: continue
+        
+        key = clean_title(title)
+        if key not in candidates:
+            candidates[key] = {
+                "title": title,
+                "cinemas": set(),
+                "missing_image": not item.get('tmdb_backdrop_path')
+            }
+        candidates[key]['cinemas'].add(item.get('cinema_name'))
+
+    # Prepare list for Gemini
+    lines = []
+    for key, data in candidates.items():
+        venues = ", ".join(list(data['cinemas'])[:2])
+        status = "[NO IMAGE]" if data['missing_image'] else ""
+        lines.append(f"- {data['title']} (@ {venues}) {status}")
+        
+    full_list_text = "\n".join(lines)
+    
+    # Prompt for Mass Curation
+    client = genai.Client(api_key=GEMINI_API_KEY)
+    prompt = f"""
+    You are a Tokyo film curator. I have a list of films screening today/tomorrow.
+    
+    Task: Select the Top 30-50 "Hidden Gems" (Rare, Cult, Classic, Arthouse, or Unique).
+    
+    Criteria:
+    1. INCLUDE: Old classics, indie films, documentaries, 35mm screenings.
+    2. EXCLUDE: Generic blockbusters (Marvel, Disney, Conan, etc) unless special.
+    3. PRIORITIZE: Films marked [NO IMAGE] often indicate rare screenings.
+    
+    Return ONLY a JSON list of objects:
+    [
+      {{"title": "Film Title", "reason": "Short reason why", "priority": "High/Medium"}}
+    ]
+    
+    List:
+    {full_list_text}
+    """
+    
+    try:
+        response = client.models.generate_content(
+            model='gemini-2.5-flash', 
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json"
+            )
+        )
+        
+        gems = json.loads(response.text)
+        print(f"💎 Discovered {len(gems)} gems.")
+        
+        with open(DISCOVERED_GEMS_PATH, 'w', encoding='utf-8') as f:
+            json.dump(gems, f, indent=2, ensure_ascii=False)
+        print(f"💾 Saved to {DISCOVERED_GEMS_PATH}")
+        return gems
+        
+    except Exception as e:
+        print(f"Discovery Error: {e}")
+        return []
+
+# --- PHASE 2: ENRICHMENT (Search Grounding) ---
+
+def enrich_film_with_grounding(film_title):
+    """
+    Uses Gemini with Google Search to find metadata and image sources for a specific film.
+    """
+    print(f"\n🔍 Enriching data for: {film_title} (using Google Search)...")
+    
+    client = genai.Client(api_key=GEMINI_API_KEY)
+    
+    # Enable Search Tool
+    grounding_tool = types.Tool(google_search=types.GoogleSearch())
+    
+    prompt = f"""
+    Search for the film '{film_title}'.
+    
+    I need to generate a social media post but I am missing info.
+    Find the following:
+    1. The Director's Name.
+    2. A 1-sentence English synopsis.
+    3. A reliable URL where I can find a movie poster or still image (e.g. from eiga.com, filmarks.com, imdb.com, or the official website).
+    
+    Return JSON:
+    {{
+        "director": "...",
+        "synopsis": "...",
+        "image_source_page": "URL of the page containing the image",
+        "official_title_en": "..."
+    }}
+    """
+    
+    try:
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                tools=[grounding_tool],
+                response_mime_type="application/json"
+            )
+        )
+        
+        # 1. Parse the JSON result
+        result_json = json.loads(response.text)
+        
+        # 2. Extract Grounding Metadata (Citations)
+        grounding_urls = []
+        if response.candidates[0].grounding_metadata:
+            chunks = response.candidates[0].grounding_metadata.grounding_chunks
+            for chunk in chunks:
+                if chunk.web and chunk.web.uri:
+                    grounding_urls.append(chunk.web.uri)
+        
+        # Add the grounding URLs to our result for reference
+        result_json['grounding_sources'] = grounding_urls
+        
+        # Output results
+        print("-" * 30)
+        print(f"🎬 Title: {film_title}")
+        print(f"👤 Director: {result_json.get('director')}")
+        print(f"📝 Synopsis: {result_json.get('synopsis')}")
+        print(f"🖼️ Image Source: {result_json.get('image_source_page')}")
+        print(f"🔗 Verified Sources: {len(grounding_urls)}")
+        print("-" * 30)
+        
+        return result_json
+
+    except Exception as e:
+        print(f"Enrichment Error: {e}")
+        return None
+
+# --- MAIN WORKFLOW ---
+
+def main():
+    # Step 1: Discover (or load existing)
+    if DISCOVERED_GEMS_PATH.exists():
+        print("📂 Loading existing gems list...")
+        with open(DISCOVERED_GEMS_PATH, 'r', encoding='utf-8') as f:
+            gems = json.load(f)
+    else:
+        gems = discover_gems()
+
+    if not gems:
+        print("No gems found.")
+        return
+
+    # Step 2: Interactive Selection & Enrichment
+    print(f"\n✨ Top 5 from your list of {len(gems)}:")
+    for i, gem in enumerate(gems[:5]):
+        print(f"{i+1}. {gem['title']} ({gem['priority']}) - {gem['reason']}")
+    
+    choice = input("\nEnter number to enrich (or type a specific movie title): ")
+    
+    target_title = ""
+    if choice.isdigit() and 1 <= int(choice) <= len(gems):
+        target_title = gems[int(choice)-1]['title']
+    else:
+        target_title = choice
+        
+    if target_title:
+        enrich_film_with_grounding(target_title)
+
+if __name__ == "__main__":
+    main()
