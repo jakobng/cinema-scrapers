@@ -65,6 +65,7 @@ REGULAR_FONT_PATH = FONTS_DIR / "NotoSansJP-Regular.ttf"
 
 # Secrets
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+print(f"[DEBUG] GEMINI_API_KEY available: {bool(GEMINI_API_KEY)}", flush=True)
 
 # --- CONSTANTS ---
 MINIMUM_FILM_THRESHOLD = 3

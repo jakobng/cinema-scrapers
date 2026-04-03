@@ -136,6 +136,7 @@ jobs:
         env:
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PYTHONUNBUFFERED: "1"
 
       # If MOVIE mode -> Use generate_post2.py
       - name: Generate Movie Post (V2)
