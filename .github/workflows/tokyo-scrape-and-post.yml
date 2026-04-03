@@ -157,6 +157,9 @@ jobs:
           # Commit locally
           git commit -m "Auto-Update: ${{ steps.mode.outputs.post_type }} content" || echo "No changes to commit"
 
+          # Stage any remaining changes before rebasing
+          git add -A
+
           # Rebase to handle race conditions (if repo updated while running)
           git pull --rebase origin main
 
