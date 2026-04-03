@@ -11,6 +11,11 @@ on:
         options:
         - cinema
         - movie
+      skip_scrape:
+        description: 'Skip scraper and reuse committed showtimes.json'
+        required: true
+        default: false
+        type: boolean
   schedule:
     # 22:00 UTC = 07:00 JST (Cinema Daily)
     - cron: '0 22 * * *'
@@ -89,8 +94,8 @@ jobs:
             
           elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             TYPE="${{ inputs.post_type }}"
-            # If manual 'movie' mode, skip scraper to save time. 
-            if [ "$TYPE" == "movie" ]; then
+            # Manual movie mode always skips scraping. Cinema mode can also skip it explicitly.
+            if [ "$TYPE" == "movie" ] || [ "${{ inputs.skip_scrape }}" == "true" ]; then
               SCRAPE="false"
             else
               SCRAPE="true"
@@ -113,7 +118,6 @@ jobs:
 
       # --- STEP 1b: VALIDATE SCRAPED DATA ---
       - name: Validate Showtime Data
-        if: steps.mode.outputs.run_scraper == 'true'
         run: |
           python -c "
           import json, sys
@@ -158,11 +162,12 @@ jobs:
           # Commit locally
           git commit -m "Auto-Update: ${{ steps.mode.outputs.post_type }} content" || echo "No changes to commit"
 
-          # Stage any remaining changes before rebasing
-          git add -A
+          # Stash any unstaged leftovers so rebase runs on a clean worktree
+          git stash --include-untracked || true
 
           # Rebase to handle race conditions (if repo updated while running)
-          git pull --rebase origin main
+          git pull --rebase -X theirs origin main
+          git stash drop || true
 
           # Push
           git push
@@ -183,7 +188,7 @@ jobs:
           git commit -m "Auto-Update: Tokyo cinema showtimes sync from cinema-scrapers" || echo "No changes to commit"
 
           # Push with rebase to handle race conditions
-          git pull --rebase origin main
+          git pull --rebase -X theirs origin main
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
