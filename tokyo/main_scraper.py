@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 # main_scraper.py
 # V5.1: Robust Monitoring, Email Alerts, Smart Title Cleaning & Fixed Function Names
 
 import json
+import sys
+import io
+
+# Force UTF-8 output on Windows
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 import sys
 import traceback
 import re
