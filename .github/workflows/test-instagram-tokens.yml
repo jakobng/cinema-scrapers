@@ -1,0 +1,92 @@
+name: Test - Instagram Tokens
+
+on:
+  workflow_dispatch:
+    inputs:
+      city:
+        description: 'City to test'
+        required: true
+        default: 'tokyo'
+        type: choice
+        options:
+        - tokyo
+        - london
+        - manchester
+
+permissions:
+  contents: read
+
+jobs:
+  test-instagram-token:
+    runs-on: ubuntu-latest
+
+    env:
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      LONDON_IG_USER_ID: ${{ secrets.LONDON_IG_USER_ID }}
+      LONDON_IG_ACCESS_TOKEN: ${{ secrets.LONDON_IG_ACCESS_TOKEN }}
+      MANCHESTER_IG_USER_ID: ${{ secrets.MANCHESTER_IG_USER_ID }}
+      MANCHESTER_IG_ACCESS_TOKEN: ${{ secrets.MANCHESTER_IG_ACCESS_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Test Instagram Token
+        run: |
+          import os
+          import requests
+          import sys
+
+          city = "${{ inputs.city }}"
+
+          # Map city to secret names
+          if city == "london":
+              user_id = os.environ.get("LONDON_IG_USER_ID")
+              token = os.environ.get("LONDON_IG_ACCESS_TOKEN")
+          elif city == "manchester":
+              user_id = os.environ.get("MANCHESTER_IG_USER_ID")
+              token = os.environ.get("MANCHESTER_IG_ACCESS_TOKEN")
+          else:  # tokyo
+              user_id = os.environ.get("IG_USER_ID")
+              token = os.environ.get("IG_ACCESS_TOKEN")
+
+          print(f"🧪 Testing {city.upper()} Instagram Token...")
+          print(f"   User ID: {user_id if user_id else '❌ NOT SET'}")
+          print(f"   Token: {'✅ SET' if token else '❌ NOT SET'}")
+
+          if not token or not user_id:
+              print("❌ Secrets not configured!")
+              sys.exit(1)
+
+          # Test the token
+          url = f"https://graph.instagram.com/me?fields=id,username,name&access_token={token}"
+          try:
+              response = requests.get(url)
+              data = response.json()
+
+              if "error" in data:
+                  print(f"❌ Token Error: {data['error'].get('message', 'Unknown error')}")
+                  sys.exit(1)
+
+              print(f"✅ Token Valid!")
+              print(f"   Instagram ID: {data.get('id')}")
+              print(f"   Username: {data.get('username')}")
+              print(f"   Name: {data.get('name')}")
+
+          except Exception as e:
+              print(f"❌ Request failed: {e}")
+              sys.exit(1)
+        shell: python
+
+      - name: Success Message
+        run: |
+          echo "✅ ${{ inputs.city }} Instagram token is working!"
