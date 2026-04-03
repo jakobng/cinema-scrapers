@@ -23,11 +23,21 @@ permissions:
 jobs:
   scrape-and-post:
     runs-on: ubuntu-latest
-    
+
     # Run all steps inside the 'tokyo-cinema-scrapers' folder
     defaults:
       run:
         working-directory: ./tokyo
+
+    env:
+      TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+      SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -99,11 +109,6 @@ jobs:
         if: steps.mode.outputs.run_scraper == 'true'
         run: python main_scraper.py
         env:
-          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_RESOLVE_TITLES: "1"
 
       # --- STEP 1b: VALIDATE SCRAPED DATA ---
@@ -134,17 +139,12 @@ jobs:
         if: steps.mode.outputs.post_type == 'cinema'
         run: python generate_post.py
         env:
-          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PYTHONUNBUFFERED: "1"
 
       # If MOVIE mode -> Use generate_post2.py
       - name: Generate Movie Post (V2)
         if: steps.mode.outputs.post_type == 'movie'
         run: python generate_post2.py
-        env:
-          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       # --- STEP 3: SAVE DATA ---
       - name: Commit & Push Data (Cinema Scrapers Repo)
