@@ -139,7 +139,7 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
           # Copy showtimes.json to website1
-          cp "$GITHUB_WORKSPACE/data/showtimes.json" manchester_cinema_scrapers/data/showtimes.json
+          cp "$GITHUB_WORKSPACE/manchester/data/showtimes.json" manchester_cinema_scrapers/data/showtimes.json
 
           # Commit if there are changes
           git add manchester_cinema_scrapers/data/showtimes.json
