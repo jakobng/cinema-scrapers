@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       city:
-        description: 'City to test'
+        description: "City to test"
         required: true
-        default: 'tokyo'
+        default: "tokyo"
         type: choice
         options:
-        - tokyo
-        - london
-        - manchester
+          - tokyo
+          - london
+          - manchester
 
 permissions:
   contents: read
@@ -35,12 +35,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install requests
         run: pip install requests
 
       - name: Test Instagram Token
+        shell: python
         run: |
           import os
           import requests
@@ -48,45 +49,44 @@ jobs:
 
           city = "${{ inputs.city }}"
 
-          # Map city to secret names
           if city == "london":
               user_id = os.environ.get("LONDON_IG_USER_ID")
               token = os.environ.get("LONDON_IG_ACCESS_TOKEN")
           elif city == "manchester":
               user_id = os.environ.get("MANCHESTER_IG_USER_ID")
               token = os.environ.get("MANCHESTER_IG_ACCESS_TOKEN")
-          else:  # tokyo
+          else:
               user_id = os.environ.get("IG_USER_ID")
               token = os.environ.get("IG_ACCESS_TOKEN")
 
-          print(f"🧪 Testing {city.upper()} Instagram Token...")
-          print(f"   User ID: {user_id if user_id else '❌ NOT SET'}")
-          print(f"   Token: {'✅ SET' if token else '❌ NOT SET'}")
+          print(f"Testing {city.upper()} Instagram token...")
+          print(f"   User ID: {user_id if user_id else 'NOT SET'}")
+          print(f"   Token: {'SET' if token else 'NOT SET'}")
 
           if not token or not user_id:
-              print("❌ Secrets not configured!")
+              print("Secrets not configured.")
               sys.exit(1)
 
-          # Test the token
-          url = f"https://graph.instagram.com/me?fields=id,username,name&access_token={token}"
+          url = f"https://graph.facebook.com/v21.0/{user_id}"
+          params = {
+              "fields": "id,username",
+              "access_token": token,
+          }
+
           try:
-              response = requests.get(url)
+              response = requests.get(url, params=params, timeout=30)
               data = response.json()
-
-              if "error" in data:
-                  print(f"❌ Token Error: {data['error'].get('message', 'Unknown error')}")
-                  sys.exit(1)
-
-              print(f"✅ Token Valid!")
-              print(f"   Instagram ID: {data.get('id')}")
-              print(f"   Username: {data.get('username')}")
-              print(f"   Name: {data.get('name')}")
-
           except Exception as e:
-              print(f"❌ Request failed: {e}")
+              print(f"Request failed: {e}")
               sys.exit(1)
-        shell: python
+
+          if "error" in data:
+              print(f"Token error: {data['error'].get('message', 'Unknown error')}")
+              sys.exit(1)
+
+          print("Token valid.")
+          print(f"   Instagram ID: {data.get('id')}")
+          print(f"   Username: {data.get('username')}")
 
       - name: Success Message
-        run: |
-          echo "✅ ${{ inputs.city }} Instagram token is working!"
+        run: echo "${{ inputs.city }} Instagram token is working."
