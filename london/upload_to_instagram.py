@@ -10,8 +10,11 @@ import argparse
 IG_USER_ID = os.environ.get("IG_USER_ID")
 IG_ACCESS_TOKEN = os.environ.get("IG_ACCESS_TOKEN")
 
-# Point to the new folder in the URL so Instagram can download them
-GITHUB_PAGES_BASE_URL = "https://jakobng.github.io/website1/london-cinema-scrapers/ig_posts/"
+# Public image host used by Instagram to fetch generated assets.
+PUBLIC_IMAGE_BASE_URL = os.environ.get(
+    "PUBLIC_IMAGE_BASE_URL",
+    "https://raw.githubusercontent.com/jakobng/cinema-scrapers/main/london/ig_posts/",
+)
 
 API_VERSION = "v21.0"
 GRAPH_URL = f"https://graph.facebook.com/{API_VERSION}"
@@ -164,6 +167,7 @@ def main():
 
     print(f"🔍 Mode: {post_type}")
     print(f"📂 Looking for files in: {OUTPUT_DIR}")
+    print(f"🌐 Public image base URL: {PUBLIC_IMAGE_BASE_URL}")
 
     feed_files = []
     caption_text = "No caption found."
@@ -194,7 +198,7 @@ def main():
         child_ids = []
         for local_path in feed_files:
             filename = os.path.basename(local_path)
-            image_url = f"{GITHUB_PAGES_BASE_URL}{filename}?v={cache_buster}"
+            image_url = f"{PUBLIC_IMAGE_BASE_URL}{filename}?v={cache_buster}"
             child_id = upload_carousel_child_container(image_url)
             if child_id:
                 child_ids.append(child_id)
@@ -202,10 +206,14 @@ def main():
 
         if not child_ids:
             print("⚠️ No child containers created. Aborting feed post.")
+            sys.exit(1)
         else:
             parent_id = upload_carousel_container(child_ids, caption_text)
-            if check_media_status(parent_id):
-                publish_media(parent_id)
+            if not check_media_status(parent_id):
+                print("❌ Instagram carousel container did not finish processing.")
+                sys.exit(1)
+            if not publish_media(parent_id):
+                sys.exit(1)
     else:
         print("ℹ️ No feed images found.")
 

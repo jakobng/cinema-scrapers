@@ -10,8 +10,11 @@ import argparse
 IG_USER_ID = os.environ.get("IG_USER_ID")
 IG_ACCESS_TOKEN = os.environ.get("IG_ACCESS_TOKEN")
 
-# Point to the new folder in the URL so Instagram can download them
-GITHUB_PAGES_BASE_URL = "https://jakobng.github.io/website1/tokyo-cinema-scrapers/ig_posts/" 
+# Public image host used by Instagram to fetch generated assets.
+PUBLIC_IMAGE_BASE_URL = os.environ.get(
+    "PUBLIC_IMAGE_BASE_URL",
+    "https://raw.githubusercontent.com/jakobng/cinema-scrapers/main/tokyo/ig_posts/",
+)
 
 API_VERSION = "v21.0"
 GRAPH_URL = f"https://graph.facebook.com/{API_VERSION}"
@@ -162,6 +165,7 @@ def main():
 
     print(f"🔍 Mode: {POST_TYPE}")
     print(f"📂 Looking for files in: {OUTPUT_DIR}")
+    print(f"🌐 Public image base URL: {PUBLIC_IMAGE_BASE_URL}")
 
     feed_files = []
     caption_text = "No caption found."
@@ -204,13 +208,14 @@ def main():
         for local_path in feed_files:
             filename = os.path.basename(local_path)
             # FIX: Added ?v=... to URL
-            image_url = f"{GITHUB_PAGES_BASE_URL}{filename}?v={cache_buster}"
+            image_url = f"{PUBLIC_IMAGE_BASE_URL}{filename}?v={cache_buster}"
             print(f"   Uploading: {filename} -> {image_url}")
             
             if len(feed_files) == 1:
                 # Single Image
                 c_id = upload_single_image_container(image_url, caption_text)
-                publish_media(c_id)
+                if not publish_media(c_id):
+                    sys.exit(1)
             else:
                 # Carousel Item
                 c_id = upload_carousel_child_container(image_url)
@@ -218,12 +223,19 @@ def main():
                     child_ids.append(c_id)
                 time.sleep(2) # Brief pause
 
+        if not child_ids and len(feed_files) > 1:
+            print("⚠️ No child containers created. Aborting feed post.")
+            sys.exit(1)
+
         if child_ids:
             print("🔹 Creating Carousel Parent...")
             parent_id = upload_carousel_container(child_ids, caption_text)
             
-            if check_media_status(parent_id):
-                publish_media(parent_id)
+            if not check_media_status(parent_id):
+                print("❌ Instagram carousel container did not finish processing.")
+                sys.exit(1)
+            if not publish_media(parent_id):
+                sys.exit(1)
 
     else:
         print(f"ℹ️ No feed images found for mode '{POST_TYPE}'. Skipping Feed upload.")
