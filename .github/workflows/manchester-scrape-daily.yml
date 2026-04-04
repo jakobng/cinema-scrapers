@@ -142,11 +142,16 @@ jobs:
 
       - name: Sync Data to Website1 Repo
         run: |
+          if [ -z "$WEBSITE1_SYNC_TOKEN" ]; then
+            echo "WEBSITE1_SYNC_TOKEN is not configured; skipping website1 sync."
+            exit 0
+          fi
           cd /tmp
           git clone https://github.com/jakobng/website1.git website1-sync
           cd website1-sync
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin "https://x-access-token:${WEBSITE1_SYNC_TOKEN}@github.com/jakobng/website1.git"
 
           # Copy showtimes.json to website1
           cp "$GITHUB_WORKSPACE/manchester/data/showtimes.json" manchester_cinema_scrapers/data/showtimes.json
@@ -156,10 +161,10 @@ jobs:
           git commit -m "Auto-Update: Manchester cinema showtimes sync from cinema-scrapers" || echo "No changes to commit"
 
           # Push with rebase to handle race conditions
-          git pull --rebase origin main
+          git pull --rebase -X theirs origin main
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WEBSITE1_SYNC_TOKEN: ${{ secrets.WEBSITE1_SYNC_TOKEN }}
 
       - name: Wait for GitHub Pages deployment
         run: |

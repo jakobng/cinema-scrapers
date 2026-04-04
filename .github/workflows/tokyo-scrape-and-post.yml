@@ -69,8 +69,8 @@ jobs:
         id: mode
         run: |
           # Default values
-          TYPE="cinema"
-          SCRAPE="true"
+          TYPE="none"
+          SCRAPE="false"
           
           # Check if triggered by Schedule or Manual
           if [ "${{ github.event_name }}" == "schedule" ]; then
@@ -109,12 +109,19 @@ jobs:
           echo "post_type=$TYPE" >> $GITHUB_OUTPUT
           echo "run_scraper=$SCRAPE" >> $GITHUB_OUTPUT
 
+      - name: Check if action needed
+        if: steps.mode.outputs.post_type == 'none'
+        run: |
+          echo "No action scheduled for this hour. Exiting."
+          exit 0
+
       # --- STEP 1: SCRAPE (CONDITIONAL) ---
       - name: Run Scraper
         if: steps.mode.outputs.run_scraper == 'true'
         run: python main_scraper.py
         env:
           GEMINI_RESOLVE_TITLES: "1"
+          GEMINI_BATCH_SIZE: "8"
 
       # --- STEP 1b: VALIDATE SCRAPED DATA ---
       - name: Validate Showtime Data
@@ -174,11 +181,16 @@ jobs:
 
       - name: Sync Data to Website1 Repo
         run: |
+          if [ -z "$WEBSITE1_SYNC_TOKEN" ]; then
+            echo "WEBSITE1_SYNC_TOKEN is not configured; skipping website1 sync."
+            exit 0
+          fi
           cd /tmp
           git clone https://github.com/jakobng/website1.git website1-sync
           cd website1-sync
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin "https://x-access-token:${WEBSITE1_SYNC_TOKEN}@github.com/jakobng/website1.git"
 
           # Copy showtimes.json to website1
           cp "$GITHUB_WORKSPACE/tokyo/data/showtimes.json" tokyo-cinema-scrapers/data/showtimes.json
@@ -191,7 +203,7 @@ jobs:
           git pull --rebase -X theirs origin main
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WEBSITE1_SYNC_TOKEN: ${{ secrets.WEBSITE1_SYNC_TOKEN }}
 
       # --- STEP 4: WAIT FOR GITHUB PAGES TO DEPLOY ---
       - name: Wait for GitHub Pages deployment

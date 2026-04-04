@@ -265,8 +265,7 @@ def load_tmdb_cache():
     return {}
 
 def save_tmdb_cache(cache):
-    with open(TMDB_CACHE_FILE, "w", encoding="utf-8") as f:
-        json.dump(cache, f, ensure_ascii=False, indent=2)
+    _write_json_file(TMDB_CACHE_FILE, cache, sort_keys=True)
 
 def load_synopsis_translation_cache():
     if os.path.exists(SYNOPSIS_TRANSLATION_CACHE_FILE):
@@ -278,8 +277,7 @@ def load_synopsis_translation_cache():
     return {}
 
 def save_synopsis_translation_cache(cache):
-    with open(SYNOPSIS_TRANSLATION_CACHE_FILE, "w", encoding="utf-8") as f:
-        json.dump(cache, f, ensure_ascii=False, indent=2)
+    _write_json_file(SYNOPSIS_TRANSLATION_CACHE_FILE, cache, sort_keys=True)
 
 def load_title_resolution_cache():
     paths_to_try = [TITLE_RESOLUTION_CACHE_FILE, LEGACY_TITLE_TRANSLATION_CACHE_FILE]
@@ -293,8 +291,32 @@ def load_title_resolution_cache():
     return {}
 
 def save_title_resolution_cache(cache):
-    with open(TITLE_RESOLUTION_CACHE_FILE, "w", encoding="utf-8") as f:
-        json.dump(cache, f, ensure_ascii=False, indent=2)
+    _write_json_file(TITLE_RESOLUTION_CACHE_FILE, cache, sort_keys=True)
+
+def _stringify_sort_value(value):
+    if value is None:
+        return ""
+    if isinstance(value, (dict, list)):
+        return json.dumps(value, ensure_ascii=False, sort_keys=True)
+    return str(value)
+
+def _listing_sort_key(item: dict):
+    return (
+        _stringify_sort_value(item.get("date_text")),
+        _stringify_sort_value(item.get("cinema_name")),
+        _stringify_sort_value(item.get("showtime")),
+        _stringify_sort_value(item.get("movie_title_jp") or item.get("movie_title")),
+        _stringify_sort_value(item.get("movie_title_en")),
+        _stringify_sort_value(item.get("detail_page_url")),
+    )
+
+def _prepare_listings_for_output(listings: list) -> list:
+    # Stable ordering keeps daily commits small when upstream source order shifts.
+    return sorted(listings, key=_listing_sort_key)
+
+def _write_json_file(path, payload, sort_keys=False):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2, sort_keys=sort_keys)
 
 def _normalize_title_for_match(title: str) -> str:
     if not title:
@@ -306,6 +328,108 @@ def _normalize_title_for_match(title: str) -> str:
     cleaned = re.sub(r"[\s:?/|\\_???????-]+", " ", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned).strip()
     return cleaned
+
+def _iter_title_aliases(*titles):
+    seen = set()
+    for title in titles:
+        if not title:
+            continue
+        normalized = _normalize_title_for_match(title)
+        if normalized and normalized not in seen:
+            seen.add(normalized)
+            yield normalized
+
+def _build_tmdb_alias_index(cache: dict) -> dict:
+    alias_index = {}
+    for key, entry in cache.items():
+        if not isinstance(key, str) or key.startswith("tmdb:") or not _is_tmdb_cache_hit(entry):
+            continue
+        alias_titles = (
+            key,
+            entry.get("tmdb_title_jp"),
+            entry.get("tmdb_title_en"),
+            entry.get("tmdb_title_original"),
+        )
+        for alias in _iter_title_aliases(*alias_titles):
+            alias_index.setdefault(alias, entry)
+    return alias_index
+
+def _get_tmdb_cached_entry(cache: dict, alias_index: dict, title: str, tmdb_id=None):
+    if tmdb_id:
+        entry = cache.get(f"tmdb:{tmdb_id}")
+        if entry is not None:
+            return entry
+    if title in cache:
+        return cache.get(title)
+    for alias in _iter_title_aliases(title):
+        entry = alias_index.get(alias)
+        if entry is not None:
+            return entry
+    return None
+
+def _store_tmdb_cache_entry(cache: dict, alias_index: dict, title: str, details):
+    cache[title] = details
+    if not _is_tmdb_cache_hit(details):
+        return
+    cache[f"tmdb:{details['tmdb_id']}"] = details
+    alias_titles = (
+        title,
+        details.get("tmdb_title_jp"),
+        details.get("tmdb_title_en"),
+        details.get("tmdb_title_original"),
+    )
+    for alias in _iter_title_aliases(*alias_titles):
+        alias_index[alias] = details
+
+def _build_resolution_alias_index(resolution_cache: dict) -> dict:
+    alias_index = {}
+    for key, entry in resolution_cache.items():
+        if not isinstance(key, str):
+            continue
+        for alias in _iter_title_aliases(key):
+            alias_index.setdefault(alias, entry)
+    return alias_index
+
+def _get_resolution_cached_entry(resolution_cache: dict, alias_index: dict, title: str):
+    if title in resolution_cache:
+        return resolution_cache.get(title)
+    for alias in _iter_title_aliases(title):
+        entry = alias_index.get(alias)
+        if entry is not None:
+            return entry
+    return None
+
+def _store_resolution_cache_entry(resolution_cache: dict, alias_index: dict, title: str, entry):
+    resolution_cache[title] = entry
+    for alias in _iter_title_aliases(title):
+        alias_index[alias] = entry
+
+def _title_synopsis_cache_keys(title: str) -> list[str]:
+    keys = []
+    if title:
+        keys.append(f"title:{title}")
+        normalized = _normalize_title_for_match(title)
+        if normalized:
+            keys.append(f"title_norm:{normalized}")
+    return keys
+
+def _get_synopsis_cache_keys_for_item(item: dict) -> list[str]:
+    keys = []
+    tmdb_id = item.get("tmdb_id")
+    if tmdb_id:
+        keys.append(f"tmdb:{tmdb_id}")
+    keys.extend(_title_synopsis_cache_keys(item.get("movie_title", "")))
+    return keys
+
+def _get_cached_synopsis_translation(cache: dict, item: dict):
+    for key in _get_synopsis_cache_keys_for_item(item):
+        if key in cache:
+            return key, cache[key]
+    return None, None
+
+def _store_synopsis_translation(cache: dict, keys: list[str], translation: str):
+    for key in keys:
+        cache[key] = translation
 
 EIGA_PREFERRED_FIELDS = (
     "movie_title",
@@ -1380,6 +1504,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
     
     title_info = _build_title_info(listings)
     unique_titles = list(title_info.keys())
+    tmdb_alias_index = _build_tmdb_alias_index(cache)
     print(f"   Unique films to process: {len(unique_titles)}")
     tmdb_ids = sorted({
         _parse_int(item.get("tmdb_id"))
@@ -1393,7 +1518,10 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         total = len(unique_titles)
         if total == 0:
             return
-        matched = sum(1 for title in unique_titles if _is_tmdb_cache_hit(cache.get(title)))
+        matched = sum(
+            1 for title in unique_titles
+            if _is_tmdb_cache_hit(_get_tmdb_cached_entry(cache, tmdb_alias_index, title))
+        )
         percent = (matched / total) * 100
         print(f"   TMDB coverage {label}: {matched}/{total} ({percent:.1f}%)")
     
@@ -1408,7 +1536,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         print(f"   🔍 Fetching TMDB details by ID: {tmdb_id}")
         details = _fetch_tmdb_details_by_id(tmdb_id, session, api_key)
         if details:
-            cache[cache_key] = details
+            _store_tmdb_cache_entry(cache, tmdb_alias_index, cache_key, details)
             updated_cache = True
             print(f"      ✅ Found: {details['tmdb_title_jp']} (ID: {details['tmdb_id']})")
         else:
@@ -1422,6 +1550,8 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         cache_entry = cache.get(title)
         if has_cache_entry and _is_tmdb_cache_hit(cache_entry):
             continue
+        if not has_cache_entry and _is_tmdb_cache_hit(_get_tmdb_cached_entry(cache, tmdb_alias_index, title)):
+            continue
         if has_cache_entry and cache_entry is None and not retry_not_found:
             continue
         
@@ -1430,8 +1560,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
             print(f"   🔍 Fetching TMDB details by cached ID: {title}")
             details = _fetch_tmdb_details_by_id(legacy_id, session, api_key)
             if details:
-                cache[title] = details
-                cache[f"tmdb:{details['tmdb_id']}"] = details
+                _store_tmdb_cache_entry(cache, tmdb_alias_index, title, details)
                 updated_cache = True
                 print(f"      ✅ Found: {details['tmdb_title_jp']} (ID: {details['tmdb_id']})")
             else:
@@ -1445,8 +1574,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         details = fetch_tmdb_details(info, session, api_key, require_year_match=True, year_tolerance=0)
         
         if details:
-            cache[title] = details
-            cache[f"tmdb:{details['tmdb_id']}"] = details
+            _store_tmdb_cache_entry(cache, tmdb_alias_index, title, details)
             updated_cache = True
             print(f"      ✅ Found: {details['tmdb_title_jp']} (ID: {details['tmdb_id']})")
         else:
@@ -1484,7 +1612,11 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
     ):
         print("   Gemini resolution skipped: GEMINI_API_KEY not set.")
 
-    unresolved_titles = [title for title in unique_titles if not _is_tmdb_cache_hit(cache.get(title))]
+    resolution_alias_index = _build_resolution_alias_index(resolution_cache)
+    unresolved_titles = [
+        title for title in unique_titles
+        if not _is_tmdb_cache_hit(_get_tmdb_cached_entry(cache, tmdb_alias_index, title))
+    ]
     titles_to_resolve = []
 
     for title in unresolved_titles:
@@ -1492,7 +1624,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         if info.get("movie_title_en"):
             continue
 
-        cached_entry = resolution_cache.get(title)
+        cached_entry = _get_resolution_cached_entry(resolution_cache, resolution_alias_index, title)
         cached_english_title = None
         cached_confidence = None
         cached_release_year = None
@@ -1542,8 +1674,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                 )
                 details = None
             if details:
-                cache[title] = details
-                cache[f"tmdb:{details['tmdb_id']}"] = details
+                _store_tmdb_cache_entry(cache, tmdb_alias_index, title, details)
                 updated_cache = True
                 print(f"      ✅ Found: {details['tmdb_title_jp']} (ID: {details['tmdb_id']})")
             if not details:
@@ -1560,7 +1691,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                         "notes": "tmdb_failed",
                         "failed": True,
                     }
-                resolution_cache[title] = failed_entry
+                _store_resolution_cache_entry(resolution_cache, resolution_alias_index, title, failed_entry)
                 resolution_cache_updated = True
             time.sleep(0.3)
             continue
@@ -1585,19 +1716,19 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         )
 
         for title, entry in resolutions.items():
-            resolution_cache[title] = entry
+            _store_resolution_cache_entry(resolution_cache, resolution_alias_index, title, entry)
             resolution_cache_updated = True
 
         missing_after = [title for title in titles_to_resolve if title not in resolutions]
         if missing_after:
             for title in missing_after:
-                resolution_cache[title] = {
+                _store_resolution_cache_entry(resolution_cache, resolution_alias_index, title, {
                     "english_title": None,
                     "release_year": None,
                     "confidence": 0.0,
                     "notes": "gemini_failed",
                     "failed": True,
-                }
+                })
             resolution_cache_updated = True
 
         for title, entry in resolutions.items():
@@ -1643,8 +1774,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                     )
                     details = None
                 if details:
-                    cache[title] = details
-                    cache[f"tmdb:{details['tmdb_id']}"] = details
+                    _store_tmdb_cache_entry(cache, tmdb_alias_index, title, details)
                     updated_cache = True
                     print(f"      ✅ Found: {details['tmdb_title_jp']} (ID: {details['tmdb_id']})")
                 if not details:
@@ -1652,7 +1782,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                     failed_entry = dict(entry)
                     failed_entry["failed"] = True
                     failed_entry.setdefault("notes", "tmdb_failed")
-                    resolution_cache[title] = failed_entry
+                    _store_resolution_cache_entry(resolution_cache, resolution_alias_index, title, failed_entry)
                     resolution_cache_updated = True
             time.sleep(0.3)
 
@@ -1661,12 +1791,8 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
     # Apply cached data to listings
     for item in listings:
         t = item["movie_title"]
-        d = None
         tmdb_id = _parse_int(item.get("tmdb_id"))
-        if tmdb_id:
-            d = cache.get(f"tmdb:{tmdb_id}")
-        if not _is_tmdb_cache_hit(d):
-            d = cache.get(t)
+        d = _get_tmdb_cached_entry(cache, tmdb_alias_index, t, tmdb_id=tmdb_id)
         if not _is_tmdb_cache_hit(d):
             continue
         # Merge fields if missing in scraper data
@@ -1837,15 +1963,12 @@ def main():
                 jp_synopsis = item.get("synopsis") or item.get("tmdb_overview_jp")
                 if not jp_synopsis:
                     continue
-                tmdb_id = item.get("tmdb_id")
-                if tmdb_id:
-                    film_key = f"tmdb:{tmdb_id}"
-                else:
-                    film_key = f"title:{item.get('movie_title', '')}"
-                cached_translation = synopsis_translation_cache.get(film_key)
+                cache_keys = _get_synopsis_cache_keys_for_item(item)
+                cached_key, cached_translation = _get_cached_synopsis_translation(synopsis_translation_cache, item)
                 if cached_translation:
                     item["synopsis_en"] = cached_translation
                     continue
+                film_key = cache_keys[-1] if cache_keys else f"title:{item.get('movie_title', '')}"
                 if film_key not in synopses_to_translate:
                     synopses_to_translate[film_key] = jp_synopsis
                     film_key_to_items[film_key] = []
@@ -1860,7 +1983,14 @@ def main():
                     gemini_model
                 )
                 for film_key, en_synopsis in translations.items():
-                    synopsis_translation_cache[film_key] = en_synopsis
+                    translation_keys = []
+                    for item in film_key_to_items.get(film_key, []):
+                        translation_keys.extend(_get_synopsis_cache_keys_for_item(item))
+                    _store_synopsis_translation(
+                        synopsis_translation_cache,
+                        translation_keys or [film_key],
+                        en_synopsis,
+                    )
                     synopsis_translation_cache_updated = True
                     for item in film_key_to_items.get(film_key, []):
                         item["synopsis_en"] = en_synopsis
@@ -1869,6 +1999,7 @@ def main():
                 print("   No synopses need translation")
 
         print(f"Saving to {output_path}...")
+        listings = _prepare_listings_for_output(listings)
 
         today_count = sum(1 for item in listings if item.get("date_text") == today_jst.isoformat())
         all_dates = set(item.get("date_text") for item in listings if item.get("date_text"))
@@ -1883,8 +2014,7 @@ def main():
             print("   Cinema websites may not have updated their schedules yet.")
 
         try:
-            with open(output_path, "w", encoding="utf-8") as f:
-                json.dump(listings, f, ensure_ascii=False, indent=2)
+            _write_json_file(output_path, listings)
             print("✅ Done.")
         except Exception as e:
             print(f"❌ Critical Error saving JSON: {e}")
@@ -1992,15 +2122,12 @@ def main():
                 continue
 
             # Create unique key for this film
-            tmdb_id = item.get("tmdb_id")
-            if tmdb_id:
-                film_key = f"tmdb:{tmdb_id}"
-            else:
-                film_key = f"title:{item.get('movie_title', '')}"
-            cached_translation = synopsis_translation_cache.get(film_key)
+            cache_keys = _get_synopsis_cache_keys_for_item(item)
+            cached_key, cached_translation = _get_cached_synopsis_translation(synopsis_translation_cache, item)
             if cached_translation:
                 item["synopsis_en"] = cached_translation
                 continue
+            film_key = cache_keys[-1] if cache_keys else f"title:{item.get('movie_title', '')}"
 
             if film_key not in synopses_to_translate:
                 synopses_to_translate[film_key] = jp_synopsis
@@ -2018,7 +2145,14 @@ def main():
 
             # Apply translations to all matching items
             for film_key, en_synopsis in translations.items():
-                synopsis_translation_cache[film_key] = en_synopsis
+                translation_keys = []
+                for item in film_key_to_items.get(film_key, []):
+                    translation_keys.extend(_get_synopsis_cache_keys_for_item(item))
+                _store_synopsis_translation(
+                    synopsis_translation_cache,
+                    translation_keys or [film_key],
+                    en_synopsis,
+                )
                 synopsis_translation_cache_updated = True
                 for item in film_key_to_items.get(film_key, []):
                     item["synopsis_en"] = en_synopsis
@@ -2039,6 +2173,7 @@ def main():
 
     # 4. SAVE OUTPUT
     print(f"Saving to {OUTPUT_JSON}...")
+    listings = _prepare_listings_for_output(listings)
 
     # --- DATE VALIDATION ---
     # Check if we have data for today (JST) to help diagnose date issues
@@ -2056,8 +2191,7 @@ def main():
         print(f"   Cinema websites may not have updated their schedules yet.")
 
     try:
-        with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
-            json.dump(listings, f, ensure_ascii=False, indent=2)
+        _write_json_file(OUTPUT_JSON, listings)
         print("✅ Done.")
     except Exception as e:
         print(f"❌ Critical Error saving JSON: {e}")
