@@ -255,6 +255,21 @@ def _score_tmdb_result(query: str, result: Dict, query_year: Optional[int]) -> f
     return score
 
 
+def _tmdb_query_candidates(item: Dict) -> List[str]:
+    queries: List[str] = []
+    seen = set()
+    for field in ("movie_title", "movie_title_en", "movie_title_original"):
+        value = str(item.get(field) or "").strip()
+        if not value:
+            continue
+        key = value.casefold()
+        if key in seen:
+            continue
+        seen.add(key)
+        queries.append(value)
+    return queries
+
+
 def _extract_gemini_text(payload: Dict) -> str:
     try:
         parts = payload["candidates"][0]["content"]["parts"]
@@ -649,87 +664,92 @@ def _translate_synopses_with_gemini(
 
 
 def fetch_tmdb_details(item: Dict, session: requests.Session, api_key: str, cache: Dict[str, Dict]) -> Optional[Dict]:
-    query = str(item.get("movie_title_en") or item.get("movie_title") or "").strip()
-    if not query:
-        return None
-
     query_year = _parse_year(item.get("year"))
-    cache_key = f"{clean_title_for_tmdb(query)}::{query_year or ''}"
-    if cache_key in cache:
-        return cache[cache_key]
+    for query in _tmdb_query_candidates(item):
+        cache_key = f"{clean_title_for_tmdb(query)}::{query_year or ''}"
+        if cache_key in cache:
+            cached = cache[cache_key]
+            if cached:
+                return cached
+            continue
 
-    params = {
-        "api_key": api_key,
-        "query": query,
-        "language": "zh-TW",
-        "include_adult": "false",
-    }
-    if query_year:
-        params["year"] = query_year
+        params = {
+            "api_key": api_key,
+            "query": query,
+            "language": "zh-TW",
+            "include_adult": "false",
+        }
+        if query_year:
+            params["year"] = query_year
 
-    try:
-        response = session.get("https://api.themoviedb.org/3/search/movie", params=params, timeout=10)
-        response.raise_for_status()
-        results = response.json().get("results", [])
-        if not results and query_year:
-            params.pop("year", None)
+        try:
             response = session.get("https://api.themoviedb.org/3/search/movie", params=params, timeout=10)
             response.raise_for_status()
             results = response.json().get("results", [])
-        if not results:
-            return None
+            if not results and query_year:
+                params.pop("year", None)
+                response = session.get("https://api.themoviedb.org/3/search/movie", params=params, timeout=10)
+                response.raise_for_status()
+                results = response.json().get("results", [])
+            if not results:
+                cache[cache_key] = None
+                continue
 
-        scored = sorted(results, key=lambda result: _score_tmdb_result(query, result, query_year), reverse=True)
-        best = scored[0]
-        if _score_tmdb_result(query, best, query_year) < 0.58:
-            return None
+            scored = sorted(results, key=lambda result: _score_tmdb_result(query, result, query_year), reverse=True)
+            best = scored[0]
+            if _score_tmdb_result(query, best, query_year) < 0.58:
+                cache[cache_key] = None
+                continue
 
-        detail_en_response = session.get(
-            f"https://api.themoviedb.org/3/movie/{best['id']}",
-            params={"api_key": api_key, "language": "en-US", "append_to_response": "credits,translations"},
-            timeout=10,
-        )
-        detail_en_response.raise_for_status()
-        detail_en = detail_en_response.json()
+            detail_en_response = session.get(
+                f"https://api.themoviedb.org/3/movie/{best['id']}",
+                params={"api_key": api_key, "language": "en-US", "append_to_response": "credits,translations"},
+                timeout=10,
+            )
+            detail_en_response.raise_for_status()
+            detail_en = detail_en_response.json()
 
-        detail_local_response = session.get(
-            f"https://api.themoviedb.org/3/movie/{best['id']}",
-            params={"api_key": api_key, "language": "zh-TW"},
-            timeout=10,
-        )
-        detail_local_response.raise_for_status()
-        detail_local = detail_local_response.json()
+            detail_local_response = session.get(
+                f"https://api.themoviedb.org/3/movie/{best['id']}",
+                params={"api_key": api_key, "language": "zh-TW"},
+                timeout=10,
+            )
+            detail_local_response.raise_for_status()
+            detail_local = detail_local_response.json()
 
-        director = ""
-        for crew in detail_en.get("credits", {}).get("crew", []):
-            if crew.get("job") == "Director":
-                director = crew.get("name") or ""
-                break
+            director = ""
+            for crew in detail_en.get("credits", {}).get("crew", []):
+                if crew.get("job") == "Director":
+                    director = crew.get("name") or ""
+                    break
 
-        tmdb_title_en = str(detail_en.get("title") or "")
-        tmdb_title_local = str(detail_local.get("title") or best.get("title") or "")
-        tmdb_overview_en = str(detail_en.get("overview") or "")
-        tmdb_overview_local = str(detail_local.get("overview") or "")
+            tmdb_title_en = str(detail_en.get("title") or "")
+            tmdb_title_local = str(detail_local.get("title") or best.get("title") or "")
+            tmdb_overview_en = str(detail_en.get("overview") or "")
+            tmdb_overview_local = str(detail_local.get("overview") or "")
 
-        payload = {
-            "tmdb_id": detail_en.get("id"),
-            "tmdb_title": tmdb_title_en or tmdb_title_local,
-            "tmdb_title_en": tmdb_title_en,
-            "tmdb_title_local": tmdb_title_local,
-            "tmdb_original_title": detail_en.get("original_title"),
-            "tmdb_poster_path": detail_en.get("poster_path"),
-            "tmdb_backdrop_path": detail_en.get("backdrop_path"),
-            "tmdb_overview": tmdb_overview_local or tmdb_overview_en,
-            "tmdb_overview_en": tmdb_overview_en,
-            "runtime": detail_en.get("runtime"),
-            "genres": [genre.get("name") for genre in detail_en.get("genres", []) if genre.get("name")],
-            "director_en": director,
-            "release_date": detail_en.get("release_date") or "",
-        }
-        cache[cache_key] = payload
-        return payload
-    except Exception:
-        return None
+            payload = {
+                "tmdb_id": detail_en.get("id"),
+                "tmdb_title": tmdb_title_en or tmdb_title_local,
+                "tmdb_title_en": tmdb_title_en,
+                "tmdb_title_local": tmdb_title_local,
+                "tmdb_original_title": detail_en.get("original_title"),
+                "tmdb_poster_path": detail_en.get("poster_path"),
+                "tmdb_backdrop_path": detail_en.get("backdrop_path"),
+                "tmdb_overview": tmdb_overview_local or tmdb_overview_en,
+                "tmdb_overview_en": tmdb_overview_en,
+                "runtime": detail_en.get("runtime"),
+                "genres": [genre.get("name") for genre in detail_en.get("genres", []) if genre.get("name")],
+                "director_en": director,
+                "release_date": detail_en.get("release_date") or "",
+            }
+            cache[cache_key] = payload
+            return payload
+        except Exception:
+            cache[cache_key] = None
+            continue
+
+    return None
 
 
 def _attempt_tmdb_with_english_title(
