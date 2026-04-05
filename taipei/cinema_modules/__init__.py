@@ -2,8 +2,6 @@ from . import clab_module
 from . import eslite_arthouse_module
 from . import fuzhong15_module
 from . import guling_street_module
-from . import in89_taoyuan_module
-from . import in89_ximen_module
 from . import lightbox_module
 from . import skyline_film_module
 from . import spot_huashan_module
