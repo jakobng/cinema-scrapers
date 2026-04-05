@@ -1,0 +1,109 @@
+name: Taipei - Scrape
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 23 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./taipei
+
+    env:
+      TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set Timezone
+        run: sudo timedatectl set-timezone Asia/Taipei
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scraper
+        run: python main_scraper.py
+
+      - name: Validate showtimes
+        run: |
+          python -c "
+          import json, sys
+          from collections import Counter
+          from datetime import date
+          from pathlib import Path
+
+          path = Path('data/showtimes.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+
+          if len(data) < 100:
+              print(f'Only {len(data)} showings found.')
+              sys.exit(1)
+
+          required = ['cinema_name', 'movie_title', 'date_text', 'showtime', 'detail_page_url']
+          for field in required:
+              missing = sum(1 for item in data if not item.get(field))
+              if missing:
+                  print(f'Missing {field}: {missing}')
+                  sys.exit(1)
+
+          keys = [(item['cinema_name'], item['movie_title'], item['date_text'], item['showtime']) for item in data]
+          duplicates = [key for key, count in Counter(keys).items() if count > 1]
+          if duplicates:
+              print(f'Duplicate showings found: {len(duplicates)}')
+              sys.exit(1)
+
+          today = date.today().isoformat()
+          future = [item for item in data if item.get('date_text', '') >= today]
+          if not future:
+              print(f'No current or future showings found for {today}.')
+              sys.exit(1)
+
+          print(f'Validated {len(data)} showings with {len(future)} current/future rows.')
+          "
+
+      - name: Commit and push Taipei data
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          git add data/*.json
+          git commit -m "Auto-Update: Taipei cinema showtimes" || echo "No changes to commit"
+          git pull --rebase -X theirs origin main
+          git push
+
+      - name: Sync Taipei JSON to website1
+        run: |
+          if [ -z "$WEBSITE1_SYNC_TOKEN" ]; then
+            echo "WEBSITE1_SYNC_TOKEN is not configured; skipping website1 sync."
+            exit 0
+          fi
+
+          cd /tmp
+          git clone https://github.com/jakobng/website1.git website1-sync
+          cd website1-sync
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin "https://x-access-token:${WEBSITE1_SYNC_TOKEN}@github.com/jakobng/website1.git"
+
+          mkdir -p taipei-cinema-scrapers/data
+          cp "$GITHUB_WORKSPACE/taipei/data/showtimes.json" taipei-cinema-scrapers/data/showtimes.json
+
+          git add taipei-cinema-scrapers/data/showtimes.json
+          git commit -m "Auto-Update: Taipei cinema showtimes sync from cinema-scrapers" || echo "No changes to commit"
+          git pull --rebase -X theirs origin main
+          git push
+        env:
+          WEBSITE1_SYNC_TOKEN: ${{ secrets.WEBSITE1_SYNC_TOKEN }}
