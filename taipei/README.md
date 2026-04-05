@@ -9,10 +9,7 @@ Current v1 venue coverage:
 - Eslite Art House Songyan
 - Wonderful Theatre
 - Fuzhong 15
-
-Deferred in the initial pass:
-
-- Taiwan Film and Audiovisual Institute (TFAI), because the public program pages are behind Cloudflare in this environment.
+- Taiwan Film and Audiovisual Institute (TFAI)
 
 ## Usage
 
@@ -22,4 +19,6 @@ python main_scraper.py
 ```
 
 The scraper writes output to `data/showtimes.json`.
+
+TFAI is sourced from the official OPENTIX organizer storefront and event pages because the main TFAI site is Cloudflare-blocked from this environment. `node` must be available for the OPENTIX payload decoder.
 

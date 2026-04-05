@@ -17,6 +17,7 @@ jobs:
         working-directory: ./taipei
 
     env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
 
     steps:
@@ -28,6 +29,11 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Set Timezone
         run: sudo timedatectl set-timezone Asia/Taipei
 
@@ -36,6 +42,9 @@ jobs:
 
       - name: Run scraper
         run: python main_scraper.py
+        env:
+          GEMINI_RESOLVE_TITLES: "1"
+          GEMINI_BATCH_SIZE: "8"
 
       - name: Validate showtimes
         run: |

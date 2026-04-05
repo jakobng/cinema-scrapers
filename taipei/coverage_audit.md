@@ -26,13 +26,10 @@
   - Source: `https://www.fuzhong15.ntpc.gov.tw/xcmovie?xsmsid=0m361641875264878260`
   - Status: implemented
   - Notes: public schedule table includes date, time, title, runtime, and rating.
-
-## Deferred
-
 - `國家電影及視聽文化中心 / TFAI`
-  - Source: `https://www.tfai.org.tw/zh/program/topicList`
-  - Status: deferred
-  - Reason: public program pages are blocked by Cloudflare from this environment. The venue fits scope, but the source currently behaves like a hard anti-bot gate for automated access.
+  - Source: `https://www.opentix.life/o/tfai`
+  - Status: implemented
+  - Notes: the main TFAI site is Cloudflare-blocked here, but the official OPENTIX organizer storefront exposes current film cards and event pages with structured session data.
 
 ## Explicitly Out Of Scope
 
