@@ -18,10 +18,13 @@ import requests
 from cinema_modules import (
     eslite_arthouse_module,
     fuzhong15_module,
+    skyline_film_module,
     spot_huashan_module,
     spot_taipei_module,
+    taoyuan_arts_cinema_ii_module,
     tfai_opentix_module,
     wonderful_theatre_module,
+    zhongli_arts_cinema_module,
 )
 
 if sys.stdout.encoding != "utf-8":
@@ -1107,6 +1110,9 @@ def run() -> int:
         ("Wonderful Theatre", wonderful_theatre_module.scrape_wonderful_theatre),
         ("Fuzhong 15", fuzhong15_module.scrape_fuzhong15),
         ("TFAI", tfai_opentix_module.scrape_tfai_opentix),
+        ("Skyline Film", skyline_film_module.scrape_skyline_film),
+        ("Taoyuan Arts Cinema II", taoyuan_arts_cinema_ii_module.scrape_taoyuan_arts_cinema_ii),
+        ("Zhongli Arts Cinema", zhongli_arts_cinema_module.scrape_zhongli_arts_cinema),
     ]
 
     listings: List[Dict] = []
