@@ -674,7 +674,7 @@ def _translate_synopses_with_gemini(
     return results
 
 
-def fetch_tmdb_details(item: Dict, session: requests.Session, api_key: str, cache: Dict[str, Dict]) -> Optional[Dict]:
+def _lookup_tmdb_details_in_cache(item: Dict, cache: Dict[str, Dict]) -> Optional[Dict]:
     query_year = _parse_year(item.get("year"))
     for query in _tmdb_query_candidates(item):
         cache_key = f"{clean_title_for_tmdb(query)}::{query_year or ''}"
@@ -682,8 +682,27 @@ def fetch_tmdb_details(item: Dict, session: requests.Session, api_key: str, cach
             cached = cache[cache_key]
             if cached:
                 return cached
-            continue
+    return None
 
+
+def fetch_tmdb_details(
+    item: Dict,
+    session: requests.Session,
+    api_key: Optional[str],
+    cache: Dict[str, Dict],
+) -> Optional[Dict]:
+    # Reuse cached TMDB payloads even on runs without API credentials.
+    query_year = _parse_year(item.get("year"))
+    cached_details = _lookup_tmdb_details_in_cache(item, cache)
+    if cached_details:
+        return cached_details
+    if not api_key:
+        return None
+
+    for query in _tmdb_query_candidates(item):
+        cache_key = f"{clean_title_for_tmdb(query)}::{query_year or ''}"
+        if cache_key in cache:
+            continue
         params = {
             "api_key": api_key,
             "query": query,
@@ -874,11 +893,10 @@ def enrich_listings_with_tmdb(listings: List[Dict], api_key: Optional[str]) -> L
             items_by_title.setdefault(title, []).append(item)
 
     tmdb_enabled = bool(api_key)
-    if tmdb_enabled:
-        for item in listings:
-            details = fetch_tmdb_details(item, session, api_key, tmdb_cache)
-            if details:
-                _apply_tmdb_details(item, details)
+    for item in listings:
+        details = fetch_tmdb_details(item, session, api_key, tmdb_cache)
+        if details:
+            _apply_tmdb_details(item, details)
 
     gemini_key = os.environ.get("GEMINI_API_KEY")
     gemini_resolve_titles = os.environ.get("GEMINI_RESOLVE_TITLES", "").lower() in ("1", "true", "yes")
@@ -932,7 +950,11 @@ def enrich_listings_with_tmdb(listings: List[Dict], api_key: Optional[str]) -> L
             use_release_year = cached_release_year if cached_release_year and not _parse_year(sample_item.get("year")) else None
             for item in title_items:
                 _apply_gemini_resolution(item, cached_entry)
-            if tmdb_enabled:
+            details = fetch_tmdb_details(sample_item, session, api_key, tmdb_cache)
+            if details:
+                for item in title_items:
+                    _apply_tmdb_details(item, details)
+            elif tmdb_enabled:
                 print(
                     "   Retrying TMDB with cached English title: "
                     f"{title} -> {cached_english_title} "
@@ -1172,10 +1194,9 @@ def run() -> int:
     listings = dedupe_listings(listings)
     tmdb_key = os.environ.get("TMDB_API_KEY")
     gemini_key = os.environ.get("GEMINI_API_KEY")
-    if tmdb_key or gemini_key:
-        listings = enrich_listings_with_tmdb(listings, tmdb_key)
-    else:
-        print("TMDB_API_KEY and GEMINI_API_KEY not set. Enrichment skipped.")
+    listings = enrich_listings_with_tmdb(listings, tmdb_key)
+    if not tmdb_key and not gemini_key:
+        print("TMDB_API_KEY and GEMINI_API_KEY not set. Applied cached enrichment only.")
 
     OUTPUT_JSON.write_text(json.dumps(listings, ensure_ascii=False, indent=2), encoding="utf-8")
     report.print_summary()
