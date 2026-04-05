@@ -37,3 +37,32 @@
   - Examples: `Vieshow`, `Showtime`, `in89`, large chain branches
   - Reason: excluded by the product brief for this v1.
 
+## Added In This Pass
+
+- `Skyline Film`
+  - Source: `https://www.skyline.film/` and `https://api.skyline.film/api/activity`
+  - Status: implemented
+  - Notes: recurring rooftop screenings are exposed through the public Skyline activity API, with one ticket object per film slot.
+
+- `æ¡ƒåœ’å…‰å½±æ–‡åŒ–é¤¨ / Taoyuan Arts Cinema II`
+  - Source: `https://tyac2.afmc.gov.tw/Event_table`
+  - Status: implemented
+  - Notes: the official schedule page exposes direct session links, and detail pages provide director, country, year, runtime, synopsis, and ticket-link metadata.
+
+- `ä¸­å£¢å…‰å½±é›»å½±é¤¨ / Zhongli Arts Cinema`
+  - Source: `https://www.taoyuan.arts-cinema.com/`
+  - Status: implemented
+  - Notes: the public site exposes JSON endpoints for exhibition years, monthly programs, film lists, and per-film detail payloads.
+
+## Excluded From Current Implementation
+
+- `Broadway 3D Digital Cinema`
+  - Reason: mainstream commercial cinema, not an independent / recurring film-club source.
+
+- `in89 Deluxe Digital Cinema`
+  - Reason: mainstream commercial cinema, not an independent / recurring film-club source.
+
+- Museums, cafes, bars, music venues, and general arts sites with only occasional film events
+  - Examples from the candidate list: `Taipei Fine Arts Museum`, `Taiwan Contemporary Culture Lab (C-LAB)`, `Taipei Zhongshan Hall`, `Museum of Contemporary Art Taipei (MoCA)`, `Bopiliao Historic Block`, `Treasure Hill Artist Village`, `Kishu An Forest of Literature`, `Kuandu Museum of Fine Arts`, `Polymer Art Space`, `The Wall Live House`, `Boven Magazine Library`, `Mayor's Residence Art Salon`, `Lightbox Photo Library`, `Woolloomooloo Out West`, `Cosma Taipei`, `Red Room Rendezvous`, `Taoyuan Arts Center`, `Zhongli Arts Hall`, `A8 Art Center`, `Keelung Cultural Center`
+  - Reason: these may host one-off screenings, but they are not currently strong recurring cinema-program sources in the same way as the implemented venues above.
+
