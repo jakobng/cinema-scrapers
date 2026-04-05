@@ -16,10 +16,6 @@ from typing import Dict, List, Optional
 import requests
 
 from cinema_modules import (
-    ambassador_bade_module,
-    ambassador_changchun_module,
-    ambassador_tamsui_module,
-    ambassador_xinzhuang_module,
     clab_module,
     eslite_arthouse_module,
     fuzhong15_module,
@@ -1145,10 +1141,6 @@ def run() -> int:
         ("Wonderful Theatre", wonderful_theatre_module.scrape_wonderful_theatre),
         ("Fuzhong 15", fuzhong15_module.scrape_fuzhong15),
         ("TFAI", tfai_opentix_module.scrape_tfai_opentix),
-        ("Taipei Changchun Ambassador Cinema", ambassador_changchun_module.scrape_ambassador_changchun),
-        ("Xinzhuang Ambassador Cinema", ambassador_xinzhuang_module.scrape_ambassador_xinzhuang),
-        ("Tamsui Ambassador Cinema", ambassador_tamsui_module.scrape_ambassador_tamsui),
-        ("Bade Ambassador Cinema", ambassador_bade_module.scrape_ambassador_bade),
         ("Guling Street Avant-garde Theatre", guling_street_module.scrape_guling_street),
         ("Taoyuan Station in89 Cinema", in89_taoyuan_module.scrape_in89_taoyuan),
         ("Taipei Ximen in89 Cinema", in89_ximen_module.scrape_in89_ximen),

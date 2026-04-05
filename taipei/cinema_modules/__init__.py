@@ -1,7 +1,3 @@
-from . import ambassador_changchun_module
-from . import ambassador_tamsui_module
-from . import ambassador_xinzhuang_module
-from . import ambassador_bade_module
 from . import clab_module
 from . import eslite_arthouse_module
 from . import fuzhong15_module

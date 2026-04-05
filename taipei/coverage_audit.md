@@ -123,26 +123,6 @@
 
 ## Hybrid Cinema Expansion
 
-- `Taipei Changchun Ambassador Cinema`
-  - Source: `https://www.ambassador.com.tw/home/Showtime?ID=453b2966-f7c2-44a9-b2eb-687493855d0e`
-  - Status: implemented
-  - Notes: added under the broader hybrid-cinema rule. The official site exposes dated showtime pages and detail pages cleanly enough to scrape the full cinema feed.
-
-- `Xinzhuang Ambassador Cinema`
-  - Source: `https://www.ambassador.com.tw/home/Showtime?ID=3301d822-b385-4aa8-a9eb-aa59d58e95c9`
-  - Status: implemented
-  - Notes: same official Ambassador source model as Changchun, extended to New Taipei under the broader hybrid-cinema rule.
-
-- `Tamsui Ambassador Cinema`
-  - Source: `https://www.ambassador.com.tw/home/Showtime?ID=1e42d235-c3cf-4f75-a382-af60f67a4aad`
-  - Status: implemented
-  - Notes: same official Ambassador source model as Changchun, extended to New Taipei under the broader hybrid-cinema rule.
-
-- `Bade Ambassador Cinema`
-  - Source: `https://www.ambassador.com.tw/home/Showtime?ID=8fda9934-73d4-4c14-b1c4-386c2b81045c`
-  - Status: implemented
-  - Notes: same official Ambassador source model as Changchun, extended to Taoyuan under the broader hybrid-cinema rule.
-
 - `Taipei Ximen in89 Cinema`
   - Source: `https://www.in89.com.tw/index.aspx?TheaterId=3`
   - Status: implemented
