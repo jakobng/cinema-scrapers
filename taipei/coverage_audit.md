@@ -121,15 +121,4 @@
   - Status: implemented
   - Notes: sourced from the official OPENTIX organizer storefront and expected to be sparse outside the active festival cycle.
 
-## Hybrid Cinema Expansion
-
-- `Taipei Ximen in89 Cinema`
-  - Source: `https://www.in89.com.tw/index.aspx?TheaterId=3`
-  - Status: implemented
-  - Notes: added under the broader hybrid-cinema rule. The official site exposes a theater-scoped API for current stage listings, which makes the full cinema feed practical to scrape.
-
-- `Taoyuan Station in89 Cinema`
-  - Source: `https://www.in89.com.tw/index.aspx?TheaterId=1`
-  - Status: implemented
-  - Notes: same official in89 theater-scoped API as Ximen, extended to Taoyuan under the broader hybrid-cinema rule.
 
