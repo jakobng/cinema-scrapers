@@ -171,6 +171,9 @@ def scrape_clab() -> List[Dict]:
         ):
             continue
 
+        if not card.get("showtime"):
+            continue
+
         results.append(
             {
                 "cinema_name": CINEMA_NAME,
