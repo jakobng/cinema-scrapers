@@ -1,0 +1,231 @@
+name: Taipei - Scrape & Post
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_type:
+        description: 'Post Type'
+        required: true
+        default: 'cinema'
+        type: choice
+        options:
+        - cinema
+        - movie
+  schedule:
+    # Run at 7 AM and 8 AM Taipei time (UTC+8)
+    # 7 AM Taipei = 23:00 UTC previous day
+    # 8 AM Taipei = 00:00 UTC same day
+    - cron: '0 23 * * *'
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-post:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./taipei
+
+    env:
+      TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+      SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Set Timezone
+        run: sudo timedatectl set-timezone Asia/Taipei
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+          sudo apt-get install -y fonts-noto-cjk
+
+      - name: Determine Run Mode
+        id: mode
+        run: |
+          TYPE="none"
+          SCRAPE="false"
+
+          if [ "${{ github.event_name }}" == "schedule" ]; then
+            current_hour=$(date +%H)
+            echo "Current Taipei Hour: $current_hour"
+
+            if [ "$current_hour" == "23" ]; then
+              TYPE="cinema"
+              day_of_year=$(date +%j)
+              if [ $((10#$day_of_year % 2)) -eq 0 ]; then
+                SCRAPE="true"
+              else
+                SCRAPE="false"
+              fi
+            elif [ "$current_hour" == "00" ]; then
+              TYPE="movie"
+              SCRAPE="false"
+            fi
+
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            TYPE="${{ inputs.post_type }}"
+            if [ "$TYPE" == "movie" ]; then
+              SCRAPE="false"
+            else
+              SCRAPE="true"
+            fi
+          fi
+
+          echo "Selected Type: $TYPE"
+          echo "Run Scraper: $SCRAPE"
+
+          echo "post_type=$TYPE" >> $GITHUB_OUTPUT
+          echo "run_scraper=$SCRAPE" >> $GITHUB_OUTPUT
+
+      - name: Check if action needed
+        if: steps.mode.outputs.post_type == 'none'
+        run: |
+          echo "No action scheduled for this hour. Exiting."
+          exit 0
+
+      - name: Run Scraper
+        if: steps.mode.outputs.run_scraper == 'true'
+        run: python main_scraper.py
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          GEMINI_RESOLVE_TITLES: "1"
+          GEMINI_BATCH_SIZE: "8"
+
+      - name: Generate Cinema Post (V1)
+        if: steps.mode.outputs.post_type == 'cinema'
+        run: python generate_post.py
+        env:
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Generate Movie Post (V2)
+        if: steps.mode.outputs.post_type == 'movie'
+        run: python generate_post2.py
+        env:
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Commit & Push Data
+        id: commit_data
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          git add data/*.json ig_posts/*.png ig_posts/*.txt
+
+          git commit -m "Auto-Update Taipei: ${{ steps.mode.outputs.post_type }} content" || echo "No changes to commit"
+
+          git stash --include-untracked || true
+          git pull --rebase -X theirs origin main
+          git stash drop || true
+
+          git push
+          echo "image_host_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Sync Data to Website1 Repo
+        run: |
+          if [ -z "$WEBSITE1_SYNC_TOKEN" ]; then
+            echo "WEBSITE1_SYNC_TOKEN is not configured; skipping website1 sync."
+            exit 0
+          fi
+          cd /tmp
+          git clone https://github.com/jakobng/website1.git website1-sync
+          cd website1-sync
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin "https://x-access-token:${WEBSITE1_SYNC_TOKEN}@github.com/jakobng/website1.git"
+
+          cp "$GITHUB_WORKSPACE/taipei/data/showtimes.json" taipei-cinema-scrapers/data/showtimes.json
+
+          git add taipei-cinema-scrapers/data/showtimes.json
+          git commit -m "Auto-Update: Taipei cinema showtimes sync from cinema-scrapers" || echo "No changes to commit"
+
+          git pull --rebase -X theirs origin main
+          git push
+        env:
+          WEBSITE1_SYNC_TOKEN: ${{ secrets.WEBSITE1_SYNC_TOKEN }}
+
+      - name: Wait for GitHub Pages deployment
+        run: |
+          echo "⏳ Waiting 90 seconds for GitHub Pages to deploy new images..."
+          sleep 90
+          echo "✅ Wait complete. Proceeding with upload."
+
+      - name: Upload to Instagram
+        id: instagram_upload
+        run: python upload_to_instagram.py --type ${{ steps.mode.outputs.post_type }}
+        env:
+          IG_USER_ID: ${{ secrets.TAIPEI_IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.TAIPEI_IG_ACCESS_TOKEN }}
+          PUBLIC_IMAGE_BASE_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.commit_data.outputs.image_host_sha }}/taipei/ig_posts/
+
+      - name: Send Failure Alert Email
+        if: failure() && steps.instagram_upload.outcome == 'failure'
+        run: |
+          python -c "
+          import smtplib
+          from email.mime.text import MIMEText
+          from email.mime.multipart import MIMEMultipart
+          import os
+          from datetime import datetime
+
+          sender = os.environ['SMTP_EMAIL']
+          password = os.environ['SMTP_PASSWORD']
+          recipient = os.environ['ALERT_RECIPIENT_EMAIL']
+
+          msg = MIMEMultipart()
+          msg['From'] = sender
+          msg['To'] = recipient
+          msg['Subject'] = '🚨 Instagram Upload Failed - Taipei Cinema Scraper'
+
+          body = f'''
+          Instagram upload failed for your Taipei cinema scraper.
+
+          Post Type: ${{ steps.mode.outputs.post_type }}
+          Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S Taipei')}
+
+          Common causes:
+          - Instagram access token expired or invalidated
+          - Authentication error (check TAIPEI_IG_ACCESS_TOKEN secret)
+          - API rate limit exceeded
+
+          View full logs:
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          To fix expired token:
+          1. Go to Facebook Graph API Explorer
+          2. Generate a new long-lived access token
+          3. Update TAIPEI_IG_ACCESS_TOKEN in repository secrets
+          '''
+
+          msg.attach(MIMEText(body, 'plain'))
+
+          server = smtplib.SMTP('smtp.gmail.com', 587)
+          server.starttls()
+          server.login(sender, password)
+          server.send_message(msg)
+          server.quit()
+          print('✅ Alert email sent successfully')
+          "
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
