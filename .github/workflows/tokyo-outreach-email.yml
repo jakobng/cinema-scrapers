@@ -1,0 +1,74 @@
+name: Tokyo - Outreach Emails
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Print the final recipient list and preview without sending"
+        required: true
+        type: boolean
+        default: true
+      delay_seconds:
+        description: "Delay between messages"
+        required: true
+        type: number
+        default: 20
+      max_recipients:
+        description: "Limit the number of recipients. 0 means all."
+        required: true
+        type: number
+        default: 0
+      site_url:
+        description: "Website URL to include in the email"
+        required: true
+        type: string
+        default: "https://jakobng.github.io/website1/tokyo-cinemas.html"
+      instagram_url:
+        description: "Instagram URL to include in the email"
+        required: true
+        type: string
+        default: "https://www.instagram.com/tokyominitheater/"
+
+permissions:
+  contents: read
+
+jobs:
+  send-outreach-emails:
+    runs-on: ubuntu-latest
+
+    env:
+      SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      OUTREACH_FROM_NAME: Leo
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Send outreach emails
+        working-directory: .
+        run: |
+          set -euo pipefail
+
+          args=(
+            --recipients-file tokyo/data/outreach_recipients.json
+            --template-file tokyo/data/outreach_email_ja.txt
+            --subject "東京の上映情報サイトを作りました"
+            --site-url "${{ inputs.site_url }}"
+            --instagram-url "${{ inputs.instagram_url }}"
+            --delay-seconds "${{ inputs.delay_seconds }}"
+            --max-recipients "${{ inputs.max_recipients }}"
+          )
+
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            args+=(--dry-run)
+          fi
+
+          python tokyo/send_outreach_email.py "${args[@]}"
