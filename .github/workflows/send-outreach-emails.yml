@@ -1,0 +1,52 @@
+name: Tokyo - Send Cinema Outreach Emails
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (print emails but do not send)'
+        required: true
+        default: true
+        type: boolean
+      website_url:
+        description: 'Website URL to feature in the email'
+        required: false
+        default: 'https://www.leonelki.com/tokyo'
+        type: string
+      ig_handle:
+        description: 'Instagram handle (e.g. @tokyocinemascope)'
+        required: false
+        default: ''
+        type: string
+      sender_name:
+        description: 'Name to sign the email with'
+        required: false
+        default: 'Jakob'
+        type: string
+
+jobs:
+  send-outreach:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./tokyo/outreach
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Send outreach emails
+        run: python send_outreach.py
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          WEBSITE_URL: ${{ inputs.website_url }}
+          IG_HANDLE: ${{ inputs.ig_handle }}
+          SENDER_NAME: ${{ inputs.sender_name }}
