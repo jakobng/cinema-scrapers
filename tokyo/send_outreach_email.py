@@ -138,6 +138,12 @@ def build_email(
     return msg
 
 
+def env_or_default(name: str, default: str) -> str:
+    value = os.environ.get(name, "")
+    value = value.strip()
+    return value if value else default
+
+
 def send_message(
     msg: EmailMessage,
     *,
@@ -189,10 +195,10 @@ def main() -> int:
         print("-" * 60)
         return 0
 
-    smtp_email = os.environ.get("SMTP_EMAIL")
-    smtp_password = os.environ.get("SMTP_PASSWORD")
-    smtp_server = os.environ.get("SMTP_SERVER", "smtp.gmail.com")
-    smtp_port = int(os.environ.get("SMTP_PORT", "587"))
+    smtp_email = env_or_default("SMTP_EMAIL", "")
+    smtp_password = env_or_default("SMTP_PASSWORD", "")
+    smtp_server = env_or_default("SMTP_SERVER", "smtp.gmail.com")
+    smtp_port = int(env_or_default("SMTP_PORT", "587"))
 
     if not smtp_email or not smtp_password:
         print("Missing SMTP_EMAIL or SMTP_PASSWORD.", file=sys.stderr)
