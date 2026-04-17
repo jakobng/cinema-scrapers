@@ -74,20 +74,21 @@ jobs:
           
           # Check if triggered by Schedule or Manual
           if [ "${{ github.event_name }}" == "schedule" ]; then
-            current_hour=$(date +%H)
-            echo "Current JST Hour: $current_hour"
-            
-            # 7 AM local -> Cinema post daily; scraper runs every other day.
-            if [ "$current_hour" == "07" ]; then
+            scheduled_cron="${{ github.event.schedule }}"
+            echo "Scheduled cron: $scheduled_cron"
+
+            # 22:00 UTC = 07:00 JST -> Cinema post daily; scraper runs every other day.
+            # 23:00 UTC = 08:00 JST -> Movie post, never scrape.
+            if [ "$scheduled_cron" == "0 22 * * *" ]; then
               TYPE="cinema"
-              day_of_year=$(date +%j)
+              day_of_year=$(TZ=Asia/Tokyo date +%j)
+              echo "JST day of year: $day_of_year"
               if [ $((10#$day_of_year % 2)) -eq 0 ]; then
                 SCRAPE="true"
               else
                 SCRAPE="false"
               fi
-            # 8 AM local -> Skip Scraper + Movie Post
-            elif [ "$current_hour" == "08" ]; then
+            elif [ "$scheduled_cron" == "0 23 * * *" ]; then
               TYPE="movie"
               SCRAPE="false"
             fi
