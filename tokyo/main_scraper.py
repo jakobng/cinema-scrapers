@@ -117,7 +117,7 @@ class ScrapeReport:
             "count": count,
             "error": str(error) if error else None
         })
-        if count:
+        if status == "SUCCESS" and count:
             self.total_showings += count
 
     def print_summary(self):
@@ -166,7 +166,7 @@ class ScrapeReport:
         smtp_port = int(os.environ.get("SMTP_PORT", 465))
         sender_email = os.environ.get("SMTP_EMAIL")
         sender_password = os.environ.get("SMTP_PASSWORD")
-        recipient_email = os.environ.get("ALERT_RECIPIENT_EMAIL")
+        recipient_email = os.environ.get("ALERT_RECIPIENT_EMAIL") or sender_email
 
         if not (sender_email and sender_password and recipient_email):
             print("ℹ️ Skipping email alert: Missing SMTP credentials.")
@@ -186,7 +186,10 @@ class ScrapeReport:
         if warnings:
             body_lines.append(f"⚠️ POTENTIAL ISSUES (0 Showings Found):")
             for w in warnings:
-                body_lines.append(f"- {w['cinema']}")
+                if w.get("error"):
+                    body_lines.append(f"- {w['cinema']}: {w['error']}")
+                else:
+                    body_lines.append(f"- {w['cinema']}")
         
         body_lines.append("\nCheck the GitHub Actions logs for full details.")
 
@@ -1880,6 +1883,11 @@ def _run_scraper(name, func, listings_list, normalize_func=None):
         # Report Success
         report.add(name, "SUCCESS", count)
         
+    except SystemExit as e:
+        # Some scraper modules still call sys.exit() on network or parse failures.
+        # Catch it here so one broken module does not abort the rest of the run.
+        print(f"⚠️ Error in {name}: {e}")
+        report.add(name, "FAILURE", 0, error=e)
     except Exception as e:
         # Report Failure but DO NOT CRASH main execution
         print(f"⚠️ Error in {name}: {e}")
@@ -2199,11 +2207,46 @@ def main():
     if synopsis_translation_cache_updated:
         save_synopsis_translation_cache(synopsis_translation_cache)
 
+    link_coverage_warn_threshold = float(os.environ.get("LINK_COVERAGE_WARN_THRESHOLD", "0.95"))
+    linkless_count = sum(
+        1 for item in listings
+        if not item.get("detail_page_url") and not item.get("purchase_url")
+    )
+    link_coverage = ((len(listings) - linkless_count) / len(listings)) if listings else 1.0
+    print(
+        f"   Detail/booking URL coverage: {link_coverage:.1%} "
+        f"({linkless_count} missing)"
+    )
+    if link_coverage < link_coverage_warn_threshold:
+        report.add(
+            "Listing links",
+            "WARNING",
+            0,
+            error=(
+                f"{linkless_count} listings missing detail/booking URLs "
+                f"({link_coverage:.1%} coverage)"
+            ),
+        )
+
     # 5. REPORTING & ALERTS
     failures, warnings = report.print_summary()
     
     # Send email if configured
     report.send_email_alert(failures, warnings)
+
+    fail_on_failures = os.environ.get("SCRAPER_FAIL_ON_FAILURE", "").lower() in ("1", "true", "yes")
+    fail_on_warnings = os.environ.get("SCRAPER_FAIL_ON_WARNING", "").lower() in ("1", "true", "yes")
+    fail_reasons = []
+    if fail_on_failures and failures:
+        fail_reasons.append(f"{len(failures)} scraper failure(s)")
+    if fail_on_warnings and warnings:
+        fail_reasons.append(f"{len(warnings)} scraper warning(s)")
+    if fail_reasons:
+        print(
+            "❌ Failing run due to scrape health policy: "
+            + ", ".join(fail_reasons)
+        )
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
