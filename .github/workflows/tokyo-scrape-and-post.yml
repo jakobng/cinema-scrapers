@@ -38,18 +38,23 @@ jobs:
       TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
       SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
       SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
       ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
       IG_USER_ID: ${{ secrets.IG_USER_ID }}
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      LINK_COVERAGE_WARN_THRESHOLD: "0.95"
+      SCRAPER_FAIL_ON_FAILURE: "1"
+      SCRAPER_FAIL_ON_WARNING: "0"
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -118,6 +123,7 @@ jobs:
 
       # --- STEP 1: SCRAPE (CONDITIONAL) ---
       - name: Run Scraper
+        id: run_scraper
         if: steps.mode.outputs.run_scraper == 'true'
         run: python main_scraper.py
         env:
@@ -135,6 +141,8 @@ jobs:
           if len(data) < 20:
               print(f'❌ Only {len(data)} showings found (expected 20+). Scrape may have failed.')
               sys.exit(1)
+          linkless = sum(1 for d in data if not d.get('detail_page_url') and not d.get('purchase_url'))
+          link_coverage = ((len(data) - linkless) / len(data)) if data else 0.0
           today = date.today().isoformat()
           tomorrow = (date.today() + timedelta(days=1)).isoformat()
           dates = {d.get('date_text') for d in data}
@@ -142,6 +150,7 @@ jobs:
               print(f'⚠️ Warning: No showings found for today ({today}) or tomorrow ({tomorrow})')
               print(f'   Available dates: {sorted(dates)[:5]}...')
           print(f'✅ Validated: {len(data)} showings across {len(dates)} dates')
+          print(f'   Detail/booking URL coverage: {link_coverage:.1%} ({linkless} missing)')
           "
 
       # --- STEP 2: GENERATE CONTENT (SPLIT) ---
@@ -248,47 +257,45 @@ jobs:
 
       # --- STEP 6: SEND FAILURE ALERT ---
       - name: Send Failure Alert Email
-        if: failure() && steps.instagram_upload.outcome == 'failure'
+        if: failure() && steps.run_scraper.outcome != 'failure'
         run: |
           python -c "
+          import os
           import smtplib
           from email.mime.text import MIMEText
           from email.mime.multipart import MIMEMultipart
-          import os
           from datetime import datetime
 
           sender = os.environ['SMTP_EMAIL']
           password = os.environ['SMTP_PASSWORD']
-          recipient = os.environ['ALERT_RECIPIENT_EMAIL']
+          recipient = os.environ.get('ALERT_RECIPIENT_EMAIL') or sender
+          smtp_server = os.environ.get('SMTP_SERVER', 'smtp.gmail.com')
+          smtp_port = int(os.environ.get('SMTP_PORT') or '587')
 
           msg = MIMEMultipart()
           msg['From'] = sender
           msg['To'] = recipient
-          msg['Subject'] = '🚨 Instagram Upload Failed - Tokyo Cinema Scraper'
+          msg['Subject'] = '🚨 Tokyo Cinema Workflow Failed'
 
           body = f'''
-          Instagram upload failed for your Tokyo cinema scraper.
+          A GitHub Actions run failed for your Tokyo cinema workflow.
 
           Post Type: ${{ steps.mode.outputs.post_type }}
           Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S JST')}
+          Repository: ${{ github.repository }}
+          Workflow: ${{ github.workflow }}
+          Run ID: ${{ github.run_id }}
 
-          Common causes:
-          - Instagram access token expired or invalidated
-          - Authentication error (check IG_ACCESS_TOKEN secret)
-          - API rate limit exceeded
+          This alert is the workflow-level fallback for failures outside the scraper's
+          own health-email path, such as validation, content generation, sync, or upload.
 
           View full logs:
           https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-          To fix expired token:
-          1. Go to Facebook Graph API Explorer
-          2. Generate a new long-lived access token
-          3. Update IG_ACCESS_TOKEN in repository secrets
           '''
 
           msg.attach(MIMEText(body, 'plain'))
 
-          server = smtplib.SMTP('smtp.gmail.com', 587)
+          server = smtplib.SMTP(smtp_server, smtp_port)
           server.starttls()
           server.login(sender, password)
           server.send_message(msg)
@@ -298,4 +305,6 @@ jobs:
         env:
           SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
           ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}

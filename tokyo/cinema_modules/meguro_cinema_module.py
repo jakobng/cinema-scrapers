@@ -65,7 +65,12 @@ def scrape_meguro_cinema() -> List[Dict]:
     sakuhin_divs = soup.select("div#sakuhin_detail")
 
     for div in sakuhin_divs:
-        linked_images = div.select("a[href*='//']")
+        linked_anchors = []
+        for anchor in div.select("a[href]"):
+            href = (anchor.get("href") or "").strip()
+            if not href or href.startswith("#") or href.lower().startswith("javascript:"):
+                continue
+            linked_anchors.append((anchor, urljoin(SCHEDULE_URL, href)))
         program_text = div.get_text(separator='\n')
         titles_in_block = re.findall(r'『(.*?)』', program_text)
 
@@ -74,7 +79,14 @@ def scrape_meguro_cinema() -> List[Dict]:
             if not clean_title or clean_title in movie_details_cache:
                 continue
 
-            details = {"director": None, "synopsis": None, "year": None, "country": None, "runtime_min": None, "detail_page_url": None}
+            details = {
+                "director": None,
+                "synopsis": None,
+                "year": None,
+                "country": None,
+                "runtime_min": None,
+                "detail_page_url": SCHEDULE_URL,
+            }
 
             try:
                 title_pattern = re.escape(title_text)
@@ -86,8 +98,22 @@ def scrape_meguro_cinema() -> List[Dict]:
             except re.error:
                 pass
 
-            if i < len(linked_images) and linked_images[i].find('img'):
-                 details['detail_page_url'] = linked_images[i]['href']
+            title_match_pattern = re.sub(r"\s+", "", clean_title)
+            for anchor, absolute_href in linked_anchors:
+                anchor_text = re.sub(r"\s+", "", anchor.get_text(" ", strip=True))
+                image_tag = anchor.find('img')
+                image_alt = re.sub(r"\s+", "", image_tag.get('alt', '')) if image_tag else ""
+                if title_match_pattern and (
+                    title_match_pattern in anchor_text
+                    or (anchor_text and anchor_text in title_match_pattern)
+                    or title_match_pattern in image_alt
+                    or (image_alt and image_alt in title_match_pattern)
+                ):
+                    details["detail_page_url"] = absolute_href
+                    break
+
+            if details["detail_page_url"] == SCHEDULE_URL and i < len(linked_anchors):
+                details["detail_page_url"] = linked_anchors[i][1]
 
             movie_details_cache[clean_title] = details
 
