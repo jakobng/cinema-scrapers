@@ -11,55 +11,35 @@ import requests
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://eiga.com"
-KANAGAWA_PREF_ID = "14"
-THEATER_LIST_URL = f"{BASE_URL}/theater/{KANAGAWA_PREF_ID}/"
 DEFAULT_DAYS_AHEAD = 7
 REQUEST_DELAY_SEC = 0.2
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                  "(KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+    ),
     "Accept-Language": "ja,en;q=0.8",
-}
-
-# Greater Tokyo independent cinemas covered through eiga.com.
-EIGA_NAME_ALIASES = {
-    "横浜シネマリン": "横浜シネマリン",
-    "シネマ・ジャック&ベティ": "横浜シネマ・ジャック＆ベティ",
-    "シネマ・ジャック＆ベティ": "横浜シネマ・ジャック＆ベティ",
-    "シネマ・ジャック＆ベティ（ジャック＆ベティ）": "横浜シネマ・ジャック＆ベティ",
-    "シネマノヴェチェント": "シネマ・ノヴェチェント",
-    "シネマ・ノヴェチェント": "シネマ・ノヴェチェント",
-    "kino cinema横浜みなとみらい": "kino cinéma横浜みなとみらい",
-    "kino cinéma横浜みなとみらい": "kino cinéma横浜みなとみらい",
-    "川崎市アートセンター": "川崎市アートセンター アルテリオ映像館",
-    "川崎市アートセンター アルテリオ映像館": "川崎市アートセンター アルテリオ映像館",
-    "あつぎのえいがかん kiki": "あつぎのえいがかんkiki",
-    "あつぎのえいがかんkiki": "あつぎのえいがかんkiki",
-    "小田原シネマ館": "小田原シネマ館",
-    "シネコヤ": "シネコヤ",
 }
 
 
 def _normalize_key(name: str) -> str:
     name = name.strip().lower()
-    name = re.sub(r"[\s\u3000・\-ー–—\(\)（）【】\[\]]+", "", name)
-    return name
+    return re.sub(r"[\s\u3000・\-ー–—\(\)（）【】\[\]]+", "", name)
 
 
-def _build_name_map() -> Dict[str, str]:
+def _build_name_map(aliases: Dict[str, str]) -> Dict[str, str]:
     mapping: Dict[str, str] = {}
-    for eiga_name, canonical in EIGA_NAME_ALIASES.items():
+    for eiga_name, canonical in aliases.items():
         mapping[_normalize_key(eiga_name)] = canonical
         mapping[_normalize_key(canonical)] = canonical
     return mapping
 
 
-NORMALIZED_NAME_MAP = _build_name_map()
-
-
-def _log(message: str) -> None:
-    print(message, flush=True)
+def _log(label: str, message: str) -> None:
+    line = f"INFO: [{label}] {message}"
+    encoding = sys.stdout.encoding or "utf-8"
+    print(line.encode(encoding, errors="replace").decode(encoding, errors="replace"), flush=True)
 
 
 def _get_soup(url: str, session: requests.Session) -> BeautifulSoup:
@@ -86,32 +66,55 @@ def _extract_cinema_site_url(soup: BeautifulSoup) -> str:
     return ""
 
 
-def discover_kanagawa_theaters(session: requests.Session) -> List[Dict[str, str]]:
-    soup = _get_soup(THEATER_LIST_URL, session)
-    theaters: Dict[str, Dict[str, str]] = {}
-    for anchor in soup.select('a[href^="/theater/14/"]'):
-        href = anchor.get("href", "")
-        match = re.match(r"^/theater/14/(\d{6})/(\d{4})/", href)
-        if not match:
-            continue
-        area_id, theater_id = match.groups()
-        name = anchor.get_text(strip=True)
-        if not name:
-            continue
-        theaters[theater_id] = {
-            "name": name,
-            "area_id": area_id,
-            "theater_id": theater_id,
-            "url": urljoin(BASE_URL, href),
-        }
-    return list(theaters.values())
+def _normalize_showtime(value: str) -> str:
+    match = re.match(r"^\s*(\d{1,2})\s*:\s*(\d{2})\s*$", value)
+    if not match:
+        return value.strip()
+    return f"{int(match.group(1)):02d}:{match.group(2)}"
 
 
-def _canonicalize_cinema_name(raw_name: str) -> Optional[str]:
-    if raw_name in EIGA_NAME_ALIASES:
-        return EIGA_NAME_ALIASES[raw_name]
-    normalized = _normalize_key(raw_name)
-    return NORMALIZED_NAME_MAP.get(normalized)
+def _extract_showtimes_for_date(section: BeautifulSoup, date_key: str) -> List[str]:
+    tables = section.select("table.weekly-schedule")
+    if not tables:
+        return []
+    times: List[str] = []
+    for table in tables:
+        cells = table.select(f'td[data-date="{date_key}"]')
+        for cell in cells:
+            cell_times: List[str] = []
+            for span in cell.find_all("span"):
+                text = span.get_text(strip=True)
+                if re.match(r"^\d{1,2}:\d{2}$", text):
+                    cell_times.append(_normalize_showtime(text))
+            text = cell.get_text(" ", strip=True)
+            range_pat = re.compile(r"(\d{1,2}:\d{2})\s*[~\u301c\uFF5E\-–—]\s*(\d{1,2}:\d{2})")
+            range_ends = {_normalize_showtime(end) for _, end in range_pat.findall(text)}
+            for raw_time in re.findall(r"\b\d{1,2}:\d{2}\b", text):
+                normalized = _normalize_showtime(raw_time)
+                if normalized in range_ends:
+                    continue
+                if normalized not in cell_times:
+                    cell_times.append(normalized)
+            for showtime in cell_times:
+                if showtime not in times:
+                    times.append(showtime)
+    return times
+
+
+def _extract_image_url(section: BeautifulSoup) -> str:
+    img = section.select_one(".movie-image img")
+    if not img:
+        return ""
+    src = (img.get("src") or "").strip()
+    if not src:
+        return ""
+    src_lower = src.lower()
+    if "noimg" in src_lower or "noposter" in src_lower:
+        return ""
+    full_url = urljoin(BASE_URL, src)
+    full_url = re.sub(r"/(160|320)\.jpg$", "/640.jpg", full_url)
+    full_url = re.sub(r"/(160|320)\.png$", "/640.png", full_url)
+    return full_url
 
 
 def _extract_movie_details(
@@ -119,6 +122,7 @@ def _extract_movie_details(
     detail_url: str,
     movie_id: str,
     cache: Dict[str, Dict[str, str]],
+    label: str,
 ) -> Dict[str, str]:
     if movie_id in cache:
         return cache[movie_id]
@@ -134,7 +138,7 @@ def _extract_movie_details(
     try:
         soup = _get_soup(detail_url, session)
     except requests.RequestException as exc:
-        print(f"ERROR: [Eiga Kanagawa] Failed to fetch movie detail {detail_url}: {exc}", file=sys.stderr)
+        print(f"ERROR: [{label}] Failed to fetch movie detail {detail_url}: {exc}", file=sys.stderr)
         cache[movie_id] = details
         return details
 
@@ -198,65 +202,35 @@ def _extract_movie_details(
     return details
 
 
-def _extract_showtimes_for_date(section: BeautifulSoup, date_key: str) -> List[str]:
-    tables = section.select("table.weekly-schedule")
-    if not tables:
-        return []
-    times: List[str] = []
-    for table in tables:
-        cells = table.select(f'td[data-date="{date_key}"]')
-        if not cells:
+def discover_prefecture_theaters(pref_id: str, session: requests.Session) -> List[Dict[str, str]]:
+    theater_list_url = f"{BASE_URL}/theater/{pref_id}/"
+    soup = _get_soup(theater_list_url, session)
+    theaters: Dict[str, Dict[str, str]] = {}
+    for anchor in soup.select(f'a[href^="/theater/{pref_id}/"]'):
+        href = anchor.get("href", "")
+        match = re.match(rf"^/theater/{pref_id}/(\d{{6}})/(\d{{4}})/", href)
+        if not match:
             continue
-        for cell in cells:
-            cell_times: List[str] = []
-            for span in cell.find_all("span"):
-                text = span.get_text(strip=True)
-                if re.match(r"^\d{1,2}:\d{2}$", text):
-                    cell_times.append(_normalize_showtime(text))
-            text = cell.get_text(" ", strip=True)
-            range_pat = re.compile(r"(\d{1,2}:\d{2})\s*[~\u301c\uFF5E\-–—]\s*(\d{1,2}:\d{2})")
-            range_ends = {_normalize_showtime(end) for _, end in range_pat.findall(text)}
-            for t in re.findall(r"\b\d{1,2}:\d{2}\b", text):
-                normalized = _normalize_showtime(t)
-                if normalized in range_ends:
-                    continue
-                if normalized not in cell_times:
-                    cell_times.append(normalized)
-            for showtime in cell_times:
-                if showtime not in times:
-                    times.append(showtime)
-    return times
+        area_id, theater_id = match.groups()
+        name = anchor.get_text(strip=True)
+        if not name:
+            continue
+        theaters[theater_id] = {
+            "name": name,
+            "area_id": area_id,
+            "theater_id": theater_id,
+            "url": urljoin(BASE_URL, href),
+        }
+    return list(theaters.values())
 
 
-def _extract_image_url(section: BeautifulSoup) -> str:
-    img = section.select_one(".movie-image img")
-    if not img:
-        return ""
-    src = (img.get("src") or "").strip()
-    if not src:
-        return ""
-    src_lower = src.lower()
-    if "noimg" in src_lower or "noposter" in src_lower:
-        return ""
-    full_url = urljoin(BASE_URL, src)
-    full_url = re.sub(r"/(160|320)\.jpg$", "/640.jpg", full_url)
-    full_url = re.sub(r"/(160|320)\.png$", "/640.png", full_url)
-    return full_url
-
-
-def _normalize_showtime(value: str) -> str:
-    match = re.match(r"^\s*(\d{1,2})\s*:\s*(\d{2})\s*$", value)
-    if not match:
-        return value.strip()
-    hour = int(match.group(1))
-    minute = match.group(2)
-    return f"{hour:02d}:{minute}"
-
-
-def scrape_eiga_kanagawa(days_ahead: int = DEFAULT_DAYS_AHEAD) -> List[Dict[str, str]]:
-    """
-    Scrapes previously supported Kanagawa cinemas from eiga.com and returns showtimes.
-    """
+def scrape_eiga_prefecture(
+    *,
+    pref_id: str,
+    label: str,
+    aliases: Dict[str, str],
+    days_ahead: int = DEFAULT_DAYS_AHEAD,
+) -> List[Dict[str, str]]:
     try:
         from zoneinfo import ZoneInfo
     except ImportError:
@@ -264,26 +238,27 @@ def scrape_eiga_kanagawa(days_ahead: int = DEFAULT_DAYS_AHEAD) -> List[Dict[str,
 
     session = requests.Session()
     session.headers.update(HEADERS)
+    name_map = _build_name_map(aliases)
 
-    _log("INFO: [Eiga Kanagawa] Fetching theater list...")
-    theaters = discover_kanagawa_theaters(session)
+    _log(label, "Fetching theater list...")
+    theaters = discover_prefecture_theaters(pref_id, session)
     if not theaters:
-        print("ERROR: [Eiga Kanagawa] No theaters discovered from eiga.com list.", file=sys.stderr)
+        print(f"ERROR: [{label}] No theaters discovered from eiga.com list.", file=sys.stderr)
         return []
-    _log(f"INFO: [Eiga Kanagawa] Discovered {len(theaters)} total theaters.")
+    _log(label, f"Discovered {len(theaters)} total theaters.")
 
     target_theaters = []
     for theater in theaters:
-        canonical = _canonicalize_cinema_name(theater["name"])
+        canonical = aliases.get(theater["name"]) or name_map.get(_normalize_key(theater["name"]))
         if not canonical:
             continue
         theater["canonical_name"] = canonical
         target_theaters.append(theater)
 
     if not target_theaters:
-        print("ERROR: [Eiga Kanagawa] No independent theaters matched.", file=sys.stderr)
+        print(f"ERROR: [{label}] No independent theaters matched.", file=sys.stderr)
         return []
-    _log(f"INFO: [Eiga Kanagawa] Matched {len(target_theaters)} independent theaters.")
+    _log(label, f"Matched {len(target_theaters)} independent theaters.")
 
     today = _dt.datetime.now(ZoneInfo("Asia/Tokyo")).date()
     dates = [today + _dt.timedelta(days=offset) for offset in range(days_ahead + 1)]
@@ -291,38 +266,32 @@ def scrape_eiga_kanagawa(days_ahead: int = DEFAULT_DAYS_AHEAD) -> List[Dict[str,
     listings: List[Dict[str, str]] = []
     movie_detail_cache: Dict[str, Dict[str, str]] = {}
 
-    total_theaters = len(target_theaters)
     for idx, theater in enumerate(target_theaters, start=1):
         cinema_name = theater["canonical_name"]
         area_id = theater["area_id"]
         theater_id = theater["theater_id"]
         cinema_address = ""
         cinema_site_url = ""
-        _log(f"INFO: [Eiga Kanagawa] ({idx}/{total_theaters}) {cinema_name} ({area_id}/{theater_id})")
+        _log(label, f"({idx}/{len(target_theaters)}) {cinema_name} ({area_id}/{theater_id})")
 
-        for date in dates:
-            date_key = date.strftime("%Y%m%d")
-            date_text = date.strftime("%Y-%m-%d")
-            schedule_url = f"{BASE_URL}/theater/{KANAGAWA_PREF_ID}/{area_id}/{theater_id}/?date={date_key}"
+        for target_date in dates:
+            date_key = target_date.strftime("%Y%m%d")
+            date_text = target_date.strftime("%Y-%m-%d")
+            schedule_url = f"{BASE_URL}/theater/{pref_id}/{area_id}/{theater_id}/?date={date_key}"
 
             try:
                 soup = _get_soup(schedule_url, session)
             except requests.RequestException as exc:
-                print(f"ERROR: [Eiga Kanagawa] Failed to fetch {schedule_url}: {exc}", file=sys.stderr)
+                print(f"ERROR: [{label}] Failed to fetch {schedule_url}: {exc}", file=sys.stderr)
                 continue
 
             if not cinema_address:
                 cinema_address = _extract_cinema_address(soup)
-                if cinema_address:
-                    _log(f"INFO: [Eiga Kanagawa] Address: {cinema_address}")
             if not cinema_site_url:
                 cinema_site_url = _extract_cinema_site_url(soup)
-                if cinema_site_url:
-                    _log(f"INFO: [Eiga Kanagawa] Site: {cinema_site_url}")
 
             date_start_count = len(listings)
-            sections = soup.select('section[id^="m"]')
-            for section in sections:
+            for section in soup.select('section[id^="m"]'):
                 section_id = section.get("id", "")
                 movie_id_match = re.match(r"m(\d+)", section_id)
                 movie_id = movie_id_match.group(1) if movie_id_match else ""
@@ -336,20 +305,19 @@ def scrape_eiga_kanagawa(days_ahead: int = DEFAULT_DAYS_AHEAD) -> List[Dict[str,
                 if title_anchor and title_anchor.get("href"):
                     detail_url = urljoin(BASE_URL, title_anchor["href"])
 
-                movie_type = " ".join(
-                    span.get_text(strip=True)
-                    for span in section.select(".movie-type span")
-                    if span.get_text(strip=True)
-                ).strip()
-                image_url = _extract_image_url(section)
-
                 showtimes = _extract_showtimes_for_date(section, date_key)
                 if not showtimes:
                     continue
 
                 movie_details = {}
                 if movie_id and detail_url:
-                    movie_details = _extract_movie_details(session, detail_url, movie_id, movie_detail_cache)
+                    movie_details = _extract_movie_details(session, detail_url, movie_id, movie_detail_cache, label)
+
+                movie_type = " ".join(
+                    span.get_text(strip=True)
+                    for span in section.select(".movie-type span")
+                    if span.get_text(strip=True)
+                ).strip()
 
                 for showtime in showtimes:
                     listings.append({
@@ -364,7 +332,7 @@ def scrape_eiga_kanagawa(days_ahead: int = DEFAULT_DAYS_AHEAD) -> List[Dict[str,
                         "showtime": showtime,
                         "booking_url": cinema_site_url,
                         "detail_page_url": detail_url,
-                        "image_url": image_url,
+                        "image_url": _extract_image_url(section),
                         "director": movie_details.get("director", ""),
                         "year": movie_details.get("year", ""),
                         "country": movie_details.get("country", ""),
@@ -375,21 +343,7 @@ def scrape_eiga_kanagawa(days_ahead: int = DEFAULT_DAYS_AHEAD) -> List[Dict[str,
                         "eiga_theater_id": theater_id,
                     })
 
-            date_added = len(listings) - date_start_count
-            _log(f"INFO: [Eiga Kanagawa] {cinema_name} {date_text}: {date_added} showings")
+            _log(label, f"{cinema_name} {date_text}: {len(listings) - date_start_count} showings")
             time.sleep(REQUEST_DELAY_SEC)
 
     return listings
-
-
-if __name__ == "__main__":
-    if sys.platform == "win32":
-        try:
-            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-            sys.stderr.reconfigure(encoding="utf-8", errors="replace")
-        except Exception:
-            pass
-
-    print("Testing eiga.com Kanagawa scraper...")
-    results = scrape_eiga_kanagawa()
-    print(f"Collected {len(results)} listings.")

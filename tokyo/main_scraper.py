@@ -26,7 +26,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 # --- All cinema scraper modules ---
-from cinema_modules import eiga_tokyo_module, eiga_kanagawa_module
+from cinema_modules import eiga_tokyo_module, eiga_kanagawa_module, eiga_saitama_module, eiga_chiba_module
 from cinema_modules import (
     bunkamura_module,
     bluestudio_module,
@@ -67,6 +67,9 @@ from cinema_modules import (
     yokohama_cinemarine_module,
     kadokawa_yurakucho_module,
     cinema_neko_module,
+    cinema_amigo_module,
+    koenji_bacchus_module,
+    koenji_cinema_club_module,
 )
 
 # --- Configuration ---
@@ -2039,6 +2042,8 @@ def main():
     eiga_scrapers_to_run = [
         ("Eiga.com Tokyo", eiga_tokyo_module.scrape_eiga_tokyo, None),
         ("Eiga.com Kanagawa", eiga_kanagawa_module.scrape_eiga_kanagawa, None),
+        ("Eiga.com Saitama", eiga_saitama_module.scrape_eiga_saitama, None),
+        ("Eiga.com Chiba", eiga_chiba_module.scrape_eiga_chiba, None),
     ]
 
     legacy_scrapers_to_run = [
@@ -2081,6 +2086,9 @@ def main():
         ("Yokohama Cinemarine", yokohama_cinemarine_module.scrape_yokohama_cinemarine, None),
         ("Kadokawa Cinema Yurakucho", kadokawa_yurakucho_module.scrape_kadokawa_yurakucho, None),
         ("Cinema Neko Ome", cinema_neko_module.scrape_cinema_neko, None),
+        ("Koenji Theater Bacchus", koenji_bacchus_module.scrape_koenji_bacchus, None),
+        ("Koenji Cinema Club", koenji_cinema_club_module.scrape_koenji_cinema_club, None),
+        ("Cinema Amigo", cinema_amigo_module.scrape_cinema_amigo, None),
     ]
 
     # 2. RUN THEM ONE BY ONE
