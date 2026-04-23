@@ -164,9 +164,14 @@ class ScrapeReport:
             return
 
         # 1. Gather Credentials
-        smtp_server = os.environ.get("SMTP_SERVER", "smtp.gmail.com")
+        smtp_server = (os.environ.get("SMTP_SERVER") or "smtp.gmail.com").strip()
         # SSL port is usually 465
-        smtp_port = int(os.environ.get("SMTP_PORT", 465))
+        smtp_port_raw = (os.environ.get("SMTP_PORT") or "465").strip()
+        try:
+            smtp_port = int(smtp_port_raw)
+        except ValueError:
+            print(f"ℹ️ Invalid SMTP_PORT={smtp_port_raw!r}; using 465.")
+            smtp_port = 465
         sender_email = os.environ.get("SMTP_EMAIL")
         sender_password = os.environ.get("SMTP_PASSWORD")
         recipient_email = os.environ.get("ALERT_RECIPIENT_EMAIL") or sender_email
