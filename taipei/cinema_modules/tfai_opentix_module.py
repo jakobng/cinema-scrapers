@@ -23,7 +23,7 @@ LATIN_NAME_RE = re.compile(r"([A-Z][A-Za-zÀ-ÿ.\-'\s]+)$")
 
 def _request_with_retry(session: requests.Session, url: str, *, params: Dict | None = None) -> requests.Response:
     last_error: Exception | None = None
-    for attempt in range(3):
+    for attempt in range(4):
         try:
             response = session.get(url, params=params, timeout=30)
             response.raise_for_status()
@@ -155,7 +155,14 @@ def scrape_tfai_opentix() -> List[Dict]:
         return []
 
     session = requests.Session()
-    session.headers.update({"User-Agent": "Mozilla/5.0"})
+    session.headers.update(
+        {
+            "User-Agent": "Mozilla/5.0",
+            "Connection": "close",
+            "Accept": "application/json, text/plain, */*",
+            "Accept-Language": "zh-TW,zh;q=0.9,en;q=0.8",
+        }
+    )
 
     try:
         program_refs = _collect_program_refs(session)

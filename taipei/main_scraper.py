@@ -908,6 +908,17 @@ def enrich_listings_with_tmdb(listings: List[Dict], api_key: Optional[str]) -> L
     gemini_batch_size = _parse_int(os.environ.get("GEMINI_BATCH_SIZE", "1")) or 1
     gemini_confidence_threshold = _parse_float(os.environ.get("GEMINI_CONFIDENCE_THRESHOLD"), 0.6)
 
+    cached_synopsis_count = 0
+    for item in listings:
+        if item.get("tmdb_overview_en") or item.get("synopsis_en"):
+            continue
+        _, cached_translation = _get_cached_synopsis_translation(synopsis_translation_cache, item)
+        if cached_translation:
+            item["synopsis_en"] = cached_translation
+            cached_synopsis_count += 1
+    if cached_synopsis_count:
+        print(f"   Applied cached English synopses to {cached_synopsis_count} showings.")
+
     unresolved_titles: List[str] = []
     for title, title_items in items_by_title.items():
         if any(item.get("tmdb_id") for item in title_items):
