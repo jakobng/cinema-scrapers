@@ -29,6 +29,7 @@ jobs:
         working-directory: ./london
 
     env:
+      TZ: Europe/London
       TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
       SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
       SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
@@ -46,10 +47,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-
-      # Set Timezone to London
-      - name: Set Timezone
-        run: sudo timedatectl set-timezone Europe/London
 
       - name: Install Dependencies
         run: |
