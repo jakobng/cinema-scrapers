@@ -370,6 +370,17 @@ def _strong_title_match(english_title: str, details: Dict) -> bool:
     return best >= 0.9
 
 
+def _is_collection_mismatch(query: str, details: Dict) -> bool:
+    query_norm = normalize_title_for_match(query)
+    if not query_norm or "collection" in query_norm:
+        return False
+    for field in ("tmdb_title", "tmdb_original_title", "tmdb_title_en"):
+        candidate = normalize_title_for_match(str(details.get(field) or ""))
+        if candidate and "collection" in candidate:
+            return True
+    return False
+
+
 def _gemini_year_matches(details: Dict, release_year: Optional[int], english_title: Optional[str] = None) -> bool:
     if not details or not release_year:
         return True
@@ -678,7 +689,7 @@ def _lookup_tmdb_details_in_cache(item: Dict, cache: Dict[str, Dict]) -> Optiona
         cache_key = f"{clean_title_for_tmdb(query)}::{query_year or ''}"
         if cache_key in cache:
             cached = cache[cache_key]
-            if cached:
+            if cached and not _is_collection_mismatch(query, cached):
                 return cached
     return None
 
@@ -783,6 +794,9 @@ def fetch_tmdb_details(
 
             scored = sorted(results, key=lambda result: _score_tmdb_result(query, result, query_year), reverse=True)
             best = scored[0]
+            if "collection" not in query.lower() and "collection" in str(best.get("title") or "").lower():
+                cache[cache_key] = None
+                continue
             if _score_tmdb_result(query, best, query_year) < 0.58:
                 cache[cache_key] = None
                 continue

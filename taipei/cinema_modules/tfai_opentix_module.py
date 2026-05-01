@@ -59,9 +59,13 @@ def _parse_description(program: Dict) -> Dict[str, str | None]:
     country = None
     director = ""
     director_en = ""
+    language_lines: List[str] = []
     synopsis_lines: List[str] = []
 
     for line in lines:
+        if line.startswith(("發音", "字幕", "▲")) or "without English subtitles" in line:
+            language_lines.append(line)
+
         if runtime is None:
             runtime_match = re.search(r"片長[:：]\s*(\d+)", line)
             if runtime_match:
@@ -114,6 +118,7 @@ def _parse_description(program: Dict) -> Dict[str, str | None]:
         "country": country,
         "runtime_min": runtime,
         "synopsis": synopsis,
+        "source_language_note": " ".join(language_lines).strip() or None,
     }
 
 
@@ -200,6 +205,7 @@ def scrape_tfai_opentix() -> List[Dict]:
             "booking_url": detail_url,
             "image_url": image_url or None,
             "tags": sorted(set(tags)),
+            "source_language_note": parsed["source_language_note"],
         }
 
         for event_venue in program.get("eventVenues", []):

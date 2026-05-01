@@ -70,6 +70,14 @@ def _clean_synopsis(text: str) -> str:
     return " ".join(filtered).strip()
 
 
+def _extract_language_note(text: str) -> Optional[str]:
+    first_section = str(text or "").split("__", 1)[0]
+    match = re.search(r"(?:中文字幕|英文字幕|英語字幕|英字幕|英文發音|英語發音|原文發音|原音)[^_\r\n]*", first_section)
+    if not match:
+        return None
+    return re.sub(r"\s+", " ", match.group(0)).strip(" ｜")
+
+
 def scrape_skyline_film() -> List[Dict]:
     try:
         listing_payload = _fetch_json(ACTIVITY_API, params={"offset": 0, "limit": 50})
@@ -111,6 +119,7 @@ def scrape_skyline_film() -> List[Dict]:
             start_dt = datetime.fromtimestamp(int(start_ts), TAIPEI_TZ)
             movie_title, movie_title_en = _split_bilingual_title(ticket.get("title") or "")
             intro = str(ticket.get("introduction") or "")
+            language_note = _extract_language_note(intro)
             tags = list(base_tags)
             if ticket.get("remainQuantity") == 0:
                 tags.append("sold_out")
@@ -134,6 +143,7 @@ def scrape_skyline_film() -> List[Dict]:
                     "booking_url": detail_page_url,
                     "image_url": ticket.get("cover") or detail.get("webCover") or None,
                     "tags": sorted(set(tag for tag in tags if tag)),
+                    "source_language_note": language_note,
                 }
             )
 

@@ -94,6 +94,9 @@ def _parse_detail(detail_url: str) -> Dict[str, Optional[str]]:
         "runtime_min": None,
         "synopsis": _extract_synopsis(lines),
         "booking_url": _extract_booking_url(soup),
+        "source_language_note": None,
+        "source_audio_language": None,
+        "source_subtitle_language": None,
     }
 
     for idx, line in enumerate(lines):
@@ -105,6 +108,13 @@ def _parse_detail(detail_url: str) -> Dict[str, Optional[str]]:
             metadata["country"] = lines[idx + 1]
         elif re.match(r"^\d+\s*min$", line):
             metadata["runtime_min"] = _sanitize_runtime(re.search(r"\d+", line).group(0))
+        elif line.startswith("發音/字幕") and idx + 1 < len(lines):
+            language_note = lines[idx + 1]
+            metadata["source_language_note"] = f"{line} {language_note}"
+            if "/" in language_note:
+                audio, subtitles = language_note.split("/", 1)
+                metadata["source_audio_language"] = audio.strip()
+                metadata["source_subtitle_language"] = subtitles.strip()
 
     return metadata
 
@@ -158,6 +168,9 @@ def scrape_taoyuan_arts_cinema_ii() -> List[Dict]:
                 "showtime": match.group("showtime"),
                 "detail_page_url": detail_url,
                 "booking_url": detail.get("booking_url"),
+                "source_audio_language": detail.get("source_audio_language"),
+                "source_subtitle_language": detail.get("source_subtitle_language"),
+                "source_language_note": detail.get("source_language_note"),
             }
         )
 
