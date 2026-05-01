@@ -683,6 +683,64 @@ def _lookup_tmdb_details_in_cache(item: Dict, cache: Dict[str, Dict]) -> Optiona
     return None
 
 
+def _fetch_tmdb_original_language_by_id(
+    tmdb_id: object,
+    session: requests.Session,
+    api_key: Optional[str],
+) -> str:
+    if not api_key or not tmdb_id:
+        return ""
+    try:
+        response = session.get(
+            f"https://api.themoviedb.org/3/movie/{tmdb_id}",
+            params={"api_key": api_key, "language": "en-US"},
+            timeout=10,
+        )
+        response.raise_for_status()
+        return str(response.json().get("original_language") or "").strip()
+    except Exception as exc:
+        print(f"   Warning: could not fetch TMDB original language for ID {tmdb_id}: {exc}")
+        return ""
+
+
+def backfill_tmdb_original_languages(
+    cache: Dict[str, Dict],
+    session: requests.Session,
+    api_key: Optional[str],
+) -> int:
+    if not api_key:
+        return 0
+
+    known_by_id: Dict[str, str] = {}
+    missing_by_id: Dict[str, List[Dict]] = {}
+
+    for entry in cache.values():
+        if not isinstance(entry, dict):
+            continue
+        tmdb_id = str(entry.get("tmdb_id") or "").strip()
+        if not tmdb_id:
+            continue
+        language = str(entry.get("original_language") or entry.get("tmdb_original_language") or "").strip()
+        if language:
+            known_by_id[tmdb_id] = language
+        else:
+            missing_by_id.setdefault(tmdb_id, []).append(entry)
+
+    updated = 0
+    for tmdb_id, entries in missing_by_id.items():
+        language = known_by_id.get(tmdb_id)
+        if not language:
+            language = _fetch_tmdb_original_language_by_id(tmdb_id, session, api_key)
+        if not language:
+            continue
+        known_by_id[tmdb_id] = language
+        for entry in entries:
+            entry["original_language"] = language
+            updated += 1
+
+    return updated
+
+
 def fetch_tmdb_details(
     item: Dict,
     session: requests.Session,
@@ -762,6 +820,7 @@ def fetch_tmdb_details(
                 "tmdb_title_en": tmdb_title_en,
                 "tmdb_title_local": tmdb_title_local,
                 "tmdb_original_title": detail_en.get("original_title"),
+                "original_language": detail_en.get("original_language"),
                 "tmdb_poster_path": detail_en.get("poster_path"),
                 "tmdb_backdrop_path": detail_en.get("backdrop_path"),
                 "tmdb_overview": tmdb_overview_local or tmdb_overview_en,
@@ -859,6 +918,10 @@ def _apply_tmdb_details(item: Dict, details: Dict) -> None:
         item["tmdb_title_local"] = details["tmdb_title_local"]
     if details.get("tmdb_original_title"):
         item["tmdb_original_title"] = details["tmdb_original_title"]
+    if details.get("original_language"):
+        item["original_language"] = details["original_language"]
+    elif details.get("tmdb_original_language"):
+        item["original_language"] = details["tmdb_original_language"]
     if details.get("tmdb_poster_path"):
         item["tmdb_poster_path"] = details["tmdb_poster_path"]
     if details.get("tmdb_backdrop_path"):
@@ -883,6 +946,10 @@ def enrich_listings_with_tmdb(listings: List[Dict], api_key: Optional[str]) -> L
 
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0"})
+
+    backfilled_language_count = backfill_tmdb_original_languages(tmdb_cache, session, api_key)
+    if backfilled_language_count:
+        print(f"   Backfilled original language for {backfilled_language_count} cached TMDB entries.")
 
     items_by_title: Dict[str, List[Dict]] = {}
     for item in listings:
