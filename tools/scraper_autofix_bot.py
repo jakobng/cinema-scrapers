@@ -100,7 +100,15 @@ def list_candidate_issues(policy: dict, limit: int) -> list[dict]:
     )
 
 
-def call_lm_studio(prompt: str, *, base_url: str, model: str, timeout: int) -> dict:
+def call_chat_completions(
+    prompt: str,
+    *,
+    base_url: str,
+    model: str,
+    api_key: str,
+    auth_header: str,
+    timeout: int,
+) -> dict:
     payload = {
         "model": model,
         "messages": [
@@ -134,19 +142,55 @@ def call_lm_studio(prompt: str, *, base_url: str, model: str, timeout: int) -> d
         },
     }
     data = json.dumps(payload).encode("utf-8")
+    headers = {"Content-Type": "application/json"}
+    if api_key:
+        headers[auth_header] = f"Bearer {api_key}"
     request = urllib.request.Request(
         f"{base_url.rstrip('/')}/chat/completions",
         data=data,
-        headers={"Content-Type": "application/json", "Authorization": "Bearer lm-studio"},
+        headers=headers,
         method="POST",
     )
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
             result = json.loads(response.read().decode("utf-8"))
     except urllib.error.URLError as exc:
-        raise SystemExit(f"Could not reach LM Studio at {base_url}: {exc}") from exc
+        raise SystemExit(f"Could not reach model API at {base_url}: {exc}") from exc
     content = result["choices"][0]["message"]["content"]
     return json.loads(content)
+
+
+def call_lm_studio(prompt: str, *, base_url: str, model: str, timeout: int) -> dict:
+    return call_chat_completions(
+        prompt,
+        base_url=base_url,
+        model=model,
+        api_key="lm-studio",
+        auth_header="Authorization",
+        timeout=timeout,
+    )
+
+
+def call_ollama(prompt: str, *, base_url: str, model: str, timeout: int) -> dict:
+    return call_chat_completions(
+        prompt,
+        base_url=base_url,
+        model=model,
+        api_key="",
+        auth_header="Authorization",
+        timeout=timeout,
+    )
+
+
+def call_model(prompt: str, args: argparse.Namespace) -> dict:
+    if args.provider == "ollama":
+        return call_ollama(
+            prompt,
+            base_url=args.ollama_base_url,
+            model=args.model,
+            timeout=args.timeout,
+        )
+    return call_lm_studio(prompt, base_url=args.lm_base_url, model=args.model, timeout=args.timeout)
 
 
 def build_prompt(issue: dict, city: str, logs: str, policy: dict) -> str:
@@ -270,7 +314,7 @@ def process_issue(issue: dict, args: argparse.Namespace, policy: dict) -> dict:
     run_id = extract_run_id(issue.get("body") or "")
     logs = get_run_logs(run_id, args.log_chars)
     prompt = build_prompt(issue, city, logs, policy)
-    response = call_lm_studio(prompt, base_url=args.lm_base_url, model=args.model, timeout=args.timeout)
+    response = call_model(prompt, args)
     patch = response.get("patch") or ""
     confidence = float(response.get("confidence") or 0)
     major_change = bool(response.get("major_change"))
@@ -388,8 +432,10 @@ def send_summary_email(results: list[dict], *, dry_run: bool = False) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Attempt safe scraper auto-fixes with a local LM Studio model.")
-    parser.add_argument("--model", default=os.environ.get("LM_STUDIO_MODEL", "local-model"))
+    parser = argparse.ArgumentParser(description="Attempt safe scraper auto-fixes with a local chat-completions model API.")
+    parser.add_argument("--provider", choices=["ollama", "lm-studio"], default=os.environ.get("AUTOFIX_MODEL_PROVIDER", "ollama"))
+    parser.add_argument("--model", default=os.environ.get("AUTOFIX_MODEL", os.environ.get("OLLAMA_MODEL", os.environ.get("LM_STUDIO_MODEL", "qwen2.5-coder:14b"))))
+    parser.add_argument("--ollama-base-url", default=os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434/v1"))
     parser.add_argument("--lm-base-url", default=os.environ.get("LM_STUDIO_BASE_URL", "http://localhost:1234/v1"))
     parser.add_argument("--limit", type=int, default=3)
     parser.add_argument("--log-chars", type=int, default=30000)
