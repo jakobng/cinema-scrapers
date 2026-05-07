@@ -3275,6 +3275,8 @@
   },
   "KING OF PRISM -Your Endless Call- ［route1：われらが青春Over The Rainbow］": null,
   "KING OF PRISM -Your Endless Call- ［route2：伝説のキングカップ］": null,
+  "KING OF PRISM -Your Endless Call- ［route3：奇跡のクイーンカップ］": null,
+  "KING OF PRISM -Your Endless Call- ［route4：夢と未来 はじまりの物語］": null,
   "KING OF PRISM Your Endless Call み～んなきらめけ！プリズム☆ツアーズ": {
     "backdrop_path": null,
     "director": "菱田正和",
@@ -8175,6 +8177,39 @@
     "tmdb_title_original": "Winter Sonata",
     "vote_average": 0.0
   },
+  "tmdb:1055769": {
+    "backdrop_path": "/yrBqJ8Dy0SpiVTV9igt2YWXi6OB.jpg",
+    "director": "藤沢勇夫",
+    "director_en": "Isao Fujisawa",
+    "director_jp": "藤沢勇夫",
+    "genres": [
+      "犯罪",
+      "ドラマ",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Crime",
+      "Drama",
+      "Romance"
+    ],
+    "overview": "",
+    "overview_en": "Two young people undertake a doomed summer road trip through Japan, which in turn reflects on the dissipating promise of 1960s counterculture and free love.",
+    "poster_path": "/71DsMeMvbD1kL1aGJP6ks0aFGOP.jpg",
+    "release_date": "1974-12-06",
+    "runtime": 85,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1055769,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Bye Bye Love",
+    "tmdb_title_jp": "バイバイ・ラブ",
+    "tmdb_title_original": "バイバイ・ラブ",
+    "vote_average": 6.0
+  },
   "tmdb:1058673": {
     "backdrop_path": "/e3QWy9vh0E2TLpt9sMDAVcJVEby.jpg",
     "director": "David Redmon",
@@ -10821,7 +10856,7 @@
     "tmdb_title_en": "Pusher II",
     "tmdb_title_jp": "プッシャー2",
     "tmdb_title_original": "Pusher II",
-    "vote_average": 7.165
+    "vote_average": 7.168
   },
   "tmdb:11330": {
     "backdrop_path": "/tuxPwQUg14iwoKBz58KRwqG8vU9.jpg",
@@ -16310,7 +16345,7 @@
     "tmdb_title_en": "Dangerous Animals",
     "tmdb_title_jp": "デンジャラス・アニマルズ 絶望海域",
     "tmdb_title_original": "Dangerous Animals",
-    "vote_average": 6.415
+    "vote_average": 6.414
   },
   "tmdb:1286531": {
     "backdrop_path": null,
@@ -21184,6 +21219,39 @@
     "tmdb_title_original": "旅と日々",
     "vote_average": 7.8
   },
+  "tmdb:1462889": {
+    "backdrop_path": "/h32RN3kiI6tq9V5GeEJo58Sd26i.jpg",
+    "director": "Lucio Castro",
+    "director_en": "Lucio Castro",
+    "director_jp": "Lucio Castro",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Adnan, a young art student, arrives in New York to spend the summer in an apartment. He interns at a gallery that exhibits the work of an older, unconventional artist he once crossed paths with. As moments from his past and present intertwine, a series of encounters, both artistic and erotic, open gaps in his everyday reality.",
+    "poster_path": "/x9o3BQzeJzwXJIOhPq71CUHy7fA.jpg",
+    "release_date": "2026-04-22",
+    "runtime": 81,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "AR",
+        "name": "Argentina"
+      }
+    ],
+    "tmdb_id": 1462889,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Drunken Noodles",
+    "tmdb_title_jp": "Drunken Noodles",
+    "tmdb_title_original": "Drunken Noodles",
+    "vote_average": 0.0
+  },
   "tmdb:1464533": {
     "backdrop_path": "/pA7SGxfW7z18GwCUUR6VcjhvTRR.jpg",
     "director": "永井聡",
@@ -21921,6 +21989,37 @@
     "tmdb_title_jp": "I Fell in Love with a Z-Grade Director in Brooklyn",
     "tmdb_title_original": "I Fell in Love with a Z-Grade Director in Brooklyn",
     "vote_average": 0.0
+  },
+  "tmdb:148222": {
+    "backdrop_path": "/icxLEwyKfnXSFSsDESk9NXdQFrm.jpg",
+    "director": "Yasushi Kikuchi",
+    "director_en": "Yasushi Kikuchi",
+    "director_jp": "Yasushi Kikuchi",
+    "genres": [
+      "アクション",
+      "アドベンチャー"
+    ],
+    "genres_en": [
+      "Action",
+      "Adventure"
+    ],
+    "overview": "",
+    "overview_en": "Young Lord Takenaka stands to succeed his father until a series of violent actions lead his retainers to think that he has gone mad with blood-lust.  Never offering any explanation, he continues his seemingly unprovoked attacks until he is sent away from his domain.",
+    "poster_path": "/wdpCE5GO7DtqgA7IYLVWoHTfUdM.jpg",
+    "release_date": "1964-12-07",
+    "runtime": 90,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 148222,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Samurai from Somewhere",
+    "tmdb_title_jp": "続・道場破り　問答無用",
+    "tmdb_title_original": "続・道場破り　問答無用",
+    "vote_average": 7.0
   },
   "tmdb:148265": {
     "backdrop_path": "/fuCfQ0D2HtNa7kRLFDkPWl87Zs9.jpg",
@@ -25101,6 +25200,39 @@
     "tmdb_title_en": "Secret Lover: The Last Promise",
     "tmdb_title_jp": "秘密關係 Secret Lover 最後の約束",
     "tmdb_title_original": "秘密關係 Secret Lover 最後の約束",
+    "vote_average": 0.0
+  },
+  "tmdb:1569763": {
+    "backdrop_path": "/ehpz5vS8SNVU1piohcEiZxV8jhN.jpg",
+    "director": "Jun Yamada",
+    "director_en": "Jun Yamada",
+    "director_jp": "Jun Yamada",
+    "genres": [
+      "スリラー",
+      "犯罪",
+      "コメディ"
+    ],
+    "genres_en": [
+      "Thriller",
+      "Crime",
+      "Comedy"
+    ],
+    "overview": "キャバクラでボーイとして働く若者・サトウには食人願望があった。ある日、勤務先で偶然拾ったスマホをきっかけに、サトウは謎めいた二人組に脅迫され、運び屋として裏社会の稼業に従事する。違法な仕事で金を手にしたサトウは、やがてその稼ぎを用いて己の野望を果たさんと動き出す。",
+    "overview_en": "Sato is a young man consumed by a desire to eat human flesh. One day, he stumbles upon a discarded phone outside the hostess club where he works, which entangles him in the shady underbelly of society. As he sinks deeper into the criminal underworld, Sato's twisted hunger grows — until he finally kills to satisfy his craving for human flesh.",
+    "poster_path": "/kv1athkh1do8Y5aV9XtUjW7v0g1.jpg",
+    "release_date": "2026-05-08",
+    "runtime": 93,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1569763,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Into the Belly of the Beast",
+    "tmdb_title_jp": "竜宮の誘い",
+    "tmdb_title_original": "竜宮の誘い",
     "vote_average": 0.0
   },
   "tmdb:1572053": {
@@ -37883,6 +38015,43 @@
     "tmdb_title_original": "橋のない川",
     "vote_average": 6.0
   },
+  "tmdb:374473": {
+    "backdrop_path": "/mNLonkdD4MtaZnHTifp8be8nJrm.jpg",
+    "director": "肯·洛奇",
+    "director_en": "Ken Loach",
+    "director_jp": "肯·洛奇",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "イギリス北東部ニューカッスルで大工として働く59歳のダニエル・ブレイクは、心臓の病を患い医者から仕事を止められる。国の援助を受けようとするが、複雑な制度が立ちふさがり必要な援助を受けることが出来ない。悪戦苦闘するダニエルだったが、シングルマザーのケイティと二人の子供の家族を助けたことから、交流が生まれる。貧しいなかでも、寄り添い合い絆を深めていくダニエルとケイティたち。しかし、厳しい現実が彼らを次第に追いつめていく。",
+    "overview_en": "A middle aged carpenter, who requires state welfare after injuring himself, is joined by a single mother in a similar scenario.",
+    "poster_path": "/wOw1qfuRuk1HveEKU0eX3MqS776.jpg",
+    "release_date": "2016-10-21",
+    "runtime": 100,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "BE",
+        "name": "Belgium"
+      }
+    ],
+    "tmdb_id": 374473,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "I, Daniel Blake",
+    "tmdb_title_jp": "わたしは、ダニエル・ブレイク",
+    "tmdb_title_original": "I, Daniel Blake",
+    "vote_average": 7.709
+  },
   "tmdb:37472": {
     "backdrop_path": "/lFhTEHBphkHw5hDsuRLYAXZB3u4.jpg",
     "director": "葉偉信",
@@ -38816,6 +38985,37 @@
     "tmdb_title_original": "Papa les petits Bateaux…",
     "vote_average": 4.063
   },
+  "tmdb:394538": {
+    "backdrop_path": null,
+    "director": "長嶺高文",
+    "director_en": "Takafumi Nagamine",
+    "director_jp": "長嶺高文",
+    "genres": [
+      "コメディ",
+      "ホラー"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Horror"
+    ],
+    "overview": "",
+    "overview_en": "The Panorama Group, a group of young people who work together with an old professor who is passionate about making hot air balloons a reality, dream of taking to the skies of the South Seas, but there are various obstacles in their way.",
+    "poster_path": "/16u6EaicrOuaAw4hhucZWwvMgXg.jpg",
+    "release_date": "1978-11-17",
+    "runtime": 90,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 394538,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Happy Story Nankai Changgyoku",
+    "tmdb_title_jp": "喜談　南海變化玉",
+    "tmdb_title_original": "喜談　南海變化玉",
+    "vote_average": 0.0
+  },
   "tmdb:398030": {
     "backdrop_path": "/aDr1cLxiZhJfPhxRGoLZoDFysEO.jpg",
     "director": "山本薩夫",
@@ -39221,6 +39421,37 @@
     "tmdb_title_jp": "ストレイト・ストーリー",
     "tmdb_title_original": "The Straight Story",
     "vote_average": 7.73
+  },
+  "tmdb:406253": {
+    "backdrop_path": "/A5TNGeGQQyi81e15lObS8xdpmPb.jpg",
+    "director": "市川崑",
+    "director_en": "Kon Ichikawa",
+    "director_jp": "市川崑",
+    "genres": [
+      "謎",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Mystery",
+      "Drama"
+    ],
+    "overview": "能をテーマにした取材の為、吉野の天河神社を訪れた紀行ライターの浅見光彦は、変死体で発見された能の宗家・水上流長老の殺人容疑で逮捕される。すぐに容疑が晴れ釈放された光彦はその後、水上流後継者をめぐる殺人事件に関わってゆく。",
+    "overview_en": "The patriarch of a bickering family announces his retirement, stirring competition about who will succeed him as a leading practitioner of Noh theater, his granddaughter or grandson.",
+    "poster_path": "/2OeZUkH7UFlOXYrYIqf41Og2wYO.jpg",
+    "release_date": "1991-03-16",
+    "runtime": 109,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 406253,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Noh Mask Murders",
+    "tmdb_title_jp": "天河伝説殺人事件",
+    "tmdb_title_original": "天河伝説殺人事件",
+    "vote_average": 6.333
   },
   "tmdb:40641": {
     "backdrop_path": "/mvu1Sp0lrgDgP9e7pMMyIhiyv0z.jpg",
@@ -39875,6 +40106,39 @@
     "tmdb_title_jp": "うつくしいひと",
     "tmdb_title_original": "うつくしいひと",
     "vote_average": 0.0
+  },
+  "tmdb:41845": {
+    "backdrop_path": "/kEXmVBiZtrmdu6qV1NYFPkam2Vs.jpg",
+    "director": "角川春樹",
+    "director_en": "Haruki Kadokawa",
+    "director_jp": "角川春樹",
+    "genres": [
+      "ドラマ",
+      "履歴",
+      "戦争"
+    ],
+    "genres_en": [
+      "Drama",
+      "History",
+      "War"
+    ],
+    "overview": "天文十七年（1548年）。時代は戦国、下克上の世。越後の長尾景虎、後の上杉謙信は、兄に天誅を加えるなど冷徹な闘いぶりをみせていた。一方、甲斐の国では大きな野望を胸に武田晴信、後の武田信玄が勢力を拡大していた。戦乱の中で非情に徹することができない景虎は苦悩の末に城を捨て修行僧になる。が、晴信の無礼に遭遇した景虎は武田陣打倒を決意するのだった。",
+    "overview_en": "Warlords Kagetora and Takeda each wish to prevent the other from gaining hegemony in feudal Japan. The two samurai leaders pursue one another across the countryside, engaging in massive battles of cavalry and infantry. Younger and less brutal, Kagetora must find the strength to be as brutal as his opponent, but at what cost?",
+    "poster_path": "/mWVmSpn2aLb3o1ehPDb2xSuTYNE.jpg",
+    "release_date": "1990-11-24",
+    "runtime": 119,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 41845,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Heaven and Earth",
+    "tmdb_title_jp": "天と地と",
+    "tmdb_title_original": "天と地と",
+    "vote_average": 6.167
   },
   "tmdb:4194": {
     "backdrop_path": "/o4J01PEdAnv3B01LZGZLw19gEHy.jpg",
@@ -41613,6 +41877,37 @@
     "tmdb_title_jp": "暗戰 2",
     "tmdb_title_original": "暗戰 2",
     "vote_average": 6.0
+  },
+  "tmdb:454353": {
+    "backdrop_path": "/8j0vL46YPT5Ix1hEbBnKnYqJflV.jpg",
+    "director": "井筒和幸",
+    "director_en": "Kazuyuki Izutsu",
+    "director_jp": "井筒和幸",
+    "genres": [
+      "コメディ",
+      "謎"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Mystery"
+    ],
+    "overview": "アメリカ留学から帰国した北里可奈子は、死の間際に母の浪子から衝撃的な告白を受ける。コールガール殺人事件を目撃した浪子は、娘を殺すと脅迫されたため、無実の人間に罪を着せ自殺に追い込んでしまったのだという。真犯人は北里家の身近な人間だというが、その名を告げる前に息を引き取ってしまった。浪子の通夜が行われ、北里産業の雇われ社長の円谷、その息子で可奈子に結婚を迫る正彦、無表情で得体の知れない社長秘書の水原、主治医の菊井など、怪しい人間が続々と現れる。",
+    "overview_en": "Kanako returns from the USA to a troubled mother who witnessed a man leaving a murder scene and is consequently under persistent threat. For the time being.",
+    "poster_path": "/5uW5mUpDnpQCiYiC5Bo9LOjfYcS.jpg",
+    "release_date": "1984-05-26",
+    "runtime": 98,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 454353,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Fine, with Occasional Murders",
+    "tmdb_title_jp": "晴れ、ときどき殺人",
+    "tmdb_title_original": "晴れ、ときどき殺人",
+    "vote_average": 7.333
   },
   "tmdb:455448": {
     "backdrop_path": "/linBSa5ngeY9EyOC0xfSMucmexr.jpg",
@@ -44121,6 +44416,43 @@
     "tmdb_title_jp": "ダイヤルMを廻せ！",
     "tmdb_title_original": "Dial M for Murder",
     "vote_average": 8.005
+  },
+  "tmdb:522369": {
+    "backdrop_path": "/bO7uK55yHE7hZobRN798rytCQuq.jpg",
+    "director": "肯·洛奇",
+    "director_en": "Ken Loach",
+    "director_jp": "肯·洛奇",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Ricky and his family have been fighting an uphill struggle against debt since the 2008 financial crash. An opportunity to wrestle back some independence appears with a shiny new van and the chance to run a franchise as a self-employed delivery driver. It's hard work, and his wife's job as a carer is no easier. The family unit is strong but when both are pulled in different directions everything comes to breaking point.",
+    "poster_path": "/jNvlqNDnXH8aqBeiBxNNP0wWWO3.jpg",
+    "release_date": "2019-10-04",
+    "runtime": 101,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "BE",
+        "name": "Belgium"
+      }
+    ],
+    "tmdb_id": 522369,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Sorry We Missed You",
+    "tmdb_title_jp": "家族を想うとき",
+    "tmdb_title_original": "Sorry We Missed You",
+    "vote_average": 7.333
   },
   "tmdb:523218": {
     "backdrop_path": "/obAlojLDd3uapPQJRjaCc4Z4rWH.jpg",
@@ -54272,6 +54604,35 @@
     "tmdb_title_original": "浪花侠客　度胸七人斬り",
     "vote_average": 0.0
   },
+  "tmdb:881528": {
+    "backdrop_path": null,
+    "director": "土方鉄人",
+    "director_en": "Temujin Hijikata",
+    "director_jp": "土方鉄人",
+    "genres": [
+      "戦争"
+    ],
+    "genres_en": [
+      "War"
+    ],
+    "overview": "",
+    "overview_en": "The relationship between Japan and Keros became tense due to the conflict between the salmon and trout fishing grounds in the north. The government tried to survive by offering the Northern Territories to Keros, who gathered the Keros faction elements in the corps in the central mountains and aimed to invade at once, but the defense agency executive who was dissatisfied with this kept secret to the police officer Lieutenant Ando. I ordered you to subdue. Then, dozens of daredevils, including Mitsuharu Hanai, who joined the army for some reason, gathered and trained in excellent commands. Hard training continued every day, and finally the sortie order came down.",
+    "poster_path": "/v4sgaccDkpElunWSN0mBqKCFhao.jpg",
+    "release_date": "1977-06-22",
+    "runtime": 83,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 881528,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Attack!! Gang Army",
+    "tmdb_title_jp": "特攻任侠自衛隊",
+    "tmdb_title_original": "特攻任侠自衛隊",
+    "vote_average": 0.0
+  },
   "tmdb:88273": {
     "backdrop_path": "/mcoZV42CxmW07Ob8ynDuZ7wKZSr.jpg",
     "director": "Nikolaj Arcel",
@@ -61498,6 +61859,7 @@
     "tmdb_title_original": "The Usual Suspects",
     "vote_average": 8.169
   },
+  "【NTLive】インター・エイリア": null,
   "【SAMANSAショート傑作選】アニメーション": null,
   "【SAMANSAショート傑作選】実写部門": null,
   "【TBS】\"死刑宣告\"の女性弁護士 アフガンか": null,
@@ -68982,6 +69344,43 @@
     "tmdb_title_original": "わたしの頭はいつもうるさい",
     "vote_average": 0.0
   },
+  "わたしは、ダニエル・ブレイク": {
+    "backdrop_path": "/mNLonkdD4MtaZnHTifp8be8nJrm.jpg",
+    "director": "肯·洛奇",
+    "director_en": "Ken Loach",
+    "director_jp": "肯·洛奇",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "イギリス北東部ニューカッスルで大工として働く59歳のダニエル・ブレイクは、心臓の病を患い医者から仕事を止められる。国の援助を受けようとするが、複雑な制度が立ちふさがり必要な援助を受けることが出来ない。悪戦苦闘するダニエルだったが、シングルマザーのケイティと二人の子供の家族を助けたことから、交流が生まれる。貧しいなかでも、寄り添い合い絆を深めていくダニエルとケイティたち。しかし、厳しい現実が彼らを次第に追いつめていく。",
+    "overview_en": "A middle aged carpenter, who requires state welfare after injuring himself, is joined by a single mother in a similar scenario.",
+    "poster_path": "/wOw1qfuRuk1HveEKU0eX3MqS776.jpg",
+    "release_date": "2016-10-21",
+    "runtime": 100,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "BE",
+        "name": "Belgium"
+      }
+    ],
+    "tmdb_id": 374473,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "I, Daniel Blake",
+    "tmdb_title_jp": "わたしは、ダニエル・ブレイク",
+    "tmdb_title_original": "I, Daniel Blake",
+    "vote_average": 7.709
+  },
   "わたしは最悪。": {
     "backdrop_path": "/4oWU9FPOvjCE85DaHm4vo89Whpz.jpg",
     "director": "ヨアキム・トリアー",
@@ -71989,6 +72388,7 @@
     "tmdb_title_original": "Elis & Tom: Só Tinha de Ser com Você",
     "vote_average": 8.0
   },
+  "エリス＆トムーボサノバ名盤誕生秘話ー": null,
   "エルジ": {
     "backdrop_path": "/hA9PSz23iaYt0ZtPC45UnROT6SA.jpg",
     "director": "Julian Jarrold",
@@ -72289,6 +72689,7 @@
     "tmdb_title_original": "エロス＋虐殺",
     "vote_average": 7.3
   },
+  "エンドレス・サマー": null,
   "オステンデ": null,
   "オスロ、8月31日": {
     "backdrop_path": "/9JPzNkDAzrnqINyaYMKfgL4FZPT.jpg",
@@ -73531,6 +73932,7 @@
     "tmdb_title_original": "Kim's Video",
     "vote_average": 6.9
   },
+  "キャバレー（1986）": null,
   "キャリー（1976）": {
     "backdrop_path": "/zwJFfKQdfiptK2GY6N8GkZFrAxJ.jpg",
     "director": "ブライアン・デ・パルマ",
@@ -81178,6 +81580,45 @@
     "tmdb_title_original": "The Devil's Rejects",
     "vote_average": 6.744
   },
+  "デンジャラス・アニマルズ 絶望海域（字幕）": {
+    "backdrop_path": "/i5kvIf73Vrxu4lYF6rby0yw4FX2.jpg",
+    "director": "Sean Byrne",
+    "director_en": "Sean Byrne",
+    "director_jp": "Sean Byrne",
+    "genres": [
+      "ホラー",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Horror",
+      "Thriller"
+    ],
+    "overview": "過去の傷を癒やすためオーストラリアのゴーストコールドへ逃れてきた孤独なサーファー、ゼファー。ようやく生活に落ち着きを取り戻しつつあったある日、サーフィンのため海に向かった彼女は、サメ体験ツアー船の船長タッカーにさらわれ、もうひとりの若い女性ヘザーとともに船上に監禁される。タッカーがサメに取り憑かれたサイコパスであることを察したゼファーは、陸地から遠く離れた海の上で、海には危険生物のサメ、船上には危険人物タッカーという絶望的な状況から逃げ延びる術を探るが……。",
+    "overview_en": "A savvy and free-spirited surfer is abducted by a shark-obsessed serial killer. Held captive on his boat, she must figure out how to escape before he carries out a ritualistic feeding to the sharks below.",
+    "poster_path": "/9tk3Si960hg4E49eMt81dS7Qe9Z.jpg",
+    "release_date": "2025-06-05",
+    "runtime": 98,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "AU",
+        "name": "Australia"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "CA",
+        "name": "Canada"
+      }
+    ],
+    "tmdb_id": 1285965,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Dangerous Animals",
+    "tmdb_title_jp": "デンジャラス・アニマルズ 絶望海域",
+    "tmdb_title_original": "Dangerous Animals",
+    "vote_average": 6.414
+  },
   "デンジャラス・アニマルズ　絶望海域": {
     "backdrop_path": "/i5kvIf73Vrxu4lYF6rby0yw4FX2.jpg",
     "director": "Sean Byrne",
@@ -82013,6 +82454,39 @@
     "vote_average": 6.917
   },
   "ドランクヌードル": null,
+  "ドランクヌードル（字幕）": {
+    "backdrop_path": "/h32RN3kiI6tq9V5GeEJo58Sd26i.jpg",
+    "director": "Lucio Castro",
+    "director_en": "Lucio Castro",
+    "director_jp": "Lucio Castro",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Adnan, a young art student, arrives in New York to spend the summer in an apartment. He interns at a gallery that exhibits the work of an older, unconventional artist he once crossed paths with. As moments from his past and present intertwine, a series of encounters, both artistic and erotic, open gaps in his everyday reality.",
+    "poster_path": "/x9o3BQzeJzwXJIOhPq71CUHy7fA.jpg",
+    "release_date": "2026-04-22",
+    "runtime": 81,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "AR",
+        "name": "Argentina"
+      }
+    ],
+    "tmdb_id": 1462889,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Drunken Noodles",
+    "tmdb_title_jp": "Drunken Noodles",
+    "tmdb_title_original": "Drunken Noodles",
+    "vote_average": 0.0
+  },
   "ドント・クライ　プリティ・ガールズ！": {
     "backdrop_path": "/mhWScMKdgYpiYz8AZQFWaO4p54I.jpg",
     "director": "Márta Mészáros",
@@ -83140,7 +83614,42 @@
     "tmdb_title_original": "ハローマイフレンド",
     "vote_average": 0.0
   },
+  "ハードボイルドハネムーン HARDBOILED HONEYMOON": null,
   "ハード・トゥルース": null,
+  "ハード・トゥルース　母の日に願うこと": null,
+  "バイバイ・ラブ": {
+    "backdrop_path": "/yrBqJ8Dy0SpiVTV9igt2YWXi6OB.jpg",
+    "director": "藤沢勇夫",
+    "director_en": "Isao Fujisawa",
+    "director_jp": "藤沢勇夫",
+    "genres": [
+      "犯罪",
+      "ドラマ",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Crime",
+      "Drama",
+      "Romance"
+    ],
+    "overview": "",
+    "overview_en": "Two young people undertake a doomed summer road trip through Japan, which in turn reflects on the dissipating promise of 1960s counterculture and free love.",
+    "poster_path": "/71DsMeMvbD1kL1aGJP6ks0aFGOP.jpg",
+    "release_date": "1974-12-06",
+    "runtime": 85,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1055769,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Bye Bye Love",
+    "tmdb_title_jp": "バイバイ・ラブ",
+    "tmdb_title_original": "バイバイ・ラブ",
+    "vote_average": 6.0
+  },
   "バウンス ko GALS": {
     "backdrop_path": "/6ydWiE5kTiyfRKHlOFhzu8jKrch.jpg",
     "director": "原田眞人",
@@ -86374,6 +86883,43 @@
     "vote_average": 6.268
   },
   "プシュパ　覚醒": null,
+  "プッシャー2【4Kデジタル修復版】（字幕）": {
+    "backdrop_path": "/2MG8bwkkvypszwWa2oLlSmcgqJl.jpg",
+    "director": "ニコラス・ウィンディング・レフン",
+    "director_en": "Nicolas Winding Refn",
+    "director_jp": "ニコラス・ウィンディング・レフン",
+    "genres": [
+      "アクション",
+      "犯罪",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Tonny is released from prison - again. This time he has his mind set on changing his broken down life, but that is easier said than done.",
+    "poster_path": "/oQgRjuQgsLJEwJ232MjWkBfUmVB.jpg",
+    "release_date": "2004-12-25",
+    "runtime": 100,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "DK",
+        "name": "Denmark"
+      },
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      }
+    ],
+    "tmdb_id": 11328,
+    "tmdb_original_language": "da",
+    "tmdb_title_en": "Pusher II",
+    "tmdb_title_jp": "プッシャー2",
+    "tmdb_title_original": "Pusher II",
+    "vote_average": 7.168
+  },
   "プッシャー2修復版": {
     "backdrop_path": "/2MG8bwkkvypszwWa2oLlSmcgqJl.jpg",
     "director": "ニコラス・ウィンディング・レフン",
@@ -89632,6 +90178,7 @@
     "tmdb_title_original": "Moloch",
     "vote_average": 5.997
   },
+  "モロカイ・バウンド": null,
   "モロッコ、彼女たちの朝": {
     "backdrop_path": "/bQN1X1x67bgxCuVDeayP6SGbuJV.jpg",
     "director": "Winford Collings",
@@ -95272,6 +95819,43 @@
     "tmdb_title_original": "Les Aventuriers",
     "vote_average": 6.9
   },
+  "冒険者たち（1967）": {
+    "backdrop_path": "/efJb6KshAYsGhPKAtCGQVeEmRh8.jpg",
+    "director": "Robert Enrico",
+    "director_en": "Robert Enrico",
+    "director_jp": "Robert Enrico",
+    "genres": [
+      "アドベンチャー",
+      "ドラマ",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Adventure",
+      "Drama",
+      "Romance"
+    ],
+    "overview": "『穴』、『ル・ジタン』のジョゼ・ジョヴァンニの原作を、『オー！』、『追想』のロベール・アンリコが監督。せつないほどに美しいジャン・ボフェティの撮影と、フランソワ・ド・ルーベの音楽で綴った、もはや説明不要の青春レクイエムの傑作。パリ郊外の飛行クラブで教官を務めるマヌー（アラン・ドロン）、レーシングカーの画期的なエンジン開発にいそしむローラン（リノ・ヴァンチュラ）、そして前衛彫刻家の卵、レティシア（ジョアンナ・シムカス）。微妙なバランスの友情で結ばれた三人は、コンゴ動乱の際に海底深く沈んだ5億フランの財宝を引き上げるため、アフリカの海に旅立った。しかし、その財宝をつけ狙う一味が現れ……。",
+    "overview_en": "Two adventurers and best friends, Roland and Manu, are the victims of a practical joke that costs Manu his pilot's license. With seeming contrition, the jokesters tell Roland and Manu about a crashed plane lying on the ocean floor off the coast of Congo stuffed with riches. The adventurers set off to find the loot.",
+    "poster_path": "/jrSH2PPwI73LXddFwcrmuuMwfZt.jpg",
+    "release_date": "1967-04-12",
+    "runtime": 112,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "IT",
+        "name": "Italy"
+      }
+    ],
+    "tmdb_id": 11396,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "The Last Adventure",
+    "tmdb_title_jp": "冒険者たち",
+    "tmdb_title_original": "Les Aventuriers",
+    "vote_average": 6.9
+  },
   "冬の旅": {
     "backdrop_path": "/tKsFh8qpYyi2AMg5O8QTVdChm4k.jpg",
     "director": "阿涅斯·瓦尔达",
@@ -97279,6 +97863,37 @@
     "tmdb_title_original": "喜劇 男は愛嬌",
     "vote_average": 0.0
   },
+  "喜談 南海變化玉": {
+    "backdrop_path": null,
+    "director": "長嶺高文",
+    "director_en": "Takafumi Nagamine",
+    "director_jp": "長嶺高文",
+    "genres": [
+      "コメディ",
+      "ホラー"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Horror"
+    ],
+    "overview": "",
+    "overview_en": "The Panorama Group, a group of young people who work together with an old professor who is passionate about making hot air balloons a reality, dream of taking to the skies of the South Seas, but there are various obstacles in their way.",
+    "poster_path": "/16u6EaicrOuaAw4hhucZWwvMgXg.jpg",
+    "release_date": "1978-11-17",
+    "runtime": 90,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 394538,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Happy Story Nankai Changgyoku",
+    "tmdb_title_jp": "喜談　南海變化玉",
+    "tmdb_title_original": "喜談　南海變化玉",
+    "vote_average": 0.0
+  },
   "喝采": {
     "backdrop_path": "/Rsh1NIh9Xlwp6bTs4djjdDcZrb.jpg",
     "director": "マイケル・クリストファー",
@@ -99020,6 +99635,39 @@
     "tmdb_title_original": "大長編　タローマン　万博大爆発",
     "vote_average": 0.0
   },
+  "天と地と": {
+    "backdrop_path": "/kEXmVBiZtrmdu6qV1NYFPkam2Vs.jpg",
+    "director": "角川春樹",
+    "director_en": "Haruki Kadokawa",
+    "director_jp": "角川春樹",
+    "genres": [
+      "ドラマ",
+      "履歴",
+      "戦争"
+    ],
+    "genres_en": [
+      "Drama",
+      "History",
+      "War"
+    ],
+    "overview": "天文十七年（1548年）。時代は戦国、下克上の世。越後の長尾景虎、後の上杉謙信は、兄に天誅を加えるなど冷徹な闘いぶりをみせていた。一方、甲斐の国では大きな野望を胸に武田晴信、後の武田信玄が勢力を拡大していた。戦乱の中で非情に徹することができない景虎は苦悩の末に城を捨て修行僧になる。が、晴信の無礼に遭遇した景虎は武田陣打倒を決意するのだった。",
+    "overview_en": "Warlords Kagetora and Takeda each wish to prevent the other from gaining hegemony in feudal Japan. The two samurai leaders pursue one another across the countryside, engaging in massive battles of cavalry and infantry. Younger and less brutal, Kagetora must find the strength to be as brutal as his opponent, but at what cost?",
+    "poster_path": "/mWVmSpn2aLb3o1ehPDb2xSuTYNE.jpg",
+    "release_date": "1990-11-24",
+    "runtime": 119,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 41845,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Heaven and Earth",
+    "tmdb_title_jp": "天と地と",
+    "tmdb_title_original": "天と地と",
+    "vote_average": 6.167
+  },
   "天井 ／ 袋いっぱいの蚤": null,
   "天使たち": {
     "backdrop_path": "/cmIW9HjJnNVRMHmz5H7V7KGrgHR.jpg",
@@ -99312,6 +99960,37 @@
     "tmdb_title_jp": "天気の子",
     "tmdb_title_original": "天気の子",
     "vote_average": 7.98
+  },
+  "天河伝説殺人事件": {
+    "backdrop_path": "/A5TNGeGQQyi81e15lObS8xdpmPb.jpg",
+    "director": "市川崑",
+    "director_en": "Kon Ichikawa",
+    "director_jp": "市川崑",
+    "genres": [
+      "謎",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Mystery",
+      "Drama"
+    ],
+    "overview": "能をテーマにした取材の為、吉野の天河神社を訪れた紀行ライターの浅見光彦は、変死体で発見された能の宗家・水上流長老の殺人容疑で逮捕される。すぐに容疑が晴れ釈放された光彦はその後、水上流後継者をめぐる殺人事件に関わってゆく。",
+    "overview_en": "The patriarch of a bickering family announces his retirement, stirring competition about who will succeed him as a leading practitioner of Noh theater, his granddaughter or grandson.",
+    "poster_path": "/2OeZUkH7UFlOXYrYIqf41Og2wYO.jpg",
+    "release_date": "1991-03-16",
+    "runtime": 109,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 406253,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Noh Mask Murders",
+    "tmdb_title_jp": "天河伝説殺人事件",
+    "tmdb_title_original": "天河伝説殺人事件",
+    "vote_average": 6.333
   },
   "太陽 デジタル・リマスター版": null,
   "太陽がいっぱい": {
@@ -100732,6 +101411,43 @@
     "tmdb_title_jp": "Courtroom 3H",
     "tmdb_title_original": "Courtroom 3H",
     "vote_average": 0.0
+  },
+  "家族を想うとき": {
+    "backdrop_path": "/bO7uK55yHE7hZobRN798rytCQuq.jpg",
+    "director": "肯·洛奇",
+    "director_en": "Ken Loach",
+    "director_jp": "肯·洛奇",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Ricky and his family have been fighting an uphill struggle against debt since the 2008 financial crash. An opportunity to wrestle back some independence appears with a shiny new van and the chance to run a franchise as a self-employed delivery driver. It's hard work, and his wife's job as a carer is no easier. The family unit is strong but when both are pulled in different directions everything comes to breaking point.",
+    "poster_path": "/jNvlqNDnXH8aqBeiBxNNP0wWWO3.jpg",
+    "release_date": "2019-10-04",
+    "runtime": 101,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "BE",
+        "name": "Belgium"
+      }
+    ],
+    "tmdb_id": 522369,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Sorry We Missed You",
+    "tmdb_title_jp": "家族を想うとき",
+    "tmdb_title_original": "Sorry We Missed You",
+    "vote_average": 7.333
   },
   "密告": {
     "backdrop_path": "/sUvL8Qhl349pRBr4WESwN9LkAYw.jpg",
@@ -106199,6 +106915,37 @@
     "vote_average": 8.2
   },
   "時代劇作品集": null,
+  "晴れ、ときどき殺人": {
+    "backdrop_path": "/8j0vL46YPT5Ix1hEbBnKnYqJflV.jpg",
+    "director": "井筒和幸",
+    "director_en": "Kazuyuki Izutsu",
+    "director_jp": "井筒和幸",
+    "genres": [
+      "コメディ",
+      "謎"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Mystery"
+    ],
+    "overview": "アメリカ留学から帰国した北里可奈子は、死の間際に母の浪子から衝撃的な告白を受ける。コールガール殺人事件を目撃した浪子は、娘を殺すと脅迫されたため、無実の人間に罪を着せ自殺に追い込んでしまったのだという。真犯人は北里家の身近な人間だというが、その名を告げる前に息を引き取ってしまった。浪子の通夜が行われ、北里産業の雇われ社長の円谷、その息子で可奈子に結婚を迫る正彦、無表情で得体の知れない社長秘書の水原、主治医の菊井など、怪しい人間が続々と現れる。",
+    "overview_en": "Kanako returns from the USA to a troubled mother who witnessed a man leaving a murder scene and is consequently under persistent threat. For the time being.",
+    "poster_path": "/5uW5mUpDnpQCiYiC5Bo9LOjfYcS.jpg",
+    "release_date": "1984-05-26",
+    "runtime": 98,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 454353,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Fine, with Occasional Murders",
+    "tmdb_title_jp": "晴れ、ときどき殺人",
+    "tmdb_title_original": "晴れ、ときどき殺人",
+    "vote_average": 7.333
+  },
   "暁に帰る": {
     "backdrop_path": "/xzUniUUup6aY0a7r6s5R7Sbyk27.jpg",
     "director": "Henri Decoin",
@@ -107914,6 +108661,7 @@
   },
   "構造映画作品集": null,
   "模倣の人生": null,
+  "横浜フランス月間2026": null,
   "横道世之介": {
     "backdrop_path": "/9HDeNxV4NDenwMzC1Gx9pnBeRZ2.jpg",
     "director": "沖田修一",
@@ -111412,6 +112160,35 @@
     "vote_average": 6.8
   },
   "特攻の海 3Dが語る80年目の真実": null,
+  "特攻任侠自衛隊": {
+    "backdrop_path": null,
+    "director": "土方鉄人",
+    "director_en": "Temujin Hijikata",
+    "director_jp": "土方鉄人",
+    "genres": [
+      "戦争"
+    ],
+    "genres_en": [
+      "War"
+    ],
+    "overview": "",
+    "overview_en": "The relationship between Japan and Keros became tense due to the conflict between the salmon and trout fishing grounds in the north. The government tried to survive by offering the Northern Territories to Keros, who gathered the Keros faction elements in the corps in the central mountains and aimed to invade at once, but the defense agency executive who was dissatisfied with this kept secret to the police officer Lieutenant Ando. I ordered you to subdue. Then, dozens of daredevils, including Mitsuharu Hanai, who joined the army for some reason, gathered and trained in excellent commands. Hard training continued every day, and finally the sortie order came down.",
+    "poster_path": "/v4sgaccDkpElunWSN0mBqKCFhao.jpg",
+    "release_date": "1977-06-22",
+    "runtime": 83,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 881528,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Attack!! Gang Army",
+    "tmdb_title_jp": "特攻任侠自衛隊",
+    "tmdb_title_original": "特攻任侠自衛隊",
+    "vote_average": 0.0
+  },
   "特集:ハル・ハートリー 90’sインディーズの伝説": null,
   "犬神家の一族（1976）": {
     "backdrop_path": "/b2dcI0hBjadtqq6rzQoGBcSvSDp.jpg",
@@ -113498,6 +114275,39 @@
     "tmdb_title_original": "立てば転ぶ",
     "vote_average": 0.0
   },
+  "竜宮の誘い": {
+    "backdrop_path": "/ehpz5vS8SNVU1piohcEiZxV8jhN.jpg",
+    "director": "Jun Yamada",
+    "director_en": "Jun Yamada",
+    "director_jp": "Jun Yamada",
+    "genres": [
+      "スリラー",
+      "犯罪",
+      "コメディ"
+    ],
+    "genres_en": [
+      "Thriller",
+      "Crime",
+      "Comedy"
+    ],
+    "overview": "キャバクラでボーイとして働く若者・サトウには食人願望があった。ある日、勤務先で偶然拾ったスマホをきっかけに、サトウは謎めいた二人組に脅迫され、運び屋として裏社会の稼業に従事する。違法な仕事で金を手にしたサトウは、やがてその稼ぎを用いて己の野望を果たさんと動き出す。",
+    "overview_en": "Sato is a young man consumed by a desire to eat human flesh. One day, he stumbles upon a discarded phone outside the hostess club where he works, which entangles him in the shady underbelly of society. As he sinks deeper into the criminal underworld, Sato's twisted hunger grows — until he finally kills to satisfy his craving for human flesh.",
+    "poster_path": "/kv1athkh1do8Y5aV9XtUjW7v0g1.jpg",
+    "release_date": "2026-05-08",
+    "runtime": 93,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1569763,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Into the Belly of the Beast",
+    "tmdb_title_jp": "竜宮の誘い",
+    "tmdb_title_original": "竜宮の誘い",
+    "vote_average": 0.0
+  },
   "笑う相続人": {
     "backdrop_path": "/81ZqsUyF5I4e4bYXNZbpt9PTrfO.jpg",
     "director": "Max Ophüls",
@@ -114209,6 +115019,37 @@
     "tmdb_title_jp": "続・愛と誠",
     "tmdb_title_original": "続　愛と誠",
     "vote_average": 0.0
+  },
+  "続道場破り 問答無用": {
+    "backdrop_path": "/icxLEwyKfnXSFSsDESk9NXdQFrm.jpg",
+    "director": "Yasushi Kikuchi",
+    "director_en": "Yasushi Kikuchi",
+    "director_jp": "Yasushi Kikuchi",
+    "genres": [
+      "アクション",
+      "アドベンチャー"
+    ],
+    "genres_en": [
+      "Action",
+      "Adventure"
+    ],
+    "overview": "",
+    "overview_en": "Young Lord Takenaka stands to succeed his father until a series of violent actions lead his retainers to think that he has gone mad with blood-lust.  Never offering any explanation, he continues his seemingly unprovoked attacks until he is sent away from his domain.",
+    "poster_path": "/wdpCE5GO7DtqgA7IYLVWoHTfUdM.jpg",
+    "release_date": "1964-12-07",
+    "runtime": 90,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 148222,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Samurai from Somewhere",
+    "tmdb_title_jp": "続・道場破り　問答無用",
+    "tmdb_title_original": "続・道場破り　問答無用",
+    "vote_average": 7.0
   },
   "緋牡丹博徒　花札勝負": {
     "backdrop_path": "/eMwVtL9Y6cPQS8TmO6zBpr9vnrl.jpg",
@@ -118947,6 +119788,7 @@
     "tmdb_title_original": "雨月物語",
     "vote_average": 8.003
   },
+  "雪之丞変化（1963）": null,
   "雪夫人絵図": {
     "backdrop_path": "/3VmllcrUxsS9xYUG82QY6OuRLXf.jpg",
     "director": "溝口健二",
