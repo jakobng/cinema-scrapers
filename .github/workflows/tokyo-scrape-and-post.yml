@@ -11,19 +11,21 @@ on:
         options:
         - cinema
         - movie
+        - data
       skip_scrape:
         description: 'Skip scraper and reuse committed showtimes.json'
         required: true
         default: false
         type: boolean
   schedule:
-    # 22:00 UTC = 07:00 JST (Cinema Daily)
+    # 22:00 UTC = 07:00 JST (daily data refresh; weekly cinema collage on Mondays)
     - cron: '0 22 * * *'
     # 23:00 UTC = 08:00 JST (Single Movie Spotlight)
     - cron: '0 23 * * *'
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   scrape-and-post:
@@ -82,16 +84,16 @@ jobs:
             scheduled_cron="${{ github.event.schedule }}"
             echo "Scheduled cron: $scheduled_cron"
 
-            # 22:00 UTC = 07:00 JST -> Cinema post daily; scraper runs every other day.
+            # 22:00 UTC = 07:00 JST -> scrape daily; cinema collage only on Mondays.
             # 23:00 UTC = 08:00 JST -> Movie post, never scrape.
             if [ "$scheduled_cron" == "0 22 * * *" ]; then
-              TYPE="cinema"
-              day_of_year=$(TZ=Asia/Tokyo date +%j)
-              echo "JST day of year: $day_of_year"
-              if [ $((10#$day_of_year % 2)) -eq 0 ]; then
-                SCRAPE="true"
+              SCRAPE="true"
+              day_of_week=$(TZ=Asia/Tokyo date +%u)
+              echo "JST day of week: $day_of_week"
+              if [ "$day_of_week" == "1" ]; then
+                TYPE="cinema"
               else
-                SCRAPE="false"
+                TYPE="data"
               fi
             elif [ "$scheduled_cron" == "0 23 * * *" ]; then
               TYPE="movie"
@@ -100,7 +102,7 @@ jobs:
             
           elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             TYPE="${{ inputs.post_type }}"
-            # Manual movie mode always skips scraping. Cinema mode can also skip it explicitly.
+            # Manual movie mode always skips scraping. Cinema/data modes can also skip it explicitly.
             if [ "$TYPE" == "movie" ] || [ "${{ inputs.skip_scrape }}" == "true" ]; then
               SCRAPE="false"
             else
@@ -126,9 +128,6 @@ jobs:
         id: run_scraper
         if: steps.mode.outputs.run_scraper == 'true'
         run: python main_scraper.py
-        env:
-          GEMINI_RESOLVE_TITLES: "1"
-          GEMINI_BATCH_SIZE: "8"
 
       # --- STEP 1b: VALIDATE SCRAPED DATA ---
       - name: Validate Showtime Data
@@ -219,6 +218,7 @@ jobs:
 
       # --- STEP 4: WAIT FOR GITHUB PAGES TO DEPLOY ---
       - name: Wait for GitHub Pages deployment
+        if: steps.mode.outputs.post_type != 'data'
         run: |
           echo "⏳ Polling GitHub Pages for image availability..."
           TEST_FILE=$(ls ig_posts/post_image_01.png ig_posts/post_v2_image_01.png 2>/dev/null | head -1)
@@ -249,6 +249,7 @@ jobs:
       # --- STEP 5: UPLOAD TO INSTAGRAM ---
       - name: Upload to Instagram
         id: instagram_upload
+        if: steps.mode.outputs.post_type != 'data'
         run: python upload_to_instagram.py --type ${{ steps.mode.outputs.post_type }}
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
@@ -308,3 +309,14 @@ jobs:
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
+
+      - name: Create Auto-Fix Issue
+        if: failure()
+        run: |
+          bash "$GITHUB_WORKSPACE/.github/scripts/create_autofix_issue.sh" \
+            tokyo \
+            "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            "${{ github.workflow }}" \
+            "${{ github.run_id }}"
+        env:
+          GH_TOKEN: ${{ github.token }}

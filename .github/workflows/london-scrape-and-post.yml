@@ -11,14 +11,18 @@ on:
         options:
         - cinema
         - movie
+        - data
   schedule:
     # We run at 6, 7, and 8 AM UTC to ensure we hit 7 AM and 8 AM local London time regardless of BST/GMT
     # GMT (Winter): 7 AM UTC is 7 AM local, 8 AM UTC is 8 AM local.
     # BST (Summer): 6 AM UTC is 7 AM local, 7 AM UTC is 8 AM local.
+    # 7 AM local refreshes data daily and creates the expensive cinema collage only on Mondays.
+    # 8 AM local keeps the cheaper movie spotlight daily.
     - cron: '0 6,7,8 * * *'
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   scrape-and-post:
@@ -67,14 +71,14 @@ jobs:
             current_hour=$(date +%H)
             echo "Current London Hour: $current_hour"
             
-            # 7 AM local -> Cinema post daily; scraper runs every other day.
+            # 7 AM local -> scrape daily; cinema collage only on Mondays.
             if [ "$current_hour" == "07" ]; then
-              TYPE="cinema"
-              day_of_year=$(date +%j)
-              if [ $((10#$day_of_year % 2)) -eq 0 ]; then
-                SCRAPE="true"
+              SCRAPE="true"
+              day_of_week=$(date +%u)
+              if [ "$day_of_week" == "1" ]; then
+                TYPE="cinema"
               else
-                SCRAPE="false"
+                TYPE="data"
               fi
             # 8 AM local -> Skip Scraper + Movie Post
             elif [ "$current_hour" == "08" ]; then
@@ -187,6 +191,7 @@ jobs:
 
       # --- STEP 4: WAIT FOR GITHUB PAGES TO DEPLOY ---
       - name: Wait for GitHub Pages deployment
+        if: steps.mode.outputs.post_type != 'data'
         run: |
           echo "⏳ Waiting 90 seconds for GitHub Pages to deploy new images..."
           sleep 90
@@ -195,6 +200,7 @@ jobs:
       # --- STEP 5: UPLOAD TO INSTAGRAM ---
       - name: Upload to Instagram
         id: instagram_upload
+        if: steps.mode.outputs.post_type != 'data'
         run: python upload_to_instagram.py --type ${{ steps.mode.outputs.post_type }}
         env:
           IG_USER_ID: ${{ secrets.LONDON_IG_USER_ID }}
@@ -254,3 +260,14 @@ jobs:
           SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
+
+      - name: Create Auto-Fix Issue
+        if: failure()
+        run: |
+          bash "$GITHUB_WORKSPACE/.github/scripts/create_autofix_issue.sh" \
+            london \
+            "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            "${{ github.workflow }}" \
+            "${{ github.run_id }}"
+        env:
+          GH_TOKEN: ${{ github.token }}
