@@ -1,0 +1,76 @@
+{
+  "repo": "jakobng/cinema-scrapers",
+  "labels": {
+    "candidate": "auto-fix-candidate",
+    "major": "major-change-review",
+    "done": "auto-fix-done"
+  },
+  "max_patch_lines": 180,
+  "min_confidence": 0.72,
+  "cities": {
+    "london": {
+      "allowed_paths": [
+        "london/cinema_modules/",
+        "london/main_scraper.py"
+      ],
+      "blocked_paths": [
+        ".github/workflows/",
+        "shared/",
+        "tokyo/",
+        "taipei/",
+        "manchester/"
+      ],
+      "verify": [
+        "python3 -m py_compile london/main_scraper.py london/cinema_modules/*.py"
+      ]
+    },
+    "tokyo": {
+      "allowed_paths": [
+        "tokyo/cinema_modules/",
+        "tokyo/main_scraper.py"
+      ],
+      "blocked_paths": [
+        ".github/workflows/",
+        "shared/",
+        "london/",
+        "taipei/",
+        "manchester/"
+      ],
+      "verify": [
+        "python3 -m py_compile tokyo/main_scraper.py tokyo/cinema_modules/*.py"
+      ]
+    },
+    "taipei": {
+      "allowed_paths": [
+        "taipei/cinema_modules/",
+        "taipei/main_scraper.py"
+      ],
+      "blocked_paths": [
+        ".github/workflows/",
+        "shared/",
+        "london/",
+        "tokyo/",
+        "manchester/"
+      ],
+      "verify": [
+        "python3 -m py_compile taipei/main_scraper.py taipei/cinema_modules/*.py"
+      ]
+    },
+    "manchester": {
+      "allowed_paths": [
+        "manchester/cinema_modules/",
+        "manchester/main_scraper.py"
+      ],
+      "blocked_paths": [
+        ".github/workflows/",
+        "shared/",
+        "london/",
+        "tokyo/",
+        "taipei/"
+      ],
+      "verify": [
+        "python3 -m py_compile manchester/main_scraper.py manchester/cinema_modules/*.py"
+      ]
+    }
+  }
+}
