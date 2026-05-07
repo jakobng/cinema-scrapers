@@ -33,7 +33,7 @@ export OLLAMA_BASE_URL="http://localhost:11434/v1"
 ./tools/install_autofix_launchd.sh
 ```
 
-The launchd job retries every 6 hours while this Mac is awake. If the laptop is off or asleep, it simply tries again at a future 6-hour interval when launchd is running. It opens PRs only; it does not auto-merge.
+The launchd job wakes every 6 hours while this Mac is awake, but the bot records a successful run in `logs/autofix_state.json` and skips the rest of that ISO week. If the laptop is off or asleep before a successful run, it simply tries again at a future 6-hour interval when launchd is running. It opens PRs only; it does not auto-merge.
 
 ## Optional LM Studio Setup
 
@@ -69,6 +69,12 @@ Run for real and send the weekly email summary:
 
 ```bash
 python3 tools/scraper_autofix_bot.py --provider ollama --email-summary
+```
+
+Force a second run in the same week, if you really need one:
+
+```bash
+python3 tools/scraper_autofix_bot.py --provider ollama --email-summary --force
 ```
 
 ## Safety Policy

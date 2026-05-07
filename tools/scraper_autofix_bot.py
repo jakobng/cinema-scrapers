@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 from email.message import EmailMessage
 import json
 import os
@@ -18,6 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_PATH = ROOT / ".github" / "autofix-policy.json"
+STATE_PATH = ROOT / "logs" / "autofix_state.json"
 
 
 def run(cmd: list[str], *, check: bool = True, input_text: str | None = None) -> subprocess.CompletedProcess:
@@ -53,6 +54,41 @@ def ensure_clean_worktree() -> None:
 
 def current_branch() -> str:
     return run(["git", "branch", "--show-current"]).stdout.strip()
+
+
+def current_week_key() -> str:
+    year, week, _ = datetime.now(timezone.utc).isocalendar()
+    return f"{year}-W{week:02d}"
+
+
+def load_state(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def save_state(path: Path, state: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def should_skip_weekly_run(args: argparse.Namespace) -> bool:
+    if args.dry_run or args.force:
+        return False
+    state = load_state(args.state_file)
+    return state.get("last_successful_week") == current_week_key()
+
+
+def mark_weekly_run_success(args: argparse.Namespace) -> None:
+    if args.dry_run:
+        return
+    state = load_state(args.state_file)
+    state["last_successful_week"] = current_week_key()
+    state["last_successful_run_at"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    save_state(args.state_file, state)
 
 
 def infer_city(issue: dict, policy: dict) -> str | None:
@@ -442,8 +478,14 @@ def main() -> int:
     parser.add_argument("--timeout", type=int, default=180)
     parser.add_argument("--auto-merge", action="store_true")
     parser.add_argument("--email-summary", action="store_true")
+    parser.add_argument("--state-file", type=Path, default=STATE_PATH)
+    parser.add_argument("--force", action="store_true", help="Run even if this week's successful run has already completed.")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
+
+    if should_skip_weekly_run(args):
+        print(f"Auto-fix already completed successfully for {current_week_key()}; skipping until next week.")
+        return 0
 
     policy = load_policy()
     starting_branch = current_branch()
@@ -469,6 +511,7 @@ def main() -> int:
                 print(f"Error processing issue #{issue.get('number')}: {exc}", file=sys.stderr)
         if args.email_summary:
             send_summary_email(results, dry_run=args.dry_run)
+        mark_weekly_run_success(args)
     finally:
         run(["git", "checkout", starting_branch], check=False)
     return 0
