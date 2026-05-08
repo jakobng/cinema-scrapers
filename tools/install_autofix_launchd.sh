@@ -5,7 +5,7 @@ repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 plist="$HOME/Library/LaunchAgents/com.cinema-scrapers.autofix.plist"
 log_dir="$repo_dir/logs"
 provider="${AUTOFIX_MODEL_PROVIDER:-ollama}"
-model="${AUTOFIX_MODEL:-${OLLAMA_MODEL:-qwen2.5-coder:14b}}"
+model="${AUTOFIX_MODEL:-${OLLAMA_MODEL:-qwen3:14b}}"
 ollama_base_url="${OLLAMA_BASE_URL:-http://localhost:11434/v1}"
 lm_base_url="${LM_STUDIO_BASE_URL:-http://localhost:1234/v1}"
 

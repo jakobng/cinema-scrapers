@@ -18,14 +18,14 @@ This does not depend on Codex, a Codex subscription, or the OpenAI API. It does 
 Install Ollama, then pull a coding model:
 
 ```bash
-ollama pull qwen2.5-coder:14b
+ollama pull qwen3:14b
 ```
 
 The default bot settings use Ollama's OpenAI-compatible local endpoint:
 
 ```bash
 export AUTOFIX_MODEL_PROVIDER="ollama"
-export OLLAMA_MODEL="qwen2.5-coder:14b"
+export OLLAMA_MODEL="qwen3:14b"
 export OLLAMA_BASE_URL="http://localhost:11434/v1"
 ```
 
@@ -67,8 +67,10 @@ export LM_STUDIO_BASE_URL="http://localhost:1234/v1"
 Dry-run the bot without pushing against Ollama:
 
 ```bash
-python3 tools/scraper_autofix_bot.py --provider ollama --model qwen2.5-coder:14b --dry-run
+python3 tools/scraper_autofix_bot.py --provider ollama --model qwen3:14b --dry-run
 ```
+
+Optional: install an Ollama vision model and set `OLLAMA_VISION_MODEL` if you want semantic image review of generated Instagram slides in addition to the built-in image sanity checks.
 
 Dry-run against a local LM Studio model:
 

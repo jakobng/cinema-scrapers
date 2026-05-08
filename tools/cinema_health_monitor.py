@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from email.message import EmailMessage
@@ -19,6 +20,12 @@ from typing import Any
 import urllib.error
 import urllib.parse
 import urllib.request
+
+try:
+    from PIL import Image, ImageStat
+except ImportError:  # pragma: no cover - GitHub Actions installs Pillow indirectly in city jobs, but keep this optional.
+    Image = None
+    ImageStat = None
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -264,6 +271,143 @@ def audit_repo_output(config: CityConfig) -> dict[str, Any]:
     }
 
 
+def generated_image_paths(config: CityConfig) -> list[Path]:
+    folder = ROOT / config.name / "ig_posts"
+    paths: list[Path] = []
+    for pattern in ("post_v2_image_*.png", "post_image_*.png"):
+        paths.extend(sorted(folder.glob(pattern)))
+    return paths
+
+
+def newest_image_batch(config: CityConfig, limit: int) -> list[Path]:
+    return sorted(generated_image_paths(config), key=lambda path: path.stat().st_mtime, reverse=True)[:limit]
+
+
+def audit_image_files(config: CityConfig, limit: int = 12) -> dict[str, Any]:
+    paths = newest_image_batch(config, limit)
+    if not paths:
+        return {
+            "city": config.name,
+            "kind": "image-output",
+            "status": "failed",
+            "summary": "No generated Instagram images found.",
+        }
+    if Image is None or ImageStat is None:
+        return {
+            "city": config.name,
+            "kind": "image-output",
+            "status": "skipped",
+            "summary": "Pillow is not installed, so image inspection was skipped.",
+        }
+
+    issues: list[dict[str, Any]] = []
+    inspected: list[dict[str, Any]] = []
+    hashes: dict[str, str] = {}
+    for path in paths:
+        rel = str(path.relative_to(ROOT))
+        try:
+            with Image.open(path) as image:
+                image.load()
+                width, height = image.size
+                rgb = image.convert("RGB")
+                stat = ImageStat.Stat(rgb)
+                mean = sum(stat.mean) / 3
+                stdev = sum(stat.stddev) / 3
+                extrema = rgb.getextrema()
+                sha = hashlib.sha256(path.read_bytes()).hexdigest()
+                record = {
+                    "file": rel,
+                    "width": width,
+                    "height": height,
+                    "mode": image.mode,
+                    "mean_brightness": round(mean, 1),
+                    "contrast": round(stdev, 1),
+                    "sha256": sha[:16],
+                }
+                inspected.append(record)
+                if width < 600 or height < 600:
+                    issues.append({**record, "issue": "image is smaller than expected for Instagram output"})
+                if mean < 8 or mean > 247:
+                    issues.append({**record, "issue": "image is almost entirely dark or light"})
+                if stdev < 8:
+                    issues.append({**record, "issue": "image has very low visual contrast and may be blank"})
+                if any(channel[0] == channel[1] for channel in extrema) and stdev < 14:
+                    issues.append({**record, "issue": "image appears nearly flat-color"})
+                if sha in hashes:
+                    issues.append({**record, "issue": f"duplicate image bytes match {hashes[sha]}"})
+                hashes[sha] = rel
+        except Exception as exc:
+            issues.append({"file": rel, "issue": f"could not open image: {exc}"})
+
+    return {
+        "city": config.name,
+        "kind": "image-output",
+        "status": "failed" if issues else "ok",
+        "checked_count": len(inspected),
+        "issue_count": len(issues),
+        "checked": inspected,
+        "issues": issues,
+    }
+
+
+def ollama_vision_review(config: CityConfig, model: str, base_url: str, limit: int, timeout: int) -> dict[str, Any]:
+    if not model:
+        return {
+            "city": config.name,
+            "kind": "vision-output",
+            "status": "skipped",
+            "summary": "No OLLAMA_VISION_MODEL configured.",
+        }
+
+    paths = newest_image_batch(config, limit)
+    if not paths:
+        return {"city": config.name, "kind": "vision-output", "status": "failed", "summary": "No images available for vision review."}
+
+    prompt = (
+        "You are checking generated Instagram carousel slides for a cinema showtimes project. "
+        "Look for strange output: blank slides, unreadable text, garbled text, repeated/slipped layouts, "
+        "bad cropping, nonsensical images, broken poster/artwork placement, or anything that would look embarrassing. "
+        "Return compact JSON only with keys weird (boolean), summary (string), and issues (array of strings)."
+    )
+    images = [base64.b64encode(path.read_bytes()).decode("ascii") for path in paths]
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt, "images": images}],
+        "stream": False,
+        "format": "json",
+    }
+    request = urllib.request.Request(
+        f"{base_url.rstrip('/')}/api/chat",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            data = json.loads(response.read().decode("utf-8"))
+        content = data.get("message", {}).get("content", "{}")
+        review = json.loads(content)
+    except Exception as exc:
+        return {
+            "city": config.name,
+            "kind": "vision-output",
+            "status": "skipped",
+            "summary": f"Vision review could not run with model {model}: {exc}",
+            "model": model,
+        }
+
+    weird = bool(review.get("weird"))
+    return {
+        "city": config.name,
+        "kind": "vision-output",
+        "status": "failed" if weird else "ok",
+        "model": model,
+        "files": [str(path.relative_to(ROOT)) for path in paths],
+        "summary": str(review.get("summary") or ""),
+        "issues": review.get("issues") or [],
+    }
+
+
 def graph_get(path: str, params: dict[str, str], timeout: int) -> dict[str, Any]:
     url = f"https://graph.facebook.com/{GRAPH_API_VERSION}/{path.lstrip('/')}"
     query = urllib.parse.urlencode(params)
@@ -391,6 +535,7 @@ def ensure_monitor_labels(city: str) -> None:
     label_create("monitoring", "fbca04", "Automated health monitoring issue")
     label_create("source-audit", "5319e7", "Sampled source pages did not match scraped data")
     label_create("data-freshness", "d4c5f9", "Scraped data is stale, empty, or duplicated")
+    label_create("image-output", "f9d0c4", "Generated Instagram image output monitoring")
     label_create("instagram", "c5def5", "Instagram output or API monitoring")
     label_create("manual-review", "b60205", "Needs human review rather than an automatic code fix")
     label_create("auto-fix-candidate", "0e8a16", "Candidate for local scraper auto-fix bot")
@@ -457,8 +602,8 @@ def create_issues_for_failures(results: list[dict[str, Any]], dry_run: bool) -> 
         labels = ["monitoring", city]
         if kind in {"source-audit", "data-freshness"}:
             labels.extend([kind, "auto-fix-candidate"])
-        elif kind in {"instagram", "repo-output"}:
-            labels.extend(["instagram", "manual-review"])
+        elif kind in {"instagram", "repo-output", "image-output", "vision-output"}:
+            labels.extend(["instagram", "image-output", "manual-review"])
         url = create_issue(title, issue_body(result), labels, dry_run)
         if url:
             urls.append(url)
@@ -494,6 +639,8 @@ def send_summary_email(results: list[dict[str, Any]]) -> None:
             lines.append(f"  Latest IG post: {item['latest_permalink']}")
         if item.get("failure_count"):
             lines.append(f"  Source sample failures: {item['failure_count']}/{item.get('checked_count')}")
+        if item.get("issue_count"):
+            lines.append(f"  Image issues: {item['issue_count']}/{item.get('checked_count')}")
 
     msg = EmailMessage()
     msg["From"] = smtp_email
@@ -512,6 +659,10 @@ def main() -> int:
     parser.add_argument("--city", action="append", choices=sorted(CITIES), help="City to check. Repeatable. Defaults to all cities.")
     parser.add_argument("--sample-size", type=int, default=5)
     parser.add_argument("--timeout", type=int, default=20)
+    parser.add_argument("--image-limit", type=int, default=12)
+    parser.add_argument("--vision-limit", type=int, default=3)
+    parser.add_argument("--vision-model", default=os.environ.get("OLLAMA_VISION_MODEL", ""))
+    parser.add_argument("--vision-base-url", default=os.environ.get("OLLAMA_VISION_BASE_URL", os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")))
     parser.add_argument("--create-issues", action="store_true")
     parser.add_argument("--email-summary", action="store_true")
     parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
@@ -528,6 +679,8 @@ def main() -> int:
             results.append(audit_source_rows(config, rows, args.sample_size, args.timeout))
             if config.ig_user_env:
                 results.append(audit_repo_output(config))
+                results.append(audit_image_files(config, args.image_limit))
+                results.append(ollama_vision_review(config, args.vision_model, args.vision_base_url, args.vision_limit, args.timeout))
                 results.append(audit_instagram(config, args.timeout))
         except Exception as exc:
             results.append({"city": city, "kind": "monitor", "status": "failed", "summary": str(exc)})
