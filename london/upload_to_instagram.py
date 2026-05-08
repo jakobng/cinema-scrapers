@@ -57,8 +57,6 @@ def upload_single_image_container(image_url, caption):
 
 def upload_carousel_child_container(image_url):
     """Creates a child container for an item inside a carousel with retries."""
-
-    """Creates a child container for an item inside a carousel with retries."""
     url = f"{GRAPH_URL}/{IG_USER_ID}/media"
     payload = {
         "image_url": image_url,
@@ -86,6 +84,37 @@ def upload_carousel_child_container(image_url):
 
     print(f"❌ Failed to create child container after {max_retries} attempts for: {image_url}")
     return None
+
+
+def require_movie_carousel_files(feed_files, post_type):
+    """Movie posts should always include a cover plus 9 film slides."""
+    if post_type != "movie":
+        return
+
+    if len(feed_files) < 10:
+        print(
+            f"❌ Movie post generated {len(feed_files)} feed images; expected at least 10 "
+            "(cover + 9 film slides). Refusing to publish."
+        )
+        sys.exit(1)
+
+
+def require_carousel_ready(feed_files, child_ids, post_type):
+    """Prevents partial carousel uploads from being published."""
+    if post_type != "movie":
+        return
+
+    if len(child_ids) != len(feed_files):
+        failed_count = len(feed_files) - len(child_ids)
+        print(
+            f"❌ Only {len(child_ids)} of {len(feed_files)} carousel child containers "
+            f"were created ({failed_count} failed). Refusing to publish a partial movie carousel."
+        )
+        sys.exit(1)
+
+    if len(child_ids) < 2:
+        print("❌ Movie carousel has fewer than 2 publishable child containers.")
+        sys.exit(1)
 
 
 def upload_carousel_container(child_ids, caption):
@@ -194,6 +223,7 @@ def main():
 
     if feed_files:
         print(f"🔹 Detected {len(feed_files)} Feed Images.")
+        require_movie_carousel_files(feed_files, post_type)
 
         child_ids = []
         for local_path in feed_files:
@@ -203,6 +233,8 @@ def main():
             if child_id:
                 child_ids.append(child_id)
             time.sleep(2)
+
+        require_carousel_ready(feed_files, child_ids, post_type)
 
         if not child_ids:
             print("⚠️ No child containers created. Aborting feed post.")

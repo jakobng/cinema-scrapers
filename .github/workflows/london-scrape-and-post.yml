@@ -17,8 +17,10 @@ on:
     # GMT (Winter): 7 AM UTC is 7 AM local, 8 AM UTC is 8 AM local.
     # BST (Summer): 6 AM UTC is 7 AM local, 7 AM UTC is 8 AM local.
     # 7 AM local refreshes data daily and creates the expensive cinema collage only on Mondays.
-    # 8 AM local keeps the cheaper movie spotlight daily.
-    - cron: '0 6,7,8 * * *'
+    # 8 AM local refreshes data again before posting the movie spotlight.
+    - cron: '0 6 * * *'
+    - cron: '0 7 * * *'
+    - cron: '0 8 * * *'
 
 permissions:
   contents: write
@@ -68,11 +70,24 @@ jobs:
           
           # Check if triggered by Schedule or Manual
           if [ "${{ github.event_name }}" == "schedule" ]; then
-            current_hour=$(date +%H)
-            echo "Current London Hour: $current_hour"
+            schedule="${{ github.event.schedule }}"
+            echo "Schedule: $schedule"
+            scheduled_utc_hour=$(printf '%s\n' "$schedule" | awk '{print $2}')
+            scheduled_london_hour=$(SCHEDULED_UTC_HOUR="$scheduled_utc_hour" python - <<'PY'
+          from datetime import datetime, timezone
+          from zoneinfo import ZoneInfo
+          import os
+
+          hour = int(os.environ["SCHEDULED_UTC_HOUR"])
+          today_utc = datetime.now(timezone.utc).date()
+          scheduled_utc = datetime(today_utc.year, today_utc.month, today_utc.day, hour, tzinfo=timezone.utc)
+          print(scheduled_utc.astimezone(ZoneInfo("Europe/London")).strftime("%H"))
+          PY
+          )
+            echo "Scheduled London Hour: $scheduled_london_hour"
             
             # 7 AM local -> scrape daily; cinema collage only on Mondays.
-            if [ "$current_hour" == "07" ]; then
+            if [ "$scheduled_london_hour" == "07" ]; then
               SCRAPE="true"
               day_of_week=$(date +%u)
               if [ "$day_of_week" == "1" ]; then
@@ -80,20 +95,15 @@ jobs:
               else
                 TYPE="data"
               fi
-            # 8 AM local -> Skip Scraper + Movie Post
-            elif [ "$current_hour" == "08" ]; then
+            # 8 AM local -> scrape again, then Movie Post
+            elif [ "$scheduled_london_hour" == "08" ]; then
               TYPE="movie"
-              SCRAPE="false"
+              SCRAPE="true"
             fi
             
           elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             TYPE="${{ inputs.post_type }}"
-            # If manual 'movie' mode, skip scraper to save time. 
-            if [ "$TYPE" == "movie" ]; then
-              SCRAPE="false"
-            else
-              SCRAPE="true"
-            fi
+            SCRAPE="true"
           fi
           
           echo "Selected Type: $TYPE"
@@ -121,6 +131,39 @@ jobs:
           ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
+      - name: Validate Showtime Data
+        if: steps.mode.outputs.run_scraper == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          import sys
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+
+          with open('data/showtimes.json', 'r', encoding='utf-8') as f:
+              data = json.load(f)
+
+          today = datetime.now(ZoneInfo('Europe/London')).date().isoformat()
+          todays_rows = [row for row in data if row.get('date_text') == today]
+          unique_films = {
+              row.get('tmdb_id') or re.sub(r'\W+', '', str(row.get('movie_title') or '')).lower()
+              for row in todays_rows
+          }
+          unique_films.discard('')
+
+          print(f"✅ Total showings: {len(data)}")
+          print(f"✅ Today's showings ({today}): {len(todays_rows)}")
+          print(f"✅ Today's unique films: {len(unique_films)}")
+
+          if len(todays_rows) < 100:
+              print(f"❌ Only {len(todays_rows)} showings found for today; expected 100+.")
+              sys.exit(1)
+          if len(unique_films) < 9:
+              print(f"❌ Only {len(unique_films)} unique films found for today; expected at least 9.")
+              sys.exit(1)
+          PY
+
       # --- STEP 2: GENERATE CONTENT (SPLIT) ---
 
       # If CINEMA mode -> Use generate_post.py
@@ -142,6 +185,7 @@ jobs:
       # --- STEP 3: SAVE DATA ---
       - name: Commit & Push Data (Cinema Scrapers Repo)
         id: commit_data
+        if: steps.mode.outputs.post_type != 'none'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -164,6 +208,7 @@ jobs:
           echo "image_host_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Sync Data to Website1 Repo
+        if: steps.mode.outputs.post_type != 'none'
         run: |
           if [ -z "$WEBSITE1_SYNC_TOKEN" ]; then
             echo "WEBSITE1_SYNC_TOKEN is not configured; skipping website1 sync."
@@ -191,7 +236,7 @@ jobs:
 
       # --- STEP 4: WAIT FOR GITHUB PAGES TO DEPLOY ---
       - name: Wait for GitHub Pages deployment
-        if: steps.mode.outputs.post_type != 'data'
+        if: steps.mode.outputs.post_type != 'data' && steps.mode.outputs.post_type != 'none'
         run: |
           echo "⏳ Waiting 90 seconds for GitHub Pages to deploy new images..."
           sleep 90
@@ -200,7 +245,7 @@ jobs:
       # --- STEP 5: UPLOAD TO INSTAGRAM ---
       - name: Upload to Instagram
         id: instagram_upload
-        if: steps.mode.outputs.post_type != 'data'
+        if: steps.mode.outputs.post_type != 'data' && steps.mode.outputs.post_type != 'none'
         run: python upload_to_instagram.py --type ${{ steps.mode.outputs.post_type }}
         env:
           IG_USER_ID: ${{ secrets.LONDON_IG_USER_ID }}
@@ -209,7 +254,7 @@ jobs:
 
       # --- STEP 6: SEND FAILURE ALERT ---
       - name: Send Failure Alert Email
-        if: failure() && steps.instagram_upload.outcome == 'failure'
+        if: failure() && steps.mode.outputs.post_type != 'none'
         run: |
           python -c "
           import smtplib
@@ -225,15 +270,17 @@ jobs:
           msg = MIMEMultipart()
           msg['From'] = sender
           msg['To'] = recipient
-          msg['Subject'] = '🚨 Instagram Upload Failed - London Cinema Scraper'
+          msg['Subject'] = '🚨 London Cinema Scraper Workflow Failed'
 
           body = f'''
-          Instagram upload failed for your London cinema scraper.
+          The London cinema scraper workflow failed.
 
           Post Type: ${{ steps.mode.outputs.post_type }}
           Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S London')}
 
           Common causes:
+          - Scraped data is stale or below the minimum daily film/showing threshold
+          - Content generation refused to create an undersized carousel
           - Instagram access token expired or invalidated
           - Authentication error (check LONDON_IG_ACCESS_TOKEN secret)
           - API rate limit exceeded
