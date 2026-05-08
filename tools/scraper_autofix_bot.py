@@ -19,6 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_PATH = ROOT / ".github" / "autofix-policy.json"
 STATE_PATH = ROOT / "logs" / "autofix_state.json"
+HEALTH_MONITOR_PATH = ROOT / "tools" / "cinema_health_monitor.py"
 
 
 def run(cmd: list[str], *, check: bool = True, input_text: str | None = None) -> subprocess.CompletedProcess:
@@ -134,6 +135,32 @@ def list_candidate_issues(policy: dict, limit: int) -> list[dict]:
             "number,title,body,labels,url",
         ]
     )
+
+
+def run_health_monitor(args: argparse.Namespace) -> None:
+    if args.skip_health_monitor:
+        return
+    command = [
+        sys.executable,
+        str(HEALTH_MONITOR_PATH),
+        "--sample-size",
+        str(args.health_sample_size),
+        "--create-issues",
+    ]
+    if args.email_summary:
+        command.append("--email-summary")
+    if args.dry_run:
+        command.append("--dry-run")
+    completed = subprocess.run(
+        command,
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+    )
+    print(completed.stdout)
+    if completed.returncode != 0:
+        print("Health monitor found failed checks; continuing so candidate issues can still be reviewed.", file=sys.stderr)
 
 
 def call_chat_completions(
@@ -480,6 +507,8 @@ def main() -> int:
     parser.add_argument("--email-summary", action="store_true")
     parser.add_argument("--state-file", type=Path, default=STATE_PATH)
     parser.add_argument("--force", action="store_true", help="Run even if this week's successful run has already completed.")
+    parser.add_argument("--skip-health-monitor", action="store_true", help="Skip source/Instagram health checks before auto-fixing issues.")
+    parser.add_argument("--health-sample-size", type=int, default=5)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
@@ -493,6 +522,7 @@ def main() -> int:
     run(["git", "fetch", "origin", "main"])
 
     try:
+        run_health_monitor(args)
         issues = list_candidate_issues(policy, args.limit)
         results: list[dict] = []
         for issue in issues:

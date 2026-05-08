@@ -1,0 +1,54 @@
+name: Cinema - Health Monitor
+
+on:
+  workflow_dispatch:
+    inputs:
+      sample_size:
+        description: "Number of source rows to sample per city"
+        required: true
+        default: "5"
+  schedule:
+    # Weekly independent check. Auto-fix remains local; this workflow only opens issues.
+    - cron: "30 2 * * 2"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    env:
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      LONDON_IG_USER_ID: ${{ secrets.LONDON_IG_USER_ID }}
+      LONDON_IG_ACCESS_TOKEN: ${{ secrets.LONDON_IG_ACCESS_TOKEN }}
+      MANCHESTER_IG_USER_ID: ${{ secrets.MANCHESTER_IG_USER_ID }}
+      MANCHESTER_IG_ACCESS_TOKEN: ${{ secrets.MANCHESTER_IG_ACCESS_TOKEN }}
+      SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 50
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run health monitor
+        run: |
+          sample_size="${{ github.event.inputs.sample_size || '5' }}"
+          python tools/cinema_health_monitor.py \
+            --sample-size "$sample_size" \
+            --create-issues \
+            --email-summary \
+            --json
