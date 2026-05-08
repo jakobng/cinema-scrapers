@@ -497,7 +497,7 @@ def send_summary_email(results: list[dict], *, dry_run: bool = False) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Attempt safe scraper auto-fixes with a local chat-completions model API.")
     parser.add_argument("--provider", choices=["ollama", "lm-studio"], default=os.environ.get("AUTOFIX_MODEL_PROVIDER", "ollama"))
-    parser.add_argument("--model", default=os.environ.get("AUTOFIX_MODEL", os.environ.get("OLLAMA_MODEL", os.environ.get("LM_STUDIO_MODEL", "qwen2.5-coder:14b"))))
+    parser.add_argument("--model", default=os.environ.get("AUTOFIX_MODEL", os.environ.get("OLLAMA_MODEL", os.environ.get("LM_STUDIO_MODEL", "qwen3:14b"))))
     parser.add_argument("--ollama-base-url", default=os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434/v1"))
     parser.add_argument("--lm-base-url", default=os.environ.get("LM_STUDIO_BASE_URL", "http://localhost:1234/v1"))
     parser.add_argument("--limit", type=int, default=3)
