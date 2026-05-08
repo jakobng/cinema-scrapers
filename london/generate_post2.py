@@ -10,6 +10,7 @@ import json
 import random
 import textwrap
 import os
+import sys
 import glob
 import requests
 import math
@@ -846,6 +847,14 @@ def main():
         return
 
     print(f"Selected {len(selected)} films.")
+    if len(selected) < 9:
+        print(
+            f"❌ Expected at least 9 eligible films for {primary_date}, "
+            f"but only found {len(selected)}. Refusing to generate a one-image film post."
+        )
+        print("   This usually means the London scrape data is stale or incomplete.")
+        sys.exit(1)
+
     history_manager.update([f['unique_id'] for f in selected])
     
     fonts = get_fonts()
