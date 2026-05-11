@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from email.message import EmailMessage
 import hashlib
+import http.cookiejar
 import json
 import os
 from pathlib import Path
@@ -179,6 +180,144 @@ def fetch_text(url: str, timeout: int) -> tuple[int, str, str]:
         return 0, str(exc), url
 
 
+def read_response_text(response: Any, limit: int = 750_000) -> str:
+    raw = response.read(limit)
+    charset = response.headers.get_content_charset() or "utf-8"
+    return raw.decode(charset, errors="ignore")
+
+
+def hidden_form_value(html: str, name: str) -> str:
+    match = re.search(
+        rf'<input[^>]+name=["\']{re.escape(name)}["\'][^>]+value=["\']([^"\']*)["\']',
+        html,
+        flags=re.IGNORECASE,
+    )
+    if match:
+        return match.group(1)
+    match = re.search(
+        rf'<input[^>]+value=["\']([^"\']*)["\'][^>]+name=["\']{re.escape(name)}["\']',
+        html,
+        flags=re.IGNORECASE,
+    )
+    return match.group(1) if match else ""
+
+
+def fetch_eslite_text(url: str, timeout: int) -> tuple[int, str, str]:
+    agreement_url = "https://arthouse.eslite.com/visAgreement.aspx"
+    jar = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+    headers = {"User-Agent": USER_AGENT}
+    try:
+        agreement_request = urllib.request.Request(agreement_url, headers=headers)
+        with opener.open(agreement_request, timeout=timeout) as response:
+            agreement_body = read_response_text(response)
+
+        payload = urllib.parse.urlencode(
+            {
+                "__VIEWSTATE": hidden_form_value(agreement_body, "__VIEWSTATE"),
+                "__EVENTVALIDATION": hidden_form_value(agreement_body, "__EVENTVALIDATION"),
+                "__EVENTTARGET": "ctl00$ContentPlaceHolder1$lbtAgree",
+                "__EVENTARGUMENT": "",
+            }
+        ).encode("utf-8")
+        post_request = urllib.request.Request(
+            agreement_url,
+            data=payload,
+            headers={**headers, "Content-Type": "application/x-www-form-urlencoded"},
+        )
+        with opener.open(post_request, timeout=timeout) as response:
+            read_response_text(response, limit=100_000)
+
+        page_request = urllib.request.Request(url, headers=headers)
+        with opener.open(page_request, timeout=timeout) as response:
+            return response.status, read_response_text(response), str(response.url)
+    except Exception as exc:
+        return 0, str(exc), url
+
+
+def fetch_skyline_text(url: str, timeout: int) -> tuple[int, str, str]:
+    activity_id = url.rstrip("/").split("/")[-1]
+    if not activity_id:
+        return fetch_text(url, timeout)
+    api_url = f"https://api.skyline.film/api/activity/{activity_id}"
+    return fetch_text(api_url, timeout)
+
+
+def fetch_everyman_text(url: str, timeout: int) -> tuple[int, str, str]:
+    movie_id = url.rstrip("/").split("/")[-1]
+    if not movie_id:
+        return fetch_text(url, timeout)
+    api_url = f"https://www.everymancinema.com/api/gatsby-source-boxofficeapi/movies?ids={urllib.parse.quote(movie_id)}"
+    return fetch_text(api_url, timeout)
+
+
+def fetch_picturehouse_schedule_text(url: str, timeout: int) -> tuple[int, str, str]:
+    match = re.search(r"/(?:movie-details|api/movies/checkout)/(\d+)/", url)
+    cinema_id = match.group(1) if match else ""
+    if not cinema_id:
+        return fetch_text(url, timeout)
+
+    base_url = "https://www.picturehouses.com"
+    api_url = f"{base_url}/api/scheduled-movies-ajax"
+    jar = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/json, text/javascript, */*; q=0.01",
+        "X-Requested-With": "XMLHttpRequest",
+    }
+    try:
+        init_request = urllib.request.Request(base_url, headers=headers)
+        with opener.open(init_request, timeout=timeout) as response:
+            init_body = read_response_text(response, limit=250_000)
+
+        xsrf_token = ""
+        for cookie in jar:
+            if cookie.name == "XSRF-TOKEN":
+                xsrf_token = urllib.parse.unquote(cookie.value)
+                break
+        if not xsrf_token:
+            token_match = re.search(r'var token = "([^"]+)"', init_body)
+            xsrf_token = urllib.parse.unquote(token_match.group(1)) if token_match else ""
+
+        payload = urllib.parse.urlencode({"cinema_id": cinema_id}).encode("utf-8")
+        post_headers = {**headers, "Content-Type": "application/x-www-form-urlencoded"}
+        if xsrf_token:
+            post_headers["X-XSRF-TOKEN"] = xsrf_token
+        api_request = urllib.request.Request(api_url, data=payload, headers=post_headers)
+        with opener.open(api_request, timeout=timeout) as response:
+            body = read_response_text(response)
+
+        return 200, body, api_url
+    except Exception as exc:
+        return 0, str(exc), url
+
+
+def fetch_source_text(url: str, timeout: int) -> tuple[int, str, str]:
+    parsed = urllib.parse.urlparse(url)
+    host = parsed.netloc.lower()
+    if host.endswith("arthouse.eslite.com"):
+        return fetch_eslite_text(url, timeout)
+    if host.endswith("skyline.film") and parsed.path.startswith("/detail/"):
+        return fetch_skyline_text(url, timeout)
+    if host.endswith("everymancinema.com") and parsed.path.startswith("/film-listing/"):
+        return fetch_everyman_text(url, timeout)
+    if host.endswith("picturehouses.com") and (
+        parsed.path.startswith("/movie-details/") or parsed.path.startswith("/api/movies/checkout/")
+    ):
+        return fetch_picturehouse_schedule_text(url, timeout)
+    return fetch_text(url, timeout)
+
+
+def source_check_ok(url: str, status: int, title_ok: bool, time_ok: bool) -> bool:
+    if 200 <= status < 400:
+        return title_ok or time_ok
+    parsed = urllib.parse.urlparse(url)
+    if parsed.netloc.lower().endswith("curzon.com") and status == 403:
+        return title_ok
+    return False
+
+
 def deterministic_sample(rows: list[dict[str, Any]], city: str, sample_size: int) -> list[dict[str, Any]]:
     candidates = [row for row in rows if source_url_for(row)]
     seed = hashlib.sha256(f"{iso_week_key()}:{city}".encode("utf-8")).hexdigest()
@@ -198,10 +337,10 @@ def audit_source_rows(config: CityConfig, rows: list[dict[str, Any]], sample_siz
         title = str(row.get("movie_title") or row.get("movie_title_en") or "").strip()
         showtime = str(row.get("showtime") or "").strip()
         url = source_url_for(row)
-        status, body, final_url = fetch_text(url, timeout)
+        status, body, final_url = fetch_source_text(url, timeout)
         title_ok = title_matches_body(title, body)
         time_ok = time_matches_body(showtime, body)
-        ok = 200 <= status < 400 and (title_ok or time_ok)
+        ok = source_check_ok(url, status, title_ok, time_ok)
         summary = {
             "cinema": row.get("cinema_name"),
             "title": title,
