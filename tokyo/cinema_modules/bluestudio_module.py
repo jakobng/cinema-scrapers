@@ -148,6 +148,8 @@ def _extract_times(t: str) -> List[str]:
 def _is_title_candidate(line: str) -> bool:
     if not line:
         return False
+    if not re.search(r"[A-Za-z0-9ぁ-んァ-ヶ一-龯]", line):
+        return False
     if line.startswith("※"):
         return False
     if "上映" in line:
@@ -166,7 +168,8 @@ def _is_title_candidate(line: str) -> bool:
 
 
 def _clean_title(line: str) -> str:
-    return line.split("※")[0].strip()
+    title = line.split("※")[0].strip(" 　:：／/")
+    return title if re.search(r"[A-Za-z0-9ぁ-んァ-ヶ一-龯]", title) else ""
 
 def _make_film_id(title: str) -> str:
     slug = re.sub(r"[^A-Za-z0-9]+", "-", title).strip("-").lower()

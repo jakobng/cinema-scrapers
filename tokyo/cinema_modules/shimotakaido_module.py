@@ -88,11 +88,11 @@ def _parse_all_details(soup: BeautifulSoup) -> Dict[str, Dict]:
             stuff_text = _clean_text(stuff_p.get_text(separator=' '))
             year_match = re.search(r"(\d{4})年?", stuff_text)
             runtime_match = re.search(r"(\d+h\d*)", stuff_text)
-            director_match = re.search(r"監督(?:・脚本)?[：／]([^/]+)", stuff_text)
+            director_match = re.search(r"監督(?:・脚本)?[：／]\s*(.+?)(?=\s*(?:出演|原作|脚本|撮影|音楽|$))", stuff_text)
 
             if year_match: details["year"] = year_match.group(1)
             if runtime_match: details["runtime_min"] = _parse_runtime(runtime_match.group(1))
-            if director_match: details["director"] = director_match.group(1).strip()
+            if director_match: details["director"] = director_match.group(1).strip(" /")
 
             country_parts = stuff_text.split('/')
             if len(country_parts) > 1 and not (year_match and year_match.group(1) in country_parts[1]):
@@ -170,6 +170,7 @@ def scrape_shimotakaido(max_days: int = 14) -> List[Dict[str, str]]:
 
             link = cell.find("a")
             if not link: continue
+            row_url = urljoin(BASE_URL, link.get("href", ""))
 
             text_parts = [s.strip() for s in link.stripped_strings]
             if len(text_parts) < 2: continue
@@ -213,7 +214,7 @@ def scrape_shimotakaido(max_days: int = 14) -> List[Dict[str, str]]:
                     "country":         details.get("country", "") or "",
                     "runtime_min":     details.get("runtime_min", "") or "",
                     "synopsis":        details.get("synopsis", "") or "",
-                    "detail_page_url": details.get("detail_page_url", "") or "",
+                    "detail_page_url": details.get("detail_page_url", "") or row_url or BASE_URL,
                 })
                 current_date += timedelta(days=1)
 

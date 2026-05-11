@@ -36,6 +36,11 @@ DIRECTOR_OVERRIDES: Dict[str, Optional[str]] = {
     "嬉々な生活": "谷口慈彦",
     "グランドツアー": "ミゲル・ゴメス",
     "キムズビデオ": None,
+    "世界が認めた栄冠のショート傑作選": None,
+}
+
+ANTHOLOGY_TITLES = {
+    "世界が認めた栄冠のショート傑作選",
 }
 
 
@@ -211,14 +216,19 @@ def _extract_original_title(text: str) -> Optional[str]:
     t = text.replace("：", ":")
 
     patterns = [
-        r"原題[:：]\s*([^\n■◼︎]+)",
-        r"Original title[:：]\s*([^\n■◼︎]+)",
-        r"英題[:：]\s*([^\n■◼︎]+)",
+        r"原題[:：]\s*(.+?)(?=\s*(?:出演|監督|脚本|配給|Copyright|©|$))",
+        r"Original title[:：]\s*(.+?)(?=\s*(?:Cast|Director|Directed|Distributor|Copyright|©|$))",
+        r"英題[:：]\s*(.+?)(?=\s*(?:出演|監督|脚本|配給|Copyright|©|$))",
     ]
     for pat in patterns:
         m = re.search(pat, t, flags=re.IGNORECASE)
         if m:
-            return _clean_text(m.group(1))
+            candidate = _clean_text(m.group(1)).strip(" .。")
+            if len(candidate) > 120:
+                continue
+            if re.search(r"(出演|監督|脚本|配給|Copyright|©)", candidate):
+                continue
+            return candidate
 
     return None
 
@@ -605,6 +615,10 @@ def scrape_k2_cinema() -> List[Dict]:
                     "detail_page_url": details.get("detail_page_url"),
                     "purchase_url": purchase_url,
                 }
+                if title_jp in ANTHOLOGY_TITLES:
+                    showing["movie_title_en"] = None
+                    showing["director"] = None
+                    showing["year"] = None
                 all_showings.append(showing)
 
     finally:

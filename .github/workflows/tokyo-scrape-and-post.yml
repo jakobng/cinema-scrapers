@@ -151,6 +151,7 @@ jobs:
           print(f'✅ Validated: {len(data)} showings across {len(dates)} dates')
           print(f'   Detail/booking URL coverage: {link_coverage:.1%} ({linkless} missing)')
           "
+          python audit_showtimes.py --strict
 
       # --- STEP 2: GENERATE CONTENT (SPLIT) ---
 
