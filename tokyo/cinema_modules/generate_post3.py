@@ -580,6 +580,7 @@ def refine_hero_with_ai(pil_image, date_text, strategy, cinema_names=[]):
                     model="gemini-3-pro-preview",
                     contents=[prompt, pil_image],
                     config=types.GenerateContentConfig(
+                        response_modalities=["IMAGE"],
                         safety_settings=[
                             types.SafetySetting(category="HATE_SPEECH", threshold="BLOCK_NONE"),
                             types.SafetySetting(category="HARASSMENT", threshold="BLOCK_NONE"),
@@ -587,8 +588,6 @@ def refine_hero_with_ai(pil_image, date_text, strategy, cinema_names=[]):
                             types.SafetySetting(category="DANGEROUS_CONTENT", threshold="BLOCK_NONE"),
                         ]
                     )
-                )
-                    config=types.GenerateContentConfig(response_modalities=["IMAGE"])
                 )
                 
                 if not response or not response.parts:
