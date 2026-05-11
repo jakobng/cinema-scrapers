@@ -5,7 +5,6 @@
 
 from __future__ import annotations
 
-import datetime as dt
 import json
 import re
 import sys
@@ -107,20 +106,14 @@ def scrape_ritzy() -> List[Dict]:
                 
                 date_str = st.get("date_f") # e.g. "2026-01-09"
                 
-                # 'show_time' from API might be a timestamp or HH:MM string
-                raw_time = st.get("show_time")
-                if isinstance(raw_time, (int, float)) or (isinstance(raw_time, str) and raw_time.isdigit()):
-                    # Convert timestamp to HH:MM
-                    try:
-                        dt_obj = dt.datetime.fromtimestamp(int(raw_time))
-                        time_str = dt_obj.strftime("%H:%M")
-                    except ValueError:
-                        time_str = str(raw_time)
-                else:
-                    time_str = str(raw_time) 
+                time_str = str(st.get("time") or "").strip()
+                if not time_str:
+                    showtime_iso = str(st.get("Showtime") or "")
+                    match = re.search(r"T(\d{2}:\d{2})", showtime_iso)
+                    time_str = match.group(1) if match else str(st.get("show_time") or "")
                 
                 # Booking URL
-                session_id = st.get("ScheduledSessionId")
+                session_id = st.get("SessionId") or st.get("ScheduledSessionId")
                 booking_url = f"{BASE_URL}/api/movies/checkout/{cinema_id}/{session_id}"
                 
                 # Detail Page URL

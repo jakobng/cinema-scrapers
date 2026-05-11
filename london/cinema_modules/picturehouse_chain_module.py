@@ -5,7 +5,6 @@
 
 from __future__ import annotations
 
-import datetime as dt
 import json
 import re
 import sys
@@ -98,17 +97,13 @@ def scrape_picturehouse_site(session, cinema_id, cinema_name, xsrf_token) -> Lis
                 
                 date_str = st.get("date_f") # e.g. "2026-01-09"
                 
-                raw_time = st.get("show_time")
-                if isinstance(raw_time, (int, float)) or (isinstance(raw_time, str) and raw_time.isdigit()):
-                    try:
-                        dt_obj = dt.datetime.fromtimestamp(int(raw_time))
-                        time_str = dt_obj.strftime("%H:%M")
-                    except ValueError:
-                        time_str = str(raw_time)
-                else:
-                    time_str = str(raw_time)
-                
-                session_id = st.get("ScheduledSessionId")
+                time_str = str(st.get("time") or "").strip()
+                if not time_str:
+                    showtime_iso = str(st.get("Showtime") or "")
+                    match = re.search(r"T(\d{2}:\d{2})", showtime_iso)
+                    time_str = match.group(1) if match else str(st.get("show_time") or "")
+
+                session_id = st.get("SessionId") or st.get("ScheduledSessionId")
                 booking_url = f"{BASE_URL}/api/movies/checkout/{cinema_id}/{session_id}"
                 detail_url = f"{BASE_URL}/movie-details/{cinema_id}/{scheduled_film_id}/{movie_slug}"
 
