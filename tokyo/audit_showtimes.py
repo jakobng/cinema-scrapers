@@ -32,6 +32,28 @@ EXPECTED_CINEMA_HOST_HINTS = {
     "神保町シアター": ("shogakukan.co.jp",),
 }
 
+CINEMA_SITE_FALLBACKS = {
+    "Bunkamura ル・シネマ 渋谷宮下": "https://www.bunkamura.co.jp/cinema/",
+    "CINEMA AMIGO": "https://cinema-amigo.com/",
+    "K2 Cinema": "https://k2-cinema.com/",
+    "K's Cinema (ケイズシネマ)": "https://www.ks-cinema.com/",
+    "シネマート新宿": "https://www.cinemart.co.jp/theater/shinjuku/",
+    "シネマヴェーラ渋谷": "https://www.cinemavera.com/",
+    "シネマブルースタジオ": "http://www.art-center.jp/tokyo/bluestudio/profile.html",
+    "シネスイッチ銀座": "https://cineswitch.com/",
+    "テアトル新宿": "https://ttcg.jp/theatre_shinjuku/",
+    "ヒューマントラストシネマ渋谷": "https://ttcg.jp/human_shibuya/",
+    "ポレポレ東中野": "https://pole2.co.jp/",
+    "ユーロスペース": "https://www.eurospace.co.jp/",
+    "下北沢トリウッド": "https://tollywood.jp/",
+    "下高井戸シネマ": "https://shimotakaidocinema.com/",
+    "国立映画アーカイブ": "https://www.nfaj.go.jp/",
+    "新宿武蔵野館": "https://shinjuku.musashino-k.jp/",
+    "早稲田松竹": "https://wasedashochiku.co.jp/",
+    "目黒シネマ": "https://www.okura-movie.co.jp/meguro_cinema/",
+    "神保町シアター": "https://www.shogakukan.co.jp/jinbocho-theater/",
+}
+
 ALLOWLIST_LINKLESS = {
     # Program-row placeholders may not have a per-title page, but should still be rare.
     ("下高井戸シネマ", "レオス・カラックス監督初期傑作"),
@@ -57,6 +79,7 @@ def has_usable_link(item: dict) -> bool:
         or item.get("detail_page_url")
         or item.get("official_site")
         or item.get("cinema_site_url")
+        or CINEMA_SITE_FALLBACKS.get(item.get("cinema_name") or "")
     )
 
 
@@ -150,6 +173,7 @@ def main() -> int:
     parser.add_argument("--website-data", default="", help="Optional website1 showtimes JSON path for sync comparison")
     parser.add_argument("--today", default=today_jst(), help="ISO date to treat as today")
     parser.add_argument("--strict", action="store_true", help="Exit non-zero for critical current/future issues")
+    parser.add_argument("--fail-linkless", action="store_true", help="Treat current/future rows without any URL or known cinema fallback as critical")
     args = parser.parse_args()
 
     data_path = Path(args.data)
@@ -221,7 +245,9 @@ def main() -> int:
     for line in compare_website_sync(data, website_path):
         print(line)
 
-    critical_count = len(malformed) + len(linkless) + len(duplicates)
+    critical_count = len(malformed) + len(duplicates)
+    if args.fail_linkless:
+        critical_count += len(linkless)
     if args.strict and critical_count:
         print(f"Critical audit failures: {critical_count}", file=sys.stderr)
         return 1

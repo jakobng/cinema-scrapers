@@ -260,6 +260,7 @@ jobs:
       # --- STEP 6: SEND FAILURE ALERT ---
       - name: Send Failure Alert Email
         if: failure() && steps.run_scraper.outcome != 'failure'
+        continue-on-error: true
         run: |
           python -c "
           import os
