@@ -113,12 +113,13 @@ class ScrapeReport:
         self.results = []
         self.total_showings = 0
 
-    def add(self, cinema_name, status, count, error=None):
+    def add(self, cinema_name, status, count, error=None, warn_if_empty=True):
         self.results.append({
             "cinema": cinema_name,
             "status": status,
             "count": count,
-            "error": str(error) if error else None
+            "error": str(error) if error else None,
+            "warn_if_empty": warn_if_empty,
         })
         if status == "SUCCESS" and count:
             self.total_showings += count
@@ -136,8 +137,9 @@ class ScrapeReport:
         print("-" * 65)
 
         for r in self.results:
-            # Logic: If SUCCESS but 0 showings, treat as WARNING
-            if r['status'] == 'SUCCESS' and r['count'] == 0:
+            # Logic: If SUCCESS but 0 showings, treat as WARNING unless the
+            # source is intermittent or covered by a broader fallback scraper.
+            if r['status'] == 'SUCCESS' and r['count'] == 0 and r.get("warn_if_empty", True):
                 r['status'] = 'WARNING'
                 warnings.append(r)
             elif r['status'] == 'FAILURE':
@@ -1871,7 +1873,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
 
 # --- Scraper Runner Wrapper ---
 
-def _run_scraper(name, func, listings_list, normalize_func=None):
+def _run_scraper(name, func, listings_list, normalize_func=None, warn_if_empty=True):
     """
     Runs a scraper function with robust error handling and reporting.
     """
@@ -1889,7 +1891,7 @@ def _run_scraper(name, func, listings_list, normalize_func=None):
         listings_list.extend(rows)
         
         # Report Success
-        report.add(name, "SUCCESS", count)
+        report.add(name, "SUCCESS", count, warn_if_empty=warn_if_empty)
         
     except SystemExit as e:
         # Some scraper modules still call sys.exit() on network or parse failures.
@@ -2066,7 +2068,7 @@ def main():
         ("Human Trust Cinema Yurakucho", human_yurakucho_module.scrape_human_yurakucho, None),
         ("Laputa Asagaya", laputa_asagaya_module.scrape_laputa_asagaya, None),
         ("Shinjuku Musashino-kan", musashino_kan_module.scrape_musashino_kan, None),
-        ("Waseda Shochiku", waseda_shochiku_module.scrape_waseda_shochiku, None),
+        ("Waseda Shochiku", waseda_shochiku_module.scrape_waseda_shochiku, None, False),
         ("National Film Archive", nfaj_module.scrape_nfaj_calendar, None),
         ("Cinemart Shinjuku", cinemart_shinjuku_module.scrape_cinemart_shinjuku, None),
         ("Cine Quinto", cine_quinto_module.scrape_cine_quinto, None),
@@ -2086,13 +2088,13 @@ def main():
         ("Institut Francais Tokyo", institut_francais_module.scrape_institut_francais, None),
         ("Jack and Betty Yokohama", jack_and_betty_module.scrape_jack_and_betty, None),
         ("Cinema Novecento", cinema_novecento_module.scrape_cinema_novecento, None),
-        ("Athenee Francais", athenee_francais_module.scrape_athenee_francais, None),
+        ("Athenee Francais", athenee_francais_module.scrape_athenee_francais, None, False),
         ("White Cine Quinto", white_cine_quinto_module.scrape_white_cine_quinto, None),
         ("Yokohama Cinemarine", yokohama_cinemarine_module.scrape_yokohama_cinemarine, None),
         ("Kadokawa Cinema Yurakucho", kadokawa_yurakucho_module.scrape_kadokawa_yurakucho, None),
         ("Cinema Neko Ome", cinema_neko_module.scrape_cinema_neko, None),
-        ("Koenji Theater Bacchus", koenji_bacchus_module.scrape_koenji_bacchus, None),
-        ("Koenji Cinema Club", koenji_cinema_club_module.scrape_koenji_cinema_club, None),
+        ("Koenji Theater Bacchus", koenji_bacchus_module.scrape_koenji_bacchus, None, False),
+        ("Koenji Cinema Club", koenji_cinema_club_module.scrape_koenji_cinema_club, None, False),
         ("Cinema Amigo", cinema_amigo_module.scrape_cinema_amigo, None),
     ]
 
@@ -2101,13 +2103,15 @@ def main():
         name = item[0]
         func = item[1]
         norm = item[2] if len(item) > 2 else None
-        _run_scraper(name, func, eiga_listings, normalize_func=norm)
+        warn_if_empty = item[3] if len(item) > 3 else True
+        _run_scraper(name, func, eiga_listings, normalize_func=norm, warn_if_empty=warn_if_empty)
 
     for item in legacy_scrapers_to_run:
         name = item[0]
         func = item[1]
         norm = item[2] if len(item) > 2 else None
-        _run_scraper(name, func, legacy_listings, normalize_func=norm)
+        warn_if_empty = item[3] if len(item) > 3 else True
+        _run_scraper(name, func, legacy_listings, normalize_func=norm, warn_if_empty=warn_if_empty)
 
     listings = _merge_eiga_with_legacy(eiga_listings, legacy_listings)
 

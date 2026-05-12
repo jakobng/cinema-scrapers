@@ -44,6 +44,7 @@ class CityConfig:
     ig_profile_url: str | None = None
     max_latest_ig_age_hours: int = 40
     max_latest_movie_asset_age_hours: int = 40
+    monitor_by_default: bool = True
 
 
 CITIES: dict[str, CityConfig] = {
@@ -70,6 +71,7 @@ CITIES: dict[str, CityConfig] = {
         ig_user_env="MANCHESTER_IG_USER_ID",
         ig_token_env="MANCHESTER_IG_ACCESS_TOKEN",
         ig_profile_url="https://www.instagram.com/manchestercinemashowtimes/",
+        monitor_by_default=False,
     ),
     "taipei": CityConfig(
         name="taipei",
@@ -787,10 +789,13 @@ def send_summary_email(results: list[dict[str, Any]]) -> None:
     msg["Subject"] = f"Cinema health monitor: {len(failed)} failed check(s)"
     msg.set_content("\n".join(lines), charset="utf-8")
 
-    with smtplib.SMTP(smtp_server, smtp_port, timeout=30) as server:
-        server.starttls()
-        server.login(smtp_email, smtp_password)
-        server.send_message(msg)
+    try:
+        with smtplib.SMTP(smtp_server, smtp_port, timeout=30) as server:
+            server.starttls()
+            server.login(smtp_email, smtp_password)
+            server.send_message(msg)
+    except Exception as exc:
+        print(f"Skipping health summary email after SMTP failure: {exc}")
 
 
 def main() -> int:
@@ -808,7 +813,9 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    selected = args.city or sorted(CITIES)
+    selected = args.city or sorted(
+        name for name, config in CITIES.items() if config.monitor_by_default
+    )
     results: list[dict[str, Any]] = []
     for city in selected:
         config = CITIES[city]
