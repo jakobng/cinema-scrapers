@@ -2,16 +2,21 @@ import json
 import os
 import sys
 import requests
+from pathlib import Path
 
-# Add current dir to path to import main_scraper
-sys.path.append(os.path.abspath('london-cinema-scrapers'))
+BASE_DIR = Path(__file__).resolve().parent
+sys.path.append(str(BASE_DIR))
 from main_scraper import enrich_listings_with_tmdb_links, load_tmdb_cache
 
 def reprocess():
-    api_key = "da2b1bc852355f12a86dd5e7ec48a1ee"
-    file_path = 'london-cinema-scrapers/data/showtimes.json'
-    
-    if not os.path.exists(file_path):
+    api_key = os.environ.get("TMDB_API_KEY")
+    if not api_key:
+        print("TMDB_API_KEY is not set. Skipping reprocess.")
+        return
+
+    file_path = BASE_DIR / "data" / "showtimes.json"
+
+    if not file_path.exists():
         print(f"File not found: {file_path}")
         return
 
