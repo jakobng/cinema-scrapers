@@ -1,14 +1,17 @@
 import json
 import os
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent
+FILE_PATH = BASE_DIR / "data" / "showtimes.json"
 
 def evaluate_scrapers():
-    file_path = 'london-cinema-scrapers/data/showtimes.json'
-    
-    if not os.path.exists(file_path):
-        print(f"File not found: {file_path}")
+    if not FILE_PATH.exists():
+        print(f"File not found: {FILE_PATH}")
         return
 
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open(FILE_PATH, 'r', encoding='utf-8') as f:
         try:
             data = json.load(f)
         except json.JSONDecodeError:

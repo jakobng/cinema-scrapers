@@ -2,10 +2,10 @@ import json
 import os
 import re
 import sys
+from pathlib import Path
 
-# Import the functions from main_scraper
-# We need to add the directory to path
-sys.path.append(os.path.abspath('london-cinema-scrapers'))
+BASE_DIR = Path(__file__).resolve().parent
+sys.path.append(str(BASE_DIR))
 from main_scraper import clean_title_for_tmdb, build_search_queries
 
 def test_improvements():
