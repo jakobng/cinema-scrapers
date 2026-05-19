@@ -187,7 +187,8 @@ def scrape_guling_street() -> List[Dict]:
             continue
 
         date_text, showtime = _extract_date_and_time(raw_text)
-        if not date_text or date_text < today:
+        # Validation requires a concrete start time, so skip all-day / time-less events.
+        if not date_text or not showtime or date_text < today:
             continue
 
         results.append(
