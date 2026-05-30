@@ -18,9 +18,7 @@ on:
     # BST (Summer): 6 AM UTC is 7 AM local, 7 AM UTC is 8 AM local.
     # 7 AM local refreshes data daily and creates the expensive cinema collage only on Mondays.
     # 8 AM local refreshes data again before posting the movie spotlight.
-    - cron: '0 6 * * *'
-    - cron: '0 7 * * *'
-    - cron: '0 8 * * *'
+    - cron: '0 6,7,8 * * *'
 
 permissions:
   contents: write

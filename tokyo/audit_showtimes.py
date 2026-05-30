@@ -53,7 +53,6 @@ CINEMA_SITE_FALLBACKS = {
     "目黒シネマ": "https://www.okura-movie.co.jp/meguro_cinema/",
     "神保町シアター": "https://www.shogakukan.co.jp/jinbocho-theater/",
 }
-
 ALLOWLIST_LINKLESS = {
     # Program-row placeholders may not have a per-title page, but should still be rare.
     ("下高井戸シネマ", "レオス・カラックス監督初期傑作"),

@@ -10,7 +10,6 @@ Before the local bot asks the model for fixes, it also runs `tools/cinema_health
 - basic data freshness and duplicate-showing checks
 
 Source/data failures become `auto-fix-candidate` issues so the local LLM can try a scraper patch. Instagram/API/output failures become `monitoring` + `manual-review` issues, because they are usually expired tokens, Meta API trouble, or workflow/schedule issues rather than safe scraper-code patches.
-
 This does not depend on Codex, a Codex subscription, or the OpenAI API. It does depend on your Mac being awake occasionally, GitHub CLI auth, and a local model server running.
 
 ## Recommended Ollama Setup
@@ -45,7 +44,6 @@ export OLLAMA_BASE_URL="http://localhost:11434/v1"
 The launchd job wakes every 6 hours while this Mac is awake, but the bot records a successful run in `logs/autofix_state.json` and skips the rest of that ISO week. If the laptop is off or asleep before a successful run, it simply tries again at a future 6-hour interval when launchd is running. It opens PRs only; it does not auto-merge.
 
 The GitHub workflow `Cinema - Health Monitor` also runs weekly without Codex or OpenAI. It opens monitoring issues from GitHub Actions so problems can be queued even if your Mac is asleep; the local Ollama job can then pick up source/data `auto-fix-candidate` issues the next time the laptop is awake.
-
 ## Optional LM Studio Setup
 
 Check the LM Studio model ID:
@@ -71,7 +69,6 @@ python3 tools/scraper_autofix_bot.py --provider ollama --model qwen3:14b --dry-r
 ```
 
 Optional: install an Ollama vision model and set `OLLAMA_VISION_MODEL` if you want semantic image review of generated Instagram slides in addition to the built-in image sanity checks.
-
 Dry-run against a local LM Studio model:
 
 ```bash
@@ -89,7 +86,6 @@ Run only the health monitor:
 ```bash
 python3 tools/cinema_health_monitor.py --sample-size 5 --create-issues --email-summary
 ```
-
 Force a second run in the same week, if you really need one:
 
 ```bash

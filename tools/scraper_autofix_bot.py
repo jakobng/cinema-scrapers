@@ -161,8 +161,6 @@ def run_health_monitor(args: argparse.Namespace) -> None:
     print(completed.stdout)
     if completed.returncode != 0:
         print("Health monitor found failed checks; continuing so candidate issues can still be reviewed.", file=sys.stderr)
-
-
 def call_chat_completions(
     prompt: str,
     *,

@@ -23,7 +23,22 @@ import random
 from datetime import datetime, timezone, timedelta
 from email.message import EmailMessage
 from pathlib import Path
+from typing import Optional
+from urllib.parse import quote
 from bs4 import BeautifulSoup
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from shared.ai_enrichment import (
+    AIEnrichmentClient,
+    LOCAL_AI_NO_RESULT,
+    env_truthy,
+    local_ai_retry_due,
+    make_ai_failure_entry,
+    retry_hours_from_env,
+)
 
 # --- All cinema scraper modules ---
 from cinema_modules import eiga_tokyo_module, eiga_kanagawa_module, eiga_saitama_module, eiga_chiba_module
@@ -76,6 +91,7 @@ from cinema_modules import (
 DATA_DIR = "data"
 OUTPUT_JSON = os.path.join(DATA_DIR, "showtimes.json")
 TMDB_CACHE_FILE = os.path.join(DATA_DIR, "tmdb_cache.json")
+FILMARKS_CACHE_FILE = os.path.join(DATA_DIR, "filmarks_cache.json")
 TITLE_RESOLUTION_CACHE_FILE = os.path.join(DATA_DIR, "title_resolution_cache.json")
 LEGACY_TITLE_TRANSLATION_CACHE_FILE = os.path.join(DATA_DIR, "title_translation_cache.json")
 SYNOPSIS_TRANSLATION_CACHE_FILE = os.path.join(DATA_DIR, "synopsis_translation_cache.json")
@@ -305,6 +321,348 @@ def load_title_resolution_cache():
 
 def save_title_resolution_cache(cache):
     _write_json_file(TITLE_RESOLUTION_CACHE_FILE, cache, sort_keys=True)
+
+def load_filmarks_cache():
+    if os.path.exists(FILMARKS_CACHE_FILE):
+        try:
+            with open(FILMARKS_CACHE_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, IOError, OSError):
+            return {}
+    return {}
+
+def save_filmarks_cache(cache):
+    _write_json_file(FILMARKS_CACHE_FILE, cache, sort_keys=True)
+
+FILMARKS_SEARCH_BASE_URL = "https://filmarks.com/search/movies"
+FILMARKS_RESULT_BASE_URL = "https://filmarks.com"
+FILMARKS_USER_AGENT = (
+    "Mozilla/5.0 (compatible; TokyoCinemaShowtimes/1.0; "
+    "+https://jakobng.github.io/website1/tokyo-cinemas.html)"
+)
+FILMARKS_ACCEPT_SCORE = 12
+FILMARKS_ACCEPT_MARGIN = 2
+ZERO_COUNT_RETRY_CINEMAS = {
+    "Shimotakaido Cinema",
+    "Shinjuku Musashino-kan",
+}
+
+def _clean_title_for_filmarks_query(title: str) -> str:
+    if not title:
+        return ""
+    cleaned = str(title).replace("\u3000", " ").strip()
+    cleaned = re.sub(r"^[「『\"'\s]+|[」』\"'\s]+$", "", cleaned)
+    patterns = [
+        r"[＊*].*$",
+        r"\s*(?:デジタル上映|DCP上映|35mm上映|16mm上映)\s*$",
+        r"\s*(?:字幕版|吹替版|日本語字幕|英語字幕|字幕|吹替)\s*$",
+        r"\s*(?:4K|2K)\s*(?:デジタル)?(?:リマスター|レストア)?(?:版)?\s*$",
+        r"\s*(?:上映|特別上映|再上映)\s*$",
+    ]
+    for pattern in patterns:
+        cleaned = re.sub(pattern, "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    cleaned = re.sub(r"^[「『\"'\s]+|[」』\"'\s]+$", "", cleaned)
+    return cleaned.strip()
+
+def _pick_filmarks_query(item: dict) -> tuple[str, str]:
+    for field in ("clean_title_jp", "movie_title_jp", "movie_title", "movie_title_original", "movie_title_en"):
+        query = _clean_title_for_filmarks_query(item.get(field))
+        if query:
+            return query, field
+    return "", ""
+
+def _build_filmarks_search_url(query: str) -> str:
+    if not query:
+        return ""
+    return f"{FILMARKS_SEARCH_BASE_URL}?q={quote(query)}"
+
+def _filmarks_match_norm(value: str) -> str:
+    if not value:
+        return ""
+    normalized = str(value).lower()
+    normalized = re.sub(r"<[^>]+>", " ", normalized)
+    normalized = re.sub(r"[「」『』“”\"'\[\]（）()：:／/・･\s_\-\u3000]+", "", normalized)
+    return normalized.strip()
+
+def _filmarks_title_relation(query: str, candidate_title: str, item: dict) -> str:
+    candidate_norm = _filmarks_match_norm(candidate_title)
+    title_candidates = (
+        query,
+        item.get("clean_title_jp"),
+        item.get("movie_title_jp"),
+        item.get("movie_title"),
+        item.get("movie_title_original"),
+        item.get("movie_title_en"),
+    )
+    partial = False
+    for title in title_candidates:
+        title_norm = _filmarks_match_norm(_clean_title_for_filmarks_query(title))
+        if not title_norm:
+            continue
+        if title_norm == candidate_norm:
+            return "exact"
+        if len(title_norm) >= 4 and (title_norm in candidate_norm or candidate_norm in title_norm):
+            partial = True
+    return "partial" if partial else "none"
+
+def _filmarks_cache_key(item: dict, query: str) -> str:
+    parts = [
+        _filmarks_match_norm(query),
+        str(_parse_year(item.get("year")) or ""),
+        str(_parse_int(item.get("runtime_min") or item.get("runtime")) or ""),
+        _filmarks_match_norm(item.get("director") or item.get("director_jp") or ""),
+    ]
+    return "::".join(parts)
+
+def _extract_filmarks_candidate(cassette) -> Optional[dict]:
+    onclick = cassette.get("onclick") or ""
+    url_match = re.search(r"['\"](/movies/\d+)['\"]", onclick)
+    if url_match:
+        path = url_match.group(1)
+    else:
+        link = cassette.select_one('a[href^="/movies/"]')
+        if not link:
+            return None
+        path = link.get("href", "").split("?", 1)[0]
+    if not re.match(r"^/movies/\d+$", path):
+        return None
+
+    title_node = cassette.select_one(".p-content-cassette__title")
+    title = title_node.get_text(" ", strip=True) if title_node else ""
+    if not title:
+        poster = cassette.select_one("img[alt]")
+        title = poster.get("alt", "").strip() if poster else ""
+    if not title:
+        return None
+
+    text = cassette.get_text(" ", strip=True)
+    year_match = re.search(r"上映日：\s*(\d{4})年", text)
+    runtime_match = re.search(r"上映時間：\s*(\d+)分", text)
+    director = ""
+    for heading in cassette.find_all(["h4", "dt"]):
+        if "監督" not in heading.get_text(" ", strip=True):
+            continue
+        people_list = heading.find_next("ul")
+        person_link = people_list.find("a") if people_list else None
+        if person_link:
+            director = person_link.get_text(" ", strip=True)
+            break
+
+    return {
+        "url": FILMARKS_RESULT_BASE_URL + path,
+        "title": title,
+        "year": year_match.group(1) if year_match else "",
+        "runtime": runtime_match.group(1) if runtime_match else "",
+        "director": director,
+    }
+
+def _parse_filmarks_candidates(html: str) -> list[dict]:
+    soup = BeautifulSoup(html or "", "html.parser")
+    candidates = []
+    seen_urls = set()
+    for cassette in soup.select(".js-cassette"):
+        candidate = _extract_filmarks_candidate(cassette)
+        if not candidate or candidate["url"] in seen_urls:
+            continue
+        seen_urls.add(candidate["url"])
+        candidates.append(candidate)
+    return candidates
+
+def _score_filmarks_candidate(candidate: dict, query: str, item: dict) -> tuple[int, list[str], int]:
+    score = 0
+    reasons = []
+    relation = _filmarks_title_relation(query, candidate.get("title", ""), item)
+    if relation == "exact":
+        score += 10
+        reasons.append("title_exact")
+    elif relation == "partial":
+        score += 5
+        reasons.append("title_partial")
+    else:
+        score -= 10
+        reasons.append("title_miss")
+
+    local_year = _parse_year(item.get("year"))
+    candidate_year = _parse_year(candidate.get("year"))
+    if local_year and candidate_year:
+        if local_year == candidate_year:
+            score += 3
+            reasons.append("year")
+        else:
+            score -= 6
+            reasons.append("year_mismatch")
+
+    local_runtime = _parse_int(item.get("runtime_min") or item.get("runtime"))
+    candidate_runtime = _parse_int(candidate.get("runtime"))
+    if local_runtime and candidate_runtime:
+        diff = abs(local_runtime - candidate_runtime)
+        if diff == 0:
+            score += 3
+            reasons.append("runtime")
+        elif diff <= 2:
+            score += 1
+            reasons.append("runtime_near")
+        else:
+            score -= 4
+            reasons.append("runtime_mismatch")
+
+    local_director = item.get("director") or item.get("director_jp") or ""
+    candidate_director = candidate.get("director") or ""
+    if local_director and candidate_director:
+        if _normalize_person_name(local_director) == _normalize_person_name(candidate_director):
+            score += 5
+            reasons.append("director")
+        else:
+            score -= 5
+            reasons.append("director_mismatch")
+
+    support = sum(1 for reason in reasons if reason in ("year", "runtime", "runtime_near", "director"))
+    return score, reasons, support
+
+def _is_accepted_filmarks_match(best: Optional[dict], second: Optional[dict]) -> bool:
+    if not best:
+        return False
+    reasons = best.get("reasons") or []
+    score = best.get("score") or 0
+    support = best.get("support") or 0
+    second_score = (second or {}).get("score", -999)
+    if "title_exact" not in reasons:
+        return False
+    if support >= 1 and score >= FILMARKS_ACCEPT_SCORE and score - second_score >= FILMARKS_ACCEPT_MARGIN:
+        return True
+    return support >= 2 and score >= FILMARKS_ACCEPT_SCORE + 3
+
+def _fetch_filmarks_search(query: str, session: requests.Session) -> list[dict]:
+    response = session.get(
+        FILMARKS_SEARCH_BASE_URL,
+        params={"q": query},
+        headers={"User-Agent": FILMARKS_USER_AGENT},
+        timeout=15,
+    )
+    response.raise_for_status()
+    return _parse_filmarks_candidates(response.text)
+
+def _resolve_filmarks_entry(item: dict, query: str, session: requests.Session) -> dict:
+    search_url = _build_filmarks_search_url(query)
+    now = datetime.now(timezone.utc).isoformat()
+    try:
+        candidates = _fetch_filmarks_search(query, session)
+    except Exception as exc:
+        return {
+            "status": "error",
+            "query": query,
+            "search_url": search_url,
+            "error": str(exc),
+            "updated_at": now,
+        }
+
+    scored = []
+    for candidate in candidates:
+        score, reasons, support = _score_filmarks_candidate(candidate, query, item)
+        scored.append({
+            **candidate,
+            "score": score,
+            "reasons": reasons,
+            "support": support,
+        })
+    scored.sort(key=lambda candidate: candidate["score"], reverse=True)
+    best = scored[0] if scored else None
+    second = scored[1] if len(scored) > 1 else None
+    accepted = _is_accepted_filmarks_match(best, second)
+    return {
+        "status": "accepted" if accepted else ("review" if best else "not_found"),
+        "query": query,
+        "search_url": search_url,
+        "filmarks_url": best["url"] if accepted else "",
+        "score": best.get("score") if best else None,
+        "reasons": best.get("reasons") if best else [],
+        "candidate": best,
+        "candidate_count": len(scored),
+        "updated_at": now,
+    }
+
+def enrich_listings_with_filmarks_links(listings: list, session: Optional[requests.Session] = None) -> list:
+    if not env_truthy("FILMARKS_ENRICHMENT", True):
+        return listings
+
+    print("\n--- Starting Filmarks Link Enrichment ---")
+    cache = load_filmarks_cache()
+    updated_cache = False
+    filmarks_session = session or requests.Session()
+    unique_items = {}
+
+    for item in listings:
+        query, query_field = _pick_filmarks_query(item)
+        if not query:
+            continue
+        search_url = _build_filmarks_search_url(query)
+        item["filmarks_search_url"] = search_url
+        key = _filmarks_cache_key(item, query)
+        if not key:
+            continue
+        item["_filmarks_cache_key"] = key
+        unique_items.setdefault(key, (item, query, query_field))
+
+    throttle_seconds = float(os.environ.get("FILMARKS_REQUEST_DELAY", "0.5"))
+    max_lookups = _parse_int(os.environ.get("FILMARKS_MAX_LOOKUPS", "")) or None
+    lookups = accepted = review = not_found = errors = 0
+
+    for key, (item, query, query_field) in unique_items.items():
+        entry = cache.get(key)
+        if isinstance(entry, dict):
+            continue
+        if max_lookups is not None and lookups >= max_lookups:
+            break
+        print(f"   🔗 Searching Filmarks for: {query}")
+        entry = _resolve_filmarks_entry(item, query, filmarks_session)
+        entry["query_field"] = query_field
+        cache[key] = entry
+        updated_cache = True
+        lookups += 1
+        status = entry.get("status")
+        if status == "accepted":
+            accepted += 1
+            print(f"      ✅ {entry.get('filmarks_url')} (score={entry.get('score')})")
+        elif status == "review":
+            review += 1
+            candidate = entry.get("candidate") or {}
+            print(f"      ⚠️ Review: {candidate.get('title', '')} (score={entry.get('score')})")
+        elif status == "not_found":
+            not_found += 1
+            print("      ❌ No Filmarks candidates found.")
+        else:
+            errors += 1
+            print(f"      ❌ Filmarks lookup error: {entry.get('error')}")
+        time.sleep(throttle_seconds)
+
+    exact_count = search_count = 0
+    for item in listings:
+        key = item.pop("_filmarks_cache_key", "")
+        entry = cache.get(key) if key else None
+        if not isinstance(entry, dict):
+            continue
+        search_url = entry.get("search_url") or item.get("filmarks_search_url")
+        if search_url:
+            item["filmarks_search_url"] = search_url
+            search_count += 1
+        if entry.get("status") == "accepted" and entry.get("filmarks_url"):
+            item["filmarks_url"] = entry["filmarks_url"]
+            item["filmarks_match_confidence"] = entry.get("score")
+            exact_count += 1
+        else:
+            item.pop("filmarks_url", None)
+            item.pop("filmarks_match_confidence", None)
+
+    if updated_cache:
+        save_filmarks_cache(cache)
+    print(
+        "   Filmarks links: "
+        f"{exact_count} exact / {search_count} search URLs. "
+        f"Lookups this run: {lookups} "
+        f"(accepted={accepted}, review={review}, not_found={not_found}, errors={errors})."
+    )
+    return listings
 
 def _stringify_sort_value(value):
     if value is None:
@@ -1597,33 +1955,23 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         
         time.sleep(0.3)
 
-    _tmdb_coverage("before Gemini")
+    _tmdb_coverage("before AI")
 
     resolution_cache = load_title_resolution_cache()
     resolution_cache_updated = False
 
-    gemini_key = os.environ.get("GEMINI_API_KEY")
-    gemini_enabled = bool(gemini_key) and (
-        os.environ.get("GEMINI_RESOLVE_TITLES", "").lower() in ("1", "true", "yes") or
-        os.environ.get("GEMINI_TRANSLATE_TITLES", "").lower() in ("1", "true", "yes")
+    ai_client = AIEnrichmentClient.from_env(session)
+    ai_provider = ai_client.provider if ai_client else ""
+    ai_resolve_titles = bool(ai_client) and env_truthy("AI_RESOLVE_TITLES", True)
+    ai_use_search_tool = bool(ai_client and ai_provider == "gemini" and env_truthy("GEMINI_USE_SEARCH_TOOL", True))
+    ai_batch_size = _parse_int(os.environ.get("AI_BATCH_SIZE") or os.environ.get("GEMINI_BATCH_SIZE") or "1") or 1
+    ai_confidence_threshold = float(
+        os.environ.get("AI_CONFIDENCE_THRESHOLD") or os.environ.get("GEMINI_CONFIDENCE_THRESHOLD") or "0.6"
     )
-    gemini_model = os.environ.get("GEMINI_MODEL", "gemini-3-flash-preview")
-    if gemini_model.startswith("models/"):
-        gemini_model = gemini_model.split("/", 1)[1]
-    if "flash" not in gemini_model.lower():
-        gemini_model = "gemini-3-flash-preview"
-    use_search_env = os.environ.get("GEMINI_USE_SEARCH_TOOL")
-    if use_search_env is None or use_search_env == "":
-        gemini_use_search_tool = True
-    else:
-        gemini_use_search_tool = use_search_env.lower() in ("1", "true", "yes")
-    gemini_batch_size = _parse_int(os.environ.get("GEMINI_BATCH_SIZE", "1")) or 1
-    gemini_confidence_threshold = float(os.environ.get("GEMINI_CONFIDENCE_THRESHOLD", "0.6"))
+    local_ai_retry_hours = retry_hours_from_env()
 
-    if not gemini_enabled and (
-        os.environ.get("GEMINI_RESOLVE_TITLES") or os.environ.get("GEMINI_TRANSLATE_TITLES")
-    ):
-        print("   Gemini resolution skipped: GEMINI_API_KEY not set.")
+    if ai_client and not ai_client.health_check():
+        print("   AI enrichment skipped for now; local provider is unavailable.")
 
     resolution_alias_index = _build_resolution_alias_index(resolution_cache)
     unresolved_titles = [
@@ -1646,7 +1994,11 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         cached_country = None
         if isinstance(cached_entry, dict):
             if cached_entry.get("failed"):
-                continue
+                if local_ai_retry_due(cached_entry, local_ai_retry_hours):
+                    cached_entry = None
+                else:
+                    continue
+        if isinstance(cached_entry, dict):
             cached_english_title = cached_entry.get("english_title")
             cached_confidence = cached_entry.get("confidence")
             cached_release_year = cached_entry.get("release_year")
@@ -1658,7 +2010,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         elif isinstance(cached_entry, str):
             cached_english_title = cached_entry
 
-        if cached_english_title and (cached_confidence is None or cached_confidence >= gemini_confidence_threshold):
+        if cached_english_title and (cached_confidence is None or cached_confidence >= ai_confidence_threshold):
             use_release_year = None
             if cached_release_year and not _parse_year(info.get("year")):
                 use_release_year = cached_release_year
@@ -1682,7 +2034,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                 tmdb_year = _parse_year(details.get("release_date"))
                 print(
                     f"      ⚠️ Year mismatch for {title}: "
-                    f"gemini_year={use_release_year}, tmdb_year={tmdb_year}. "
+                    f"ai_year={use_release_year}, tmdb_year={tmdb_year}. "
                     "Skipping TMDB match."
                 )
                 details = None
@@ -1708,24 +2060,23 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                 resolution_cache_updated = True
             time.sleep(0.3)
             continue
-        if cached_english_title and cached_confidence is not None and cached_confidence < gemini_confidence_threshold:
+        if cached_english_title and cached_confidence is not None and cached_confidence < ai_confidence_threshold:
             print(
-                "   Gemini cached English title skipped due to low confidence: "
+                "   AI cached English title skipped due to low confidence: "
                 f"{title} -> {cached_english_title} (conf={cached_confidence})"
             )
 
-        if gemini_enabled and not cached_english_title:
+        if ai_resolve_titles and not cached_english_title:
             titles_to_resolve.append(title)
 
-    if gemini_enabled and titles_to_resolve:
-        print(f"   🤖 Resolving English titles with Gemini for {len(titles_to_resolve)} titles...")
-        resolutions = _resolve_titles_with_gemini(
+    if ai_client and ai_resolve_titles and titles_to_resolve and ai_client.health_check():
+        print(f"   🤖 Resolving English titles with AI for {len(titles_to_resolve)} titles...")
+        resolutions = ai_client.resolve_titles(
             titles_to_resolve,
-            session,
-            gemini_key,
-            gemini_model,
-            gemini_use_search_tool,
-            gemini_batch_size,
+            source_language="Japanese",
+            language_key="jp_title",
+            batch_size=ai_batch_size,
+            use_search_tool=ai_use_search_tool,
         )
 
         for title, entry in resolutions.items():
@@ -1734,14 +2085,14 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
 
         missing_after = [title for title in titles_to_resolve if title not in resolutions]
         if missing_after:
+            note = ai_client.last_error_note or LOCAL_AI_NO_RESULT
             for title in missing_after:
-                _store_resolution_cache_entry(resolution_cache, resolution_alias_index, title, {
-                    "english_title": None,
-                    "release_year": None,
-                    "confidence": 0.0,
-                    "notes": "gemini_failed",
-                    "failed": True,
-                })
+                _store_resolution_cache_entry(
+                    resolution_cache,
+                    resolution_alias_index,
+                    title,
+                    make_ai_failure_entry(note, ai_provider),
+                )
             resolution_cache_updated = True
 
         for title, entry in resolutions.items():
@@ -1751,9 +2102,9 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
             original_title = entry.get("original_title")
             director = entry.get("director")
             country = entry.get("country")
-            if confidence is not None and confidence < gemini_confidence_threshold:
+            if confidence is not None and confidence < ai_confidence_threshold:
                 print(
-                    "   Gemini English title skipped due to low confidence: "
+                    "   AI English title skipped due to low confidence: "
                     f"{title} -> {english_title} (conf={confidence})"
                 )
                 continue
@@ -1763,9 +2114,9 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                 if release_year and not _parse_year(info.get("year")):
                     use_release_year = release_year
                 print(
-                    "   🔁 Retrying TMDB with Gemini English title: "
+                    "   🔁 Retrying TMDB with AI English title: "
                     f"{title} -> {english_title} "
-                    f"(gemini_year={release_year}, used_year={use_release_year})"
+                    f"(ai_year={release_year}, used_year={use_release_year})"
                 )
                 details = _attempt_tmdb_with_english_title(
                     title,
@@ -1782,7 +2133,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                     tmdb_year = _parse_year(details.get("release_date"))
                     print(
                         f"      ⚠️ Year mismatch for {title}: "
-                        f"gemini_year={use_release_year}, tmdb_year={tmdb_year}. "
+                        f"ai_year={use_release_year}, tmdb_year={tmdb_year}. "
                         "Skipping TMDB match."
                     )
                     details = None
@@ -1791,15 +2142,25 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                     updated_cache = True
                     print(f"      ✅ Found: {details['tmdb_title_jp']} (ID: {details['tmdb_id']})")
                 if not details:
-                    print(f"      ❌ TMDB retry failed for Gemini English title: {title}")
+                    print(f"      ❌ TMDB retry failed for AI English title: {title}")
                     failed_entry = dict(entry)
                     failed_entry["failed"] = True
                     failed_entry.setdefault("notes", "tmdb_failed")
                     _store_resolution_cache_entry(resolution_cache, resolution_alias_index, title, failed_entry)
                     resolution_cache_updated = True
             time.sleep(0.3)
+    elif ai_client and ai_resolve_titles and titles_to_resolve:
+        note = ai_client.last_error_note or LOCAL_AI_NO_RESULT
+        for title in titles_to_resolve:
+            _store_resolution_cache_entry(
+                resolution_cache,
+                resolution_alias_index,
+                title,
+                make_ai_failure_entry(note, ai_provider),
+            )
+        resolution_cache_updated = True
 
-    _tmdb_coverage("after Gemini")
+    _tmdb_coverage("after AI")
 
     # Apply cached data to listings
     for item in listings:
@@ -1881,6 +2242,13 @@ def _run_scraper(name, func, listings_list, normalize_func=None, warn_if_empty=T
     try:
         # Run the scraper
         rows = func() or []
+
+        # A small retry helps avoid false zero-row warnings when a live page
+        # briefly fails to load or parses incompletely.
+        if not rows and name in ZERO_COUNT_RETRY_CINEMAS:
+            print(f"   ↻ Retrying {name} once because the first pass returned 0 rows...")
+            time.sleep(1.5)
+            rows = func() or []
         
         # Apply normalization if needed (e.g. for Eurospace)
         if normalize_func and rows:
@@ -1964,13 +2332,10 @@ def main():
             listings = enrich_listings_with_tmdb_links(listings, tmdb_cache, api_session, tmdb_key)
 
         # Synopsis translation for enrich-only mode
-        gemini_key = os.environ.get("GEMINI_API_KEY")
+        ai_client = AIEnrichmentClient.from_env(api_session)
 
-        if gemini_key:
+        if ai_client and env_truthy("AI_TRANSLATE_SYNOPSES", True) and ai_client.health_check():
             print("\n📝 Translating missing English synopses...")
-            gemini_model = os.environ.get("GEMINI_MODEL", "gemini-3-flash-preview")
-            if gemini_model.startswith("models/"):
-                gemini_model = gemini_model.split("/", 1)[1]
 
             synopses_to_translate = {}
             film_key_to_items = {}
@@ -1994,11 +2359,9 @@ def main():
 
             if synopses_to_translate:
                 print(f"   Found {len(synopses_to_translate)} unique films needing translation")
-                translations = _translate_synopses_with_gemini(
+                translations = ai_client.translate_synopses(
                     synopses_to_translate,
-                    api_session,
-                    gemini_key,
-                    gemini_model
+                    source_language="Japanese",
                 )
                 for film_key, en_synopsis in translations.items():
                     translation_keys = []
@@ -2015,6 +2378,8 @@ def main():
                 print(f"   ✓ Translated {len(translations)} synopses")
             else:
                 print("   No synopses need translation")
+
+        listings = enrich_listings_with_filmarks_links(listings, api_session)
 
         print(f"Saving to {output_path}...")
         listings = _prepare_listings_for_output(listings)
@@ -2122,14 +2487,11 @@ def main():
         listings = enrich_listings_with_tmdb_links(listings, tmdb_cache, api_session, tmdb_key)
 
     # 3.5. SYNOPSIS TRANSLATION
-    # Translate synopses that don't have English from TMDB
-    gemini_key = os.environ.get("GEMINI_API_KEY")
+    # Translate synopses that don't have English from TMDB.
+    ai_client = AIEnrichmentClient.from_env(api_session)
 
-    if gemini_key:
+    if ai_client and env_truthy("AI_TRANSLATE_SYNOPSES", True) and ai_client.health_check():
         print("\n📝 Translating missing English synopses...")
-        gemini_model = os.environ.get("GEMINI_MODEL", "gemini-3-flash-preview")
-        if gemini_model.startswith("models/"):
-            gemini_model = gemini_model.split("/", 1)[1]
 
         # Find unique films that need translation
         # Key by TMDB ID if available, otherwise by title
@@ -2161,11 +2523,9 @@ def main():
 
         if synopses_to_translate:
             print(f"   Found {len(synopses_to_translate)} unique films needing translation")
-            translations = _translate_synopses_with_gemini(
+            translations = ai_client.translate_synopses(
                 synopses_to_translate,
-                api_session,
-                gemini_key,
-                gemini_model
+                source_language="Japanese",
             )
 
             # Apply translations to all matching items
@@ -2195,6 +2555,8 @@ def main():
             item["director_jp"] = item.get("director") or ""
         if "director_en" not in item:
             item["director_en"] = ""
+
+    listings = enrich_listings_with_filmarks_links(listings, api_session)
 
     # 4. SAVE OUTPUT
     print(f"Saving to {OUTPUT_JSON}...")
