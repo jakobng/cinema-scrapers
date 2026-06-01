@@ -208,6 +208,15 @@
     "original_title": "Дело",
     "release_year": 2021
   },
+  "【樂齡族電影院】高雄發的尾班車 數位修復版": {
+    "confidence": 1.0,
+    "country": "Taiwan",
+    "director": "LIANG Che-fu",
+    "english_title": "The Last Train from Kaohsiung",
+    "notes": "",
+    "original_title": "高雄發的尾班車",
+    "release_year": 1963
+  },
   "【聽．視界電影院】不能流淚的悲傷": {
     "confidence": 1.0,
     "country": "China",
@@ -237,6 +246,13 @@
     "original_title": "Quand tu seras grand",
     "release_year": 2023
   },
+  "【聽．視界電影院】幸福巧克力": {
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "notes": "gemini_failed",
+    "release_year": null
+  },
   "【聽．視界電影院】愛的缺口": {
     "confidence": 1.0,
     "country": "Belgium, France",
@@ -247,6 +263,15 @@
     "original_title": "Dalva",
     "release_year": 2022
   },
+  "【聽．視界電影院】房事一籮筐": {
+    "confidence": 0.95,
+    "country": "France",
+    "director": "Bruno Podalydès",
+    "english_title": "Wow!",
+    "notes": "",
+    "original_title": "Wahou!",
+    "release_year": 2023
+  },
   "【聽．視界電影院】按讚、訂閱、開啟小鈴鐺": {
     "confidence": 1.0,
     "country": "South Korea",
@@ -256,6 +281,13 @@
     "notes": "",
     "original_title": "좋.댓.구",
     "release_year": 2023
+  },
+  "【聽．視界電影院】滿分之一秒": {
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "notes": "gemini_failed",
+    "release_year": null
   },
   "【聽．視界電影院】討厭我長大": {
     "confidence": 1.0,
@@ -284,6 +316,13 @@
     "notes": "",
     "original_title": "December",
     "release_year": 2022
+  },
+  "【聽．視界電影院】鐵幕追緝令": {
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "notes": "gemini_failed",
+    "release_year": null
   },
   "【聽．視界電影院】魔幻咖啡廳": {
     "confidence": 0.95,
@@ -385,6 +424,13 @@
     "release_year": 2025
   },
   "影城介紹": {
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "notes": "gemini_failed",
+    "release_year": null
+  },
+  "恨：30週年4K修復版": {
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
@@ -494,6 +540,13 @@
     "notes": "gemini_failed",
     "release_year": null
   },
+  "自由的人 索": {
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "notes": "gemini_failed",
+    "release_year": null
+  },
   "藝術家的移居 索": {
     "confidence": 0.0,
     "english_title": null,
@@ -546,5 +599,28 @@
     "notes": "",
     "original_title": "野沈浸",
     "release_year": 2026
+  },
+  "離岸的船 索": {
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "notes": "gemini_failed",
+    "release_year": null
+  },
+  "青木瓜之味 索": {
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "notes": "gemini_failed",
+    "release_year": null
+  },
+  "高訂人生 索": {
+    "confidence": 0.95,
+    "country": "France, United States",
+    "director": "Alice Winocour",
+    "english_title": "Couture",
+    "notes": "",
+    "original_title": "Couture",
+    "release_year": 2025
   }
 }
