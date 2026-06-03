@@ -18,7 +18,7 @@ BASE_URL = "https://www.ks-cinema.com/"
 IFRAME_SRC_URL_KC = urljoin(BASE_URL, "/calendar/index.html")
 SAMPLE_DATA_DIR = Path(__file__).resolve().parents[1] / "sample_data"
 SAMPLE_CALENDAR_PATH = SAMPLE_DATA_DIR / "ks_cinema_calendar_sample.html"
-EIGALAND_URL_RE = re.compile(r"https?://schedule\\.eigaland\\.com/schedule\\?webKey=[^\\s'\"<>]+")
+EIGALAND_URL_RE = re.compile(r"https?://schedule\.eigaland\.com/schedule\?webKey=[^\s'\"<>]+")
 
 # --- Helper Functions ---
 
@@ -33,13 +33,31 @@ def _clean_text(element_or_string) -> str:
     return ' '.join(raw_text.strip().split())
 
 
+def _normalize_title_key(title: str) -> str:
+    """Normalize titles enough to match K's calendar names to Eigaland names."""
+    normalized = _clean_text(title)
+    normalized = normalized.translate(str.maketrans({
+        "、": "",
+        "・": "",
+        "　": "",
+        " ": "",
+        "-": "",
+        "－": "",
+        "―": "",
+        "〜": "",
+        "～": "",
+        "：": ":",
+    }))
+    return normalized.lower()
+
+
 def _fetch_soup(url: str, *, for_calendar: bool = False) -> Optional[BeautifulSoup]:
     """Fetches a URL and returns a BeautifulSoup object."""
     try:
         headers = {'User-Agent': 'Mozilla/5.0'}
         response = requests.get(url, headers=headers, timeout=20)
         response.raise_for_status()
-        return BeautifulSoup(response.content, 'html.parser', from_encoding='shift_jis')
+        return BeautifulSoup(response.content, 'html.parser')
     except requests.RequestException as e:
         print(f"ERROR: [{CINEMA_NAME_KC}] Could not fetch {url}: {e}", file=sys.stderr)
         if for_calendar and SAMPLE_CALENDAR_PATH.exists():
@@ -72,6 +90,25 @@ def _select_title_candidates(cell: Tag) -> Iterable[Tag]:
                 continue
             seen.add(key)
             yield node
+
+
+def _extract_title_from_cell(cell: Tag) -> str:
+    for title_candidate in _select_title_candidates(cell):
+        title = _clean_text(title_candidate)
+        if title:
+            return title
+
+    text = _clean_text(cell)
+    if not text:
+        return ""
+
+    # Current K's calendar cells are plain text with the title before the first date range.
+    text = re.sub(r"\s+\d{1,2}/\d{1,2}\([^)]*\).*$", "", text)
+    text = re.sub(r"\s+\d{1,2}/\d{1,2}\s*[〜～-].*$", "", text)
+    text = re.sub(r"\s+\d{1,2}:\d{2}.*$", "", text)
+    if "開場時間" in text or "上映時間未定" in text:
+        return ""
+    return _clean_text(text)
 
 
 # --- Eigaland Schedule Support ---
@@ -302,14 +339,59 @@ def _resolve_detail_url(cell: Tag) -> str:
     return ""
 
 
+def _build_calendar_detail_index() -> Dict[str, Dict[str, str]]:
+    iframe_soup = _fetch_soup(IFRAME_SRC_URL_KC, for_calendar=True)
+    if not iframe_soup:
+        return {}
+
+    detail_index: Dict[str, Dict[str, str]] = {}
+    for cell in iframe_soup.select("td"):
+        detail_url = _resolve_detail_url(cell)
+        title = _extract_title_from_cell(cell)
+        if not detail_url or not title:
+            continue
+
+        details = detail_index.get(_normalize_title_key(title), {}).copy()
+        if not details:
+            detail_soup = _fetch_soup(detail_url)
+            details = _parse_detail_page(detail_soup) if detail_soup else {}
+        details["detail_page_url"] = detail_url
+        detail_index[_normalize_title_key(title)] = details
+
+    return detail_index
+
+
+def _enrich_showings_with_calendar_details(showings: List[Dict]) -> List[Dict]:
+    detail_index = _build_calendar_detail_index()
+    if not detail_index:
+        return showings
+
+    enriched = []
+    for showing in showings:
+        enriched_showing = showing.copy()
+        details = detail_index.get(_normalize_title_key(showing.get("movie_title", "")))
+        if details:
+            enriched_showing["detail_page_url"] = details.get("detail_page_url") or enriched_showing.get("detail_page_url", "")
+            enriched_showing["director"] = enriched_showing.get("director") or details.get("director", "")
+            enriched_showing["year"] = enriched_showing.get("year") or details.get("year", "")
+            enriched_showing["country"] = enriched_showing.get("country") or details.get("country", "")
+            enriched_showing["runtime_min"] = enriched_showing.get("runtime_min") or details.get("runtime_min", "")
+            enriched_showing["synopsis"] = enriched_showing.get("synopsis") or details.get("synopsis", "")
+            enriched_showing["movie_title_en"] = enriched_showing.get("movie_title_en") or details.get("original_title", "")
+        enriched.append(enriched_showing)
+    return enriched
+
+
 def scrape_ks_cinema(max_days: int = 7) -> List[Dict]:
     eigaland_url = _discover_eigaland_schedule_url()
     if eigaland_url:
         print(f"INFO: [{CINEMA_NAME_KC}] Found Eigaland schedule: {eigaland_url}")
         eigaland_showings = _scrape_eigaland_schedule(eigaland_url, max_days=max_days)
         if eigaland_showings:
-            print(f"INFO: [{CINEMA_NAME_KC}] Using Eigaland showings: {len(eigaland_showings)}")
-            return eigaland_showings
+            enriched_showings = _enrich_showings_with_calendar_details(eigaland_showings)
+            enriched_count = sum(1 for s in enriched_showings if s.get("detail_page_url") != eigaland_url)
+            print(f"INFO: [{CINEMA_NAME_KC}] Using Eigaland showings: {len(enriched_showings)} ({enriched_count} enriched from K's detail pages)")
+            return enriched_showings
         print(f"INFO: [{CINEMA_NAME_KC}] Eigaland returned no showings, falling back to calendar.")
 
     print(f"INFO: [{CINEMA_NAME_KC}] Fetching calendar iframe: {IFRAME_SRC_URL_KC}")
@@ -356,11 +438,11 @@ def scrape_ks_cinema(max_days: int = 7) -> List[Dict]:
         last_month = 0
         current_year = today.year
         for month_th in month_row.find_all('th'):
-            month_match = re.search(r'(\d{1,2})月', _clean_text(month_th))
+            month_match = re.search(r'(\d{1,2})月|(\d{1,2})/', _clean_text(month_th))
             if not month_match:
                 continue
             
-            month = int(month_match.group(1))
+            month = int(month_match.group(1) or month_match.group(2))
             if last_month > 0 and month < last_month:
                 current_year += 1
             last_month = month
@@ -384,11 +466,7 @@ def scrape_ks_cinema(max_days: int = 7) -> List[Dict]:
             current_cell_idx = 0
             for cell in row.find_all('td'):
                 colspan = int(cell.get('colspan') or cell.get('data-colspan') or 1)
-                title = ""
-                for title_candidate in _select_title_candidates(cell):
-                    title = _clean_text(title_candidate)
-                    if title:
-                        break
+                title = _extract_title_from_cell(cell)
                 if not title:
                     current_cell_idx += colspan
                     continue
@@ -453,5 +531,4 @@ if __name__ == '__main__':
         pprint(showings[0])
     else:
         print(f"\nNo showings found by {CINEMA_NAME_KC} scraper.")
-
 
