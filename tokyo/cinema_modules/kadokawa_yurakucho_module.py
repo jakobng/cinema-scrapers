@@ -3,7 +3,9 @@ import sys
 import os
 import time
 import re
-from datetime import datetime, date
+from datetime import datetime, date, timedelta, timezone
+
+import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -24,10 +26,105 @@ if __name__ == "__main__" and sys.platform == "win32":
 
 CINEMA_NAME_KY = "Kadokawa Cinema Yurakucho (角川シネマ有楽町)"
 URL_KY = "https://www.kadokawa-cinema.jp/theaters/yurakucho/"
+BASE_URL_KY = "https://www.kadokawa-cinema.jp"
+THEATER_CODE_KY = "017"
+JST = timezone(timedelta(hours=9))
 
 def clean_text(text):
     if not text: return ""
     return re.sub(r'\s+', ' ', text).strip()
+
+def _request_json(path):
+    url = path if path.startswith("http") else f"{BASE_URL_KY}{path}"
+    response = requests.get(
+        url,
+        headers={'User-Agent': 'Mozilla/5.0'},
+        timeout=20,
+    )
+    response.raise_for_status()
+    return response.json()
+
+def _parse_iso_to_jst(value):
+    if not value:
+        return None
+    normalized = str(value).replace("Z", "+00:00")
+    try:
+        return datetime.fromisoformat(normalized).astimezone(JST)
+    except ValueError:
+        return None
+
+def _duration_to_minutes(value):
+    if not value:
+        return ""
+    match = re.fullmatch(r"PT(?:(\d+)H)?(?:(\d+)M)?", str(value))
+    if not match:
+        return ""
+    hours = int(match.group(1) or 0)
+    minutes = int(match.group(2) or 0)
+    total = hours * 60 + minutes
+    return str(total) if total else ""
+
+def _localized_name(value):
+    if isinstance(value, dict):
+        return clean_text(value.get("ja") or value.get("en") or "")
+    return clean_text(value)
+
+def _entry_to_showing(entry, fallback_date, fallback_time):
+    title = _localized_name(entry.get("name"))
+    if not title:
+        return None
+
+    start = _parse_iso_to_jst(entry.get("startDate"))
+    date_text = start.date().isoformat() if start else fallback_date
+    showtime = start.strftime("%H:%M") if start else f"{fallback_time[:2]}:{fallback_time[2:]}"
+    runtime_min = _duration_to_minutes((entry.get("workPerformed") or {}).get("duration"))
+
+    return {
+        "cinema_name": CINEMA_NAME_KY,
+        "date_text": date_text,
+        "movie_title": title,
+        "showtime": showtime,
+        "year": date_text.split("-")[0] if date_text else "",
+        "runtime_min": runtime_min,
+        "detail_page_url": URL_KY,
+    }
+
+def _scrape_kadokawa_json(max_days=7):
+    today = date.today()
+    end_date = today + timedelta(days=max_days - 1)
+    schedule_index = _request_json("/schedule/data/schedule.json")
+    showings = []
+
+    for movie_id, theaters in schedule_index.items():
+        dates = theaters.get(THEATER_CODE_KY, {})
+        for yyyymmdd, times in dates.items():
+            try:
+                show_date = datetime.strptime(yyyymmdd, "%Y%m%d").date()
+            except ValueError:
+                continue
+            if not (today <= show_date <= end_date):
+                continue
+
+            detail_path = f"/schedule/data/{movie_id}/{THEATER_CODE_KY}/{yyyymmdd}.json"
+            try:
+                detail_data = _request_json(detail_path)
+            except requests.RequestException as e:
+                print(f"Error fetching Kadokawa schedule detail {detail_path}: {e}", file=sys.stderr)
+                detail_data = times
+
+            for time_key, rooms in detail_data.items():
+                if isinstance(rooms, list):
+                    entries = rooms
+                elif isinstance(rooms, dict):
+                    entries = list(rooms.values())
+                else:
+                    continue
+                for entry in entries:
+                    showing = _entry_to_showing(entry, show_date.isoformat(), str(time_key))
+                    if showing:
+                        showings.append(showing)
+
+    return _dedupe_showings(showings)
 
 def get_headless_driver():
     cache_dir = os.path.join(os.getcwd(), ".selenium-cache")
@@ -70,26 +167,16 @@ def _parse_date_mmdd(text, today):
     return f"{year}-{month:02d}-{day_val:02d}"
 
 def _collect_date_tabs(driver):
-    selectors = [
-        ".schedule-swiper__item",
-        ".schedule-swiper .swiper-slide",
-        ".schedule-date-item",
-        ".schedule-tab__item",
-        ".schedule-tab li",
-        "[data-date]",
-        "[data-day]",
-    ]
-    best = []
+    selectors = [".schedule-swiper__item", ".schedule-date-item", ".schedule-tab__item", ".schedule-tab li", "[data-date]", "[data-day]"]
     for selector in selectors:
         items = driver.find_elements(By.CSS_SELECTOR, selector)
-        if len(items) > len(best):
-            best = items
-    if best:
-        return best
+        dated_items = [item for item in items if _parse_date_mmdd(item.text, date.today())]
+        if dated_items:
+            return dated_items
     return driver.find_elements(By.XPATH, "//*[contains(@class,'date') and contains(text(),'/')]")
 
 def _extract_title_from_block(block):
-    for selector in ["a.title", ".item-title .title", ".title", "h3", "h4", "a[href*='/movie/']"]:
+    for selector in ["a.title", ".item-title", ".item-title .title", ".title", "h3", "h4", "a[href*='/movie/']"]:
         title_tag = block.select_one(selector)
         if not title_tag:
             continue
@@ -118,8 +205,8 @@ def _extract_times_from_block(block):
 
 def _find_movie_blocks(root):
     block_selectors = [
-        ".tab_content-wrap .content-item",
-        ".tab-content-wrap .content-item",
+        ".tab_content-wrap > .content-item[data-order]",
+        ".tab-content-wrap > .content-item[data-order]",
         ".content-item",
         ".movie-schedule-item",
         ".schedule-item",
@@ -182,7 +269,26 @@ def _parse_showings_from_soup(soup, date_str, today):
         return _build_showings_from_blocks(_find_movie_blocks(soup), fallback_date)
     return []
 
-def scrape_kadokawa_yurakucho():
+def _dedupe_showings(showings):
+    unique_showings = []
+    seen = set()
+    for s in showings:
+        tup = (s.get('date_text'), s.get('movie_title'), s.get('showtime'))
+        if tup not in seen:
+            unique_showings.append(s)
+            seen.add(tup)
+    return unique_showings
+
+def scrape_kadokawa_yurakucho(max_days=7):
+    try:
+        json_showings = _scrape_kadokawa_json(max_days=max_days)
+        if json_showings:
+            print(f"Using Kadokawa JSON schedule: {len(json_showings)} showings.")
+            return json_showings
+        print("Kadokawa JSON schedule returned no showings; falling back to Selenium.")
+    except Exception as e:
+        print(f"Error in Kadokawa JSON schedule scrape: {e}; falling back to Selenium.")
+
     showings = []
     driver = None
     try:
@@ -207,7 +313,7 @@ def scrape_kadokawa_yurakucho():
             showings.extend(_parse_showings_from_soup(soup, "", today))
             date_tabs = []
         
-        for i in range(len(date_tabs)):
+        for i in range(min(len(date_tabs), max_days)):
             # Re-find tabs to avoid stale element exception
             tabs = _collect_date_tabs(driver)
             if i >= len(tabs):
@@ -260,16 +366,7 @@ def scrape_kadokawa_yurakucho():
         if driver:
             driver.quit()
             
-    # Deduplicate
-    unique_showings = []
-    seen = set()
-    for s in showings:
-        tup = (s['date_text'], s['movie_title'], s['showtime'])
-        if tup not in seen:
-            unique_showings.append(s)
-            seen.add(tup)
-            
-    return unique_showings
+    return _dedupe_showings(showings)
 
 if __name__ == "__main__":
     results = scrape_kadokawa_yurakucho()
