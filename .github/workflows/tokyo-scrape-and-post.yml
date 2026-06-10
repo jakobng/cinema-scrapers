@@ -152,6 +152,7 @@ jobs:
           print(f'   Detail/booking URL coverage: {link_coverage:.1%} ({linkless} missing)')
           "
           python audit_showtimes.py --strict
+          python build_slim_showtimes.py
 
       # --- STEP 2: GENERATE CONTENT (SPLIT) ---
 
@@ -204,11 +205,12 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git remote set-url origin "https://x-access-token:${WEBSITE1_SYNC_TOKEN}@github.com/jakobng/website1.git"
 
-          # Copy showtimes.json to website1
+          # Copy showtimes.json (full, audit baseline) and the slim variant the page prefers
           cp "$GITHUB_WORKSPACE/tokyo/data/showtimes.json" tokyo-cinema-scrapers/data/showtimes.json
+          cp "$GITHUB_WORKSPACE/tokyo/data/showtimes_slim.json" tokyo-cinema-scrapers/data/showtimes_slim.json
 
           # Commit if there are changes
-          git add tokyo-cinema-scrapers/data/showtimes.json
+          git add tokyo-cinema-scrapers/data/showtimes.json tokyo-cinema-scrapers/data/showtimes_slim.json
           git commit -m "Auto-Update: Tokyo cinema showtimes sync from cinema-scrapers" || echo "No changes to commit"
 
           # Push with rebase to handle race conditions

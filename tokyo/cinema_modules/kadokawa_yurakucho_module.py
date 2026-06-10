@@ -24,7 +24,7 @@ if __name__ == "__main__" and sys.platform == "win32":
         pass
 # --- End: Configure stdout and stderr ---
 
-CINEMA_NAME_KY = "Kadokawa Cinema Yurakucho (角川シネマ有楽町)"
+CINEMA_NAME_KY = "角川シネマ有楽町"
 URL_KY = "https://www.kadokawa-cinema.jp/theaters/yurakucho/"
 BASE_URL_KY = "https://www.kadokawa-cinema.jp"
 THEATER_CODE_KY = "017"
