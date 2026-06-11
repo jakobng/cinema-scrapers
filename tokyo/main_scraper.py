@@ -2085,7 +2085,10 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         elif isinstance(cached_entry, str):
             cached_english_title = cached_entry
 
-        if cached_english_title and (cached_confidence is None or cached_confidence >= ai_confidence_threshold):
+        # A falsy confidence (None or 0.0) means "unknown" — try the lookup anyway,
+        # since TMDB re-validation is the real accuracy gate. Only a positive
+        # confidence below the threshold is treated as a genuine low-confidence skip.
+        if cached_english_title and (not cached_confidence or cached_confidence >= ai_confidence_threshold):
             use_release_year = None
             if cached_release_year and not _parse_year(info.get("year")):
                 use_release_year = cached_release_year
@@ -2135,7 +2138,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                 resolution_cache_updated = True
             time.sleep(0.3)
             continue
-        if cached_english_title and cached_confidence is not None and cached_confidence < ai_confidence_threshold:
+        if cached_english_title and cached_confidence and cached_confidence < ai_confidence_threshold:
             print(
                 "   AI cached English title skipped due to low confidence: "
                 f"{title} -> {cached_english_title} (conf={cached_confidence})"

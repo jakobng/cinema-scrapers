@@ -153,7 +153,20 @@ def normalize_resolution_entry(entry: Dict, input_title: str, language_key: str)
 
     confidence = entry.get("confidence")
     if isinstance(confidence, str):
-        confidence = parse_float(confidence, 0.0)
+        # Models often return a word ("high") instead of a number, especially in
+        # batch mode. Map the common words; fall back to numeric parse, else None
+        # (unknown) rather than 0.0 so it isn't mistaken for "no confidence".
+        word_scores = {
+            "very high": 0.95, "high": 0.9, "fairly high": 0.8, "medium-high": 0.75,
+            "medium": 0.6, "moderate": 0.6, "fair": 0.5, "medium-low": 0.45,
+            "low": 0.3, "very low": 0.1, "none": 0.0,
+        }
+        key = confidence.strip().lower()
+        if key in word_scores:
+            confidence = word_scores[key]
+        else:
+            parsed = parse_float(key, -1.0)
+            confidence = parsed if parsed >= 0 else None
     release_year = entry.get("release_year") or entry.get("year")
     if isinstance(release_year, str) and release_year.isdigit():
         release_year = int(release_year)
