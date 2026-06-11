@@ -442,6 +442,37 @@
     "status": "accepted",
     "updated_at": "2026-06-07T05:12:22.094472+00:00"
   },
+  "feverビーバー！::2024::108::マイクチェスリック": {
+    "candidate": {
+      "director": "マイク・チェスリック",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "108",
+      "score": 12,
+      "support": 2,
+      "title": "FEVER ビーバー！",
+      "url": "https://filmarks.com/movies/120213",
+      "year": "2026"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "https://filmarks.com/movies/120213",
+    "query": "FEVER ビーバー！",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=FEVER%20%E3%83%93%E3%83%BC%E3%83%90%E3%83%BC%EF%BC%81",
+    "status": "accepted",
+    "updated_at": "2026-06-11T01:40:38.970928+00:00"
+  },
   "fujiko::2026::95::木村太一": {
     "candidate": {
       "director": "木村太一",
@@ -1213,6 +1244,37 @@
     "search_url": "https://filmarks.com/search/movies?q=Le%20Boucher",
     "status": "review",
     "updated_at": "2026-06-07T05:15:19.036692+00:00"
+  },
+  "lesbiches::1968::99::クロードシャブロル": {
+    "candidate": {
+      "director": "クロード・シャブロル",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "99",
+      "score": 12,
+      "support": 2,
+      "title": "女鹿",
+      "url": "https://filmarks.com/movies/12948",
+      "year": "2026"
+    },
+    "candidate_count": 27,
+    "filmarks_url": "https://filmarks.com/movies/12948",
+    "query": "Les Biches",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=Les%20Biches",
+    "status": "accepted",
+    "updated_at": "2026-06-11T01:40:42.398461+00:00"
   },
   "lielielie::1997::123::中原俊": {
     "candidate": {
@@ -4338,6 +4400,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%82%A2%E3%83%BB%E3%82%BD%E3%83%B3%E3%82%B0",
     "status": "accepted",
     "updated_at": "2026-06-07T23:30:57.254243+00:00"
+  },
+  "インディアソング::1975::115::マルグリットデュラス": {
+    "candidate": {
+      "director": "マルグリット・デュラス",
+      "reasons": [
+        "title_exact",
+        "runtime_mismatch",
+        "director"
+      ],
+      "runtime": "120",
+      "score": 11,
+      "support": 1,
+      "title": "インディア・ソング",
+      "url": "https://filmarks.com/movies/37427",
+      "year": ""
+    },
+    "candidate_count": 27,
+    "filmarks_url": "",
+    "query": "インディア・ソング",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_mismatch",
+      "director"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%82%A2%E3%83%BB%E3%82%BD%E3%83%B3%E3%82%B0",
+    "status": "review",
+    "updated_at": "2026-06-11T01:40:40.857665+00:00"
   },
   "インディアソング::::::マルグリットデュラス": {
     "candidate": {
@@ -7858,6 +7949,35 @@
     "status": "review",
     "updated_at": "2026-06-07T05:17:13.782179+00:00"
   },
+  "ノスタルジア::1983::124::安德烈·塔尔科夫斯基": {
+    "candidate": {
+      "director": "マリオ・マルトーネ",
+      "reasons": [
+        "title_exact",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "118",
+      "score": 1,
+      "support": 0,
+      "title": "ノスタルジア",
+      "url": "https://filmarks.com/movies/102734",
+      "year": ""
+    },
+    "candidate_count": 27,
+    "filmarks_url": "",
+    "query": "ノスタルジア",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": 1,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%8E%E3%82%B9%E3%82%BF%E3%83%AB%E3%82%B8%E3%82%A2",
+    "status": "review",
+    "updated_at": "2026-06-11T01:40:44.770829+00:00"
+  },
   "ハッピーアワー1部2部3部::::::": {
     "candidate": {
       "director": "沖田かおり",
@@ -8527,6 +8647,37 @@
     "status": "review",
     "updated_at": "2026-06-07T05:14:22.176779+00:00"
   },
+  "プラダを着た悪魔::2006::110::デヴィッドフランケル": {
+    "candidate": {
+      "director": "デヴィッド・フランケル",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "110",
+      "score": 21,
+      "support": 3,
+      "title": "プラダを着た悪魔",
+      "url": "https://filmarks.com/movies/2151",
+      "year": "2006"
+    },
+    "candidate_count": 15,
+    "filmarks_url": "https://filmarks.com/movies/2151",
+    "query": "プラダを着た悪魔",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%97%E3%83%A9%E3%83%80%E3%82%92%E7%9D%80%E3%81%9F%E6%82%AA%E9%AD%94",
+    "status": "accepted",
+    "updated_at": "2026-06-11T01:40:43.561303+00:00"
+  },
   "プラダを着た悪魔２::2026::119::デビッドフランケル": {
     "candidate": {
       "director": "デヴィッド・フランケル",
@@ -8557,6 +8708,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%97%E3%83%A9%E3%83%80%E3%82%92%E7%9D%80%E3%81%9F%E6%82%AA%E9%AD%94%EF%BC%92",
     "status": "review",
     "updated_at": "2026-06-07T05:08:00.681208+00:00"
+  },
+  "プリズンサークル::2020::120::坂上香": {
+    "candidate": {
+      "director": "坂上香",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime_mismatch",
+        "director"
+      ],
+      "runtime": "136",
+      "score": 14,
+      "support": 2,
+      "title": "プリズン・サークル",
+      "url": "https://filmarks.com/movies/86766",
+      "year": "2020"
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/86766",
+    "query": "プリズン・サークル",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime_mismatch",
+      "director"
+    ],
+    "score": 14,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%97%E3%83%AA%E3%82%BA%E3%83%B3%E3%83%BB%E3%82%B5%E3%83%BC%E3%82%AF%E3%83%AB",
+    "status": "accepted",
+    "updated_at": "2026-06-11T01:40:48.862812+00:00"
   },
   "プリズンサークル::::::": {
     "candidate": {
@@ -10862,6 +11044,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E4%BA%BA%E9%96%93%E3%81%AE%E8%A8%BC%E6%98%8E",
     "status": "accepted",
     "updated_at": "2026-06-07T05:10:17.557393+00:00"
+  },
+  "人間の証明::1977::133::佐藤純彌": {
+    "candidate": {
+      "director": "佐藤純彌",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "133",
+      "score": 21,
+      "support": 3,
+      "title": "人間の証明",
+      "url": "https://filmarks.com/movies/12488",
+      "year": "1977"
+    },
+    "candidate_count": 30,
+    "filmarks_url": "https://filmarks.com/movies/12488",
+    "query": "人間の証明",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E4%BA%BA%E9%96%93%E3%81%AE%E8%A8%BC%E6%98%8E",
+    "status": "accepted",
+    "updated_at": "2026-06-11T01:40:46.014943+00:00"
   },
   "人間の証明４ｋデジタル修復版::2026::133::": {
     "candidate": {
@@ -19307,6 +19520,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E9%B9%BF%E3%81%AE%E5%9B%BD",
     "status": "review",
     "updated_at": "2026-06-07T05:10:05.415954+00:00"
+  },
+  "黒い十人の女::1961::103::市川崑": {
+    "candidate": {
+      "director": "市川崑",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "103",
+      "score": 21,
+      "support": 3,
+      "title": "黒い十人の女",
+      "url": "https://filmarks.com/movies/4297",
+      "year": "1961"
+    },
+    "candidate_count": 30,
+    "filmarks_url": "https://filmarks.com/movies/4297",
+    "query": "黒い十人の女",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%BB%92%E3%81%84%E5%8D%81%E4%BA%BA%E3%81%AE%E5%A5%B3",
+    "status": "accepted",
+    "updated_at": "2026-06-11T01:40:47.346647+00:00"
   },
   "黒い十人の女４ｋデジタル修復版::2026::103::": {
     "candidate": {
