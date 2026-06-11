@@ -91,6 +91,7 @@ from cinema_modules import (
 DATA_DIR = "data"
 OUTPUT_JSON = os.path.join(DATA_DIR, "showtimes.json")
 TMDB_CACHE_FILE = os.path.join(DATA_DIR, "tmdb_cache.json")
+TMDB_CACHE_META_FILE = os.path.join(DATA_DIR, "tmdb_cache_meta.json")
 FILMARKS_CACHE_FILE = os.path.join(DATA_DIR, "filmarks_cache.json")
 TITLE_RESOLUTION_CACHE_FILE = os.path.join(DATA_DIR, "title_resolution_cache.json")
 LEGACY_TITLE_TRANSLATION_CACHE_FILE = os.path.join(DATA_DIR, "title_translation_cache.json")
@@ -240,6 +241,13 @@ report = ScrapeReport()
 
 # --- TMDB Utilities ---
 
+# Bump CLEAN_TITLE_VERSION whenever clean_title_for_tmdb changes in a way that
+# could rescue previously-unmatched titles. On the next run the scraper drops the
+# cached "not found" (null) entries once so they are re-searched with the better
+# query (see reset_stale_tmdb_nulls). Confirmed matches are always preserved.
+CLEAN_TITLE_VERSION = 2
+
+
 def clean_title_for_tmdb(title: str) -> str:
     """
     Aggressively strips 'noise' suffixes that confuse TMDB fuzzy matching.
@@ -248,10 +256,14 @@ def clean_title_for_tmdb(title: str) -> str:
         return ""
     
     cleaned = title.replace("\u3000", " ").strip()
+    # Normalise full-width 4K/2K (４Ｋ/２Ｋ) so the restoration patterns below match
+    # decorations like "４Ｋデジタル修復版".
+    cleaned = (cleaned.replace("４Ｋ", "4K").replace("２Ｋ", "2K")
+                      .replace("４ｋ", "4K").replace("２ｋ", "2K"))
     keyword_pattern = (
-        r"(?:上映|字幕|舞台挨拶|イベント|ｲﾍﾞﾝﾄ|特集|記念|公開|"
+        r"(?:上映|字幕|吹替|舞台挨拶|イベント|ｲﾍﾞﾝﾄ|特集|記念|公開|"
         r"オールナイト|未体験|復刻|再上映|先行|限定|特別|"
-        r"ライブ|生中継|応援上映|4K|2K|リマスター|レストア|デジタル)"
+        r"ライブ|生中継|応援上映|4K|2K|リマスター|レストア|修復|デジタル)"
     )
     patterns = [
         rf"【[^】]*?{keyword_pattern}[^】]*】",
@@ -260,12 +272,20 @@ def clean_title_for_tmdb(title: str) -> str:
         rf"《[^》]*?{keyword_pattern}[^》]*》",
         rf"\[[^\]]*?{keyword_pattern}[^\]]*\]",
         rf"\([^\)]*?{keyword_pattern}[^\)]*\)",
+        # Leading orphan-closing-bracket decoration, e.g. "字幕版】タイトル" — a scraped
+        # fragment that lost its opening bracket. Only fires when the leading run
+        # holds a known decoration keyword and ends at a close bracket.
+        rf"^[^【［〈《\[(]{{0,14}}?{keyword_pattern}[^】］〉》\])]{{0,14}}?[】］〉》\])]",
         r"^\s*[A-Z]\.?\s+",
         r"^\s*\d+\.\s+",
-        r"\s*(?:4K|2K)\s*(?:デジタル)?(?:リマスター|レストア)?(?:版)?\s*$",
-        r"\s*(?:デジタル)?(?:リマスター|レストア)(?:版)?\s*$",
+        # 修復 (restoration) sits alongside リマスター/レストア (remaster/restore).
+        r"\s*(?:4K|2K)\s*(?:デジタル)?(?:リマスター|レストア|修復)?(?:版)?\s*$",
+        r"\s*(?:デジタル)?(?:リマスター|レストア|修復)(?:版)?\s*$",
         r"\s*(?:IMAX|Dolby|4DX|SCREENX)\s*$",
         r"\s*(?:完全版|ディレクターズカット|Director's Cut|DC版)\s*$",
+        # Trailing version annotations, e.g. "（long version）" / "（オリジナル版）".
+        r"\s*[（(]\s*(?:long|short|full|original|theatrical|extended|uncut|remastered|restored)\s*(?:version|ver\.?|cut|edition)?\s*[)）]\s*$",
+        r"\s*[（(](?:ロング|ショート|オリジナル|劇場|完全)?(?:バージョン|ヴァージョン|版)[)）]\s*$",
         r"\s*(?:字幕|吹替)\s*$",
         r"\s*(?:公開\d+周年記念版|\d+周年記念版|\d+周年記念)\s*$",
         r"\s*(?:復刻版|再上映)\s*$",
@@ -274,14 +294,30 @@ def clean_title_for_tmdb(title: str) -> str:
 
     for pat in patterns:
         cleaned = re.sub(pat, "", cleaned, flags=re.IGNORECASE)
-    
+
     # Cleanup whitespace
     cleaned = cleaned.strip()
-    
+
+    # Drop Japanese quotation brackets (『』「」) that scraped titles carry but TMDB
+    # never does — only when they cleanly WRAP the whole title, or are a genuine
+    # ORPHAN (opener with no closer / closer with no opener). Never touch internal or
+    # balanced multi-part brackets, which belong to event/compilation titles.
+    wrap = re.match(r"^『(.+)』$", cleaned) or re.match(r"^「(.+)」$", cleaned)
+    if wrap and "』" not in wrap.group(1) and "」" not in wrap.group(1):
+        cleaned = wrap.group(1).strip()
+    if cleaned.startswith("『") and "』" not in cleaned:
+        cleaned = cleaned[1:].strip()
+    elif cleaned.startswith("「") and "」" not in cleaned:
+        cleaned = cleaned[1:].strip()
+    if cleaned.endswith("』") and "『" not in cleaned:
+        cleaned = cleaned[:-1].strip()
+    elif cleaned.endswith("」") and "「" not in cleaned:
+        cleaned = cleaned[:-1].strip()
+
     # If cleaning removed everything (unlikely), revert
     if not cleaned:
         return title
-        
+
     return cleaned
 
 def load_tmdb_cache():
@@ -295,6 +331,45 @@ def load_tmdb_cache():
 
 def save_tmdb_cache(cache):
     _write_json_file(TMDB_CACHE_FILE, cache, sort_keys=True)
+
+
+def _load_clean_title_version() -> int:
+    if os.path.exists(TMDB_CACHE_META_FILE):
+        try:
+            with open(TMDB_CACHE_META_FILE, "r", encoding="utf-8") as f:
+                return int(json.load(f).get("clean_title_version", 0))
+        except (json.JSONDecodeError, IOError, OSError, ValueError, TypeError):
+            return 0
+    return 0
+
+
+def reset_stale_tmdb_nulls(cache: dict) -> bool:
+    """When clean_title_for_tmdb improves (CLEAN_TITLE_VERSION bumps), drop cached
+    'not found' (null) entries once so they are re-searched with the better query.
+
+    Confirmed matches (dict entries) are always preserved, and the TMDB acceptance
+    gate is unchanged — re-searching can only add correct matches, never wrong ones.
+    The version is persisted alongside the (now null-free) cache so this runs at most
+    once per bump and is robust to the nightly cache churn.
+    """
+    if _load_clean_title_version() >= CLEAN_TITLE_VERSION:
+        return False
+    removed = [key for key, value in cache.items() if value is None]
+    for key in removed:
+        del cache[key]
+    print(
+        f"   ♻️  Title cleaner v{CLEAN_TITLE_VERSION}: cleared {len(removed)} cached "
+        "'not found' entries for re-search with the improved query."
+    )
+    # Persist the null-free cache and the new version together so disk stays consistent
+    # even if the run is interrupted before enrichment finishes.
+    save_tmdb_cache(cache)
+    try:
+        with open(TMDB_CACHE_META_FILE, "w", encoding="utf-8") as f:
+            json.dump({"clean_title_version": CLEAN_TITLE_VERSION}, f)
+    except (IOError, OSError) as exc:
+        print(f"   ⚠️  Could not write {TMDB_CACHE_META_FILE}: {exc}")
+    return bool(removed)
 
 def load_synopsis_translation_cache():
     if os.path.exists(SYNOPSIS_TRANSLATION_CACHE_FILE):
@@ -2296,6 +2371,7 @@ def main():
     # Prepare TMDB session
     api_session = requests.Session()
     tmdb_cache = load_tmdb_cache()
+    reset_stale_tmdb_nulls(tmdb_cache)
     synopsis_translation_cache = load_synopsis_translation_cache()
     synopsis_translation_cache_updated = False
 
