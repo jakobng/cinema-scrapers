@@ -190,6 +190,7 @@ class AIEnrichmentClient:
         self.model = model
         self.base_url = base_url.rstrip("/")
         self.timeout_seconds = timeout_seconds
+        self.api_key: Optional[str] = None
         self.available: Optional[bool] = None
         self.last_error_note: Optional[str] = None
 
@@ -223,13 +224,31 @@ class AIEnrichmentClient:
             if "flash" not in model.lower():
                 model = "gemini-3-flash-preview"
             return cls(session, provider, model, "https://generativelanguage.googleapis.com/v1beta", timeout_seconds)
+        if provider in ("deepseek", "openai", "openai-compatible"):
+            # OpenAI-compatible chat-completions providers (DeepSeek by default).
+            if provider == "deepseek":
+                api_key = os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("AI_API_KEY")
+                base_url = os.environ.get("AI_BASE_URL") or "https://api.deepseek.com"
+                model = os.environ.get("AI_MODEL") or os.environ.get("DEEPSEEK_MODEL") or "deepseek-chat"
+            else:
+                api_key = os.environ.get("OPENAI_API_KEY") or os.environ.get("AI_API_KEY")
+                base_url = os.environ.get("AI_BASE_URL") or "https://api.openai.com/v1"
+                model = os.environ.get("AI_MODEL") or "gpt-4o-mini"
+            if not api_key:
+                print(f"   AI enrichment skipped: {provider} requested but no API key set.")
+                return None
+            client = cls(session, provider, model, base_url, timeout_seconds)
+            client.api_key = api_key
+            return client
         print(f"   AI enrichment skipped: unsupported AI_ENRICHMENT_PROVIDER={provider!r}.")
         return None
 
     def health_check(self) -> bool:
         if self.available is not None:
             return self.available
-        if self.provider == "gemini":
+        # Key-authenticated cloud providers: trust the key; per-request errors are
+        # handled at call time (their /models endpoints need auth we don't send here).
+        if self.provider in ("gemini", "deepseek", "openai", "openai-compatible"):
             self.available = True
             return True
         try:
@@ -262,12 +281,14 @@ class AIEnrichmentClient:
             "max_tokens": max_tokens,
         }
         reasoning_effort = os.environ.get("LOCAL_AI_REASONING_EFFORT", "none").strip()
-        if reasoning_effort:
+        if reasoning_effort and self.provider == "lmstudio":
             payload["reasoning_effort"] = reasoning_effort
+        headers = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else None
         try:
             response = self.session.post(
                 f"{self.base_url}/chat/completions",
                 json=payload,
+                headers=headers,
                 timeout=(5, self.timeout_seconds),
             )
         except requests.exceptions.RequestException as exc:
