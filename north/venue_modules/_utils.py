@@ -119,6 +119,58 @@ def norm(text):
     return " ".join(str(text).split()).strip()
 
 
+_UK_MONTHS = {m[:3]: i for i, m in enumerate(
+    ["january", "february", "march", "april", "may", "june", "july",
+     "august", "september", "october", "november", "december"], 1)}
+_UK_PERMANENT_RE = re.compile(r"continuing display|now open|permanent|ongoing|daily display", re.IGNORECASE)
+
+
+def _uk_one_date(text, default_year=None):
+    """Parse a single 'DD Month [YYYY]' fragment to (year, month, day) or None."""
+    if not text:
+        return None
+    text = re.sub(r"([A-Za-z])(\d{4})", r"\1 \2", text)  # repair "Nov2026" -> "Nov 2026"
+    m = re.search(r"(\d{1,2})\s+([A-Za-z]{3,})\.?\s*(\d{4})?", text)
+    if not m:
+        return None
+    month = _UK_MONTHS.get(m.group(2)[:3].lower())
+    if not month:
+        return None
+    year = int(m.group(3)) if m.group(3) else default_year
+    if not year:
+        return None
+    return (year, month, int(m.group(1)))
+
+
+def parse_uk_date_text(text):
+    """
+    Parse the loose UK date phrasings museums put in card/detail text into
+    (start_iso, end_iso); either may be None. Handles ranges
+    ("12 Jun - 13 Sep 2026", "14 March - 15 November 2026", cross-year),
+    open-ended forms ("Until 29 Nov 2026", "From 26 Feb 2026"), single dates,
+    and permanent displays ("Continuing Display", "Now Open") -> (None, None).
+    A trailing "| Venue" suffix is ignored.
+    """
+    if not text:
+        return None, None
+    t = " ".join(str(text).replace("\xa0", " ").split()).split("|")[0].strip()
+    if not t or _UK_PERMANENT_RE.search(t):
+        return None, None
+    low = t.lower()
+    iso = lambda p: f"{p[0]:04d}-{p[1]:02d}-{p[2]:02d}" if p else None
+    if low.startswith(("until", "ends", "closes")):
+        return None, iso(_uk_one_date(t))
+    if low.startswith(("from", "opens")):
+        return iso(_uk_one_date(t)), None
+    parts = re.split(r"\s*[–—-]\s*", t, maxsplit=1)
+    if len(parts) == 2:
+        end = _uk_one_date(parts[1])
+        start = _uk_one_date(parts[0], default_year=end[0] if end else None)
+        return iso(start), iso(end)
+    one = _uk_one_date(t)
+    return iso(one), iso(one)
+
+
 def card_text_for(anchor, max_levels=5, max_chars=600):
     """
     Walk up from an anchor to the smallest enclosing element that looks like a
