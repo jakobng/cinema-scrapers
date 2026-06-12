@@ -1,0 +1,7 @@
+# North Art Exhibitions Scraper Dependencies
+
+requests>=2.28.0
+beautifulsoup4>=4.11.0
+
+# Optional: browser TLS impersonation (Manchester Art Gallery behind Cloudflare)
+curl_cffi>=0.5.0

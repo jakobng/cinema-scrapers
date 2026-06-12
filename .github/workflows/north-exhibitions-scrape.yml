@@ -44,8 +44,32 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-          git_root=$(git rev-parse --show-toplevel)
-          git add north/data/*.json
+          git add data/*.json
           git commit -m "Auto-Update: north art exhibitions scrape data" || echo "No changes to commit"
           git pull --rebase -X theirs origin main
           git push
+
+      - name: Sync exhibitions JSON to website1
+        working-directory: .
+        run: |
+          if [ -z "$WEBSITE1_SYNC_TOKEN" ]; then
+            echo "WEBSITE1_SYNC_TOKEN is not configured; skipping website1 sync."
+            exit 0
+          fi
+
+          cd /tmp
+          git clone https://github.com/jakobng/website1.git website1-sync
+          cd website1-sync
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin "https://x-access-token:${WEBSITE1_SYNC_TOKEN}@github.com/jakobng/website1.git"
+
+          mkdir -p north-art-exhibitions/data
+          cp "$GITHUB_WORKSPACE/north/data/exhibitions.json" north-art-exhibitions/data/exhibitions.json
+
+          git add north-art-exhibitions/data/exhibitions.json
+          git commit -m "Auto-Update: north art exhibitions sync from cinema-scrapers" || echo "No changes to commit"
+          git pull --rebase -X theirs origin main
+          git push
+        env:
+          WEBSITE1_SYNC_TOKEN: ${{ secrets.WEBSITE1_SYNC_TOKEN }}
