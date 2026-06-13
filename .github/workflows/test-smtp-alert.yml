@@ -1,0 +1,58 @@
+name: Test - SMTP Alert
+
+# Manual, non-scheduled. Sends ONE test email to ALERT_RECIPIENT_EMAIL using the
+# same port-aware connection the failure-alert steps use, to verify SMTP works.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-smtp:
+    runs-on: ubuntu-latest
+    env:
+      SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Send test alert email
+        run: |
+          python - <<'PY'
+          import os, smtplib
+          from email.mime.text import MIMEText
+          from datetime import datetime
+
+          sender = os.environ['SMTP_EMAIL']
+          password = os.environ['SMTP_PASSWORD']
+          recipient = os.environ.get('ALERT_RECIPIENT_EMAIL') or sender
+          smtp_server = os.environ.get('SMTP_SERVER', 'smtp.gmail.com')
+          smtp_port = int(os.environ.get('SMTP_PORT') or '465')
+
+          msg = MIMEText(
+              'This is a test of the cinema-scrapers failure-alert email path. '
+              'If you received this, SMTP alerts are working again.\n\n'
+              'Sent: ' + datetime.utcnow().isoformat() + 'Z'
+          )
+          msg['From'] = sender
+          msg['To'] = recipient
+          msg['Subject'] = 'cinema-scrapers SMTP test (alert path works)'
+
+          print(f'Connecting to {smtp_server}:{smtp_port} ...')
+          if smtp_port == 465:
+              server = smtplib.SMTP_SSL(smtp_server, smtp_port)
+          else:
+              server = smtplib.SMTP(smtp_server, smtp_port)
+              server.starttls()
+          server.login(sender, password)
+          server.send_message(msg)
+          server.quit()
+          print(f'Test email sent to {recipient}')
+          PY
