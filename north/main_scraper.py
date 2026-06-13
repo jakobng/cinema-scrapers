@@ -225,8 +225,13 @@ def main():
     # Drop navigation/CTA text that venue scrapers picked up as titles
     import re
     junk_title_re = re.compile(
-        r"^(?:what.?s on|next|previous|exhibitions?|events?|read more|find out more|"
-        r"view all|book now|more info|archive|past exhibitions?)$",
+        r"^(?:what.?s on|what.?s here|getting here|next|previous|exhibitions?|events?|"
+        r"read more|find out more|view all|book now|more info|archive|past exhibitions?|"
+        r"accessibility|website accessibility|terms of use|terms (?:and|&) conditions|"
+        r"privacy(?: policy)?|cookie policy|our story|our history|about us?|"
+        r"coffee bar.*|caf[eé]|gift shop|shop|facilities(?: and| &)? access|"
+        r"facilities|opening times|opening hours|plan your visit|how to find us|"
+        r"contact us?|directions|venue hire|membership|support us|donate)$",
         re.IGNORECASE,
     )
     before_junk = len(listings)
