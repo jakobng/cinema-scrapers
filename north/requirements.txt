@@ -5,3 +5,8 @@ beautifulsoup4>=4.11.0
 
 # Optional: browser TLS impersonation (Manchester Art Gallery behind Cloudflare)
 curl_cffi>=0.5.0
+
+# Headless rendering for JS-built listings (e.g. Sunderland Culture).
+# Requires `playwright install chromium` after pip install. Optional: the
+# scrapers degrade to empty results if it's missing.
+playwright>=1.40.0
