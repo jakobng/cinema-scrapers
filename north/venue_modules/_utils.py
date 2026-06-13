@@ -1,6 +1,6 @@
 # Shared helpers for venue scrapers
 import re
-from datetime import date
+from datetime import date, timedelta as _timedelta
 from urllib.parse import urljoin
 
 MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December"
@@ -126,7 +126,7 @@ _UK_PERMANENT_RE = re.compile(r"continuing display|now open|permanent|ongoing|da
 
 
 def _uk_one_date(text, default_year=None):
-    """Parse a single 'DD Month [YYYY]' fragment to (year, month, day) or None."""
+    """Parse a single 'DD Month [YYYY]' fragment to (year_or_None, month, day)."""
     if not text:
         return None
     text = re.sub(r"([A-Za-z])(\d{4})", r"\1 \2", text)  # repair "Nov2026" -> "Nov 2026"
@@ -136,38 +136,59 @@ def _uk_one_date(text, default_year=None):
     month = _UK_MONTHS.get(m.group(2)[:3].lower())
     if not month:
         return None
-    year = int(m.group(3)) if m.group(3) else default_year
-    if not year:
-        return None
+    year = int(m.group(3)) if m.group(3) else default_year  # may be None -> inferred later
     return (year, month, int(m.group(1)))
 
 
-def parse_uk_date_text(text):
+def _uk_infer_year(parts, today):
+    """Fill a missing year on a (year, month, day) tuple, assuming the date is
+    near today: this year, or next year if it would otherwise be >60 days past."""
+    if not parts:
+        return None
+    year, month, day = parts
+    if year:
+        return parts
+    y = today.year
+    try:
+        if date(y, month, min(day, 28)) < date(today.year, today.month, today.day) - _timedelta(days=60):
+            y += 1
+    except ValueError:
+        pass
+    return (y, month, day)
+
+
+def parse_uk_date_text(text, today=None):
     """
     Parse the loose UK date phrasings museums put in card/detail text into
-    (start_iso, end_iso); either may be None. Handles ranges
-    ("12 Jun - 13 Sep 2026", "14 March - 15 November 2026", cross-year),
-    open-ended forms ("Until 29 Nov 2026", "From 26 Feb 2026"), single dates,
-    and permanent displays ("Continuing Display", "Now Open") -> (None, None).
-    A trailing "| Venue" suffix is ignored.
+    (start_iso, end_iso); either may be None. Handles ranges with a year on one
+    or both sides or none ("12 Jun - 13 Sep 2026", "20 Jun - 1 Aug", cross-year),
+    open-ended forms ("Until 29 Nov 2026", "Until 5 Sep", "From 26 Feb 2026"),
+    single dates, and permanent displays ("Permanent", "Now Open") -> (None, None).
+    Years missing from the text are inferred relative to `today`. A trailing
+    "| Venue" suffix is ignored.
     """
     if not text:
         return None, None
+    today = today or date.today()
     t = " ".join(str(text).replace("\xa0", " ").split()).split("|")[0].strip()
     if not t or _UK_PERMANENT_RE.search(t):
         return None, None
     low = t.lower()
     iso = lambda p: f"{p[0]:04d}-{p[1]:02d}-{p[2]:02d}" if p else None
     if low.startswith(("until", "ends", "closes")):
-        return None, iso(_uk_one_date(t))
+        return None, iso(_uk_infer_year(_uk_one_date(t), today))
     if low.startswith(("from", "opens")):
-        return iso(_uk_one_date(t)), None
+        return iso(_uk_infer_year(_uk_one_date(t), today)), None
     parts = re.split(r"\s*[–—-]\s*", t, maxsplit=1)
     if len(parts) == 2:
-        end = _uk_one_date(parts[1])
+        end = _uk_infer_year(_uk_one_date(parts[1]), today)
         start = _uk_one_date(parts[0], default_year=end[0] if end else None)
+        start = _uk_infer_year(start, today)
+        # A yearless range that wraps the new year: start after end -> start is prior year.
+        if start and end and (start[1], start[2]) > (end[1], end[2]) and start[0] == end[0]:
+            start = (start[0] - 1, start[1], start[2])
         return iso(start), iso(end)
-    one = _uk_one_date(t)
+    one = _uk_infer_year(_uk_one_date(t), today)
     return iso(one), iso(one)
 
 
