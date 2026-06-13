@@ -4,7 +4,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -775,7 +775,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1005,7 +1005,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1076,7 +1076,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1687,7 +1687,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1735,7 +1735,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2255,7 +2255,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2414,6 +2414,18 @@
     "original_title": "Carole King & James Taylor: Just Call Out My Name",
     "release_year": 2022
   },
+  "『サムライ 4Kレストア』": {
+    "ai_provider": "deepseek",
+    "confidence": 0.6,
+    "country": "Japan",
+    "director": null,
+    "english_title": "Samurai (4K Restoration)",
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-13T23:31:25+00:00",
+    "notes": "",
+    "original_title": "サムライ",
+    "release_year": null
+  },
   "『スローなブギにしてくれ』": {
     "confidence": 0.9,
     "country": "Japan",
@@ -2477,7 +2489,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2616,6 +2628,18 @@
     "original_title": "愛情物語",
     "release_year": 1984
   },
+  "『戦国自衛隊』４Ｋデジタル修復版": {
+    "ai_provider": "deepseek",
+    "confidence": 0.6,
+    "country": "Japan",
+    "director": "Kōsei Saitō",
+    "english_title": "The Battle of the Japan Islands (4K Digital Restoration)",
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-13T23:31:46+00:00",
+    "notes": "",
+    "original_title": "戦国自衛隊",
+    "release_year": 1979
+  },
   "『戦姫絶唱シンフォギア』アニメ1期オールナイト上映": {
     "confidence": 0.0,
     "english_title": null,
@@ -2714,7 +2738,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2760,7 +2784,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2794,6 +2818,18 @@
     "failed": true,
     "notes": "gemini_failed",
     "release_year": null
+  },
+  "『里見八犬伝』４Ｋデジタル修復版 舞台挨拶付き上映": {
+    "ai_provider": "deepseek",
+    "confidence": 0.6,
+    "country": "Japan",
+    "director": "Kinji Fukasaku",
+    "english_title": "Legend of the Eight Samurai (4K Digital Restoration with Stage Greeting Screening)",
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-13T23:31:46+00:00",
+    "notes": "",
+    "original_title": "里見八犬伝",
+    "release_year": 1983
   },
   "『野性の証明』４Ｋデジタル修復版": {
     "ai_provider": "deepseek",
@@ -3827,7 +3863,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -3836,7 +3872,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -3930,7 +3966,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4183,7 +4219,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4304,7 +4340,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4313,7 +4349,16 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
+  "なんでかね〜鶴見～ガーエーにはまだ早い～": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4343,6 +4388,15 @@
     "notes": "",
     "original_title": "Самостоятельная жизнь",
     "release_year": 1992
+  },
+  "ひめゆり 【2026年上映】 G": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "ひめゆりの塔（1953）": {
     "confidence": 0.95,
@@ -4636,7 +4690,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4864,7 +4918,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4873,7 +4927,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4963,7 +5017,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -5218,7 +5272,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -5566,7 +5620,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -5964,7 +6018,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -6035,8 +6089,20 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
+    "release_year": null
+  },
+  "サッカー日本代表（SAMURAI BLUE）映画『ONE CREATURE』": {
+    "ai_provider": "deepseek",
+    "confidence": 0.6,
+    "country": "Japan",
+    "director": null,
+    "english_title": "ONE CREATURE",
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-13T23:31:25+00:00",
+    "notes": "",
+    "original_title": "ONE CREATURE",
     "release_year": null
   },
   "サムシング・エクストラ！": {
@@ -6238,7 +6304,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -6517,7 +6583,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -6553,7 +6619,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -6901,7 +6967,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -7450,7 +7516,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -7800,7 +7866,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8555,7 +8621,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8564,7 +8630,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8618,7 +8684,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8857,7 +8923,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8866,7 +8932,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8931,7 +8997,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8940,7 +9006,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -9280,7 +9346,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -9919,7 +9985,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10160,7 +10226,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10214,7 +10280,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10377,7 +10443,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10405,7 +10471,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10537,7 +10603,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10617,7 +10683,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10626,7 +10692,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10809,7 +10875,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -11393,7 +11459,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -11465,7 +11531,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -11491,7 +11557,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -12361,11 +12427,13 @@
   },
   "映画『プリズン・サークル』初日上映イベント": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
-    "notes": "local_ai_no_result",
+    "confidence": 0.3,
+    "country": "Japan",
+    "director": null,
+    "english_title": "Prison Circle (First Day Screening Event)",
+    "last_ai_attempt_at": "2026-06-13T23:31:46+00:00",
+    "notes": "",
+    "original_title": "プリズン・サークル",
     "release_year": null
   },
   "映画作家ストローブ＝ユイレ　あなたの微笑みはどこに隠れたの？": {
@@ -12754,7 +12822,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -12789,7 +12857,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -12798,7 +12866,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -13201,7 +13269,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -13337,6 +13405,15 @@
     "english_title": null,
     "failed": true,
     "notes": "gemini_failed",
+    "release_year": null
+  },
+  "熊の出る開墾地": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "熊は、いない": {
@@ -13685,7 +13762,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -13737,7 +13814,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -13813,7 +13890,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -14016,6 +14093,18 @@
     "notes": "",
     "original_title": "第15回死刑映画週間",
     "release_year": 2026
+  },
+  "第35回日本映画プロフェッショナル大賞授賞式": {
+    "ai_provider": "deepseek",
+    "confidence": 0.6,
+    "country": "Japan",
+    "director": null,
+    "english_title": "35th Japan Film Professional Awards Ceremony",
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-13T23:31:25+00:00",
+    "notes": "",
+    "original_title": "第35回日本映画プロフェッショナル大賞授賞式",
+    "release_year": null
   },
   "第6回映画批評月間 フランス映画の現在をめぐって": {
     "confidence": 0.9,
@@ -14651,7 +14740,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -14660,7 +14749,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -14736,7 +14825,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -14754,7 +14843,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -14821,7 +14910,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -15311,7 +15400,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -15578,7 +15667,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -16008,7 +16097,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -16027,7 +16116,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-12T23:42:25+00:00",
+    "last_ai_attempt_at": "2026-06-13T23:31:48+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
