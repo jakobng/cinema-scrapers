@@ -183,7 +183,6 @@ def main():
         ("MIMA", mima_module.scrape_mima),
         ("Northern Gallery for Contemporary Art", ngca_module.scrape_ngca),
         ("Shipley Art Gallery", shipley_module.scrape_shipley),
-        ("Sunderland Museum & Winter Gardens", sunderland_museum_module.scrape_sunderland_museum),
         ("Castlefield Gallery", castlefield_module.scrape_castlefield),
         ("Bluecoat", bluecoat_module.scrape_bluecoat),
         ("Henry Moore Institute", henry_moore_module.scrape_henry_moore),
@@ -219,6 +218,22 @@ def main():
             else:
                 print(f"  {name}: ERROR - {error}")
                 report.add(name, "FAILURE", 0, error=error)
+
+    # JS-rendered venues (client-side listings) run sequentially: they use a
+    # headless browser via Playwright, which can't share the thread pool above.
+    # Each degrades to [] if Playwright isn't installed, so the scrape is safe.
+    js_scrapers = [
+        ("Sunderland Culture", sunderland_museum_module.scrape_sunderland_museum),
+    ]
+    for name, func in js_scrapers:
+        try:
+            rows = func()
+            print(f"  {name}: {len(rows)} exhibitions (rendered)")
+            listings.extend(rows)
+            report.add(name, "SUCCESS", len(rows))
+        except Exception as e:
+            print(f"  {name}: ERROR - {e}")
+            report.add(name, "FAILURE", 0, error=str(e))
 
     print(f"\nTotal exhibitions: {len(listings)}")
 
