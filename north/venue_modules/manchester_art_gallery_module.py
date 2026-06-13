@@ -31,22 +31,41 @@ HEADERS = {
 }
 TIMEOUT = 20
 
-# Fallback when the site returns 403 (Cloudflare). Update periodically from manchesterartgallery.org/event/
+# Fallback when the site returns 403 (Cloudflare blocks automated HTTP, including
+# curl_cffi). Captured from the live /event/ "Exhibitions" filter on 2026-06-12
+# via a real browser. Update periodically from manchesterartgallery.org/event/.
 FALLBACK_EXHIBITIONS = [
-    {"title": "Holly Graham: The Warp / The Weft / The Wake", "slug": "holly-graham", "end_date": "2026-09-06"},
-    {"title": "Splendours of the Sikh Raj: Arms and Armour", "slug": "splendours-of-the-sikh-raj", "end_date": "2026-11-29"},
+    {"title": "Out of the Crate", "slug": "out-of-the-crate", "start_date": "2019-11-07", "end_date": "2026-12-31"},
+    {"title": "Trading Station: How Hot Drinks Shape Our Lives", "slug": "trading-station", "start_date": "2019-12-14", "end_date": "2026-12-31"},
+    {"title": "What is Manchester Art Gallery?", "slug": "what-is-manchester-art-gallery", "start_date": "2020-08-20", "end_date": "2026-12-31"},
+    {"title": "Room to Breathe", "slug": "room-to-breathe", "start_date": "2022-04-02", "end_date": "2026-12-31"},
+    {"title": "Rethinking the Grand Tour", "slug": "rethinking-the-grand-tour", "start_date": "2022-11-24", "end_date": "2026-12-31"},
+    {"title": "What's New? Collecting for Manchester", "slug": "whats-new", "start_date": "2023-02-07", "end_date": "2026-12-31"},
+    {"title": "Holly Graham: The Warp / The Weft / The Wake", "slug": "holly-graham", "start_date": "2025-03-14", "end_date": "2026-09-06"},
+    {"title": "Things of the Least: lively exhibition-making with children under-3", "slug": "things-of-the-least", "start_date": "2025-10-24", "end_date": "2026-11-30"},
+    {"title": "Splendours of the Sikh Raj: Arms and Armour", "slug": "splendours-of-the-sikh-raj-arms-and-armour", "start_date": "2025-11-22", "end_date": "2027-02-28"},
+    {"title": "WORN: the life within clothes", "slug": "worn", "start_date": "2026-03-26", "end_date": "2028-02-13"},
     {"title": "Won't Sit Still", "slug": "wont-sit-still", "start_date": "2026-03-26", "end_date": "2027-03-28"},
-    {"title": "WORN: the life within clothes", "slug": "worn-the-life-within-clothes", "start_date": "2026-03-26", "end_date": "2028-02-13"},
-    {"title": "Room to Breathe", "slug": "room-to-breathe", "start_date": "2022-04-02", "end_date": "2026-04-06"},
-    {"title": "What's New? Collecting for Manchester", "slug": "whats-new", "start_date": "2023-02-07", "end_date": "2025-12-31"},
-    {"title": "Out of the Crate", "slug": "out-of-the-crate", "start_date": "2019-11-07", "end_date": "2025-12-31"},
-    {"title": "Rethinking the Grand Tour", "slug": "rethinking-the-grand-tour", "start_date": "2022-11-24", "end_date": "2025-12-31"},
-    {"title": "Unpicking Couture", "slug": "unpicking-couture", "start_date": "2023-07-21", "end_date": "2025-01-12"},
 ]
 
-# Optional image URLs for fallback exhibitions (slug -> url). Add more as you find them on the site.
+# Image URLs for fallback exhibitions (slug -> url), captured alongside the list
+# above. NOTE: Cloudflare also blocks hotlinking these from a browser without a
+# clearance cookie, so a first-time visitor's <img> request may 403 and fall back
+# to a placeholder. The URLs are kept as the source of truth (and in case the
+# zone's protection is relaxed); mirroring these files locally would be the
+# durable fix if Manchester images need to render reliably.
 FALLBACK_IMAGES = {
-    "room-to-breathe": "https://manchesterartgallery.org/wp-content/uploads/2022/03/View-from-Hampstead-Heath-looking-towards-Harrow-copy.jpg",
+    "out-of-the-crate": "https://manchesterartgallery.org/wp-content/uploads/2021/11/ootc_room1_520-440x300.jpg",
+    "trading-station": "https://manchesterartgallery.org/wp-content/uploads/2021/06/cost_of_caffeine_520-440x300.jpeg",
+    "what-is-manchester-art-gallery": "https://manchesterartgallery.org/wp-content/uploads/2021/05/what_is_mcr_520-440x300.jpg",
+    "room-to-breathe": "https://manchesterartgallery.org/wp-content/uploads/2022/03/View-from-Hampstead-Heath-looking-towards-Harrow-copy-440x300.jpg",
+    "rethinking-the-grand-tour": "https://manchesterartgallery.org/wp-content/uploads/2022/11/Rethinking-the-Grand-Tour-440x300.jpg",
+    "whats-new": "https://manchesterartgallery.org/wp-content/uploads/2023/01/CF076697-1-440x300.jpg",
+    "holly-graham": "https://manchesterartgallery.org/wp-content/uploads/2025/01/Holly-Graham-hero1-440x300.jpg",
+    "things-of-the-least": "https://manchesterartgallery.org/wp-content/uploads/2025/08/MAG-_Website_Preview-440x300.jpg",
+    "splendours-of-the-sikh-raj-arms-and-armour": "https://manchesterartgallery.org/wp-content/uploads/2025/07/1934.354-casket-Ranjit-Singh-portrait-2-copy-2-440x300.jpg",
+    "worn": "https://manchesterartgallery.org/wp-content/uploads/2025/10/Front-copy-440x300.jpg",
+    "wont-sit-still": "https://manchesterartgallery.org/wp-content/uploads/2024/04/Wont-sit-still-header-copy-440x300.jpg",
 }
 
 
