@@ -1,0 +1,2979 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Mini-Theater Showtimes</title>
+    <meta name="description" content="A bilingual guide to independent and mini-theater film showtimes across Tokyo, updated from cinema listings.">
+    <link rel="canonical" href="https://www.leonelki.com/tokyo-cinemas.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tokyo Mini-Theater Showtimes">
+    <meta property="og:description" content="A bilingual guide to independent and mini-theater film showtimes across Tokyo, updated from cinema listings.">
+    <meta property="og:url" content="https://www.leonelki.com/tokyo-cinemas.html">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/tokyo-cinema-scrapers/icons/icon-192.png">
+    <meta name="theme-color" content="#f5f3ef">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f3ef;
+            --grid: #e0d9cf;
+            --ink: #1d1b19;
+            --muted: #5d564f;
+            --accent: #f2c100;
+            --accent-strong: #c79400;
+            --accent-rgb: 242, 193, 0;
+            --card: #fcfbf8;
+            --border: #1d1b19;
+            --border-soft: #c8c1b7;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            --shadow-soft: 0 6px 14px rgba(0, 0, 0, 0.06);
+            --border-width: 1px;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Space Grotesk", sans-serif;
+            color: var(--ink);
+            background-color: var(--bg);
+            background-image:
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+            background-size: 140px 140px;
+            padding: 24px 18px 60px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 40vmax;
+            height: 40vmax;
+            transform: translate(-50%, -50%) scale(0.05);
+            background: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(var(--accent-rgb), 0.9) 10%,
+                rgba(var(--accent-rgb), 0) 70%
+            );
+            border-radius: 50%;
+            animation: pulseGlow 15s infinite ease-in-out;
+            pointer-events: none;
+            z-index: -1;
+        }
+        @keyframes pulseGlow {
+            0% { transform: translate(-50%, -50%) scale(0.05); opacity: 1; }
+            60% { opacity: 0.85; }
+            100% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 40px 20px 20px; /* Increased top padding */
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        .header-left {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 8px; /* Increased gap */
+        }
+        .header-right {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        /* Mobile adjust for header */
+        @media (max-width: 640px) {
+            .page-header {
+                flex-direction: column;
+                gap: 16px;
+                padding-top: 24px;
+            }
+            .header-left {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                align-items: center;
+                order: 2;
+                margin-bottom: 0;
+            }
+            .header-right {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                order: 3;
+            }
+            h1 { order: 1; }
+        }
+        .lang-toggle {
+            display: inline-flex;
+            gap: 8px; /* Spacing between buttons */
+            background: rgba(255,255,255,0.6);
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-soft);
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            font-size: 0.85rem; /* Larger font */
+            font-weight: 700;   /* Bolder */
+            color: var(--muted);
+            cursor: pointer;
+            padding: 2px 4px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .lang-btn.is-active {
+            color: var(--ink);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        .site-credit {
+            font-size: 0.7rem;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+        }
+        .ig-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            color: var(--accent-strong);
+        }
+        .install-btn {
+            border: var(--border-width) solid var(--border);
+            background: #fff;
+            padding: 6px 10px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+        }
+        .install-btn:hover {
+            background: var(--bg);
+        }
+        .ig-link svg {
+            width: 22px;
+            height: 22px;
+        }
+        .ios-install-hint {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border: var(--border-width) solid var(--border);
+            background: #fff;
+            box-shadow: var(--shadow-soft);
+            padding: 10px 14px;
+            font-size: 0.85rem;
+        }
+        .ios-install-close {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            line-height: 1;
+            color: var(--muted);
+            padding: 4px;
+        }
+        .ig-link:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            margin: 0;
+            text-align: center;
+            font-size: clamp(1.8rem, 1.4rem + 1.2vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            cursor: pointer;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        /* --- NEW TABS --- */
+        .view-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-soft);
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            color: var(--muted);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+        .tab-btn::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .tab-btn.is-active {
+            color: var(--ink);
+        }
+        .tab-btn.is-active::after {
+            opacity: 1;
+        }
+        .controls-section {
+            background: var(--card);
+            border: var(--border-width) solid var(--border);
+            box-shadow: var(--shadow-soft);
+            padding: 12px;
+            margin-bottom: 18px;
+        }
+        .primary-controls {
+            display: grid;
+            grid-template-columns: minmax(240px, 1fr) minmax(150px, 0.34fr) minmax(280px, 0.62fr);
+            gap: 10px;
+            align-items: start;
+        }
+        .search-wrapper,
+        .date-wrapper,
+        .sort-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .sort-controls {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 8px;
+            align-items: stretch;
+        }
+        .near-me-btn {
+            height: 42px;
+            border: var(--border-width) solid var(--border);
+            background: #fff;
+            color: var(--ink);
+            cursor: pointer;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1;
+            padding: 0 12px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .near-me-btn:hover,
+        .near-me-btn.is-active {
+            background: var(--accent);
+        }
+        .filters-toggle {
+            display: none;
+            width: 100%;
+            margin-top: 12px;
+            min-height: 40px;
+            border: var(--border-width) solid var(--border);
+            background: #fff;
+            color: var(--ink);
+            cursor: pointer;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            line-height: 1;
+            padding: 10px 12px;
+            text-transform: uppercase;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .filters-toggle::after {
+            content: "+";
+            font-size: 1rem;
+        }
+        .filters-toggle.is-active::after {
+            content: "–";
+        }
+        .advanced-filters {
+            display: block;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-soft);
+            animation: none;
+        }
+        .advanced-filters.is-expanded {
+            display: block;
+        }
+        .advanced-grid {
+            display: grid;
+            grid-template-columns: minmax(220px, 1.1fr) minmax(180px, 1fr) auto;
+            gap: 10px;
+            align-items: start;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .content-checkboxes {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+        }
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 42px;
+            padding: 0 10px;
+            background: #fff;
+            border: var(--border-width) solid var(--border-soft);
+        }
+        .checkbox-option input {
+            accent-color: var(--accent-strong);
+            margin: 0;
+        }
+        .checkbox-option label {
+            cursor: pointer;
+            line-height: 1.2;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        .clear-btn-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            min-height: 42px;
+        }
+        label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            font-weight: 700;
+        }
+        input[type="search"],
+        select {
+            height: 42px;
+            padding: 0 12px;
+            border: var(--border-width) solid var(--border-soft);
+            background: #fff;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        input[type="search"]:focus,
+        select:focus {
+            outline: 2px solid var(--accent);
+            border-color: var(--accent);
+        }
+        .link-btn {
+            min-height: 42px;
+            border: var(--border-width) solid var(--border);
+            background: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.7rem;
+            cursor: pointer;
+            color: var(--ink);
+            padding: 8px 12px;
+        }
+        .link-btn:hover {
+            background: var(--bg);
+        }
+        .location-status {
+            font-size: 0.72rem;
+            color: var(--muted);
+            min-height: 1em;
+            margin-top: 4px;
+        }
+        .distance-label {
+            color: var(--muted);
+            font-size: 0.78em;
+            font-weight: 500;
+            margin-left: 6px;
+            white-space: nowrap;
+        }
+        .showtime-details {
+            width: 100%;
+        }
+        .showtime-details summary {
+            cursor: pointer;
+            color: var(--accent-strong);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 6px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .showtime-details-row {
+            margin-top: 6px;
+        }
+
+        .view-section {
+            border: var(--border-width) solid var(--border);
+            background: var(--card);
+            padding: 18px 20px;
+            box-shadow: var(--shadow-soft);
+        }
+        .is-hidden {
+            display: none;
+        }
+        .region-block {
+            padding: 16px 0;
+            border-top: var(--border-width) solid var(--border-soft);
+        }
+        .region-block:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+        .region-title {
+            margin: 0 0 12px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+        .cinema-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+        .cinema-card {
+            border: var(--border-width) solid var(--border);
+            background: #fff;
+            padding: 14px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            box-shadow: var(--shadow-soft);
+        }
+        .cinema-card-title {
+            font-weight: 600;
+        }
+        .cinema-card-meta {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+        .cinema-showtimes-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            border-bottom: var(--border-width) solid var(--border-soft);
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+        .back-btn {
+            border: var(--border-width) solid var(--border);
+            background: #fff;
+            padding: 8px 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .cinema-title {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+        .cinema-title-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .cinema-meta {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        .date-block {
+            padding: 14px 0;
+            border-top: var(--border-width) solid var(--border-soft);
+        }
+        .date-block:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+        .date-title {
+            margin: 0 0 12px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-weight: 600;
+            color: var(--accent-strong);
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--accent);
+        }
+        .cinema-film {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+            gap: 12px;
+            padding: 12px 0;
+            border-top: var(--border-width) solid var(--border-soft);
+        }
+        .cinema-film:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+        .cinema-film-title {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .film-link {
+            border: var(--border-width) solid var(--border);
+            padding: 4px 8px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            background: #fff;
+        }
+        .cinema-map-link {
+            margin-top: 2px;
+        }
+        .cinema-film-meta {
+            color: var(--muted);
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+        .time-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .time-chip {
+            border: var(--border-width) solid var(--border);
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            background: #fff;
+        }
+        .time-chip.is-bookable {
+            background: #fff;
+            border-color: var(--border);
+            color: var(--ink);
+        }
+        .film-view-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            border-bottom: var(--border-width) solid var(--border-soft);
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+        .results-count {
+            font-weight: 600;
+        }
+        .results-meta {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        .film-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .film-card {
+            border: var(--border-width) solid var(--border);
+            background: #fff;
+            padding: 16px;
+            display: grid;
+            grid-template-columns: 160px minmax(0, 1fr);
+            gap: 16px;
+            box-shadow: var(--shadow);
+        }
+        .film-poster {
+            width: 160px;
+            aspect-ratio: 2 / 3;
+            border: var(--border-width) solid var(--border-soft);
+            background: #eae4da;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--muted);
+            padding: 10px;
+        }
+        .film-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .film-title {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        .film-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .film-meta {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        .film-blurb {
+            margin: 0;
+            color: var(--muted);
+        }
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .tag {
+            border: var(--border-width) solid var(--border-soft);
+            padding: 4px 8px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .showing-row {
+            display: grid;
+            grid-template-columns: 160px minmax(0, 1fr);
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .cinema-name {
+            font-weight: 600;
+        }
+        .cinema-name-link {
+            color: inherit;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1.5px;
+        }
+        .cinema-name-link:hover {
+            color: var(--accent-strong);
+        }
+        .loading,
+        .empty-state {
+            text-align: center;
+            padding: 20px;
+            border: 1px dashed var(--border-soft);
+            color: var(--muted);
+        }
+        .page-footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--muted);
+            border-top: var(--border-width) solid var(--border-soft);
+            padding-top: 16px;
+        }
+        @media (max-width: 1000px) {
+            .page-header {
+                grid-template-columns: minmax(0, 1fr);
+                text-align: center;
+            }
+            .header-left,
+            .header-right {
+                justify-content: center;
+            }
+            .header-left {
+                align-items: center;
+            }
+            .primary-controls {
+                grid-template-columns: minmax(0, 1fr) minmax(140px, 0.5fr);
+            }
+            .search-wrapper {
+                grid-column: 1 / -1;
+            }
+            .sort-wrapper {
+                grid-column: 1 / -1;
+            }
+            .advanced-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .content-checkboxes {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .filter-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .filter-grid-wide {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .cinema-showtimes-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .film-card {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .film-poster {
+                width: 100%;
+                max-width: 220px;
+            }
+            .showing-row {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .cinema-film {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+        @media (max-width: 640px) {
+            body {
+                padding: 18px 12px 44px;
+            }
+            .controls-section {
+                padding: 10px;
+            }
+            .filters-toggle {
+                display: flex;
+            }
+            .primary-controls,
+            .advanced-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .advanced-filters {
+                display: none;
+                margin-top: 10px;
+                padding-top: 10px;
+            }
+            .advanced-filters.is-expanded {
+                display: block;
+            }
+            .search-wrapper {
+                grid-column: auto;
+            }
+            .sort-controls {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .near-me-btn {
+                width: 100%;
+            }
+            .filter-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .content-checkboxes {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            h1 {
+                letter-spacing: 0.1em;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+            body::before {
+                animation: none;
+                opacity: 0.25;
+                transform: translate(-50%, -50%) scale(2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="page-header">
+            <div class="header-left">
+                <h1 id="site-title"></h1>
+                <div class="site-credit" id="site-credit"></div>
+                <div class="lang-toggle" role="group" aria-label="Language">
+                    <button class="lang-btn" data-lang="ja" type="button">JP</button>
+                    <button class="lang-btn" data-lang="en" type="button">EN</button>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="install-btn is-hidden" type="button" id="install-app-btn"></button>
+                <a class="ig-link" href="https://www.instagram.com/tokyominitheater/" target="_blank" rel="noopener" aria-label="Tokyo Mini-Theater Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                        <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                        <circle cx="17.2" cy="6.8" r="1.4" fill="currentColor"></circle>
+                    </svg>
+                </a>
+            </div>
+        </header>
+        <nav class="view-tabs">
+            <button class="tab-btn" data-view="cinema" type="button" id="view-cinema-btn"></button>
+            <button class="tab-btn is-active" data-view="film" type="button" id="view-film-btn"></button>
+        </nav>
+        <section class="controls-section">
+            <div class="primary-controls">
+                <div class="search-wrapper">
+                    <label for="search-input" id="search-label"></label>
+                    <input id="search-input" type="search">
+                </div>
+                <div class="date-wrapper">
+                    <label for="date-select" id="date-label"></label>
+                    <select id="date-select"></select>
+                </div>
+                <div class="sort-wrapper" id="sort-filter-container">
+                    <label for="sort-select" id="sort-label"></label>
+                    <div class="sort-controls">
+                        <select id="sort-select"></select>
+                        <button class="near-me-btn" type="button" id="near-me-btn"></button>
+                    </div>
+                    <div class="location-status" id="location-status" aria-live="polite"></div>
+                </div>
+            </div>
+            <button class="filters-toggle" type="button" id="filters-toggle" aria-controls="filters-content" aria-expanded="false"></button>
+            <div class="advanced-filters" id="filters-content">
+                <div class="advanced-grid">
+                    <div class="control-group">
+                        <label id="content-label"></label>
+                        <div class="content-checkboxes">
+                            <div class="checkbox-option">
+                                <input id="english-friendly" type="checkbox">
+                                <label for="english-friendly" id="english-friendly-label"></label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input id="doc-only" type="checkbox">
+                                <label for="doc-only" id="doc-only-label"></label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input id="animation-only" type="checkbox">
+                                <label for="animation-only" id="animation-only-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="region-select" id="region-label"></label>
+                        <select id="region-select"></select>
+                    </div>
+                    <div class="clear-btn-wrapper">
+                        <button class="link-btn" type="button" id="clear-filters"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="view-section is-hidden" id="cinema-view">
+            <div id="cinema-index">
+                <div class="loading" id="cinema-loading"></div>
+            </div>
+            <div id="cinema-showtimes" class="is-hidden">
+                <div class="cinema-showtimes-header">
+                    <button class="back-btn" type="button" id="back-to-cinemas"></button>
+                    <div>
+                        <div class="cinema-title-row">
+                            <h2 class="cinema-title" id="cinema-title"></h2>
+                            <a class="film-link cinema-site-link is-hidden" id="cinema-site-link" href="#" target="_blank" rel="noopener"></a>
+                            <a class="film-link cinema-map-link" id="cinema-map-link" href="#" target="_blank" rel="noopener"></a>
+                        </div>
+                        <div class="cinema-meta" id="cinema-meta"></div>
+                    </div>
+                </div>
+                <div id="cinema-showtimes-list"></div>
+            </div>
+        </section>
+        <section class="view-section" id="film-view">
+            <div class="film-view-header">
+                <div class="results-count" id="film-results-count"></div>
+                <div class="results-meta" id="film-results-meta"></div>
+            </div>
+            <div class="film-list" id="film-results-list">
+                <div class="loading" id="film-loading"></div>
+            </div>
+            <div class="empty-state is-hidden" id="film-empty"></div>
+        </section>
+        <footer class="page-footer">
+            <p id="footer-disclaimer"></p>
+            <p><a href="tokyo-cinema-scrapers/data/showtimes.json" id="footer-download-link"></a></p>
+        </footer>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const jsonUrl = "tokyo-cinema-scrapers/data/showtimes.json";
+            const slimJsonUrl = "tokyo-cinema-scrapers/data/showtimes_slim.json";
+            const tmdbBase = "https://image.tmdb.org/t/p/";
+            const cinemaCategories = [
+                { name: "渋谷・恵比寿・目黒 (Shibuya, Ebisu & Meguro)", cinemas: [ "シアター・イメージフォーラム", "ユーロスペース", "ヒューマントラストシネマ渋谷", "Bunkamura ル・シネマ 渋谷宮下", "シネクイント", "ホワイト シネクイント", "シネマヴェーラ渋谷", "YEBISU GARDEN CINEMA", "東京都写真美術館", "シアターギルド代官山", "キネカ大森", "目黒シネマ" ] },
+                { name: "新宿・早稲田 (Shinjuku & Waseda)", cinemas: [ "新宿武蔵野館", "テアトル新宿", "シネマート新宿", "K's Cinema (ケイズシネマ)", "kino cinéma新宿", "早稲田松竹" ] },
+                { name: "都心・東部 (Central & East - Ginza to Sumida)", cinemas: [ "ヒューマントラストシネマ有楽町", "シネスイッチ銀座", "国立映画アーカイブ", "角川シネマ有楽町", "シネマリス", "神保町シアター", "アテネ・フランセ文化センター", "アンスティチュ・フランセ東京", "東劇", "Stranger (ストレンジャー)" ] },
+                { name: "池袋 (Ikebukuro)", cinemas: [ "新文芸坐", "池袋シネマ・ロサ", "シネ・リーブル池袋", "シネマハウス大塚" ] },
+                { name: "田端・北千住 (Tabata & Kita Senju)", cinemas: [ "CINEMA Chupki TABATA", "シネマブルースタジオ" ] },
+                { name: "西部 (West - Chuo/Keio Lines & Setagaya)", cinemas: [ "ポレポレ東中野", "ラピュタ阿佐ヶ谷", "Morc阿佐ヶ谷", "アップリンク吉祥寺", "吉祥寺オデヲン", "K2 Cinema", "下北沢トリウッド", "下高井戸シネマ", "シネマシティ", "kino cinéma立川髙島屋S.C.館", "Cinema Neko (シネマネコ)" ] },
+                { name: "神奈川 (Kanagawa)", cinemas: [ "kino cinéma横浜みなとみらい", "横浜シネマ・ジャック＆ベティ", "シネマ・ノヴェチェント", "横浜シネマリン", "川崎市アートセンター アルテリオ映像館", "あつぎのえいがかんkiki", "小田原シネマ館", "シネコヤ", "CINEMA AMIGO" ] },
+                { name: "埼玉・千葉 (Saitama & Chiba)", cinemas: [ "川越スカラ座", "深谷シネマ", "キネマ旬報シアター", "千葉劇場" ] },
+                { name: "上映会・映画クラブ (Screening Clubs)", cinemas: [ "高円寺シアターバッカス", "Koenji Cinema Club" ] }
+            ];
+            const cinemaRegions = {};
+            cinemaCategories.forEach(function (category) {
+                category.cinemas.forEach(function (cinemaName) {
+                    cinemaRegions[cinemaName] = category.name;
+                });
+            });
+            // Older scraped data published this cinema under a second name;
+            // fold it into the canonical one so cached data renders as one cinema.
+            const cinemaNameAliases = {
+                "Kadokawa Cinema Yurakucho (角川シネマ有楽町)": "角川シネマ有楽町"
+            };
+            const cinemaJapaneseNames = {
+                "K's Cinema (ケイズシネマ)": "ケイズシネマ",
+                "Stranger (ストレンジャー)": "ストレンジャー",
+                "K2 Cinema": "K2シネマ",
+                "Bunkamura ル・シネマ 渋谷宮下": "Bunkamura ル・シネマ",
+                "CINEMA Chupki TABATA": "チュプキ・タバタ",
+                "Cinema Neko (シネマネコ)": "シネマネコ",
+                "YEBISU GARDEN CINEMA": "恵比寿ガーデンシネマ",
+                "Kadokawa Cinema Yurakucho (角川シネマ有楽町)": "角川シネマ有楽町",
+                "Koenji Cinema Club": "高円寺シネマクラブ",
+                "CINEMA AMIGO": "シネマアミーゴ"
+            };
+            const cinemaEnglishNames = {
+                "K's Cinema (ケイズシネマ)": "K's Cinema",
+                "Stranger (ストレンジャー)": "Stranger",
+                "シネマート新宿": "Cinemart Shinjuku",
+                "新宿武蔵野館": "Shinjuku Musashino-kan",
+                "テアトル新宿": "Theatre Shinjuku",
+                "早稲田松竹": "Waseda Shochiku",
+                "シアター・イメージフォーラム": "Theatre Image Forum",
+                "ユーロスペース": "Eurospace",
+                "ヒューマントラストシネマ渋谷": "Human Trust Cinema Shibuya",
+                "シネマヴェーラ渋谷": "Cinema Vera Shibuya",
+                "新文芸坐": "Shin-Bungeiza",
+                "目黒シネマ": "Meguro Cinema",
+                "ポレポレ東中野": "Pole Pole Higashi-Nakano",
+                "K2 Cinema": "K2 Cinema",
+                "ヒューマントラストシネマ有楽町": "Human Trust Cinema Yurakucho",
+                "ラピュタ阿佐ヶ谷": "Laputa Asagaya",
+                "下高井戸シネマ": "Shimotakaido Cinema",
+                "国立映画アーカイブ": "National Film Archive of Japan",
+                "神保町シアター": "Jimbocho Theatre",
+                "池袋シネマ・ロサ": "Ikebukuro Cinema Rosa",
+                "シネスイッチ銀座": "Cine Switch Ginza",
+                "シネマブルースタジオ": "Cinema Blue Studio",
+                "Bunkamura ル・シネマ 渋谷宮下": "Bunkamura Le Cinéma",
+                "CINEMA Chupki TABATA": "Cinema Chupki Tabata",
+                "シネクイント": "Cine Quinto Shibuya",
+                "ホワイト シネクイント": "White Cine Quinto",
+                "アップリンク吉祥寺": "Uplink Kichijoji",
+                "東京都写真美術館": "Tokyo Photographic Art Museum",
+                "シネマリス": "CineMalice",
+                "Morc阿佐ヶ谷": "Morc Asagaya",
+                "下北沢トリウッド": "Shimokitazawa Tollywood",
+                "アテネ・フランセ文化センター": "Athenee Francais Cultural Center",
+                "横浜シネマ・ジャック＆ベティ": "Jack and Betty Yokohama",
+                "アンスティチュ・フランセ東京": "Institut Francais Tokyo",
+                "シネマ・ノヴェチェント": "Cinema Novecento",
+                "kino cinéma新宿": "Kino Cinema Shinjuku",
+                "kino cinéma立川髙島屋S.C.館": "Kino Cinema Tachikawa",
+                "横浜シネマリン": "Yokohama Cinemarine",
+                "Cinema Neko (シネマネコ)": "Cinema Neko",
+                "YEBISU GARDEN CINEMA": "Yebisu Garden Cinema",
+                "Kadokawa Cinema Yurakucho (角川シネマ有楽町)": "Kadokawa Cinema Yurakucho",
+                "角川シネマ有楽町": "Kadokawa Cinema Yurakucho",
+                "キネカ大森": "Kineca Omori",
+                "シアターギルド代官山": "Theater Guild Daikanyama",
+                "シネマシティ": "Cinema City",
+                "シネマハウス大塚": "Cinema House Otsuka",
+                "シネ・リーブル池袋": "Cine Libre Ikebukuro",
+                "吉祥寺オデヲン": "Kichijoji Odeon",
+                "東劇": "Togeki",
+                "kino cinéma横浜みなとみらい": "Kino Cinema Yokohama Minatomirai",
+                "川崎市アートセンター アルテリオ映像館": "Kawasaki Art Center Alterio Cinema",
+                "あつぎのえいがかんkiki": "Atsugi no Eigakan kiki",
+                "小田原シネマ館": "Odawara Cinema-kan",
+                "シネコヤ": "Cinekoya",
+                "CINEMA AMIGO": "Cinema Amigo",
+                "川越スカラ座": "Kawagoe Scalaza",
+                "深谷シネマ": "Fukaya Cinema",
+                "キネマ旬報シアター": "Kinema Junpo Theater",
+                "千葉劇場": "Chiba Theater",
+                "高円寺シアターバッカス": "Koenji Theater Bacchus",
+                "Koenji Cinema Club": "Koenji Cinema Club"
+            };
+            const regionNames = {
+                "渋谷・恵比寿・目黒 (Shibuya, Ebisu & Meguro)": { ja: "渋谷・恵比寿・目黒", en: "Shibuya, Ebisu & Meguro" },
+                "新宿・早稲田 (Shinjuku & Waseda)": { ja: "新宿・早稲田", en: "Shinjuku & Waseda" },
+                "都心・東部 (Central & East - Ginza to Sumida)": { ja: "都心・東部（銀座〜墨田）", en: "Central & East (Ginza to Sumida)" },
+                "池袋 (Ikebukuro)": { ja: "池袋", en: "Ikebukuro" },
+                "田端・北千住 (Tabata & Kita Senju)": { ja: "田端・北千住", en: "Tabata & Kita Senju" },
+                "西部 (West - Chuo/Keio Lines & Setagaya)": { ja: "西部（中央線・京王線沿線、世田谷）", en: "West (Chuo/Keio Lines & Setagaya)" },
+                "神奈川 (Kanagawa)": { ja: "神奈川", en: "Kanagawa" },
+                "埼玉・千葉 (Saitama & Chiba)": { ja: "埼玉・千葉", en: "Saitama & Chiba" },
+                "上映会・映画クラブ (Screening Clubs)": { ja: "上映会・映画クラブ", en: "Screening Clubs" }
+            };
+            const i18n = {
+                ja: {
+                    siteTitle: "東京ミニシアター上映情報",
+                    siteCredit: "サイト制作: ネルキ・リオ",
+                    viewCinema: "シネマ別",
+                    viewFilm: "作品別",
+                    filters: "フィルター",
+                    filtersShow: "フィルターを表示",
+                    filtersHide: "フィルターを隠す",
+                    search: "検索",
+                    searchPlaceholder: "作品・劇場・監督・ジャンル",
+                    date: "日付",
+                    dateToday: "今日",
+                    dateTomorrow: "明日",
+                    dateNext7: "今後7日間",
+                    dateAll: "すべての日付",
+                    content: "内容",
+                    contentAll: "指定なし",
+                    contentEnglishFriendly: "英語で観やすい作品",
+                    contentDocumentary: "ドキュメンタリーのみ",
+                    contentAnimation: "アニメーション",
+                    region: "地域",
+                    regionAll: "すべての地域",
+                    sort: "並び替え",
+                    sortNextShowing: "上映が近い順",
+                    sortReleaseNew: "公開年（新しい順）",
+                    sortReleaseOld: "公開年（古い順）",
+                    sortNearest: "現在地に近い順",
+                    sortRating: "評価順",
+                    clearFilters: "フィルターをクリア",
+                    loading: "上映情報を読み込み中...",
+                    loadError: "上映情報を読み込めません",
+                    noFilms: "該当する作品がありません",
+                    noCinemas: "該当するシネマがありません",
+                    noShowings: "該当する上映がありません",
+                    backToCinemas: "シネマ一覧へ戻る",
+                    films: "作品",
+                    showings: "上映",
+                    cinemas: "シネマ",
+                    map: "地図",
+                    site: "公式サイト",
+                    today: "今日",
+                    tomorrow: "明日",
+                    min: "分",
+                    posterUnavailable: "ポスターなし",
+                    tbd: "未定",
+                    other: "その他",
+                    unknownCinema: "不明な劇場",
+                    untitled: "タイトル未定",
+                    unknownDate: "日付不明",
+                    noFiltersApplied: "フィルターなし",
+                    installIosHint: "共有ボタン → 「ホーム画面に追加」でアプリとして使えます",
+                    footerDisclaimer: "上映情報は各劇場サイトから取得しています。最終確認は公式ページでお願いします。",
+                    downloadJson: "上映情報JSONをダウンロード",
+                    mapReset: "すべての地域を表示",
+                    mapShow: "地図を表示",
+                    mapHide: "地図を隠す",
+                    mapCinemaCount: "館",
+                    installApp: "Add to homescreen",
+                    nearMe: "近い順",
+                    locating: "現在地を確認中...",
+                    locationReady: "現在地から近い順で表示中",
+                    locationDenied: "位置情報を利用できません",
+                    locationUnsupported: "このブラウザでは位置情報を利用できません",
+                    nearestButton: "現在地順",
+                    nearestCinemas: "現在地に近いシネマ",
+                    showAllShowtimes: "すべての{count}件を表示"
+                },
+                en: {
+                    siteTitle: "Tokyo Mini-Theater Showtimes",
+                    siteCredit: "Site by Leo Nelki",
+                    viewCinema: "By Cinema",
+                    viewFilm: "By Film",
+                    filters: "Filters",
+                    filtersShow: "Show filters",
+                    filtersHide: "Hide filters",
+                    search: "Search",
+                    searchPlaceholder: "Film, cinema, director, genre",
+                    date: "Date",
+                    dateToday: "Today",
+                    dateTomorrow: "Tomorrow",
+                    dateNext7: "Next 7 days",
+                    dateAll: "All dates",
+                    content: "Content",
+                    contentAll: "Any",
+                    contentEnglishFriendly: "English-friendly",
+                    contentDocumentary: "Documentary only",
+                    contentAnimation: "Animation",
+                    region: "Region",
+                    regionAll: "All regions",
+                    sort: "Sort",
+                    sortNextShowing: "Next showtime",
+                    sortReleaseNew: "Release year (newest)",
+                    sortReleaseOld: "Release year (oldest)",
+                    sortNearest: "Nearest to me",
+                    sortRating: "By rating",
+                    clearFilters: "Clear filters",
+                    loading: "Loading showtimes...",
+                    loadError: "Unable to load showtimes",
+                    noFilms: "No films match those filters",
+                    noCinemas: "No cinemas match those filters",
+                    noShowings: "No showings match those filters",
+                    backToCinemas: "Back to cinemas",
+                    films: "films",
+                    showings: "showings",
+                    cinemas: "cinemas",
+                    map: "Map",
+                    site: "Website",
+                    today: "Today",
+                    tomorrow: "Tomorrow",
+                    min: "min",
+                    posterUnavailable: "No poster",
+                    tbd: "TBD",
+                    other: "Other",
+                    unknownCinema: "Unknown cinema",
+                    untitled: "Untitled",
+                    unknownDate: "Unknown date",
+                    noFiltersApplied: "No filters applied",
+                    installIosHint: "Tap Share → “Add to Home Screen” to use this page as an app",
+                    footerDisclaimer: "Listings are scraped from cinema sites. Always double-check the booking page for last-minute changes.",
+                    downloadJson: "Download raw showtimes JSON",
+                    mapReset: "Show all regions",
+                    mapShow: "Show map",
+                    mapHide: "Hide map",
+                    mapCinemaCount: "cinemas",
+                    installApp: "Add to homescreen",
+                    nearMe: "Near me",
+                    locating: "Finding location...",
+                    locationReady: "Sorted near you",
+                    locationDenied: "Location unavailable",
+                    locationUnsupported: "Location is not supported",
+                    nearestButton: "Near me",
+                    nearestCinemas: "Nearest cinemas",
+                    showAllShowtimes: "Show all {count} showtimes"
+                }
+            };
+            function t(key) {
+                return i18n[state.lang][key] || i18n.ja[key] || key;
+            }
+            function getRegionName(fullName) {
+                const names = regionNames[fullName];
+                if (names) return names[state.lang];
+                return fullName;
+            }
+            function getCinemaDisplayName(cinemaName) {
+                if (state.lang === "en") {
+                    return cinemaEnglishNames[cinemaName] || cinemaName;
+                } else {
+                    return cinemaJapaneseNames[cinemaName] || cinemaName;
+                }
+            }
+            function getFilmDisplayTitle(film) {
+                if (state.lang === "en") {
+                    return film.titleEn || film.titleJp || film.titleDisplay;
+                } else {
+                    return film.titleJp || film.titleEn || film.titleDisplay;
+                }
+            }
+            function getFilmDirector(film) {
+                if (state.lang === "en") {
+                    return film.directorEn || film.director || "";
+                } else {
+                    return film.director || "";
+                }
+            }
+            const elements = {
+                // Header
+                siteTitle: document.getElementById("site-title"),
+                siteCredit: document.getElementById("site-credit"),
+                viewCinemaBtn: document.getElementById("view-cinema-btn"),
+                viewFilmBtn: document.getElementById("view-film-btn"),
+                installButton: document.getElementById("install-app-btn"),
+                // Filters
+                locationStatus: document.getElementById("location-status"),
+                filtersContent: document.getElementById("filters-content"),
+                searchLabel: document.getElementById("search-label"),
+                searchInput: document.getElementById("search-input"),
+                dateLabel: document.getElementById("date-label"),
+                dateSelect: document.getElementById("date-select"),
+                contentLabel: document.getElementById("content-label"),
+                englishFriendlyCheckbox: document.getElementById("english-friendly"),
+                englishFriendlyLabel: document.getElementById("english-friendly-label"),
+                docOnlyCheckbox: document.getElementById("doc-only"),
+                docOnlyLabel: document.getElementById("doc-only-label"),
+                animationOnlyCheckbox: document.getElementById("animation-only"),
+                animationOnlyLabel: document.getElementById("animation-only-label"),
+                filtersToggle: document.getElementById("filters-toggle"),
+                regionLabel: document.getElementById("region-label"),
+                regionSelect: document.getElementById("region-select"),
+                sortLabel: document.getElementById("sort-label"),
+                sortSelect: document.getElementById("sort-select"),
+                nearMeButton: document.getElementById("near-me-btn"),
+                sortFilterContainer: document.getElementById("sort-filter-container"),
+                clearFilters: document.getElementById("clear-filters"),
+                // View toggles
+                viewButtons: Array.from(document.querySelectorAll("[data-view]")),
+                langButtons: Array.from(document.querySelectorAll("[data-lang]")),
+                // Cinema view
+                cinemaView: document.getElementById("cinema-view"),
+                cinemaIndex: document.getElementById("cinema-index"),
+                cinemaLoading: document.getElementById("cinema-loading"),
+                cinemaShowtimes: document.getElementById("cinema-showtimes"),
+                cinemaTitle: document.getElementById("cinema-title"),
+                cinemaMapLink: document.getElementById("cinema-map-link"),
+                cinemaSiteLink: document.getElementById("cinema-site-link"),
+                cinemaMeta: document.getElementById("cinema-meta"),
+                cinemaShowtimesList: document.getElementById("cinema-showtimes-list"),
+                backToCinemas: document.getElementById("back-to-cinemas"),
+                // Film view
+                filmView: document.getElementById("film-view"),
+                filmResultsCount: document.getElementById("film-results-count"),
+                filmResultsMeta: document.getElementById("film-results-meta"),
+                filmResultsList: document.getElementById("film-results-list"),
+                filmLoading: document.getElementById("film-loading"),
+                filmEmpty: document.getElementById("film-empty"),
+                // Footer
+                footerDisclaimer: document.getElementById("footer-disclaimer"),
+                footerDownloadLink: document.getElementById("footer-download-link")
+            };
+
+            const state = {
+                data: [],
+                view: "film",
+                sort: "next-showing",
+                selectedCinema: "",
+                filtersExpanded: false,
+                location: { active: false, coords: null },
+                lang: localStorage.getItem("cinemas-lang") || "ja",
+                filters: {
+                    search: "",
+                    date: "today",
+                    englishFriendly: false,
+                    docOnly: false,
+                    animationOnly: false,
+                    region: "all",
+                }
+            };
+
+            function getSortOptions() {
+                const options = [
+                    { value: "next-showing", label: t("sortNextShowing") },
+                    { value: "release-new", label: t("sortReleaseNew") },
+                    { value: "release-old", label: t("sortReleaseOld") }
+                ];
+                return { film: options, cinema: options };
+            }
+            function getDefaultSortValue() {
+                const options = getSortOptions()[state.view] || getSortOptions().film;
+                return options[0].value;
+            }
+            function getDateFormatter() {
+                const locale = state.lang === "en" ? "en-US" : "ja-JP";
+                return new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", month: "short", timeZone: "Asia/Tokyo" });
+            }
+            function getLongDateFormatter() {
+                const locale = state.lang === "en" ? "en-US" : "ja-JP";
+                return new Intl.DateTimeFormat(locale, { weekday: "long", day: "numeric", month: "long", timeZone: "Asia/Tokyo" });
+            }
+            function getRegionForCinema(cinemaName) {
+                return cinemaRegions[cinemaName] || t("other");
+            }
+            function debounce(fn, delayMs) {
+                let timer = null;
+                return function () {
+                    clearTimeout(timer);
+                    timer = setTimeout(fn, delayMs);
+                };
+            }
+            // Deep links: view, selected cinema, filters and language live in the
+            // URL hash so the back button and shared links work. An empty hash
+            // means the defaults, so plain visits keep a clean URL.
+            const datePresets = ["today", "tomorrow", "next-7", "all"];
+            const sortValues = ["next-showing", "release-new", "release-old"];
+            let applyingUrlState = false;
+            function writeUrlState(push) {
+                if (applyingUrlState) return;
+                const params = new URLSearchParams();
+                if (state.view !== "film") params.set("view", state.view);
+                if (state.selectedCinema) params.set("cinema", state.selectedCinema);
+                if (state.filters.search) params.set("q", state.filters.search);
+                if (state.filters.date !== "today") params.set("date", state.filters.date);
+                if (state.filters.region !== "all") params.set("region", state.filters.region);
+                if (state.filters.englishFriendly) params.set("enfriendly", "1");
+                if (state.filters.docOnly) params.set("doc", "1");
+                if (state.filters.animationOnly) params.set("anim", "1");
+                if (state.sort !== "next-showing" && state.sort !== "nearest") params.set("sort", state.sort);
+                if (state.lang !== "ja") params.set("lang", state.lang);
+                const query = params.toString();
+                const target = window.location.pathname + window.location.search + (query ? "#" + query : "");
+                const current = window.location.pathname + window.location.search + window.location.hash;
+                if (target === current) return;
+                if (push) {
+                    history.pushState(null, "", target);
+                } else {
+                    history.replaceState(null, "", target);
+                }
+            }
+            function readUrlState() {
+                const params = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+                state.view = params.get("view") === "cinema" ? "cinema" : "film";
+                state.selectedCinema = params.get("cinema") || "";
+                const lang = params.get("lang");
+                if (lang === "en" || lang === "ja") {
+                    state.lang = lang;
+                }
+                state.filters.search = (params.get("q") || "").trim().toLowerCase();
+                const date = params.get("date");
+                state.filters.date = datePresets.indexOf(date) >= 0 ? date : "today";
+                state.filters.region = params.get("region") || "all";
+                state.filters.englishFriendly = params.get("enfriendly") === "1";
+                state.filters.docOnly = params.get("doc") === "1";
+                state.filters.animationOnly = params.get("anim") === "1";
+                const sort = params.get("sort");
+                state.sort = sortValues.indexOf(sort) >= 0 ? sort : "next-showing";
+                state.location.active = false;
+                state.location.coords = null;
+            }
+            function applyUrlState() {
+                applyingUrlState = true;
+                readUrlState();
+                elements.langButtons.forEach(function (button) {
+                    button.classList.toggle("is-active", button.getAttribute("data-lang") === state.lang);
+                });
+                elements.viewButtons.forEach(function (button) {
+                    button.classList.toggle("is-active", button.getAttribute("data-view") === state.view);
+                });
+                updateUIText();
+                if (elements.dateSelect.options.length) {
+                    elements.dateSelect.value = state.filters.date;
+                }
+                updateDateSelect();
+                updateRegionSelect();
+                updateSortOptions();
+                updateLocationStatus("");
+                elements.searchInput.value = state.filters.search;
+                syncContentCheckboxes();
+                if (elements.regionSelect.options.length) {
+                    elements.regionSelect.value = state.filters.region;
+                    if (elements.regionSelect.value !== state.filters.region) {
+                        state.filters.region = "all";
+                        elements.regionSelect.value = "all";
+                    }
+                }
+                applyingUrlState = false;
+                if (state.data.length) {
+                    render();
+                }
+            }
+            const debouncedSearchRender = debounce(function () {
+                writeUrlState(false);
+                render();
+            }, 200);
+            elements.searchInput.addEventListener("input", function (event) {
+                state.filters.search = event.target.value.trim().toLowerCase();
+                debouncedSearchRender();
+            });
+            elements.dateSelect.addEventListener("change", function (event) {
+                state.filters.date = event.target.value;
+                writeUrlState(false);
+                render();
+            });
+            elements.englishFriendlyCheckbox.addEventListener("change", function (event) {
+                state.filters.englishFriendly = event.target.checked;
+                writeUrlState(false);
+                render();
+            });
+            elements.docOnlyCheckbox.addEventListener("change", function (event) {
+                state.filters.docOnly = event.target.checked;
+                writeUrlState(false);
+                render();
+            });
+            elements.animationOnlyCheckbox.addEventListener("change", function (event) {
+                state.filters.animationOnly = event.target.checked;
+                writeUrlState(false);
+                render();
+            });
+            elements.filtersToggle.addEventListener("click", function () {
+                state.filtersExpanded = !state.filtersExpanded;
+                updateFiltersToggle();
+            });
+            elements.regionSelect.addEventListener("change", function (event) {
+                state.filters.region = event.target.value;
+                writeUrlState(false);
+                render();
+            });
+            elements.sortSelect.addEventListener("change", function (event) {
+                state.sort = event.target.value;
+                state.location.active = false;
+                state.location.coords = null;
+                updateLocationStatus("");
+                updateSortUI();
+                writeUrlState(false);
+                render();
+            });
+            elements.nearMeButton.addEventListener("click", function () {
+                requestLocationSort();
+            });
+            elements.clearFilters.addEventListener("click", function () {
+                state.filters.search = "";
+                state.filters.date = getDefaultDateForView();
+                state.filters.englishFriendly = false;
+                state.filters.docOnly = false;
+                state.filters.animationOnly = false;
+                state.filters.region = "all";
+                state.sort = getDefaultSortValue();
+                state.location.active = false;
+                state.location.coords = null;
+                updateLocationStatus("");
+                updateSortOptions();
+                elements.searchInput.value = "";
+                elements.dateSelect.value = state.filters.date;
+                syncContentCheckboxes();
+                elements.regionSelect.value = "all";
+                updateSortUI();
+                writeUrlState(false);
+                render();
+            });
+
+            elements.viewButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const view = button.getAttribute("data-view");
+                    setView(view);
+                });
+            });
+            elements.langButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const lang = button.getAttribute("data-lang");
+                    setLang(lang);
+                });
+            });
+            function shouldShowInstallButton() {
+                return /Android/i.test(navigator.userAgent);
+            }
+            let deferredInstallPrompt = null;
+            window.addEventListener("beforeinstallprompt", function (event) {
+                event.preventDefault();
+                if (!shouldShowInstallButton()) {
+                    return;
+                }
+                deferredInstallPrompt = event;
+                if (elements.installButton) {
+                    elements.installButton.classList.remove("is-hidden");
+                }
+            });
+            if (elements.installButton) {
+                elements.installButton.addEventListener("click", function () {
+                    if (!deferredInstallPrompt) return;
+                    deferredInstallPrompt.prompt();
+                    deferredInstallPrompt.userChoice.finally(function () {
+                        deferredInstallPrompt = null;
+                        elements.installButton.classList.add("is-hidden");
+                    });
+                });
+            }
+            window.addEventListener("appinstalled", function () {
+                deferredInstallPrompt = null;
+                if (elements.installButton) {
+                    elements.installButton.classList.add("is-hidden");
+                }
+            });
+            // iOS never fires beforeinstallprompt, so show a manual
+            // Share -> Add to Home Screen hint instead.
+            const IOS_HINT_DISMISSED_KEY = "cinemas-ios-install-dismissed";
+            function showIosInstallHint() {
+                const existing = document.getElementById("ios-install-hint");
+                if (existing) {
+                    existing.remove();
+                    return;
+                }
+                const panel = createElement("div", "ios-install-hint");
+                panel.id = "ios-install-hint";
+                panel.appendChild(createElement("span", null, t("installIosHint")));
+                const closeButton = createElement("button", "ios-install-close", "×");
+                closeButton.type = "button";
+                closeButton.setAttribute("aria-label", "Close");
+                closeButton.addEventListener("click", function () {
+                    panel.remove();
+                    localStorage.setItem(IOS_HINT_DISMISSED_KEY, "1");
+                    elements.installButton.classList.add("is-hidden");
+                });
+                panel.appendChild(closeButton);
+                document.querySelector(".page-header").insertAdjacentElement("afterend", panel);
+            }
+            function setupIosInstallHint() {
+                if (!elements.installButton) return;
+                if (!/iPhone|iPad|iPod/.test(navigator.userAgent)) return;
+                if (navigator.standalone === true) return;
+                if (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) return;
+                if (localStorage.getItem(IOS_HINT_DISMISSED_KEY)) return;
+                elements.installButton.classList.remove("is-hidden");
+                elements.installButton.addEventListener("click", showIosInstallHint);
+            }
+            elements.backToCinemas.addEventListener("click", function () {
+                state.selectedCinema = "";
+                writeUrlState(true);
+                render();
+            });
+            document.querySelector("h1").addEventListener("click", function () {
+                state.selectedCinema = "";
+                state.filters.search = "";
+                elements.searchInput.value = "";
+                writeUrlState(true);
+                render();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+            function setView(view) {
+                state.view = view;
+                elements.viewButtons.forEach(function (button) {
+                    const isActive = button.getAttribute("data-view") === view;
+                    button.classList.toggle("is-active", isActive);
+                });
+                updateSortOptions();
+                writeUrlState(true);
+                render();
+            }
+            function setLang(lang) {
+                state.lang = lang;
+                localStorage.setItem("cinemas-lang", lang);
+                writeUrlState(false);
+                elements.langButtons.forEach(function (button) {
+                    const isActive = button.getAttribute("data-lang") === lang;
+                    button.classList.toggle("is-active", isActive);
+                });
+                updateUIText();
+                updateDateSelect();
+                updateRegionSelect();
+                updateSortOptions();
+                render();
+            }
+            function updateUIText() {
+                document.documentElement.lang = state.lang;
+                // Header
+                elements.siteTitle.textContent = t("siteTitle");
+                elements.siteCredit.textContent = t("siteCredit");
+                elements.viewCinemaBtn.textContent = t("viewCinema");
+                elements.viewFilmBtn.textContent = t("viewFilm");
+                if (elements.installButton) {
+                    elements.installButton.textContent = t("installApp");
+                }
+                // Filters
+                elements.searchLabel.textContent = t("search");
+                elements.searchInput.placeholder = t("searchPlaceholder");
+                elements.dateLabel.textContent = t("date");
+                elements.contentLabel.textContent = t("content");
+                elements.englishFriendlyLabel.textContent = t("contentEnglishFriendly");
+                elements.docOnlyLabel.textContent = t("contentDocumentary");
+                elements.animationOnlyLabel.textContent = t("contentAnimation");
+                elements.regionLabel.textContent = t("region");
+                elements.sortLabel.textContent = t("sort");
+                elements.nearMeButton.textContent = t("nearestButton");
+                elements.clearFilters.textContent = t("clearFilters");
+                syncContentCheckboxes();
+                updateFiltersToggle();
+                updateSortUI();
+                // Cinema view
+                elements.cinemaLoading.textContent = t("loading");
+                elements.backToCinemas.textContent = t("backToCinemas");
+                elements.cinemaMapLink.textContent = t("map");
+                elements.cinemaSiteLink.textContent = t("site");
+                // Film view
+                elements.filmLoading.textContent = t("loading");
+                elements.filmEmpty.textContent = t("noFilms");
+                // Footer
+                elements.footerDisclaimer.textContent = t("footerDisclaimer");
+                elements.footerDownloadLink.textContent = t("downloadJson");
+            }
+            function getJstDateOffsetText(offsetDays) {
+                const date = new Date(getJstDateText() + "T00:00:00+09:00");
+                date.setUTCDate(date.getUTCDate() + offsetDays);
+                return new Intl.DateTimeFormat("en-CA", {
+                    timeZone: "Asia/Tokyo",
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit"
+                }).format(date);
+            }
+            function getDatePresetLabel(value) {
+                const labels = {
+                    today: t("dateToday"),
+                    tomorrow: t("dateTomorrow"),
+                    "next-7": t("dateNext7"),
+                    all: t("dateAll")
+                };
+                return labels[value] || value;
+            }
+            function syncContentCheckboxes() {
+                elements.englishFriendlyCheckbox.checked = state.filters.englishFriendly;
+                elements.docOnlyCheckbox.checked = state.filters.docOnly;
+                elements.animationOnlyCheckbox.checked = state.filters.animationOnly;
+            }
+            function updateFiltersToggle() {
+                if (!elements.filtersToggle || !elements.filtersContent) return;
+                const expanded = !!state.filtersExpanded;
+                elements.filtersToggle.textContent = expanded ? t("filtersHide") : t("filtersShow");
+                elements.filtersToggle.classList.toggle("is-active", expanded);
+                elements.filtersToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+                elements.filtersContent.classList.toggle("is-expanded", expanded);
+            }
+            function updateDateSelect() {
+                const currentValue = elements.dateSelect.value || state.filters.date || getDefaultDateForView();
+                elements.dateSelect.innerHTML = "";
+                const options = [
+                    { value: "today", label: t("dateToday") },
+                    { value: "tomorrow", label: t("dateTomorrow") },
+                    { value: "next-7", label: t("dateNext7") },
+                    { value: "all", label: t("dateAll") }
+                ];
+                options.forEach(function (opt) {
+                    const option = document.createElement("option");
+                    option.value = opt.value;
+                    option.textContent = opt.label;
+                    elements.dateSelect.appendChild(option);
+                });
+                const validValue = options.some(function (option) {
+                    return option.value === currentValue;
+                }) ? currentValue : getDefaultDateForView();
+                elements.dateSelect.value = validValue;
+                state.filters.date = validValue;
+            }
+            function updateRegionSelect() {
+                const currentValue = elements.regionSelect.value || "all";
+                const options = Array.from(elements.regionSelect.options);
+                options.forEach(function (option) {
+                    if (option.value === "all") {
+                        option.textContent = t("regionAll");
+                    } else {
+                        option.textContent = getRegionName(option.value);
+                    }
+                });
+                elements.regionSelect.value = currentValue;
+            }
+            function getDefaultDateForView() {
+                return "today";
+            }
+            function updateSortOptions() {
+                const sortOptions = getSortOptions();
+                const options = sortOptions[state.view];
+                if (!options) {
+                    elements.sortFilterContainer.classList.add("is-hidden");
+                    return;
+                }
+                elements.sortFilterContainer.classList.remove("is-hidden");
+                const currentValue = state.sort;
+                elements.sortSelect.innerHTML = "";
+                options.forEach(function (option) {
+                    const optionEl = document.createElement("option");
+                    optionEl.value = option.value;
+                    optionEl.textContent = option.label;
+                    elements.sortSelect.appendChild(optionEl);
+                });
+                const stillValid = options.some(function (option) {
+                    return option.value === currentValue;
+                });
+                if (!stillValid && state.sort !== "nearest") {
+                    state.sort = options[0].value;
+                }
+                elements.sortSelect.value = state.sort === "nearest" ? options[0].value : state.sort;
+                updateSortUI();
+            }
+            function updateSortUI() {
+                const nearestActive = state.sort === "nearest" && state.location.active;
+                if (elements.nearMeButton) {
+                    elements.nearMeButton.classList.toggle("is-active", nearestActive);
+                    elements.nearMeButton.setAttribute("aria-pressed", nearestActive ? "true" : "false");
+                }
+                if (elements.locationStatus) {
+                    elements.locationStatus.textContent = nearestActive ? t("locationReady") : elements.locationStatus.textContent;
+                }
+            }
+            function createElement(tag, className, text) {
+                const element = document.createElement(tag);
+                if (className) {
+                    element.className = className;
+                }
+                if (text !== undefined) {
+                    element.textContent = text;
+                }
+                return element;
+            }
+            function normalizeListField(value) {
+                if (!value) return [];
+                if (Array.isArray(value)) {
+                    return value.map(function (item) {
+                        return String(item || "").trim();
+                    }).filter(Boolean);
+                }
+                return String(value)
+                    .split(/[,\s、/]+/)
+                    .map(function (item) {
+                        return item.trim();
+                    })
+                    .filter(Boolean);
+            }
+            function getJstDateText() {
+                return new Intl.DateTimeFormat("en-CA", {
+                    timeZone: "Asia/Tokyo",
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit"
+                }).format(new Date());
+            }
+            function parseDate(dateText) {
+                if (!dateText) return null;
+                const date = new Date(dateText + "T00:00:00+09:00");
+                if (Number.isNaN(date.getTime())) return null;
+                return date;
+            }
+            function formatDate(dateText, longFormat) {
+                const date = parseDate(dateText);
+                if (!date) return dateText || "";
+                return longFormat ? getLongDateFormatter().format(date) : getDateFormatter().format(date);
+            }
+            function getDateRange(showings) {
+                const dates = showings.map(function (showing) {
+                    return showing.dateText;
+                }).filter(Boolean).sort();
+                if (!dates.length) return "";
+                if (dates[0] === dates[dates.length - 1]) {
+                    return formatDate(dates[0], true);
+                }
+                return formatDate(dates[0], true) + " - " + formatDate(dates[dates.length - 1], true);
+            }
+            function timeToMinutes(timeText) {
+                if (!timeText || typeof timeText !== 'string') return null;
+                const match = timeText.match(/(\d{1,2}):(\d{2})/);
+                if (!match) return null;
+                const hours = parseInt(match[1], 10);
+                const minutes = parseInt(match[2], 10);
+                return hours * 60 + minutes;
+            }
+            function parseDateTime(dateText, timeText) {
+                if (!dateText) return null;
+                const timeValue = timeText && timeText.includes(":") ? timeText : "00:00";
+                const parts = timeValue.split(":");
+                const hours = (parts[0] || "00").padStart(2, "0");
+                const minutes = (parts[1] || "00").padStart(2, "0");
+                const date = new Date(dateText + "T" + hours + ":" + minutes + ":00+09:00");
+                if (Number.isNaN(date.getTime())) return null;
+                return date;
+            }
+            function timeValue(date) {
+                return date ? date.getTime() : Number.POSITIVE_INFINITY;
+            }
+            function compareShowings(a, b) {
+                const aTime = timeValue(a.dateTime);
+                const bTime = timeValue(b.dateTime);
+                if (aTime !== bTime) {
+                    return aTime - bTime;
+                }
+                return (a.showtime || "").localeCompare(b.showtime || "");
+            }
+            function normalizeTitle(title) {
+                return (title || "")
+                    .toLowerCase()
+                    .replace(/[\[\]\(\)]/g, " ")
+                    .replace(/[^a-z0-9]+/g, "-")
+                    .replace(/^-+|-+$/g, "");
+            }
+            function formatBilingual(primary, secondary) {
+                if (!primary && !secondary) return "";
+                if (!primary) return secondary;
+                if (!secondary || secondary === primary) return primary;
+                return primary + " (" + secondary + ")";
+            }
+            function containsJapanese(text) {
+                return /[\u3040-\u30ff\u3400-\u9fff]/.test(text || "");
+            }
+            function pickJapaneseTitle(item) {
+                const candidates = [
+                    item.movie_title_jp,
+                    item.movie_title,
+                    item.clean_title_jp,
+                    item.movie_title_en
+                ];
+                for (var i = 0; i < candidates.length; i += 1) {
+                    var value = candidates[i];
+                    if (value && containsJapanese(value)) return value;
+                }
+                for (var j = 0; j < candidates.length; j += 1) {
+                    var fallback = candidates[j];
+                    if (fallback) return fallback;
+                }
+                return "";
+            }
+            function buildLetterboxdUrl(title, tmdbId) {
+                if (tmdbId) {
+                    return "https://letterboxd.com/tmdb/" + tmdbId + "/";
+                }
+                return "";
+            }
+            function getCinemaJapaneseName(cinemaName) {
+                return cinemaJapaneseNames[cinemaName] || cinemaName;
+            }
+            function buildMapsUrl(cinemaName) {
+                const query = encodeURIComponent(getCinemaJapaneseName(cinemaName) + " 東京");
+                return "https://www.google.com/maps/search/?api=1&query=" + query;
+            }
+            const cinemaWebsiteOverrides = {
+                "下北沢トリウッド": "https://tollywood.jp/",
+                "下高井戸シネマ": "https://shimotakaidocinema.com/",
+                "ポレポレ東中野": "https://pole2.co.jp/"
+            };
+            const blockedHostSuffixes = [
+                "eigaland.com",
+                "jorudan.co.jp",
+                "hellomovie.info",
+                "eiga.com"
+            ];
+            function isBlockedHost(host) {
+                return blockedHostSuffixes.some(function (suffix) {
+                    return host.endsWith(suffix);
+                });
+            }
+            function isBlockedUrl(url) {
+                if (!url) return false;
+                try {
+                    return isBlockedHost(new URL(url).hostname.toLowerCase());
+                } catch (error) {
+                    return false;
+                }
+            }
+            function getCinemaWebsite(cinemaName, showings) {
+                if (cinemaWebsiteOverrides[cinemaName]) return cinemaWebsiteOverrides[cinemaName];
+                const counts = new Map();
+                const origins = new Map();
+                showings.forEach(function (showing) {
+                    [showing.bookingUrl, showing.detailUrl].forEach(function (url) {
+                        if (!url) return;
+                        let parsed;
+                        try {
+                            parsed = new URL(url);
+                        } catch (error) {
+                            return;
+                        }
+                        const host = parsed.hostname.toLowerCase();
+                        counts.set(host, (counts.get(host) || 0) + 1);
+                        if (!origins.has(host)) origins.set(host, parsed.origin);
+                    });
+                });
+                if (!counts.size) return "";
+                function pickHost(skipBlocked) {
+                    let bestHost = "";
+                    let bestCount = -1;
+                    counts.forEach(function (count, host) {
+                        if (skipBlocked && isBlockedHost(host)) return;
+                        if (count > bestCount) {
+                            bestHost = host;
+                            bestCount = count;
+                        }
+                    });
+                    return bestHost;
+                }
+                const preferredHost = pickHost(true) || pickHost(false);
+                if (!preferredHost) return "";
+                return origins.get(preferredHost) || ("https://" + preferredHost);
+            }
+            function getShowtimeTargetUrl(showing, cinemaWebsite) {
+                if (showing.bookingUrl) return showing.bookingUrl;
+                if (showing.detailUrl && !isBlockedUrl(showing.detailUrl)) return showing.detailUrl;
+                return cinemaWebsite || showing.detailUrl || "";
+            }
+            function getImageUrl(path, size) {
+                if (!path) return "";
+                if (path.startsWith("http")) return path;
+                return tmdbBase + size + path;
+            }
+
+            const cinemaCoordinates = {
+          "シアター・イメージフォーラム": {
+                    "lat": 35.6628,
+                    "lng": 139.7084
+          },
+          "ユーロスペース": {
+                    "lat": 35.6581,
+                    "lng": 139.6954
+          },
+          "ヒューマントラストシネマ渋谷": {
+                    "lat": 35.6616,
+                    "lng": 139.7028
+          },
+          "Bunkamura ル・シネマ 渋谷宮下": {
+                    "lat": 35.6617,
+                    "lng": 139.7018
+          },
+          "シネクイント": {
+                    "lat": 35.6614,
+                    "lng": 139.7006
+          },
+          "ホワイト シネクイント": {
+                    "lat": 35.6613,
+                    "lng": 139.7006
+          },
+          "シネマヴェーラ渋谷": {
+                    "lat": 35.6605,
+                    "lng": 139.6967
+          },
+          "YEBISU GARDEN CINEMA": {
+                    "lat": 35.6423,
+                    "lng": 139.7133
+          },
+          "東京都写真美術館": {
+                    "lat": 35.6419,
+                    "lng": 139.7136
+          },
+          "シアターギルド代官山": {
+                    "lat": 35.6487,
+                    "lng": 139.7032
+          },
+          "キネカ大森": {
+                    "lat": 35.588,
+                    "lng": 139.7294
+          },
+          "目黒シネマ": {
+                    "lat": 35.6334,
+                    "lng": 139.7155
+          },
+          "新宿武蔵野館": {
+                    "lat": 35.6912,
+                    "lng": 139.7025
+          },
+          "テアトル新宿": {
+                    "lat": 35.6916,
+                    "lng": 139.706
+          },
+          "シネマート新宿": {
+                    "lat": 35.692,
+                    "lng": 139.7064
+          },
+          "K's Cinema (ケイズシネマ)": {
+                    "lat": 35.6889,
+                    "lng": 139.7047
+          },
+          "kino cinéma新宿": {
+                    "lat": 35.6886,
+                    "lng": 139.704
+          },
+          "早稲田松竹": {
+                    "lat": 35.7126,
+                    "lng": 139.7047
+          },
+          "ヒューマントラストシネマ有楽町": {
+                    "lat": 35.6751,
+                    "lng": 139.763
+          },
+          "シネスイッチ銀座": {
+                    "lat": 35.6722,
+                    "lng": 139.7685
+          },
+          "国立映画アーカイブ": {
+                    "lat": 35.6764,
+                    "lng": 139.77
+          },
+          "角川シネマ有楽町": {
+                    "lat": 35.6751,
+                    "lng": 139.763
+          },
+          "Kadokawa Cinema Yurakucho (角川シネマ有楽町)": {
+                    "lat": 35.6751,
+                    "lng": 139.763
+          },
+          "東劇": {
+                    "lat": 35.667,
+                    "lng": 139.7707
+          },
+          "シネマリス": {
+                    "lat": 35.6922,
+                    "lng": 139.7821
+          },
+          "神保町シアター": {
+                    "lat": 35.6958,
+                    "lng": 139.7597
+          },
+          "アテネ・フランセ文化センター": {
+                    "lat": 35.7,
+                    "lng": 139.7622
+          },
+          "アンスティチュ・フランセ東京": {
+                    "lat": 35.7015,
+                    "lng": 139.7417
+          },
+          "Stranger (ストレンジャー)": {
+                    "lat": 35.695,
+                    "lng": 139.8106
+          },
+          "新文芸坐": {
+                    "lat": 35.7291,
+                    "lng": 139.7143
+          },
+          "池袋シネマ・ロサ": {
+                    "lat": 35.7337,
+                    "lng": 139.7085
+          },
+          "シネ・リーブル池袋": {
+                    "lat": 35.7295,
+                    "lng": 139.711
+          },
+          "シネマハウス大塚": {
+                    "lat": 35.7313,
+                    "lng": 139.7288
+          },
+          "CINEMA Chupki TABATA": {
+                    "lat": 35.7373,
+                    "lng": 139.7618
+          },
+          "シネマブルースタジオ": {
+                    "lat": 35.748,
+                    "lng": 139.7544
+          },
+          "ポレポレ東中野": {
+                    "lat": 35.7063,
+                    "lng": 139.6849
+          },
+          "ラピュタ阿佐ヶ谷": {
+                    "lat": 35.7045,
+                    "lng": 139.6357
+          },
+          "Morc阿佐ヶ谷": {
+                    "lat": 35.7043,
+                    "lng": 139.6358
+          },
+          "アップリンク吉祥寺": {
+                    "lat": 35.7042,
+                    "lng": 139.5795
+          },
+          "吉祥寺オデヲン": {
+                    "lat": 35.7045,
+                    "lng": 139.5809
+          },
+          "K2 Cinema": {
+                    "lat": 35.6611,
+                    "lng": 139.6676
+          },
+          "下北沢トリウッド": {
+                    "lat": 35.6617,
+                    "lng": 139.6674
+          },
+          "下高井戸シネマ": {
+                    "lat": 35.6663,
+                    "lng": 139.6429
+          },
+          "シネマシティ": {
+                    "lat": 35.6997,
+                    "lng": 139.4137
+          },
+          "kino cinéma立川髙島屋S.C.館": {
+                    "lat": 35.7003,
+                    "lng": 139.4135
+          },
+          "Cinema Neko (シネマネコ)": {
+                    "lat": 35.786,
+                    "lng": 139.326
+          },
+          "kino cinéma横浜みなとみらい": {
+                    "lat": 35.4573,
+                    "lng": 139.6328
+          },
+          "横浜シネマ・ジャック＆ベティ": {
+                    "lat": 35.4404,
+                    "lng": 139.628
+          },
+          "シネマ・ノヴェチェント": {
+                    "lat": 35.4495,
+                    "lng": 139.6172
+          },
+          "横浜シネマリン": {
+                    "lat": 35.4436,
+                    "lng": 139.642
+          },
+          "川崎市アートセンター アルテリオ映像館": {
+                    "lat": 35.6035,
+                    "lng": 139.5083
+          },
+          "あつぎのえいがかんkiki": {
+                    "lat": 35.4396,
+                    "lng": 139.3647
+          },
+          "小田原シネマ館": {
+                    "lat": 35.2545,
+                    "lng": 139.1565
+          },
+          "シネコヤ": {
+                    "lat": 35.3339,
+                    "lng": 139.4777
+          },
+          "CINEMA AMIGO": {
+                    "lat": 35.2953,
+                    "lng": 139.5731
+          },
+          "川越スカラ座": {
+                    "lat": 35.9235,
+                    "lng": 139.4853
+          },
+          "深谷シネマ": {
+                    "lat": 36.1912,
+                    "lng": 139.2814
+          },
+          "キネマ旬報シアター": {
+                    "lat": 35.8624,
+                    "lng": 139.9705
+          },
+          "千葉劇場": {
+                    "lat": 35.6087,
+                    "lng": 140.1178
+          },
+          "高円寺シアターバッカス": {
+                    "lat": 35.7049,
+                    "lng": 139.6491
+          },
+          "Koenji Cinema Club": {
+                    "lat": 35.7049,
+                    "lng": 139.6491
+          }
+};
+
+            function getCinemaCoordinates(cinemaName) {
+                return cinemaCoordinates[cinemaName] || null;
+            }
+            function toRadians(value) {
+                return value * Math.PI / 180;
+            }
+            function distanceKm(from, to) {
+                if (!from || !to) return Number.POSITIVE_INFINITY;
+                const earthKm = 6371;
+                const dLat = toRadians(to.lat - from.lat);
+                const dLng = toRadians(to.lng - from.lng);
+                const lat1 = toRadians(from.lat);
+                const lat2 = toRadians(to.lat);
+                const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
+                return earthKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            }
+            function getCinemaDistance(cinemaName) {
+                if (!state.location.active || !state.location.coords) return Number.POSITIVE_INFINITY;
+                return distanceKm(state.location.coords, getCinemaCoordinates(cinemaName));
+            }
+            function getFilmDistance(film) {
+                if (!film || !film.showings) return Number.POSITIVE_INFINITY;
+                return film.showings.reduce(function (best, showing) {
+                    return Math.min(best, getCinemaDistance(showing.cinema));
+                }, Number.POSITIVE_INFINITY);
+            }
+            function formatDistance(km) {
+                if (!Number.isFinite(km)) return "";
+                return km < 10 ? km.toFixed(1) + " km" : Math.round(km) + " km";
+            }
+            function getDistanceLabel(cinemaName) {
+                const label = formatDistance(getCinemaDistance(cinemaName));
+                return label ? " (" + label + ")" : "";
+            }
+            function getCinemaReleaseYear(cinema) {
+                const showings = cinema && cinema.showings ? cinema.showings : [];
+                return showings.reduce(function (best, showing) {
+                    const year = parseInt(showing.year, 10);
+                    return Number.isFinite(year) ? Math.max(best, year) : best;
+                }, 0);
+            }
+            function getCinemaNextTime(cinema) {
+                const showings = cinema && cinema.showings ? cinema.showings : [];
+                return showings.reduce(function (best, showing) {
+                    return Math.min(best, timeValue(showing.dateTime));
+                }, Number.POSITIVE_INFINITY);
+            }
+            function compareDistances(aDistance, bDistance) {
+                const aFinite = Number.isFinite(aDistance);
+                const bFinite = Number.isFinite(bDistance);
+                if (aFinite && bFinite && aDistance !== bDistance) return aDistance - bDistance;
+                if (aFinite && !bFinite) return -1;
+                if (!aFinite && bFinite) return 1;
+                return 0;
+            }
+            function compareCinemasForCurrentSort(a, b) {
+                if (state.sort === "nearest" && state.location.active) {
+                    const distanceDiff = compareDistances(getCinemaDistance(a.name), getCinemaDistance(b.name));
+                    if (distanceDiff !== 0) return distanceDiff;
+                }
+                if (state.sort === "next-showing") {
+                    const timeA = getCinemaNextTime(a);
+                    const timeB = getCinemaNextTime(b);
+                    if (timeA !== timeB) return timeA - timeB;
+                }
+                if (state.sort === "release-new" || state.sort === "release-old") {
+                    const yearA = getCinemaReleaseYear(a);
+                    const yearB = getCinemaReleaseYear(b);
+                    if (yearA !== yearB) return state.sort === "release-new" ? yearB - yearA : yearA - yearB;
+                }
+                return getCinemaDisplayName(a.name).localeCompare(getCinemaDisplayName(b.name));
+            }
+            function getCinemaDisplayWithDistance(cinemaName) {
+                return getCinemaDisplayName(cinemaName) + getDistanceLabel(cinemaName);
+            }
+            function compareCinemaNamesByDistance(a, b) {
+                if (state.sort !== "nearest" || !state.location.active) return 0;
+                return compareDistances(getCinemaDistance(a), getCinemaDistance(b));
+            }
+            function updateLocationStatus(message) {
+                if (elements.locationStatus) elements.locationStatus.textContent = message || "";
+            }
+            function requestLocationSort() {
+                if (!navigator.geolocation) {
+                    state.sort = getDefaultSortValue();
+                    updateSortOptions();
+                    updateLocationStatus(t("locationUnsupported"));
+                    render();
+                    return;
+                }
+                updateLocationStatus(t("locating"));
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    state.sort = "nearest";
+                    state.location.active = true;
+                    state.location.coords = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    elements.sortSelect.value = getDefaultSortValue();
+                    updateLocationStatus(t("locationReady"));
+                    updateSortUI();
+                    render();
+                }, function () {
+                    state.location.active = false;
+                    state.location.coords = null;
+                    state.sort = getDefaultSortValue();
+                    updateSortOptions();
+                    updateLocationStatus(t("locationDenied"));
+                    render();
+                }, {
+                    enableHighAccuracy: false,
+                    maximumAge: 300000,
+                    timeout: 8000
+                });
+            }
+            function appendShowingChip(container, showing, label, fallbackUrl) {
+                const bestLink = fallbackUrl || showing.bookingUrl || showing.detailUrl || "";
+                if (bestLink) {
+                    const link = createElement("a", "time-chip", label);
+                    link.href = bestLink;
+                    link.target = "_blank";
+                    link.rel = "noopener";
+                    if (showing.bookingUrl && bestLink === showing.bookingUrl) {
+                        link.classList.add("is-bookable");
+                    }
+                    container.appendChild(link);
+                } else {
+                    container.appendChild(createElement("span", "time-chip", label));
+                }
+            }
+            function appendShowtimeChips(container, showings, labelBuilder, linkBuilder) {
+                const visibleLimit = 6;
+                const initialCount = 4;
+                const sortedShowings = showings.slice().sort(compareShowings);
+                const visible = sortedShowings.length > visibleLimit ? sortedShowings.slice(0, initialCount) : sortedShowings;
+                const hidden = sortedShowings.length > visibleLimit ? sortedShowings.slice(initialCount) : [];
+                visible.forEach(function (showing) {
+                    appendShowingChip(container, showing, labelBuilder(showing), linkBuilder ? linkBuilder(showing) : "");
+                });
+                if (hidden.length) {
+                    const details = createElement("details", "showtime-details");
+                    details.appendChild(createElement("summary", null, t("showAllShowtimes").replace("{count}", String(showings.length))));
+                    const detailsRow = createElement("div", "time-row showtime-details-row");
+                    hidden.forEach(function (showing) {
+                        appendShowingChip(detailsRow, showing, labelBuilder(showing), linkBuilder ? linkBuilder(showing) : "");
+                    });
+                    details.appendChild(detailsRow);
+                    container.appendChild(details);
+                }
+            }
+
+            function buildFilterOptions(showings) {
+                updateDateSelect();
+                const regions = Array.from(new Set(showings.map(function (showing) {
+                    return showing.region;
+                }).filter(Boolean)));
+                const orderedRegions = cinemaCategories.map(function (category) {
+                    return category.name;
+                }).filter(function (region) {
+                    return regions.includes(region);
+                });
+                regions.forEach(function (region) {
+                    if (!orderedRegions.includes(region)) orderedRegions.push(region);
+                });
+                elements.regionSelect.innerHTML = "";
+                const allRegionsOption = document.createElement("option");
+                allRegionsOption.value = "all";
+                allRegionsOption.textContent = t("regionAll");
+                elements.regionSelect.appendChild(allRegionsOption);
+                orderedRegions.forEach(function (region) {
+                    const option = document.createElement("option");
+                    option.value = region;
+                    option.textContent = getRegionName(region);
+                    elements.regionSelect.appendChild(option);
+                });
+                elements.regionSelect.value = state.filters.region || "all";
+                updateSortOptions();
+            }
+            function normalizeShowings(rawData) {
+                return rawData.map(function (item, index) {
+                    const titleJp = pickJapaneseTitle(item) || t("untitled");
+                    const titleEn = item.movie_title_en || "";
+                    const titleDisplay = formatBilingual(titleJp, titleEn);
+                    const tmdbId = item.tmdb_id ? String(item.tmdb_id) : "";
+                    const rawCinemaName = cinemaNameAliases[item.cinema_name] || item.cinema_name || t("unknownCinema");
+                    const cinemaJp = getCinemaJapaneseName(rawCinemaName);
+                    const region = getRegionForCinema(rawCinemaName);
+                    const cinemaEn = cinemaEnglishNames[rawCinemaName] || "";
+                    const cinemaDisplay = formatBilingual(cinemaJp, cinemaEn);
+                    const dateText = item.date_text || "";
+                    const showtime = item.showtime || "";
+                    const runtimeRaw = item.runtime_min || item.runtime || "";
+                    const runtime = parseInt(runtimeRaw, 10);
+                    const genres = normalizeListField(item.genres);
+                    const genresEn = normalizeListField(item.genres_en);
+                    const tags = normalizeListField(item.tags);
+                    const originalLanguage = normalizeLanguageCode(item.original_language || item.tmdb_original_language);
+                    const formatText = [
+                        item.movie_title,
+                        item.movie_title_en,
+                        item.movie_title_jp,
+                        item.movie_title_original,
+                        item.tmdb_original_title,
+                        item.program_title,
+                        tags.join(" ")
+                    ].filter(Boolean).join(" ");
+                    const subtitleText = [
+                        formatText,
+                        item.synopsis,
+                        item.synopsis_en,
+                        item.tmdb_overview_en,
+                        item.tmdb_overview_jp
+                    ].filter(Boolean).join(" ");
+                    const sourceLanguageText = [
+                        item.source_language_note,
+                        item.language_note,
+                        item.source_audio_language,
+                        item.source_subtitle_language,
+                        item.audio_language,
+                        item.subtitle_language
+                        ].filter(Boolean).join(" ");
+                    return {
+                        id: index,
+                        cinema: rawCinemaName,
+                        region: region,
+                        cinemaDisplay: cinemaDisplay,
+                        cinemaJp: cinemaJp,
+                        cinemaEn: cinemaEn,
+                        titleJp: titleJp,
+                        titleEn: titleEn,
+                        titleDisplay: titleDisplay,
+                        dateText: dateText,
+                        showtime: showtime,
+                        bookingUrl: item.booking_url || item.purchase_url || "",
+                        detailUrl: item.detail_page_url || item.official_site || "",
+                        director: item.director || "",
+                        directorEn: item.director_en || "",
+                        year: item.year || "",
+                        runtime: Number.isFinite(runtime) ? runtime : "",
+                        genres: genres,
+                        genresEn: genresEn,
+                        formatTags: tags,
+                        originalLanguage: originalLanguage,
+                        isEnglishFriendly: isEnglishFriendlyShowing(originalLanguage, subtitleText, formatText, sourceLanguageText),
+                        rating: item.vote_average ? Number(item.vote_average) : 0,
+                        posterPath: item.tmdb_poster_path || item.image_url || "",
+                        backdropPath: item.tmdb_backdrop_path || "",
+                        imageUrl: item.image_url || "",
+                        overview: item.synopsis || item.tmdb_overview_jp || "",
+                        overviewEn: item.tmdb_overview_en || item.synopsis_en || "",
+                        tmdbId: tmdbId,
+                        letterboxdUrl: buildLetterboxdUrl(item.movie_title_en || item.movie_title || titleJp, tmdbId),
+                        searchText: [
+                            item.movie_title,
+                            item.movie_title_en,
+                            item.clean_title_jp,
+                            item.program_title,
+                            cinemaJp,
+                            cinemaEn,
+                            item.director,
+                            item.director_en,
+                            genres.join(" "),
+                            genresEn.join(" "),
+                            tags.join(" ")
+                        ].filter(Boolean).join(" ").toLowerCase(),
+                        dateTime: parseDateTime(dateText, showtime),
+                        timeMinutes: timeToMinutes(showtime)
+                    };
+                });
+            }
+            function isAnimation(showing) {
+                const genres = [];
+                if (Array.isArray(showing.genres)) genres.push.apply(genres, showing.genres);
+                if (Array.isArray(showing.genresEn)) genres.push.apply(genres, showing.genresEn);
+                return genres.some(function (genre) {
+                    const value = String(genre || "").toLowerCase();
+                    return value.includes("animation") || value.includes("アニメーション");
+                });
+            }
+            function isDocumentary(showing) {
+                const genres = [];
+                if (Array.isArray(showing.genres)) genres.push.apply(genres, showing.genres);
+                if (Array.isArray(showing.genresEn)) genres.push.apply(genres, showing.genresEn);
+                return genres.some(function (genre) {
+                    const value = String(genre || "").toLowerCase();
+                    return value.includes("documentary") || value.includes("ドキュメンタリー");
+                });
+            }
+            function normalizeLanguageCode(value) {
+                return String(value || "").trim().toLowerCase().replace("_", "-").split("-")[0];
+            }
+            function hasExplicitEnglishSubtitleMarker(text) {
+                return /\benglish[-\s]?subtitles?\b|\benglish[-\s]?subtitled\b|英語字幕|英文字幕|英字幕/i.test(text || "");
+            }
+            function hasEnglishAudioMarker(text) {
+                return /\benglish[-\s]?audio\b|\benglish[-\s]?language\b|英語発音|英語音声|英語版/i.test(text || "");
+            }
+            function hasEnglishUnfriendlySourceMarker(text) {
+                const value = String(text || "");
+                if (!value) return false;
+                if (/without english subtitles|no english subtitles|英語字幕なし|英文字幕なし|無英文字幕|無英字幕/i.test(value)) return true;
+                if (hasExplicitEnglishSubtitleMarker(value) || hasEnglishAudioMarker(value)) return false;
+                return /(日本語吹替|日本語音声|日本語字幕のみ|字幕[:：]?\s*(日本語|中文|中字)|語言\s*(國語|華語|中文|日語|韓語)\s*字幕\s*(中文|中字|日本語))/i.test(value);
+            }
+            function hasDubMarker(text) {
+                return /吹替|吹き替え|日本語吹替|\bdubbed\b|\bdub version\b|配音|配音版|中文配音|國語配音/i.test(text || "");
+            }
+            function hasOriginalAudioOrSubtitleMarker(text) {
+                return /字幕|\bsubtitles?\b|\bsubtitled\b|原音|原聲|原語|\boriginal audio\b|\boriginal language\b/i.test(text || "");
+            }
+            function isEnglishFriendlyShowing(originalLanguage, subtitleText, formatText, sourceLanguageText) {
+                const combinedText = [subtitleText, sourceLanguageText].filter(Boolean).join(" ");
+                if (hasEnglishUnfriendlySourceMarker(sourceLanguageText)) return false;
+                if (hasExplicitEnglishSubtitleMarker(combinedText)) return true;
+                if (normalizeLanguageCode(originalLanguage) !== "en") return false;
+                return !(hasDubMarker(formatText) && !hasOriginalAudioOrSubtitleMarker(formatText));
+            }
+            function applyFilters(showings) {
+                const now = new Date();
+                const todayText = getJstDateText();
+                const tomorrowText = getJstDateOffsetText(1);
+                const next7EndText = getJstDateOffsetText(6);
+
+                return showings.filter(function (showing) {
+                    // Filter out past shows (only if they are actually in the past)
+                    if (showing.timeMinutes !== null && showing.dateTime && showing.dateTime < now) {
+                        return false;
+                    }
+
+                    if (state.filters.search && !showing.searchText.includes(state.filters.search)) {
+                        return false;
+                    }
+
+                    if (state.filters.date === "today" && showing.dateText !== todayText) {
+                        return false;
+                    }
+                    if (state.filters.date === "tomorrow" && showing.dateText !== tomorrowText) {
+                        return false;
+                    }
+                    if (state.filters.date === "next-7") {
+                        if (showing.dateText < todayText || showing.dateText > next7EndText) {
+                            return false;
+                        }
+                    }
+
+                    if (state.filters.region !== "all" && showing.region !== state.filters.region) {
+                        return false;
+                    }
+                    if (state.filters.englishFriendly && !showing.isEnglishFriendly) {
+                        return false;
+                    }
+                    if (state.filters.docOnly && !isDocumentary(showing)) {
+                        return false;
+                    }
+                    if (state.filters.animationOnly && !isAnimation(showing)) {
+                        return false;
+                    }
+                    return true;
+                });
+            }
+            function presetHasResults(preset) {
+                const saved = state.filters.date;
+                state.filters.date = preset;
+                const count = applyFilters(state.data).length;
+                state.filters.date = saved;
+                return count > 0;
+            }
+            // "Smart today": on initial load, if today's screenings are already over,
+            // fall forward to the next date preset that has upcoming showings, so the
+            // site is never empty in the evening. An explicit ?date= URL is respected.
+            function applySmartDefaultDate() {
+                const urlDate = new URLSearchParams(window.location.hash.replace(/^#/, "")).get("date");
+                if (datePresets.indexOf(urlDate) >= 0) return;
+                if (state.filters.date !== "today") return;
+                if (presetHasResults("today")) return;
+                const fallback = ["tomorrow", "next-7", "all"].find(function (preset) {
+                    return presetHasResults(preset);
+                });
+                if (fallback) {
+                    state.filters.date = fallback;
+                    if (elements.dateSelect && elements.dateSelect.options.length) {
+                        elements.dateSelect.value = fallback;
+                    }
+                }
+            }
+            function getFilmKey(showing) {
+                const keyTitle = (showing.titleEn || showing.titleJp || showing.titleDisplay || "").trim();
+                return showing.tmdbId ? "tmdb-" + showing.tmdbId : "title-" + keyTitle;
+            }
+            function groupByFilm(showings) {
+                const map = new Map();
+                showings.forEach(function (showing) {
+                    const key = getFilmKey(showing);
+                    if (!map.has(key)) {
+                        map.set(key, {
+                            key: key,
+                            titleJp: showing.titleJp,
+                            titleEn: showing.titleEn,
+                            titleDisplay: showing.titleDisplay,
+                            year: showing.year,
+                            director: showing.director,
+                            directorEn: showing.directorEn,
+                            runtime: showing.runtime,
+                            genres: showing.genres.slice(),
+                            rating: showing.rating || 0,
+                            overview: showing.overview,
+                            posterPath: showing.posterPath,
+                            formatTags: new Set(),
+                            showings: [],
+                            letterboxdUrl: showing.letterboxdUrl
+                        });
+                    }
+                    const film = map.get(key);
+                    film.showings.push(showing);
+                    if (!film.year && showing.year) film.year = showing.year;
+                    if (!film.director && showing.director) film.director = showing.director;
+                    if (!film.directorEn && showing.directorEn) film.directorEn = showing.directorEn;
+                    if (!film.runtime && showing.runtime) film.runtime = showing.runtime;
+                    if (!film.overview && showing.overview) film.overview = showing.overview;
+                    if (!film.overviewEn && showing.overviewEn) film.overviewEn = showing.overviewEn;
+                    if (!film.posterPath && showing.posterPath) film.posterPath = showing.posterPath;
+                    if (!film.titleEn && showing.titleEn) {
+                        film.titleEn = showing.titleEn;
+                        film.titleDisplay = formatBilingual(film.titleJp, film.titleEn);
+                    }
+                    if (showing.genres.length && !film.genres.length) film.genres = showing.genres.slice();
+                    if (showing.rating > film.rating) film.rating = showing.rating;
+                    if (!film.letterboxdUrl && showing.letterboxdUrl) film.letterboxdUrl = showing.letterboxdUrl;
+                    showing.formatTags.forEach(function (tag) {
+                        film.formatTags.add(tag);
+                    });
+                });
+                const films = Array.from(map.values());
+                films.forEach(function (film) {
+                    film.showings.sort(compareShowings);
+                    film.nextTime = film.showings.length ? timeValue(film.showings[0].dateTime) : Number.POSITIVE_INFINITY;
+                    film.formatTags = Array.from(film.formatTags);
+                });
+                return films;
+            }
+            function getFiltersSummary() {
+                const parts = [];
+                if (state.filters.search) parts.push(t("search") + ": \"" + state.filters.search + "\"");
+                if (state.filters.date) {
+                    parts.push(t("date") + ": " + getDatePresetLabel(state.filters.date));
+                }
+                if (state.filters.region !== "all") parts.push(t("region") + ": " + getRegionName(state.filters.region));
+                const contentParts = [];
+                if (state.filters.englishFriendly) contentParts.push(t("contentEnglishFriendly"));
+                if (state.filters.docOnly) contentParts.push(t("contentDocumentary"));
+                if (state.filters.animationOnly) contentParts.push(t("contentAnimation"));
+                if (contentParts.length) parts.push(t("content") + ": " + contentParts.join(" + "));
+                if (!parts.length) parts.push(t("noFiltersApplied"));
+                return parts.join(" | ");
+            }
+            function renderCinemaIndex(showings) {
+                elements.cinemaIndex.innerHTML = "";
+                const cinemasMap = new Map();
+                showings.forEach(function (showing) {
+                    if (!cinemasMap.has(showing.cinema)) {
+                        cinemasMap.set(showing.cinema, { name: showing.cinema, showings: [] });
+                    }
+                    cinemasMap.get(showing.cinema).showings.push(showing);
+                });
+                if (!cinemasMap.size) {
+                    elements.cinemaIndex.appendChild(createElement("div", "empty-state", t("noCinemas")));
+                    return;
+                }
+                function createCinemaCard(cinema) {
+                    const card = createElement("button", "cinema-card");
+                    card.type = "button";
+                    card.appendChild(createElement("div", "cinema-card-title", getCinemaDisplayWithDistance(cinema.name)));
+                    card.addEventListener("click", function () {
+                        state.selectedCinema = cinema.name;
+                        writeUrlState(true);
+                        render();
+                        elements.cinemaShowtimes.scrollIntoView({ behavior: "smooth" });
+                    });
+                    return card;
+                }
+                function renderCinemaBlock(title, cinemas) {
+                    const block = createElement("div", "region-block");
+                    block.appendChild(createElement("h2", "region-title", title));
+                    const grid = createElement("div", "cinema-grid");
+                    cinemas.forEach(function (cinema) {
+                        grid.appendChild(createCinemaCard(cinema));
+                    });
+                    block.appendChild(grid);
+                    elements.cinemaIndex.appendChild(block);
+                }
+                if (state.sort === "nearest" && state.location.active) {
+                    renderCinemaBlock(t("nearestCinemas"), Array.from(cinemasMap.values()).sort(compareCinemasForCurrentSort));
+                    return;
+                }
+                let renderedBlocks = 0;
+                const renderedCinemaNames = new Set();
+                cinemaCategories.forEach(function (category) {
+                    const cinemas = category.cinemas.map(function (cinemaName) {
+                        const cinema = cinemasMap.get(cinemaName);
+                        return cinema ? { name: cinemaName, count: cinema.showings.length, showings: cinema.showings } : { name: cinemaName, count: 0, showings: [] };
+                    }).filter(function (cinema) {
+                        return cinema.count > 0;
+                    }).sort(compareCinemasForCurrentSort);
+                    if (!cinemas.length) {
+                        return;
+                    }
+                    renderedBlocks += 1;
+                    cinemas.forEach(function (cinema) {
+                        renderedCinemaNames.add(cinema.name);
+                    });
+                    renderCinemaBlock(getRegionName(category.name), cinemas);
+                });
+                const otherCinemas = Array.from(cinemasMap.values()).filter(function (cinema) {
+                    return !renderedCinemaNames.has(cinema.name);
+                }).sort(compareCinemasForCurrentSort);
+                if (otherCinemas.length) {
+                    renderedBlocks += 1;
+                    renderCinemaBlock(t("other"), otherCinemas);
+                }
+                if (!renderedBlocks) {
+                    elements.cinemaIndex.appendChild(createElement("div", "empty-state", t("noCinemas")));
+                }
+            }
+            function renderCinemaShowtimes(showings) {
+                elements.cinemaShowtimesList.innerHTML = "";
+                elements.cinemaTitle.textContent = getCinemaDisplayName(state.selectedCinema);
+                elements.cinemaMapLink.href = buildMapsUrl(state.selectedCinema);
+                const allCinemaShowings = state.data.filter(function (showing) {
+                    return showing.cinema === state.selectedCinema;
+                });
+                const cinemaWebsite = getCinemaWebsite(state.selectedCinema, allCinemaShowings.length ? allCinemaShowings : showings);
+                if (cinemaWebsite) {
+                    elements.cinemaSiteLink.href = cinemaWebsite;
+                    elements.cinemaSiteLink.classList.remove("is-hidden");
+                } else {
+                    elements.cinemaSiteLink.classList.add("is-hidden");
+                    elements.cinemaSiteLink.removeAttribute("href");
+                }
+                const range = getDateRange(showings);
+                const metaParts = [];
+                if (showings.length) metaParts.push(showings.length + " " + t("showings"));
+                if (range) metaParts.push(range);
+                elements.cinemaMeta.textContent = metaParts.join(" | ");
+                if (!showings.length) {
+                    elements.cinemaShowtimesList.appendChild(createElement("div", "empty-state", t("noShowings")));
+                    return;
+                }
+                const byDate = new Map();
+                showings.forEach(function (showing) {
+                    const dateKey = showing.dateText || t("unknownDate");
+                    if (!byDate.has(dateKey)) {
+                        byDate.set(dateKey, []);
+                    }
+                    byDate.get(dateKey).push(showing);
+                });
+                Array.from(byDate.keys()).sort().forEach(function (dateKey) {
+                    const group = createElement("div", "date-block");
+                    group.appendChild(createElement("h3", "date-title", formatDate(dateKey, true)));
+                    const filmMap = new Map();
+                    byDate.get(dateKey).forEach(function (showing) {
+                        const key = getFilmKey(showing);
+                        if (!filmMap.has(key)) {
+                            filmMap.set(key, {
+                                titleDisplay: showing.titleDisplay,
+                                year: showing.year,
+                                director: showing.director,
+                                runtime: showing.runtime,
+                                letterboxdUrl: showing.letterboxdUrl,
+                                showings: []
+                            });
+                        }
+                        filmMap.get(key).showings.push(showing);
+                    });
+                    Array.from(filmMap.values()).forEach(function (film) {
+                        film.showings.sort(compareShowings);
+                        const row = createElement("div", "cinema-film");
+                        const info = createElement("div");
+                        const titleRow = createElement("div", "cinema-film-title");
+                        titleRow.appendChild(createElement("span", null, getFilmDisplayTitle(film)));
+                        if (film.letterboxdUrl) {
+                            const letterboxd = createElement("a", "film-link", "Letterboxd");
+                            letterboxd.href = film.letterboxdUrl;
+                            letterboxd.target = "_blank";
+                            letterboxd.rel = "noopener";
+                            titleRow.appendChild(letterboxd);
+                        }
+                        info.appendChild(titleRow);
+                        const metaParts = [];
+                        if (film.year) metaParts.push(film.year);
+                        var filmDirector = getFilmDirector(film);
+                        if (filmDirector) metaParts.push(filmDirector);
+                        if (film.runtime) metaParts.push(film.runtime + " " + t("min"));
+                        if (metaParts.length) {
+                            info.appendChild(createElement("div", "cinema-film-meta", metaParts.join(" | ")));
+                        }
+                        row.appendChild(info);
+                        const timeRow = createElement("div", "time-row");
+                        appendShowtimeChips(timeRow, film.showings, function (showing) {
+                            return showing.showtime || t("tbd");
+                        }, function (showing) {
+                            return getShowtimeTargetUrl(showing, cinemaWebsite);
+                        });
+                        row.appendChild(timeRow);
+                        group.appendChild(row);
+                    });
+                    elements.cinemaShowtimesList.appendChild(group);
+                });
+            }
+            function renderCinemaView(showings) {
+                elements.cinemaView.classList.remove("is-hidden");
+                elements.filmView.classList.add("is-hidden");
+                if (state.selectedCinema && !state.data.some(function (showing) { return showing.cinema === state.selectedCinema; })) {
+                    state.selectedCinema = "";
+                }
+                if (state.selectedCinema) {
+                    elements.cinemaIndex.classList.add("is-hidden");
+                    elements.cinemaShowtimes.classList.remove("is-hidden");
+                    const cinemaShowings = showings.filter(function (showing) {
+                        return showing.cinema === state.selectedCinema;
+                    });
+                    renderCinemaShowtimes(cinemaShowings);
+                } else {
+                    elements.cinemaShowtimes.classList.add("is-hidden");
+                    elements.cinemaIndex.classList.remove("is-hidden");
+                    renderCinemaIndex(showings);
+                }
+            }
+            function renderFilmList(films, totalShowings) {
+                elements.filmResultsCount.textContent = totalShowings + " " + t("showings") + " / " + films.length + " " + t("films");
+                elements.filmResultsMeta.textContent = getFiltersSummary();
+                const fragment = document.createDocumentFragment();
+                films.forEach(function (film) {
+                    try {
+                        const card = createElement("article", "film-card");
+                        const poster = createElement("div", "film-poster", t("posterUnavailable"));
+                        const posterUrl = getImageUrl(film.posterPath, "w342");
+                        if (posterUrl) {
+                            poster.style.backgroundImage = "url(\"" + posterUrl + "\")";
+                            poster.style.backgroundSize = "cover";
+                            poster.style.backgroundPosition = "center";
+                            poster.textContent = "";
+                        }
+                        card.appendChild(poster);
+                        const body = createElement("div", "film-body");
+                        body.appendChild(createElement("h3", "film-title", getFilmDisplayTitle(film)));
+                        const actions = createElement("div", "film-actions");
+                        if (film.letterboxdUrl) {
+                            const letterboxd = createElement("a", "film-link", "Letterboxd");
+                            letterboxd.href = film.letterboxdUrl;
+                            letterboxd.target = "_blank";
+                            letterboxd.rel = "noopener";
+                            actions.appendChild(letterboxd);
+                        }
+                        if (actions.childNodes.length) {
+                            body.appendChild(actions);
+                        }
+                        const metaParts = [];
+                        if (film.year) metaParts.push(film.year);
+                        var filmDirector = getFilmDirector(film);
+                        if (filmDirector) metaParts.push(filmDirector);
+                        if (film.runtime) metaParts.push(film.runtime + " " + t("min"));
+                        if (metaParts.length) {
+                            body.appendChild(createElement("div", "film-meta", metaParts.join(" | ")));
+                        }
+                        var displayOverview = state.lang === "en" ? (film.overviewEn || film.overview) : film.overview;
+                        if (displayOverview) {
+                            body.appendChild(createElement("p", "film-blurb", displayOverview));
+                        }
+                        if (film.formatTags.length) {
+                            const tagRow = createElement("div", "tag-row");
+                            film.formatTags.forEach(function (tag) {
+                                tagRow.appendChild(createElement("span", "tag", tag));
+                            });
+                            body.appendChild(tagRow);
+                        }
+                        const showingsByCinema = new Map();
+                        film.showings.forEach(function (showing) {
+                            if (!showingsByCinema.has(showing.cinema)) {
+                                showingsByCinema.set(showing.cinema, []);
+                            }
+                            showingsByCinema.get(showing.cinema).push(showing);
+                        });
+                        Array.from(showingsByCinema.entries()).sort(function (a, b) {
+                            return compareCinemaNamesByDistance(a[0], b[0]) || a[0].localeCompare(b[0]);
+                        }).forEach(function (entry) {
+                            const cinema = entry[0];
+                            const showings = entry[1].slice().sort(compareShowings);
+                            const cinemaWebsite = getCinemaWebsite(cinema, showings);
+                            const row = createElement("div", "showing-row");
+                            const cinemaNameCell = createElement("div", "cinema-name");
+                            if (cinemaWebsite) {
+                                const cinemaNameLink = createElement("a", "cinema-name-link", getCinemaDisplayWithDistance(cinema));
+                                cinemaNameLink.href = cinemaWebsite;
+                                cinemaNameLink.target = "_blank";
+                                cinemaNameLink.rel = "noopener";
+                                cinemaNameCell.appendChild(cinemaNameLink);
+                            } else {
+                                cinemaNameCell.textContent = getCinemaDisplayWithDistance(cinema);
+                            }
+                            row.appendChild(cinemaNameCell);
+                            const timeRow = createElement("div", "time-row");
+                            appendShowtimeChips(timeRow, showings, function (showing) {
+                                const includeDate = state.filters.date === "all";
+                                return includeDate && showing.dateText
+                                    ? formatDate(showing.dateText, false) + " " + (showing.showtime || t("tbd"))
+                                    : (showing.showtime || t("tbd"));
+                            }, function (showing) {
+                                return getShowtimeTargetUrl(showing, cinemaWebsite);
+                            });
+                            row.appendChild(timeRow);
+                            body.appendChild(row);
+                        });
+                        card.appendChild(body);
+                        fragment.appendChild(card);
+                    } catch (e) {
+                        console.error("Error rendering film:", film, e);
+                    }
+                });
+                elements.filmResultsList.appendChild(fragment);
+            }
+            function renderFilmView(showings) {
+                elements.cinemaView.classList.add("is-hidden");
+                elements.filmView.classList.remove("is-hidden");
+                elements.filmResultsList.innerHTML = "";
+                elements.filmEmpty.classList.add("is-hidden");
+                elements.filmResultsMeta.textContent = getFiltersSummary();
+                if (!showings.length) {
+                    elements.filmResultsCount.textContent = "0 " + t("showings") + " / 0 " + t("films");
+                    elements.filmEmpty.classList.remove("is-hidden");
+                    return;
+                }
+                const films = groupByFilm(showings);
+                if (state.sort === "nearest" && state.location.active) {
+                    films.sort(function (a, b) {
+                        return compareDistances(getFilmDistance(a), getFilmDistance(b)) || a.nextTime - b.nextTime;
+                    });
+                } else if (state.sort === "release-new") {
+                    films.sort(function (a, b) {
+                        const yearA = parseInt(a.year, 10) || 0;
+                        const yearB = parseInt(b.year, 10) || 0;
+                        if (yearA !== yearB) return yearB - yearA;
+                        return (a.titleDisplay || a.titleJp || a.titleEn || "").localeCompare(b.titleDisplay || b.titleJp || b.titleEn || "");
+                    });
+                } else if (state.sort === "release-old") {
+                    films.sort(function (a, b) {
+                        const yearA = parseInt(a.year, 10) || 9999;
+                        const yearB = parseInt(b.year, 10) || 9999;
+                        if (yearA !== yearB) return yearA - yearB;
+                        return (a.titleDisplay || a.titleJp || a.titleEn || "").localeCompare(b.titleDisplay || b.titleJp || b.titleEn || "");
+                    });
+                } else {
+                    // "next-showing" (default): soonest screening first
+                    films.sort(function (a, b) {
+                        if (a.nextTime !== b.nextTime) return a.nextTime - b.nextTime;
+                        return (a.titleDisplay || a.titleJp || a.titleEn || "").localeCompare(b.titleDisplay || b.titleJp || b.titleEn || "");
+                    });
+                }
+                renderFilmList(films, showings.length);
+            }
+                         function render() {
+                const filtered = applyFilters(state.data);
+                if (state.view === "film") {
+                    renderFilmView(filtered);
+                } else {
+                    renderCinemaView(filtered);
+                }
+            }
+            function inflateSlim(payload) {
+                return payload.showings.map(function (showing) {
+                    return Object.assign({}, payload.films[showing.f], showing);
+                });
+            }
+            function fetchJson(url) {
+                return fetch(url).then(function (response) {
+                    if (!response.ok) {
+                        throw new Error("HTTP error " + response.status);
+                    }
+                    return response.json();
+                });
+            }
+            function fetchShowtimes() {
+                fetchJson(slimJsonUrl)
+                    .then(function (payload) {
+                        if (!payload || !payload.films || !Array.isArray(payload.showings)) {
+                            throw new Error("Unexpected slim payload");
+                        }
+                        return inflateSlim(payload);
+                    })
+                    .catch(function () {
+                        return fetchJson(jsonUrl);
+                    })
+                    .then(function (data) {
+                        if (!Array.isArray(data)) {
+                            throw new Error("Unexpected showtimes payload");
+                        }
+                        const todayText = getJstDateText();
+                        state.data = normalizeShowings(data).filter(function (showing) {
+                            return showing.dateText >= todayText;
+                        });
+                        buildFilterOptions(state.data);
+                        applySmartDefaultDate();
+                        render();
+                    })
+                    .catch(function () {
+                        elements.cinemaIndex.innerHTML = "";
+                        elements.cinemaIndex.appendChild(createElement("div", "loading", t("loadError")));
+                        elements.filmResultsList.innerHTML = "";
+                        elements.filmResultsList.appendChild(createElement("div", "loading", t("loadError")));
+                    });
+            }
+            // Initialize from the URL hash (deep links), then fetch data.
+            window.addEventListener("popstate", function () {
+                applyUrlState();
+            });
+            applyUrlState();
+            setupIosInstallHint();
+            fetchShowtimes();
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register("/sw.js");
+            }
+        });
+    </script>
+</body>
+</html>

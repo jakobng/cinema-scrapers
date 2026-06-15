@@ -1,0 +1,68 @@
+name: Tokyo - Deploy cinematokyo.com
+
+# Rebuilds the static cinematokyo.com site from the freshly-scraped showtimes and
+# pushes it to the jakobng/cinematokyo Pages repo. Runs after each Tokyo scrape,
+# and on demand. Isolated from the scrape/Instagram pipeline: a failure here cannot
+# affect scraping, posting, or the website1 sync.
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Tokyo - Scrape & Post"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-cinematokyo
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Manual runs always proceed; automatic runs only after a successful scrape.
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (latest committed data)
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build static site
+        run: python tokyo/build_site.py
+
+      - name: Deploy to cinematokyo repo
+        env:
+          CINEMATOKYO_SYNC_TOKEN: ${{ secrets.WEBSITE1_SYNC_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CINEMATOKYO_SYNC_TOKEN:-}" ]; then
+            echo "::error::WEBSITE1_SYNC_TOKEN is not configured."; exit 1
+          fi
+          rm -rf /tmp/cinematokyo-deploy
+          git clone --depth 1 \
+            "https://x-access-token:${CINEMATOKYO_SYNC_TOKEN}@github.com/jakobng/cinematokyo.git" \
+            /tmp/cinematokyo-deploy
+          # Mirror the freshly built site into the Pages repo (keep its .git).
+          rsync -a --delete --exclude='.git' \
+            "${GITHUB_WORKSPACE}/tokyo/site_build/" /tmp/cinematokyo-deploy/
+          cd /tmp/cinematokyo-deploy
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to deploy."; exit 0
+          fi
+          git commit -m "Auto-deploy cinematokyo.com ($(date -u +%Y-%m-%dT%H:%MZ))"
+          if ! git push 2>/tmp/push.err; then
+            cat /tmp/push.err
+            if grep -qiE '403|permission|denied|not authorized' /tmp/push.err; then
+              echo "::error::Push to jakobng/cinematokyo was denied — WEBSITE1_SYNC_TOKEN cannot reach that repo. Fix: use a classic token with 'repo' scope, or add the cinematokyo repo to the fine-grained token's repository access."
+            fi
+            exit 1
+          fi
+          echo "✅ Deployed to cinematokyo.com"
