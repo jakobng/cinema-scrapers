@@ -7,7 +7,7 @@
 
 import json
 import os
-from urllib.parse import urljoin
+from urllib.parse import quote, urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -67,6 +67,23 @@ FALLBACK_IMAGES = {
     "worn": "https://manchesterartgallery.org/wp-content/uploads/2025/10/Front-copy-440x300.jpg",
     "wont-sit-still": "https://manchesterartgallery.org/wp-content/uploads/2024/04/Wont-sit-still-header-copy-440x300.jpg",
 }
+
+
+def _wayback_image_url(url, timeout=10):
+    """If the Internet Archive has a cached copy of this image, return a
+    web.archive.org URL that serves it (not subject to MAG's Cloudflare
+    hotlink block). Returns None if there's no snapshot, so callers can fall
+    back to the direct URL unchanged."""
+    try:
+        api = "https://archive.org/wayback/available?url=" + quote(url, safe="")
+        r = requests.get(api, timeout=timeout)
+        r.raise_for_status()
+        snap = (r.json().get("archived_snapshots") or {}).get("closest")
+        if snap and snap.get("available") and snap.get("timestamp"):
+            return f"https://web.archive.org/web/{snap['timestamp']}im_/{url}"
+    except Exception:
+        pass
+    return None
 
 
 def _fetch_with_curl_cffi(url, timeout=20):
@@ -368,6 +385,11 @@ def scrape_manchester_art_gallery():
     if not unique:
         for fb in FALLBACK_EXHIBITIONS:
             url = f"{BASE_URL}/event/{fb['slug']}/"
+            image_url = FALLBACK_IMAGES.get(fb["slug"])
+            if image_url:
+                # MAG's Cloudflare blocks direct hotlinking, but the Internet
+                # Archive often has a cached copy that serves fine.
+                image_url = _wayback_image_url(image_url) or image_url
             unique.append({
                 "venue_name": VENUE_NAME,
                 "venue_city": VENUE_CITY,
@@ -376,7 +398,7 @@ def scrape_manchester_art_gallery():
                 "end_date": fb.get("end_date"),
                 "detail_page_url": url,
                 "description": None,
-                "image_url": FALLBACK_IMAGES.get(fb["slug"]),
+                "image_url": image_url,
             })
 
     # For items missing image_url, try fetching og:image from event detail page (Playwright, short timeout)
