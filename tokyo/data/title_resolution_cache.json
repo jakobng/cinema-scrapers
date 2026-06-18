@@ -4,7 +4,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1014,7 +1014,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1085,7 +1085,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1103,7 +1103,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1678,7 +1678,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1726,7 +1726,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1774,7 +1774,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -1921,7 +1921,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2276,6 +2276,26 @@
     "notes": "gemini_failed",
     "release_year": null
   },
+  "『 I NEED TO PEE!』": {
+    "ai_provider": "deepseek",
+    "confidence": 0.6,
+    "country": "Japan",
+    "director": null,
+    "english_title": "I NEED TO PEE!",
+    "last_ai_attempt_at": "2026-06-18T00:04:07+00:00",
+    "notes": "",
+    "original_title": "I NEED TO PEE!",
+    "release_year": null
+  },
+  "『 I NEED TO PEE!』『アフタートーク』『幕が下りる音がした』": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "『 丹下左膳餘話 百萬兩の壺』 ＊デジタル上映": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
@@ -2303,7 +2323,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2321,7 +2341,40 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
+  "『Interlude』": {
+    "ai_provider": "deepseek",
+    "confidence": 0.6,
+    "country": "Japan",
+    "director": null,
+    "english_title": "Interlude",
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-18T00:04:07+00:00",
+    "notes": "",
+    "original_title": "Interlude",
+    "release_year": null
+  },
+  "『LIGHT & RIGHT, LIGHT』": {
+    "ai_provider": "deepseek",
+    "confidence": 0.6,
+    "country": "Japan",
+    "director": null,
+    "english_title": "LIGHT & RIGHT, LIGHT",
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-18T00:04:07+00:00",
+    "notes": "",
+    "original_title": "LIGHT & RIGHT, LIGHT",
+    "release_year": null
+  },
+  "『LIGHT & RIGHT, LIGHT』『Interlude』": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2401,7 +2454,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2410,7 +2463,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2456,11 +2509,13 @@
   },
   "『イミディエイト ファミリー』トークイベント付": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
-    "notes": "local_ai_no_result",
+    "confidence": 0.6,
+    "country": "Japan",
+    "director": null,
+    "english_title": "Immediate Family",
+    "last_ai_attempt_at": "2026-06-18T00:04:17+00:00",
+    "notes": "",
+    "original_title": "イミディエイト ファミリー",
     "release_year": null
   },
   "『オールド・ボーイ 4K』『お嬢さん』オールナイト上映（字幕）": {
@@ -2573,7 +2628,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2591,7 +2646,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2639,7 +2694,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2783,7 +2838,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2858,7 +2913,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2939,6 +2994,18 @@
     "notes": "gemini_failed",
     "release_year": null
   },
+  "『里見八犬伝』４Ｋデジタル修復版": {
+    "ai_provider": "deepseek",
+    "confidence": 0.9,
+    "country": "Japan",
+    "director": "Kinji Fukasaku",
+    "english_title": "Legend of the Eight Samurai (4K Digital Remaster)",
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-18T00:04:26+00:00",
+    "notes": "",
+    "original_title": "里見八犬伝",
+    "release_year": 1983
+  },
   "『里見八犬伝』４Ｋデジタル修復版 舞台挨拶付き上映": {
     "ai_provider": "deepseek",
     "confidence": 0.6,
@@ -2997,7 +3064,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -3683,7 +3750,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -3692,7 +3759,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -3701,7 +3768,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -3710,7 +3777,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -3719,7 +3786,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -3867,7 +3934,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -3903,7 +3970,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4055,7 +4122,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4064,7 +4131,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4532,7 +4599,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4550,7 +4617,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4937,6 +5004,15 @@
     "original_title": "アイス",
     "release_year": 2008
   },
+  "アイ・ワズ・ア・ストレンジャー": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "アギト　超能力戦争": {
     "confidence": 0.0,
     "english_title": null,
@@ -5143,7 +5219,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -5152,7 +5228,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -5254,7 +5330,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -5352,7 +5428,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -5377,7 +5453,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -6128,7 +6204,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -6864,7 +6940,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -6897,12 +6973,14 @@
   },
   "ジャイ・ビーム　万歳ビームラーオ": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
-    "notes": "local_ai_no_result",
-    "release_year": null
+    "confidence": 0.9,
+    "country": "India",
+    "director": "T.J. Gnanavel",
+    "english_title": "Jai Bhim",
+    "last_ai_attempt_at": "2026-06-18T00:03:47+00:00",
+    "notes": "",
+    "original_title": "ஜெய் பீம்",
+    "release_year": 2021
   },
   "ジャスト・ライク・アット・ホーム": {
     "confidence": 1.0,
@@ -7248,7 +7326,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -7785,7 +7863,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -7806,7 +7884,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8156,7 +8234,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8911,7 +8989,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8920,7 +8998,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8938,7 +9016,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8974,7 +9052,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -9213,7 +9291,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -9222,7 +9300,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -9335,7 +9413,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -9956,7 +10034,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10182,7 +10260,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10302,7 +10380,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10543,7 +10621,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10579,7 +10657,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10771,7 +10849,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10799,7 +10877,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10931,7 +11009,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -11011,7 +11089,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -11205,7 +11283,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -11747,12 +11825,14 @@
   },
   "寝ても覚めても濱⼝⻯介監督特集上映突然、偶然、必然": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
-    "notes": "local_ai_no_result",
-    "release_year": null
+    "confidence": 0.9,
+    "country": "Japan",
+    "director": "濱口竜介",
+    "english_title": "Asako I & II",
+    "last_ai_attempt_at": "2026-06-18T00:04:17+00:00",
+    "notes": "",
+    "original_title": "寝ても覚めても",
+    "release_year": 2018
   },
   "射鵰英雄伝": {
     "confidence": 1.0,
@@ -11798,7 +11878,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -11870,7 +11950,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -11896,7 +11976,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -13173,7 +13253,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -13552,7 +13632,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -13629,7 +13709,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -13772,7 +13852,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -14108,12 +14188,14 @@
   },
   "白衣の男": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
-    "notes": "local_ai_no_result",
-    "release_year": null
+    "confidence": 0.9,
+    "country": "United Kingdom",
+    "director": "Alexander Mackendrick",
+    "english_title": "The Man in the White Suit",
+    "last_ai_attempt_at": "2026-06-18T00:04:00+00:00",
+    "notes": "",
+    "original_title": "白衣の男",
+    "release_year": 1951
   },
   "百発百中 Ghilli": {
     "ai_provider": "deepseek",
@@ -14183,7 +14265,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -14259,7 +14341,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -14628,6 +14710,15 @@
     "notes": "",
     "original_title": "Le Rayon vert",
     "release_year": 1986
+  },
+  "緑の山": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "總輯版 天兵童子": {
     "confidence": 0.0,
@@ -15121,7 +15212,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -15208,7 +15299,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -15226,7 +15317,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -15780,12 +15871,14 @@
   },
   "青年　パイヤー": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
-    "notes": "local_ai_no_result",
-    "release_year": null
+    "confidence": 0.6,
+    "country": "India",
+    "director": "Luv Ranjan",
+    "english_title": "Pyaar Ka Punchnama",
+    "last_ai_attempt_at": "2026-06-18T00:03:47+00:00",
+    "notes": "",
+    "original_title": "प्यार का पंचनामा",
+    "release_year": 2011
   },
   "青春": {
     "confidence": 0.9,
@@ -15895,7 +15988,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -16016,6 +16109,15 @@
     "notes": "",
     "original_title": "محمد رسول‌الله",
     "release_year": 2015
+  },
+  "顔を捨てた男": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "顔役と爆弾娘": {
     "confidence": 0.9,
@@ -16508,7 +16610,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-06-16T23:59:03+00:00",
+    "last_ai_attempt_at": "2026-06-18T00:04:28+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
