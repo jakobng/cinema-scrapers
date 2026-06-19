@@ -152,10 +152,16 @@ def scrape_cinema_in_the_arches():
                         showings.append({
                             "cinema_name": CINEMA_NAME,
                             "movie_title": movie_title,
+                            "movie_title_en": movie_title,
                             "date_text": show_date.isoformat(),
                             "showtime": time_text,
                             "booking_url": booking_url,
                             "detail_page_url": detail_url,
+                            "director": "",
+                            "year": "",
+                            "country": "",
+                            "runtime_min": "",
+                            "synopsis": "",
                             "is_sold_out": is_sold_out,
                             "notes": ", ".join(notes)
                         })

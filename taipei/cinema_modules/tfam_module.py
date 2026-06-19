@@ -28,6 +28,20 @@ KEYWORDS = (
     "cinema",
     "video",
 )
+# Event types that are talks/tours/workshops rather than screenings. The museum's
+# moving-image exhibition blurbs trip the KEYWORDS above (錄像/影像), so a curator
+# talk about a video-art show was being emitted as a "film". Veto those.
+NEGATIVE_KEYWORDS = (
+    "開講",
+    "講座",
+    "座談",
+    "工作坊",
+    "導覽",
+    "課程",
+    "研習",
+    "讀書會",
+    "工作假期",
+)
 
 
 def _fetch_events() -> List[Dict]:
@@ -62,12 +76,26 @@ def _is_screening_candidate(*values: object) -> bool:
     return any(keyword.lower() in haystack for keyword in KEYWORDS)
 
 
+def _is_non_screening_event(*values: object) -> bool:
+    haystack = " ".join(_clean_text(str(value or "")) for value in values)
+    return any(keyword in haystack for keyword in NEGATIVE_KEYWORDS)
+
+
 def _extract_first_time(text: str) -> Optional[str]:
-    match = re.search(r"(?<!\d)(\d{1,2}):(\d{2})(?!\d)", text)
+    # Honour Chinese AM/PM markers; the site writes e.g. "下午2:00" which must
+    # become 14:00, not 02:00.
+    match = re.search(r"(上午|中午|下午|晚上|凌晨)?\s*(?<!\d)(\d{1,2}):(\d{2})(?!\d)", text)
     if not match:
         return None
-    hour = int(match.group(1))
-    minute = int(match.group(2))
+    meridiem = match.group(1)
+    hour = int(match.group(2))
+    minute = int(match.group(3))
+    if meridiem in ("下午", "晚上") and hour < 12:
+        hour += 12
+    elif meridiem == "中午" and hour < 12:
+        hour = 12
+    elif meridiem in ("上午", "凌晨") and hour == 12:
+        hour = 0
     if hour > 23:
         return None
     return f"{hour:02d}:{minute:02d}"
@@ -88,6 +116,8 @@ def scrape_tfam() -> List[Dict]:
         kind = _clean_text(item.get("Kind") or "")
         area = _clean_text(item.get("Area") or "")
         if not title or not _is_screening_candidate(title, content, kind, area):
+            continue
+        if _is_non_screening_event(title, kind):
             continue
 
         begin_date = str(item.get("BeginDate") or "").strip().replace("/", "-")

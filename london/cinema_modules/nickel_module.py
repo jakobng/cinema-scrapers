@@ -110,19 +110,38 @@ def _parse_date_from_title(title: str) -> Optional[dt.date]:
     return None
 
 
-def _fetch_screening_details(screening_url: str) -> Tuple[Optional[dt.date], Optional[str]]:
+def _clean_page_title(raw_title: Optional[str]) -> str:
     """
-    Fetch a screening page to get the date and time.
-    Returns (date, time) tuple.
+    Extract the film title from a screening page <title> such as
+    "MYSTERY MOVIE (19 Jun) | The Nickel | The Nickel Cinema".
+    """
+    if not raw_title:
+        return ""
+    text = _clean(raw_title)
+    # Drop the site suffix ("... | The Nickel | The Nickel Cinema").
+    text = text.split("|")[0].strip()
+    # Drop a trailing "(19 Jun)" style date marker.
+    text = re.sub(
+        r'\s*\(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\)\s*$',
+        '', text, flags=re.I,
+    ).strip()
+    return text
+
+
+def _fetch_screening_details(screening_url: str) -> Tuple[Optional[dt.date], Optional[str], str]:
+    """
+    Fetch a screening page to get the date, time and clean title.
+    Returns (date, time, title) tuple.
     """
     try:
         resp = requests.get(screening_url, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
 
-        # Get date from page title
+        # Get date and clean title from page title
         title = soup.title.string if soup.title else ""
         show_date = _parse_date_from_title(title)
+        page_title = _clean_page_title(title)
 
         # Look for time in page content
         text = soup.get_text()
@@ -134,11 +153,11 @@ def _fetch_screening_details(screening_url: str) -> Tuple[Optional[dt.date], Opt
             if 0 <= hour < 24 and 0 <= minute < 60:
                 show_time = f"{hour:02d}:{minute:02d}"
 
-        return show_date, show_time
+        return show_date, show_time, page_title
 
     except Exception as e:
         print(f"[{CINEMA_NAME}] Error fetching {screening_url}: {e}", file=sys.stderr)
-        return None, None
+        return None, None, ""
 
 
 def scrape_nickel() -> List[Dict]:
@@ -177,16 +196,19 @@ def scrape_nickel() -> List[Dict]:
                 continue
             processed.add(url)
 
-            # Parse film info from link text
+            # Parse film info from link text (for year/country/director/synopsis)
             film_info = _parse_film_info(link_text)
 
-            if not film_info["title"]:
-                continue
-
-            # Fetch date/time from screening page
-            show_date, show_time = _fetch_screening_details(url)
+            # Fetch date/time AND the clean title from the screening page. The
+            # link text can run the title into the synopsis (e.g. the "MYSTERY
+            # MOVIE" listing); the page <title> is the authoritative film name.
+            show_date, show_time, page_title = _fetch_screening_details(url)
 
             if not show_date:
+                continue
+
+            movie_title = page_title or film_info["title"]
+            if not movie_title:
                 continue
 
             # Check if within our window
@@ -199,8 +221,8 @@ def scrape_nickel() -> List[Dict]:
 
             shows.append({
                 "cinema_name": CINEMA_NAME,
-                "movie_title": film_info["title"],
-                "movie_title_en": film_info["title"],
+                "movie_title": movie_title,
+                "movie_title_en": movie_title,
                 "date_text": show_date.isoformat(),
                 "showtime": show_time,
                 "detail_page_url": url,

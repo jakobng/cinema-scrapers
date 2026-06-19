@@ -47,7 +47,9 @@ HEADERS = {
 TIMEOUT = 30
 
 TODAY = dt.date.today()
-WINDOW_DAYS = 7
+# BFI publishes roughly 2-3 weeks of listings; scrape a fortnight+ so the
+# horizon matches what the site actually shows (was 7, which truncated it).
+WINDOW_DAYS = 16
 
 
 def _read_text_file(path: str) -> str:

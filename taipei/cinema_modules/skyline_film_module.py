@@ -117,6 +117,10 @@ def scrape_skyline_film() -> List[Dict]:
                 continue
 
             start_dt = datetime.fromtimestamp(int(start_ts), TAIPEI_TZ)
+            # Every film in a series shares one activity page; anchor each ticket so
+            # individual films get a distinct, deep-linkable URL instead of colliding.
+            ticket_id = str(ticket.get("id") or "").strip()
+            ticket_url = f"{detail_page_url}#ticket-{ticket_id}" if ticket_id else detail_page_url
             movie_title, movie_title_en = _split_bilingual_title(ticket.get("title") or "")
             intro = str(ticket.get("introduction") or "")
             language_note = _extract_language_note(intro)
@@ -139,8 +143,8 @@ def scrape_skyline_film() -> List[Dict]:
                     "date_text": start_dt.date().isoformat(),
                     "showtime": start_dt.strftime("%H:%M"),
                     "screen_name": screen_name,
-                    "detail_page_url": detail_page_url,
-                    "booking_url": detail_page_url,
+                    "detail_page_url": ticket_url,
+                    "booking_url": ticket_url,
                     "image_url": ticket.get("cover") or detail.get("webCover") or None,
                     "tags": sorted(set(tag for tag in tags if tag)),
                     "source_language_note": language_note,
