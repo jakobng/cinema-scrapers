@@ -32,7 +32,9 @@ HEADERS = {
 TIMEOUT = 30
 
 TODAY = dt.date.today()
-WINDOW_DAYS = 14
+# Riverside's cinema strand (e.g. the monthly "Next Wave" film night) is sparse
+# and often scheduled several weeks out, so use a wider horizon than the default.
+WINDOW_DAYS = 35
 
 
 def _clean(text: str) -> str:

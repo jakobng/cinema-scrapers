@@ -274,9 +274,10 @@ def scrape_venue(page, cinema_name, slug) -> List[Dict]:
 def scrape_all_curzon() -> List[Dict]:
     """Scrape all London Curzon venues."""
     all_shows = []
-    
+    empty_venues = []
+
     print(f"[Curzon Chain] Starting scrape for {len(LONDON_VENUES)} venues...", file=sys.stderr)
-    
+
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(
@@ -297,13 +298,24 @@ def scrape_all_curzon() -> List[Dict]:
 
             for name, slug in LONDON_VENUES:
                 shows = scrape_venue(page, name, slug)
+                if not shows:
+                    empty_venues.append(name)
                 all_shows.extend(shows)
                 time.sleep(1)
 
             browser.close()
-            
+
     except Exception as e:
         print(f"[Curzon Chain] Critical Error: {e}", file=sys.stderr)
+
+    # Surface venues that silently returned nothing (e.g. Playwright timeouts on
+    # Soho/Mayfair/Bloomsbury/Sea Containers) instead of letting them vanish.
+    if empty_venues:
+        print(
+            f"[Curzon Chain] WARNING: {len(empty_venues)}/{len(LONDON_VENUES)} venues "
+            f"returned 0 showings (likely silent load failures): {', '.join(empty_venues)}",
+            file=sys.stderr,
+        )
 
     # Deduplicate
     seen = set()

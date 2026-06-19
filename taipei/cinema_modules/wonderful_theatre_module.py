@@ -25,13 +25,19 @@ def _fetch_detail(movie_id: str) -> Dict[str, str]:
     soup = _fetch_soup(f"{BASE_ORIGIN}/movie/inner?id={movie_id}")
     lines = [line.strip() for line in soup.get_text("\n").splitlines() if line.strip()]
 
-    title = ""
+    # The film title is the page <h2>. The previous "first non-nav text line"
+    # heuristic captured the "影城介紹" nav label identically on every page.
+    h2 = soup.find("h2")
+    title = h2.get_text(strip=True) if h2 else ""
     director = ""
     year = ""
     runtime = ""
     synopsis = ""
 
-    skip = {"真善美劇院 | 中影", "關於影城", "時刻查詢", "影片介紹"}
+    skip = {
+        "真善美劇院 | 中影", "關於影城", "影城介紹", "票價說明", "聯絡我們",
+        "問題Q&A", "其他影城", "時刻查詢", "網路購票", "影片介紹", "立即購票",
+    }
     for idx, line in enumerate(lines):
         if not title and line not in skip:
             title = line
@@ -79,6 +85,12 @@ def scrape_wonderful_theatre() -> List[Dict]:
             continue
         movie_id = movie_id_match.group(1)
 
+        # The schedule link text is the most reliable title source, e.g.
+        # "日文版-名偵探柯南 高速公路的墮天使 2026/06/24 上映" -> strip the trailing date.
+        list_title = re.sub(
+            r"\s*\d{4}/\d{2}/\d{2}\s*上映\s*$", "", item.get_text(" ", strip=True)
+        ).strip()
+
         try:
             detail_info = _fetch_detail(movie_id)
             lightbox = _fetch_soup(f"{BASE_ORIGIN}/lightbox/index?id={movie_id}")
@@ -109,7 +121,7 @@ def scrape_wonderful_theatre() -> List[Dict]:
                 results.append(
                     {
                         "cinema_name": CINEMA_NAME,
-                        "movie_title": detail_info["movie_title"],
+                        "movie_title": list_title or detail_info["movie_title"],
                         "movie_title_en": None,
                         "director": detail_info["director"],
                         "director_en": "",

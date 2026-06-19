@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import html
 import json
 import re
 import sys
@@ -29,6 +30,14 @@ BASE_URL = "https://cinemamuseum.org.uk"
 EVENTS_URL = f"{BASE_URL}/schedule/"
 ALT_EVENTS_URL = f"{BASE_URL}/category/events/"
 CINEMA_NAME = "The Cinema Museum"
+
+# The museum's schedule mixes film screenings with non-film events; exclude the
+# obvious non-screening event types so only films enter the feed.
+NON_FILM_RE = re.compile(
+    r"\b(museum tour|guided tour|building tour|quiz night|quiz|workshop|"
+    r"fundraiser|volunteer|jumble|fair|party|wedding|venue hire)\b",
+    re.IGNORECASE,
+)
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -401,6 +410,18 @@ def scrape_cinema_museum() -> List[Dict]:
     except Exception as e:
         print(f"[{CINEMA_NAME}] Error: {e}", file=sys.stderr)
         raise
+
+    # Decode HTML entities in titles and drop obvious non-film events.
+    cleaned = []
+    for s in shows:
+        s["movie_title"] = html.unescape(str(s.get("movie_title") or "")).strip()
+        s["movie_title_en"] = (
+            html.unescape(str(s.get("movie_title_en") or "")).strip() or s["movie_title"]
+        )
+        if not s["movie_title"] or NON_FILM_RE.search(s["movie_title"]):
+            continue
+        cleaned.append(s)
+    shows = cleaned
 
     # Deduplicate
     seen = set()

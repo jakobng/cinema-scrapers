@@ -14,7 +14,7 @@ from typing import Dict, List, Optional
 from urllib.parse import urljoin
 
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 
 BASE_URL = "https://genesiscinema.co.uk"
 SCHEDULE_URL = f"{BASE_URL}/whatson/all"
@@ -197,6 +197,73 @@ def _scrape_event_blocks(soup: BeautifulSoup) -> List[Dict]:
     return shows
 
 
+def _scrape_date_cards(soup: BeautifulSoup) -> List[Dict]:
+    """
+    Parse Genesis' current (Tailwind) what's-on layout. Each film has one card
+    (div.col-span-*) whose contents are, in document order, a date header
+    ("Friday 19 June 2026") followed by that date's booking links, repeating per
+    date. Tracking the current date while walking the card keeps each showtime on
+    its own date; the old parser piled every date's times onto each date.
+    """
+    shows: List[Dict] = []
+    date_re = re.compile(
+        r"(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+\d{1,2}\s+[A-Za-z]+\s+\d{4}",
+        re.IGNORECASE,
+    )
+    seen_perf: set = set()
+
+    for card in soup.select('div[class~="col-span-7"]'):
+        event_link = card.find("a", href=re.compile(r"/event/\d+"))
+        if not event_link or not card.find("a", href=re.compile(r"perfCode=\d+")):
+            continue
+        movie_title = _clean(event_link.get_text())
+        if not movie_title:
+            continue
+        movie_href = event_link.get("href", "")
+        detail_url = urljoin(BASE_URL, movie_href) if movie_href else ""
+
+        current_date: Optional[dt.date] = None
+        for node in card.descendants:
+            if isinstance(node, NavigableString):
+                match = date_re.search(str(node))
+                if match:
+                    current_date = _parse_full_date(match.group(0))
+                continue
+            if getattr(node, "name", None) != "a":
+                continue
+            href = node.get("href", "") or ""
+            if "perfCode=" not in href:
+                continue
+            if not current_date or not (
+                TODAY <= current_date < TODAY + dt.timedelta(days=WINDOW_DAYS)
+            ):
+                continue
+            perf_code = _extract_perf_code(href)
+            if perf_code and perf_code in seen_perf:
+                continue
+            showtime = _parse_time_text(_clean(node.get_text()))
+            if not showtime:
+                continue
+            if perf_code:
+                seen_perf.add(perf_code)
+            booking_url = href if href.startswith("http") else urljoin(BASE_URL, href)
+            shows.append({
+                "cinema_name": CINEMA_NAME,
+                "movie_title": movie_title,
+                "movie_title_en": movie_title,
+                "date_text": current_date.isoformat(),
+                "showtime": showtime,
+                "detail_page_url": detail_url,
+                "booking_url": booking_url,
+                "director": "",
+                "year": "",
+                "country": "",
+                "runtime_min": "",
+                "synopsis": "",
+            })
+    return shows
+
+
 def scrape_genesis() -> List[Dict]:
     """
     Scrape Genesis Cinema showtimes.
@@ -224,7 +291,11 @@ def scrape_genesis() -> List[Dict]:
             resp.raise_for_status()
             soup = BeautifulSoup(resp.text, "html.parser")
 
-        # Find all date panels
+        # Primary parser: current Tailwind layout (date headers + per-film cards).
+        # The legacy panel / event-block parsing below remains as a fallback.
+        shows = _scrape_date_cards(soup)
+
+        # Find all date panels (legacy layout)
         # The panels have id like "panel_20260109" and class "whatson_panel"
         panels = soup.select("[id^='panel_']")
 

@@ -115,8 +115,15 @@ def scrape_treasure_hill() -> List[Dict]:
             continue
 
         start_date, end_date = _parse_date_range(text)
-        if not start_date or (end_date or start_date) < today:
+        if not start_date:
             continue
+        # Skip events that have fully finished. For a still-running multi-day
+        # programme whose start date is in the past, surface it under today
+        # rather than leaking a stale past date into the feed.
+        effective_end = end_date or start_date
+        if effective_end < today:
+            continue
+        display_date = start_date if start_date >= today else today
 
         location_match = re.search(r"活動地點[：:]\s*([^\n]{2,120})", text)
         screen_name = _clean_text(location_match.group(1)) if location_match else CINEMA_NAME
@@ -132,7 +139,7 @@ def scrape_treasure_hill() -> List[Dict]:
                 "country": None,
                 "runtime_min": None,
                 "synopsis": text,
-                "date_text": start_date,
+                "date_text": display_date,
                 "showtime": _parse_time(text),
                 "screen_name": screen_name,
                 "detail_page_url": link,

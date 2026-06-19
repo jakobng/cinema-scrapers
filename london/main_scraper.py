@@ -57,6 +57,7 @@ from cinema_modules import (
     # Additional individual cinemas
     bfi_imax_module,
     cine_real_module,
+    cinema_museum_module,
     coldharbour_blue_module,
     olympic_studios_module,
     the_arzner_module,
@@ -76,6 +77,10 @@ class ScrapeReport:
     def __init__(self):
         self.results = []
         self.total_showings = 0
+        self.quality_warnings = []
+
+    def add_quality_warning(self, message):
+        self.quality_warnings.append(message)
 
     def add(self, cinema_name, status, count, error=None):
         self.results.append({
@@ -120,11 +125,17 @@ class ScrapeReport:
 
         print("-" * 70)
         print(f"Total Showings Collected: {self.total_showings}")
+
+        if self.quality_warnings:
+            print("\nDATA QUALITY WARNINGS:")
+            for message in self.quality_warnings:
+                print(f"[!!] {message}")
+
         return failures, warnings
 
     def send_email_alert(self, failures, warnings):
         """Sends an email if things went wrong."""
-        if not failures and not warnings:
+        if not failures and not warnings and not self.quality_warnings:
             return
 
         # 1. Gather Credentials
@@ -153,6 +164,12 @@ class ScrapeReport:
             body_lines.append(f"POTENTIAL ISSUES (0 Showings Found):")
             for w in warnings:
                 body_lines.append(f"- {w['cinema']}")
+            body_lines.append("\n")
+
+        if self.quality_warnings:
+            body_lines.append(f"DATA QUALITY WARNINGS ({len(self.quality_warnings)}):")
+            for message in self.quality_warnings:
+                body_lines.append(f"- {message}")
 
         body_lines.append("\nCheck the GitHub Actions logs for full details.")
 
@@ -174,6 +191,48 @@ class ScrapeReport:
 
 # Initialize Global Report
 report = ScrapeReport()
+
+
+def check_data_quality(listings, report):
+    """
+    Flag likely scraper bugs that the per-cinema success/zero checks miss:
+    duplicate showtime explosions (one film listed many times, or starts only a
+    few minutes apart) and uniform-name chains that silently dropped venues.
+    """
+    from collections import defaultdict
+
+    groups = defaultdict(list)
+    for item in listings:
+        showtime = item.get("showtime")
+        if showtime:
+            key = (item.get("cinema_name"), item.get("movie_title"), item.get("date_text"))
+            groups[key].append(showtime)
+    for (cinema, title, date), times in groups.items():
+        minutes = sorted(
+            int(t[:2]) * 60 + int(t[3:5])
+            for t in times
+            if len(t) >= 5 and t[2] == ":" and t[:2].isdigit() and t[3:5].isdigit()
+        )
+        too_close = any(b - a < 10 for a, b in zip(minutes, minutes[1:]))
+        if len(times) > 12 or too_close:
+            report.add_quality_warning(
+                f"Suspicious showtimes: {cinema} / {title} / {date} -> {len(times)} times"
+            )
+
+    # Uniform-name chains: warn if some venues vanished (e.g. Curzon dropped 4).
+    expected_chain_venues = {"Curzon": 10, "Everyman": 16}
+    found = {prefix: set() for prefix in expected_chain_venues}
+    for item in listings:
+        name = item.get("cinema_name", "") or ""
+        for prefix in expected_chain_venues:
+            if name.startswith(prefix + " "):
+                found[prefix].add(name)
+    for prefix, expected in expected_chain_venues.items():
+        count = len(found[prefix])
+        if 0 < count < expected:
+            report.add_quality_warning(
+                f"{prefix}: only {count}/{expected} venues returned data (missing locations)"
+            )
 
 # --- TMDB Utilities ---
 
@@ -1251,6 +1310,7 @@ def main():
         ("Riverside Studios", riverside_studios_module.scrape_riverside_studios),
         ("Ciné-Real", cine_real_module.scrape_cine_real),
         ("Coldharbour Blue", coldharbour_blue_module.scrape_coldharbour_blue),
+        ("The Cinema Museum", cinema_museum_module.scrape_cinema_museum),
         ("Olympic Studios (Barnes)", olympic_studios_module.scrape_olympic_studios),
         ("The Arzner", the_arzner_module.scrape_the_arzner),
         # Chain scrapers (multiple locations each)
@@ -1315,6 +1375,7 @@ def main():
         sys.exit(1)
 
     # 5. REPORTING & ALERTS
+    check_data_quality(listings, report)
     failures, warnings = report.print_summary()
 
     # Send email if configured
