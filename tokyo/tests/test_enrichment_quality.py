@@ -11,6 +11,7 @@ for path in (str(TOKYO_DIR), str(REPO_ROOT)):
 import audit_showtimes  # noqa: E402
 import build_site  # noqa: E402
 import main_scraper  # noqa: E402
+from shared.ai_enrichment import AIEnrichmentClient  # noqa: E402
 
 
 def test_synopsis_cache_keys_cover_title_aliases_and_ignore_japanese_cache():
@@ -87,6 +88,36 @@ def test_translate_missing_synopses_stores_translation_under_aliases(monkeypatch
     assert cache["tmdb:456"] == "A natural English synopsis."
     assert cache["title:森に聴く Listen to the Forest"] == "A natural English synopsis."
     assert cache["title:Listen to the Forest"] == "A natural English synopsis."
+
+
+def test_shared_translate_synopses_batches_json_results(monkeypatch):
+    class FakeAI(AIEnrichmentClient):
+        def __init__(self):
+            super().__init__(session=None, provider="deepseek", model="test", base_url="http://example", timeout_seconds=10)
+            self.available = True
+
+        def generate_text(self, prompt, temperature=0.2, max_tokens=2048, use_search_tool=False):
+            assert "JSON array" in prompt
+            return """
+            [
+              {"film_key": "film:a", "synopsis_en": "First translated synopsis."},
+              {"film_key": "film:b", "synopsis_en": "Second translated synopsis."}
+            ]
+            """
+
+    monkeypatch.setenv("AI_TRANSLATION_BATCH_SIZE", "2")
+    translations = FakeAI().translate_synopses(
+        {
+            "film:a": "日本語の紹介文がここに入ります。",
+            "film:b": "別の日本語の紹介文がここに入ります。",
+        },
+        source_language="Japanese",
+    )
+
+    assert translations == {
+        "film:a": "First translated synopsis.",
+        "film:b": "Second translated synopsis.",
+    }
 
 
 def test_letterboxd_urls_are_exact_tmdb_urls_only():

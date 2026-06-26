@@ -448,19 +448,72 @@ class AIEnrichmentClient:
             return {}
         results: Dict[str, str] = {}
         items = list(synopses_to_translate.items())
-        for index, (film_key, synopsis) in enumerate(items, 1):
-            if not synopsis or len(synopsis.strip()) < 10:
+        batch_size = max(1, min(20, parse_int(os.environ.get("AI_TRANSLATION_BATCH_SIZE"), 8)))
+        for start in range(0, len(items), batch_size):
+            batch = [
+                (film_key, synopsis)
+                for film_key, synopsis in items[start : start + batch_size]
+                if synopsis and len(synopsis.strip()) >= 10
+            ]
+            if not batch:
                 continue
-            print(f"   Translating synopsis {index}/{len(items)}: {film_key[:50]}...")
-            prompt = (
-                f"Translate the following {source_language} film synopsis into natural English. "
-                "Preserve names, tone, and key plot details. Return only the English translation.\n\n"
-                f"Synopsis:\n{synopsis}"
+            if len(batch) == 1:
+                index = start + 1
+                film_key, synopsis = batch[0]
+                print(f"   Translating synopsis {index}/{len(items)}: {film_key[:50]}...")
+                prompt = (
+                    f"Translate the following {source_language} film synopsis into natural English. "
+                    "Preserve names, tone, and key plot details. Return only the English translation.\n\n"
+                    f"Synopsis:\n{synopsis}"
+                )
+                translated = self.generate_text(prompt, temperature=0.3, max_tokens=2048).strip()
+                if translated:
+                    results[film_key] = translated
+                    print(f"   Translated: {film_key[:40]}... ({len(translated)} chars)")
+                continue
+
+            preview = ", ".join(film_key[:30] for film_key, _ in batch[:3])
+            suffix = f" (+{len(batch) - 3} more)" if len(batch) > 3 else ""
+            print(
+                "   Translating synopsis batch "
+                f"{start + 1}-{start + len(batch)}/{len(items)}: {preview}{suffix}"
             )
-            translated = self.generate_text(prompt, temperature=0.3, max_tokens=2048).strip()
-            if translated:
-                results[film_key] = translated
-                print(f"   Translated: {film_key[:40]}... ({len(translated)} chars)")
+            prompt_items = []
+            for index, (film_key, synopsis) in enumerate(batch, 1):
+                prompt_items.append(
+                    f"{index}. film_key: {film_key}\n"
+                    f"synopsis:\n{synopsis}"
+                )
+            prompt = (
+                f"Translate each {source_language} film synopsis into natural English. "
+                "Preserve names, tone, and key plot details. "
+                "Return only a JSON array. Each object must have exactly these keys: "
+                "film_key and synopsis_en. Copy each film_key exactly from the input.\n\n"
+                + "\n\n".join(prompt_items)
+            )
+            text = self.generate_text(
+                prompt,
+                temperature=0.3,
+                max_tokens=min(12288, max(2048, 1024 * len(batch))),
+            )
+            parsed = extract_json_list(text)
+            if not parsed:
+                self.last_error_note = self.last_error_note or LOCAL_AI_PARSE_FAILED
+                preview_text = text[:300].encode("unicode_escape").decode("ascii") if text else ""
+                print(f"   Synopsis translation batch parse failed. Preview: {preview_text}")
+                continue
+            translated_count = 0
+            for entry in parsed:
+                if not isinstance(entry, dict):
+                    continue
+                film_key = str(entry.get("film_key") or entry.get("key") or "").strip()
+                translated = str(entry.get("synopsis_en") or entry.get("translation") or "").strip()
+                if not film_key or not translated:
+                    continue
+                if film_key in synopses_to_translate:
+                    results[film_key] = translated
+                    translated_count += 1
+            print(f"   Translated batch items: {translated_count}/{len(batch)}")
         if not results:
             self.last_error_note = self.last_error_note or LOCAL_AI_NO_RESULT
         return results
