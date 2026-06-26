@@ -3667,6 +3667,37 @@
     "status": "accepted",
     "updated_at": "2026-06-09T23:44:10.129703+00:00"
   },
+  "peakend::2026::120::シンチェリン": {
+    "candidate": {
+      "director": "シン・チェリン",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "120",
+      "score": 21,
+      "support": 3,
+      "title": "PEAK END",
+      "url": "https://filmarks.com/movies/123647",
+      "year": "2026"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "https://filmarks.com/movies/123647",
+    "query": "PEAK END",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=PEAK%20END",
+    "status": "accepted",
+    "updated_at": "2026-06-26T01:47:47.176526+00:00"
+  },
   "perfumeコールドスリープ–25yearsdocument::2026::117::佐渡岳利": {
     "candidate": {
       "director": "佐渡岳利",
