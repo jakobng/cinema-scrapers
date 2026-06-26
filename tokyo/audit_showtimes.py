@@ -115,6 +115,73 @@ def malformed_title(item: dict) -> bool:
     return not any(ch.isalnum() or "\u3040" <= ch <= "\u9fff" for ch in title)
 
 
+def contains_japanese(text: object) -> bool:
+    return bool(text and any("\u3040" <= ch <= "\u30ff" or "\u3400" <= ch <= "\u9fff" for ch in str(text)))
+
+
+def is_program_row(item: dict) -> bool:
+    title = str(item.get("movie_title") or item.get("movie_title_jp") or "").strip()
+    program_title = str(item.get("program_title") or "").strip()
+    tags = " ".join(str(tag) for tag in (item.get("tags") or []))
+    haystack = f"{title} {program_title} {tags}"
+    return bool(
+        program_title
+        or "プログラム" in haystack
+        or "特集" in haystack
+        or "Program" in haystack
+        or "programme" in haystack.lower()
+    )
+
+
+def expected_letterboxd_url(item: dict) -> str:
+    tmdb_id = item.get("tmdb_id")
+    if tmdb_id in (None, "", 0, "0"):
+        return ""
+    try:
+        tmdb_id = int(str(tmdb_id).strip())
+    except (TypeError, ValueError):
+        return ""
+    return f"https://letterboxd.com/tmdb/{tmdb_id}/"
+
+
+def print_frontend_quality(data: list[dict], today: str | None = None) -> dict:
+    future = [item for item in data if not today or str(item.get("date_text") or "") >= today]
+    bad_synopsis_en = [item for item in future if contains_japanese(item.get("synopsis_en"))]
+    english_japanese = [
+        item for item in future
+        if contains_japanese(item.get("synopsis_en") or item.get("tmdb_overview_en") or "")
+    ]
+    invalid_letterboxd = [
+        item for item in future
+        if item.get("letterboxd_url") and item.get("letterboxd_url") != expected_letterboxd_url(item)
+    ]
+    program_rows = [item for item in future if is_program_row(item)]
+    eligible = [item for item in future if not is_program_row(item)]
+    eligible_with_tmdb = [item for item in eligible if item.get("tmdb_id")]
+    missing_tmdb = [item for item in eligible if not item.get("tmdb_id")]
+
+    print("Frontend quality")
+    print(f"  English-mode Japanese synopsis rows: {len(english_japanese)}")
+    print(f"  synopsis_en containing Japanese: {len(bad_synopsis_en)}")
+    print(f"  invalid exact Letterboxd URLs: {len(invalid_letterboxd)}")
+    print(f"  program/event rows separated: {len(program_rows)}")
+    print(
+        "  exact Letterboxd eligible rows with TMDB: "
+        f"{len(eligible_with_tmdb)}/{len(eligible)} "
+        f"({(len(eligible_with_tmdb) / len(eligible) * 100) if eligible else 100:.1f}%)"
+    )
+    print(f"  eligible rows missing TMDB IDs: {len(missing_tmdb)}")
+
+    return {
+        "bad_synopsis_en": bad_synopsis_en,
+        "english_japanese": english_japanese,
+        "invalid_letterboxd": invalid_letterboxd,
+        "program_rows": program_rows,
+        "eligible": eligible,
+        "missing_tmdb": missing_tmdb,
+    }
+
+
 def brief_rows(rows: list[dict], limit: int = 12) -> list[str]:
     lines = []
     for item in rows[:limit]:
@@ -222,6 +289,7 @@ def main() -> int:
     print(f"  non-cinema detail hosts: {len(blocked_detail)}")
     print(f"  expected-host mismatches: {len(mismatched_hosts)}")
     print(f"  duplicate rows: {len(duplicates)}")
+    frontend_issues = print_frontend_quality(data, args.today)
 
     for label, rows in (
         ("Malformed titles", malformed),
@@ -245,6 +313,9 @@ def main() -> int:
         print(line)
 
     critical_count = len(malformed) + len(duplicates)
+    critical_count += len(frontend_issues["bad_synopsis_en"])
+    critical_count += len(frontend_issues["english_japanese"])
+    critical_count += len(frontend_issues["invalid_letterboxd"])
     if args.fail_linkless:
         critical_count += len(linkless)
     if args.strict and critical_count:

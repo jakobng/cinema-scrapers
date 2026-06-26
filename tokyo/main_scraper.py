@@ -34,6 +34,7 @@ if str(REPO_ROOT) not in sys.path:
 from shared.ai_enrichment import (
     AIEnrichmentClient,
     LOCAL_AI_NO_RESULT,
+    TMDB_RETRY_FAILED,
     env_truthy,
     local_ai_retry_due,
     make_ai_failure_entry,
@@ -864,8 +865,21 @@ def _get_synopsis_cache_keys_for_item(item: dict) -> list[str]:
     tmdb_id = item.get("tmdb_id")
     if tmdb_id:
         keys.append(f"tmdb:{tmdb_id}")
-    keys.extend(_title_synopsis_cache_keys(item.get("movie_title", "")))
-    return keys
+    for field in (
+        "movie_title",
+        "clean_title_jp",
+        "movie_title_jp",
+        "movie_title_en",
+        "movie_title_original",
+    ):
+        keys.extend(_title_synopsis_cache_keys(item.get(field, "")))
+    deduped = []
+    seen = set()
+    for key in keys:
+        if key and key not in seen:
+            seen.add(key)
+            deduped.append(key)
+    return deduped
 
 def _get_cached_synopsis_translation(cache: dict, item: dict):
     for key in _get_synopsis_cache_keys_for_item(item):
@@ -876,6 +890,120 @@ def _get_cached_synopsis_translation(cache: dict, item: dict):
 def _store_synopsis_translation(cache: dict, keys: list[str], translation: str):
     for key in keys:
         cache[key] = translation
+
+def _is_usable_english_text(text: str) -> bool:
+    return bool(text and str(text).strip() and not _contains_japanese(str(text)))
+
+def _source_synopsis_for_translation(item: dict) -> str:
+    for field in ("synopsis", "tmdb_overview_jp"):
+        text = item.get(field)
+        if text and _contains_japanese(str(text)):
+            return str(text)
+    return ""
+
+def _apply_cached_synopsis_translations(listings: list, cache: dict) -> int:
+    applied = 0
+    for item in listings:
+        if item.get("synopsis_en") and not _is_usable_english_text(item.get("synopsis_en")):
+            item["synopsis_en"] = ""
+        if _is_usable_english_text(item.get("synopsis_en")):
+            continue
+        _, cached_translation = _get_cached_synopsis_translation(cache, item)
+        if _is_usable_english_text(cached_translation):
+            item["synopsis_en"] = cached_translation
+            applied += 1
+    return applied
+
+def _collect_synopses_to_translate(listings: list, cache: dict) -> tuple[dict, dict, int]:
+    synopses_to_translate = {}
+    film_key_to_items = {}
+    cached_applied = 0
+
+    for item in listings:
+        if item.get("synopsis_en") and not _is_usable_english_text(item.get("synopsis_en")):
+            item["synopsis_en"] = ""
+        if _is_usable_english_text(item.get("synopsis_en")):
+            continue
+
+        jp_synopsis = _source_synopsis_for_translation(item)
+        if not jp_synopsis:
+            continue
+
+        cache_keys = _get_synopsis_cache_keys_for_item(item)
+        _, cached_translation = _get_cached_synopsis_translation(cache, item)
+        if _is_usable_english_text(cached_translation):
+            item["synopsis_en"] = cached_translation
+            cached_applied += 1
+            continue
+
+        film_key = cache_keys[0] if cache_keys else f"title:{item.get('movie_title', '')}"
+        if film_key not in synopses_to_translate:
+            synopses_to_translate[film_key] = jp_synopsis
+            film_key_to_items[film_key] = []
+        film_key_to_items[film_key].append(item)
+
+    return synopses_to_translate, film_key_to_items, cached_applied
+
+def translate_missing_synopses(listings: list, cache: dict, ai_client) -> bool:
+    updated_cache = False
+    cached_applied = _apply_cached_synopsis_translations(listings, cache)
+    if cached_applied:
+        print(f"   Applied {cached_applied} cached English synopsis translations")
+
+    if not env_truthy("AI_TRANSLATE_SYNOPSES", True):
+        print("   Synopsis translation skipped; AI_TRANSLATE_SYNOPSES is disabled.")
+        return updated_cache
+    if not ai_client:
+        print("   Synopsis translation skipped; no AI provider is configured.")
+        return updated_cache
+    if not ai_client.health_check():
+        print("   Synopsis translation skipped; AI provider is unavailable.")
+        return updated_cache
+
+    print("\n📝 Translating missing English synopses...")
+    synopses_to_translate, film_key_to_items, cached_applied = _collect_synopses_to_translate(listings, cache)
+    if cached_applied:
+        print(f"   Applied {cached_applied} cached English synopsis translations")
+    if not synopses_to_translate:
+        print("   No synopses need translation")
+        return updated_cache
+
+    print(f"   Found {len(synopses_to_translate)} unique films needing translation")
+    translations = ai_client.translate_synopses(
+        synopses_to_translate,
+        source_language="Japanese",
+    )
+    translated_count = 0
+    rejected_count = 0
+    for film_key, en_synopsis in translations.items():
+        if not _is_usable_english_text(en_synopsis):
+            rejected_count += 1
+            continue
+        translation_keys = []
+        for item in film_key_to_items.get(film_key, []):
+            translation_keys.extend(_get_synopsis_cache_keys_for_item(item))
+        _store_synopsis_translation(
+            cache,
+            translation_keys or [film_key],
+            en_synopsis,
+        )
+        updated_cache = True
+        translated_count += 1
+        for item in film_key_to_items.get(film_key, []):
+            item["synopsis_en"] = en_synopsis
+
+    print(f"   ✓ Translated {translated_count} synopses")
+    if rejected_count:
+        print(f"   Rejected {rejected_count} translations containing Japanese text")
+    return updated_cache
+
+def _apply_letterboxd_urls(listings: list) -> None:
+    for item in listings:
+        tmdb_id = _parse_int(item.get("tmdb_id"))
+        if tmdb_id:
+            item["letterboxd_url"] = f"https://letterboxd.com/tmdb/{tmdb_id}/"
+        else:
+            item.pop("letterboxd_url", None)
 
 EIGA_PREFERRED_FIELDS = (
     "movie_title",
@@ -1925,7 +2053,7 @@ def _attempt_tmdb_with_english_title(
         return None
     resolved_info = dict(title_info)
     resolved_info["movie_title_en"] = english_title
-    if release_year and not resolved_info.get("year"):
+    if release_year:
         resolved_info["year"] = str(release_year)
     if original_title and not resolved_info.get("movie_title_original"):
         resolved_info["movie_title_original"] = original_title
@@ -2043,6 +2171,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
     ai_confidence_threshold = float(
         os.environ.get("AI_CONFIDENCE_THRESHOLD") or os.environ.get("GEMINI_CONFIDENCE_THRESHOLD") or "0.6"
     )
+    ai_retry_low_confidence = env_truthy("AI_RETRY_LOW_CONFIDENCE", False)
     local_ai_retry_hours = retry_hours_from_env()
 
     if ai_client and not ai_client.health_check():
@@ -2088,10 +2217,12 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         # A falsy confidence (None or 0.0) means "unknown" — try the lookup anyway,
         # since TMDB re-validation is the real accuracy gate. Only a positive
         # confidence below the threshold is treated as a genuine low-confidence skip.
-        if cached_english_title and (not cached_confidence or cached_confidence >= ai_confidence_threshold):
-            use_release_year = None
-            if cached_release_year and not _parse_year(info.get("year")):
-                use_release_year = cached_release_year
+        if cached_english_title and (
+            not cached_confidence
+            or cached_confidence >= ai_confidence_threshold
+            or ai_retry_low_confidence
+        ):
+            use_release_year = cached_release_year
             print(
                 "   🔁 Retrying TMDB with cached English title: "
                 f"{title} -> {cached_english_title} "
@@ -2125,13 +2256,13 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                 if isinstance(cached_entry, dict):
                     failed_entry = dict(cached_entry)
                     failed_entry["failed"] = True
-                    failed_entry.setdefault("notes", "tmdb_failed")
+                    failed_entry.setdefault("notes", TMDB_RETRY_FAILED)
                 else:
                     failed_entry = {
                         "english_title": cached_english_title,
                         "release_year": cached_release_year,
                         "confidence": cached_confidence,
-                        "notes": "tmdb_failed",
+                        "notes": TMDB_RETRY_FAILED,
                         "failed": True,
                     }
                 _store_resolution_cache_entry(resolution_cache, resolution_alias_index, title, failed_entry)
@@ -2188,9 +2319,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                 continue
             if english_title:
                 info = title_info.get(title, {"movie_title": title})
-                use_release_year = None
-                if release_year and not _parse_year(info.get("year")):
-                    use_release_year = release_year
+                use_release_year = release_year
                 print(
                     "   🔁 Retrying TMDB with AI English title: "
                     f"{title} -> {english_title} "
@@ -2223,7 +2352,7 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
                     print(f"      ❌ TMDB retry failed for AI English title: {title}")
                     failed_entry = dict(entry)
                     failed_entry["failed"] = True
-                    failed_entry.setdefault("notes", "tmdb_failed")
+                    failed_entry.setdefault("notes", TMDB_RETRY_FAILED)
                     _store_resolution_cache_entry(resolution_cache, resolution_alias_index, title, failed_entry)
                     resolution_cache_updated = True
             time.sleep(0.3)
@@ -2410,55 +2539,12 @@ def main():
         if tmdb_key:
             listings = enrich_listings_with_tmdb_links(listings, tmdb_cache, api_session, tmdb_key)
 
-        # Synopsis translation for enrich-only mode
         ai_client = AIEnrichmentClient.from_env(api_session)
-
-        if ai_client and env_truthy("AI_TRANSLATE_SYNOPSES", True) and ai_client.health_check():
-            print("\n📝 Translating missing English synopses...")
-
-            synopses_to_translate = {}
-            film_key_to_items = {}
-
-            for item in listings:
-                if item.get("tmdb_overview_en") or item.get("synopsis_en"):
-                    continue
-                jp_synopsis = item.get("synopsis") or item.get("tmdb_overview_jp")
-                if not jp_synopsis:
-                    continue
-                cache_keys = _get_synopsis_cache_keys_for_item(item)
-                cached_key, cached_translation = _get_cached_synopsis_translation(synopsis_translation_cache, item)
-                if cached_translation:
-                    item["synopsis_en"] = cached_translation
-                    continue
-                film_key = cache_keys[-1] if cache_keys else f"title:{item.get('movie_title', '')}"
-                if film_key not in synopses_to_translate:
-                    synopses_to_translate[film_key] = jp_synopsis
-                    film_key_to_items[film_key] = []
-                film_key_to_items[film_key].append(item)
-
-            if synopses_to_translate:
-                print(f"   Found {len(synopses_to_translate)} unique films needing translation")
-                translations = ai_client.translate_synopses(
-                    synopses_to_translate,
-                    source_language="Japanese",
-                )
-                for film_key, en_synopsis in translations.items():
-                    translation_keys = []
-                    for item in film_key_to_items.get(film_key, []):
-                        translation_keys.extend(_get_synopsis_cache_keys_for_item(item))
-                    _store_synopsis_translation(
-                        synopsis_translation_cache,
-                        translation_keys or [film_key],
-                        en_synopsis,
-                    )
-                    synopsis_translation_cache_updated = True
-                    for item in film_key_to_items.get(film_key, []):
-                        item["synopsis_en"] = en_synopsis
-                print(f"   ✓ Translated {len(translations)} synopses")
-            else:
-                print("   No synopses need translation")
+        if translate_missing_synopses(listings, synopsis_translation_cache, ai_client):
+            synopsis_translation_cache_updated = True
 
         listings = enrich_listings_with_filmarks_links(listings, api_session)
+        _apply_letterboxd_urls(listings)
 
         print(f"Saving to {output_path}...")
         listings = _prepare_listings_for_output(listings)
@@ -2565,65 +2651,9 @@ def main():
     if tmdb_key:
         listings = enrich_listings_with_tmdb_links(listings, tmdb_cache, api_session, tmdb_key)
 
-    # 3.5. SYNOPSIS TRANSLATION
-    # Translate synopses that don't have English from TMDB.
     ai_client = AIEnrichmentClient.from_env(api_session)
-
-    if ai_client and env_truthy("AI_TRANSLATE_SYNOPSES", True) and ai_client.health_check():
-        print("\n📝 Translating missing English synopses...")
-
-        # Find unique films that need translation
-        # Key by TMDB ID if available, otherwise by title
-        synopses_to_translate = {}
-        film_key_to_items = {}
-
-        for item in listings:
-            # Skip if already has English synopsis
-            if item.get("tmdb_overview_en") or item.get("synopsis_en"):
-                continue
-
-            # Get Japanese synopsis (prefer scraped, fallback to TMDB)
-            jp_synopsis = item.get("synopsis") or item.get("tmdb_overview_jp")
-            if not jp_synopsis:
-                continue
-
-            # Create unique key for this film
-            cache_keys = _get_synopsis_cache_keys_for_item(item)
-            cached_key, cached_translation = _get_cached_synopsis_translation(synopsis_translation_cache, item)
-            if cached_translation:
-                item["synopsis_en"] = cached_translation
-                continue
-            film_key = cache_keys[-1] if cache_keys else f"title:{item.get('movie_title', '')}"
-
-            if film_key not in synopses_to_translate:
-                synopses_to_translate[film_key] = jp_synopsis
-                film_key_to_items[film_key] = []
-            film_key_to_items[film_key].append(item)
-
-        if synopses_to_translate:
-            print(f"   Found {len(synopses_to_translate)} unique films needing translation")
-            translations = ai_client.translate_synopses(
-                synopses_to_translate,
-                source_language="Japanese",
-            )
-
-            # Apply translations to all matching items
-            for film_key, en_synopsis in translations.items():
-                translation_keys = []
-                for item in film_key_to_items.get(film_key, []):
-                    translation_keys.extend(_get_synopsis_cache_keys_for_item(item))
-                _store_synopsis_translation(
-                    synopsis_translation_cache,
-                    translation_keys or [film_key],
-                    en_synopsis,
-                )
-                synopsis_translation_cache_updated = True
-                for item in film_key_to_items.get(film_key, []):
-                    item["synopsis_en"] = en_synopsis
-
-            print(f"   ✓ Translated {len(translations)} synopses")
-        else:
-            print("   No synopses need translation (all have English from TMDB)")
+    if translate_missing_synopses(listings, synopsis_translation_cache, ai_client):
+        synopsis_translation_cache_updated = True
 
     for item in listings:
         if not item.get("movie_title_jp"):
@@ -2636,6 +2666,7 @@ def main():
             item["director_en"] = ""
 
     listings = enrich_listings_with_filmarks_links(listings, api_session)
+    _apply_letterboxd_urls(listings)
 
     # 4. SAVE OUTPUT
     print(f"Saving to {OUTPUT_JSON}...")

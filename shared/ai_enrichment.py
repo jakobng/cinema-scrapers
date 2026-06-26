@@ -12,6 +12,7 @@ import requests
 LOCAL_AI_UNAVAILABLE = "local_ai_unavailable"
 LOCAL_AI_PARSE_FAILED = "local_ai_parse_failed"
 LOCAL_AI_NO_RESULT = "local_ai_no_result"
+TMDB_RETRY_FAILED = "tmdb_failed"
 
 
 def env_truthy(name: str, default: bool = False) -> bool:
@@ -46,7 +47,12 @@ def retry_hours_from_env() -> float:
 def local_ai_retry_due(entry: object, retry_hours: Optional[float] = None) -> bool:
     if not isinstance(entry, dict):
         return True
-    if entry.get("notes") not in {LOCAL_AI_UNAVAILABLE, LOCAL_AI_PARSE_FAILED, LOCAL_AI_NO_RESULT}:
+    if entry.get("notes") not in {
+        LOCAL_AI_UNAVAILABLE,
+        LOCAL_AI_PARSE_FAILED,
+        LOCAL_AI_NO_RESULT,
+        TMDB_RETRY_FAILED,
+    }:
         return False
     attempted_at = entry.get("last_ai_attempt_at")
     if not attempted_at:

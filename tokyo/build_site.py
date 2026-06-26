@@ -47,8 +47,9 @@ TMDB_IMG = "https://image.tmdb.org/t/p"
 SLIM_FILM_FIELDS = [
     "booking_url", "clean_title_jp", "detail_page_url", "director", "director_en",
     "genres", "genres_en", "movie_title", "movie_title_en", "movie_title_jp",
+    "letterboxd_url",
     "movie_title_original", "original_language", "runtime", "runtime_min",
-    "synopsis", "tags", "tmdb_backdrop_path", "tmdb_id", "tmdb_overview_en",
+    "synopsis", "synopsis_en", "tags", "tmdb_backdrop_path", "tmdb_id", "tmdb_overview_en",
     "tmdb_overview_jp", "tmdb_poster_path", "vote_average", "year",
 ]
 # Extra fields we also aggregate for the rich static pages (not part of slim).
@@ -361,7 +362,7 @@ def render_film_page(fid, film, slug, base_url, today):
     if genres:
         meta_bits.append(e(" / ".join(genres)))
 
-    desc_src = (film.get("synopsis") or film.get("tmdb_overview_en")
+    desc_src = (film.get("synopsis_en") or film.get("tmdb_overview_en") or film.get("synopsis")
                 or f"{title_jp} screening times across Tokyo's independent cinemas.")
     description = f"{title_jp}（{title_en}）の東京での上映スケジュール。" if title_en \
         else f"{title_jp}の東京での上映スケジュール。"
@@ -379,8 +380,8 @@ def render_film_page(fid, film, slug, base_url, today):
                                 "name": film.get("director_en") or film["director"]}
     if film.get("year"):
         movie_ld["datePublished"] = str(film["year"])
-    if film.get("synopsis") or film.get("tmdb_overview_en"):
-        movie_ld["description"] = film.get("synopsis") or film.get("tmdb_overview_en")
+    if film.get("synopsis_en") or film.get("tmdb_overview_en") or film.get("synopsis"):
+        movie_ld["description"] = film.get("synopsis_en") or film.get("tmdb_overview_en") or film.get("synopsis")
     if film.get("genres_en") or film.get("genres"):
         movie_ld["genre"] = film.get("genres_en") or film.get("genres")
     events = []
@@ -411,8 +412,8 @@ def render_film_page(fid, film, slug, base_url, today):
 
     if film.get("synopsis"):
         parts.append(f'<p class="synopsis">{e(film["synopsis"])}</p>')
-    if film.get("tmdb_overview_en"):
-        parts.append(f'<p class="synopsis en">{e(film["tmdb_overview_en"])}</p>')
+    if film.get("synopsis_en") or film.get("tmdb_overview_en"):
+        parts.append(f'<p class="synopsis en">{e(film.get("synopsis_en") or film["tmdb_overview_en"])}</p>')
 
     parts.append("<h2>上映スケジュール / Showtimes</h2>")
     if not upcoming:

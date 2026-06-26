@@ -2402,9 +2402,9 @@
                         backdropPath: item.tmdb_backdrop_path || "",
                         imageUrl: item.image_url || "",
                         overview: item.synopsis || item.tmdb_overview_jp || "",
-                        overviewEn: item.tmdb_overview_en || item.synopsis_en || "",
+                        overviewEn: item.synopsis_en || item.tmdb_overview_en || "",
                         tmdbId: tmdbId,
-                        letterboxdUrl: buildLetterboxdUrl(item.movie_title_en || item.movie_title || titleJp, tmdbId),
+                        letterboxdUrl: item.letterboxd_url || buildLetterboxdUrl(item.movie_title_en || item.movie_title || titleJp, tmdbId),
                         searchText: [
                             item.movie_title,
                             item.movie_title_en,
