@@ -153,7 +153,12 @@ def scrape_waseda_shochiku(max_days: int = 21) -> List[Dict[str, str]]:
 
     # Iterate through the schedule tables on the main page.
     for tbl in soup.select("table.top-schedule-area"):
-        header_txt = tbl.find("thead").get_text(" ", strip=True)
+        # The page carries a couple of empty layout tables sharing this class but
+        # with no <thead> — skip them rather than crashing on None.get_text().
+        thead = tbl.find("thead")
+        if thead is None:
+            continue
+        header_txt = thead.get_text(" ", strip=True)
         # Extract date range from the table header.
         dates: List[_dt.date] = []
         md_pairs = re.findall(r"(\d{1,2})/(\d{1,2})", header_txt)
