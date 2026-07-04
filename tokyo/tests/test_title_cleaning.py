@@ -33,6 +33,18 @@ SHOULD_CLEAN = {
     "トニー滝谷 ４Ｋリマスター版": "トニー滝谷",
     "何食わぬ顔（long version）": "何食わぬ顔",
     "『カラオケ行こ！』": "カラオケ行こ！",
+    # A 『…』 wrap with the restoration suffix OUTSIDE the brackets — needs the
+    # unwrap and the suffix strip to both fire (iterated cleaning).
+    "『サムライ 4Kレストア』": "サムライ",
+    "『戦国自衛隊』４Ｋデジタル修復版": "戦国自衛隊",
+    # Anniversary "特別版" (not 記念版) suffix.
+    "花様年華 25周年特別版": "花様年華",
+    # Trailing re-release year annotation.
+    "サムライ（1967）": "サムライ",
+    "罠(1949)": "罠",
+    # Leading festival-series 【…】 prefix with no decoration keyword inside.
+    "【ミケランジェロ・フランマルティーノの驚くべき世界】四つのいのち": "四つのいのち",
+    "【フェリーニ特集】道": "道",
 }
 
 # Titles that must pass through UNCHANGED (no over-stripping of real titles).
@@ -70,6 +82,30 @@ def test_internal_brackets_not_mangled():
 def test_never_returns_empty():
     for raw in ["4K修復版", "字幕版】", "リマスター版", "　"]:
         assert m.clean_title_for_tmdb(raw), raw  # falls back to the original, never ""
+
+
+def test_reissue_detection():
+    # Restorations/anniversary revivals list the RE-RELEASE year, so must be flagged
+    # so the enrichment pass ignores the (wrong) listing year.
+    for raw in ["『戦国自衛隊』４Ｋデジタル修復版", "花様年華 25周年特別版", "ノスタルジア 4K修復版",
+                "乱 4Kデジタル修復版"]:
+        assert m._is_reissue_title(raw), raw
+    # Current-release films (even with a year in a paren) must NOT be flagged.
+    for raw in ["PERFECT DAYS", "ドライブ・マイ・カー", "サムライ（1967）", "国宝"]:
+        assert not m._is_reissue_title(raw), raw
+
+
+def test_ai_title_annotation_stripped():
+    cases = {
+        "In the Mood for Love (25th Anniversary Special Edition)": "In the Mood for Love",
+        "The Gift (4K Restored Version)": "The Gift",
+        "Ran (4K Digital Restoration)": "Ran",
+    }
+    for raw, expected in cases.items():
+        assert m._strip_ai_title_annotation(raw) == expected, raw
+    # Real subtitles / parentheticals that are part of the title must survive.
+    for keep in ["Blade Runner", "Le Samouraï", "Back to the Future Part II", "8½"]:
+        assert m._strip_ai_title_annotation(keep) == keep, keep
 
 
 def test_reset_clears_nulls_once_and_preserves_hits():

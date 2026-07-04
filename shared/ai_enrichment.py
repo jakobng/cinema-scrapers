@@ -47,13 +47,12 @@ def retry_hours_from_env() -> float:
 def local_ai_retry_due(entry: object, retry_hours: Optional[float] = None) -> bool:
     if not isinstance(entry, dict):
         return True
-    if entry.get("notes") not in {
-        LOCAL_AI_UNAVAILABLE,
-        LOCAL_AI_PARSE_FAILED,
-        LOCAL_AI_NO_RESULT,
-        TMDB_RETRY_FAILED,
-    }:
-        return False
+    # Any recorded AI failure is worth another attempt once the retry window passes:
+    # a better prompt, model, or title cleaner may now resolve it, and TMDB
+    # re-validation still gates accuracy. Previously a failure whose note wasn't in a
+    # small whitelist — a legacy 'gemini_failed', or the empty note left by a TMDB
+    # re-validation miss — was wedged as never-retry, permanently locking those films
+    # out of posters/Letterboxd even after the pipeline improved.
     attempted_at = entry.get("last_ai_attempt_at")
     if not attempted_at:
         return True
@@ -369,12 +368,29 @@ class AIEnrichmentClient:
         language_key: str,
         batch_size: int = 1,
         use_search_tool: bool = False,
+        hints: Optional[Dict[str, Dict]] = None,
     ) -> Dict[str, Dict]:
         if not titles:
             return {}
         if not self.health_check():
             self.last_error_note = LOCAL_AI_UNAVAILABLE
             return {}
+
+        hints = hints or {}
+
+        def _hint_suffix(title: str) -> str:
+            # Director/year/country the scraper already knows — the single most
+            # disambiguating signal for JP-titled classics (e.g. 重役室 alone is
+            # hopeless; "directed by Robert Wise, 1954" makes it Executive Suite).
+            h = hints.get(title) or {}
+            bits = []
+            if h.get("director"):
+                bits.append(f"directed by {h['director']}")
+            if h.get("year"):
+                bits.append(f"released {h['year']}")
+            if h.get("country"):
+                bits.append(str(h["country"]))
+            return f"  [known: {'; '.join(bits)}]" if bits else ""
 
         results: Dict[str, Dict] = {}
         batch_size = max(1, batch_size)
@@ -383,15 +399,21 @@ class AIEnrichmentClient:
 
         for start in range(0, len(titles), batch_size):
             batch = titles[start : start + batch_size]
+            hint_note = (
+                " Each title may be followed by a [known: …] note giving the "
+                "director/year/country the film is screening under — use it to "
+                "identify the film, but never copy it into input_title or english_title."
+            )
             if len(batch) == 1:
                 print(f"   AI resolving: {batch[0]}")
                 prompt = (
                     f"You are given one {source_language} film title. "
                     "Find the official English title used for the film, not a literal translation. "
                     "If you cannot verify the official title, set english_title to null. "
+                    f"{hint_note} "
                     "Return a single JSON object with keys: english_title, release_year, original_title, "
                     "director, country, confidence. Use null for unknown fields. Return only JSON.\n\n"
-                    f"Title: {batch[0]}"
+                    f"Title: {batch[0]}{_hint_suffix(batch[0])}"
                 )
                 max_tokens = 4096
             else:
@@ -402,9 +424,10 @@ class AIEnrichmentClient:
                     f"You are given {source_language} film titles. "
                     "Find the official English title used for each film, not literal translations. "
                     "If you cannot verify an official title, set english_title to null. "
+                    f"{hint_note} "
                     "Return a JSON array of objects with keys: input_title, english_title, release_year, "
                     "original_title, director, country, confidence. Use null for unknown fields. Return only JSON.\n\n"
-                    "Titles:\n" + "\n".join(f"- {title}" for title in batch)
+                    "Titles:\n" + "\n".join(f"- {title}{_hint_suffix(title)}" for title in batch)
                 )
                 max_tokens = min(12288, max(2048, 512 * len(batch)))
 
@@ -420,6 +443,21 @@ class AIEnrichmentClient:
                 print(f"   AI response parse failed. Preview: {preview}")
                 continue
 
+            batch_set = set(batch)
+
+            def _reconcile(key: str) -> str:
+                # If the model echoed the [known: …] hint (or partial title) into
+                # input_title, map it back to the exact batch title it belongs to.
+                if key in batch_set:
+                    return key
+                stripped = re.sub(r"\s*\[known:.*$", "", key).strip()
+                if stripped in batch_set:
+                    return stripped
+                for cand in batch:
+                    if cand and (key.startswith(cand) or cand.startswith(key)):
+                        return cand
+                return key
+
             for entry in parsed:
                 input_title = entry.get("input_title") or entry.get(language_key) or entry.get("title")
                 if not input_title and len(batch) == 1:
@@ -427,7 +465,7 @@ class AIEnrichmentClient:
                 normalized = normalize_resolution_entry(entry, str(input_title or ""), language_key)
                 if not normalized:
                     continue
-                result_key = normalized.pop("input_title")
+                result_key = _reconcile(str(normalized.pop("input_title")))
                 normalized["ai_provider"] = self.provider
                 normalized["last_ai_attempt_at"] = utc_now_iso()
                 results[str(result_key)] = normalized

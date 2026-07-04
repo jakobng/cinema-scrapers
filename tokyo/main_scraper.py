@@ -246,7 +246,7 @@ report = ScrapeReport()
 # could rescue previously-unmatched titles. On the next run the scraper drops the
 # cached "not found" (null) entries once so they are re-searched with the better
 # query (see reset_stale_tmdb_nulls). Confirmed matches are always preserved.
-CLEAN_TITLE_VERSION = 2
+CLEAN_TITLE_VERSION = 3
 
 
 def clean_title_for_tmdb(title: str) -> str:
@@ -287,33 +287,51 @@ def clean_title_for_tmdb(title: str) -> str:
         # Trailing version annotations, e.g. "（long version）" / "（オリジナル版）".
         r"\s*[（(]\s*(?:long|short|full|original|theatrical|extended|uncut|remastered|restored)\s*(?:version|ver\.?|cut|edition)?\s*[)）]\s*$",
         r"\s*[（(](?:ロング|ショート|オリジナル|劇場|完全)?(?:バージョン|ヴァージョン|版)[)）]\s*$",
+        # Trailing re-release year annotation, e.g. "サムライ（1967）" / "罠(1949)".
+        r"\s*[（(]\s*(?:19|20)\d{2}\s*[)）]\s*$",
         r"\s*(?:字幕|吹替)\s*$",
+        # Anniversary suffixes: "25周年特別版", "公開20周年記念", "10周年記念上映".
+        r"\s*(?:公開)?\d+周年(?:記念|特別)*(?:版|上映|上映版)?\s*$",
         r"\s*(?:公開\d+周年記念版|\d+周年記念版|\d+周年記念)\s*$",
         r"\s*(?:復刻版|再上映)\s*$",
         r"\s*(?:G|PG12|R15\+|R18\+)\s*$",
     ]
 
-    for pat in patterns:
-        cleaned = re.sub(pat, "", cleaned, flags=re.IGNORECASE)
+    def _strip_pass(text: str) -> str:
+        # Leading full 【…】/［…］ decoration bracket (e.g. a festival-series prefix
+        # like "【監督特集】" or "【驚くべき世界】"), even without a decoration keyword —
+        # but only when a plausible title (>=2 chars) remains, so we never eat a whole
+        # title. Uses [^【】] so nested/adjacent brackets aren't merged into one match.
+        lead = re.match(r"^\s*(?:【[^【】]+】|［[^［］]+］)\s*(.+)$", text)
+        if lead and len(lead.group(1).strip()) >= 2:
+            text = lead.group(1).strip()
+        for pat in patterns:
+            text = re.sub(pat, "", text, flags=re.IGNORECASE)
+        text = text.strip()
+        # Drop Japanese quotation brackets (『』「」) that scraped titles carry but
+        # TMDB never does — only when they cleanly WRAP the whole title, or are a
+        # genuine ORPHAN (opener with no closer / closer with no opener). Never touch
+        # internal or balanced multi-part brackets, which belong to event titles.
+        wrap = re.match(r"^『(.+)』$", text) or re.match(r"^「(.+)」$", text)
+        if wrap and "』" not in wrap.group(1) and "」" not in wrap.group(1):
+            text = wrap.group(1).strip()
+        if text.startswith("『") and "』" not in text:
+            text = text[1:].strip()
+        elif text.startswith("「") and "」" not in text:
+            text = text[1:].strip()
+        if text.endswith("』") and "『" not in text:
+            text = text[:-1].strip()
+        elif text.endswith("」") and "「" not in text:
+            text = text[:-1].strip()
+        return text
 
-    # Cleanup whitespace
-    cleaned = cleaned.strip()
-
-    # Drop Japanese quotation brackets (『』「」) that scraped titles carry but TMDB
-    # never does — only when they cleanly WRAP the whole title, or are a genuine
-    # ORPHAN (opener with no closer / closer with no opener). Never touch internal or
-    # balanced multi-part brackets, which belong to event/compilation titles.
-    wrap = re.match(r"^『(.+)』$", cleaned) or re.match(r"^「(.+)」$", cleaned)
-    if wrap and "』" not in wrap.group(1) and "」" not in wrap.group(1):
-        cleaned = wrap.group(1).strip()
-    if cleaned.startswith("『") and "』" not in cleaned:
-        cleaned = cleaned[1:].strip()
-    elif cleaned.startswith("「") and "」" not in cleaned:
-        cleaned = cleaned[1:].strip()
-    if cleaned.endswith("』") and "『" not in cleaned:
-        cleaned = cleaned[:-1].strip()
-    elif cleaned.endswith("」") and "「" not in cleaned:
-        cleaned = cleaned[:-1].strip()
+    # Iterate: a wrap like "『サムライ 4Kレストア』" only exposes its trailing decoration
+    # ("4Kレストア") to the suffix strippers after the 『』 unwrap, so re-run until stable.
+    for _ in range(3):
+        stripped = _strip_pass(cleaned)
+        if stripped == cleaned:
+            break
+        cleaned = stripped
 
     # If cleaning removed everything (unlikely), revert
     if not cleaned:
@@ -332,6 +350,45 @@ def load_tmdb_cache():
 
 def save_tmdb_cache(cache):
     _write_json_file(TMDB_CACHE_FILE, cache, sort_keys=True)
+
+
+# Markers that a listing is a RE-ISSUE (restoration / remaster / anniversary
+# revival) of an older film. For these the listing's `year` is the re-release
+# year (e.g. 2026), not the film's real year, so the year filter/scoring must not
+# use it — TMDB's copy is dated to the original release.
+_REISSUE_MARKER_RE = re.compile(
+    r"レストア|リマスター|修復|復刻|ﾃﾞｼﾞﾀﾙ|4Kデジタル|2Kデジタル|"
+    r"\d+周年|アニバーサリー|Anniversary|Restored|Remaster",
+    re.IGNORECASE,
+)
+
+
+def _is_reissue_title(raw_title: str) -> bool:
+    """True when the raw scraped title advertises a restoration/anniversary revival,
+    so the re-release year in the listing should be ignored for TMDB matching."""
+    if not raw_title:
+        return False
+    normalized = raw_title.replace("４Ｋ", "4K").replace("２Ｋ", "2K")
+    return bool(_REISSUE_MARKER_RE.search(normalized))
+
+
+# Edition/format annotations the AI sometimes appends to an English title, e.g.
+# "In the Mood for Love (25th Anniversary Special Edition)" or "The Gift (4K
+# Restored Version)". They poison the TMDB search, so drop a trailing parenthetical
+# that is clearly such an annotation (never a real subtitle).
+_AI_TITLE_ANNOTATION_RE = re.compile(
+    r"\s*[（(][^（()）]*\b(?:4K|2K|restored|restoration|remaster(?:ed)?|"
+    r"anniversary|special\s+edition|edition|version|digital|director'?s\s+cut|"
+    r"uncut|remux)\b[^（()）]*[)）]\s*$",
+    re.IGNORECASE,
+)
+
+
+def _strip_ai_title_annotation(english_title: str) -> str:
+    if not english_title:
+        return english_title
+    stripped = _AI_TITLE_ANNOTATION_RE.sub("", english_title).strip()
+    return stripped or english_title
 
 
 def _load_clean_title_version() -> int:
@@ -2051,6 +2108,7 @@ def _attempt_tmdb_with_english_title(
 ):
     if not english_title:
         return None
+    english_title = _strip_ai_title_annotation(english_title)
     resolved_info = dict(title_info)
     resolved_info["movie_title_en"] = english_title
     if release_year:
@@ -2145,7 +2203,18 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
             continue
         
         print(f"   🔍 Searching TMDB for: {title}")
-        details = fetch_tmdb_details(info, session, api_key, require_year_match=True, year_tolerance=0)
+        # Re-issues (4K restorations, anniversary revivals) list the RE-RELEASE year,
+        # not the film's year, so the hard year filter would reject the real (old)
+        # TMDB entry. Blank the year for these and let the title/runtime/director
+        # acceptance gate carry the match instead.
+        search_info = info
+        if _is_reissue_title(title) and info.get("year"):
+            search_info = dict(info)
+            search_info["year"] = ""
+            print(f"      ↺ Re-issue detected; ignoring listing year {info.get('year')!r} for match.")
+            details = fetch_tmdb_details(search_info, session, api_key, require_year_match=False)
+        else:
+            details = fetch_tmdb_details(search_info, session, api_key, require_year_match=True, year_tolerance=0)
         
         if details:
             _store_tmdb_cache_entry(cache, tmdb_alias_index, title, details)
@@ -2280,12 +2349,25 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
 
     if ai_client and ai_resolve_titles and titles_to_resolve and ai_client.health_check():
         print(f"   🤖 Resolving English titles with AI for {len(titles_to_resolve)} titles...")
+        # Feed the AI the director/year/country the listing already carries — for
+        # JP-titled repertory classics this is the difference between a hit and a null.
+        resolve_hints = {}
+        for t in titles_to_resolve:
+            info = title_info.get(t, {})
+            hint = {
+                "director": info.get("director") or info.get("director_jp") or info.get("director_en"),
+                "year": info.get("year"),
+                "country": info.get("country"),
+            }
+            if any(hint.values()):
+                resolve_hints[t] = hint
         resolutions = ai_client.resolve_titles(
             titles_to_resolve,
             source_language="Japanese",
             language_key="jp_title",
             batch_size=ai_batch_size,
             use_search_tool=ai_use_search_tool,
+            hints=resolve_hints,
         )
 
         for title, entry in resolutions.items():
