@@ -108,6 +108,20 @@ def test_ai_title_annotation_stripped():
         assert m._strip_ai_title_annotation(keep) == keep, keep
 
 
+def test_ai_year_match_rejects_dateless_historical():
+    from datetime import datetime, timezone
+    now = datetime.now(timezone.utc).year
+    # AI dated the film to a historical year but the TMDB candidate has no release
+    # date (unreleased/post-production) — must reject (this is the ゴーレム/Golem bug).
+    assert m._gemini_year_matches({"release_date": ""}, 1979, "Golem") is False
+    # A current/recent film may legitimately lack a TMDB date yet still be the film.
+    assert m._gemini_year_matches({"release_date": None}, now, "X") is True
+    assert m._gemini_year_matches({"release_date": None}, now - 1, "X") is True
+    # Exact dated matches still pass; far-off dated years still fail.
+    assert m._gemini_year_matches({"release_date": "1954-04-30"}, 1954, "Executive Suite") is True
+    assert m._gemini_year_matches({"release_date": "1980-01-01"}, 1978, "X") is False
+
+
 def test_reset_clears_nulls_once_and_preserves_hits():
     d = tempfile.mkdtemp()
     orig_cache, orig_meta = m.TMDB_CACHE_FILE, m.TMDB_CACHE_META_FILE
