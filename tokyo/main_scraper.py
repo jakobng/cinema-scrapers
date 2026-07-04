@@ -1796,7 +1796,12 @@ def _gemini_year_matches(details, release_year, english_title=None):
         return True
     tmdb_year = _parse_year(details.get("release_date"))
     if not tmdb_year:
-        return True
+        # No release date usually means an unreleased / post-production TMDB record.
+        # If the AI dated the film to a clearly historical year, this can't be that
+        # entry, so reject — otherwise a generic exact-title match (e.g. "Golem")
+        # links an old film to an unrelated same-named in-production title. Allow the
+        # current/last year, where TMDB data can legitimately lag.
+        return release_year >= datetime.now(timezone.utc).year - 1
     diff = abs(tmdb_year - release_year)
     if diff == 0:
         return True
