@@ -1537,6 +1537,35 @@
     "status": "review",
     "updated_at": "2026-07-06T23:34:22.658575+00:00"
   },
+  "delphineetcarole,insoumuses::2020::68::カリストマクナルティー": {
+    "candidate": {
+      "director": "カリスト・マクナルティー",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "68",
+      "score": 18,
+      "support": 2,
+      "title": "デルフィーヌとキャロル",
+      "url": "https://filmarks.com/movies/87848",
+      "year": ""
+    },
+    "candidate_count": 31,
+    "filmarks_url": "https://filmarks.com/movies/87848",
+    "query": "Delphine et Carole, insoumuses",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=Delphine%20et%20Carole%2C%20insoumuses",
+    "status": "accepted",
+    "updated_at": "2026-07-11T23:14:27.564987+00:00"
+  },
   "delphineetcarole,insoumuses::2020::71::callistomcnulty": {
     "candidate": {
       "director": "カリスト・マクナルティー",
@@ -6086,6 +6115,37 @@
     "status": "review",
     "updated_at": "2026-06-09T23:44:23.340584+00:00"
   },
+  "pathaanパターン::2023::146::シッダールトアーナンド": {
+    "candidate": {
+      "director": "シッダールト・アーナンド",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "146",
+      "score": 21,
+      "support": 3,
+      "title": "PATHAAN／パターン",
+      "url": "https://filmarks.com/movies/106559",
+      "year": "2023"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "https://filmarks.com/movies/106559",
+    "query": "PATHAAN／パターン",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=PATHAAN%EF%BC%8F%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3",
+    "status": "accepted",
+    "updated_at": "2026-07-11T23:14:29.187001+00:00"
+  },
   "peakend::2025::120::シンチェリン": {
     "candidate": {
       "director": "シン・チェリン",
@@ -10083,6 +10143,18 @@
     "status": "not_found",
     "updated_at": "2026-06-07T05:12:47.440291+00:00"
   },
+  "டூரிஸ்ட்ஃபாமிலி::2025::127::アビシャンジーヴィント": {
+    "candidate": null,
+    "candidate_count": 0,
+    "filmarks_url": "",
+    "query": "டூரிஸ்ட் ஃபாமிலி",
+    "query_field": "clean_title_jp",
+    "reasons": [],
+    "score": null,
+    "search_url": "https://filmarks.com/search/movies?q=%E0%AE%9F%E0%AF%82%E0%AE%B0%E0%AE%BF%E0%AE%B8%E0%AF%8D%E0%AE%9F%E0%AF%8D%20%E0%AE%83%E0%AE%AA%E0%AE%BE%E0%AE%AE%E0%AE%BF%E0%AE%B2%E0%AE%BF",
+    "status": "not_found",
+    "updated_at": "2026-07-11T23:14:31.789344+00:00"
+  },
   "டூரிஸ்ட்ஃபாமிலி::2025::128::abishanjeevinth": {
     "candidate": null,
     "candidate_count": 0,
@@ -12922,6 +12994,35 @@
     "status": "accepted",
     "updated_at": "2026-06-07T05:08:59.813721+00:00"
   },
+  "ひろしま::1953::104::関川秀雄": {
+    "candidate": {
+      "director": "関川秀雄",
+      "reasons": [
+        "title_exact",
+        "runtime_mismatch",
+        "director"
+      ],
+      "runtime": "109",
+      "score": 11,
+      "support": 1,
+      "title": "ひろしま",
+      "url": "https://filmarks.com/movies/16071",
+      "year": ""
+    },
+    "candidate_count": 19,
+    "filmarks_url": "",
+    "query": "ひろしま",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_mismatch",
+      "director"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%B2%E3%82%8D%E3%81%97%E3%81%BE",
+    "status": "review",
+    "updated_at": "2026-07-11T23:14:35.003515+00:00"
+  },
   "ほどなく、お別れです::2026::124::三木孝浩": {
     "candidate": {
       "director": "三木孝浩",
@@ -13708,6 +13809,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%A2%E3%82%AE%E3%83%BC%E3%83%AC%EF%BC%8F%E7%A5%9E%E3%81%AE%E6%80%92%E3%82%8A",
     "status": "review",
     "updated_at": "2026-06-12T00:04:58.416554+00:00"
+  },
+  "アジアのユニークな国::2025::77::山内ケンジ": {
+    "candidate": {
+      "director": "山内ケンジ",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "77",
+      "score": 21,
+      "support": 3,
+      "title": "アジアのユニークな国",
+      "url": "https://filmarks.com/movies/122427",
+      "year": "2025"
+    },
+    "candidate_count": 19,
+    "filmarks_url": "https://filmarks.com/movies/122427",
+    "query": "アジアのユニークな国",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%A2%E3%82%B8%E3%82%A2%E3%81%AE%E3%83%A6%E3%83%8B%E3%83%BC%E3%82%AF%E3%81%AA%E5%9B%BD",
+    "status": "accepted",
+    "updated_at": "2026-07-11T23:14:33.829243+00:00"
   },
   "アダムの原罪::2025::79::ローラワンデル": {
     "candidate": {
@@ -20241,6 +20373,37 @@
     "status": "review",
     "updated_at": "2026-06-30T23:38:29.369216+00:00"
   },
+  "デッドマンズワイヤー::2026::105::ガスヴァンサント": {
+    "candidate": {
+      "director": "ガス・ヴァン・サント",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "105",
+      "score": 21,
+      "support": 3,
+      "title": "デッドマンズ・ワイヤー",
+      "url": "https://filmarks.com/movies/126056",
+      "year": "2026"
+    },
+    "candidate_count": 35,
+    "filmarks_url": "https://filmarks.com/movies/126056",
+    "query": "デッドマンズ・ワイヤー",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%87%E3%83%83%E3%83%89%E3%83%9E%E3%83%B3%E3%82%BA%E3%83%BB%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC",
+    "status": "accepted",
+    "updated_at": "2026-07-11T23:14:40.375377+00:00"
+  },
   "デルフィーヌとキャロル::2019::68::カリストマクナルティー": {
     "candidate": {
       "director": "カリスト・マクナルティー",
@@ -24694,6 +24857,37 @@
     "status": "review",
     "updated_at": "2026-06-11T07:52:37.388350+00:00"
   },
+  "ユージュアルサスペクツ::1995::105::ブライアンシンガー": {
+    "candidate": {
+      "director": "ブライアン・シンガー",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "105",
+      "score": 12,
+      "support": 2,
+      "title": "ユージュアル・サスペクツ",
+      "url": "https://filmarks.com/movies/18944",
+      "year": "1996"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "https://filmarks.com/movies/18944",
+    "query": "ユージュアル・サスペクツ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%A6%E3%83%BC%E3%82%B8%E3%83%A5%E3%82%A2%E3%83%AB%E3%83%BB%E3%82%B5%E3%82%B9%E3%83%9A%E3%82%AF%E3%83%84",
+    "status": "accepted",
+    "updated_at": "2026-07-11T23:14:24.294463+00:00"
+  },
   "ユースフルゴースト::2025::130::ラッチャプームブンバンチャーチョーク": {
     "candidate": {
       "director": "ラッチャプーム・ブンバンチャーチョーク",
@@ -25677,6 +25871,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%AD%E3%83%99%E3%83%BC%E3%83%AB%E3%83%BB%E3%83%96%E3%83%AC%E3%83%83%E3%82%BD%E3%83%B3%E5%82%91%E4%BD%9C%E9%81%B8",
     "status": "review",
     "updated_at": "2026-07-09T23:37:57.932971+00:00"
+  },
+  "ロボットカーニバル::1987::90::大友克洋、森本晃司、大森英敏、梅津泰臣、北爪宏幸、マオラムド、北久保弘之、なかむらたかし": {
+    "candidate": {
+      "director": "大友克洋",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "90",
+      "score": 8,
+      "support": 1,
+      "title": "ロボットカーニバル",
+      "url": "https://filmarks.com/movies/55960",
+      "year": ""
+    },
+    "candidate_count": 30,
+    "filmarks_url": "",
+    "query": "ロボット・カーニバル",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 8,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E3%83%BB%E3%82%AB%E3%83%BC%E3%83%8B%E3%83%90%E3%83%AB",
+    "status": "review",
+    "updated_at": "2026-07-11T23:14:30.504210+00:00"
   },
   "ロングウォーク::2025::108::フランシスローレンス": {
     "candidate": {
@@ -29127,6 +29350,31 @@
     "search_url": "https://filmarks.com/search/movies?q=%E5%8D%97%E3%81%AE%E5%B3%B6%E3%81%AB%E9%9B%AA%E3%81%8C%E9%99%8D%E3%82%8B",
     "status": "accepted",
     "updated_at": "2026-06-19T00:14:07.385518+00:00"
+  },
+  "原爆資料館語り継ぐものたち::::::": {
+    "candidate": {
+      "director": "ヨルゴス・ランティモス",
+      "reasons": [
+        "title_miss"
+      ],
+      "runtime": "141",
+      "score": -10,
+      "support": 0,
+      "title": "哀れなるものたち",
+      "url": "https://filmarks.com/movies/109937",
+      "year": "2024"
+    },
+    "candidate_count": 27,
+    "filmarks_url": "",
+    "query": "原爆資料館 語り継ぐものたち",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss"
+    ],
+    "score": -10,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%8E%9F%E7%88%86%E8%B3%87%E6%96%99%E9%A4%A8%20%E8%AA%9E%E3%82%8A%E7%B6%99%E3%81%90%E3%82%82%E3%81%AE%E3%81%9F%E3%81%A1",
+    "status": "review",
+    "updated_at": "2026-07-11T23:14:32.477386+00:00"
   },
   "友だちのうちはどこ?::1987::83::عباسکیارستمی": {
     "candidate": {
@@ -37204,6 +37452,33 @@
     "status": "review",
     "updated_at": "2026-06-23T23:32:51.273385+00:00"
   },
+  "残響のメロディ魂の放浪者ニコ、最後の旅路::::::スザンナニッキャレッリ": {
+    "candidate": {
+      "director": "スザンナ・ニッキャレッリ",
+      "reasons": [
+        "title_exact",
+        "director"
+      ],
+      "runtime": "93",
+      "score": 15,
+      "support": 1,
+      "title": "残響のメロディ 魂の放浪者ニコ、最後の旅路",
+      "url": "https://filmarks.com/movies/82099",
+      "year": "2026"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "https://filmarks.com/movies/82099",
+    "query": "残響のメロディ魂の放浪者ニコ、最後の旅路",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "director"
+    ],
+    "score": 15,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%AE%8B%E9%9F%BF%E3%81%AE%E3%83%A1%E3%83%AD%E3%83%87%E3%82%A3%E9%AD%82%E3%81%AE%E6%94%BE%E6%B5%AA%E8%80%85%E3%83%8B%E3%82%B3%E3%80%81%E6%9C%80%E5%BE%8C%E3%81%AE%E6%97%85%E8%B7%AF",
+    "status": "accepted",
+    "updated_at": "2026-07-11T23:14:37.430748+00:00"
+  },
   "殺しの分け前ポイントブランク::1967::92::ジョンブアマン": {
     "candidate": {
       "director": "ジョン・ブアマン",
@@ -38652,6 +38927,33 @@
     "search_url": "https://filmarks.com/search/movies?q=%E7%84%A1%E3%81%93%E3%81%9D%E3%81%AE%E5%AD%98%E5%9C%A8%20%E3%81%82%E3%82%8B%E3%81%84%E3%81%AF%E9%AE%8E%E5%AD%90%E3%81%AE%E4%BA%BA%E7%94%9F",
     "status": "review",
     "updated_at": "2026-06-07T05:09:02.547367+00:00"
+  },
+  "無こその存在あるいは鮎子の人生::::::gentakahashi": {
+    "candidate": {
+      "director": "GEN TAKAHASHI",
+      "reasons": [
+        "title_miss",
+        "director"
+      ],
+      "runtime": "99",
+      "score": -5,
+      "support": 1,
+      "title": "無こその存在、あるいは鮎子の人生",
+      "url": "https://filmarks.com/movies/123818",
+      "year": ""
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "無こその存在 あるいは鮎子の人生",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "director"
+    ],
+    "score": -5,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%84%A1%E3%81%93%E3%81%9D%E3%81%AE%E5%AD%98%E5%9C%A8%20%E3%81%82%E3%82%8B%E3%81%84%E3%81%AF%E9%AE%8E%E5%AD%90%E3%81%AE%E4%BA%BA%E7%94%9F",
+    "status": "review",
+    "updated_at": "2026-07-11T23:14:38.952610+00:00"
   },
   "無能の人::1991::107::竹中直人": {
     "candidate": {
@@ -44147,6 +44449,37 @@
     "status": "accepted",
     "updated_at": "2026-06-20T23:35:38.360191+00:00"
   },
+  "鉄コン筋クリート::2006::111::マイケルアリアス": {
+    "candidate": {
+      "director": "マイケル・アリアス",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "111",
+      "score": 21,
+      "support": 3,
+      "title": "鉄コン筋クリート",
+      "url": "https://filmarks.com/movies/671",
+      "year": "2006"
+    },
+    "candidate_count": 29,
+    "filmarks_url": "https://filmarks.com/movies/671",
+    "query": "鉄コン筋クリート",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%89%84%E3%82%B3%E3%83%B3%E7%AD%8B%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%88",
+    "status": "accepted",
+    "updated_at": "2026-07-11T23:14:26.208694+00:00"
+  },
   "鍵::2026::94::いまおかしんじ": {
     "candidate": {
       "director": "いまおかしんじ",
@@ -44287,6 +44620,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E9%95%B7%E7%AF%A0",
     "status": "accepted",
     "updated_at": "2026-06-20T23:35:56.688938+00:00"
+  },
+  "間諜スパイ中野学校国籍のない男たち::1964::90::野口晴康": {
+    "candidate": {
+      "director": "野口晴康",
+      "reasons": [
+        "title_exact",
+        "runtime_near",
+        "director"
+      ],
+      "runtime": "92",
+      "score": 16,
+      "support": 2,
+      "title": "間諜（スパイ）中野学校 国籍のない男たち",
+      "url": "https://filmarks.com/movies/1482",
+      "year": ""
+    },
+    "candidate_count": 29,
+    "filmarks_url": "https://filmarks.com/movies/1482",
+    "query": "間諜(スパイ)中野学校国籍のない男たち",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_near",
+      "director"
+    ],
+    "score": 16,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%96%93%E8%AB%9C%28%E3%82%B9%E3%83%91%E3%82%A4%29%E4%B8%AD%E9%87%8E%E5%AD%A6%E6%A0%A1%E5%9B%BD%E7%B1%8D%E3%81%AE%E3%81%AA%E3%81%84%E7%94%B7%E3%81%9F%E3%81%A1",
+    "status": "accepted",
+    "updated_at": "2026-07-11T23:14:36.226501+00:00"
   },
   "関心領域::2023::13::ジョナサングレイザー": {
     "candidate": {
