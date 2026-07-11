@@ -50172,21 +50172,6 @@
     ],
     "vote_average": 7.4
   },
-  "Booksmart (2019)": {
-    "tmdb_id": 505600,
-    "tmdb_title": "Booksmart",
-    "tmdb_original_title": "Booksmart",
-    "overview": "Two academic teenage superstars realize, on the eve of their high school graduation, that they should have worked less and played more. Determined to never fall short of their peers, the girls set out on a mission to cram four years of fun into one night.",
-    "poster_path": "/2aSxRDmisJP90H3S0aocyuQIe4z.jpg",
-    "backdrop_path": "/cheDSO3mYmsAFQlRM91o7MK6Wcc.jpg",
-    "release_date": "2019-05-24",
-    "director": "Olivia Wilde",
-    "runtime": 102,
-    "genres": [
-      "Comedy"
-    ],
-    "vote_average": 7.008
-  },
   "Out Of Print": {
     "tmdb_id": 297624,
     "tmdb_title": "Out of Print",
@@ -50356,6 +50341,22 @@
     ],
     "vote_average": 5.6
   },
+  "Phoenix Classics: Taxi Driver (50th Anniversary)": {
+    "tmdb_id": 103,
+    "tmdb_title": "Taxi Driver",
+    "tmdb_original_title": "Taxi Driver",
+    "overview": "Suffering from insomnia, disturbed loner Travis Bickle takes a job as a New York City cabbie, haunting the streets nightly, growing increasingly detached from reality as he dreams of cleaning up the filthy city.",
+    "poster_path": "/ekstpH614fwDX8DUln1a2Opz0N8.jpg",
+    "backdrop_path": "/9uddYYTNcLWpzUkl5iw1RUYhLhY.jpg",
+    "release_date": "1976-02-09",
+    "director": "Martin Scorsese",
+    "runtime": 114,
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "vote_average": 8.124
+  },
   "Cactus Pears": null,
   "Pitchblack Playback: Thom Yorke 'The Eraser' (20th Anniversary)": null,
   "Pitchblack Playback: Joni Mitchell 'Blue' (55th Anniversary)": {
@@ -50373,9 +50374,8 @@
     ],
     "vote_average": 0.0
   },
-  "Parent and Baby: Disclosure Day": null,
-  "Parent and Baby: Shoot the People": null,
-  "The Girls (Gehenu Lamai): New Restoration": null,
+  "Tutti Frutti (LFS Favourites)": null,
+  "Kokuho": null,
   "Taxi Driver - 50th anniversary": {
     "tmdb_id": 103,
     "tmdb_title": "Taxi Driver",
@@ -50392,8 +50392,6 @@
     ],
     "vote_average": 8.124
   },
-  "Tutti Frutti (LFS Favourites)": null,
-  "Kokuho": null,
   "Kapodistrias - The Governor": null,
   "Days and Nights in the Forest: New Restoration + Pre-recorded introduction by Wes Anderson": null,
   "La Parra": null,
@@ -50429,25 +50427,28 @@
       "Science Fiction",
       "Thriller"
     ],
-    "vote_average": 7.813
+    "vote_average": 7.814
   },
   "Wallace & Gromit: A Grand Day Out, The Wrong Trousers, A Close Shave": null,
   "City Lights presents Bend It Like Beckham": null,
-  "Land & Freedom": {
-    "tmdb_id": 598896,
-    "tmdb_title": "Land",
-    "tmdb_original_title": "Land",
-    "overview": "Edee, in the aftermath of an unfathomable event, finds herself unable to stay connected to the world she once knew and in the face of that uncertainty, retreats to the magnificent, but unforgiving, wilds of the Rockies. After a local hunter brings her back from the brink of death, she must find a way to live again.",
-    "poster_path": "/6pYhDPzYPGKvDYpxdf0IUE3RDAS.jpg",
-    "backdrop_path": "/2ZzmfwgvVh2KLH4A8HMzX5TytAc.jpg",
-    "release_date": "2021-02-12",
-    "director": "Robin Wright",
-    "runtime": 89,
+  "A Chinese Ghost Story": {
+    "tmdb_id": 30421,
+    "tmdb_title": "A Chinese Ghost Story",
+    "tmdb_original_title": "倩女幽魂",
+    "overview": "A naïve young tax collector for the imperial government winds up spending the night in a haunted temple. There he falls in love with a beautiful woman who, unfortunately, is dead. With the aid of a powerful Daoist Swordsman, he must defeat undead hordes, overcome a sinister Tree Demoness, and descend to the pits of hell, to fight for the spirit he loves.",
+    "poster_path": "/oZitiEjIm1jjsB4bTIEZkawhMpx.jpg",
+    "backdrop_path": "/8qDJ594juzFixXFhDumgU1xhdbZ.jpg",
+    "release_date": "1987-07-18",
+    "director": "Tony Ching Siu-Tung",
+    "runtime": 95,
     "genres": [
-      "Drama"
+      "Fantasy",
+      "Action"
     ],
-    "vote_average": 6.708
+    "vote_average": 7.323
   },
+  "Parent and Baby: Disclosure Day": null,
+  "Parent and Baby: Shoot the People": null,
   "Hands on a Hardbody": {
     "tmdb_id": 18603,
     "tmdb_title": "Hands on a Hardbody: The Documentary",
@@ -50463,7 +50464,52 @@
     ],
     "vote_average": 7.543
   },
-  "Blade Runner : Double Feature": null,
+  "Flavors of Iraq": {
+    "tmdb_id": 698780,
+    "tmdb_title": "Flavors of Iraq",
+    "tmdb_original_title": "Le parfum d'Irak",
+    "overview": "The Fatiha is the first sura of the Koran. In Muslim tradition, it is also the name used for the ceremony to pay tribute to the deceased. Today, it's Amir’s Fatiha, Feurat Alani’s father, a French and Iraqi journalist. It’s the opportunity for his friends and family to reflect on Amir's story, and for Feurat to revisit his own story and Iraq's history.",
+    "poster_path": "/55zRo09f2VRm0Kjp53AAK3EKEPW.jpg",
+    "backdrop_path": "/ewy7wsWC72D2Ue92Hls63rBZqR8.jpg",
+    "release_date": "2024-06-10",
+    "director": "Léonard Cohen",
+    "runtime": 95,
+    "genres": [
+      "Animation",
+      "Documentary"
+    ],
+    "vote_average": 9.0
+  },
+  "Ask E. Jean": {
+    "tmdb_id": 1535470,
+    "tmdb_title": "Ask E. Jean",
+    "tmdb_original_title": "Ask E. Jean",
+    "overview": "The thrilling story of E. Jean Carroll’s life, from her early days as Miss Cheerleader USA to her rise as a trailblazing journalist, author, and beloved advice columnist. Carroll broke barriers as the first female editor at Esquire, Playboy, and Outside, helping to redefine women’s roles in media with her sharp wit and fearless voice. In recent years, she reignited public discourse by standing up to power, becoming the only woman to beat Donald Trump twice in court, and sparking a national conversation about truth, accountability, and resilience. A portrait of an indomitable woman who proved it’s never too late to reclaim your voice, rewrite your story, and change the world.",
+    "poster_path": "/yFZ40JJcjJM7u5tfZFFb9lrF6Yt.jpg",
+    "backdrop_path": "/sa5JxP37pQs2pGdebBcqFqZzkUe.jpg",
+    "release_date": "2026-05-22",
+    "director": "Ivy Meeropol",
+    "runtime": 91,
+    "genres": [
+      "Documentary"
+    ],
+    "vote_average": 10.0
+  },
+  "Land & Freedom": {
+    "tmdb_id": 598896,
+    "tmdb_title": "Land",
+    "tmdb_original_title": "Land",
+    "overview": "Edee, in the aftermath of an unfathomable event, finds herself unable to stay connected to the world she once knew and in the face of that uncertainty, retreats to the magnificent, but unforgiving, wilds of the Rockies. After a local hunter brings her back from the brink of death, she must find a way to live again.",
+    "poster_path": "/6pYhDPzYPGKvDYpxdf0IUE3RDAS.jpg",
+    "backdrop_path": "/2ZzmfwgvVh2KLH4A8HMzX5TytAc.jpg",
+    "release_date": "2021-02-12",
+    "director": "Robin Wright",
+    "runtime": 89,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 6.708
+  },
   "Amelie - 25th Anniversary": {
     "tmdb_id": 194,
     "tmdb_title": "Amélie",
@@ -50518,32 +50564,83 @@
     ],
     "vote_average": 6.349
   },
-  "If I Could Tell You (Closed Caption, Relax Screening) - London Indian Film Festival": null,
-  "World Cup- England vs. Norway": null,
-  "Britain through South Asian Eyes - London Indian Film Festival": null,
-  "Ghost In The Shell presented by the Cult Classic Collective": null,
+  "Shampoo": {
+    "tmdb_id": 31121,
+    "tmdb_title": "Shampoo",
+    "tmdb_original_title": "Shampoo",
+    "overview": "On Election Day, 1968, irresponsible hairdresser and ladies' man George Roundy is too busy cutting hair and dealing with his girlfriends and mistress Felicia Karpf, whose husband Lester is having an affair with his ex-girlfriend Jackie.",
+    "poster_path": "/6jmFvXPV6OhtX3AkAVnH7rwdeUJ.jpg",
+    "backdrop_path": "/2sDMMLK2A1aHh52abYRnzlTBy6t.jpg",
+    "release_date": "1975-02-11",
+    "director": "Hal Ashby",
+    "runtime": 110,
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "vote_average": 6.039
+  },
+  "Troll 2 (1990)": {
+    "tmdb_id": 26914,
+    "tmdb_title": "Troll 2",
+    "tmdb_original_title": "Troll 2",
+    "overview": "When young Joshua learns that he will be going on vacation with his family to a small town called Nilbog, he protests adamantly. He is warned by the spirit of his deceased grandfather that goblins populate the town. His parents, Michael and Diana, dismiss his apprehensions, but soon learn to appreciate their son's warnings. Guided by his grandfather's ghost, will Joshua and his family stand a chance in fighting off these evil beings?",
+    "poster_path": "/eFth6zw4PEInzr2Y64mYVN1zbBi.jpg",
+    "backdrop_path": "/iGSkacZfUs3eJyg78XxKjT99Hfw.jpg",
+    "release_date": "1990-10-12",
+    "director": "Claudio Fragasso",
+    "runtime": 95,
+    "genres": [
+      "Horror",
+      "Fantasy"
+    ],
+    "vote_average": 3.928
+  },
   "RIO FOREVER X QUEER HORROR NIGHTS: LITTLE SHOP OF HORRORS (DIRECTOR’S CUT)": null,
   "Classic Matinee: THE FULL MONTY": null,
   "RIO FOREVER / NEVER EVER: BLOOD AND BONES": null,
   "Slacker Shakespeare: SHAKESPEARE IN LOVE": null,
   "Pink Palace: Jean Cocteau – The Blood of a Poet + shorts": null,
   "Divine Hammer (UK Premiere)": null,
-  "Phoenix Classics: Taxi Driver (50th Anniversary)": {
-    "tmdb_id": 103,
-    "tmdb_title": "Taxi Driver",
-    "tmdb_original_title": "Taxi Driver",
-    "overview": "Suffering from insomnia, disturbed loner Travis Bickle takes a job as a New York City cabbie, haunting the streets nightly, growing increasingly detached from reality as he dreams of cleaning up the filthy city.",
-    "poster_path": "/ekstpH614fwDX8DUln1a2Opz0N8.jpg",
-    "backdrop_path": "/9uddYYTNcLWpzUkl5iw1RUYhLhY.jpg",
-    "release_date": "1976-02-09",
-    "director": "Martin Scorsese",
-    "runtime": 114,
+  "Mother City": {
+    "tmdb_id": 1300330,
+    "tmdb_title": "Mother City",
+    "tmdb_original_title": "Mother City",
+    "overview": "Filmed over six years, Mother City follows the David versus Goliath battle as activists and domestic workers take on property power and politics in Cape Town – a city still disfigured by spatial apartheid 30 years into democracy. The story begins when the government sells a school, meant for affordable housing, to a private developer. Set against the backdrop of one of the most beautiful cities in the world, this intimate and at times funny narrative documentary charts Nkosikhona (Face) Swartbooi leading a defiant war against government and property developers – on the streets, in the supreme court and in parliament.",
+    "poster_path": "/vVRaVRYL2jnMRwcfbrRGG1HKEBL.jpg",
+    "backdrop_path": "/8KAhnnWhgJBAJLqT8ZSaKYd8JC1.jpg",
+    "release_date": "2024-06-14",
+    "director": "Pearlie Joubert",
+    "runtime": 102,
     "genres": [
-      "Crime",
-      "Drama"
+      "Documentary"
     ],
-    "vote_average": 8.124
+    "vote_average": 0.0
   },
+  "Black History Studies: Shoot the People + Director Q&amp;A": null,
+  "Disabled People's Empowerment Month: I Swear": null,
+  "Happyend": {
+    "tmdb_id": 730251,
+    "tmdb_title": "Happyend",
+    "tmdb_original_title": "HAPPYEND",
+    "overview": "In a near-future Japanese city bracing for a devastating earthquake, a group of teenage friends navigate personal struggles and fractured bonds amid rising tension.",
+    "poster_path": "/fRN6U0srlhNe0B69dJZ0seuv4GZ.jpg",
+    "backdrop_path": "/shWIpYYqbgpUUefpPj1VrYbPonE.jpg",
+    "release_date": "2024-10-04",
+    "director": "Neo Sora",
+    "runtime": 113,
+    "genres": [
+      "Drama",
+      "Science Fiction"
+    ],
+    "vote_average": 6.8
+  },
+  "If I Could Tell You (Closed Caption, Relax Screening) - London Indian Film Festival": null,
+  "World Cup- England vs. Norway": null,
+  "Britain through South Asian Eyes - London Indian Film Festival": null,
+  "Ghost In The Shell presented by the Cult Classic Collective": null,
+  "Emporium Pro Wrestling - Front Row - £30": null,
+  "Emporium Pro Wrestling - Standard - £15 - £19": null,
   "Letters from Baghdad": null,
   "Journey Through Irish Cinema: Michael Collins": null,
   "Mare's Nest + director Q&amp;A": {
@@ -50564,14 +50661,52 @@
   },
   "Journey Through Irish Cinema: Kings": null,
   "Parents &amp; Baby Screening - The Odyssey": null,
-  "Black History Studies: Shoot the People + Director Q&amp;A": null,
-  "Disabled People's Empowerment Month: I Swear": null,
-  "A Summer&#039;s Tale": null,
-  "I Don&#039;t Want to Sleep Alone": null,
-  "The Liberated Film Club: Jonathan Rosenbaum": null,
-  "The Liberated Film Club: The Camelia Committee": null,
-  "One Minute Volume 3": null,
-  "JAZZ 625: Music Giants on the Small Screen": null,
+  "EOS: FRIDA KAHLO 2026": null,
+  "FAME (Dementia-Friendly)": null,
+  "FAME (Relaxed Screening)": null,
+  "FINDING EMILY (Babes-In-Arms Screening)": null,
+  "GHOST (Relaxed Screening)": null,
+  "ZOOTROPOLIS 2": {
+    "tmdb_id": 1084242,
+    "tmdb_title": "Zootopia 2",
+    "tmdb_original_title": "Zootopia 2",
+    "overview": "After cracking the biggest case in Zootopia's history, rookie cops Judy Hopps and Nick Wilde find themselves on the twisting trail of a great mystery when Gary De'Snake arrives and turns the animal metropolis upside down. To crack the case, Judy and Nick must go undercover to unexpected new parts of town, where their growing partnership is tested like never before.",
+    "poster_path": "/oJ7g2CifqpStmoYQyaLQgEU32qO.jpg",
+    "backdrop_path": "/lgotja3xMoJZbynwHfcQcJAEMWH.jpg",
+    "release_date": "2025-11-26",
+    "director": "Jared Bush",
+    "runtime": 108,
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Mystery",
+      "Family"
+    ],
+    "vote_average": 7.675
+  },
+  "ActOne Film Quiz": null,
+  "FUN IN THE LOUNGE - FREE ENTRY: UNTITLED COMEDY NIGHT": null,
+  "SEND FRIENDLY SCREENING: TOY STORY 5": null,
+  "Regal Gals Shorts": null,
+  "Linda Linda Linda": {
+    "tmdb_id": 27337,
+    "tmdb_title": "Linda Linda Linda",
+    "tmdb_original_title": "リンダ リンダ リンダ",
+    "overview": "Only three days before the school festival, a newly formed high school band rushes to put together a set for their big show — including a hit single by '80s by the Japanese punk rock band The Blue Hearts.",
+    "poster_path": "/wX3xwuJ9uhCamndfGUePDkpAggZ.jpg",
+    "backdrop_path": "/xSwyEYimb59e8Xcxvd3yZgR4249.jpg",
+    "release_date": "2005-07-23",
+    "director": "Nobuhiro Yamashita",
+    "runtime": 115,
+    "genres": [
+      "Comedy",
+      "Music",
+      "Drama"
+    ],
+    "vote_average": 7.555
+  },
+  "Ancestral Hauntings: Short Film Programme + Q&A": null,
   "Exhibition on Screen: Remembering David Hockney": null,
   "Babykino: The Invite": {
     "tmdb_id": 950028,
@@ -50579,7 +50714,7 @@
     "tmdb_original_title": "The Invite",
     "overview": "Joe and Angela's marriage is on thin ice. When they invite their enigmatic upstairs neighbors for a dinner party, the night spirals into unexpected places. Have they reignited the spark or lit the match that burns it all down?",
     "poster_path": "/b7Dr8Chzse8VagexAporUu2RtLx.jpg",
-    "backdrop_path": "/kLA1GqiOEyVgXxgNqLoCr7bYcqu.jpg",
+    "backdrop_path": "/lEwqBGNR65KZv6Ej5ufcmhZu2y2.jpg",
     "release_date": "2026-06-25",
     "director": "Olivia Wilde",
     "runtime": 107,
@@ -50587,7 +50722,7 @@
       "Drama",
       "Comedy"
     ],
-    "vote_average": 7.9
+    "vote_average": 7.926
   },
   "Synthetic Sincerity: Preview Screening + Director Q&A": null,
   "Between the Temples": null,
@@ -50607,10 +50742,6 @@
     "vote_average": 6.9
   },
   "My Father's Island": null,
-  "ActOne Film Quiz": null,
-  "FUN IN THE LOUNGE - FREE ENTRY: UNTITLED COMEDY NIGHT": null,
-  "SEND FRIENDLY SCREENING: TOY STORY 5": null,
-  "The Leopard: The Woman Behind Visconti’s Masterpiece. Special screening + conversation": null,
   "Familiar Touch (12A) captioned screening tbc": null,
   "World Cup 2026 : Norway vs England": null,
   "EOS: David Hockney At The RA": null,
@@ -50630,30 +50761,37 @@
     ],
     "vote_average": 8.124
   },
-  "EOS: FRIDA KAHLO 2026": null,
-  "FAME (Dementia-Friendly)": null,
-  "FAME (Relaxed Screening)": null,
-  "FINDING EMILY (Babes-In-Arms Screening)": null,
-  "GHOST (Relaxed Screening)": null,
-  "THE DEVIL WEARS PRADA 2 (Babes-In-Arms Screening)": null,
-  "ZOOTROPOLIS 2": {
-    "tmdb_id": 1084242,
-    "tmdb_title": "Zootopia 2",
-    "tmdb_original_title": "Zootopia 2",
-    "overview": "After cracking the biggest case in Zootopia's history, rookie cops Judy Hopps and Nick Wilde find themselves on the twisting trail of a great mystery when Gary De'Snake arrives and turns the animal metropolis upside down. To crack the case, Judy and Nick must go undercover to unexpected new parts of town, where their growing partnership is tested like never before.",
-    "poster_path": "/oJ7g2CifqpStmoYQyaLQgEU32qO.jpg",
-    "backdrop_path": "/lgotja3xMoJZbynwHfcQcJAEMWH.jpg",
-    "release_date": "2025-11-26",
-    "director": "Jared Bush",
-    "runtime": 108,
+  "Booksmart (2019)": {
+    "tmdb_id": 505600,
+    "tmdb_title": "Booksmart",
+    "tmdb_original_title": "Booksmart",
+    "overview": "Two academic teenage superstars realize, on the eve of their high school graduation, that they should have worked less and played more. Determined to never fall short of their peers, the girls set out on a mission to cram four years of fun into one night.",
+    "poster_path": "/2aSxRDmisJP90H3S0aocyuQIe4z.jpg",
+    "backdrop_path": "/cheDSO3mYmsAFQlRM91o7MK6Wcc.jpg",
+    "release_date": "2019-05-24",
+    "director": "Olivia Wilde",
+    "runtime": 102,
     "genres": [
-      "Animation",
-      "Adventure",
-      "Comedy",
-      "Mystery",
-      "Family"
+      "Comedy"
     ],
-    "vote_average": 7.673
+    "vote_average": 7.008
+  },
+  "Italy Through its Cinema: Umberto D. (1952)": null,
+  "80 Years of Martin and Lewis: The Caddy (1953)": null,
+  "Sir Henry at Rawlinson End (1980)": {
+    "tmdb_id": 50670,
+    "tmdb_title": "Sir Henry at Rawlinson End",
+    "tmdb_original_title": "Sir Henry at Rawlinson End",
+    "overview": "Sir Henry Rawlinson attempts to exorcise the ghost of his brother Humbert, who was accidentally killed in a drunken duck-shooting incident.",
+    "poster_path": "/fNIOfBUAPbraJRDyGm832NQ1oRk.jpg",
+    "backdrop_path": "/je3IqfRl9eDqdBJ108O7q20Iok9.jpg",
+    "release_date": "1980-11-07",
+    "director": "Steve Roberts",
+    "runtime": 71,
+    "genres": [
+      "Comedy"
+    ],
+    "vote_average": 7.045
   },
   "Fetish-Friendly: Rosebush Pruning": null,
   "UK Premiere: A Year in London + Q&amp;A": null,
@@ -50730,10 +50868,25 @@
   },
   "Wham! 10 Days in China Party + Intro": null,
   "Mamma Mia Party!": null,
-  "Backrooms: Everything Must Go (15)": null,
+  "Mueda, Memoria e Massacre + Soul in the Eye (15)": {
+    "tmdb_id": 327071,
+    "tmdb_title": "Soul in the Eye",
+    "tmdb_original_title": "Alma no Olho",
+    "overview": "Inspired by Black Panther Eldridge Cleaver’s book Soul on Ice and dedicated to John Coltrane, Soul in the Eye marks the beginning of Black Brazilian films. The film is a metaphor for the legacy of culture and survival bestowed by enslaved Africans brought to the American continent and the search for freedom through inner transformation, in a game inspired by concretism.",
+    "poster_path": "/6FNJxdRXIMCj3OwxviYf3ldyAO3.jpg",
+    "backdrop_path": "/xxLuQ92MqN1KvhtKRzl3BesJHgP.jpg",
+    "release_date": "1973-01-01",
+    "director": "Zózimo Bulbul",
+    "runtime": 11,
+    "genres": [
+      "Drama",
+      "History"
+    ],
+    "vote_average": 8.7
+  },
   "Moana (Live Action)": null,
-  "Backrooms: Everything must Go Bonus Edition": null,
   "Moana (Live Action )Sing-a-long": null,
+  "Backrooms: Everything must Go Bonus Edition": null,
   "People’s Emergency Briefing – Community Screening": null,
   "World Cup Semi Finals": null,
   "World Cup Final": null,
@@ -50765,6 +50918,8 @@
   },
   "TFFF: HARD TIME LOVER": null,
   "TFFF: NATIONAL SPORT + Q&A": null,
+  "TFFF: ERAMUS + Q&A": null,
+  "TFFF: SOFTSHELL + Q&A": null,
   "The Stranger [L'étranger]": {
     "tmdb_id": 1429348,
     "tmdb_title": "The Stranger",
@@ -50786,10 +50941,9 @@
   "Fifth Birthday Party: They Never Slept + Panel": null,
   "Fifth Birthday Party: La La Land": null,
   "Exhibition On Screen: David Hockney at the Royal Academy of Arts": null,
-  "The Girls": null,
-  "New Brit-Asian Shorts": null,
   "India’s AI & Film Future": null,
   "Marilynspirations Double Bill": null,
+  "The Girls": null,
   "Goodness Gracious Me Reunion": null,
   "What Could Have Been: Something’s Got to Give": null,
   "Marilyn in Her Own Words...": null,
@@ -50798,7 +50952,38 @@
   "Sound and Vision: Films by Helen Petts": null,
   "Aamir Khan in Conversation": null,
   "25 and Under: An introduction to John Woo": null,
-  "My Fathers Island": null,
+  "Joybubbles": {
+    "tmdb_id": 1596308,
+    "tmdb_title": "Joybubbles",
+    "tmdb_original_title": "Joybubbles",
+    "overview": "Joybubbles discovers he can manipulate the telephone system by whistling a magic tone. Born blind and yearning for connection, his early obsession unwittingly lays the groundwork for a subculture that shapes the future of hacking and technology.",
+    "poster_path": "/6VGFXKESA3Rs999p7ui23e13moG.jpg",
+    "backdrop_path": "/zBNj0aXknUnjYopQRNHJ3ar1xX7.jpg",
+    "release_date": "2026-01-26",
+    "director": "Rachael J. Morrison",
+    "runtime": 79,
+    "genres": [
+      "Documentary"
+    ],
+    "vote_average": 1.0
+  },
+  "Lone Wolves": {
+    "tmdb_id": 1316101,
+    "tmdb_title": "Lone Wolves",
+    "tmdb_original_title": "Lone Wolves",
+    "overview": "When a single, pragmatic forty-something recruits the eclectic guy she didn’t go to prom with back in high school to be her D-I-Y sperm donor, but learns that he’s Autistic and navigating some significant mental health issues, her carefully planned hopes are turned upside down in one crazy weekend in Toledo, Ohio.",
+    "poster_path": "/nEOdHR17ecCxkwNu6jZ1ns2PuIv.jpg",
+    "backdrop_path": "/heTwGdr1JJDGTDLeFcgahgLVXM4.jpg",
+    "release_date": "2024-08-11",
+    "director": "Ryan Cunningham",
+    "runtime": 95,
+    "genres": [
+      "Comedy"
+    ],
+    "vote_average": 0.0
+  },
+  "Funday: Charlie and Lola – 25th Anniversary": null,
+  "Rozier Adieu Philippine": null,
   "The Girls 4K Restoration": {
     "tmdb_id": 20975,
     "tmdb_title": "The Girls",
@@ -50815,21 +51000,53 @@
     ],
     "vote_average": 7.522
   },
-  "Vhs Late Tapes Pressure": null,
-  "Rozier Adieu Philippine": null,
   "Rozier The Castaways Of Turtle Island": null,
+  "My Fathers Island": null,
   "To The Horizon And Back Q A": null,
   "Rozier Near Orouet": null,
   "Rozier Shorts Programme": null,
   "Jlg Unmade History": null,
   "Synthetic Sincerity Q A": null,
+  "Nostalgia 4K": null,
+  "Toddler Club: Madagascar": null,
+  "Backrooms: Everything Must Go Edition w/ Bonus Footage": null,
+  "Nolan in 35mm: Tenet": null,
+  "Beyond: The Last Viking": null,
+  "Late Nights: Donnie Darko": null,
+  "Nolan in 35mm: The Dark Knight": null,
+  "Throwback: Inception": {
+    "tmdb_id": 27205,
+    "tmdb_title": "Inception",
+    "tmdb_original_title": "Inception",
+    "overview": "Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: \"inception\", the implantation of another person's idea into a target's subconscious.",
+    "poster_path": "/xlaY2zyzMfkhk0HSC5VUwzoZPU1.jpg",
+    "backdrop_path": "/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
+    "release_date": "2010-07-15",
+    "director": "Christopher Nolan",
+    "runtime": 148,
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "vote_average": 8.372
+  },
+  "Nolan in 35mm: Interstellar": null,
+  "Nolan in 35mm: Inception": null,
+  "Nolan in 35mm: The Dark Knight Rises": null,
+  "Alhan Presents: Jockeys of Jamaica": null,
+  "Toddler Club: Tiddler + Pip & Posy Sandpit Friends": null,
+  "The Odyssey (35mm)": null,
+  "Beyond: Effi o Blaenau": null,
+  "Family Film Club: The Goonies": null,
+  "Toddler Club: Kung Fu Panda": null,
   "Moana (2026)": {
     "tmdb_id": 1108427,
     "tmdb_title": "Moana",
     "tmdb_original_title": "Moana",
-    "overview": "Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with the infamous demigod Maui on an unforgettable journey to restore prosperity to her people.",
+    "overview": "Teenage Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with infamous demigod Maui on an unforgettable journey to restore prosperity to her people.",
     "poster_path": "/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
-    "backdrop_path": "/c6BPbkO5Npt1OdwttAxCFo06wtH.jpg",
+    "backdrop_path": "/dRqDXLVmPuvGJCegVHayK4WS6Cz.jpg",
     "release_date": "2026-07-08",
     "director": "Thomas Kail",
     "runtime": 115,
@@ -50839,13 +51056,11 @@
       "Comedy",
       "Adventure"
     ],
-    "vote_average": 4.861
+    "vote_average": 5.056
   },
+  "SMartphone Film Fest: Left Handed Girl": null,
   "Letters from Baghdad (Re-release)": null,
   "The Invite (35mm)": null,
-  "FIFA World Cup 2026: Portugal/Spain VS US/Belgium": null,
-  "First World War on Film: Živorad Mitrović's The March on the Drina + Introduction": null,
-  "SMartphone Film Fest: Left Handed Girl": null,
   "Dog Friendly Screening: The Invite": null,
   "SMartphone Film Fest: Motherboard": null,
   "SMartphone Film Fest: Filmmaker Panel": null,
@@ -50874,7 +51089,6 @@
   "Vinyl Sisters": null,
   "LAFF 2026: The Travellers": null,
   "The Odyssey (70mm)": null,
-  "The Odyssey (35mm)": null,
   "LAFF 2026: ALL MY FRIENDS ARE BACK IN BRISBANE": null,
   "CLUB ROOM: Lost Sauce Cabaret": null,
   "LAFF 2026: BIRTHRIGHT": null,
@@ -50898,7 +51112,7 @@
       "Science Fiction",
       "Comedy"
     ],
-    "vote_average": 7.204
+    "vote_average": 7.202
   },
   "Boogie Nights (4K Restoration)": {
     "tmdb_id": 4995,
@@ -51007,13 +51221,50 @@
   "Spark Storytelling Open Mic": null,
   "Big Screen Karaoke": null,
   "Hackney Film Quiz": null,
+  "Hunt for the Wilderpeople (10th Anniversary)": {
+    "tmdb_id": 371645,
+    "tmdb_title": "Hunt for the Wilderpeople",
+    "tmdb_original_title": "Hunt for the Wilderpeople",
+    "overview": "Ricky is a defiant young city kid who finds himself on the run with his cantankerous foster uncle in the wild New Zealand bush. A national manhunt ensues, and the two are forced to put aside their differences and work together to survive.",
+    "poster_path": "/hkmz9rxgcweizXNElozGeKwmAJE.jpg",
+    "backdrop_path": "/ixpUtvrZNwk6LBObXaNH8fh4FYf.jpg",
+    "release_date": "2016-01-22",
+    "director": "Taika Waititi",
+    "runtime": 101,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Drama"
+    ],
+    "vote_average": 7.645
+  },
+  "TFFF: The Python Hunt": null,
   "Outdoor: 10 Things I Hate About You": null,
+  "TFFF: In The Dark": null,
   "Flushed Away (2026 Re-release)": null,
+  "TFFF: Image of the Beast + Short": {
+    "tmdb_id": 296155,
+    "tmdb_title": "Short",
+    "tmdb_original_title": "Kort",
+    "overview": "17-year-old Arend lives with his parents and hasn't come out of the closet yet. His first step into the gay world of love is on a date with handsome Michael, a guy he met on a gay dating site. They arrange to meet and Arend ventures to the other side of the country only to discover that Michael is not quite what he imagined.",
+    "poster_path": "/rPFWEzIutu7uh9u9DTo09wzAzNG.jpg",
+    "backdrop_path": "/pyGYPEfL49X4gjDeFN0imVixGcX.jpg",
+    "release_date": "2013-09-01",
+    "director": "Sanne Vogel",
+    "runtime": 10,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 3.0
+  },
   "Outdoor: Jurassic Park": null,
   "American Utopia + David Byrne Look-alike Competition": null,
   "Fellini's 8 1/2": null,
   "Tony - Preview": null,
+  "TFFF: Surprise": null,
   "Outdoor: Grease": null,
+  "TFFF: Cece's Interlude": null,
+  "Nimrods: A Green Day Comedy": null,
   "Blade Runner: The Final Cut": null,
   "Evangelion: Death (True)² + The End of Evangelion": {
     "tmdb_id": 857862,
@@ -51161,37 +51412,43 @@
   "RBO Encore 2026-27: Romeo & Juliet (2025 Encore)": null,
   "Met Opera Live 2026-27: Parsifal": null,
   "Met Opera Encore 2026-27: Parsifal": null,
-  "Toddler Club: Madagascar": null,
-  "Beyond: The Last Viking": null,
-  "Backrooms: Everything Must Go Edition w/ Bonus Footage": null,
-  "Nolan in 35mm: The Prestige": null,
-  "Late Nights: Donnie Darko": null,
-  "Nolan in 35mm: Tenet": null,
-  "Nolan in 35mm: The Dark Knight": null,
-  "Throwback: Inception": {
-    "tmdb_id": 27205,
-    "tmdb_title": "Inception",
-    "tmdb_original_title": "Inception",
-    "overview": "Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: \"inception\", the implantation of another person's idea into a target's subconscious.",
-    "poster_path": "/xlaY2zyzMfkhk0HSC5VUwzoZPU1.jpg",
-    "backdrop_path": "/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
-    "release_date": "2010-07-15",
-    "director": "Christopher Nolan",
-    "runtime": 148,
+  "KIDS CLUB: ROBOT DREAMS": {
+    "tmdb_id": 838240,
+    "tmdb_title": "Robot Dreams",
+    "tmdb_original_title": "Robot Dreams",
+    "overview": "A lonely dog's friendship with his robot companion takes a sad turn when an unexpected malfunction forces him to abandon Robot at the beach. Will Dog ever meet Robot again?",
+    "poster_path": "/ds402Qq09ybgBcXKiQNTZfzsP5o.jpg",
+    "backdrop_path": "/hIeEpk2w1dnC9ly9ZJwwbunH2Cx.jpg",
+    "release_date": "2023-12-06",
+    "director": "Pablo Berger",
+    "runtime": 102,
     "genres": [
-      "Action",
-      "Science Fiction",
-      "Adventure"
+      "Animation",
+      "Drama",
+      "Comedy",
+      "Science Fiction"
     ],
-    "vote_average": 8.372
+    "vote_average": 7.94
   },
-  "Nolan in 35mm: Interstellar": null,
-  "Nolan in 35mm: Inception": null,
-  "Nolan in 35mm: The Dark Knight Rises": null,
-  "Alhan Presents: Jockeys of Jamaica": null,
-  "Beyond: Effi o Blaenau": null,
-  "BACKROOMS: EVERYTHING MUST GO WITH BONUS FOOTAGE": null,
+  "FILM CLUB: FAR FROM THE MADDING CROWD": null,
   "MY FATHER'S ISLAND": null,
+  "BACKROOMS: EVERYTHING MUST GO WITH BONUS FOOTAGE": null,
+  "TAXI DRIVER (50TH ANNIVERSARY)": {
+    "tmdb_id": 103,
+    "tmdb_title": "Taxi Driver",
+    "tmdb_original_title": "Taxi Driver",
+    "overview": "Suffering from insomnia, disturbed loner Travis Bickle takes a job as a New York City cabbie, haunting the streets nightly, growing increasingly detached from reality as he dreams of cleaning up the filthy city.",
+    "poster_path": "/ekstpH614fwDX8DUln1a2Opz0N8.jpg",
+    "backdrop_path": "/9uddYYTNcLWpzUkl5iw1RUYhLhY.jpg",
+    "release_date": "1976-02-09",
+    "director": "Martin Scorsese",
+    "runtime": 114,
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "vote_average": 8.124
+  },
   "DOCHOUSE: REPLICA": {
     "tmdb_id": 434510,
     "tmdb_title": "Replica",
