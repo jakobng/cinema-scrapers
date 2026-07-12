@@ -2327,6 +2327,7 @@
     "tmdb_title_original": "Cow",
     "vote_average": 6.5
   },
+  "CROSSING 心の交差点": null,
   "CURE 4Kデジタル修復版": {
     "backdrop_path": "/xxIRKSd9LmHojUD5grvMuGypwVC.jpg",
     "director": "黒沢清",
@@ -4856,6 +4857,7 @@
     "tmdb_title_original": "Minamata",
     "vote_average": 6.951
   },
+  "MOON and GOLDFISH": null,
   "MaXXXine マキシーン": {
     "backdrop_path": "/viKEEaaCaZ0hZ2nGuvIEozlLooL.jpg",
     "director": "タイ・ウェスト",
@@ -5547,6 +5549,51 @@
     "tmdb_title_jp": "PASSION",
     "tmdb_title_original": "PASSION",
     "vote_average": 6.1
+  },
+  "PATHAAN パターン": {
+    "backdrop_path": "/9wRAIQeOv2qzcgpfvA4dYZKeezl.jpg",
+    "director": "シッダールト・アーナンド",
+    "director_en": "Siddharth Anand",
+    "director_jp": "シッダールト・アーナンド",
+    "genres": [
+      "アクション",
+      "アドベンチャー",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "overview": "",
+    "overview_en": "A soldier caught by enemies and presumed dead comes back to complete his mission, accompanied by old companions and foes.",
+    "poster_path": "/arf00BkwvXo0CFKbaD9OpqdE4Nu.jpg",
+    "release_date": "2023-01-25",
+    "runtime": 146,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "IN",
+        "name": "India"
+      },
+      {
+        "iso_3166_1": "IT",
+        "name": "Italy"
+      },
+      {
+        "iso_3166_1": "ES",
+        "name": "Spain"
+      },
+      {
+        "iso_3166_1": "TR",
+        "name": "Turkey"
+      }
+    ],
+    "tmdb_id": 864692,
+    "tmdb_original_language": "hi",
+    "tmdb_title_en": "Pathaan",
+    "tmdb_title_jp": "PATHAAN／パターン",
+    "tmdb_title_original": "पठान",
+    "vote_average": 6.4
   },
   "PATHAAN／パターン": {
     "backdrop_path": "/9wRAIQeOv2qzcgpfvA4dYZKeezl.jpg",
@@ -7223,6 +7270,35 @@
     "tmdb_title_original": "V. MARIA",
     "vote_average": 0.0
   },
+  "WALK UP": {
+    "backdrop_path": "/7NzEuwQiDO7GSjHXdu7kfVDlL54.jpg",
+    "director": "ホン・サンス",
+    "director_en": "Hong Sang-soo",
+    "director_jp": "ホン・サンス",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "A series of interactions take place between an established film director, his estranged daughter interested in interior design, an interior designer, and others inside a multi-story commercial and residential building.",
+    "poster_path": "/tBMVDg0H9bXyhK8btJVbtU409DE.jpg",
+    "release_date": "2022-11-03",
+    "runtime": 97,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "KR",
+        "name": "South Korea"
+      }
+    ],
+    "tmdb_id": 1002470,
+    "tmdb_original_language": "ko",
+    "tmdb_title_en": "Walk Up",
+    "tmdb_title_jp": "탑",
+    "tmdb_title_original": "탑",
+    "vote_average": 6.4
+  },
   "WANDA ワンダ": {
     "backdrop_path": "/bL1etbhvRGhHhpjbwzHZbXNwM5R.jpg",
     "director": "Barbara Loden",
@@ -8025,6 +8101,35 @@
     "tmdb_title_jp": "グリーンバレット 最強殺し屋伝説国岡[合宿編]",
     "tmdb_title_original": "グリーンバレット 最強殺し屋伝説国岡[合宿編]",
     "vote_average": 8.2
+  },
+  "tmdb:1002470": {
+    "backdrop_path": "/7NzEuwQiDO7GSjHXdu7kfVDlL54.jpg",
+    "director": "ホン・サンス",
+    "director_en": "Hong Sang-soo",
+    "director_jp": "ホン・サンス",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "A series of interactions take place between an established film director, his estranged daughter interested in interior design, an interior designer, and others inside a multi-story commercial and residential building.",
+    "poster_path": "/tBMVDg0H9bXyhK8btJVbtU409DE.jpg",
+    "release_date": "2022-11-03",
+    "runtime": 97,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "KR",
+        "name": "South Korea"
+      }
+    ],
+    "tmdb_id": 1002470,
+    "tmdb_original_language": "ko",
+    "tmdb_title_en": "Walk Up",
+    "tmdb_title_jp": "탑",
+    "tmdb_title_original": "탑",
+    "vote_average": 6.4
   },
   "tmdb:1004054": {
     "backdrop_path": null,
@@ -44976,6 +45081,68 @@
     "tmdb_title_original": "The Return of Wild Bill",
     "vote_average": 0.0
   },
+  "tmdb:308191": {
+    "backdrop_path": "/rwjZBLpRAbqXc8IHAePPyjBiJE0.jpg",
+    "director": "Sami Frey",
+    "director_en": "Sami Frey",
+    "director_jp": "Sami Frey",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "During the filming of \"Jeanne Dielman\" Sami Frey recorded what was happening on the set. A film about a film in the making.",
+    "poster_path": "/rnbW5VtVxVQVx9ad70SuMbU0Biv.jpg",
+    "release_date": "1975-01-01",
+    "runtime": 68,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 308191,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "About Jeanne Dielman",
+    "tmdb_title_jp": "Autour de Jeanne Dielman",
+    "tmdb_title_original": "Autour de Jeanne Dielman",
+    "vote_average": 6.0
+  },
+  "tmdb:3082": {
+    "backdrop_path": "/kSlO1pHpwQfPQdgVPr7dJiJNtJ8.jpg",
+    "director": "查理·卓别林",
+    "director_en": "Charlie Chaplin",
+    "director_jp": "查理·卓别林",
+    "genres": [
+      "コメディ",
+      "ドラマ",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ],
+    "overview": "大きな製鉄工場で働くチャーリーは、スパナを手にひたすらベルトコンベアーを流れる部品にねじを回し続けるという単純作業を繰り返していた。その様子はテレビモニターで監視され、休む暇もなく働かされていた。ある日、チャーリーは労働者の食事時間を節約するために作られた自動給食マシーンの実験台にされ散々な目に合わされる。その後も仕事を続けていく内にチャーリーは発狂し、トラブルを起こして精神病院送りになってしまう。ようやく退院を迎えた日、トラックから落ちた赤旗を拾い運転手に返そうと追いかけていく内にいつの間にか労働者のデモ隊の先導をきってしまい、そのリーダーと間違われて捕まって拘置所に入れられてしまう。脱獄囚を撃退した功績で模範囚として放免され造船所の仕事を紹介されるものの、上手くいかず辞めてしまい、あてもなく街をうろつく生活に陥ってしまう。  拘置所が恋しくなったチャーリーはわざと無銭飲食をして捕まえられるが、護送車の中でパンを盗んだ浮浪少女（ポーレット・ゴダード）と出会う。護送車が急カーブで横転し、外へ投げ出されたチャーリーと少女は逃亡。少女と意気投合したチャーリーは、2人のために家を建てるという夢を胸に一念発起とばかり働き出す。デパートの夜回り、工場の技師の助手と仕事を獲得するものの結局上手くいかず、2件とも警察沙汰になるという不運な結果に終わってしまう。その後少女が勤め始めたキャバレー[3]のウェイターの職を得る。見世物の「ティティナ」を歌って大成功したが、少女の微罪のため、そこも追われてしまう。やっとの思いで手に入れた幸福すらも失い悲しみに打ちひしがれる少女を、チャーリーは力強く励ます。  そして、二人は未来に希望を見出し、現代社会の冷たさと束縛に囚われない自由な生活を求めて共に旅立っていくのだった。",
+    "overview_en": "A bumbling tramp desires to build a home with a young woman, yet is thwarted time and time again by his lack of experience and habit of being in the wrong place at the wrong time...",
+    "poster_path": "/vOLOIFtoBZMljzWJFjvWAZtFB6N.jpg",
+    "release_date": "1936-02-05",
+    "runtime": 87,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 3082,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Modern Times",
+    "tmdb_title_jp": "モダン・タイムス",
+    "tmdb_title_original": "Modern Times",
+    "vote_average": 8.279
+  },
   "tmdb:3086": {
     "backdrop_path": "/7nL4SLErtTIU9lO1ZZMNIJYH0XD.jpg",
     "director": "Preston Sturges",
@@ -49037,6 +49204,35 @@
     "tmdb_title_jp": "鮫肌男と桃尻女",
     "tmdb_title_original": "鮫肌男と桃尻女",
     "vote_average": 6.833
+  },
+  "tmdb:36895": {
+    "backdrop_path": "/cWBWCVWcetCA70pce1leRLQWeFj.jpg",
+    "director": "河瀨直美",
+    "director_en": "Naomi Kawase",
+    "director_jp": "河瀨直美",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "奈良県南部の山間にある小さな村。この村に鉄道を通す計画が持ち上がって15年になるが、トンネル工事に携わっていた田村孝三は、計画の中止を知らされすっかり気力を失っていた。そしてある日、孝三は失踪してしまった。残された家族は戸惑いながらもそれぞれの選択をしていく。",
+    "overview_en": "Depicts the life of a family in a remote Japanese timber village. Family head Tahara Kozo lives with his mother Sachiko, wife Yasuyo, nephew Eisuke and young daughter Michiru. Economic recession and failed development plans cause tragedy in the family.",
+    "poster_path": "/yChcc0bbvd09Ar3vPIgZwYPup35.jpg",
+    "release_date": "1997-11-01",
+    "runtime": 95,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 36895,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Suzaku",
+    "tmdb_title_jp": "萌の朱雀",
+    "tmdb_title_original": "萌の朱雀",
+    "vote_average": 7.286
   },
   "tmdb:369094": {
     "backdrop_path": "/mlz167d59SaF3BhzWPu6G69sFw7.jpg",
@@ -71732,6 +71928,35 @@
     "tmdb_title_original": "海とお月さまたち",
     "vote_average": 0.0
   },
+  "tmdb:86096": {
+    "backdrop_path": "/cPOP8cYEprn1YYDBIWiKTvOt54c.jpg",
+    "director": "玛格丽特·杜拉斯",
+    "director_en": "Marguerite Duras",
+    "director_jp": "玛格丽特·杜拉斯",
+    "genres": [
+      "コメディ"
+    ],
+    "genres_en": [
+      "Comedy"
+    ],
+    "overview": "",
+    "overview_en": "Ernesto, a seven-year-old boy who has the body of a thirty-year-old man, decides, upon attending his first day of school, that he no longer wishes to attend, because he does not wish to be taught matters that he does not know.",
+    "poster_path": "/1TEz6IMrWbcVCZLE7LZ6sbSumzo.jpg",
+    "release_date": "1985-05-29",
+    "runtime": 94,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 86096,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "The Children",
+    "tmdb_title_jp": "Les Enfants",
+    "tmdb_title_original": "Les Enfants",
+    "vote_average": 6.192
+  },
   "tmdb:86241": {
     "backdrop_path": "/kI3nrKaSEc7MacMTxhcd3Tt5RjM.jpg",
     "director": "Alan Rudolph",
@@ -76962,7 +77187,35 @@
     "tmdb_title_original": "祝の島",
     "vote_average": 0.0
   },
-  "《ジャンヌ・ディエルマン》をめぐって": null,
+  "《ジャンヌ・ディエルマン》をめぐって": {
+    "backdrop_path": "/rwjZBLpRAbqXc8IHAePPyjBiJE0.jpg",
+    "director": "Sami Frey",
+    "director_en": "Sami Frey",
+    "director_jp": "Sami Frey",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "During the filming of \"Jeanne Dielman\" Sami Frey recorded what was happening on the set. A film about a film in the making.",
+    "poster_path": "/rnbW5VtVxVQVx9ad70SuMbU0Biv.jpg",
+    "release_date": "1975-01-01",
+    "runtime": 68,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 308191,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "About Jeanne Dielman",
+    "tmdb_title_jp": "Autour de Jeanne Dielman",
+    "tmdb_title_original": "Autour de Jeanne Dielman",
+    "vote_average": 6.0
+  },
   "《ジャンヌ・ディエルマン》をめぐって Autour de Jeanne Dielman de Samy Frey": {
     "backdrop_path": "/z81DzVg9lrBPr4M88ldmZ3FbBUY.jpg",
     "director": "Chantal Akerman",
@@ -116736,6 +116989,39 @@
     "tmdb_title_original": "モスラ 3 キングギドラ来襲",
     "vote_average": 6.3
   },
+  "モダン・タイムス": {
+    "backdrop_path": "/kSlO1pHpwQfPQdgVPr7dJiJNtJ8.jpg",
+    "director": "查理·卓别林",
+    "director_en": "Charlie Chaplin",
+    "director_jp": "查理·卓别林",
+    "genres": [
+      "コメディ",
+      "ドラマ",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ],
+    "overview": "大きな製鉄工場で働くチャーリーは、スパナを手にひたすらベルトコンベアーを流れる部品にねじを回し続けるという単純作業を繰り返していた。その様子はテレビモニターで監視され、休む暇もなく働かされていた。ある日、チャーリーは労働者の食事時間を節約するために作られた自動給食マシーンの実験台にされ散々な目に合わされる。その後も仕事を続けていく内にチャーリーは発狂し、トラブルを起こして精神病院送りになってしまう。ようやく退院を迎えた日、トラックから落ちた赤旗を拾い運転手に返そうと追いかけていく内にいつの間にか労働者のデモ隊の先導をきってしまい、そのリーダーと間違われて捕まって拘置所に入れられてしまう。脱獄囚を撃退した功績で模範囚として放免され造船所の仕事を紹介されるものの、上手くいかず辞めてしまい、あてもなく街をうろつく生活に陥ってしまう。  拘置所が恋しくなったチャーリーはわざと無銭飲食をして捕まえられるが、護送車の中でパンを盗んだ浮浪少女（ポーレット・ゴダード）と出会う。護送車が急カーブで横転し、外へ投げ出されたチャーリーと少女は逃亡。少女と意気投合したチャーリーは、2人のために家を建てるという夢を胸に一念発起とばかり働き出す。デパートの夜回り、工場の技師の助手と仕事を獲得するものの結局上手くいかず、2件とも警察沙汰になるという不運な結果に終わってしまう。その後少女が勤め始めたキャバレー[3]のウェイターの職を得る。見世物の「ティティナ」を歌って大成功したが、少女の微罪のため、そこも追われてしまう。やっとの思いで手に入れた幸福すらも失い悲しみに打ちひしがれる少女を、チャーリーは力強く励ます。  そして、二人は未来に希望を見出し、現代社会の冷たさと束縛に囚われない自由な生活を求めて共に旅立っていくのだった。",
+    "overview_en": "A bumbling tramp desires to build a home with a young woman, yet is thwarted time and time again by his lack of experience and habit of being in the wrong place at the wrong time...",
+    "poster_path": "/vOLOIFtoBZMljzWJFjvWAZtFB6N.jpg",
+    "release_date": "1936-02-05",
+    "runtime": 87,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 3082,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Modern Times",
+    "tmdb_title_jp": "モダン・タイムス",
+    "tmdb_title_original": "Modern Times",
+    "vote_average": 8.279
+  },
   "モダン道中 その恋待ったなし": {
     "backdrop_path": null,
     "director": "野村芳太郎",
@@ -126032,6 +126318,7 @@
     "vote_average": 6.0
   },
   "原爆資料館 語り継ぐものたち": null,
+  "原爆資料館　語り継ぐものたち": null,
   "原色の蝶は見ていた": {
     "backdrop_path": null,
     "director": "増村保造",
@@ -130716,7 +131003,35 @@
     "tmdb_title_original": "Manhandled",
     "vote_average": 6.5
   },
-  "子どもたち": null,
+  "子どもたち": {
+    "backdrop_path": "/cPOP8cYEprn1YYDBIWiKTvOt54c.jpg",
+    "director": "玛格丽特·杜拉斯",
+    "director_en": "Marguerite Duras",
+    "director_jp": "玛格丽特·杜拉斯",
+    "genres": [
+      "コメディ"
+    ],
+    "genres_en": [
+      "Comedy"
+    ],
+    "overview": "",
+    "overview_en": "Ernesto, a seven-year-old boy who has the body of a thirty-year-old man, decides, upon attending his first day of school, that he no longer wishes to attend, because he does not wish to be taught matters that he does not know.",
+    "poster_path": "/1TEz6IMrWbcVCZLE7LZ6sbSumzo.jpg",
+    "release_date": "1985-05-29",
+    "runtime": 94,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 86096,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "The Children",
+    "tmdb_title_jp": "Les Enfants",
+    "tmdb_title_original": "Les Enfants",
+    "vote_average": 6.192
+  },
   "子どもたちはもう遊ばない": {
     "backdrop_path": "/meYBAJu6zZWNk3EB7wHBeZl5ifI.jpg",
     "director": "Mohsen Makhmalbaf",
@@ -134839,6 +135154,7 @@
     "tmdb_title_jp": "Love Lies Bleeding",
     "vote_average": 6.581
   },
+  "愛妻記": null,
   "愛情物語（1984）": {
     "backdrop_path": "/tYPf0zDZtlJmrLmK77TO21R5XwF.jpg",
     "director": "角川春樹",
@@ -150180,6 +150496,35 @@
     "tmdb_title_jp": "華麗な関係",
     "tmdb_title_original": "Une femme fidèle",
     "vote_average": 3.2
+  },
+  "萌の朱雀": {
+    "backdrop_path": "/cWBWCVWcetCA70pce1leRLQWeFj.jpg",
+    "director": "河瀨直美",
+    "director_en": "Naomi Kawase",
+    "director_jp": "河瀨直美",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "奈良県南部の山間にある小さな村。この村に鉄道を通す計画が持ち上がって15年になるが、トンネル工事に携わっていた田村孝三は、計画の中止を知らされすっかり気力を失っていた。そしてある日、孝三は失踪してしまった。残された家族は戸惑いながらもそれぞれの選択をしていく。",
+    "overview_en": "Depicts the life of a family in a remote Japanese timber village. Family head Tahara Kozo lives with his mother Sachiko, wife Yasuyo, nephew Eisuke and young daughter Michiru. Economic recession and failed development plans cause tragedy in the family.",
+    "poster_path": "/yChcc0bbvd09Ar3vPIgZwYPup35.jpg",
+    "release_date": "1997-11-01",
+    "runtime": 95,
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 36895,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Suzaku",
+    "tmdb_title_jp": "萌の朱雀",
+    "tmdb_title_original": "萌の朱雀",
+    "vote_average": 7.286
   },
   "落下の王国": {
     "backdrop_path": "/vNrXoT45xscHY6AN4IGf44vHxVJ.jpg",
