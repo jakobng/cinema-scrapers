@@ -98,7 +98,10 @@ class ScrapeReport:
     def send_email_alert(self, failures, warnings):
         """
         Send email alert for failures using environment variables.
+        Suppressed in CI — auto-fix bot handles failures.
         """
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            return
         if not failures:
             return
 

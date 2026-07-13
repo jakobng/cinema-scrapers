@@ -134,7 +134,9 @@ class ScrapeReport:
         return failures, warnings
 
     def send_email_alert(self, failures, warnings):
-        """Sends an email if things went wrong."""
+        """Sends an email if things went wrong. Suppressed in CI — auto-fix bot handles failures."""
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            return
         if not failures and not warnings and not self.quality_warnings:
             return
 
