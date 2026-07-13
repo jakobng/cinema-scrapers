@@ -50799,6 +50799,23 @@
     ],
     "vote_average": 6.7
   },
+  "Dog Friendly Screening: Minions & Monsters": {
+    "tmdb_id": 43933,
+    "tmdb_title": "Monsters",
+    "tmdb_original_title": "Monsters",
+    "overview": "Six years ago NASA discovered the possibility of alien life within our solar system. A probe was launched to collect samples, but crashed upon re-entry over Central America. Soon after, new life forms began to appear and half of Mexico was quarantined as an infected zone. Today, the American and Mexican military still struggle to contain \"the creatures,\" while a journalist agrees to escort a shaken tourist through the infected zone in Mexico to the safety of the U.S. border.",
+    "poster_path": "/qpJyTxR33KG9qFmXoCD5AUTToPl.jpg",
+    "backdrop_path": "/imiBIsvNU3TbMB3sbqKanKODS33.jpg",
+    "release_date": "2010-06-18",
+    "director": "Gareth Edwards",
+    "runtime": 94,
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "vote_average": 6.187
+  },
   "Cactus Pears": null,
   "Pitchblack Playback: Thom Yorke 'The Eraser' (20th Anniversary)": null,
   "Pitchblack Playback: Joni Mitchell 'Blue' (55th Anniversary)": {
@@ -50816,6 +50833,10 @@
     ],
     "vote_average": 0.0
   },
+  "World Cup- England vs. Argentina": null,
+  "Ghost In The Shell presented by the Cult Classic Collective": null,
+  "Emporium Pro Wrestling - Front Row - £30": null,
+  "Emporium Pro Wrestling - Standard - £15 - £19": null,
   "Parent and Baby: Disclosure Day": null,
   "Parent and Baby: Shoot the People": null,
   "Taxi Driver - 50th anniversary": {
@@ -50834,7 +50855,6 @@
     ],
     "vote_average": 8.124
   },
-  "Kokuho": null,
   "Kapodistrias - The Governor": null,
   "Days and Nights in the Forest: New Restoration + Pre-recorded introduction by Wes Anderson": null,
   "La Parra": null,
@@ -50870,29 +50890,28 @@
       "Science Fiction",
       "Thriller"
     ],
-    "vote_average": 7.814
+    "vote_average": 7.816
   },
   "Wallace & Gromit: A Grand Day Out, The Wrong Trousers, A Close Shave": null,
   "City Lights presents Bend It Like Beckham": null,
   "Collage making workshop: Summer": null,
-  "Britain through South Asian Eyes - London Indian Film Festival": null,
-  "Ghost In The Shell presented by the Cult Classic Collective": null,
-  "Emporium Pro Wrestling - Front Row - £30": null,
-  "Emporium Pro Wrestling - Standard - £15 - £19": null,
-  "Land & Freedom": {
-    "tmdb_id": 598896,
-    "tmdb_title": "Land",
-    "tmdb_original_title": "Land",
-    "overview": "Edee, in the aftermath of an unfathomable event, finds herself unable to stay connected to the world she once knew and in the face of that uncertainty, retreats to the magnificent, but unforgiving, wilds of the Rockies. After a local hunter brings her back from the brink of death, she must find a way to live again.",
-    "poster_path": "/6pYhDPzYPGKvDYpxdf0IUE3RDAS.jpg",
-    "backdrop_path": "/2ZzmfwgvVh2KLH4A8HMzX5TytAc.jpg",
-    "release_date": "2021-02-12",
-    "director": "Robin Wright",
-    "runtime": 89,
+  "Talk to Her": null,
+  "A Chinese Ghost Story II": {
+    "tmdb_id": 9050,
+    "tmdb_title": "A Chinese Ghost Story II",
+    "tmdb_original_title": "倩女幽魂II人間道",
+    "overview": "After escaping false imprisonment, Ling Choi-San crosses paths with a pair of rebellious women. Though mourning the loss of his ghostly love, his broken heart must heal in a hurry in order to face a new series of paranormal encounters and adventures.",
+    "poster_path": "/uh9xhW3OX77fisjYNhhy4hrUtRZ.jpg",
+    "backdrop_path": "/9c7riUPW9E8HhybB2In62yzPdLE.jpg",
+    "release_date": "1990-07-13",
+    "director": "Tony Ching Siu-Tung",
+    "runtime": 102,
     "genres": [
-      "Drama"
+      "Fantasy",
+      "Action",
+      "Comedy"
     ],
-    "vote_average": 6.708
+    "vote_average": 6.78
   },
   "Hands on a Hardbody": {
     "tmdb_id": 18603,
@@ -50909,11 +50928,36 @@
     ],
     "vote_average": 7.543
   },
-  "Classic Matinee: THE FULL MONTY": null,
-  "RIO FOREVER / NEVER EVER: BLOOD AND BONES": null,
-  "Slacker Shakespeare: SHAKESPEARE IN LOVE": null,
-  "Pink Palace: Jean Cocteau – The Blood of a Poet + shorts": null,
-  "Divine Hammer (UK Premiere)": null,
+  "Agatha’s Almanac": {
+    "tmdb_id": 1433634,
+    "tmdb_title": "Agatha’s Almanac",
+    "tmdb_original_title": "Agatha’s Almanac",
+    "overview": "Defying modernity, 90-year-old Agatha forges a solitary existence on her ancestral farm preserving heirloom seeds.",
+    "poster_path": "/6MY0Ltfgb6KhOKaDpFWc0f98iZQ.jpg",
+    "backdrop_path": "/gE32MBHgTTl7ROg9bWOnD8Mmm1j.jpg",
+    "release_date": "2026-05-15",
+    "director": "Amalie Atkins",
+    "runtime": 83,
+    "genres": [
+      "Documentary"
+    ],
+    "vote_average": 8.0
+  },
+  "Land & Freedom": {
+    "tmdb_id": 598896,
+    "tmdb_title": "Land",
+    "tmdb_original_title": "Land",
+    "overview": "Edee, in the aftermath of an unfathomable event, finds herself unable to stay connected to the world she once knew and in the face of that uncertainty, retreats to the magnificent, but unforgiving, wilds of the Rockies. After a local hunter brings her back from the brink of death, she must find a way to live again.",
+    "poster_path": "/6pYhDPzYPGKvDYpxdf0IUE3RDAS.jpg",
+    "backdrop_path": "/2ZzmfwgvVh2KLH4A8HMzX5TytAc.jpg",
+    "release_date": "2021-02-12",
+    "director": "Robin Wright",
+    "runtime": 89,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 6.708
+  },
   "The Fall - 20th Anniversary": {
     "tmdb_id": 14784,
     "tmdb_title": "The Fall",
@@ -50950,7 +50994,7 @@
     "genres": [
       "Drama"
     ],
-    "vote_average": 6.349
+    "vote_average": 6.357
   },
   "Labyrinth - 40th Anniversary": {
     "tmdb_id": 13597,
@@ -50971,9 +51015,30 @@
   },
   "The Lord of the Rings Trilogy - Extended Editions": null,
   "Camp Miasma Inspired Mystery Movie Marathon curated by Jane Schoenbrun": null,
-  "Black History Studies: Shoot the People + Director Q&amp;A": null,
+  "Clueless": {
+    "tmdb_id": 9603,
+    "tmdb_title": "Clueless",
+    "tmdb_original_title": "Clueless",
+    "overview": "Shallow, rich and socially successful Cher is at the top of her Beverly Hills high school's pecking scale. Seeing herself as a matchmaker, Cher first coaxes two teachers into dating each other. Emboldened by her success, she decides to give hopelessly klutzy new student Tai a makeover. When Tai becomes more popular than she is, Cher realizes that her disapproving ex-stepbrother was right about how misguided she was -- and falls for him.",
+    "poster_path": "/8AwVTcgpTnmeOs4TdTWqcFDXEsA.jpg",
+    "backdrop_path": "/65d0MccsiRSPTVicregKQL8owoo.jpg",
+    "release_date": "1995-07-19",
+    "director": "Amy Heckerling",
+    "runtime": 97,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "vote_average": 7.252
+  },
+  "Classic Matinee: THE FULL MONTY": null,
+  "RIO FOREVER / NEVER EVER: BLOOD AND BONES": null,
+  "Slacker Shakespeare: SHAKESPEARE IN LOVE": null,
+  "Pink Palace: Jean Cocteau – The Blood of a Poet + shorts": null,
+  "Divine Hammer (UK Premiere)": null,
+  "Most Of My Politics From Songs": null,
   "Disabled People's Empowerment Month: I Swear": null,
-  "Journey Through Irish Cinema: Michael Collins": null,
+  "Spotlight: Tea Time": null,
   "Letters from Baghdad": null,
   "Mare's Nest + director Q&amp;A": {
     "tmdb_id": 1510310,
@@ -50993,8 +51058,7 @@
   },
   "Journey Through Irish Cinema: Kings": null,
   "Parents &amp; Baby Screening - The Odyssey": null,
-  "Abolição (18)": null,
-  "Backrooms: Everything Must Go (15)": null,
+  "D is for Distance (12A) + Panel Discussion": null,
   "EOS: FRIDA KAHLO 2026": null,
   "FAME (Dementia-Friendly)": null,
   "FAME (Relaxed Screening)": null,
@@ -51017,16 +51081,31 @@
       "Mystery",
       "Family"
     ],
-    "vote_average": 7.675
+    "vote_average": 7.677
   },
   "ActOne Film Quiz": null,
   "FUN IN THE LOUNGE - FREE ENTRY: UNTITLED COMEDY NIGHT": null,
   "SEND FRIENDLY SCREENING: TOY STORY 5": null,
   "LIVE CONCERT: MARY JANE & BENJAMIN ROCCA": null,
+  "SOUL TO SOUL": {
+    "tmdb_id": 306644,
+    "tmdb_title": "Soul to Soul",
+    "tmdb_original_title": "Soul to Soul",
+    "overview": "Footage of an American soul music concert held in Ghana to celebrate the 14th anniversary of the independence of that country in 1971. Features live performances by Ike &amp; Tina Turner, Roberta Flack, Carlos Santana, Wilson Pickett and Willie Bobo.",
+    "poster_path": "/et8DDAl9tof88G7my81FhmsYN5R.jpg",
+    "backdrop_path": "/uvNw9KSh4xS82zBz8Mz8aaTLE0x.jpg",
+    "release_date": "1971-08-18",
+    "director": "Denis Sanders",
+    "runtime": 96,
+    "genres": [
+      "Music"
+    ],
+    "vote_average": 7.3
+  },
+  "Satyajit Ray Short Film Competition Part 1": null,
   "Familiar Touch (12A) captioned screening tbc": null,
   "The Invite (15) captioned screening tbc": null,
   "LCFF: Lila's Book (tbc)": null,
-  "Acting": null,
   "Exhibition on Screen: Remembering David Hockney": null,
   "Babykino: The Invite": {
     "tmdb_id": 950028,
@@ -51042,7 +51121,7 @@
       "Drama",
       "Comedy"
     ],
-    "vote_average": 7.792
+    "vote_average": 7.813
   },
   "Synthetic Sincerity: Preview Screening + Director Q&A": null,
   "Between the Temples": null,
@@ -51059,9 +51138,27 @@
     "genres": [
       "Drama"
     ],
-    "vote_average": 7.158
+    "vote_average": 7.0
   },
   "My Father's Island": null,
+  "EOS: David Hockney At The RA": null,
+  "Taxi Driver (50th Anniversary)": {
+    "tmdb_id": 103,
+    "tmdb_title": "Taxi Driver",
+    "tmdb_original_title": "Taxi Driver",
+    "overview": "Suffering from insomnia, disturbed loner Travis Bickle takes a job as a New York City cabbie, haunting the streets nightly, growing increasingly detached from reality as he dreams of cleaning up the filthy city.",
+    "poster_path": "/ekstpH614fwDX8DUln1a2Opz0N8.jpg",
+    "backdrop_path": "/9uddYYTNcLWpzUkl5iw1RUYhLhY.jpg",
+    "release_date": "1976-02-09",
+    "director": "Martin Scorsese",
+    "runtime": 114,
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "vote_average": 8.124
+  },
+  "World Cup 2026: England vs Argentina": null,
   "Italy Through its Cinema: Umberto D. (1952)": null,
   "80 Years of Martin and Lewis: The Caddy (1953)": null,
   "Ammonite (2020)": {
@@ -51080,28 +51177,6 @@
     ],
     "vote_average": 6.896
   },
-  "EOS: David Hockney At The RA": null,
-  "Taxi Driver (50th Anniversary)": {
-    "tmdb_id": 103,
-    "tmdb_title": "Taxi Driver",
-    "tmdb_original_title": "Taxi Driver",
-    "overview": "Suffering from insomnia, disturbed loner Travis Bickle takes a job as a New York City cabbie, haunting the streets nightly, growing increasingly detached from reality as he dreams of cleaning up the filthy city.",
-    "poster_path": "/ekstpH614fwDX8DUln1a2Opz0N8.jpg",
-    "backdrop_path": "/9uddYYTNcLWpzUkl5iw1RUYhLhY.jpg",
-    "release_date": "1976-02-09",
-    "director": "Martin Scorsese",
-    "runtime": 114,
-    "genres": [
-      "Crime",
-      "Drama"
-    ],
-    "vote_average": 8.124
-  },
-  "People’s Emergency Briefing – Community Screening": null,
-  "World Cup Semi Finals": null,
-  "World Cup Final": null,
-  "Classic – The Big Lebowski (1998)": null,
-  "Crafty Movie Night – 500 Days of Summer": null,
   "UK Premiere: A Year in London + Q&amp;A": null,
   "A Year in London + Director Q&amp;A": {
     "tmdb_id": 1469511,
@@ -51176,9 +51251,39 @@
   },
   "Wham! 10 Days in China Party + Intro": null,
   "Mamma Mia Party!": null,
-  "Moana (Live Action )Sing-a-long": null,
+  "People’s Emergency Briefing – Community Screening": null,
+  "World Cup Semi Finals": null,
+  "World Cup Final": null,
+  "Classic – The Big Lebowski (1998)": null,
+  "Crafty Movie Night – 500 Days of Summer": null,
   "Moana (Live Action)": null,
   "Backrooms: Everything must Go Bonus Edition": null,
+  "Moana (Live Action )Sing-a-long": null,
+  "A Summer&#039;s Tale": null,
+  "The Liberated Film Club: Jonathan Rosenbaum": null,
+  "The Liberated Film Club: The Camelia Committee": null,
+  "I Don&#039;t Want to Sleep Alone": null,
+  "One Minute Volume 3": null,
+  "JAZZ 625: Music Giants on the Small Screen": null,
+  "The Fabulous Baron Munchausen": {
+    "tmdb_id": 41213,
+    "tmdb_title": "The Fabulous Baron Munchausen",
+    "tmdb_original_title": "Baron Prášil",
+    "overview": "A 20th century man lands on the Moon and discovers that Baron Munchausen has beaten him to it, accompanied by Cyrano de Bergerac and the characters from Jules Verne's novels about the conquest of the satellite.",
+    "poster_path": "/azAhyBd8netxD18VdYo7C4oUvbR.jpg",
+    "backdrop_path": "/elfVwrfn5goenMteFuYboz5q2BN.jpg",
+    "release_date": "1962-07-01",
+    "director": "Karel Zeman",
+    "runtime": 85,
+    "genres": [
+      "Animation",
+      "Fantasy",
+      "Adventure",
+      "Comedy"
+    ],
+    "vote_average": 7.4
+  },
+  "Histoire(s) du Cin&Atilde;&copy;ma": null,
   "WHO KILLED CAPTAIN ALEX?": null,
   "MYSTERY MOVIE": null,
   "THE CYNIC, THE RAT AND THE FIST": null,
@@ -51209,19 +51314,68 @@
   "TFFF: PLANE FILM + Q&A": null,
   "TFFF: SOFTSHELL + Q&A": null,
   "TFFF: AFFECTION AFFECTION + Q&A": null,
+  "TFFF: BELIEF IS NOT WITHOUT PATHOS + Q&A": null,
   "TFFF: SITTING IDLE + Q&A": null,
   "Fifth Birthday Party: The Summer Book [PREVIEW]": null,
   "Fifth Birthday Party: Cinema Paradiso": null,
   "Fifth Birthday Party: They Never Slept + Panel": null,
   "Fifth Birthday Party: La La Land": null,
   "Exhibition On Screen: David Hockney at the Royal Academy of Arts": null,
+  "The Girls": null,
+  "Mark Kermode Live in 3D at the BFI": null,
+  "Sound and Vision: Films by Helen Petts": null,
+  "Aamir Khan in Conversation": null,
+  "25 and Under: An introduction to John Woo": null,
+  "Funday: Charlie and Lola – 25th Anniversary": null,
+  "Shorts Programme: It’s Not You, It’s Ableism": null,
+  "UK premiere of 4K restoration: 3 Bad Men": {
+    "tmdb_id": 32716,
+    "tmdb_title": "3 Bad Men",
+    "tmdb_original_title": "3 Bad Men",
+    "overview": "Three outlaws come to the aid of a young girl after her father is killed.",
+    "poster_path": "/4x1vv1O0QMgE2sSbtSbrV68Zscr.jpg",
+    "backdrop_path": "/kmjkRLZ0buMUFQF9ztxJRylij2F.jpg",
+    "release_date": "1926-08-28",
+    "director": "John Ford",
+    "runtime": 92,
+    "genres": [
+      "Romance",
+      "Western"
+    ],
+    "vote_average": 6.875
+  },
+  "D-Punk": null,
+  "My Fathers Island": null,
+  "The Girls 4K Restoration": {
+    "tmdb_id": 20975,
+    "tmdb_title": "The Girls",
+    "tmdb_original_title": "Девчата",
+    "overview": "A graduate of the culinary technical school of the cook, Tosya Kislitsyna, a naive and eccentric girl, came to the village lost in the northern forests. She sticks her nose in all affairs, seeks to help everyone. She met Ilya on the day of arrival: the \"first guy in the village\" fell upon her indignantly, and in the evening, to brighten up an unpleasant meeting, she decided to \"make happy\" with an invitation to a dance and was refused. Not accustomed to refusals, Ilya argues with Filya that during the week he will fall in love with Tosya...",
+    "poster_path": "/zAmv4i2sARwa17npj8rJD4OA4md.jpg",
+    "backdrop_path": "/yOISfUtekI6bbkyGv25JQmUR8oh.jpg",
+    "release_date": "1962-03-07",
+    "director": "Yuri Chulyukin",
+    "runtime": 96,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "vote_average": 7.522
+  },
+  "To The Horizon And Back Q A": null,
+  "Rozier Near Orouet": null,
+  "Rozier Shorts Programme": null,
+  "Jlg Unmade History": null,
+  "Synthetic Sincerity Q A": null,
+  "Rozier The Castaways Of Turtle Island": null,
+  "Nostalgia 4K": null,
   "Moana (2026)": {
     "tmdb_id": 1108427,
     "tmdb_title": "Moana",
     "tmdb_original_title": "Moana",
     "overview": "Teenage Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with infamous demigod Maui on an unforgettable journey to restore prosperity to her people.",
     "poster_path": "/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
-    "backdrop_path": "/c6BPbkO5Npt1OdwttAxCFo06wtH.jpg",
+    "backdrop_path": "/c6U1Te0p0FK0BOB43hiwGlBKiVY.jpg",
     "release_date": "2026-07-08",
     "director": "Thomas Kail",
     "runtime": 115,
@@ -51231,31 +51385,12 @@
       "Comedy",
       "Adventure"
     ],
-    "vote_average": 5.2
-  },
-  "Dog Friendly Screening: Minions & Monsters": {
-    "tmdb_id": 43933,
-    "tmdb_title": "Monsters",
-    "tmdb_original_title": "Monsters",
-    "overview": "Six years ago NASA discovered the possibility of alien life within our solar system. A probe was launched to collect samples, but crashed upon re-entry over Central America. Soon after, new life forms began to appear and half of Mexico was quarantined as an infected zone. Today, the American and Mexican military still struggle to contain \"the creatures,\" while a journalist agrees to escort a shaken tourist through the infected zone in Mexico to the safety of the U.S. border.",
-    "poster_path": "/qpJyTxR33KG9qFmXoCD5AUTToPl.jpg",
-    "backdrop_path": "/imiBIsvNU3TbMB3sbqKanKODS33.jpg",
-    "release_date": "2010-06-18",
-    "director": "Gareth Edwards",
-    "runtime": 94,
-    "genres": [
-      "Drama",
-      "Thriller",
-      "Science Fiction"
-    ],
-    "vote_average": 6.187
+    "vote_average": 5.3
   },
   "Letters from Baghdad (Re-release)": null,
-  "The Labours of Hercule: Poirot Double Bill": null,
   "The Invite (35mm)": null,
-  "Funky Stuff": null,
   "FIFA World Cup 2026: Semi Final 1": null,
-  "FIFA World Cup 2026: Semi Final 2": null,
+  "FIFA World Cup 2026:  England VS Argentina Semi Final": null,
   "Vinyl Sisters": null,
   "LAFF 2026: The Travellers": null,
   "The Odyssey (70mm)": null,
@@ -51299,7 +51434,7 @@
       "Drama",
       "Comedy"
     ],
-    "vote_average": 7.636
+    "vote_average": 7.6
   },
   "LAFF 2026: YURLU | COUNTRY": null,
   "LAFF 2026: Ten Canoes": null,
@@ -51359,7 +51494,7 @@
       "Comedy",
       "Drama"
     ],
-    "vote_average": 7.645
+    "vote_average": 7.644
   },
   "Relaxed Screening: Gentlemen Prefer Blondes": {
     "tmdb_id": 759,
@@ -51462,13 +51597,13 @@
     "poster_path": "/niNdhTpPHSgw22tK0PLjQMV640v.jpg",
     "backdrop_path": "/yE376O0gMgUE7wX1PQ9bbTPVvFq.jpg",
     "release_date": "2006-07-26",
-    "director": "Valerie Faris",
+    "director": "Jonathan Dayton",
     "runtime": 102,
     "genres": [
       "Comedy",
       "Drama"
     ],
-    "vote_average": 7.7
+    "vote_average": 7.693
   },
   "La Scala Milan: Cosi Fan Tutte": null,
   "Ali Plumb’s Untitled Film Quiz Project": null,
@@ -51582,34 +51717,10 @@
   "RBO Encore 2026-27: Romeo & Juliet (2025 Encore)": null,
   "Met Opera Live 2026-27: Parsifal": null,
   "Met Opera Encore 2026-27: Parsifal": null,
-  "The Girls 4K Restoration": {
-    "tmdb_id": 20975,
-    "tmdb_title": "The Girls",
-    "tmdb_original_title": "Девчата",
-    "overview": "A graduate of the culinary technical school of the cook, Tosya Kislitsyna, a naive and eccentric girl, came to the village lost in the northern forests. She sticks her nose in all affairs, seeks to help everyone. She met Ilya on the day of arrival: the \"first guy in the village\" fell upon her indignantly, and in the evening, to brighten up an unpleasant meeting, she decided to \"make happy\" with an invitation to a dance and was refused. Not accustomed to refusals, Ilya argues with Filya that during the week he will fall in love with Tosya...",
-    "poster_path": "/zAmv4i2sARwa17npj8rJD4OA4md.jpg",
-    "backdrop_path": "/yOISfUtekI6bbkyGv25JQmUR8oh.jpg",
-    "release_date": "1962-03-07",
-    "director": "Yuri Chulyukin",
-    "runtime": 96,
-    "genres": [
-      "Comedy",
-      "Romance"
-    ],
-    "vote_average": 7.522
-  },
-  "Rozier The Castaways Of Turtle Island": null,
-  "My Fathers Island": null,
-  "To The Horizon And Back Q A": null,
-  "Rozier Near Orouet": null,
-  "Rozier Shorts Programme": null,
-  "Jlg Unmade History": null,
-  "Synthetic Sincerity Q A": null,
-  "Nostalgia 4K": null,
-  "Toddler Club: Madagascar": null,
   "Beyond: The Last Viking": null,
   "Backrooms: Everything Must Go Edition w/ Bonus Footage": null,
-  "Nolan in 35mm: The Dark Knight": null,
+  "Nolan in 35mm: Interstellar": null,
+  "Nolan in 35mm: Inception": null,
   "Throwback: Inception": {
     "tmdb_id": 27205,
     "tmdb_title": "Inception",
@@ -51625,47 +51736,34 @@
       "Science Fiction",
       "Adventure"
     ],
-    "vote_average": 8.4
+    "vote_average": 8.372
   },
-  "Nolan in 35mm: Interstellar": null,
-  "Nolan in 35mm: Inception": null,
   "Nolan in 35mm: The Dark Knight Rises": null,
   "Alhan Presents: Jockeys of Jamaica": null,
   "Toddler Club: Tiddler + Pip & Posy Sandpit Friends": null,
   "Beyond: Effi o Blaenau": null,
   "Family Film Club: The Goonies": null,
   "Toddler Club: Kung Fu Panda": null,
-  "The Girls": null,
-  "What Could Have Been: Something’s Got to Give": null,
-  "Marilyn in Her Own Words...": null,
-  "BFI Southbank and BFI IMAX Tour": null,
-  "Mark Kermode Live in 3D at the BFI": null,
-  "Sound and Vision: Films by Helen Petts": null,
-  "Aamir Khan in Conversation": null,
-  "25 and Under: An introduction to John Woo": null,
-  "Funday: Charlie and Lola – 25th Anniversary": null,
-  "Shorts Programme: It’s Not You, It’s Ableism": null,
-  "UK premiere of 4K restoration: 3 Bad Men": {
-    "tmdb_id": 32716,
-    "tmdb_title": "3 Bad Men",
-    "tmdb_original_title": "3 Bad Men",
-    "overview": "Three outlaws come to the aid of a young girl after her father is killed.",
-    "poster_path": "/4x1vv1O0QMgE2sSbtSbrV68Zscr.jpg",
-    "backdrop_path": "/kmjkRLZ0buMUFQF9ztxJRylij2F.jpg",
-    "release_date": "1926-08-28",
-    "director": "John Ford",
-    "runtime": 92,
+  "Relaxed Screening: Minions & Monsters": {
+    "tmdb_id": 1315772,
+    "tmdb_title": "Minions & Monsters",
+    "tmdb_original_title": "Minions & Monsters",
+    "overview": "This is the rambunctious, ridiculous and totally true story of how the Minions conquered Hollywood, became movie stars, lost everything, unleashed monsters onto the world and then banded together to try and save the planet from the mayhem they had just created.",
+    "poster_path": "/nz7i42yhLIJ4ve9JKgM6NthoLHO.jpg",
+    "backdrop_path": "/xMoXsOgF0hBP7iVj7ZPIrFtTeL3.jpg",
+    "release_date": "2026-06-24",
+    "director": "Pierre Coffin",
+    "runtime": 90,
     "genres": [
-      "Romance",
-      "Western"
+      "Adventure",
+      "Animation",
+      "Comedy",
+      "Family",
+      "Fantasy"
     ],
-    "vote_average": 6.875
+    "vote_average": 6.334
   },
-  "D-Punk": null,
   "BACKROOMS: EVERYTHING MUST GO WITH BONUS FOOTAGE": null,
-  "FILM CLUB: FAR FROM THE MADDING CROWD": null,
-  "FILM CLUB: DARLING": null,
-  "MY FATHER'S ISLAND": null,
   "DOCHOUSE: REPLICA": {
     "tmdb_id": 434510,
     "tmdb_title": "Replica",
@@ -51683,6 +51781,5 @@
       "Drama"
     ],
     "vote_average": 3.727
-  },
-  "DOCHOUSE: THE DAY INNOCENCE DIED": null
+  }
 }
