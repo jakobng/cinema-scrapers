@@ -669,6 +669,37 @@
     "status": "accepted",
     "updated_at": "2026-07-17T23:13:58.044670+00:00"
   },
+  "aftersunアフターサン::2022::101::シャーロットウェルズ": {
+    "candidate": {
+      "director": "シャーロット・ウェルズ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "101",
+      "score": 12,
+      "support": 2,
+      "title": "aftersun／アフターサン",
+      "url": "https://filmarks.com/movies/105613",
+      "year": "2023"
+    },
+    "candidate_count": 27,
+    "filmarks_url": "https://filmarks.com/movies/105613",
+    "query": "aftersun／アフターサン",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=aftersun%EF%BC%8F%E3%82%A2%E3%83%95%E3%82%BF%E3%83%BC%E3%82%B5%E3%83%B3",
+    "status": "accepted",
+    "updated_at": "2026-07-22T23:29:46.844152+00:00"
+  },
   "agathaetleslecturesillimitées::1981::86::マルグリットデュラス": {
     "candidate": {
       "director": "リチャード・マーティニ",
@@ -12743,6 +12774,37 @@
     "status": "review",
     "updated_at": "2026-07-15T23:23:47.071732+00:00"
   },
+  "ある子供::2005::95::ジャン＝ピエールダルデンヌ": {
+    "candidate": {
+      "director": "ジャン=ピエール・ダルデンヌ",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "95",
+      "score": 11,
+      "support": 2,
+      "title": "ある子供",
+      "url": "https://filmarks.com/movies/14462",
+      "year": "2005"
+    },
+    "candidate_count": 4,
+    "filmarks_url": "",
+    "query": "ある子供",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%82%E3%82%8B%E5%AD%90%E4%BE%9B",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:54.183639+00:00"
+  },
   "ある子供::2005::95::リュックダルデンヌ": {
     "candidate": {
       "director": "ジャン=ピエール・ダルデンヌ",
@@ -14092,6 +14154,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%81%9D%E3%81%97%E3%81%A6%E4%BA%BA%E7%94%9F%E3%81%AF%E3%81%A4%E3%81%A5%E3%81%8F",
     "status": "review",
     "updated_at": "2026-07-20T23:25:13.846862+00:00"
+  },
+  "そして人生はつづく::1992::95::アッバスキアロスタミ": {
+    "candidate": {
+      "director": "アッバス・キアロスタミ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime_mismatch",
+        "director"
+      ],
+      "runtime": "91",
+      "score": 5,
+      "support": 1,
+      "title": "そして人生はつづく",
+      "url": "https://filmarks.com/movies/28610",
+      "year": "1993"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "",
+    "query": "そして人生はつづく",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime_mismatch",
+      "director"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%9D%E3%81%97%E3%81%A6%E4%BA%BA%E7%94%9F%E3%81%AF%E3%81%A4%E3%81%A5%E3%81%8F",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:42.984785+00:00"
   },
   "そして彼女たちは::2025::104::ジャン＝ピエールダルデンヌ": {
     "candidate": {
@@ -17103,6 +17196,35 @@
     "status": "review",
     "updated_at": "2026-06-14T23:36:18.086050+00:00"
   },
+  "イゴールの約束::1996::93::リュックダルデンヌ": {
+    "candidate": {
+      "director": "リュック・ダルデンヌ",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "93",
+      "score": 18,
+      "support": 2,
+      "title": "イゴールの約束",
+      "url": "https://filmarks.com/movies/20615",
+      "year": ""
+    },
+    "candidate_count": 29,
+    "filmarks_url": "https://filmarks.com/movies/20615",
+    "query": "イゴールの約束",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%A4%E3%82%B4%E3%83%BC%E3%83%AB%E3%81%AE%E7%B4%84%E6%9D%9F",
+    "status": "accepted",
+    "updated_at": "2026-07-22T23:29:50.275240+00:00"
+  },
   "イゴールの約束::1996::93::尚皮耶·達頓": {
     "candidate": {
       "director": "リュック・ダルデンヌ",
@@ -19268,6 +19390,35 @@
     "status": "accepted",
     "updated_at": "2026-06-29T23:25:39.857226+00:00"
   },
+  "ガーゴイル::2001::100::クレールドニ": {
+    "candidate": {
+      "director": "クレール・ドニ",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "100",
+      "score": 18,
+      "support": 2,
+      "title": "ガーゴイル",
+      "url": "https://filmarks.com/movies/54273",
+      "year": ""
+    },
+    "candidate_count": 8,
+    "filmarks_url": "https://filmarks.com/movies/54273",
+    "query": "ガーゴイル",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%AC%E3%83%BC%E3%82%B4%E3%82%A4%E3%83%AB",
+    "status": "accepted",
+    "updated_at": "2026-07-22T23:29:49.315811+00:00"
+  },
   "ガーゴイル::2001::101::クレールドニ": {
     "candidate": {
       "director": "クレール・ドニ",
@@ -20131,6 +20282,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AE%E3%82%A2%E3%82%B9%20%E5%A5%AA%E9%82%84%E3%81%AE%E3%83%AD%E3%82%BC%20%E7%AC%AC3%E5%B9%95",
     "status": "accepted",
     "updated_at": "2026-06-07T05:10:46.969842+00:00"
+  },
+  "ゴジラ::1954::97::本多猪四郎": {
+    "candidate": {
+      "director": "本多猪四郎",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "97",
+      "score": 21,
+      "support": 3,
+      "title": "ゴジラ",
+      "url": "https://filmarks.com/movies/31799",
+      "year": "1954"
+    },
+    "candidate_count": 35,
+    "filmarks_url": "https://filmarks.com/movies/31799",
+    "query": "ゴジラ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B4%E3%82%B8%E3%83%A9",
+    "status": "accepted",
+    "updated_at": "2026-07-22T23:29:37.959537+00:00"
   },
   "ゴダールソシアリスム::2010::102::ジャン＝リュックゴダール": {
     "candidate": {
@@ -24543,6 +24725,35 @@
     "status": "review",
     "updated_at": "2026-07-20T23:25:06.488955+00:00"
   },
+  "ドキュメントポルノ続トルコテクニック大全集::1974::63::映画賞": {
+    "candidate": {
+      "director": "高橋伴明",
+      "reasons": [
+        "title_miss",
+        "runtime_near",
+        "director_mismatch"
+      ],
+      "runtime": "62",
+      "score": -14,
+      "support": 1,
+      "title": "ドキュメントポルノ　痴漢常習者",
+      "url": "https://filmarks.com/movies/74246",
+      "year": ""
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "ドキュメント・ポルノ 続トルコテクニック大全集",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_miss",
+      "runtime_near",
+      "director_mismatch"
+    ],
+    "score": -14,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%83%BB%E3%83%9D%E3%83%AB%E3%83%8E%20%E7%B6%9A%E3%83%88%E3%83%AB%E3%82%B3%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF%E5%A4%A7%E5%85%A8%E9%9B%86",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:44.210637+00:00"
+  },
   "ドキュメントポルノ続痴漢::1973::63::山本晋也": {
     "candidate": {
       "director": "山本晋也",
@@ -25027,6 +25238,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%8C%E3%83%BC%E3%83%B4%E3%82%A7%E3%83%AB%E3%83%B4%E3%82%A1%E3%83%BC%E3%82%B0%E3%80%8F%E5%85%88%E8%A1%8C%E4%B8%8A%E6%98%A0%EF%BC%8B%E3%83%88%E3%83%BC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%BC",
     "status": "review",
     "updated_at": "2026-06-12T23:43:29.153703+00:00"
+  },
+  "ネネットとボニ::1997::103::クレールドゥニ": {
+    "candidate": {
+      "director": "クレール・ドニ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "103",
+      "score": 2,
+      "support": 1,
+      "title": "ネネットとボニ",
+      "url": "https://filmarks.com/movies/33830",
+      "year": "1998"
+    },
+    "candidate_count": 30,
+    "filmarks_url": "",
+    "query": "ネネットとボニ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 2,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%8D%E3%83%8D%E3%83%83%E3%83%88%E3%81%A8%E3%83%9C%E3%83%8B",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:41.739407+00:00"
   },
   "ネネットとボニ::1997::99::クレールドゥニ": {
     "candidate": {
@@ -30642,6 +30884,35 @@
     "status": "review",
     "updated_at": "2026-07-11T23:14:30.504210+00:00"
   },
+  "ロルナの祈り::2008::105::ジャン＝ピエールダルデンヌ": {
+    "candidate": {
+      "director": "ジャン=ピエール・ダルデンヌ",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "105",
+      "score": 8,
+      "support": 1,
+      "title": "ロルナの祈り",
+      "url": "https://filmarks.com/movies/11994",
+      "year": ""
+    },
+    "candidate_count": 25,
+    "filmarks_url": "",
+    "query": "ロルナの祈り",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 8,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AD%E3%83%AB%E3%83%8A%E3%81%AE%E7%A5%88%E3%82%8A",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:52.942875+00:00"
+  },
   "ロルナの祈り::2008::105::尚皮耶·達頓": {
     "candidate": {
       "director": "ジャン=ピエール・ダルデンヌ",
@@ -32030,6 +32301,33 @@
     "search_url": "https://filmarks.com/search/movies?q=%E4%BA%BA%E7%8B%BC%20JIN-ROH",
     "status": "accepted",
     "updated_at": "2026-06-07T05:15:28.085584+00:00"
+  },
+  "人間の條件第１部純愛篇第２部激怒篇::1959::201::小林正樹": {
+    "candidate": {
+      "director": "ヘンリー・キング",
+      "reasons": [
+        "title_partial",
+        "director_mismatch"
+      ],
+      "runtime": "",
+      "score": 0,
+      "support": 0,
+      "title": "激怒",
+      "url": "https://filmarks.com/movies/37373",
+      "year": ""
+    },
+    "candidate_count": 35,
+    "filmarks_url": "",
+    "query": "人間の條件 第１部純愛篇／第２部激怒篇",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_partial",
+      "director_mismatch"
+    ],
+    "score": 0,
+    "search_url": "https://filmarks.com/search/movies?q=%E4%BA%BA%E9%96%93%E3%81%AE%E6%A2%9D%E4%BB%B6%20%E7%AC%AC%EF%BC%91%E9%83%A8%E7%B4%94%E6%84%9B%E7%AF%87%EF%BC%8F%E7%AC%AC%EF%BC%92%E9%83%A8%E6%BF%80%E6%80%92%E7%AF%87",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:45.549973+00:00"
   },
   "人間の條件第１部純愛篇第２部激怒篇::1959::204::小林正樹": {
     "candidate": {
@@ -39174,6 +39472,37 @@
     "status": "review",
     "updated_at": "2026-07-21T23:24:28.084570+00:00"
   },
+  "怪奇タクシー布告を知らぬ者達に::2025::95::岡本英郎": {
+    "candidate": {
+      "director": "岡本英郎",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime_mismatch",
+        "director"
+      ],
+      "runtime": "110",
+      "score": 5,
+      "support": 1,
+      "title": "怪奇タクシー 布告を知らぬ者達に",
+      "url": "https://filmarks.com/movies/128210",
+      "year": "2026"
+    },
+    "candidate_count": 22,
+    "filmarks_url": "",
+    "query": "怪奇タクシー 布告を知らぬ者達に",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime_mismatch",
+      "director"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%80%AA%E5%A5%87%E3%82%BF%E3%82%AF%E3%82%B7%E3%83%BC%20%E5%B8%83%E5%91%8A%E3%82%92%E7%9F%A5%E3%82%89%E3%81%AC%E8%80%85%E9%81%94%E3%81%AB",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:36.140053+00:00"
+  },
   "怪奇タクシー布告を知らぬ者達に::2026::95::岡本英郎": {
     "candidate": {
       "director": "岡本英郎",
@@ -39468,6 +39797,37 @@
     "status": "accepted",
     "updated_at": "2026-06-07T05:12:23.442357+00:00"
   },
+  "息子のまなざし::2002::103::ジャン＝ピエールダルデンヌ": {
+    "candidate": {
+      "director": "ジャン=ピエール・ダルデンヌ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "103",
+      "score": 2,
+      "support": 1,
+      "title": "息子のまなざし",
+      "url": "https://filmarks.com/movies/1012",
+      "year": "2003"
+    },
+    "candidate_count": 29,
+    "filmarks_url": "",
+    "query": "息子のまなざし",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 2,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%81%AF%E5%AD%90%E3%81%AE%E3%81%BE%E3%81%AA%E3%81%96%E3%81%97",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:51.530392+00:00"
+  },
   "息子のまなざし::2002::103::尚皮耶·達頓": {
     "candidate": {
       "director": "ジャン=ピエール・ダルデンヌ",
@@ -39620,6 +39980,31 @@
     "search_url": "https://filmarks.com/search/movies?q=%E6%82%AA%E5%A4%A2%E3%81%AE%E7%B3%BB%E8%AD%9C",
     "status": "review",
     "updated_at": "2026-06-08T23:36:16.140984+00:00"
+  },
+  "悪徳警官::::::": {
+    "candidate": {
+      "director": "ロイ・ローランド",
+      "reasons": [
+        "title_exact"
+      ],
+      "runtime": "92",
+      "score": 10,
+      "support": 0,
+      "title": "悪徳警官",
+      "url": "https://filmarks.com/movies/31180",
+      "year": ""
+    },
+    "candidate_count": 19,
+    "filmarks_url": "",
+    "query": "悪徳警官",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact"
+    ],
+    "score": 10,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%82%AA%E5%BE%B3%E8%AD%A6%E5%AE%98",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:55.075288+00:00"
   },
   "悪魔の金::1941::106::ウィリアムディターレ": {
     "candidate": {
@@ -46671,6 +47056,35 @@
     "status": "accepted",
     "updated_at": "2026-07-04T23:31:57.648224+00:00"
   },
+  "白蛇伝::1958::78::映画賞": {
+    "candidate": {
+      "director": "チェン・チー・ホワ",
+      "reasons": [
+        "title_miss",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "96",
+      "score": -19,
+      "support": 0,
+      "title": "新白蛇伝",
+      "url": "https://filmarks.com/movies/41514",
+      "year": ""
+    },
+    "candidate_count": 4,
+    "filmarks_url": "",
+    "query": "白蛇伝",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_miss",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -19,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%99%BD%E8%9B%87%E4%BC%9D",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:40.736479+00:00"
+  },
   "白衣の男::::::": {
     "candidate": {
       "director": "アレクサンダー・マッケンドリック",
@@ -48441,6 +48855,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E7%BD%AA%E4%BA%BA%E3%81%9F%E3%81%A1",
     "status": "accepted",
     "updated_at": "2026-06-23T23:32:45.422755+00:00"
+  },
+  "美しき仕事::1998::93::クレールドゥニ": {
+    "candidate": {
+      "director": "クレール・ドニ",
+      "reasons": [
+        "title_exact",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "90",
+      "score": 1,
+      "support": 0,
+      "title": "美しき仕事",
+      "url": "https://filmarks.com/movies/54608",
+      "year": ""
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "美しき仕事",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": 1,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%BE%8E%E3%81%97%E3%81%8D%E4%BB%95%E4%BA%8B",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:48.218269+00:00"
   },
   "美しき結婚::1982::100::éricrohmer": {
     "candidate": {
@@ -50223,6 +50666,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E8%A5%BF%E5%B7%9D%E6%99%BA%E4%B9%9F%E6%98%A0%E5%83%8F%E9%9B%86",
     "status": "review",
     "updated_at": "2026-07-04T23:32:30.966418+00:00"
+  },
+  "西遊記::1960::88::映画賞": {
+    "candidate": {
+      "director": "冬島泰三",
+      "reasons": [
+        "title_exact",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "84",
+      "score": 1,
+      "support": 0,
+      "title": "西遊記",
+      "url": "https://filmarks.com/movies/28605",
+      "year": ""
+    },
+    "candidate_count": 24,
+    "filmarks_url": "",
+    "query": "西遊記",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": 1,
+    "search_url": "https://filmarks.com/search/movies?q=%E8%A5%BF%E9%81%8A%E8%A8%98",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:39.320982+00:00"
   },
   "西遊記女人国の戦い::2018::114::ソイチェン": {
     "candidate": {
@@ -54372,6 +54844,33 @@
     "search_url": "https://filmarks.com/search/movies?q=%ED%95%B4%EC%95%BC%20%ED%95%A0%20%EC%9D%BC",
     "status": "accepted",
     "updated_at": "2026-06-22T23:44:39.681966+00:00"
+  },
+  "８12::1963::138::フェデリコフェリニ": {
+    "candidate": {
+      "director": "ブルース・ラ・ブルース",
+      "reasons": [
+        "title_miss",
+        "director_mismatch"
+      ],
+      "runtime": "",
+      "score": -15,
+      "support": 0,
+      "title": "スーパー8 1/2",
+      "url": "https://filmarks.com/movies/65057",
+      "year": ""
+    },
+    "candidate_count": 3,
+    "filmarks_url": "",
+    "query": "８ 1／2",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_miss",
+      "director_mismatch"
+    ],
+    "score": -15,
+    "search_url": "https://filmarks.com/search/movies?q=%EF%BC%98%201%EF%BC%8F2",
+    "status": "review",
+    "updated_at": "2026-07-22T23:29:56.132654+00:00"
   },
   "＜アイルランド映画祭2026＞インタイムドーナルラニートークイベント::2025::::ヌアラオコーナー": {
     "candidate": {
