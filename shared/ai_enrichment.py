@@ -247,7 +247,7 @@ class AIEnrichmentClient:
             if provider == "deepseek":
                 api_key = os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("AI_API_KEY")
                 base_url = os.environ.get("AI_BASE_URL") or "https://api.deepseek.com"
-                model = os.environ.get("AI_MODEL") or os.environ.get("DEEPSEEK_MODEL") or "deepseek-chat"
+                model = os.environ.get("AI_MODEL") or os.environ.get("DEEPSEEK_MODEL") or "deepseek-v4-flash"
             else:
                 api_key = os.environ.get("OPENAI_API_KEY") or os.environ.get("AI_API_KEY")
                 base_url = os.environ.get("AI_BASE_URL") or "https://api.openai.com/v1"
@@ -301,6 +301,14 @@ class AIEnrichmentClient:
         reasoning_effort = os.environ.get("LOCAL_AI_REASONING_EFFORT", "none").strip()
         if reasoning_effort and self.provider == "lmstudio":
             payload["reasoning_effort"] = reasoning_effort
+        # DeepSeek v4 models think by default, unlike the retired deepseek-chat these
+        # token budgets were sized for. Reasoning tokens are billed against max_tokens,
+        # so an 8-title batch regularly burned the whole budget and returned empty
+        # content (finish_reason=length). Title lookup and synopsis translation are
+        # mechanical, so thinking buys nothing here. reasoning_effort cannot express
+        # this: it only accepts high/low/medium, and low still spent the full budget.
+        if self.provider == "deepseek" and env_truthy("DEEPSEEK_DISABLE_THINKING", True):
+            payload["thinking"] = {"type": "disabled"}
         headers = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else None
         try:
             response = self.session.post(
@@ -316,6 +324,16 @@ class AIEnrichmentClient:
         if response.status_code != 200:
             self.last_error_note = LOCAL_AI_UNAVAILABLE
             print(f"   Local AI error {response.status_code}: {response.text[:200]}")
+            # A 400 is a config error (retired/misspelled model, bad payload), never
+            # transient. Latch unavailable so one bad model name fails loudly once
+            # instead of silently repeating for every batch all run.
+            if response.status_code == 400:
+                self.available = False
+                print(
+                    f"   ❌ AI DISABLED for this run: {self.provider} rejected model "
+                    f"{self.model!r} as an invalid request. Fix AI_MODEL/DEEPSEEK_MODEL "
+                    f"(list live models: GET {self.base_url}/models)."
+                )
             return ""
         data = response.json()
         try:

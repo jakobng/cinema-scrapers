@@ -954,7 +954,11 @@ def _is_usable_english_text(text: str) -> bool:
     return bool(text and str(text).strip() and not _contains_japanese(str(text)))
 
 def _source_synopsis_for_translation(item: dict) -> str:
-    for field in ("synopsis", "tmdb_overview_jp"):
+    # tmdb_overview_en is included because TMDB sometimes serves Japanese text in
+    # the English overview field; the _contains_japanese guard means genuinely
+    # English overviews are never re-translated. Without this the audit's
+    # english_japanese check has no source to translate from and stays red.
+    for field in ("synopsis", "tmdb_overview_jp", "tmdb_overview_en"):
         text = item.get(field)
         if text and _contains_japanese(str(text)):
             return str(text)

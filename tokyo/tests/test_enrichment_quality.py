@@ -178,3 +178,101 @@ def test_audit_frontend_quality_flags_bad_english_and_bad_letterboxd():
     assert issues["bad_synopsis_en"] == [rows[0]]
     assert issues["invalid_letterboxd"] == [rows[0]]
     assert issues["missing_tmdb"] == []
+
+
+def test_japanese_in_tmdb_overview_en_is_translated_not_leaked():
+    """TMDB sometimes serves Japanese in the English overview field. That text must
+    be picked up as a translation source, otherwise audit_showtimes' critical
+    english_japanese check has nothing to translate and the workflow stays red."""
+    jp_in_en_field = {"tmdb_overview_en": "戦後の東京を舞台にした家族の再生の物語。"}
+    assert main_scraper._source_synopsis_for_translation(jp_in_en_field) == (
+        "戦後の東京を舞台にした家族の再生の物語。"
+    )
+
+    # A genuinely English overview must never be re-translated.
+    real_english = {"tmdb_overview_en": "A story of a family set in post-war Tokyo."}
+    assert main_scraper._source_synopsis_for_translation(real_english) == ""
+
+    # The original Japanese fields still win when present.
+    both = {"synopsis": "本来の日本語あらすじ。", "tmdb_overview_en": "英語の混ざった文。"}
+    assert main_scraper._source_synopsis_for_translation(both) == "本来の日本語あらすじ。"
+
+
+def test_invalid_model_400_latches_ai_off_instead_of_retrying_all_run():
+    """A retired model name (deepseek-chat) 400s on every call. Latch the client off
+    so it fails loudly once, rather than silently degrading the whole run."""
+    class FakeResponse:
+        status_code = 400
+        text = '{"error":{"message":"The supported API model names are deepseek-v4-pro or deepseek-v4-flash, but you passed deepseek-chat.","type":"invalid_request_error"}}'
+
+    class FakeSession:
+        def __init__(self):
+            self.calls = 0
+
+        def post(self, *args, **kwargs):
+            self.calls += 1
+            return FakeResponse()
+
+    session = FakeSession()
+    client = AIEnrichmentClient(
+        session=session, provider="deepseek", model="deepseek-chat",
+        base_url="https://api.deepseek.com", timeout_seconds=10,
+    )
+    client.api_key = "test-key"
+
+    assert client._chat_completion("prompt", 0.2, 100) == ""
+    assert session.calls == 1
+    assert client.available is False
+
+    # Subsequent calls must short-circuit without hitting the API again.
+    assert client._chat_completion("prompt", 0.2, 100) == ""
+    assert session.calls == 1
+
+
+def test_deepseek_default_model_is_a_live_model():
+    """Guards the exact regression: the default must be a model DeepSeek still serves."""
+    import os
+    from shared import ai_enrichment
+
+    for var in ("AI_MODEL", "DEEPSEEK_MODEL", "AI_BASE_URL"):
+        os.environ.pop(var, None)
+    os.environ["DEEPSEEK_API_KEY"] = "test-key"
+    os.environ["AI_ENRICHMENT_PROVIDER"] = "deepseek"
+
+    client = ai_enrichment.AIEnrichmentClient.from_env(session=None)
+    assert client is not None
+    assert client.model in {"deepseek-v4-flash", "deepseek-v4-pro"}
+
+
+def test_deepseek_requests_disable_thinking_by_default():
+    """DeepSeek v4 bills reasoning tokens against max_tokens. Left on, an 8-title
+    batch exhausts the budget and returns empty content (finish_reason=length)."""
+    captured = {}
+
+    class FakeResponse:
+        status_code = 200
+        def json(self):
+            return {"choices": [{"message": {"content": "ok"}}]}
+
+    class FakeSession:
+        def post(self, url, json=None, headers=None, timeout=None):
+            captured.update(json)
+            return FakeResponse()
+
+    client = AIEnrichmentClient(
+        session=FakeSession(), provider="deepseek", model="deepseek-v4-flash",
+        base_url="https://api.deepseek.com", timeout_seconds=10,
+    )
+    client.api_key = "test-key"
+    assert client._chat_completion("prompt", 0.2, 4096) == "ok"
+    assert captured["thinking"] == {"type": "disabled"}
+
+    # Other OpenAI-compatible providers must not receive the DeepSeek-only field.
+    captured.clear()
+    other = AIEnrichmentClient(
+        session=FakeSession(), provider="openai", model="gpt-4o-mini",
+        base_url="https://api.openai.com/v1", timeout_seconds=10,
+    )
+    other.api_key = "test-key"
+    other._chat_completion("prompt", 0.2, 4096)
+    assert "thinking" not in captured

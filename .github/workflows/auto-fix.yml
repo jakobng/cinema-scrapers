@@ -59,7 +59,7 @@ jobs:
         run: |
           python tools/scraper_autofix_bot.py \
             --provider deepseek \
-            --model deepseek-chat \
+            --model deepseek-v4-pro \
             --limit ${{ inputs.limit || '3' }} \
             --log-chars 40000 \
             --timeout 120 \
