@@ -78,6 +78,30 @@ def make_ai_failure_entry(note: str, provider: str, confidence: float = 0.0) -> 
     }
 
 
+def salvage_json_objects(text: str) -> List[Dict]:
+    """Recover the complete objects from an array json.loads rejects as a whole.
+
+    A batch reply is all-or-nothing today: one truncated tail or one malformed
+    entry loses the English synopsis for every film in the batch. Scanning object
+    by object costs only the broken entry. strict=False also tolerates the raw
+    newlines models like to leave inside quoted synopsis text.
+    """
+    decoder = json.JSONDecoder(strict=False)
+    objects: List[Dict] = []
+    index = 0
+    while True:
+        start = text.find("{", index)
+        if start == -1:
+            return objects
+        try:
+            value, index = decoder.raw_decode(text, start)
+        except ValueError:
+            index = start + 1
+            continue
+        if isinstance(value, dict):
+            objects.append(value)
+
+
 def extract_json_list(text: str) -> List[Dict]:
     if not text:
         return []
@@ -98,7 +122,7 @@ def extract_json_list(text: str) -> List[Dict]:
 
     for candidate in candidates:
         try:
-            data = json.loads(candidate)
+            data = json.loads(candidate, strict=False)
         except json.JSONDecodeError:
             continue
         if isinstance(data, dict):
@@ -107,7 +131,7 @@ def extract_json_list(text: str) -> List[Dict]:
             data = data.get("resolutions") or data.get("translations") or data.get("results") or []
         if isinstance(data, list):
             return [entry for entry in data if isinstance(entry, dict)]
-    return []
+    return salvage_json_objects(cleaned)
 
 
 def extract_gemini_text(payload: Dict) -> str:

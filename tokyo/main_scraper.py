@@ -953,6 +953,26 @@ def _store_synopsis_translation(cache: dict, keys: list[str], translation: str):
 def _is_usable_english_text(text: str) -> bool:
     return bool(text and str(text).strip() and not _contains_japanese(str(text)))
 
+def _demote_japanese_english_overviews(listings: list) -> int:
+    """TMDB's en-US overview is sometimes just the Japanese text. Left in place it
+    renders verbatim as the English synopsis (build_site falls back to
+    tmdb_overview_en) and trips the audit's critical english_japanese check.
+
+    Enforce "a field named _en holds English" here rather than hoping the
+    translation call succeeds: an AI miss on one film must not gate the publish.
+    The text is kept as tmdb_overview_jp so it stays a translation source.
+    """
+    demoted = 0
+    for item in listings:
+        overview_en = item.get("tmdb_overview_en")
+        if not overview_en or not _contains_japanese(str(overview_en)):
+            continue
+        if not item.get("tmdb_overview_jp"):
+            item["tmdb_overview_jp"] = overview_en
+        item["tmdb_overview_en"] = ""
+        demoted += 1
+    return demoted
+
 def _source_synopsis_for_translation(item: dict) -> str:
     # tmdb_overview_en is included because TMDB sometimes serves Japanese text in
     # the English overview field; the _contains_japanese guard means genuinely
@@ -1009,6 +1029,11 @@ def _collect_synopses_to_translate(listings: list, cache: dict) -> tuple[dict, d
 
 def translate_missing_synopses(listings: list, cache: dict, ai_client) -> bool:
     updated_cache = False
+    # Runs before every early return below: the English fields must be clean even
+    # when AI enrichment is disabled or unavailable.
+    demoted = _demote_japanese_english_overviews(listings)
+    if demoted:
+        print(f"   Demoted {demoted} Japanese TMDB 'English' overviews")
     cached_applied = _apply_cached_synopsis_translations(listings, cache)
     if cached_applied:
         print(f"   Applied {cached_applied} cached English synopsis translations")

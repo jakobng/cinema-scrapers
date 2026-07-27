@@ -11,7 +11,7 @@ for path in (str(TOKYO_DIR), str(REPO_ROOT)):
 import audit_showtimes  # noqa: E402
 import build_site  # noqa: E402
 import main_scraper  # noqa: E402
-from shared.ai_enrichment import AIEnrichmentClient  # noqa: E402
+from shared.ai_enrichment import AIEnrichmentClient, extract_json_list  # noqa: E402
 
 
 def test_synopsis_cache_keys_cover_title_aliases_and_ignore_japanese_cache():
@@ -196,6 +196,60 @@ def test_japanese_in_tmdb_overview_en_is_translated_not_leaked():
     # The original Japanese fields still win when present.
     both = {"synopsis": "本来の日本語あらすじ。", "tmdb_overview_en": "英語の混ざった文。"}
     assert main_scraper._source_synopsis_for_translation(both) == "本来の日本語あらすじ。"
+
+
+def test_japanese_tmdb_english_overview_is_demoted_not_published():
+    """TMDB's en-US overview is sometimes the Japanese text. It must never survive
+    into tmdb_overview_en: build_site renders that verbatim as the English synopsis
+    and the audit counts it as a critical failure that blocks the whole publish."""
+    japanese = {"tmdb_overview_en": "戦後の東京を舞台にした家族の再生の物語。"}
+    english = {"tmdb_overview_en": "A story of a family set in post-war Tokyo."}
+    already_jp = {"tmdb_overview_en": "英語欄の日本語。", "tmdb_overview_jp": "本来の日本語。"}
+
+    assert main_scraper._demote_japanese_english_overviews([japanese, english, already_jp]) == 2
+
+    # Demoted, but kept as a translation source rather than discarded.
+    assert japanese["tmdb_overview_en"] == ""
+    assert japanese["tmdb_overview_jp"] == "戦後の東京を舞台にした家族の再生の物語。"
+    assert main_scraper._source_synopsis_for_translation(japanese) != ""
+
+    assert english["tmdb_overview_en"] == "A story of a family set in post-war Tokyo."
+    assert already_jp["tmdb_overview_jp"] == "本来の日本語。"  # existing JP not overwritten
+
+    # The audit's critical check must now be clean without any AI call succeeding.
+    rows = [dict(item, movie_title="X", tmdb_id=1, date_text="2026-06-20") for item in (japanese, english)]
+    assert audit_showtimes.print_frontend_quality(rows, today="2026-06-20")["english_japanese"] == []
+
+
+def test_demotion_runs_even_when_ai_is_unavailable(monkeypatch):
+    """The publish gate must not depend on the AI provider being reachable."""
+    monkeypatch.setenv("AI_TRANSLATE_SYNOPSES", "true")
+    item = {"movie_title": "X", "tmdb_overview_en": "日本語のあらすじ。"}
+
+    main_scraper.translate_missing_synopses([item], {}, None)
+
+    assert item["tmdb_overview_en"] == ""
+
+
+def test_broken_batch_json_salvages_the_intact_entries():
+    """One truncated tail or one bad entry used to lose every film in the batch."""
+    truncated = (
+        '```json\n[\n'
+        '  {"film_key": "tmdb:1", "synopsis_en": "First synopsis."},\n'
+        '  {"film_key": "tmdb:2", "synopsis_en": "Second synopsis."},\n'
+        '  {"film_key": "tmdb:3", "synopsis_en": "Third is cut off mid-sen'
+    )
+    salvaged = extract_json_list(truncated)
+    assert [entry["film_key"] for entry in salvaged] == ["tmdb:1", "tmdb:2"]
+
+    # A raw newline inside a quoted synopsis is invalid strict JSON but recoverable.
+    raw_newline = '[{"film_key": "tmdb:9", "synopsis_en": "Line one.\nLine two."}]'
+    assert extract_json_list(raw_newline) == [
+        {"film_key": "tmdb:9", "synopsis_en": "Line one.\nLine two."}
+    ]
+
+    # Genuinely contentless replies still yield nothing.
+    assert extract_json_list("I'm sorry, I cannot help with that.") == []
 
 
 def test_invalid_model_400_latches_ai_off_instead_of_retrying_all_run():
