@@ -261,6 +261,30 @@ def test_corroboration_strips_cinema_annotations_from_the_listing_title():
         assert ok, listed_as
 
 
+def test_orthographic_variants_of_the_same_title_still_corroborate():
+    """Checked against all 72 AI-resolved matches live on the site: an exact/substring
+    rule rejected 7 correct ones over separators, old kanji and part subtitles. Correct
+    pairs measured 0.75-0.97 similarity, hallucinations 0.00-0.31."""
+    same_film = [
+        ("GOOD BOY グッドボーイ", "GOOD BOY／グッド・ボーイ"),        # ／ and ・ separators
+        ("『殘菊物語』 《デジタル修復版》 ＊デジタル上映", "残菊物語"),      # 殘/残 old kanji + annotations
+        ("影無き男（1934）", "影なき男"),                          # 無/な kanji vs kana
+        ("人間の條件第一部第二部※休憩10分", "人間の條件　第１部純愛篇／第２部激怒篇"),  # different part subtitles
+        ("ウィキッド 永遠の約束＜字幕版＞", "ウィキッド 永遠の約束"),
+    ]
+    for listed, tmdb in same_film:
+        assert main_scraper._jp_titles_agree(listed, tmdb), listed
+
+    different_films = [
+        ("美しく、黙りなさい", "美しき仕事"),      # the hallucination that reached the site
+        ("カウント・ベイシー", "カウンティング・スターズ"),
+        ("少年探偵団", "エーミールと探偵たち"),
+        ("ダートムーアの田舎家", "バスカヴィル家の犬"),
+    ]
+    for listed, tmdb in different_films:
+        assert not main_scraper._jp_titles_agree(listed, tmdb), listed
+
+
 def test_films_with_no_japanese_tmdb_data_fall_back_to_year_plus_director():
     """TMDB has no Japanese title at all for Odds Against Tomorrow (1959). Rejecting
     those outright would gut exactly the repertory programming Tokyo cinemas run."""

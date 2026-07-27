@@ -2166,10 +2166,34 @@ def _translate_synopses_with_gemini(synopses_to_translate, session, api_key, mod
 
 def _normalize_jp_title_for_corroboration(title: str) -> str:
     # Cinemas append annotations the AI never sees as part of the name:
-    # 拳銃の報酬（1959）, 殺人者〈1946年〉, 【特集上映】, and trailing English glosses.
+    # 拳銃の報酬（1959）, 殺人者〈1946年〉, 【特集上映】, ※休憩10分, ＊デジタル上映,
+    # trailing English glosses, and 『』 quoting around the title itself.
     stripped = re.sub(r"[（(〈《【\[].*?[）)〉》】\]]", "", str(title or ""))
+    stripped = re.sub(r"[※＊*].*$", "", stripped)
+    stripped = re.sub(r"[『』「」]", "", stripped)
     stripped = re.sub(r"[A-Za-z0-9][A-Za-z0-9\s'&:,.!?-]{3,}$", "", stripped)
-    return re.sub(r"[\s　・:：!！?？,、。，．'\"”“’‘\-–—〜~]", "", stripped).lower()
+    return re.sub(r"[\s　・／/:：!！?？,、。，．'\"”“’‘\-–—〜~]", "", stripped).lower()
+
+# Correct matches that differ only in orthography sit at 0.75-0.97 similarity
+# (影無き男 vs 影なき男, GOOD BOY グッドボーイ vs GOOD BOY／グッド・ボーイ); genuine
+# hallucinations measured 0.00-0.31. 0.72 separates them with room on both sides.
+_JP_TITLE_SIMILARITY_FLOOR = 0.72
+# 人間の條件第一部第二部 vs 人間の條件第１部純愛篇／第２部激怒篇 is the same film billed with
+# different part subtitles, so it never clears the ratio. A long shared prefix does
+# the job: the longest a wrong pair managed was 2 characters (美し).
+_JP_TITLE_PREFIX_FLOOR = 5
+
+def _jp_titles_agree(listing_title: str, tmdb_title: str) -> bool:
+    a = _normalize_jp_title_for_corroboration(listing_title)
+    b = _normalize_jp_title_for_corroboration(tmdb_title)
+    if not a or not b:
+        return False
+    if a == b or a in b or b in a:
+        return True
+    if _title_similarity(a, b) >= _JP_TITLE_SIMILARITY_FLOOR:
+        return True
+    shared = len(os.path.commonprefix([a, b]))
+    return shared >= _JP_TITLE_PREFIX_FLOOR
 
 def _tmdb_match_is_corroborated(jp_title: str, info: dict, details: dict) -> tuple[bool, str]:
     """Decide whether a TMDB match found via an AI-suggested English title is really
@@ -2180,16 +2204,14 @@ def _tmdb_match_is_corroborated(jp_title: str, info: dict, details: dict) -> tup
     A wrong match is worse than no match — it puts the wrong poster, synopsis and
     Letterboxd link on the page — so the burden of proof sits here.
     """
-    target = _normalize_jp_title_for_corroboration(jp_title)
     candidates = [details.get("tmdb_title_jp"), details.get("tmdb_title_original")]
     candidates += details.get("tmdb_alt_titles_jp") or []
     japanese_known = False
     for candidate in candidates:
-        normalized = _normalize_jp_title_for_corroboration(candidate)
-        if not normalized or not _contains_japanese(str(candidate)):
+        if not _contains_japanese(str(candidate or "")):
             continue
         japanese_known = True
-        if normalized == target or normalized in target or target in normalized:
+        if _jp_titles_agree(jp_title, candidate):
             return True, f"jp title '{candidate}'"
 
     # TMDB simply has no Japanese metadata for plenty of older foreign films —
