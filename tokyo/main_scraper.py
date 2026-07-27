@@ -3,6 +3,7 @@
 # main_scraper.py
 # V5.1: Robust Monitoring, Email Alerts, Smart Title Cleaning & Fixed Function Names
 
+import csv
 import json
 import sys
 import io
@@ -94,6 +95,7 @@ OUTPUT_JSON = os.path.join(DATA_DIR, "showtimes.json")
 TMDB_CACHE_FILE = os.path.join(DATA_DIR, "tmdb_cache.json")
 TMDB_CACHE_META_FILE = os.path.join(DATA_DIR, "tmdb_cache_meta.json")
 FILMARKS_CACHE_FILE = os.path.join(DATA_DIR, "filmarks_cache.json")
+FILM_IDENTITY_DECISIONS_FILE = os.path.join(DATA_DIR, "film_identity_decisions.tsv")
 TITLE_RESOLUTION_CACHE_FILE = os.path.join(DATA_DIR, "title_resolution_cache.json")
 LEGACY_TITLE_TRANSLATION_CACHE_FILE = os.path.join(DATA_DIR, "title_translation_cache.json")
 SYNOPSIS_TRANSLATION_CACHE_FILE = os.path.join(DATA_DIR, "synopsis_translation_cache.json")
@@ -352,6 +354,138 @@ def load_tmdb_cache():
 
 def save_tmdb_cache(cache):
     _write_json_file(TMDB_CACHE_FILE, cache, sort_keys=True)
+
+
+_FILM_IDENTITY_COLUMNS = (
+    "cinema",
+    "listing_title",
+    "candidate_tmdb_id",
+    "verdict",
+    "correct_tmdb_id",
+    "evidence",
+)
+
+
+def _parse_film_identity_decisions(stream) -> dict:
+    """Index reviewed decisions by cinema, with ``*`` for explicit global scope."""
+    reader = csv.DictReader(stream, delimiter="\t")
+    if tuple(reader.fieldnames or ()) != _FILM_IDENTITY_COLUMNS:
+        raise ValueError(
+            "film identity ledger columns must be: "
+            + ", ".join(_FILM_IDENTITY_COLUMNS)
+        )
+
+    decisions = {}
+    for line_number, row in enumerate(reader, start=2):
+        cinema = (row.get("cinema") or "").strip()
+        listing_title = (row.get("listing_title") or "").strip()
+        candidate_raw = (row.get("candidate_tmdb_id") or "").strip()
+        verdict = (row.get("verdict") or "").strip().upper()
+        correct_tmdb_id = (row.get("correct_tmdb_id") or "").strip()
+        evidence = (row.get("evidence") or "").strip()
+
+        if not cinema or not listing_title or not candidate_raw.isdigit() or not evidence:
+            raise ValueError(f"malformed film identity decision on line {line_number}")
+        if verdict not in {"CORRECT", "WRONG", "UNCERTAIN"}:
+            raise ValueError(f"invalid verdict on line {line_number}: {verdict!r}")
+        if verdict == "CORRECT" and correct_tmdb_id:
+            raise ValueError(f"CORRECT decision has a replacement on line {line_number}")
+        if verdict == "UNCERTAIN" and correct_tmdb_id:
+            raise ValueError(f"UNCERTAIN decision has a replacement on line {line_number}")
+
+        candidate_tmdb_id = int(candidate_raw)
+        key = (cinema, listing_title, candidate_tmdb_id)
+        if key in decisions:
+            raise ValueError(f"duplicate film identity decision on line {line_number}")
+        decisions[key] = {
+            "verdict": verdict,
+            "correct_tmdb_id": correct_tmdb_id,
+            "evidence": evidence,
+        }
+    return decisions
+
+
+def load_film_identity_decisions(path=FILM_IDENTITY_DECISIONS_FILE) -> dict:
+    with open(path, "r", encoding="utf-8", newline="") as stream:
+        return _parse_film_identity_decisions(stream)
+
+
+def _single_replacement_tmdb_id(decision) -> Optional[int]:
+    value = str((decision or {}).get("correct_tmdb_id") or "").strip()
+    return int(value) if value.isdigit() else None
+
+
+def _film_identity_replacement_ids(decisions: dict) -> set[int]:
+    replacement_ids = (
+        _single_replacement_tmdb_id(decision)
+        for decision in decisions.values()
+        if decision.get("verdict") == "WRONG"
+    )
+    return {tmdb_id for tmdb_id in replacement_ids if tmdb_id}
+
+
+def _without_tmdb_identity(item: dict, candidate_details=None) -> dict:
+    candidate_details = candidate_details or {}
+    release_date = candidate_details.get("release_date") or ""
+    derived_values = {
+        "clean_title_jp": candidate_details.get("tmdb_title_jp"),
+        "movie_title_jp": candidate_details.get("tmdb_title_jp"),
+        "movie_title_en": candidate_details.get("tmdb_title_en"),
+        "movie_title_original": candidate_details.get("tmdb_title_original"),
+        "original_language": candidate_details.get("tmdb_original_language"),
+        "runtime": candidate_details.get("runtime"),
+        "genres": candidate_details.get("genres"),
+        "vote_average": candidate_details.get("vote_average"),
+        "director": candidate_details.get("director"),
+        "director_jp": candidate_details.get("director_jp") or candidate_details.get("director"),
+        "director_en": candidate_details.get("director_en"),
+        "genres_en": candidate_details.get("genres_en"),
+        "year": release_date.split("-")[0] if release_date else None,
+    }
+    return {
+        key: value
+        for key, value in item.items()
+        if not key.startswith("tmdb_") and key != "letterboxd_url"
+        and not (
+            derived_values.get(key) not in (None, "")
+            and value == derived_values.get(key)
+        )
+    }
+
+
+def _select_film_identity_details(
+    item: dict,
+    candidate_details: Optional[dict],
+    decisions: dict,
+    cache: dict,
+) -> tuple[dict, Optional[dict]]:
+    """Select publishable TMDB details without mutating the scraped row or cache."""
+    candidate_tmdb_id = _parse_int(
+        (candidate_details or {}).get("tmdb_id") or item.get("tmdb_id")
+    )
+    key = (
+        str(item.get("cinema_name") or "").strip(),
+        str(item.get("movie_title") or "").strip(),
+        candidate_tmdb_id,
+    )
+    decision = decisions.get(key) or decisions.get(("*", key[1], key[2]))
+    if not decision or decision.get("verdict") == "CORRECT":
+        return dict(item), candidate_details
+
+    clean_item = _without_tmdb_identity(item, candidate_details)
+    replacement_tmdb_id = (
+        _single_replacement_tmdb_id(decision)
+        if decision.get("verdict") == "WRONG"
+        else None
+    )
+    replacement = (
+        cache.get(f"tmdb:{replacement_tmdb_id}")
+        if replacement_tmdb_id
+        else None
+    )
+    if not _is_tmdb_cache_hit(replacement):
+        return clean_item, None
+    return {**clean_item, "tmdb_id": replacement_tmdb_id}, replacement
 
 
 # Markers that a listing is a RE-ISSUE (restoration / remaster / anniversary
@@ -1440,6 +1574,8 @@ def _fetch_tmdb_details_by_id(tmdb_id, session, api_key):
     }
     d_resp = session.get(detail_url, params=params_jp, timeout=5)
     d_data = d_resp.json()
+    if getattr(d_resp, "status_code", 200) >= 400 or _parse_int(d_data.get("id")) != tmdb_id:
+        return None
 
     director_jp = ""
     director_id = None
@@ -2336,7 +2472,13 @@ def _attempt_tmdb_with_english_title(
     print(f"   ✓ Corroborated AI match: {title} -> {english_title} ({reason})")
     return details
 
-def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
+def enrich_listings_with_tmdb_links(
+    listings,
+    cache,
+    session,
+    api_key,
+    identity_decisions=None,
+):
     """
     Iterates over listings, checks TMDB for metadata/images.
     Updates listings in-place and updates cache.
@@ -2346,12 +2488,13 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
     title_info = _build_title_info(listings)
     unique_titles = list(title_info.keys())
     tmdb_alias_index = _build_tmdb_alias_index(cache)
+    identity_decisions = identity_decisions or {}
     print(f"   Unique films to process: {len(unique_titles)}")
     tmdb_ids = sorted({
         _parse_int(item.get("tmdb_id"))
         for item in listings
         if _parse_int(item.get("tmdb_id"))
-    })
+    } | _film_identity_replacement_ids(identity_decisions))
     if tmdb_ids:
         print(f"   TMDB IDs provided: {len(tmdb_ids)}")
 
@@ -2665,10 +2808,15 @@ def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
         t = item["movie_title"]
         tmdb_id = _parse_int(item.get("tmdb_id"))
         d = _get_tmdb_cached_entry(cache, tmdb_alias_index, t, tmdb_id=tmdb_id)
+        selected_item, d = _select_film_identity_details(
+            item, d, identity_decisions, cache
+        )
+        item.clear()
+        item.update(selected_item)
         if not _is_tmdb_cache_hit(d):
             continue
         # Merge fields if missing in scraper data
-        if not item.get("tmdb_id") and d.get("tmdb_id"):
+        if d.get("tmdb_id"):
             item["tmdb_id"] = d["tmdb_id"]
         if not item.get("tmdb_backdrop_path") and d.get("backdrop_path"):
             item["tmdb_backdrop_path"] = d.get("backdrop_path")
@@ -2794,6 +2942,7 @@ def main():
     # Prepare TMDB session
     api_session = requests.Session()
     tmdb_cache = load_tmdb_cache()
+    film_identity_decisions = load_film_identity_decisions()
     reset_stale_tmdb_nulls(tmdb_cache)
     synopsis_translation_cache = load_synopsis_translation_cache()
     synopsis_translation_cache_updated = False
@@ -2828,7 +2977,13 @@ def main():
             output_path = os.path.join(DATA_DIR, "showtimes.sample.json")
             print(f"Enrich-only sample mode: {sample_size} titles -> {len(listings)} listings.")
         if tmdb_key:
-            listings = enrich_listings_with_tmdb_links(listings, tmdb_cache, api_session, tmdb_key)
+            listings = enrich_listings_with_tmdb_links(
+                listings,
+                tmdb_cache,
+                api_session,
+                tmdb_key,
+                film_identity_decisions,
+            )
 
         ai_client = AIEnrichmentClient.from_env(api_session)
         if translate_missing_synopses(listings, synopsis_translation_cache, ai_client):
@@ -2940,7 +3095,13 @@ def main():
     print(f"\nCollected a total of {len(listings)} showings.")
 
     if tmdb_key:
-        listings = enrich_listings_with_tmdb_links(listings, tmdb_cache, api_session, tmdb_key)
+        listings = enrich_listings_with_tmdb_links(
+            listings,
+            tmdb_cache,
+            api_session,
+            tmdb_key,
+            film_identity_decisions,
+        )
 
     ai_client = AIEnrichmentClient.from_env(api_session)
     if translate_missing_synopses(listings, synopsis_translation_cache, ai_client):
