@@ -2168,7 +2168,7 @@ def _normalize_jp_title_for_corroboration(title: str) -> str:
     # Cinemas append annotations the AI never sees as part of the name:
     # 拳銃の報酬（1959）, 殺人者〈1946年〉, 【特集上映】, ※休憩10分, ＊デジタル上映,
     # trailing English glosses, and 『』 quoting around the title itself.
-    stripped = re.sub(r"[（(〈《【\[].*?[）)〉》】\]]", "", str(title or ""))
+    stripped = re.sub(r"[（(〈《【＜〔\[].*?[）)〉》】＞〕\]]", "", str(title or ""))
     stripped = re.sub(r"[※＊*].*$", "", stripped)
     stripped = re.sub(r"[『』「」]", "", stripped)
     stripped = re.sub(r"[A-Za-z0-9][A-Za-z0-9\s'&:,.!?-]{3,}$", "", stripped)
@@ -2178,22 +2178,35 @@ def _normalize_jp_title_for_corroboration(title: str) -> str:
 # (影無き男 vs 影なき男, GOOD BOY グッドボーイ vs GOOD BOY／グッド・ボーイ); genuine
 # hallucinations measured 0.00-0.31. 0.72 separates them with room on both sides.
 _JP_TITLE_SIMILARITY_FLOOR = 0.72
-# 人間の條件第一部第二部 vs 人間の條件第１部純愛篇／第２部激怒篇 is the same film billed with
-# different part subtitles, so it never clears the ratio. A long shared prefix does
-# the job: the longest a wrong pair managed was 2 characters (美し).
-_JP_TITLE_PREFIX_FLOOR = 5
+# A shared-prefix rule was tried here to catch 人間の條件第一部第二部 vs
+# 人間の條件第１部純愛篇／第２部激怒篇, which never clears the ratio. It was removed: any
+# threshold loose enough to accept that pair also accepts 少年探偵団 vs
+# 少年探偵団　透明怪人, a different entry in the same series. A missed match costs one
+# poster; a false one puts the wrong film on the page.
 
 def _jp_titles_agree(listing_title: str, tmdb_title: str) -> bool:
     a = _normalize_jp_title_for_corroboration(listing_title)
     b = _normalize_jp_title_for_corroboration(tmdb_title)
     if not a or not b:
         return False
-    if a == b or a in b or b in a:
+    if a == b:
         return True
-    if _title_similarity(a, b) >= _JP_TITLE_SIMILARITY_FLOOR:
+    # Substring matching needs a length guard or short titles swallow everything:
+    # 敵 is a substring of 素敵なダイナマイトスキャンダル, 殺人者 of 殺人者死, 破局 of 破局锦衣卫.
+    # Japanese titles are short enough that a 2-3 character overlap is worth nothing.
+    shorter, longer = sorted((a, b), key=len)
+    # 0.8 rather than 0.6: 少年探偵団 sits inside 新宿少年探偵団 at 0.71, and they are
+    # different films. Prefixed or suffixed words usually mean a different entry in
+    # a series, not the same title spelled differently.
+    if shorter in longer and len(shorter) >= 4 and len(shorter) / len(longer) >= 0.8:
         return True
-    shared = len(os.path.commonprefix([a, b]))
-    return shared >= _JP_TITLE_PREFIX_FLOOR
+    # Similarity only means "same title spelled differently" when the two are about
+    # the same length — 影無き男/影なき男 and 殘菊物語/残菊物語 substitute a character. When one
+    # side is materially longer it has gained a word, which usually means a different
+    # film: 少年探偵団 scores 0.83 against 新宿少年探偵団.
+    if len(shorter) / len(longer) < 0.85:
+        return False
+    return _title_similarity(a, b) >= _JP_TITLE_SIMILARITY_FLOOR
 
 def _tmdb_match_is_corroborated(jp_title: str, info: dict, details: dict) -> tuple[bool, str]:
     """Decide whether a TMDB match found via an AI-suggested English title is really
@@ -2204,6 +2217,18 @@ def _tmdb_match_is_corroborated(jp_title: str, info: dict, details: dict) -> tup
     A wrong match is worse than no match — it puts the wrong poster, synopsis and
     Letterboxd link on the page — so the burden of proof sits here.
     """
+    # A year written into the listing title — 殺人者〈1946年〉, 拳銃の報酬（1959） — is the
+    # cinema stating which film it is, and it is far more reliable than the scraped
+    # `year` field (production vs release vs Japanese release all land there). When it
+    # disagrees with TMDB, no amount of title similarity should override it: 殺人者
+    # matches 殺人者死 at 0.86, and 少年探偵団 is a prefix of 少年探偵団　透明怪人.
+    billed_year = _parse_year(re.search(
+        r"[（(〈《＜\[]\s*((?:19|20)\d{2})\s*年?\s*[）)〉》＞\]]", str(jp_title or "")
+    ))
+    tmdb_year = _parse_year(details.get("release_date"))
+    if billed_year and tmdb_year and abs(billed_year - tmdb_year) > 1:
+        return False, f"listing bills it as {billed_year}, TMDB record is {tmdb_year}"
+
     candidates = [details.get("tmdb_title_jp"), details.get("tmdb_title_original")]
     candidates += details.get("tmdb_alt_titles_jp") or []
     japanese_known = False

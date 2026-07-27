@@ -269,7 +269,6 @@ def test_orthographic_variants_of_the_same_title_still_corroborate():
         ("GOOD BOY グッドボーイ", "GOOD BOY／グッド・ボーイ"),        # ／ and ・ separators
         ("『殘菊物語』 《デジタル修復版》 ＊デジタル上映", "残菊物語"),      # 殘/残 old kanji + annotations
         ("影無き男（1934）", "影なき男"),                          # 無/な kanji vs kana
-        ("人間の條件第一部第二部※休憩10分", "人間の條件　第１部純愛篇／第２部激怒篇"),  # different part subtitles
         ("ウィキッド 永遠の約束＜字幕版＞", "ウィキッド 永遠の約束"),
     ]
     for listed, tmdb in same_film:
@@ -283,6 +282,33 @@ def test_orthographic_variants_of_the_same_title_still_corroborate():
     ]
     for listed, tmdb in different_films:
         assert not main_scraper._jp_titles_agree(listed, tmdb), listed
+
+
+def test_short_titles_do_not_match_by_containment():
+    """敵 is a substring of 素敵なダイナマイトスキャンダル, 殺人者 of 殺人者死, 破局 of 破局锦衣卫.
+    Japanese titles are short enough that a 2-3 character overlap proves nothing."""
+    assert not main_scraper._jp_titles_agree("敵", "素敵なダイナマイトスキャンダル")
+    assert not main_scraper._jp_titles_agree("破局", "破局锦衣卫")
+    assert not main_scraper._jp_titles_agree("少年探偵団", "少年探偵団　透明怪人")
+    assert main_scraper._jp_titles_agree("敵", "敵")
+
+
+def test_a_year_billed_in_the_listing_title_overrides_title_similarity():
+    """殺人者〈1946年〉 is the cinema saying which film it is. 殺人者死 scores 0.86 similarity
+    against it, so string evidence alone would take the wrong film."""
+    def record(jp, year):
+        return {"tmdb_id": 1, "tmdb_title_jp": jp, "tmdb_title_original": jp,
+                "tmdb_alt_titles_jp": [], "release_date": f"{year}-01-01"}
+
+    ok, why = main_scraper._tmdb_match_is_corroborated("殺人者〈1946年〉", {}, record("殺人者死", 1960))
+    assert not ok and "1946" in why
+
+    ok, _ = main_scraper._tmdb_match_is_corroborated("殺人者〈1946年〉", {}, record("殺人者", 1946))
+    assert ok
+
+    # No year billed in the title means no veto — most listings carry none.
+    ok, _ = main_scraper._tmdb_match_is_corroborated("殺人者", {}, record("殺人者", 1960))
+    assert ok
 
 
 def test_films_with_no_japanese_tmdb_data_fall_back_to_year_plus_director():
