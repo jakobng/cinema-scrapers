@@ -2221,7 +2221,10 @@ def _tmdb_match_is_corroborated(jp_title: str, info: dict, details: dict) -> tup
     if not japanese_known:
         listing_year = _parse_year(info.get("year"))
         tmdb_year = _parse_year(details.get("release_date"))
-        director = info.get("director") or info.get("director_jp") or info.get("director_en")
+        # Deliberately NOT director_en: that field gets populated from TMDB, so using it
+        # would compare a match against itself and rubber-stamp anything. Only what the
+        # cinema itself advertised counts as independent evidence.
+        director = info.get("director") or info.get("director_jp")
         tmdb_directors = [details.get("director_en"), details.get("director_jp")]
         director_ok = bool(director) and any(
             _title_similarity(str(director).lower(), str(name).lower()) > 0.85
