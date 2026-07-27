@@ -312,12 +312,12 @@ class AIEnrichmentClient:
             print(f"   Local AI available via {self.base_url} (model={self.model}).")
         return bool(self.available)
 
-    def _chat_completion(self, prompt: str, temperature: float, max_tokens: int) -> str:
+    def _chat_completion(self, prompt: str, temperature: float, max_tokens: int, model: str = "") -> str:
         if not self.health_check():
             self.last_error_note = LOCAL_AI_UNAVAILABLE
             return ""
         payload = {
-            "model": self.model,
+            "model": model or self.model,
             "messages": [{"role": "user", "content": prompt}],
             "temperature": temperature,
             "max_tokens": max_tokens,
@@ -397,11 +397,11 @@ class AIEnrichmentClient:
             return ""
         return extract_gemini_text(data)
 
-    def generate_text(self, prompt: str, temperature: float = 0.2, max_tokens: int = 2048, use_search_tool: bool = False) -> str:
+    def generate_text(self, prompt: str, temperature: float = 0.2, max_tokens: int = 2048, use_search_tool: bool = False, model: str = "") -> str:
         self.last_error_note = None
         if self.provider == "gemini":
             return self._gemini_generate(prompt, temperature, max_tokens, use_search_tool)
-        return self._chat_completion(prompt, temperature, max_tokens)
+        return self._chat_completion(prompt, temperature, max_tokens, model)
 
     def resolve_titles(
         self,
@@ -435,6 +435,12 @@ class AIEnrichmentClient:
             return f"  [known: {'; '.join(bits)}]" if bits else ""
 
         results: Dict[str, Dict] = {}
+        # Identifying an obscure Japanese film from its title is a recall problem the
+        # cheap model is measurably bad at; translating a synopsis is not. Measured on
+        # 18 unresolved titles: flash corroborated 0, pro corroborated 2 and answered
+        # several more correctly. Pro costs ~$0.18/month here, so only this call pays
+        # for it — translation stays on the cheap default.
+        resolve_model = os.environ.get("AI_RESOLVE_MODEL", "").strip()
         batch_size = max(1, batch_size)
         if self.provider == "gemini" and use_search_tool:
             batch_size = min(batch_size, 8)
@@ -473,7 +479,10 @@ class AIEnrichmentClient:
                 )
                 max_tokens = min(12288, max(2048, 512 * len(batch)))
 
-            text = self.generate_text(prompt, temperature=0.2, max_tokens=max_tokens, use_search_tool=use_search_tool)
+            text = self.generate_text(
+                prompt, temperature=0.2, max_tokens=max_tokens,
+                use_search_tool=use_search_tool, model=resolve_model,
+            )
             parsed = extract_json_list(text)
             if not parsed and len(batch) == 1:
                 fallback = parse_title_fallback(text)

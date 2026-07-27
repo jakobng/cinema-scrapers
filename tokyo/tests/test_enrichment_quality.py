@@ -232,6 +232,84 @@ def test_demotion_runs_even_when_ai_is_unavailable(monkeypatch):
     assert item["tmdb_overview_en"] == ""
 
 
+def test_ai_match_needs_japanese_corroboration_not_just_an_english_title():
+    """DeepSeek answered both "Beau Travail" and "Aloise" for the same Japanese
+    documentary, and a title+year check passed both. A wrong match puts the wrong
+    poster, synopsis and Letterboxd link on the page, so an English string alone
+    must never be enough."""
+    beau_travail = {
+        "tmdb_id": 110, "tmdb_title_jp": "美しき仕事", "tmdb_title_original": "Beau travail",
+        "tmdb_alt_titles_jp": [], "release_date": "1999-05-12", "director_en": "Claire Denis",
+    }
+
+    ok, reason = main_scraper._tmdb_match_is_corroborated("美しき仕事", {}, beau_travail)
+    assert ok and "美しき仕事" in reason
+
+    # The same TMDB film offered for a different Japanese title must be rejected.
+    ok, _ = main_scraper._tmdb_match_is_corroborated("美しく、黙りなさい", {}, beau_travail)
+    assert not ok
+
+
+def test_corroboration_strips_cinema_annotations_from_the_listing_title():
+    """Cinemas append things the AI never sees as part of the name."""
+    killers = {
+        "tmdb_id": 902, "tmdb_title_jp": "殺人者", "tmdb_title_original": "The Killers",
+        "tmdb_alt_titles_jp": [], "release_date": "1946-08-28", "director_en": "Robert Siodmak",
+    }
+    for listed_as in ("殺人者〈1946年〉", "殺人者（4Kレストア版）", "【特集上映】殺人者"):
+        ok, _ = main_scraper._tmdb_match_is_corroborated(listed_as, {}, killers)
+        assert ok, listed_as
+
+
+def test_films_with_no_japanese_tmdb_data_fall_back_to_year_plus_director():
+    """TMDB has no Japanese title at all for Odds Against Tomorrow (1959). Rejecting
+    those outright would gut exactly the repertory programming Tokyo cinemas run."""
+    odds = {
+        "tmdb_id": 26983, "tmdb_title_jp": "Odds Against Tomorrow",
+        "tmdb_title_original": "Odds Against Tomorrow", "tmdb_alt_titles_jp": [],
+        "release_date": "1959-10-15", "director_en": "Robert Wise",
+    }
+    listing = {"year": "1959", "director": "Robert Wise"}
+
+    ok, reason = main_scraper._tmdb_match_is_corroborated("拳銃の報酬（1959）", listing, odds)
+    assert ok and "no jp metadata" in reason
+
+    # Neither fact on its own is enough.
+    ok, _ = main_scraper._tmdb_match_is_corroborated("拳銃の報酬（1959）", {"year": "1959"}, odds)
+    assert not ok
+    ok, _ = main_scraper._tmdb_match_is_corroborated(
+        "拳銃の報酬（1959）", {"year": "1972", "director": "Robert Wise"}, odds)
+    assert not ok
+
+
+def test_resolve_titles_can_use_a_stronger_model_than_translation(monkeypatch):
+    """Title lookup is a recall problem the cheap model is measurably bad at;
+    translation is not. Only the lookup should pay for the better model."""
+    seen = []
+
+    class FakeResponse:
+        status_code = 200
+        def json(self):
+            return {"choices": [{"message": {"content": "[]"}}]}
+
+    class FakeSession:
+        def post(self, url, json=None, headers=None, timeout=None):
+            seen.append(json["model"])
+            return FakeResponse()
+
+    monkeypatch.setenv("AI_RESOLVE_MODEL", "deepseek-v4-pro")
+    client = AIEnrichmentClient(
+        session=FakeSession(), provider="deepseek", model="deepseek-v4-flash",
+        base_url="https://api.deepseek.com", timeout_seconds=10,
+    )
+    client.api_key = "test-key"
+
+    client.resolve_titles(["君の名は。"], source_language="Japanese", language_key="jp_title")
+    client.translate_synopses({"film:a": "日本語のあらすじがここに入ります。"}, source_language="Japanese")
+
+    assert seen == ["deepseek-v4-pro", "deepseek-v4-flash"]
+
+
 def test_cosmetic_defects_are_dropped_from_output_not_published():
     """Whatever reaches the write step, no Japanese survives in an _en field."""
     rows = [

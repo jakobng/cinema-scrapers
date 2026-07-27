@@ -1519,11 +1519,21 @@ def _fetch_tmdb_details_by_id(tmdb_id, session, api_key):
     if not director_jp and director_en:
         director_jp = director_en
 
+    # Japan-region alternative titles ride along on the ja-JP detail call above, so
+    # exposing them costs no extra request. They are what lets an AI-suggested match
+    # be checked back against the Japanese title the cinema actually advertised.
+    alt_titles_jp = [
+        alt.get("title")
+        for alt in (d_data.get("alternative_titles") or {}).get("titles", [])
+        if alt.get("iso_3166_1") == "JP" and alt.get("title")
+    ]
+
     return {
         "tmdb_id": tmdb_id,
         "tmdb_title_jp": d_data.get("title"),
         "tmdb_title_en": title_en or d_data.get("original_title"),
         "tmdb_title_original": d_data.get("original_title"),
+        "tmdb_alt_titles_jp": alt_titles_jp,
         "tmdb_original_language": d_data.get("original_language"),
         "overview": d_data.get("overview"),
         "overview_en": overview_en,
@@ -2154,6 +2164,52 @@ def _translate_synopses_with_gemini(synopses_to_translate, session, api_key, mod
     return results
 
 
+def _normalize_jp_title_for_corroboration(title: str) -> str:
+    # Cinemas append annotations the AI never sees as part of the name:
+    # 拳銃の報酬（1959）, 殺人者〈1946年〉, 【特集上映】, and trailing English glosses.
+    stripped = re.sub(r"[（(〈《【\[].*?[）)〉》】\]]", "", str(title or ""))
+    stripped = re.sub(r"[A-Za-z0-9][A-Za-z0-9\s'&:,.!?-]{3,}$", "", stripped)
+    return re.sub(r"[\s　・:：!！?？,、。，．'\"”“’‘\-–—〜~]", "", stripped).lower()
+
+def _tmdb_match_is_corroborated(jp_title: str, info: dict, details: dict) -> tuple[bool, str]:
+    """Decide whether a TMDB match found via an AI-suggested English title is really
+    the film the cinema is showing.
+
+    An English title alone is not evidence: DeepSeek answered "Beau Travail" and
+    "Aloise" for the same Japanese documentary and both passed a title+year check.
+    A wrong match is worse than no match — it puts the wrong poster, synopsis and
+    Letterboxd link on the page — so the burden of proof sits here.
+    """
+    target = _normalize_jp_title_for_corroboration(jp_title)
+    candidates = [details.get("tmdb_title_jp"), details.get("tmdb_title_original")]
+    candidates += details.get("tmdb_alt_titles_jp") or []
+    japanese_known = False
+    for candidate in candidates:
+        normalized = _normalize_jp_title_for_corroboration(candidate)
+        if not normalized or not _contains_japanese(str(candidate)):
+            continue
+        japanese_known = True
+        if normalized == target or normalized in target or target in normalized:
+            return True, f"jp title '{candidate}'"
+
+    # TMDB simply has no Japanese metadata for plenty of older foreign films —
+    # Odds Against Tomorrow (1959) has none at all — and rejecting those would gut
+    # exactly the repertory programming Tokyo cinemas run. Fall back to agreement on
+    # two independent facts the listing already carries.
+    if not japanese_known:
+        listing_year = _parse_year(info.get("year"))
+        tmdb_year = _parse_year(details.get("release_date"))
+        director = info.get("director") or info.get("director_jp") or info.get("director_en")
+        tmdb_directors = [details.get("director_en"), details.get("director_jp")]
+        director_ok = bool(director) and any(
+            _title_similarity(str(director).lower(), str(name).lower()) > 0.85
+            for name in tmdb_directors if name
+        )
+        if listing_year and tmdb_year and abs(listing_year - tmdb_year) <= 1 and director_ok:
+            return True, f"no jp metadata; year {tmdb_year} + director {details.get('director_en')}"
+
+    return False, "japanese title could not be corroborated"
+
 def _attempt_tmdb_with_english_title(
     title,
     title_info,
@@ -2180,13 +2236,24 @@ def _attempt_tmdb_with_english_title(
         resolved_info["director"] = director
     if country and not resolved_info.get("country"):
         resolved_info["country"] = country
-    return fetch_tmdb_details(
+    details = fetch_tmdb_details(
         resolved_info,
         session,
         api_key,
         require_year_match=require_year_match,
         year_tolerance=year_tolerance,
     )
+    if not details or not _is_tmdb_cache_hit(details):
+        return details
+    corroborated, reason = _tmdb_match_is_corroborated(title, title_info, details)
+    if not corroborated:
+        print(
+            f"   ✗ Rejected AI match: {title} -> {english_title} "
+            f"(TMDB #{details.get('tmdb_id')} '{details.get('tmdb_title_en')}') — {reason}"
+        )
+        return None
+    print(f"   ✓ Corroborated AI match: {title} -> {english_title} ({reason})")
+    return details
 
 def enrich_listings_with_tmdb_links(listings, cache, session, api_key):
     """
