@@ -12477,6 +12477,33 @@
     "status": "review",
     "updated_at": "2026-06-09T23:44:07.706035+00:00"
   },
+  "《シネマ歌舞伎》::2006::71::": {
+    "candidate": {
+      "director": "",
+      "reasons": [
+        "title_miss",
+        "runtime_near"
+      ],
+      "runtime": "70",
+      "score": -9,
+      "support": 1,
+      "title": "シネマ歌舞伎クラシック 船弁慶",
+      "url": "https://filmarks.com/movies/77852",
+      "year": ""
+    },
+    "candidate_count": 34,
+    "filmarks_url": "",
+    "query": "《シネマ歌舞伎》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "runtime_near"
+    ],
+    "score": -9,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%80%8A%E3%82%B7%E3%83%8D%E3%83%9E%E6%AD%8C%E8%88%9E%E4%BC%8E%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-07-27T05:49:02.621037+00:00"
+  },
   "《ジャンヌディエルマン》をめぐって::1975::78::サミーフレイ": {
     "candidate": {
       "director": "ブリュノ・デュモン",

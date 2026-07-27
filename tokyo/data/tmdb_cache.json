@@ -79659,9 +79659,9 @@
   },
   "tmdb:967941": {
     "backdrop_path": "/cGbPBHKSFO7hSIjxkb3KOaGdOep.jpg",
-    "director": "ジョン・M・チュウ",
+    "director": "ジョン・Ｍ・チュウ",
     "director_en": "Jon M. Chu",
-    "director_jp": "ジョン・M・チュウ",
+    "director_jp": "ジョン・Ｍ・チュウ",
     "genres": [
       "ファンタジー",
       "アドベンチャー",
@@ -79677,10 +79677,17 @@
     "poster_path": "/qzKgabRKPsMtFYqbjTLc37mwbBj.jpg",
     "release_date": "2025-11-19",
     "runtime": 137,
+    "tmdb_alt_titles_jp": [
+      "ウィキッド 永遠の約束"
+    ],
     "tmdb_countries": [
       {
         "iso_3166_1": "US",
         "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
       }
     ],
     "tmdb_id": 967941,
@@ -79688,7 +79695,7 @@
     "tmdb_title_en": "Wicked: For Good",
     "tmdb_title_jp": "ウィキッド 永遠の約束",
     "tmdb_title_original": "Wicked: For Good",
-    "vote_average": 6.7
+    "vote_average": 6.627
   },
   "tmdb:969050": {
     "backdrop_path": "/wBH2UUKQWAYUZ4QbDPf5ITdenjS.jpg",
@@ -81198,6 +81205,7 @@
     "vote_average": 0.0
   },
   "《KYOSUKE HIMURO THE COMPLETE FILM OF LAST GIGS》": null,
+  "《シネマ歌舞伎》": null,
   "《ジャンヌ・ディエルマン》をめぐって": {
     "backdrop_path": "/rwjZBLpRAbqXc8IHAePPyjBiJE0.jpg",
     "director": "Sami Frey",
@@ -98881,6 +98889,46 @@
     "tmdb_title_jp": "イート・ザ・ナイト",
     "tmdb_title_original": "Eat the Night",
     "vote_average": 6.3
+  },
+  "ウィキッド 永遠の約束＜字幕版＞": {
+    "backdrop_path": "/cGbPBHKSFO7hSIjxkb3KOaGdOep.jpg",
+    "director": "ジョン・Ｍ・チュウ",
+    "director_en": "Jon M. Chu",
+    "director_jp": "ジョン・Ｍ・チュウ",
+    "genres": [
+      "ファンタジー",
+      "アドベンチャー",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Fantasy",
+      "Adventure",
+      "Romance"
+    ],
+    "overview": "",
+    "overview_en": "As an angry mob rises against the Wicked Witch, Glinda and Elphaba will need to come together one final time. With their singular friendship now the fulcrum of their futures, they will need to truly see each other, with honesty and empathy, if they are to change themselves, and all of Oz, for good.",
+    "poster_path": "/qzKgabRKPsMtFYqbjTLc37mwbBj.jpg",
+    "release_date": "2025-11-19",
+    "runtime": 137,
+    "tmdb_alt_titles_jp": [
+      "ウィキッド 永遠の約束"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 967941,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Wicked: For Good",
+    "tmdb_title_jp": "ウィキッド 永遠の約束",
+    "tmdb_title_original": "Wicked: For Good",
+    "vote_average": 6.627
   },
   "ウィキッド　永遠の約束": {
     "backdrop_path": "/cGbPBHKSFO7hSIjxkb3KOaGdOep.jpg",
