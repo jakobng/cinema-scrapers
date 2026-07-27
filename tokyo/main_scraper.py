@@ -816,7 +816,32 @@ def _listing_sort_key(item: dict):
         _stringify_sort_value(item.get("detail_page_url")),
     )
 
+def _sanitize_cosmetic_fields(listings: list) -> dict:
+    """Clear English-language fields that turned out not to be English.
+
+    A cosmetic defect degrades one film's page; it must never block the day's
+    data commit, website sync and Instagram post for every other showing. So the
+    field is dropped at the output seam and the run carries on. Structural
+    problems (malformed titles, duplicate rows) still hard-fail the audit —
+    publishing garbage is worse than publishing nothing.
+
+    Belt-and-braces: enrichment already repairs both fields, but this runs on
+    whatever is actually about to be written, whichever path produced it.
+    """
+    dropped = {"synopsis_en": 0, "tmdb_overview_en": 0}
+    for item in listings:
+        for field in dropped:
+            value = item.get(field)
+            if value and _contains_japanese(str(value)):
+                item[field] = ""
+                dropped[field] += 1
+    return dropped
+
 def _prepare_listings_for_output(listings: list) -> list:
+    dropped = _sanitize_cosmetic_fields(listings)
+    for field, count in dropped.items():
+        if count:
+            print(f"   Dropped Japanese text from {count} {field} values (published without it)")
     # Stable ordering keeps daily commits small when upstream source order shifts.
     return sorted(listings, key=_listing_sort_key)
 

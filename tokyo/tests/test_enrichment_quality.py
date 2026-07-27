@@ -1,3 +1,4 @@
+import json
 import sys
 from pathlib import Path
 
@@ -229,6 +230,50 @@ def test_demotion_runs_even_when_ai_is_unavailable(monkeypatch):
     main_scraper.translate_missing_synopses([item], {}, None)
 
     assert item["tmdb_overview_en"] == ""
+
+
+def test_cosmetic_defects_are_dropped_from_output_not_published():
+    """Whatever reaches the write step, no Japanese survives in an _en field."""
+    rows = [
+        {"movie_title": "A", "date_text": "2026-06-20", "synopsis_en": "これは日本語です。"},
+        {"movie_title": "B", "date_text": "2026-06-20", "tmdb_overview_en": "これも日本語です。"},
+        {"movie_title": "C", "date_text": "2026-06-20", "synopsis_en": "Genuine English."},
+    ]
+
+    prepared = main_scraper._prepare_listings_for_output(rows)
+
+    assert [item.get("synopsis_en") or item.get("tmdb_overview_en") or "" for item in prepared] == [
+        "", "", "Genuine English."
+    ]
+    issues = audit_showtimes.print_frontend_quality(prepared, today="2026-06-20")
+    assert issues["bad_synopsis_en"] == []
+    assert issues["english_japanese"] == []
+
+
+def test_audit_blocks_on_structural_defects_only(tmp_path, monkeypatch, capsys):
+    """One cosmetic row must not cost every other showing its publish; a duplicated
+    or malformed row still must."""
+    def audit(rows):
+        data_file = tmp_path / "showtimes.json"
+        data_file.write_text(json.dumps(rows), encoding="utf-8")
+        monkeypatch.setattr(
+            sys, "argv",
+            ["audit_showtimes.py", "--data", str(data_file), "--today", "2026-06-20", "--strict"],
+        )
+        return audit_showtimes.main()
+
+    good = {"cinema_name": "C", "movie_title": "Film", "date_text": "2026-06-20",
+            "showtime": "12:00", "detail_page_url": "https://example.com/1"}
+
+    cosmetic = dict(good, synopsis_en="これは日本語です。", letterboxd_url="https://letterboxd.com/film/wrong/")
+    assert audit([cosmetic]) == 0
+    assert "Quality warnings (non-blocking): 3" in capsys.readouterr().err
+
+    duplicated = dict(good)
+    assert audit([duplicated, dict(duplicated)]) == 1
+
+    malformed = dict(good, movie_title="---")
+    assert audit([malformed]) == 1
 
 
 def test_broken_batch_json_salvages_the_intact_entries():

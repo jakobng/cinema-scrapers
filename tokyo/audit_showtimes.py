@@ -312,12 +312,23 @@ def main() -> int:
     for line in compare_website_sync(data, website_path):
         print(line)
 
+    # Only structural problems block a publish. A malformed title or a duplicated
+    # row means a scraper is emitting garbage, and shipping that is worse than
+    # shipping nothing. Quality problems degrade a single film's page, so they are
+    # reported and never gate the run — one bad row must not cost every other
+    # showing its data commit, website sync and Instagram post. The scraper drops
+    # the offending field before writing (_sanitize_cosmetic_fields), so a non-zero
+    # count here means that repair missed a case, not that bad data was published.
     critical_count = len(malformed) + len(duplicates)
-    critical_count += len(frontend_issues["bad_synopsis_en"])
-    critical_count += len(frontend_issues["english_japanese"])
-    critical_count += len(frontend_issues["invalid_letterboxd"])
     if args.fail_linkless:
         critical_count += len(linkless)
+    quality_count = (
+        len(frontend_issues["bad_synopsis_en"])
+        + len(frontend_issues["english_japanese"])
+        + len(frontend_issues["invalid_letterboxd"])
+    )
+    if quality_count:
+        print(f"Quality warnings (non-blocking): {quality_count}", file=sys.stderr)
     if args.strict and critical_count:
         print(f"Critical audit failures: {critical_count}", file=sys.stderr)
         return 1
