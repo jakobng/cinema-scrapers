@@ -3769,6 +3769,33 @@
     "status": "accepted",
     "updated_at": "2026-06-07T05:13:03.632943+00:00"
   },
+  "heavenandearth::2026::119::": {
+    "candidate": {
+      "director": "オリヴァー・ストーン",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch"
+      ],
+      "runtime": "141",
+      "score": 1,
+      "support": 0,
+      "title": "天と地",
+      "url": "https://filmarks.com/movies/36133",
+      "year": ""
+    },
+    "candidate_count": 29,
+    "filmarks_url": "",
+    "query": "Heaven and Earth",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch"
+    ],
+    "score": 1,
+    "search_url": "https://filmarks.com/search/movies?q=Heaven%20and%20Earth",
+    "status": "review",
+    "updated_at": "2026-08-08T22:54:35.283431+00:00"
+  },
   "heldin::2025::92::ペトラビオンディナフォックス": {
     "candidate": {
       "director": "リー・スタンリー",
@@ -12837,6 +12864,64 @@
     "search_url": "https://filmarks.com/search/movies?q=T%E3%83%A1%E3%83%B3",
     "status": "review",
     "updated_at": "2026-07-10T23:24:10.866387+00:00"
+  },
+  "underpressure::1935::70::ラオールウォルシュ": {
+    "candidate": {
+      "director": "ラオール・ウォルシュ",
+      "reasons": [
+        "title_partial",
+        "runtime_near",
+        "director"
+      ],
+      "runtime": "72",
+      "score": 11,
+      "support": 2,
+      "title": "男の魂",
+      "url": "https://filmarks.com/movies/36949",
+      "year": ""
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "Under Pressure",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_near",
+      "director"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=Under%20Pressure",
+    "status": "review",
+    "updated_at": "2026-08-08T22:54:27.114591+00:00"
+  },
+  "underpressure::1935::72::ラオールウォルシュ": {
+    "candidate": {
+      "director": "ラオール・ウォルシュ",
+      "reasons": [
+        "title_partial",
+        "runtime",
+        "director"
+      ],
+      "runtime": "72",
+      "score": 13,
+      "support": 2,
+      "title": "男の魂",
+      "url": "https://filmarks.com/movies/36949",
+      "year": ""
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "Under Pressure",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime",
+      "director"
+    ],
+    "score": 13,
+    "search_url": "https://filmarks.com/search/movies?q=Under%20Pressure",
+    "status": "review",
+    "updated_at": "2026-08-08T22:54:30.795355+00:00"
   },
   "unepartmanquanteまた君に会えるまで::2024::98::ギヨームセネズ": {
     "candidate": {
@@ -39693,6 +39778,33 @@
     "status": "review",
     "updated_at": "2026-08-03T23:32:39.557988+00:00"
   },
+  "人間廃業::::53::": {
+    "candidate": {
+      "director": "新藤兼人",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch"
+      ],
+      "runtime": "116",
+      "score": 1,
+      "support": 0,
+      "title": "人間",
+      "url": "https://filmarks.com/movies/24171",
+      "year": ""
+    },
+    "candidate_count": 30,
+    "filmarks_url": "",
+    "query": "人間廃業",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch"
+    ],
+    "score": 1,
+    "search_url": "https://filmarks.com/search/movies?q=%E4%BA%BA%E9%96%93%E5%BB%83%E6%A5%AD",
+    "status": "review",
+    "updated_at": "2026-08-08T22:54:32.954337+00:00"
+  },
   "人間魚雷回天::1955::107::松林宗恵": {
     "candidate": {
       "director": "松林宗恵",
@@ -44143,6 +44255,31 @@
     "search_url": "https://filmarks.com/search/movies?q=%E5%9B%BD%E5%AE%9D",
     "status": "accepted",
     "updated_at": "2026-06-07T05:14:01.266841+00:00"
+  },
+  "國分玲::::::": {
+    "candidate": {
+      "director": "スタンリー・クワン",
+      "reasons": [
+        "title_miss"
+      ],
+      "runtime": "156",
+      "score": -10,
+      "support": 0,
+      "title": "ロアン・リンユイ／阮玲玉 4K",
+      "url": "https://filmarks.com/movies/113327",
+      "year": ""
+    },
+    "candidate_count": 2,
+    "filmarks_url": "",
+    "query": "國分玲",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss"
+    ],
+    "score": -10,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%9C%8B%E5%88%86%E7%8E%B2",
+    "status": "review",
+    "updated_at": "2026-08-08T22:54:30.024394+00:00"
   },
   "土を喰らう十二ヵ月::2022::111::中江裕司": {
     "candidate": {
@@ -50745,6 +50882,31 @@
     "status": "review",
     "updated_at": "2026-06-07T05:18:46.306130+00:00"
   },
+  "撃たれた自由の声を撮れ::::::": {
+    "candidate": {
+      "director": "アンソニー・アスクィス",
+      "reasons": [
+        "title_partial"
+      ],
+      "runtime": "95",
+      "score": 5,
+      "support": 0,
+      "title": "自由の声",
+      "url": "https://filmarks.com/movies/120631",
+      "year": ""
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "撃たれた自由の声を撮れ",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%92%83%E3%81%9F%E3%82%8C%E3%81%9F%E8%87%AA%E7%94%B1%E3%81%AE%E5%A3%B0%E3%82%92%E6%92%AE%E3%82%8C",
+    "status": "review",
+    "updated_at": "2026-08-08T22:54:28.609152+00:00"
+  },
   "敵::2023::108::吉田大八": {
     "candidate": {
       "director": "吉田大八",
@@ -51832,6 +51994,35 @@
     "status": "review",
     "updated_at": "2026-08-01T23:23:02.862042+00:00"
   },
+  "日曜日の人々::1930::73::edgarg.ulmer": {
+    "candidate": {
+      "director": "カート・シオドマク",
+      "reasons": [
+        "title_exact",
+        "runtime_near",
+        "director_mismatch"
+      ],
+      "runtime": "74",
+      "score": 6,
+      "support": 1,
+      "title": "日曜日の人々",
+      "url": "https://filmarks.com/movies/61525",
+      "year": ""
+    },
+    "candidate_count": 20,
+    "filmarks_url": "",
+    "query": "日曜日の人々",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_near",
+      "director_mismatch"
+    ],
+    "score": 6,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%97%A5%E6%9B%9C%E6%97%A5%E3%81%AE%E4%BA%BA%E3%80%85",
+    "status": "review",
+    "updated_at": "2026-08-08T22:54:31.839583+00:00"
+  },
   "日曜日の人々::1930::73::ロバートシオドマク": {
     "candidate": {
       "director": "カート・シオドマク",
@@ -52007,6 +52198,33 @@
     "search_url": "https://filmarks.com/search/movies?q=%E6%97%A5%E6%9C%AC%E6%AE%8B%E8%99%90%E5%A5%B3%E6%8B%B7%E5%95%8F",
     "status": "accepted",
     "updated_at": "2026-07-20T23:25:10.200123+00:00"
+  },
+  "日本鬼子リーベンクイズ日中15年戦争元皇軍兵士の告白::::::松井稔": {
+    "candidate": {
+      "director": "中島哲也",
+      "reasons": [
+        "title_partial",
+        "director_mismatch"
+      ],
+      "runtime": "106",
+      "score": 0,
+      "support": 0,
+      "title": "告白",
+      "url": "https://filmarks.com/movies/32267",
+      "year": "2010"
+    },
+    "candidate_count": 25,
+    "filmarks_url": "",
+    "query": "日本鬼子（リーベン・クイズ） 日中15年戦争・元皇軍兵士の告白",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "director_mismatch"
+    ],
+    "score": 0,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%97%A5%E6%9C%AC%E9%AC%BC%E5%AD%90%EF%BC%88%E3%83%AA%E3%83%BC%E3%83%99%E3%83%B3%E3%83%BB%E3%82%AF%E3%82%A4%E3%82%BA%EF%BC%89%20%E6%97%A5%E4%B8%AD15%E5%B9%B4%E6%88%A6%E4%BA%89%E3%83%BB%E5%85%83%E7%9A%87%E8%BB%8D%E5%85%B5%E5%A3%AB%E3%81%AE%E5%91%8A%E7%99%BD",
+    "status": "review",
+    "updated_at": "2026-08-08T22:54:34.228319+00:00"
   },
   "日泰食堂::2025::30::フランキーシン": {
     "candidate": {
