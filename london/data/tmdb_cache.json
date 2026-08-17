@@ -58552,21 +58552,6 @@
     ],
     "vote_average": 0.0
   },
-  "THE SACRIFICE (4K RESTORATION)": {
-    "tmdb_id": 24657,
-    "tmdb_title": "The Sacrifice",
-    "tmdb_original_title": "Offret",
-    "overview": "Alexander, a journalist, philosopher and retired actor, celebrates a birthday with friends and family when it is announced that nuclear war has begun.",
-    "poster_path": "/8JMh27z075ZHbFE85XYkdXF2QkK.jpg",
-    "backdrop_path": "/48y1eAboPFgt7rKcynRAPPvtJ1E.jpg",
-    "release_date": "1986-05-09",
-    "director": "Andrei Tarkovsky",
-    "runtime": 149,
-    "genres": [
-      "Drama"
-    ],
-    "vote_average": 7.71
-  },
   "Western Approaches": {
     "tmdb_id": 305714,
     "tmdb_title": "Western Approaches",
@@ -58715,7 +58700,6 @@
     ],
     "vote_average": 5.0
   },
-  "Happy Birthday Hitch: Rear Window + Q&A": null,
   "Pitchblack Playback: Paul Simon 'Graceland' (40th Anniversary)": {
     "tmdb_id": 88367,
     "tmdb_title": "Classic Albums: Paul Simon - Graceland",
@@ -58763,44 +58747,104 @@
     ],
     "vote_average": 3.0
   },
-  "Pitchblack Playback: Mystery Album Club - Blond(e)s Have More Fun": null,
-  "Pitchblack Playback: J Dilla 'The Shining' (20th Anniversary)": null,
-  "Artist Q&A with Claire Davis (creator of Whitechapel Whipits + Flowers)": {
-    "tmdb_id": 63556,
-    "tmdb_title": "Flowers",
-    "tmdb_original_title": "FLOWERS フラワーズ",
-    "overview": "Flowers examines the lives of six women across three generations, from the Show period all the way through to the present day.",
-    "poster_path": "/pqoWlFY4iAyML6sxmNVfrQuhjQ0.jpg",
-    "backdrop_path": "/rKlyZHPaNdVzS29BMhRUM4hP3zb.jpg",
-    "release_date": "2010-06-12",
-    "director": "Norihiro Koizumi",
-    "runtime": 109,
+  "The Woman with the Knife + New Territories (spectacle is king) + Introduction with Keith Shiri": {
+    "tmdb_id": 611775,
+    "tmdb_title": "The Woman with the Knife",
+    "tmdb_original_title": "La femme au couteau",
+    "overview": "A young, unnamed Ivorian intellectual returns home after a lengthy spell in France. Failing to reconcile his new-found modernist views with his African traditions, and obsessed with his sexual inhibition, the man becomes haunted by the specter of a knife-brandishing woman threatening to shatter any potential relationships with other women.",
+    "poster_path": "/rRzahj08VHYLbUDeZa77VM54Ntn.jpg",
+    "backdrop_path": "/7yZATGQPJQo8s1gWa5AvJEoHOkf.jpg",
+    "release_date": "2010-02-05",
+    "director": "Timité Bassori",
+    "runtime": 77,
     "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "vote_average": 5.625
+  },
+  "SEND FRIENDLY SCREENING: WALLACE & GROMIT: A GRAND DAY OUT + THE WRONG TROUSERS": {
+    "tmdb_id": 531,
+    "tmdb_title": "The Wrong Trousers",
+    "tmdb_original_title": "The Wrong Trousers",
+    "overview": "Wallace rents out Gromit's former bedroom to a penguin, who takes up an interest in the techno trousers created by Wallace. However, Gromit later learns that the penguin is a wanted criminal.",
+    "poster_path": "/mV8SDTjkxrDxu0a0egvFz1lRPU7.jpg",
+    "backdrop_path": "/9AbessEz2YKjmPtYKATDeYRW3Px.jpg",
+    "release_date": "1993-12-17",
+    "director": "Nick Park",
+    "runtime": 30,
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "vote_average": 7.8
+  },
+  "Relaxed Screening: The Pirates! In An Adventure": {
+    "tmdb_id": 72197,
+    "tmdb_title": "The Pirates! In an Adventure with Scientists!",
+    "tmdb_original_title": "The Pirates! In an Adventure with Scientists!",
+    "overview": "The enthusiastic Pirate Captain, along with his rag-tag crew, sets out to beat his bitter rivals. The chaotic adventure takes them from exotic shores to Victorian London, and from a haplessly smitten scientist to a diabolical queen.",
+    "poster_path": "/bkLeXPDP6sramrTiF5W7TzUl4t0.jpg",
+    "backdrop_path": "/9UZnCIeUVHzZQLDXN7lht2T4ndB.jpg",
+    "release_date": "2012-03-12",
+    "director": "Peter Lord",
+    "runtime": 88,
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Family",
+      "Comedy"
+    ],
+    "vote_average": 6.536
+  },
+  "The Virgin Suicides (4K Restoration)": {
+    "tmdb_id": 1443,
+    "tmdb_title": "The Virgin Suicides",
+    "tmdb_original_title": "The Virgin Suicides",
+    "overview": "A group of male friends become obsessed with five mysterious sisters who are sheltered by their strict, religious parents.",
+    "poster_path": "/1NCQtXPQnaHRjOZVmktA9BSM35F.jpg",
+    "backdrop_path": "/6b6UpsOXmjO8mJKYsGTG9HW49CN.jpg",
+    "release_date": "2000-04-21",
+    "director": "Sofia Coppola",
+    "runtime": 97,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "vote_average": 7.136
+  },
+  "Little Miss Sunshine (20th Anniversary)": {
+    "tmdb_id": 773,
+    "tmdb_title": "Little Miss Sunshine",
+    "tmdb_original_title": "Little Miss Sunshine",
+    "overview": "A family loaded with quirky, colorful characters piles into an old van and road trips to California for little Olive to compete in a beauty pageant.",
+    "poster_path": "/niNdhTpPHSgw22tK0PLjQMV640v.jpg",
+    "backdrop_path": "/twdtjJm31AExNx73DXaD4KRNU9c.jpg",
+    "release_date": "2006-07-26",
+    "director": "Valerie Faris",
+    "runtime": 102,
+    "genres": [
+      "Comedy",
       "Drama"
     ],
-    "vote_average": 7.0
+    "vote_average": 7.69
   },
-  "Bar Trash: Silent Horror / Double Feature: THE CABINET OF DR CALIGARI + THE HAUNTED HOUSE": {
-    "tmdb_id": 1142694,
-    "tmdb_title": "Silent Horror",
-    "tmdb_original_title": "Silent Horror",
-    "overview": "Welcome to Quiet Knoll; A sleepy, unassuming little community...with a few big, dark secrets. Now three strangers have no choice but to solve the mysteries of the town if they want to get out alive...or at least to the next save point. Skin-crawling terror and side splitting comedy meet face to face as X-Strike Studios takes on Survival Horror in their second full-length parody!",
-    "poster_path": "/2giyfm91JBkfkJgtzT07IMgT1GP.jpg",
-    "backdrop_path": "/xGXngWgXCI8WYGKRW6XzrvXDdpw.jpg",
-    "release_date": "2006-01-13",
-    "director": "Rory O'Boyle",
-    "runtime": 110,
+  "DOCHOUSE: OKURIMONO": {
+    "tmdb_id": 1261100,
+    "tmdb_title": "Okurimono",
+    "tmdb_original_title": "Okurimono",
+    "overview": "After a 20-year absence, Noriko returns to Nagasaki to clear out her mother’s home. In doing so, she finds letters that reveal a family secret intertwined with the memory of the peninsular town’s inhabitants. In reconstructing this family story, Okurimono gradually develops into a grace-filled meditation on the passage of time and the legacy we leave behind.",
+    "poster_path": "/u2M4mdPmFTVj7UX0mlJiD4CrzTZ.jpg",
+    "backdrop_path": "/m86iOfRrhqZoifaDY5esiBl2OkD.jpg",
+    "release_date": "2024-04-16",
+    "director": "Laurence Lévesque",
+    "runtime": 96,
     "genres": [
-      "Horror"
+      "Documentary"
     ],
-    "vote_average": 0.0
+    "vote_average": 4.0
   },
-  "The Night Porter presented by the Cult Classic Collective": null,
-  "The Botanist (London Premiere) + Intro + Q&A": null,
-  "AMYL AND THE SNIFFERS PRESENT 'TRUTH OR CONSEQUENCE'": null,
-  "Some Like it Swing": null,
-  "Bouchra": null,
-  "Glastonbury The Movie: 30th anniversary cut": null,
   "Paprika - 20th anniversary": {
     "tmdb_id": 4977,
     "tmdb_title": "Paprika",
@@ -58816,8 +58860,9 @@
       "Science Fiction",
       "Thriller"
     ],
-    "vote_average": 7.812
+    "vote_average": 7.8
   },
+  "Bouchra": null,
   "Panel: What is Hong Kong Golden Age Cinema? N/A": null,
   "Onda Nova (New Wave) + Intro": {
     "tmdb_id": 154556,
@@ -58854,9 +58899,86 @@
   "Kiki's Delivery Service - subbed": null,
   "The London International Animation Festival presents 8 Astonishing Animated Shorts for ages 4+": null,
   "Indy Film Library presents: UK Short Film Showcase II": null,
-  "Surf's Up": null,
+  "Kiki's Delivery Service - dubbed": null,
+  "Kino Industry Session: An Invitation to Collaborate": null,
+  "Kino London Short Film Festival: The Doc Block": null,
+  "The Third Part of the Night": {
+    "tmdb_id": 46799,
+    "tmdb_title": "The Third Part of the Night",
+    "tmdb_original_title": "Trzecia część nocy",
+    "overview": "Set during the Nazi occupation of Poland, the story follows Michał, who witnesses the murder of his mother, wife and child and then is hurled into a life that literally is not his own; a surreal world littered with trapdoors, doppelgängers and wormholes.",
+    "poster_path": "/26bTBcH1SVn92dVNr6X9JQxXlxe.jpg",
+    "backdrop_path": "/y9NXfEz8p1IiR8Ug4vpa3MiI8lJ.jpg",
+    "release_date": "1972-01-04",
+    "director": "Andrzej Żuławski",
+    "runtime": 107,
+    "genres": [
+      "War",
+      "Drama",
+      "Horror"
+    ],
+    "vote_average": 7.0
+  },
+  "Kino Industry Session: Supporting Emerging Talent with BIFA & Beyond": {
+    "tmdb_id": 60065,
+    "tmdb_title": "Beyond",
+    "tmdb_original_title": "Dykkerne",
+    "overview": "During the final days of WWII, chaos ruled. The German submarine U-461 went down along with its entire crew just off the coast of Denmark. U-461 however, was no ordinary submarine. 50 years after the war ended, two brothers go scuba diving for fun and discover that their every move is being watched and that some things should just be left alone.",
+    "poster_path": "/j8UocGfjQ0AKSwNQP7TC8xV7U1z.jpg",
+    "backdrop_path": "/zagcO2FmLdF6M5g8yJR9WPUkjcV.jpg",
+    "release_date": "2000-10-12",
+    "director": "Åke Sandgren",
+    "runtime": 90,
+    "genres": [
+      "Adventure",
+      "Thriller",
+      "Horror",
+      "Mystery"
+    ],
+    "vote_average": 6.053
+  },
+  "Kino London Short Film Festival: Dystopian Present": null,
+  "Kino Industry Session: From Short Film To Streaming Revenue": null,
+  "Kino London Short Film Festival: She Shoots": null,
+  "Kino London Short Film Festival: Dystopian Future": null,
+  "Artist Q&A with Claire Davis (creator of Whitechapel Whipits + Flowers)": {
+    "tmdb_id": 63556,
+    "tmdb_title": "Flowers",
+    "tmdb_original_title": "FLOWERS フラワーズ",
+    "overview": "Flowers examines the lives of six women across three generations, from the Show period all the way through to the present day.",
+    "poster_path": "/pqoWlFY4iAyML6sxmNVfrQuhjQ0.jpg",
+    "backdrop_path": "/rKlyZHPaNdVzS29BMhRUM4hP3zb.jpg",
+    "release_date": "2010-06-12",
+    "director": "Norihiro Koizumi",
+    "runtime": 109,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 7.0
+  },
+  "Bar Trash: Silent Horror / Double Feature: THE CABINET OF DR CALIGARI + THE HAUNTED HOUSE": {
+    "tmdb_id": 1142694,
+    "tmdb_title": "Silent Horror",
+    "tmdb_original_title": "Silent Horror",
+    "overview": "Welcome to Quiet Knoll; A sleepy, unassuming little community...with a few big, dark secrets. Now three strangers have no choice but to solve the mysteries of the town if they want to get out alive...or at least to the next save point. Skin-crawling terror and side splitting comedy meet face to face as X-Strike Studios takes on Survival Horror in their second full-length parody!",
+    "poster_path": "/2giyfm91JBkfkJgtzT07IMgT1GP.jpg",
+    "backdrop_path": "/xGXngWgXCI8WYGKRW6XzrvXDdpw.jpg",
+    "release_date": "2006-01-13",
+    "director": "Rory O'Boyle",
+    "runtime": 110,
+    "genres": [
+      "Horror"
+    ],
+    "vote_average": 0.0
+  },
+  "The Night Porter presented by the Cult Classic Collective": null,
+  "The Botanist (London Premiere) + Intro + Q&A": null,
+  "AMYL AND THE SNIFFERS PRESENT 'TRUTH OR CONSEQUENCE'": null,
+  "Some Like it Swing": null,
   "Parent and Baby: Tony": null,
   "Parent and Baby: Sunny Dancer": null,
+  "Claire&#039;s Knee": null,
+  "One Minute Volume 2": null,
   "Land & Freedom": {
     "tmdb_id": 598896,
     "tmdb_title": "Land",
@@ -58875,7 +58997,270 @@
   "2 films from Belly of the Beast": null,
   "The Finance Curse": null,
   "Summer of Soul": null,
-  "The Great Dictator": null,
+  "TEENAGE SEX AND DEATH AT CAMP MIASMA": {
+    "tmdb_id": 1240889,
+    "tmdb_title": "Teenage Sex and Death at Camp Miasma",
+    "tmdb_original_title": "Teenage Sex and Death at Camp Miasma",
+    "overview": "After years of slapdash sequels and waning fandom, the Camp Miasma slasher franchise is handed over to an enthusiastic young director for resurrection. But when she visits the original's star, a now-reclusive actress shrouded in mystery, the two women fall into a blood-soaked world of desire, fear, and delirium.",
+    "poster_path": "/5Cz1EJOKpZ8hqvBNZYF9C2zTB2T.jpg",
+    "backdrop_path": "/d1n2ySWSanU34eEsluRjfrjRq52.jpg",
+    "release_date": "2026-08-06",
+    "director": "Jane Schoenbrun",
+    "runtime": 112,
+    "genres": [
+      "Comedy",
+      "Horror",
+      "Romance"
+    ],
+    "vote_average": 7.3
+  },
+  "Category H: THE WICKER MAN + NOROI THE CURSE": null,
+  "Saturday Morning Picture Club: MUPPET TREASURE ISLAND (+ Craft Activities)": null,
+  "Jane Schoenbrun Triple Bill: WE'RE ALL GOING TO THE WORLD'S FAIR": null,
+  "Jane Schoenbrun Triple Bill: I SAW THE TV GLOW": null,
+  "Carers & Babies: TEENAGE SEX AND DEATH AT CAMP MIASMA": null,
+  "Hard of Hearing: STOP! THAT! TRAIN!": null,
+  "Rio Staff Selects: ALMOST FAMOUS": null,
+  "AMYL AND THE SNIFFERS PRESENT TRUTH OR CONSEQUENCE": null,
+  "Pink Palace: WIGSTOCK THE MOVIE": null,
+  "I WANT YOUR SEX": null,
+  "Japanese Film Club: THE NIGHT IS SHORT, WALK ON GIRL": null,
+  "Holy Days": null,
+  "Moana (2026)": {
+    "tmdb_id": 1108427,
+    "tmdb_title": "Moana",
+    "tmdb_original_title": "Moana",
+    "overview": "Teenage Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with infamous demigod Maui on an unforgettable journey to restore prosperity to her people.",
+    "poster_path": "/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
+    "backdrop_path": "/c6BPbkO5Npt1OdwttAxCFo06wtH.jpg",
+    "release_date": "2026-07-08",
+    "director": "Thomas Kail",
+    "runtime": 115,
+    "genres": [
+      "Family",
+      "Fantasy",
+      "Comedy",
+      "Adventure"
+    ],
+    "vote_average": 6.051
+  },
+  "Brazilian Summer Nights: City of God": null,
+  "Brazilian Summer Nights: Ó Paí, Ó": null,
+  "Minions &amp; Monsters": null,
+  "The People's Emergency Briefing + Panel": null,
+  "&amp; Sons": null,
+  "Brazilian Summer Nights: Basic Sanitation, the Movie": null,
+  "Lexi Seniors' Film Club: Bhaji On The Beach": {
+    "tmdb_id": 14587,
+    "tmdb_title": "Bhaji on the Beach",
+    "tmdb_original_title": "Bhaji on the Beach",
+    "overview": "A group of South Asian women try but cannot escape their problems on a day trip to a British beach resort.",
+    "poster_path": "/jq27h7iCkqwBP3Dd9DQnWdgfGGV.jpg",
+    "backdrop_path": "/9Nll0mqi0dOTyX7rRfFV5REaqL4.jpg",
+    "release_date": "1993-09-11",
+    "director": "Gurinder Chadha",
+    "runtime": 100,
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "vote_average": 5.293
+  },
+  "Coup 53 + Director Q&amp;A": {
+    "tmdb_id": 626979,
+    "tmdb_title": "Coup 53",
+    "tmdb_original_title": "Coup 53",
+    "overview": "Tehran, Iran, August 19, 1953. A group of Iranian conspirators who, with the approval of the deposed tyrant Mohammad Reza Pahlavi, have conspired with agents of the British MI6 and the US CIA, manage to put an end to the democratic government led by Mohammad Mosaddegh, a dramatic event that will begin the tragic era of coups d'état that, orchestrated by the CIA, will take place, over the following decades, in dozens of countries around the world.",
+    "poster_path": "/Ar7iq23QZNh0ZX57uPc8e2IasvD.jpg",
+    "backdrop_path": "/mirbd7cFNdwbkR8gMrVJfd8OdEp.jpg",
+    "release_date": "2019-09-01",
+    "director": "Taghi Amirani",
+    "runtime": 121,
+    "genres": [
+      "Documentary",
+      "History"
+    ],
+    "vote_average": 8.0
+  },
+  "Black History Studies: Notting Hill Carnival 60th Anniversary Short Films + Q&amp;A with Filmmakers": null,
+  "Spotlight: The Mole Agent": null,
+  "Parents &amp; Baby Screening - Tony": null,
+  "90s Nostalgia: Trainspotting (30th Anniversary)": null,
+  "Exhibition on Screen: Leonardo: The Works": null,
+  "Almodovar Season: Volver": null,
+  "90s Nostalgia: Con Air": null,
+  "Phoenix Classics: Nostalgia": {
+    "tmdb_id": 1394,
+    "tmdb_title": "Nostalgia",
+    "tmdb_original_title": "Ностальгия",
+    "overview": "Russian poet Andrei Gorchakov journeys through Italy with his interpreter Eugenia to research the life of an 18th-century Russian composer who once lived abroad. Isolated and consumed by an unrelenting longing for his homeland, Andrei becomes drawn to Domenico, a radical mystic obsessed with spiritual redemption. Through austere imagery and extended temporal rhythms, Tarkovsky examines exile, memory, and the profound melancholy of being unable to belong fully to either place or language.",
+    "poster_path": "/fCYSidPXp3LpDa9wlLNv0gZvjyF.jpg",
+    "backdrop_path": "/z0ZAEC2aZuflzua3HOSygVzE6Jq.jpg",
+    "release_date": "1983-05-01",
+    "director": "Andrei Tarkovsky",
+    "runtime": 124,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "vote_average": 7.79
+  },
+  "Babykino: Lady": {
+    "tmdb_id": 1479333,
+    "tmdb_title": "Lady",
+    "tmdb_original_title": "Lady",
+    "overview": "A lonely, narcissistic aristocrat dupes a struggling, opportunistic director into filming her every move. Her obsession with the spotlight takes a surreal turn when she starts becoming... invisible.",
+    "poster_path": "/fXsTO5Wa11VtIyVMdoQOpeioSVx.jpg",
+    "backdrop_path": "/lZscBPMnr1AYAUKWpngNtWaaxS0.jpg",
+    "release_date": "2026-08-14",
+    "director": "Samuel Abrahams",
+    "runtime": 95,
+    "genres": [
+      "Comedy"
+    ],
+    "vote_average": 7.0
+  },
+  "Babykino: & Sons": {
+    "tmdb_id": 1113120,
+    "tmdb_title": "Sons",
+    "tmdb_original_title": "Vogter",
+    "overview": "Eva, an idealistic prison officer, is faced with the dilemma of her life when a young man from her past gets transferred to the prison where she works. Without revealing her secret, Eva asks to be moved to the young man’s ward – the toughest and most violent in the prison. Here begins an unsettling psychological thriller, where Eva’s sense of justice puts both her morality and future at stake.",
+    "poster_path": "/rbNoiXJS3PW1u3geU3VcttBqi6C.jpg",
+    "backdrop_path": "/b5ei2QImsyKJlY63zGBEpQScTDQ.jpg",
+    "release_date": "2024-07-10",
+    "director": "Gustav Möller",
+    "runtime": 100,
+    "genres": [
+      "Thriller",
+      "Drama"
+    ],
+    "vote_average": 6.641
+  },
+  "The Bride of Belsen": null,
+  "Kiki's Delivery Service": null,
+  "La Grazia (12)": {
+    "tmdb_id": 1397364,
+    "tmdb_title": "La Grazia",
+    "tmdb_original_title": "La grazia",
+    "overview": "As his tenure as President of Italy nears its end, Mariano De Santis faces wrenching decisions-both political and deeply personal. Amid these moral quandaries, he must confront his own conscience and seek guidance from those closest to him, including his confidante and daughter, Dorotea.",
+    "poster_path": "/lnPGzi7BNc17WtxXso16CjNjT5K.jpg",
+    "backdrop_path": "/baIjN7xPyw2In1CuHACTgzcsF20.jpg",
+    "release_date": "2025-12-05",
+    "director": "Paolo Sorrentino",
+    "runtime": 133,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 7.303
+  },
+  "Tony (15)": {
+    "tmdb_id": 32904,
+    "tmdb_title": "Tony",
+    "tmdb_original_title": "Tony",
+    "overview": "Unemployed and unemployable, Tony is a sympathetic recluse with severe social problems, an addiction to VHS action films and a horrible moustache. Occasionally he snaps and murder is the result…",
+    "poster_path": "/cPztnCyi5LB3uo98UnoGbAay9wy.jpg",
+    "backdrop_path": "/x1ys59FVBENl3F1nchwxL1hjQer.jpg",
+    "release_date": "2010-02-05",
+    "director": "Gerard Johnson",
+    "runtime": 76,
+    "genres": [
+      "Horror",
+      "Drama",
+      "Thriller"
+    ],
+    "vote_average": 5.951
+  },
+  "The Odyssey [35mm] (15)": {
+    "tmdb_id": 1368337,
+    "tmdb_title": "The Odyssey",
+    "tmdb_original_title": "The Odyssey",
+    "overview": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is forced to confront the whims of gods, mythological monsters, and trials that stretch both his cunning and his humanity to the breaking point.",
+    "poster_path": "/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+    "backdrop_path": "/RMXG8myu1aGlNUsRjtxzmpdMK0.jpg",
+    "release_date": "2026-07-15",
+    "director": "Christopher Nolan",
+    "runtime": 173,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Fantasy"
+    ],
+    "vote_average": 7.992
+  },
+  "Lady (15)": {
+    "tmdb_id": 1479333,
+    "tmdb_title": "Lady",
+    "tmdb_original_title": "Lady",
+    "overview": "A lonely, narcissistic aristocrat dupes a struggling, opportunistic director into filming her every move. Her obsession with the spotlight takes a surreal turn when she starts becoming... invisible.",
+    "poster_path": "/fXsTO5Wa11VtIyVMdoQOpeioSVx.jpg",
+    "backdrop_path": "/lZscBPMnr1AYAUKWpngNtWaaxS0.jpg",
+    "release_date": "2026-08-14",
+    "director": "Samuel Abrahams",
+    "runtime": 95,
+    "genres": [
+      "Comedy"
+    ],
+    "vote_average": 7.0
+  },
+  "Hunt for the Wilderpeople 10th Anniversary Screening": {
+    "tmdb_id": 371645,
+    "tmdb_title": "Hunt for the Wilderpeople",
+    "tmdb_original_title": "Hunt for the Wilderpeople",
+    "overview": "Ricky is a defiant young city kid who finds himself on the run with his cantankerous foster uncle in the wild New Zealand bush. A national manhunt ensues, and the two are forced to put aside their differences and work together to survive.",
+    "poster_path": "/hkmz9rxgcweizXNElozGeKwmAJE.jpg",
+    "backdrop_path": "/ixpUtvrZNwk6LBObXaNH8fh4FYf.jpg",
+    "release_date": "2016-01-22",
+    "director": "Taika Waititi",
+    "runtime": 101,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Drama"
+    ],
+    "vote_average": 7.6
+  },
+  "CelebrAsia 2026: Aroi Mark": null,
+  "CelebrAsia 2026: You Mean the World to Me": null,
+  "CelebrAsia 2026: Ola Bola": null,
+  "CelebrAsia 2026: BABAH": null,
+  "The Transformers The Movie: The Apology Tour 40th Anniversary Screening": null,
+  "EOS: DAVID HOCKNEY": null,
+  "MINIONS & MONSTERS (Relaxed Screening)": {
+    "tmdb_id": 211672,
+    "tmdb_title": "Minions",
+    "tmdb_original_title": "Minions",
+    "overview": "Minions Stuart, Kevin and Bob are recruited by Scarlet Overkill, a super-villain who, alongside her inventor husband Herb, hatches a plot to take over the world.",
+    "poster_path": "/dr02BdCNAUPVU07aOodwPYv6HCf.jpg",
+    "backdrop_path": "/wKrxeY6lbu7KFBsWVcMH6M8avwr.jpg",
+    "release_date": "2015-06-17",
+    "director": "Kyle Balda",
+    "runtime": 91,
+    "genres": [
+      "Family",
+      "Animation",
+      "Adventure",
+      "Comedy"
+    ],
+    "vote_average": 6.4
+  },
+  "OBSESSION + Short": {
+    "tmdb_id": 1339713,
+    "tmdb_title": "Obsession",
+    "tmdb_original_title": "Obsession",
+    "overview": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
+    "poster_path": "/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+    "backdrop_path": "/rZfmzpixLKLR3Hg2u0WgC7XLFl8.jpg",
+    "release_date": "2026-05-13",
+    "director": "Curry Barker",
+    "runtime": 109,
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "vote_average": 8.228
+  },
+  "THE GIRLS (Gehenu Lamai)": null,
+  "TOY STORY 5 (BiAs)": null,
   "Your Name [Kimi no Na wa.]": {
     "tmdb_id": 372058,
     "tmdb_title": "Your Name.",
@@ -58969,260 +59354,42 @@
   "Slowburn Shoot: An Indie Wrestling Story presented by WrestleTalk": null,
   "Twin Peaks : Season 1 Marathon": null,
   "Mystery Movie Marathon": null,
-  "TEENAGE SEX AND DEATH AT CAMP MIASMA": null,
-  "Category H: THE WICKER MAN + NOROI THE CURSE": null,
-  "Saturday Morning Picture Club: MUPPET TREASURE ISLAND (+ Craft Activities)": null,
-  "Jane Schoenbrun Triple Bill: WE'RE ALL GOING TO THE WORLD'S FAIR": null,
-  "Jane Schoenbrun Triple Bill: I SAW THE TV GLOW": null,
-  "Carers & Babies: TEENAGE SEX AND DEATH AT CAMP MIASMA": null,
-  "Hard of Hearing: STOP! THAT! TRAIN!": null,
-  "Rio Staff Selects: ALMOST FAMOUS": null,
-  "AMYL AND THE SNIFFERS PRESENT TRUTH OR CONSEQUENCE": null,
-  "Pink Palace: WIGSTOCK THE MOVIE": null,
-  "I WANT YOUR SEX": null,
-  "Japanese Film Club: THE NIGHT IS SHORT, WALK ON GIRL": null,
-  "Moana (2026)": {
-    "tmdb_id": 1108427,
-    "tmdb_title": "Moana",
-    "tmdb_original_title": "Moana",
-    "overview": "Teenage Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with infamous demigod Maui on an unforgettable journey to restore prosperity to her people.",
-    "poster_path": "/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
-    "backdrop_path": "/c6BPbkO5Npt1OdwttAxCFo06wtH.jpg",
-    "release_date": "2026-07-08",
-    "director": "Thomas Kail",
-    "runtime": 115,
-    "genres": [
-      "Family",
-      "Fantasy",
-      "Comedy",
-      "Adventure"
-    ],
-    "vote_average": 6.0
-  },
-  "Holy Days": null,
-  "Brazilian Summer Nights: Ó Paí, Ó": null,
-  "Brazilian Summer Nights: City of God": null,
-  "Minions &amp; Monsters": null,
-  "The People's Emergency Briefing + Panel": null,
-  "&amp; Sons": null,
-  "Brazilian Summer Nights: Basic Sanitation, the Movie": null,
-  "Lexi Seniors' Film Club: Bhaji On The Beach": {
-    "tmdb_id": 14587,
-    "tmdb_title": "Bhaji on the Beach",
-    "tmdb_original_title": "Bhaji on the Beach",
-    "overview": "A group of South Asian women try but cannot escape their problems on a day trip to a British beach resort.",
-    "poster_path": "/jq27h7iCkqwBP3Dd9DQnWdgfGGV.jpg",
-    "backdrop_path": "/9Nll0mqi0dOTyX7rRfFV5REaqL4.jpg",
-    "release_date": "1993-09-11",
-    "director": "Gurinder Chadha",
-    "runtime": 100,
+  "House of Flying Daggers": null,
+  "Female Trouble": {
+    "tmdb_id": 14267,
+    "tmdb_title": "Female Trouble",
+    "tmdb_original_title": "Female Trouble",
+    "overview": "Teenage delinquent Dawn Davenport, incensed after her parents do not give her the cha-cha heels she wanted for Christmas, runs away from home. After an illegitimate child and hairstylist husband bring her more misery, she's enticed into a life of crime when the owners of her husband's salon promise her fame and fortune.",
+    "poster_path": "/cqhIufhoORDMuFKEinV1IIYUBxD.jpg",
+    "backdrop_path": "/utsFSjBd6Ai56BwFB8s80S1a9bC.jpg",
+    "release_date": "1976-02-15",
+    "director": "John Waters",
+    "runtime": 98,
     "genres": [
       "Comedy",
-      "Drama"
+      "Crime"
     ],
-    "vote_average": 5.293
+    "vote_average": 6.9
   },
-  "Coup 53 + Director Q&amp;A": {
-    "tmdb_id": 626979,
-    "tmdb_title": "Coup 53",
-    "tmdb_original_title": "Coup 53",
-    "overview": "Tehran, Iran, August 19, 1953. A group of Iranian conspirators who, with the approval of the deposed tyrant Mohammad Reza Pahlavi, have conspired with agents of the British MI6 and the US CIA, manage to put an end to the democratic government led by Mohammad Mosaddegh, a dramatic event that will begin the tragic era of coups d'état that, orchestrated by the CIA, will take place, over the following decades, in dozens of countries around the world.",
-    "poster_path": "/Ar7iq23QZNh0ZX57uPc8e2IasvD.jpg",
-    "backdrop_path": "/mirbd7cFNdwbkR8gMrVJfd8OdEp.jpg",
-    "release_date": "2019-09-01",
-    "director": "Taghi Amirani",
-    "runtime": 121,
-    "genres": [
-      "Documentary",
-      "History"
-    ],
-    "vote_average": 8.0
-  },
-  "Black History Studies: Notting Hill Carnival 60th Anniversary Short Films + Q&amp;A with Filmmakers": null,
-  "Almodovar Season: Bad Education": null,
-  "Parents &amp; Baby Screening - Tony": null,
-  "90s Nostalgia: Trainspotting (30th Anniversary)": null,
-  "Exhibition on Screen: Leonardo: The Works": null,
-  "Almodovar Season: Volver": null,
-  "90s Nostalgia: Con Air": null,
-  "Tony (15)": {
-    "tmdb_id": 32904,
-    "tmdb_title": "Tony",
-    "tmdb_original_title": "Tony",
-    "overview": "Unemployed and unemployable, Tony is a sympathetic recluse with severe social problems, an addiction to VHS action films and a horrible moustache. Occasionally he snaps and murder is the result…",
-    "poster_path": "/cPztnCyi5LB3uo98UnoGbAay9wy.jpg",
-    "backdrop_path": "/x1ys59FVBENl3F1nchwxL1hjQer.jpg",
-    "release_date": "2010-02-05",
-    "director": "Gerard Johnson",
-    "runtime": 76,
-    "genres": [
-      "Horror",
-      "Drama",
-      "Thriller"
-    ],
-    "vote_average": 5.951
-  },
-  "The Woman with the Knife + New Territories (spectacle is king) + Introduction with Keith Shiri": {
-    "tmdb_id": 611775,
-    "tmdb_title": "The Woman with the Knife",
-    "tmdb_original_title": "La femme au couteau",
-    "overview": "A young, unnamed Ivorian intellectual returns home after a lengthy spell in France. Failing to reconcile his new-found modernist views with his African traditions, and obsessed with his sexual inhibition, the man becomes haunted by the specter of a knife-brandishing woman threatening to shatter any potential relationships with other women.",
-    "poster_path": "/rRzahj08VHYLbUDeZa77VM54Ntn.jpg",
-    "backdrop_path": "/7yZATGQPJQo8s1gWa5AvJEoHOkf.jpg",
-    "release_date": "2010-02-05",
-    "director": "Timité Bassori",
-    "runtime": 77,
-    "genres": [
-      "Drama",
-      "Thriller"
-    ],
-    "vote_average": 5.625
-  },
-  "The Odyssey [35mm] (15)": {
-    "tmdb_id": 1368337,
-    "tmdb_title": "The Odyssey",
-    "tmdb_original_title": "The Odyssey",
-    "overview": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is forced to confront the whims of gods, mythological monsters, and trials that stretch both his cunning and his humanity to the breaking point.",
-    "poster_path": "/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
-    "backdrop_path": "/RMXG8myu1aGlNUsRjtxzmpdMK0.jpg",
-    "release_date": "2026-07-15",
-    "director": "Christopher Nolan",
-    "runtime": 173,
-    "genres": [
-      "Adventure",
-      "Action",
-      "Fantasy"
-    ],
-    "vote_average": 8.0
-  },
-  "Reflections on FESPACO + Panel Discussion (15)": null,
-  "Lady (15)": {
-    "tmdb_id": 1479333,
-    "tmdb_title": "Lady",
-    "tmdb_original_title": "Lady",
-    "overview": "A lonely, narcissistic aristocrat dupes a struggling, opportunistic director into filming her every move. Her obsession with the spotlight takes a surreal turn when she starts becoming... invisible.",
-    "poster_path": "/fXsTO5Wa11VtIyVMdoQOpeioSVx.jpg",
-    "backdrop_path": "/lZscBPMnr1AYAUKWpngNtWaaxS0.jpg",
-    "release_date": "2026-08-14",
-    "director": "Samuel Abrahams",
-    "runtime": 95,
-    "genres": [
-      "Comedy"
-    ],
-    "vote_average": 7.0
-  },
-  "Babykino: Lady": {
-    "tmdb_id": 1479333,
-    "tmdb_title": "Lady",
-    "tmdb_original_title": "Lady",
-    "overview": "A lonely, narcissistic aristocrat dupes a struggling, opportunistic director into filming her every move. Her obsession with the spotlight takes a surreal turn when she starts becoming... invisible.",
-    "poster_path": "/fXsTO5Wa11VtIyVMdoQOpeioSVx.jpg",
-    "backdrop_path": "/lZscBPMnr1AYAUKWpngNtWaaxS0.jpg",
-    "release_date": "2026-08-14",
-    "director": "Samuel Abrahams",
-    "runtime": 95,
-    "genres": [
-      "Comedy"
-    ],
-    "vote_average": 7.0
-  },
-  "Babykino: & Sons": {
-    "tmdb_id": 1113120,
-    "tmdb_title": "Sons",
-    "tmdb_original_title": "Vogter",
-    "overview": "Eva, an idealistic prison officer, is faced with the dilemma of her life when a young man from her past gets transferred to the prison where she works. Without revealing her secret, Eva asks to be moved to the young man’s ward – the toughest and most violent in the prison. Here begins an unsettling psychological thriller, where Eva’s sense of justice puts both her morality and future at stake.",
-    "poster_path": "/rbNoiXJS3PW1u3geU3VcttBqi6C.jpg",
-    "backdrop_path": "/b5ei2QImsyKJlY63zGBEpQScTDQ.jpg",
-    "release_date": "2024-07-10",
-    "director": "Gustav Möller",
-    "runtime": 100,
-    "genres": [
-      "Thriller",
-      "Drama"
-    ],
-    "vote_average": 6.652
-  },
-  "The Bride of Belsen": null,
-  "Kiki's Delivery Service": null,
-  "EOS: DAVID HOCKNEY": null,
-  "MINIONS & MONSTERS (Relaxed Screening)": {
-    "tmdb_id": 211672,
-    "tmdb_title": "Minions",
-    "tmdb_original_title": "Minions",
-    "overview": "Minions Stuart, Kevin and Bob are recruited by Scarlet Overkill, a super-villain who, alongside her inventor husband Herb, hatches a plot to take over the world.",
-    "poster_path": "/dr02BdCNAUPVU07aOodwPYv6HCf.jpg",
-    "backdrop_path": "/wKrxeY6lbu7KFBsWVcMH6M8avwr.jpg",
-    "release_date": "2015-06-17",
-    "director": "Kyle Balda",
-    "runtime": 91,
-    "genres": [
-      "Family",
-      "Animation",
-      "Adventure",
-      "Comedy"
-    ],
-    "vote_average": 6.423
-  },
-  "OBSESSION + Short": {
-    "tmdb_id": 1339713,
-    "tmdb_title": "Obsession",
-    "tmdb_original_title": "Obsession",
-    "overview": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
-    "poster_path": "/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
-    "backdrop_path": "/rZfmzpixLKLR3Hg2u0WgC7XLFl8.jpg",
-    "release_date": "2026-05-13",
-    "director": "Curry Barker",
-    "runtime": 109,
-    "genres": [
-      "Horror",
-      "Thriller"
-    ],
-    "vote_average": 8.229
-  },
-  "THE GIRLS (Gehenu Lamai)": null,
-  "TOY STORY 5 (BiAs)": null,
-  "Hunt for the Wilderpeople 10th Anniversary Screening": {
-    "tmdb_id": 371645,
-    "tmdb_title": "Hunt for the Wilderpeople",
-    "tmdb_original_title": "Hunt for the Wilderpeople",
-    "overview": "Ricky is a defiant young city kid who finds himself on the run with his cantankerous foster uncle in the wild New Zealand bush. A national manhunt ensues, and the two are forced to put aside their differences and work together to survive.",
-    "poster_path": "/hkmz9rxgcweizXNElozGeKwmAJE.jpg",
-    "backdrop_path": "/ixpUtvrZNwk6LBObXaNH8fh4FYf.jpg",
-    "release_date": "2016-01-22",
-    "director": "Taika Waititi",
-    "runtime": 101,
-    "genres": [
-      "Adventure",
-      "Comedy",
-      "Drama"
-    ],
-    "vote_average": 7.643
-  },
-  "CelebrAsia 2026: Aroi Mark": null,
-  "CelebrAsia 2026: You Mean the World to Me": null,
-  "CelebrAsia 2026: Ola Bola": null,
-  "CelebrAsia 2026: BABAH": null,
-  "The Transformers The Movie: The Apology Tour 40th Anniversary Screening": null,
   "Ish (15) captioned screening tbc parent and baby screening": null,
   "The Summer Book (PG) captioned screening tbc": null,
   "Family Cinema: The Magic Faraway Tree": null,
   "Lady (15) captioned screening tbc": null,
-  "SEND FRIENDLY SCREENING: WALLACE & GROMIT: A GRAND DAY OUT + THE WRONG TROUSERS": {
-    "tmdb_id": 531,
-    "tmdb_title": "The Wrong Trousers",
-    "tmdb_original_title": "The Wrong Trousers",
-    "overview": "Wallace rents out Gromit's former bedroom to a penguin, who takes up an interest in the techno trousers created by Wallace. However, Gromit later learns that the penguin is a wanted criminal.",
-    "poster_path": "/mV8SDTjkxrDxu0a0egvFz1lRPU7.jpg",
-    "backdrop_path": "/9AbessEz2YKjmPtYKATDeYRW3Px.jpg",
-    "release_date": "1993-12-17",
-    "director": "Nick Park",
-    "runtime": 30,
+  "CARERS & BABIES: TONY": {
+    "tmdb_id": 1329016,
+    "tmdb_title": "Tony",
+    "tmdb_original_title": "Tony",
+    "overview": "A 19-year-old Anthony Bourdain travels to Provincetown and stumbles into the chaotic world of a restaurant kitchen, setting off a summer that will shape the course of his life.",
+    "poster_path": "/3WN0JWwRI7oGH7Ni2R6poVWej05.jpg",
+    "backdrop_path": "/bOqTOVkHAL4z87P0Opf6q5mIeRy.jpg",
+    "release_date": "2026-08-07",
+    "director": "Matt Johnson",
+    "runtime": 106,
     "genres": [
-      "Animation",
-      "Comedy",
-      "Family"
+      "Drama",
+      "Comedy"
     ],
-    "vote_average": 7.8
+    "vote_average": 7.7
   },
   "WALLACE & GROMIT: A GRAND DAY OUT + THE WRONG TROUSERS": {
     "tmdb_id": 531,
@@ -59241,35 +59408,15 @@
     ],
     "vote_average": 7.8
   },
-  "CARERS & BABIES: TONY": {
-    "tmdb_id": 1329016,
-    "tmdb_title": "Tony",
-    "tmdb_original_title": "Tony",
-    "overview": "A 19-year-old Anthony Bourdain travels to Provincetown and stumbles into the chaotic world of a restaurant kitchen, setting off a summer that will shape the course of his life.",
-    "poster_path": "/3WN0JWwRI7oGH7Ni2R6poVWej05.jpg",
-    "backdrop_path": "/bOqTOVkHAL4z87P0Opf6q5mIeRy.jpg",
-    "release_date": "2026-08-07",
-    "director": "Matt Johnson",
-    "runtime": 106,
-    "genres": [
-      "Drama",
-      "Comedy"
-    ],
-    "vote_average": 7.458
-  },
   "WALLACE & GROMIT: A CLOSE SHAVE + A MATTER OF LOAF AND DEATH": null,
   "ActOne Film Quiz": null,
   "SEND FRIENDLY SCREENING: WALLACE & GROMIT: A CLOSE SHAVE + A MATTER OF LOAF AND DEATH": null,
   "HUNT FOR THE WILDERPEOPLE (10 Year Anniversary 4K Restoration)": null,
   "FUN IN THE LOUNGE - FREE ENTRY: OPEN MIC": null,
+  "A HARD DAY'S NIGHT + LIVE Q&A WITH SAMIRA AHMED": null,
   "FINAL SHOW: Tuner": null,
   "Starr – live at the Blue": null,
   "Re-release: Practical Magic": null,
-  "Cinema in the Square: Scooby-Doo 2: Monsters Unleashed (Dog-Friendly Screening)": null,
-  "Cinema in the Square: Mary Poppins": null,
-  "Cinema in the Square: The Birdcage (30th Anniversary) (CC)": null,
-  "Choose What You Pay: Love Me Tender": null,
-  "Cinema in the Square: Hedwig and the Angry Inch (25th Anniversary)": null,
   "Jane Schoenbrun Night": null,
   "Midnight Screening: Teenage Sex and Death at Camp Miasma": null,
   "Stop! That! Train! + Intro from Pixie Polite!": {
@@ -59411,9 +59558,7 @@
     ],
     "vote_average": 4.3
   },
-  "Claire&#039;s Knee": null,
-  "One Minute Volume 2": null,
-  "MYSTERY DOJO: SURPRISE KUNG FU MATINEES": null,
+  "Moana (Live Action)": null,
   "SHRIME TIME: A NIGHT OF BIZARRO UNDERSEEN ANIME": null,
   "MYSTERY MOVIE": null,
   "CASSANDRA CAT": null,
@@ -59421,71 +59566,9 @@
   "DEVIL STORY (DUBBED)": null,
   "SUNDAY SABBATH - MYSTERY HORROR MATINEE": null,
   "2 GIRLS 1 FILM CLUB PRESENTS: CULT SHOOT ERUPT": null,
-  "International Dog Day: Isle Of Dogs": null,
-  "La maison des bois (Episodes 1, 2 and 3)": null,
-  "La maison des bois (Episodes 4 and 5)": null,
-  "La maison des bois (Episodes 6 and 7)": null,
-  "Peter Watkins and the Playcraft Film Unit": null,
-  "TV Preview: Bookish Series 2: Ep.1 + Q&A with Mark Gatiss, Connor Finch, Buket Komur and Helen Perry": null,
-  "Teenage Sex and Death at Camp Miasma (35mm)": null,
-  "The Journey (Parts 1 to 4)": null,
-  "The Journey (Parts 5 to 8)": null,
-  "The Journey (Parts 9 to 12)": null,
-  "The Freethinker": null,
   "Sarah And Duck: Out And About": null,
-  "Relaxed Screening: The Pirates! In An Adventure": {
-    "tmdb_id": 72197,
-    "tmdb_title": "The Pirates! In an Adventure with Scientists!",
-    "tmdb_original_title": "The Pirates! In an Adventure with Scientists!",
-    "overview": "The enthusiastic Pirate Captain, along with his rag-tag crew, sets out to beat his bitter rivals. The chaotic adventure takes them from exotic shores to Victorian London, and from a haplessly smitten scientist to a diabolical queen.",
-    "poster_path": "/bkLeXPDP6sramrTiF5W7TzUl4t0.jpg",
-    "backdrop_path": "/9UZnCIeUVHzZQLDXN7lht2T4ndB.jpg",
-    "release_date": "2012-03-12",
-    "director": "Peter Lord",
-    "runtime": 88,
-    "genres": [
-      "Animation",
-      "Adventure",
-      "Family",
-      "Comedy"
-    ],
-    "vote_average": 6.536
-  },
-  "Dog Friendly: Paw Patrol 3: The Dino Movie": null,
-  "Dog Friendly: Spider-Man: Brand New Day": null,
   "The Odyssey (70mm)": null,
-  "The Virgin Suicides (4K Restoration)": {
-    "tmdb_id": 1443,
-    "tmdb_title": "The Virgin Suicides",
-    "tmdb_original_title": "The Virgin Suicides",
-    "overview": "A group of male friends become obsessed with five mysterious sisters who are sheltered by their strict, religious parents.",
-    "poster_path": "/1NCQtXPQnaHRjOZVmktA9BSM35F.jpg",
-    "backdrop_path": "/6b6UpsOXmjO8mJKYsGTG9HW49CN.jpg",
-    "release_date": "2000-04-21",
-    "director": "Sofia Coppola",
-    "runtime": 97,
-    "genres": [
-      "Drama",
-      "Romance"
-    ],
-    "vote_average": 7.136
-  },
-  "Little Miss Sunshine (20th Anniversary)": {
-    "tmdb_id": 773,
-    "tmdb_title": "Little Miss Sunshine",
-    "tmdb_original_title": "Little Miss Sunshine",
-    "overview": "A family loaded with quirky, colorful characters piles into an old van and road trips to California for little Olive to compete in a beauty pageant.",
-    "poster_path": "/niNdhTpPHSgw22tK0PLjQMV640v.jpg",
-    "backdrop_path": "/twdtjJm31AExNx73DXaD4KRNU9c.jpg",
-    "release_date": "2006-07-26",
-    "director": "Valerie Faris",
-    "runtime": 102,
-    "genres": [
-      "Comedy",
-      "Drama"
-    ],
-    "vote_average": 7.69
-  },
+  "La Scala Milan: Cosi Fan Tutte": null,
   "Evangelion: Death (True)² + The End of Evangelion": {
     "tmdb_id": 857862,
     "tmdb_title": "EVANGELION: DEATH (TRUE)²",
@@ -59504,7 +59587,6 @@
     ],
     "vote_average": 6.819
   },
-  "La Scala Milan: Cosi Fan Tutte": null,
   "Vinyl Sisters": null,
   "Soul to Soul (2026 Re-release)": null,
   "OUT: Stop! That! Train!": null,
@@ -59580,7 +59662,7 @@
       "Drama",
       "Romance"
     ],
-    "vote_average": 7.687
+    "vote_average": 7.7
   },
   "La La Land (10th Anniversary Re-Release)": {
     "tmdb_id": 313369,
@@ -59597,7 +59679,7 @@
       "Drama",
       "Romance"
     ],
-    "vote_average": 7.9
+    "vote_average": 7.896
   },
   "Kiki’s Delivery Service (Subbed)": null,
   "Blues at the Ritzy": null,
@@ -59778,7 +59860,7 @@
       "Drama",
       "History"
     ],
-    "vote_average": 8.45
+    "vote_average": 8.5
   },
   "Madness: Take It Or Leave It (4K Restoration)": null,
   "Club Room: Moon Idle": null,
@@ -59883,8 +59965,29 @@
   "Tape Collective Bouchra": null,
   "Oshima Boy": null,
   "Oshima The Man Who Left His Will On Film": null,
-  "Paw Patrol 3: The Dino Movie MediCinema Screening": null,
+  "International Dog Day: Isle Of Dogs": null,
+  "Coriolanus": {
+    "tmdb_id": 101173,
+    "tmdb_title": "Coriolanus",
+    "tmdb_original_title": "Coriolanus",
+    "overview": "Caius Martius, aka Coriolanus, is an arrogant and fearsome general who has built a career on protecting Rome from its enemies. Pushed by his ambitious mother to seek the position of consul, Coriolanus is at odds with the masses and unpopular with certain colleagues. When a riot results in his expulsion from Rome, Coriolanus seeks out his sworn enemy, Tullus Aufidius. Together, the pair vow to destroy the great city.",
+    "poster_path": "/6W6In8IUJMkxB8aBipulho6QLDd.jpg",
+    "backdrop_path": "/jl4AOwQ6nxt8yXfVJvjHsKSaV7a.jpg",
+    "release_date": "2011-02-14",
+    "director": "Ralph Fiennes",
+    "runtime": 123,
+    "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "vote_average": 5.835
+  },
+  "Toddler Club: Storks": null,
+  "Family Film Club: Pirates of the Caribbean: Curse of the Black Pearl": null,
   "Toddler Club: The Gruffalo's Child + The Scarecrow's Wedding": null,
+  "The Little Mermaid (2023)": null,
+  "The Odyssey (35mm)": null,
+  "Nimrods: A Green Day Comedy": null,
   "Throwback: The Lord of the Rings: The Fellowship of the Ring (Extended Edition)": {
     "tmdb_id": 120,
     "tmdb_title": "The Lord of the Rings: The Fellowship of the Ring",
@@ -59900,13 +60003,8 @@
       "Fantasy",
       "Action"
     ],
-    "vote_average": 8.441
+    "vote_average": 8.442
   },
-  "The Odyssey (35mm)": null,
-  "Toddler Club: Storks": null,
-  "Family Film Club: Pirates of the Caribbean: Curse of the Black Pearl": null,
-  "The Little Mermaid (2023)": null,
-  "Nimrods: A Green Day Comedy": null,
   "Aladdin (2019)": null,
   "Toddler Club: Finding Nemo": null,
   "Cinderella (2015)": null,
@@ -59932,24 +60030,64 @@
   "Family Film Club: The Parent Trap": null,
   "Amyl And The Sniffers present: Truth Or Consequence": null,
   "Toddler Club: Minions & Monsters": null,
-  "NOSTALGHIA (4K RESTORATION)": null,
-  "CURZON FILM 50: 13 ASSASSINS": null,
-  "CURZON FILM 50: BLACK CAT, WHITE CAT": null,
-  "CURZON FILM 50: COLD WAR": null,
-  "CURZON FILM 50: THE DOUBLE LIFE OF VÉRONIQUE": null,
-  "DOCHOUSE: OKURIMONO": {
-    "tmdb_id": 1261100,
-    "tmdb_title": "Okurimono",
-    "tmdb_original_title": "Okurimono",
-    "overview": "After a 20-year absence, Noriko returns to Nagasaki to clear out her mother’s home. In doing so, she finds letters that reveal a family secret intertwined with the memory of the peninsular town’s inhabitants. In reconstructing this family story, Okurimono gradually develops into a grace-filled meditation on the passage of time and the legacy we leave behind.",
-    "poster_path": "/u2M4mdPmFTVj7UX0mlJiD4CrzTZ.jpg",
-    "backdrop_path": "/m86iOfRrhqZoifaDY5esiBl2OkD.jpg",
-    "release_date": "2024-04-16",
-    "director": "Laurence Lévesque",
-    "runtime": 96,
+  "Teenage Sex and Death at Camp Miasma (35mm)": null,
+  "Throwback: The Lord of the Rings: The Return of the King (Extended Edition)": null,
+  "The Sacrifice (4K): Presented by Deeper into Movies": null,
+  "La maison des bois (Episodes 1, 2 and 3)": null,
+  "Peter Watkins and the Playcraft Film Unit": null,
+  "La maison des bois (Episodes 4 and 5)": null,
+  "TV Preview: Bookish Series 2: Ep.1 + Q&A with Mark Gatiss, Connor Finch, Buket Komur and Helen Perry": null,
+  "La maison des bois (Episodes 6 and 7)": null,
+  "The Journey (Parts 1 to 4)": null,
+  "The Journey (Parts 5 to 8)": null,
+  "The Journey (Parts 9 to 12)": null,
+  "The Freethinker": null,
+  "Vigil Series 3: Episode 1": null,
+  "The Universal Clock: The Resistance of Peter Watkins": {
+    "tmdb_id": 246916,
+    "tmdb_title": "The Universal Clock: The Resistance of Peter Watkins",
+    "tmdb_original_title": "The Universal Clock: The Resistance of Peter Watkins",
+    "overview": "This feature documentary is a portrait of Peter Watkins, an Oscar®-winning British filmmaker who, for the past 4 decades, has proved that films can be made without compromise. With the proliferation of TV channels, documentaries are enjoying an unprecedented boom fuelled by audiences seeking an alternative to infotainment. But now documentary filmmaking, too, finds itself constrained by the imperatives of television. However, there is a rebel resisting this uniformity of the spirit. Pre-eminent among today's documentary filmmakers concerned about this mind-numbing standardization, Peter Watkins has never strayed from either his principles or the cause.",
+    "poster_path": "/xq8AQEA8HTidin81q4WJFJvmoAx.jpg",
+    "backdrop_path": null,
+    "release_date": "2001-09-07",
+    "director": "Geoff Bowie",
+    "runtime": 77,
     "genres": [
-      "Documentary"
+      "Documentary",
+      "History"
     ],
-    "vote_average": 4.0
+    "vote_average": 6.357
+  },
+  "THE SACRIFICE (4K RESTORATION)": {
+    "tmdb_id": 24657,
+    "tmdb_title": "The Sacrifice",
+    "tmdb_original_title": "Offret",
+    "overview": "Alexander, a journalist, philosopher and retired actor, celebrates a birthday with friends and family when it is announced that nuclear war has begun.",
+    "poster_path": "/8JMh27z075ZHbFE85XYkdXF2QkK.jpg",
+    "backdrop_path": "/48y1eAboPFgt7rKcynRAPPvtJ1E.jpg",
+    "release_date": "1986-05-09",
+    "director": "Andrei Tarkovsky",
+    "runtime": 149,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 7.71
+  },
+  "BITTER CHRISTMAS": {
+    "tmdb_id": 1088548,
+    "tmdb_title": "Bitter Christmas",
+    "tmdb_original_title": "Amarga Navidad",
+    "overview": "In 2025 Spain, a celebrated film director struggles to write the screenplay for an autofictional film set in 2004 Spain about an unsuccessful movie director turned director of commercials who suffers a panic attack that forces her to take a break by visiting the Canary Islands, where she begins work on a new film.",
+    "poster_path": "/q030Fi4tubXBJKg3D9otPDgGP2o.jpg",
+    "backdrop_path": "/ppLv2F7dhvI3wxaEoOP1E0OyBPP.jpg",
+    "release_date": "2026-03-20",
+    "director": "Pedro Almodóvar",
+    "runtime": 111,
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
+    "vote_average": 6.3
   }
 }
