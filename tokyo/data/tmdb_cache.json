@@ -5400,6 +5400,7 @@
     "tmdb_title_original": "Michael",
     "vote_average": 8.5
   },
+  "Mirai　運命の戦士": null,
   "Moonlight Club in LOVE": null,
   "More Real Than Dreams": {
     "backdrop_path": null,
@@ -6374,7 +6375,27 @@
     "tmdb_title_original": "Piccola felicità 〜小さな幸せ〜",
     "vote_average": 0.0
   },
-  "Piccola felicità（ピッコラ・フェリチタ）　小さな幸せ": null,
+  "Piccola felicità（ピッコラ・フェリチタ）　小さな幸せ": {
+    "backdrop_path": "/veiGaPr4wLu1rFtPW141FBo8A07.jpg",
+    "director": "",
+    "director_en": "",
+    "director_jp": "",
+    "genres": [],
+    "genres_en": [],
+    "overview": "人生の岐路に立たされた3組の男女の人間模様を描く群像劇。25年勤めたレストランの定年を前に孤独を抱える元店長、父の影に苦しみ離婚寸前の画家、そしてホテルのミステリアスな客に魅せられた青年。一見無関係に見える彼らの日常が交錯するとき、思いもよらない出来事とともに心温まる“小さな奇跡”が巻き起こる。",
+    "overview_en": "",
+    "poster_path": "/joLM13egqZLdhSTmuNGm0jgqVOR.jpg",
+    "release_date": "",
+    "runtime": 151,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [],
+    "tmdb_id": 1747405,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Piccola felicità 〜小さな幸せ〜",
+    "tmdb_title_jp": "Piccola felicità 〜小さな幸せ〜",
+    "tmdb_title_original": "Piccola felicità 〜小さな幸せ〜",
+    "vote_average": 0.0
+  },
   "Piccola felicità（ピッコラ・フェリチタ）～小さな幸せ～": null,
   "Pina ピナ・バウシュ　踊り続けるいのち": {
     "backdrop_path": "/p6GI3J6CfxhxwYmvHpBtYRVi7iq.jpg",
@@ -14732,6 +14753,46 @@
     "tmdb_title_jp": "アメリカの友人",
     "tmdb_title_original": "Der amerikanische Freund",
     "vote_average": 7.094
+  },
+  "tmdb:1122573": {
+    "backdrop_path": "/qcIKxhqGMIj8uujsSoSMZWr8QqU.jpg",
+    "director": "ガイ・リッチー",
+    "director_en": "Guy Ritchie",
+    "director_jp": "ガイ・リッチー",
+    "genres": [
+      "アクション",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Action",
+      "Thriller"
+    ],
+    "overview": "",
+    "overview_en": "A covert team of elite operatives are living in the shadows. When a ruthless despot steals a billion-dollar fortune, they're sent to take it back—an impossible heist that erupts into a deadly game of strategy, deception and survival.",
+    "poster_path": "/webvmFLejrMJhJlehFgrGLl92hI.jpg",
+    "release_date": "2026-05-13",
+    "runtime": 97,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "SA",
+        "name": "Saudi Arabia"
+      }
+    ],
+    "tmdb_id": 1122573,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "In the Grey",
+    "tmdb_title_jp": "グレイ・ミッション",
+    "tmdb_title_original": "In the Grey",
+    "vote_average": 7.576
   },
   "tmdb:1122602": {
     "backdrop_path": "/gGcmm8N3oMdJTEVyj3aHBfpyKPe.jpg",
@@ -24899,6 +24960,40 @@
     "tmdb_title_jp": "Ed Kemper",
     "tmdb_title_original": "Ed Kemper",
     "vote_average": 5.75
+  },
+  "tmdb:1325734": {
+    "backdrop_path": "/1oKLEA9JOhvaBwLpqjROisvWMy7.jpg",
+    "director": "クリストファー・ボルグリ",
+    "director_en": "Kristoffer Borgli",
+    "director_jp": "クリストファー・ボルグリ",
+    "genres": [
+      "ロマンス",
+      "コメディ",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Romance",
+      "Comedy",
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "A happily engaged couple is put to the test when an unexpected turn sends their wedding week off the rails.",
+    "poster_path": "/11fbppAwOXincr3jSqlwZ81MHVp.jpg",
+    "release_date": "2026-04-01",
+    "runtime": 105,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 1325734,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "The Drama",
+    "tmdb_title_jp": "ドラマなふたり",
+    "tmdb_title_original": "The Drama",
+    "vote_average": 6.911
   },
   "tmdb:1325990": {
     "backdrop_path": null,
@@ -40280,7 +40375,7 @@
     "genres_en": [],
     "overview": "人生の岐路に立たされた3組の男女の人間模様を描く群像劇。25年勤めたレストランの定年を前に孤独を抱える元店長、父の影に苦しみ離婚寸前の画家、そしてホテルのミステリアスな客に魅せられた青年。一見無関係に見える彼らの日常が交錯するとき、思いもよらない出来事とともに心温まる“小さな奇跡”が巻き起こる。",
     "overview_en": "",
-    "poster_path": null,
+    "poster_path": "/joLM13egqZLdhSTmuNGm0jgqVOR.jpg",
     "release_date": "",
     "runtime": 151,
     "tmdb_alt_titles_jp": [],
@@ -44808,6 +44903,43 @@
     "tmdb_title_jp": "おかえり",
     "tmdb_title_original": "おかえり",
     "vote_average": 6.2
+  },
+  "tmdb:239366": {
+    "backdrop_path": "/dFleAxjVNkpz2mCIZIglinjzNsc.jpg",
+    "director": "佐藤竜雄",
+    "director_en": "Tatsuo Sato",
+    "director_jp": "佐藤竜雄",
+    "genres": [
+      "アドベンチャー",
+      "アニメーション",
+      "サイエンスフィクション"
+    ],
+    "genres_en": [
+      "Adventure",
+      "Animation",
+      "Science Fiction"
+    ],
+    "overview": "白凰女学院高等部に通う加藤茉莉香は、政府発行の「私掠船免状」を持った合法の宇宙海賊。学業、宇宙ヨット部部長、喫茶店ランプ館でのアルバイト、さらに、宇宙海賊船・弁天丸の船長と、大忙しな日々を送っている。3年生への進級を間近に控えた春休みのある日、豪華客船での海賊営業の仕事を請けた茉莉香は、乗客リストの中に銀河パスの所有者･無限彼方の名前を発見。彼方の父で高名な「亜空間ダイバー」の無限博士との約束を果たすため、海賊ショーの最中、語りかける。「亜空の流れ、その果ては何色か？」そして、海賊と少年の亜空を駆ける冒険が始まる！",
+    "overview_en": "Marika Katou, a third year student at Hakuho Girls' Academy, is a legitimate space pirate with a Letter of Marque. Between her studies, leading her school's space yacht club, working part time at Cafe Lamp, and being the captain of the space pirate ship Bentenmaru, Marika's days are very busy. One day, Marika gets a job to rob a high-class passenger ship, and she discovers that on the passenger list is Kanata Mugen, a boy who owns a \"galaxy pass\". Thus, an adventure featuring a hyperspace race between pirates and one young boy begins.",
+    "poster_path": "/6NidybWLwkVVnNdAbHnxc0G4tkf.jpg",
+    "release_date": "2014-02-22",
+    "runtime": 92,
+    "tmdb_alt_titles_jp": [
+      "モーレツ宇宙海賊 ABYSS OF HYPERSPACE -亜空の深淵-",
+      "Moretsu Uchuu Kaizoku - ABYSS OF HYPERSPACE"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 239366,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Bodacious Space Pirates: Abyss of Hyperspace",
+    "tmdb_title_jp": "劇場版 モーレツ宇宙海賊 ABYSS OF HYPERSPACE -亜空の深淵-",
+    "tmdb_title_original": "モーレツ宇宙海賊 ABYSS OF HYPERSPACE -亜空の深淵-",
+    "vote_average": 7.0
   },
   "tmdb:239374": {
     "backdrop_path": "/prOU08E4oOoasBvbheefxabwv5L.jpg",
@@ -55540,6 +55672,38 @@
     "tmdb_title_original": "憲兵とバラバラ死美人",
     "vote_average": 8.0
   },
+  "tmdb:367196": {
+    "backdrop_path": "/fFqvPpNwIZTAgoRzEJlOiaoymOa.jpg",
+    "director": "陳志發",
+    "director_en": "Steve Chan Chi Fat",
+    "director_jp": "陳志發",
+    "genres": [
+      "ドラマ",
+      "履歴"
+    ],
+    "genres_en": [
+      "Drama",
+      "History"
+    ],
+    "overview": "1984年、中国返還前の香港。郊外のニュータウン、沙田（シャーティン）で、香港初の青少年野球チーム「沙燕（サーイン）隊」が結成される。野球がメジャーなスポーツではない香港で、野球未経験の落ちこぼれ少年たちは新聞紙を丸めたボールで練習を始めるが、最初の試合では台湾の小学生チームに大惨敗。それでも、厳格ながら生徒思いのロー（盧）校長（演：リウ・カイチー）に導かれ、内向的なロン（阿龍）（演：ラム・イウセン）と衝動的だが義理堅いワイ（細威）（演：トニー・ウー）の幼馴染コンビを中心に、チームのメンバーは少しずつ成長していく。やがて迎えた宿敵・日本バッファローズとの最終決戦は、彼ら自身の「これまで」と「これから」を問い直す舞台となる――。1980年代前半の香港を舞台に、スポーツの勝敗に回収されない静かな余韻を残す、実話に基づく青春ドラマ。",
+    "overview_en": "Inspired by the true story of Hong Kong’s first teenage baseball team. In the 1980s, two childhood friends join the Shatin Martins, a Band 3 school baseball team managed by the school principal. From these humble beginnings, the boys experience camaraderie, fall in love and make fateful decisions that resonate throughout their lives amid a changing Hong Kong and its sporting world.",
+    "poster_path": "/4kS10wLn4NPWRE7BxyBPpje5WXS.jpg",
+    "release_date": "2016-04-23",
+    "runtime": 95,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "HK",
+        "name": "Hong Kong"
+      }
+    ],
+    "tmdb_id": 367196,
+    "tmdb_original_language": "cn",
+    "tmdb_title_en": "Weeds on Fire",
+    "tmdb_title_jp": "最初の半歩",
+    "tmdb_title_original": "點五步",
+    "vote_average": 6.3
+  },
   "tmdb:368006": {
     "backdrop_path": "/eKSUHrwDyoL3pEmWj9tuKdp9lf2.jpg",
     "director": "Vikram Kumar",
@@ -60617,6 +60781,40 @@
     "tmdb_title_jp": "戦争と人間　完結編",
     "tmdb_title_original": "戦争と人間　第三部",
     "vote_average": 6.0
+  },
+  "tmdb:424694": {
+    "backdrop_path": "/dcvbs8z0GEXslC1kCT77x19XDeR.jpg",
+    "director": "ブライアン・シンガー",
+    "director_en": "Bryan Singer",
+    "director_jp": "ブライアン・シンガー",
+    "genres": [
+      "音楽",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Music",
+      "Drama"
+    ],
+    "overview": "世界が熱狂した伝説のバンド＜クイーン＞。その光と影を数々の名曲とともに描く感動のミュージック・エンターテイメント。1970年、ロンドン。ライブ・ハウスに通っていた若者フレディ・マーキュリーは、ギタリストのブライアン・メイとドラマーのロジャー・テイラーのバンドのボーカルが脱退したと知り自らを売り込む。二人はフレディの歌声に心を奪われ、1年後、ベーシストのジョン・ディーコンが加入。バンド名は＜クイーン＞に決まり、4人はアルバムを制作し、シングル「キラー・クイーン」が大ヒット。個性的なメンバーの革新的な挑戦によって、その後もヒット曲が次々に生み出され、フレディは“史上最高のエンターテイナー”とまで称されるようになる。しかし、栄光の影で次第にフレディはメンバーと対立し孤独を深めていくのだった…。",
+    "overview_en": "Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock 'n' roll band Queen in 1970. Hit songs become instant classics. When Mercury's increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success and excess.",
+    "poster_path": "/cPrBbmr9BuaP9zUuOLaAk99eC7D.jpg",
+    "release_date": "2018-10-24",
+    "runtime": 135,
+    "tmdb_alt_titles_jp": [
+      "ボヘミアン・ラプソディ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 424694,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Bohemian Rhapsody",
+    "tmdb_title_jp": "ボヘミアン・ラプソディ",
+    "tmdb_title_original": "Bohemian Rhapsody",
+    "vote_average": 7.953
   },
   "tmdb:425274": {
     "backdrop_path": "/dHSz0tSFuO2CsXJ1CApSauP9Ncl.jpg",
@@ -69080,6 +69278,50 @@
     "tmdb_title_jp": "フジコ・ヘミングの時間",
     "tmdb_title_original": "フジコ・ヘミングの時間",
     "vote_average": 0.0
+  },
+  "tmdb:551591": {
+    "backdrop_path": "/cfTA2aepBesa1QgL1G3g6ytuFLR.jpg",
+    "director": "宮本浩史",
+    "director_en": "Hiroshi Miyamoto",
+    "director_jp": "宮本浩史",
+    "genres": [
+      "アニメーション",
+      "ファンタジー",
+      "アクション",
+      "コメディ",
+      "アドベンチャー",
+      "ファミリー"
+    ],
+    "genres_en": [
+      "Animation",
+      "Fantasy",
+      "Action",
+      "Comedy",
+      "Adventure",
+      "Family"
+    ],
+    "overview": "街で暴れるモンスターを撃退したキュアブラック・キュアホワイト・シャイニールミナス。ところが、そこへ現れた謎の怪物・ミデンによってルミナスは子供に変えられてしまう。ミデンは歴代のプリキュア達から思い出を奪い、ベビープリキュアに変えてしまっていた。さらにはな達の元にもミデンは現れ、はなは加勢に駆けつけたブラックやホワイトと共に戦うが、キュアアンジュ・キュアエトワール・キュアマシェリ・キュアアムール・ホワイトまでもが幼児に戻されてしまった。自分の事をすべて忘れてしまった幼い仲間達を前に悲嘆と絶望に沈むはなと、ほのかがいなければプリキュアに変身できないなぎさは絶体絶命の大ピンチに陥る。",
+    "overview_en": "A vengeful teru teru bozu-like monster called Miden is stealing all of the Cures' magical powers and memories, turning them into helpless infants, barring Nagisa Misumi and Hana Nono. They must help the affected Cures to regain their abilities and fight off this new menance.",
+    "poster_path": "/nJ5TxNLkIA3iOf8tzVHGkgBzjhq.jpg",
+    "release_date": "2018-10-27",
+    "runtime": 73,
+    "tmdb_alt_titles_jp": [
+      "Eiga Hugtto! Precure x Futari wa Precure",
+      "HUGtto! Precure x Futari wa Precure: All Stars Memories",
+      "HUGtto! Precure♡Futari wa Precure: All Stars Memories"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 551591,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "HUG! PreCure Futari wa Pretty Cure: All Star Memories",
+    "tmdb_title_jp": "映画 HUGっと！プリキュア♡ふたりはプリキュア オールスターズメモリーズ",
+    "tmdb_title_original": "映画 HUGっと！プリキュア♡ふたりはプリキュア オールスターズメモリーズ",
+    "vote_average": 6.447
   },
   "tmdb:552686": {
     "backdrop_path": "/mHTKZzD5cWR1qqRwjFCGLJcErfw.jpg",
@@ -77793,6 +78035,40 @@
     "tmdb_title_original": "べっぴんの町",
     "vote_average": 0.0
   },
+  "tmdb:74997": {
+    "backdrop_path": "/3avI4nJ3WNweQFHa2UwRMOO8cbL.jpg",
+    "director": "Tom Six",
+    "director_en": "Tom Six",
+    "director_jp": "Tom Six",
+    "genres": [
+      "ドラマ",
+      "ホラー",
+      "犯罪"
+    ],
+    "genres_en": [
+      "Drama",
+      "Horror",
+      "Crime"
+    ],
+    "overview": "地下駐車場の警備員マーティンは、勤務中に「ムカデ人間」のDVDに見入っては、自分もムカデ人間を作ってみたいという思いを募らせていた。ある日、彼はとうとう男女12人を次々と倉庫に拉致し、マーティン・オリジナルのムカデ人間作りに取りかかるのだが…。",
+    "overview_en": "Inspired by the fictional Dr. Heiter, disturbed loner Martin dreams of creating a 12-person centipede and sets out to realize his sick fantasy.",
+    "poster_path": "/rKoghwKoTnMdIifU9Pzo11an4P4.jpg",
+    "release_date": "2011-10-06",
+    "runtime": 90,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "NL",
+        "name": "Netherlands"
+      }
+    ],
+    "tmdb_id": 74997,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "The Human Centipede 2 (Full Sequence)",
+    "tmdb_title_jp": "ムカデ人間2",
+    "tmdb_title_original": "The Human Centipede 2 (Full Sequence)",
+    "vote_average": 4.764
+  },
   "tmdb:750120": {
     "backdrop_path": "/n9R7kHZclVN9w9vvHCEAI9NQnOW.jpg",
     "director": "Philipp Virus",
@@ -78804,6 +79080,42 @@
     "tmdb_title_jp": "月老〜また会う日まで〜",
     "tmdb_title_original": "月老",
     "vote_average": 6.663
+  },
+  "tmdb:78450": {
+    "backdrop_path": "/vooAbSV1zJqwRNHxCxFQ8fVDm38.jpg",
+    "director": "楊德昌",
+    "director_en": "Edward Yang",
+    "director_jp": "楊德昌",
+    "genres": [
+      "ドラマ",
+      "犯罪",
+      "謎",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Drama",
+      "Crime",
+      "Mystery",
+      "Thriller"
+    ],
+    "overview": "台北を舞台に、カメラマンとその恋人、小説家の妻と医師の夫、その元恋人、不良少女、刑事…様々な人物が幾重にも錯綜し現代の台湾が抱える問題を浮き彫りにしていく。",
+    "overview_en": "An uncompromising look into urban life from the eyes of a voyeuristic photographer, a rebellious teenager, and a married couple teetering on the edge of adultery.",
+    "poster_path": "/s7cczZLhZgydK9arZ8SDTD7VCnq.jpg",
+    "release_date": "1986-12-19",
+    "runtime": 109,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "TW",
+        "name": "Taiwan"
+      }
+    ],
+    "tmdb_id": 78450,
+    "tmdb_original_language": "zh",
+    "tmdb_title_en": "Terrorizers",
+    "tmdb_title_jp": "恐怖分子",
+    "tmdb_title_original": "恐怖份子",
+    "vote_average": 7.4
   },
   "tmdb:784524": {
     "backdrop_path": "/bgfqWW9mLs24hXuqiIcxU1j7Fgd.jpg",
@@ -82669,6 +82981,44 @@
     "tmdb_title_original": "Cannibal Holocaust",
     "vote_average": 6.266
   },
+  "tmdb:869626": {
+    "backdrop_path": "/1PRWW60yQparK1I8Soyy9Evf7Dv.jpg",
+    "director": "Dean Fleischer Camp",
+    "director_en": "Dean Fleischer Camp",
+    "director_jp": "Dean Fleischer Camp",
+    "genres": [
+      "アニメーション",
+      "コメディ",
+      "ドラマ",
+      "ファミリー"
+    ],
+    "genres_en": [
+      "Animation",
+      "Comedy",
+      "Drama",
+      "Family"
+    ],
+    "overview": "アマチュア映画作家ディーン・フライシャー・キャンプが順次公開した短編を長編映画化した話題作。小さな貝のマルセルが繰り広げる冒険を、実写とストップモーションアニメを組み合わせたモキュメンタリーで描く。",
+    "overview_en": "Marcel is an adorable one-inch-tall shell who ekes out a colorful existence with his grandmother Connie and their pet lint, Alan. Once part of a sprawling community of shells, they now live alone as the sole survivors of a mysterious tragedy. When a documentarian discovers them amongst the clutter of his Airbnb, his resulting short film brings Marcel millions of passionate fans, as well as unprecedented dangers and a new hope at finding his long-lost family.",
+    "poster_path": "/woodiCTVFEQyobACAjighhbHhq.jpg",
+    "release_date": "2022-06-24",
+    "runtime": 90,
+    "tmdb_alt_titles_jp": [
+      "マルセル 靴をはいた小さな貝"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 869626,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Marcel the Shell with Shoes On",
+    "tmdb_title_jp": "マルセル 靴をはいた小さな貝",
+    "tmdb_title_original": "Marcel the Shell with Shoes On",
+    "vote_average": 7.619
+  },
   "tmdb:87063": {
     "backdrop_path": "/a56yntKq9u00uzin9EuNyQ1ym5A.jpg",
     "director": "Pedro Costa",
@@ -85530,6 +85880,42 @@
     "tmdb_title_jp": "LOLA",
     "tmdb_title_original": "LOLA",
     "vote_average": 6.402
+  },
+  "tmdb:94365": {
+    "backdrop_path": "/b2AfxdTbNifN9cAH8KVqH51Y4VS.jpg",
+    "director": "Tom Six",
+    "director_en": "Tom Six",
+    "director_jp": "Tom Six",
+    "genres": [
+      "ホラー"
+    ],
+    "genres_en": [
+      "Horror"
+    ],
+    "overview": "アメリカ某所にある巨大監獄、ジョージ・ブッシュ刑務所の所長・ビルは、州知事から刑務所での暴動の多さやコストの高さを指摘され、解雇をチラつかされる。状況を改善するべく、ビルと助手は映画「ムカデ人間」を真似て500人の囚人を繋げようと考える…。",
+    "overview_en": "Taking inspiration from The Human Centipede films, the warden of a notorious and troubled prison looks to create a 500-person human centipede as a solution to his problems.",
+    "poster_path": "/1AJxoH5Kq5FXav4ECGnGlhakCb3.jpg",
+    "release_date": "2015-05-22",
+    "runtime": 103,
+    "tmdb_alt_titles_jp": [
+      "ムカデ人間 3"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "NL",
+        "name": "Netherlands"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 94365,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "The Human Centipede 3 (Final Sequence)",
+    "tmdb_title_jp": "ムカデ人間3",
+    "tmdb_title_original": "The Human Centipede 3 (Final Sequence)",
+    "vote_average": 3.752
   },
   "tmdb:944284": {
     "backdrop_path": null,
@@ -88447,6 +88833,8 @@
     "tmdb_title_original": "祝の島",
     "vote_average": 0.0
   },
+  "《Fire in Water 永田康祐映像作品集》Program A": null,
+  "《Fire in Water 永田康祐映像作品集》Program B": null,
   "《KYOSUKE HIMURO THE COMPLETE FILM OF LAST GIGS》": null,
   "《シネマ歌舞伎》": null,
   "《ジャンヌ・ディエルマン》をめぐって": {
@@ -93734,6 +94122,7 @@
     "tmdb_title_original": "Rochelle",
     "vote_average": 0.0
   },
+  "【20分シネマ】島": null,
   "【Filmarks 90's】ユージュアル・サスペクツ": {
     "backdrop_path": "/hy0Hx9fMPk2fmw26Li60z1S2giU.jpg",
     "director": "ブライアン・シンガー",
@@ -112057,6 +112446,46 @@
     "tmdb_title_original": "The Grey Fox",
     "vote_average": 6.9
   },
+  "グレイ・ミッション": {
+    "backdrop_path": "/qcIKxhqGMIj8uujsSoSMZWr8QqU.jpg",
+    "director": "ガイ・リッチー",
+    "director_en": "Guy Ritchie",
+    "director_jp": "ガイ・リッチー",
+    "genres": [
+      "アクション",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Action",
+      "Thriller"
+    ],
+    "overview": "",
+    "overview_en": "A covert team of elite operatives are living in the shadows. When a ruthless despot steals a billion-dollar fortune, they're sent to take it back—an impossible heist that erupts into a deadly game of strategy, deception and survival.",
+    "poster_path": "/webvmFLejrMJhJlehFgrGLl92hI.jpg",
+    "release_date": "2026-05-13",
+    "runtime": 97,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "SA",
+        "name": "Saudi Arabia"
+      }
+    ],
+    "tmdb_id": 1122573,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "In the Grey",
+    "tmdb_title_jp": "グレイ・ミッション",
+    "tmdb_title_original": "In the Grey",
+    "vote_average": 7.576
+  },
   "グレン・ミラー物語": {
     "backdrop_path": "/weRJkZn65fHWFVhF4BLadU2TXkB.jpg",
     "director": "Anthony Mann",
@@ -112090,6 +112519,7 @@
     "tmdb_title_original": "The Glenn Miller Story",
     "vote_average": 6.988
   },
+  "ケルト・ユートピア": null,
   "ケルベロス 地獄の番犬": {
     "backdrop_path": "/ltUsMUFHEsxPkXMCxv3frn2pE2N.jpg",
     "director": "押井守",
@@ -114489,6 +114919,7 @@
     "tmdb_title_original": "The Choral",
     "vote_average": 6.338
   },
+  "ザ・ゴールドディガーズ": null,
   "ザ・ザ・コルダのフェニキア計画": {
     "backdrop_path": "/w3RDV3pSpxN0C2DZ4Xpw4o5LWpI.jpg",
     "director": "ウェス・アンダーソン",
@@ -118727,6 +119158,7 @@
     "tmdb_title_original": "ソーゾク",
     "vote_average": 0.0
   },
+  "ゾンビ1/2 〜Right Side of the Living Dead〜": null,
   "ゾンビランドサガ　ゆめぎんがパラダイス": {
     "backdrop_path": null,
     "director": "石田貴史",
@@ -119559,6 +119991,7 @@
     "tmdb_title_original": "மாநகரம்",
     "vote_average": 7.5
   },
+  "チャウ・シンチー★オールナイト": null,
   "チャオ・パンタン": {
     "backdrop_path": "/noGOjlooQTwSeUTg0lhpnLQWkf4.jpg",
     "director": "Claude Berri",
@@ -122351,6 +122784,40 @@
     "tmdb_title_original": "ドラゴンボールZ 復活のフュージョン!! 悟空とベジータ",
     "vote_average": 7.56
   },
+  "ドラマなふたり": {
+    "backdrop_path": "/1oKLEA9JOhvaBwLpqjROisvWMy7.jpg",
+    "director": "クリストファー・ボルグリ",
+    "director_en": "Kristoffer Borgli",
+    "director_jp": "クリストファー・ボルグリ",
+    "genres": [
+      "ロマンス",
+      "コメディ",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Romance",
+      "Comedy",
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "A happily engaged couple is put to the test when an unexpected turn sends their wedding week off the rails.",
+    "poster_path": "/11fbppAwOXincr3jSqlwZ81MHVp.jpg",
+    "release_date": "2026-04-01",
+    "runtime": 105,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 1325734,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "The Drama",
+    "tmdb_title_jp": "ドラマなふたり",
+    "tmdb_title_original": "The Drama",
+    "vote_average": 6.911
+  },
   "ドランクヌードル": null,
   "ドランクヌードル（字幕）": {
     "backdrop_path": "/h32RN3kiI6tq9V5GeEJo58Sd26i.jpg",
@@ -122480,6 +122947,7 @@
     "tmdb_title_original": "Nightcrawler",
     "vote_average": 7.708
   },
+  "ナイトシフト": null,
   "ナイトフラワー": {
     "backdrop_path": "/g8HqOlJyh4UvSdUa0zuz4dE8hzE.jpg",
     "director": "内田英治",
@@ -127006,6 +127474,44 @@
     "tmdb_title_original": "フィッシュストーリー",
     "vote_average": 7.096
   },
+  "フィッシュストーリー デジタル版": {
+    "backdrop_path": "/ubcXF21nUkm1ijkH7ZFCm0pzkMm.jpg",
+    "director": "中村義洋",
+    "director_en": "Yoshihiro Nakamura",
+    "director_jp": "中村義洋",
+    "genres": [
+      "音楽",
+      "ドラマ",
+      "コメディ"
+    ],
+    "genres_en": [
+      "Music",
+      "Drama",
+      "Comedy"
+    ],
+    "overview": "２０１２年。彗星が地球に激突するまであと５時間。人々が方々へ避難し静まり返った街で唯一つ営業を続けるレコード店があった。そこにいるのは、店長と不気味な車椅子の客、谷口。“もうすぐ世界が終わる”と語る谷口に、店長は“正義の味方が世界を救う”と返す。店内には７０年代に解散したマイナーなパンクバンドの曲“FISH STORY”が流れていた。１９８２年。気の弱い大学生、雅史は仲間と車で合コンに参加。その最中、1人が“FISH STORY”という曲にまつわる不気味な噂を語り始める。無音になる１分間の間奏の間に、女性の悲鳴が聞こえるという。",
+    "overview_en": "A rock band writes a song called \"Fish Story\" that is foretold to save the world. The song exceeds the boundaries of space and time and ties people and their stories together.",
+    "poster_path": "/LHkfKVaFL71ZzexOHiX4DrxrYX.jpg",
+    "release_date": "2009-03-20",
+    "runtime": 112,
+    "tmdb_alt_titles_jp": [
+      "Fisshu sutôrî",
+      "フィッシュストーリー",
+      "フィッシュストーリー：2009"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 38010,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Fish Story",
+    "tmdb_title_jp": "フィッシュストーリー",
+    "tmdb_title_original": "フィッシュストーリー",
+    "vote_average": 7.096
+  },
   "フィツカラルド": {
     "backdrop_path": "/46iMqI1qzAtnXJxGRNCFwYNYqOo.jpg",
     "director": "ヴェルナー・ヘルツォーク",
@@ -130641,6 +131147,40 @@
     "tmdb_title_jp": "Magazine Dreams",
     "vote_average": 6.893
   },
+  "ボヘミアン・ラプソディ": {
+    "backdrop_path": "/dcvbs8z0GEXslC1kCT77x19XDeR.jpg",
+    "director": "ブライアン・シンガー",
+    "director_en": "Bryan Singer",
+    "director_jp": "ブライアン・シンガー",
+    "genres": [
+      "音楽",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Music",
+      "Drama"
+    ],
+    "overview": "世界が熱狂した伝説のバンド＜クイーン＞。その光と影を数々の名曲とともに描く感動のミュージック・エンターテイメント。1970年、ロンドン。ライブ・ハウスに通っていた若者フレディ・マーキュリーは、ギタリストのブライアン・メイとドラマーのロジャー・テイラーのバンドのボーカルが脱退したと知り自らを売り込む。二人はフレディの歌声に心を奪われ、1年後、ベーシストのジョン・ディーコンが加入。バンド名は＜クイーン＞に決まり、4人はアルバムを制作し、シングル「キラー・クイーン」が大ヒット。個性的なメンバーの革新的な挑戦によって、その後もヒット曲が次々に生み出され、フレディは“史上最高のエンターテイナー”とまで称されるようになる。しかし、栄光の影で次第にフレディはメンバーと対立し孤独を深めていくのだった…。",
+    "overview_en": "Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock 'n' roll band Queen in 1970. Hit songs become instant classics. When Mercury's increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success and excess.",
+    "poster_path": "/cPrBbmr9BuaP9zUuOLaAk99eC7D.jpg",
+    "release_date": "2018-10-24",
+    "runtime": 135,
+    "tmdb_alt_titles_jp": [
+      "ボヘミアン・ラプソディ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 424694,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Bohemian Rhapsody",
+    "tmdb_title_jp": "ボヘミアン・ラプソディ",
+    "tmdb_title_original": "Bohemian Rhapsody",
+    "vote_average": 7.953
+  },
   "ボルドーに囚われた女": {
     "backdrop_path": "/sOD3UBuOYPNh8keNJ4XvK6zHcIq.jpg",
     "director": "Patricia Mazuy",
@@ -131886,6 +132426,44 @@
     "tmdb_title_original": "Marseille",
     "vote_average": 6.778
   },
+  "マルセル 靴をはいた小さな貝": {
+    "backdrop_path": "/1PRWW60yQparK1I8Soyy9Evf7Dv.jpg",
+    "director": "Dean Fleischer Camp",
+    "director_en": "Dean Fleischer Camp",
+    "director_jp": "Dean Fleischer Camp",
+    "genres": [
+      "アニメーション",
+      "コメディ",
+      "ドラマ",
+      "ファミリー"
+    ],
+    "genres_en": [
+      "Animation",
+      "Comedy",
+      "Drama",
+      "Family"
+    ],
+    "overview": "アマチュア映画作家ディーン・フライシャー・キャンプが順次公開した短編を長編映画化した話題作。小さな貝のマルセルが繰り広げる冒険を、実写とストップモーションアニメを組み合わせたモキュメンタリーで描く。",
+    "overview_en": "Marcel is an adorable one-inch-tall shell who ekes out a colorful existence with his grandmother Connie and their pet lint, Alan. Once part of a sprawling community of shells, they now live alone as the sole survivors of a mysterious tragedy. When a documentarian discovers them amongst the clutter of his Airbnb, his resulting short film brings Marcel millions of passionate fans, as well as unprecedented dangers and a new hope at finding his long-lost family.",
+    "poster_path": "/woodiCTVFEQyobACAjighhbHhq.jpg",
+    "release_date": "2022-06-24",
+    "runtime": 90,
+    "tmdb_alt_titles_jp": [
+      "マルセル 靴をはいた小さな貝"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 869626,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Marcel the Shell with Shoes On",
+    "tmdb_title_jp": "マルセル 靴をはいた小さな貝",
+    "tmdb_title_original": "Marcel the Shell with Shoes On",
+    "vote_average": 7.619
+  },
   "マルチプル・マニアックス": {
     "backdrop_path": "/6WWOLvZYNV5xtkMH3PlwnymaN1D.jpg",
     "director": "John Waters",
@@ -132806,6 +133384,77 @@
     "tmdb_title_jp": "ムカデ人間",
     "tmdb_title_original": "The Human Centipede (First Sequence)",
     "vote_average": 5.177
+  },
+  "ムカデ人間 4K【4K上映】上映後舞台挨拶": null,
+  "ムカデ人間２": {
+    "backdrop_path": "/3avI4nJ3WNweQFHa2UwRMOO8cbL.jpg",
+    "director": "Tom Six",
+    "director_en": "Tom Six",
+    "director_jp": "Tom Six",
+    "genres": [
+      "ドラマ",
+      "ホラー",
+      "犯罪"
+    ],
+    "genres_en": [
+      "Drama",
+      "Horror",
+      "Crime"
+    ],
+    "overview": "地下駐車場の警備員マーティンは、勤務中に「ムカデ人間」のDVDに見入っては、自分もムカデ人間を作ってみたいという思いを募らせていた。ある日、彼はとうとう男女12人を次々と倉庫に拉致し、マーティン・オリジナルのムカデ人間作りに取りかかるのだが…。",
+    "overview_en": "Inspired by the fictional Dr. Heiter, disturbed loner Martin dreams of creating a 12-person centipede and sets out to realize his sick fantasy.",
+    "poster_path": "/rKoghwKoTnMdIifU9Pzo11an4P4.jpg",
+    "release_date": "2011-10-06",
+    "runtime": 90,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "NL",
+        "name": "Netherlands"
+      }
+    ],
+    "tmdb_id": 74997,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "The Human Centipede 2 (Full Sequence)",
+    "tmdb_title_jp": "ムカデ人間2",
+    "tmdb_title_original": "The Human Centipede 2 (Full Sequence)",
+    "vote_average": 4.764
+  },
+  "ムカデ人間３": {
+    "backdrop_path": "/b2AfxdTbNifN9cAH8KVqH51Y4VS.jpg",
+    "director": "Tom Six",
+    "director_en": "Tom Six",
+    "director_jp": "Tom Six",
+    "genres": [
+      "ホラー"
+    ],
+    "genres_en": [
+      "Horror"
+    ],
+    "overview": "アメリカ某所にある巨大監獄、ジョージ・ブッシュ刑務所の所長・ビルは、州知事から刑務所での暴動の多さやコストの高さを指摘され、解雇をチラつかされる。状況を改善するべく、ビルと助手は映画「ムカデ人間」を真似て500人の囚人を繋げようと考える…。",
+    "overview_en": "Taking inspiration from The Human Centipede films, the warden of a notorious and troubled prison looks to create a 500-person human centipede as a solution to his problems.",
+    "poster_path": "/1AJxoH5Kq5FXav4ECGnGlhakCb3.jpg",
+    "release_date": "2015-05-22",
+    "runtime": 103,
+    "tmdb_alt_titles_jp": [
+      "ムカデ人間 3"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "NL",
+        "name": "Netherlands"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 94365,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "The Human Centipede 3 (Final Sequence)",
+    "tmdb_title_jp": "ムカデ人間3",
+    "tmdb_title_original": "The Human Centipede 3 (Final Sequence)",
+    "vote_average": 3.752
   },
   "ムガリッツ": {
     "backdrop_path": "/iM4ukbL5903EuxBfIiukNwzwNca.jpg",
@@ -133844,6 +134493,43 @@
     "tmdb_title_jp": "Portrait de Maurice Lemaître",
     "tmdb_title_original": "Portrait de Maurice Lemaître",
     "vote_average": 0.0
+  },
+  "モーレツ宇宙海賊（パイレーツ） ABYSS OF HYPERSPACE 亜空の深淵": {
+    "backdrop_path": "/dFleAxjVNkpz2mCIZIglinjzNsc.jpg",
+    "director": "佐藤竜雄",
+    "director_en": "Tatsuo Sato",
+    "director_jp": "佐藤竜雄",
+    "genres": [
+      "アドベンチャー",
+      "アニメーション",
+      "サイエンスフィクション"
+    ],
+    "genres_en": [
+      "Adventure",
+      "Animation",
+      "Science Fiction"
+    ],
+    "overview": "白凰女学院高等部に通う加藤茉莉香は、政府発行の「私掠船免状」を持った合法の宇宙海賊。学業、宇宙ヨット部部長、喫茶店ランプ館でのアルバイト、さらに、宇宙海賊船・弁天丸の船長と、大忙しな日々を送っている。3年生への進級を間近に控えた春休みのある日、豪華客船での海賊営業の仕事を請けた茉莉香は、乗客リストの中に銀河パスの所有者･無限彼方の名前を発見。彼方の父で高名な「亜空間ダイバー」の無限博士との約束を果たすため、海賊ショーの最中、語りかける。「亜空の流れ、その果ては何色か？」そして、海賊と少年の亜空を駆ける冒険が始まる！",
+    "overview_en": "Marika Katou, a third year student at Hakuho Girls' Academy, is a legitimate space pirate with a Letter of Marque. Between her studies, leading her school's space yacht club, working part time at Cafe Lamp, and being the captain of the space pirate ship Bentenmaru, Marika's days are very busy. One day, Marika gets a job to rob a high-class passenger ship, and she discovers that on the passenger list is Kanata Mugen, a boy who owns a \"galaxy pass\". Thus, an adventure featuring a hyperspace race between pirates and one young boy begins.",
+    "poster_path": "/6NidybWLwkVVnNdAbHnxc0G4tkf.jpg",
+    "release_date": "2014-02-22",
+    "runtime": 92,
+    "tmdb_alt_titles_jp": [
+      "モーレツ宇宙海賊 ABYSS OF HYPERSPACE -亜空の深淵-",
+      "Moretsu Uchuu Kaizoku - ABYSS OF HYPERSPACE"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 239366,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Bodacious Space Pirates: Abyss of Hyperspace",
+    "tmdb_title_jp": "劇場版 モーレツ宇宙海賊 ABYSS OF HYPERSPACE -亜空の深淵-",
+    "tmdb_title_original": "モーレツ宇宙海賊 ABYSS OF HYPERSPACE -亜空の深淵-",
+    "vote_average": 7.0
   },
   "ヤンヤン 夏の思い出": {
     "backdrop_path": "/x903dx8Km6XNLFEmvbXc98vePSV.jpg",
@@ -136306,6 +136992,7 @@
     "tmdb_title_original": "Les Demoiselles de Rochefort",
     "vote_average": 7.7
   },
+  "ロストフォリア": null,
   "ロストランズ 闇を狩る者（字幕）": {
     "backdrop_path": "/jb7yM17VZvDqUJVS4JR77EOfgEM.jpg",
     "director": "ポール・W・S・アンダーソン",
@@ -141522,6 +142209,7 @@
     "tmdb_title_original": "八つ墓村",
     "vote_average": 6.7
   },
+  "八月の杜": null,
   "八月十五日の動乱": {
     "backdrop_path": "/ugeXndl1UnVdeeLeboR19bO90hp.jpg",
     "director": "小林恒夫",
@@ -142748,6 +143436,7 @@
     "vote_average": 0.0
   },
   "劇場版　旅人検視官　道場修作": null,
+  "劇場版　米寿の伝言": null,
   "劇場版　緊急取調室 THE FINAL": {
     "backdrop_path": "/rxxqYq0Yq89zk16Jt7iydnsGyrb.jpg",
     "director": "常廣丈太",
@@ -153440,6 +154129,42 @@
     "tmdb_title_jp": "恐怖の土曜日",
     "vote_average": 6.74
   },
+  "恐怖分子 デジタルリマスター": {
+    "backdrop_path": "/vooAbSV1zJqwRNHxCxFQ8fVDm38.jpg",
+    "director": "楊德昌",
+    "director_en": "Edward Yang",
+    "director_jp": "楊德昌",
+    "genres": [
+      "ドラマ",
+      "犯罪",
+      "謎",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Drama",
+      "Crime",
+      "Mystery",
+      "Thriller"
+    ],
+    "overview": "台北を舞台に、カメラマンとその恋人、小説家の妻と医師の夫、その元恋人、不良少女、刑事…様々な人物が幾重にも錯綜し現代の台湾が抱える問題を浮き彫りにしていく。",
+    "overview_en": "An uncompromising look into urban life from the eyes of a voyeuristic photographer, a rebellious teenager, and a married couple teetering on the edge of adultery.",
+    "poster_path": "/s7cczZLhZgydK9arZ8SDTD7VCnq.jpg",
+    "release_date": "1986-12-19",
+    "runtime": 109,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "TW",
+        "name": "Taiwan"
+      }
+    ],
+    "tmdb_id": 78450,
+    "tmdb_original_language": "zh",
+    "tmdb_title_en": "Terrorizers",
+    "tmdb_title_jp": "恐怖分子",
+    "tmdb_title_original": "恐怖份子",
+    "vote_average": 7.4
+  },
   "息を殺して": {
     "backdrop_path": "/qeWENBqvb5gS9u3RtUt7fFeIxBV.jpg",
     "director": "五十嵐耕平",
@@ -157170,6 +157895,7 @@
     "tmdb_title_original": "星と月は天の穴",
     "vote_average": 0.0
   },
+  "星の時": null,
   "星を追う子ども": {
     "backdrop_path": "/91lcUS2FUAWcsdlDkyYTpZCpM81.jpg",
     "director": "新海誠",
@@ -157439,6 +158165,50 @@
     "vote_average": 9.0
   },
   "映画 記憶の解凍【英語字幕】 G": null,
+  "映画HUGっと！プリキュア・ふたりはプリキュア オールスターズメモリーズ": {
+    "backdrop_path": "/cfTA2aepBesa1QgL1G3g6ytuFLR.jpg",
+    "director": "宮本浩史",
+    "director_en": "Hiroshi Miyamoto",
+    "director_jp": "宮本浩史",
+    "genres": [
+      "アニメーション",
+      "ファンタジー",
+      "アクション",
+      "コメディ",
+      "アドベンチャー",
+      "ファミリー"
+    ],
+    "genres_en": [
+      "Animation",
+      "Fantasy",
+      "Action",
+      "Comedy",
+      "Adventure",
+      "Family"
+    ],
+    "overview": "街で暴れるモンスターを撃退したキュアブラック・キュアホワイト・シャイニールミナス。ところが、そこへ現れた謎の怪物・ミデンによってルミナスは子供に変えられてしまう。ミデンは歴代のプリキュア達から思い出を奪い、ベビープリキュアに変えてしまっていた。さらにはな達の元にもミデンは現れ、はなは加勢に駆けつけたブラックやホワイトと共に戦うが、キュアアンジュ・キュアエトワール・キュアマシェリ・キュアアムール・ホワイトまでもが幼児に戻されてしまった。自分の事をすべて忘れてしまった幼い仲間達を前に悲嘆と絶望に沈むはなと、ほのかがいなければプリキュアに変身できないなぎさは絶体絶命の大ピンチに陥る。",
+    "overview_en": "A vengeful teru teru bozu-like monster called Miden is stealing all of the Cures' magical powers and memories, turning them into helpless infants, barring Nagisa Misumi and Hana Nono. They must help the affected Cures to regain their abilities and fight off this new menance.",
+    "poster_path": "/nJ5TxNLkIA3iOf8tzVHGkgBzjhq.jpg",
+    "release_date": "2018-10-27",
+    "runtime": 73,
+    "tmdb_alt_titles_jp": [
+      "Eiga Hugtto! Precure x Futari wa Precure",
+      "HUGtto! Precure x Futari wa Precure: All Stars Memories",
+      "HUGtto! Precure♡Futari wa Precure: All Stars Memories"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 551591,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "HUG! PreCure Futari wa Pretty Cure: All Star Memories",
+    "tmdb_title_jp": "映画 HUGっと！プリキュア♡ふたりはプリキュア オールスターズメモリーズ",
+    "tmdb_title_original": "映画 HUGっと！プリキュア♡ふたりはプリキュア オールスターズメモリーズ",
+    "vote_average": 6.447
+  },
   "映画　えんとつ町のプペル　約束の時計台": {
     "backdrop_path": null,
     "director": "廣田裕介",
@@ -158888,6 +159658,39 @@
     "tmdb_title_jp": "His Kind of Woman",
     "vote_average": 6.612
   },
+  "最初の半歩": {
+    "backdrop_path": "/fFqvPpNwIZTAgoRzEJlOiaoymOa.jpg",
+    "director": "陳志發",
+    "director_en": "Steve Chan Chi Fat",
+    "director_jp": "陳志發",
+    "genres": [
+      "ドラマ",
+      "履歴"
+    ],
+    "genres_en": [
+      "Drama",
+      "History"
+    ],
+    "overview": "1984年、中国返還前の香港。郊外のニュータウン、沙田（シャーティン）で、香港初の青少年野球チーム「沙燕（サーイン）隊」が結成される。野球がメジャーなスポーツではない香港で、野球未経験の落ちこぼれ少年たちは新聞紙を丸めたボールで練習を始めるが、最初の試合では台湾の小学生チームに大惨敗。それでも、厳格ながら生徒思いのロー（盧）校長（演：リウ・カイチー）に導かれ、内向的なロン（阿龍）（演：ラム・イウセン）と衝動的だが義理堅いワイ（細威）（演：トニー・ウー）の幼馴染コンビを中心に、チームのメンバーは少しずつ成長していく。やがて迎えた宿敵・日本バッファローズとの最終決戦は、彼ら自身の「これまで」と「これから」を問い直す舞台となる――。1980年代前半の香港を舞台に、スポーツの勝敗に回収されない静かな余韻を残す、実話に基づく青春ドラマ。",
+    "overview_en": "Inspired by the true story of Hong Kong’s first teenage baseball team. In the 1980s, two childhood friends join the Shatin Martins, a Band 3 school baseball team managed by the school principal. From these humble beginnings, the boys experience camaraderie, fall in love and make fateful decisions that resonate throughout their lives amid a changing Hong Kong and its sporting world.",
+    "poster_path": "/4kS10wLn4NPWRE7BxyBPpje5WXS.jpg",
+    "release_date": "2016-04-23",
+    "runtime": 95,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "HK",
+        "name": "Hong Kong"
+      }
+    ],
+    "tmdb_id": 367196,
+    "tmdb_original_language": "cn",
+    "tmdb_title_en": "Weeds on Fire",
+    "tmdb_title_jp": "最初の半歩",
+    "tmdb_title_original": "點五步",
+    "vote_average": 6.3
+  },
+  "最初の半歩 上映後舞台挨拶": null,
   "最強のふたり": {
     "backdrop_path": "/5ATSg3rufgIMfcrHd2gEi678hZu.jpg",
     "director": "Éric Toledano",
@@ -180824,5 +181627,6 @@
     "tmdb_title_jp": "I Fell in Love with a Z-Grade Director in Brooklyn",
     "tmdb_title_original": "I Fell in Love with a Z-Grade Director in Brooklyn",
     "vote_average": 0.0
-  }
+  },
+  "ﾑｶﾃﾞ人間[0822舞台挨拶]": null
 }
