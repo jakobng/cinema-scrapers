@@ -4302,7 +4302,6 @@
     ],
     "vote_average": 7.7
   },
-  "&amp; Sons (2026)": null,
   "The Incomer (2026)": {
     "tmdb_id": 1554956,
     "tmdb_title": "The Incomer",
@@ -4318,9 +4317,105 @@
     ],
     "vote_average": 0.0
   },
-  "SCENE Festival: Northern Shorts Showcase": null,
-  "GASP presents: The Serpent's Skin + Queer Horror Shorts": null,
-  "SCENE Festival: Speed + Strike present: Drinking &amp; Driving": null,
+  "Phantom of the Paradise": {
+    "tmdb_id": 27327,
+    "tmdb_title": "Phantom of the Paradise",
+    "tmdb_original_title": "Phantom of the Paradise",
+    "overview": "Singer-songwriter Winslow Leach seeks revenge on the nefarious music producer Swan, who steals both Winslow's music and his favorite singer for the grand opening of Swan's new rock palace, the Paradise.",
+    "poster_path": "/qDOtGWeSQNwB3dG7Amt1K0JW0az.jpg",
+    "backdrop_path": "/8KgVSZglXRO9Z71rUnhVAvYEmu5.jpg",
+    "release_date": "1974-10-31",
+    "director": "Brian De Palma",
+    "runtime": 92,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Horror",
+      "Music"
+    ],
+    "vote_average": 7.476
+  },
+  "Hunky Jesus": {
+    "tmdb_id": 1631918,
+    "tmdb_title": "Hunky Jesus",
+    "tmdb_original_title": "Hunky Jesus",
+    "overview": "A feature documentary that explores the legacy of the San Francisco chapter of the Sisters of Perpetual Indulgence, a global, secular order of queer and trans \"nuns\" who combat guilt, shame, and exclusion through joy, humor, activism, and irreverence, serving their communities while challenging bigotry and redefining spirituality.",
+    "poster_path": "/pMUMESNGG8f3dkxQftHGHqnqZoi.jpg",
+    "backdrop_path": "/hVsUmFBB3oAfANWJvvbvQhrpsc0.jpg",
+    "release_date": "2026-03-18",
+    "director": "Jennifer M. Kroot",
+    "runtime": 85,
+    "genres": [
+      "Documentary"
+    ],
+    "vote_average": 0.0
+  },
+  "Chatlines": {
+    "tmdb_id": 1517739,
+    "tmdb_title": "Chatlines",
+    "tmdb_original_title": "Chatlines",
+    "overview": "Jordan is a 30-something with terminal cancer in 2027 who spends his final days drifting between morphine dreams and digital distractions. On a whim, he uses an old Chatroulette-style app and on the screen appears Danny, a sarcastic, vibrant guy, also terminally ill, who swears it’s 2005. As days pass, the two men form a deep bond, opening up about their regrets, dreams and the loneliness of facing death too soon.",
+    "poster_path": "/vai1GKIRhITTpgzzst1YsIIKdhq.jpg",
+    "backdrop_path": "/xwWPpOJSyOCYRTja9tyXXsVJvBv.jpg",
+    "release_date": "2026-03-20",
+    "director": "Lloyd Eyre-Morgan",
+    "runtime": 0,
+    "genres": [
+      "Romance",
+      "Science Fiction",
+      "Drama"
+    ],
+    "vote_average": 0.0
+  },
+  "Amyl And The Sniffers present: Truth Or Consequence": {
+    "tmdb_id": 1743364,
+    "tmdb_title": "Amyl and the Sniffers Present: Truth or Consequence",
+    "tmdb_original_title": "Amyl and the Sniffers Present: Truth or Consequence",
+    "overview": "A film of live music photographed at the famous El Coyote mexican restaurant on Beverly Blvd, Los Angeles 90036.",
+    "poster_path": null,
+    "backdrop_path": null,
+    "release_date": "2026-08-28",
+    "director": "John Angus Stewart",
+    "runtime": 74,
+    "genres": [
+      "Music",
+      "Documentary"
+    ],
+    "vote_average": 0.0
+  },
+  "Pulp: What Do You Do For An Encore?": {
+    "tmdb_id": 1715598,
+    "tmdb_title": "Pulp: What Do You Do for an Encore?",
+    "tmdb_original_title": "Pulp: What Do You Do for an Encore?",
+    "overview": "A fusion of the brilliantly choreographed stage spectacle of Pulp’s biggest ever arena show — part of the global tour for More, the band’s first album in 24 years — with four decades of colorful, never-seen-before archival material.",
+    "poster_path": "/lG9cQEakYhUSibcQLh2BaZehkwj.jpg",
+    "backdrop_path": "/183SVSmnaU83NBBEx6E8D0leMNc.jpg",
+    "release_date": "2026-09-18",
+    "director": "Garth Jennings",
+    "runtime": 0,
+    "genres": [
+      "Documentary",
+      "Music"
+    ],
+    "vote_average": 0.0
+  },
+  "Oasis: Don't Look Back in Anger": {
+    "tmdb_id": 1447853,
+    "tmdb_title": "Oasis: Don't Look Back in Anger",
+    "tmdb_original_title": "Oasis: Don't Look Back in Anger",
+    "overview": "Experience the meteoric rise of Oasis through rare footage and untold stories as the band reunites for Oasis Live '25, chronicling their journey from Manchester streets to global rock stardom.",
+    "poster_path": "/AeHWmWB3aM0P7qPAZlV2X8LMami.jpg",
+    "backdrop_path": "/7Ud7QIJo21odjCaev6V4md9sK16.jpg",
+    "release_date": "2026-09-10",
+    "director": "Dylan Southern",
+    "runtime": 0,
+    "genres": [
+      "Documentary",
+      "Music"
+    ],
+    "vote_average": 0.0
+  },
+  "&amp; Sons (2026)": null,
   "SCENE Festival: TITE Shorts Showcase": null,
   "SCENE Festival: Puppygirl": {
     "tmdb_id": 1496154,
@@ -4337,6 +4432,7 @@
     ],
     "vote_average": 0.0
   },
+  "SCENE Festival: Northern Shorts Showcase": null,
   "SCENE Festival: Satisfaction": {
     "tmdb_id": 1232494,
     "tmdb_title": "Satisfaction",
@@ -4383,29 +4479,11 @@
       "Comedy",
       "Romance"
     ],
-    "vote_average": 7.0
+    "vote_average": 7.014
   },
-  "Phantom of the Paradise": {
-    "tmdb_id": 27327,
-    "tmdb_title": "Phantom of the Paradise",
-    "tmdb_original_title": "Phantom of the Paradise",
-    "overview": "Singer-songwriter Winslow Leach seeks revenge on the nefarious music producer Swan, who steals both Winslow's music and his favorite singer for the grand opening of Swan's new rock palace, the Paradise.",
-    "poster_path": "/qDOtGWeSQNwB3dG7Amt1K0JW0az.jpg",
-    "backdrop_path": "/8KgVSZglXRO9Z71rUnhVAvYEmu5.jpg",
-    "release_date": "1974-10-31",
-    "director": "Brian De Palma",
-    "runtime": 92,
-    "genres": [
-      "Comedy",
-      "Drama",
-      "Horror",
-      "Music"
-    ],
-    "vote_average": 7.476
-  },
-  "Weekly Arthouse Screening": null,
-  "Lady": null,
+  "Crank &amp; Crank: High Voltage Double Bill": null,
   "Family Film/ Early Man (PG)": null,
+  "Lady": null,
   "Preview/ I Want Your Sex": null,
   "Aks: Trans Stories Across South Asia": null,
   "Preview/ Blue Film": null,
@@ -4413,38 +4491,7 @@
   "Barbara Forever": null,
   "PROTEST! Condensation Short Film Premiere": null,
   "Baby & Carer/ The End of Oak Street": null,
-  "Hunky Jesus": {
-    "tmdb_id": 1631918,
-    "tmdb_title": "Hunky Jesus",
-    "tmdb_original_title": "Hunky Jesus",
-    "overview": "A feature documentary that explores the legacy of the San Francisco chapter of the Sisters of Perpetual Indulgence, a global, secular order of queer and trans \"nuns\" who combat guilt, shame, and exclusion through joy, humor, activism, and irreverence, serving their communities while challenging bigotry and redefining spirituality.",
-    "poster_path": "/pMUMESNGG8f3dkxQftHGHqnqZoi.jpg",
-    "backdrop_path": "/hVsUmFBB3oAfANWJvvbvQhrpsc0.jpg",
-    "release_date": "2026-03-18",
-    "director": "Jennifer M. Kroot",
-    "runtime": 85,
-    "genres": [
-      "Documentary"
-    ],
-    "vote_average": 0.0
-  },
-  "Chatlines": {
-    "tmdb_id": 1517739,
-    "tmdb_title": "Chatlines",
-    "tmdb_original_title": "Chatlines",
-    "overview": "Jordan is a 30-something with terminal cancer in 2027 who spends his final days drifting between morphine dreams and digital distractions. On a whim, he uses an old Chatroulette-style app and on the screen appears Danny, a sarcastic, vibrant guy, also terminally ill, who swears it’s 2005. As days pass, the two men form a deep bond, opening up about their regrets, dreams and the loneliness of facing death too soon.",
-    "poster_path": "/vai1GKIRhITTpgzzst1YsIIKdhq.jpg",
-    "backdrop_path": "/xwWPpOJSyOCYRTja9tyXXsVJvBv.jpg",
-    "release_date": "2026-03-20",
-    "director": "Lloyd Eyre-Morgan",
-    "runtime": 0,
-    "genres": [
-      "Romance",
-      "Science Fiction",
-      "Drama"
-    ],
-    "vote_average": 0.0
-  },
+  "Family Film/ Flushed Away (U)": null,
   "Throwback: The Lord of the Rings: The Two Towers (Extended Edition)": {
     "tmdb_id": 121,
     "tmdb_title": "The Lord of the Rings: The Two Towers",
@@ -4462,23 +4509,8 @@
     ],
     "vote_average": 8.426
   },
-  "Amyl And The Sniffers present: Truth Or Consequence": {
-    "tmdb_id": 1743364,
-    "tmdb_title": "Amyl and the Sniffers Present: Truth or Consequence",
-    "tmdb_original_title": "Amyl and the Sniffers Present: Truth or Consequence",
-    "overview": "A film of live music photographed at the famous El Coyote mexican restaurant on Beverly Blvd, Los Angeles 90036.",
-    "poster_path": null,
-    "backdrop_path": null,
-    "release_date": "2026-08-28",
-    "director": "John Angus Stewart",
-    "runtime": 74,
-    "genres": [
-      "Music",
-      "Documentary"
-    ],
-    "vote_average": 0.0
-  },
   "Throwback: The Lord of the Rings: The Return of the King (Extended Edition)": null,
+  "Weekly Arthouse Screening": null,
   "National Theatre Live: The Misanthrope": null,
   "The Royal Ballet: Alice's Adventures In Wonderland": null,
   "The Royal Ballet: Manon": null,
@@ -4495,37 +4527,5 @@
   "The Royal Opera: La Traviata": null,
   "The Royal Ballet: Romeo & Juliet": null,
   "LIVE: Purple Town Musical": null,
-  "Pulp: What Do You Do For An Encore?": {
-    "tmdb_id": 1715598,
-    "tmdb_title": "Pulp: What Do You Do for an Encore?",
-    "tmdb_original_title": "Pulp: What Do You Do for an Encore?",
-    "overview": "A fusion of the brilliantly choreographed stage spectacle of Pulp’s biggest ever arena show — part of the global tour for More, the band’s first album in 24 years — with four decades of colorful, never-seen-before archival material.",
-    "poster_path": "/lG9cQEakYhUSibcQLh2BaZehkwj.jpg",
-    "backdrop_path": "/183SVSmnaU83NBBEx6E8D0leMNc.jpg",
-    "release_date": "2026-09-18",
-    "director": "Garth Jennings",
-    "runtime": 0,
-    "genres": [
-      "Documentary",
-      "Music"
-    ],
-    "vote_average": 0.0
-  },
-  "Mamma Mia: Charity Screening!": null,
-  "Oasis: Don't Look Back in Anger": {
-    "tmdb_id": 1447853,
-    "tmdb_title": "Oasis: Don't Look Back in Anger",
-    "tmdb_original_title": "Oasis: Don't Look Back in Anger",
-    "overview": "Experience the meteoric rise of Oasis through rare footage and untold stories as the band reunites for Oasis Live '25, chronicling their journey from Manchester streets to global rock stardom.",
-    "poster_path": "/AeHWmWB3aM0P7qPAZlV2X8LMami.jpg",
-    "backdrop_path": "/7Ud7QIJo21odjCaev6V4md9sK16.jpg",
-    "release_date": "2026-09-10",
-    "director": "Dylan Southern",
-    "runtime": 0,
-    "genres": [
-      "Documentary",
-      "Music"
-    ],
-    "vote_average": 0.0
-  }
+  "Mamma Mia: Charity Screening!": null
 }
