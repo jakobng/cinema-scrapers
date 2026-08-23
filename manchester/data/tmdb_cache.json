@@ -4415,8 +4415,6 @@
     ],
     "vote_average": 0.0
   },
-  "&amp; Sons (2026)": null,
-  "SCENE Festival: TITE Shorts Showcase": null,
   "SCENE Festival: Puppygirl": {
     "tmdb_id": 1496154,
     "tmdb_title": "Puppygirl",
@@ -4432,6 +4430,7 @@
     ],
     "vote_average": 0.0
   },
+  "&amp; Sons (2026)": null,
   "SCENE Festival: Northern Shorts Showcase": null,
   "SCENE Festival: Satisfaction": {
     "tmdb_id": 1232494,
@@ -4479,19 +4478,71 @@
       "Comedy",
       "Romance"
     ],
-    "vote_average": 7.014
+    "vote_average": 7.0
   },
   "Crank &amp; Crank: High Voltage Double Bill": null,
-  "Family Film/ Early Man (PG)": null,
-  "Lady": null,
-  "Preview/ I Want Your Sex": null,
+  "Monster": {
+    "tmdb_id": 1050035,
+    "tmdb_title": "Monster",
+    "tmdb_original_title": "怪物",
+    "overview": "After an outburst at school involving her son, a concerned single mother demands answers, triggering a sequence of deepening suspicion and turmoil.",
+    "poster_path": "/kvUJUyUGOhEoiWWNH04IXoExPE2.jpg",
+    "backdrop_path": "/dZJcOyRonN0Kb7kJR3DE3esGn16.jpg",
+    "release_date": "2023-06-02",
+    "director": "Hirokazu Kore-eda",
+    "runtime": 125,
+    "genres": [
+      "Mystery",
+      "Thriller",
+      "Drama"
+    ],
+    "vote_average": 7.923
+  },
+  "Dazed and Confused": {
+    "tmdb_id": 9571,
+    "tmdb_title": "Dazed and Confused",
+    "tmdb_original_title": "Dazed and Confused",
+    "overview": "The adventures of a group of Texas teens on their last day of school in 1976, centering on student Randall Floyd, who moves easily among stoners, jocks and geeks. Floyd is a star athlete, but he also likes smoking weed, which presents a conundrum when his football coach demands he sign a \"no drugs\" pledge.",
+    "poster_path": "/msG9awbLhVZwv1Eh9Ge7SofMexW.jpg",
+    "backdrop_path": "/iNNm00fWqHnlEI1O0KCTivzcPEw.jpg",
+    "release_date": "1993-09-24",
+    "director": "Richard Linklater",
+    "runtime": 102,
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "vote_average": 7.3
+  },
+  "Infernal Affairs": {
+    "tmdb_id": 10775,
+    "tmdb_title": "Infernal Affairs",
+    "tmdb_original_title": "無間道",
+    "overview": "Chan Wing Yan, a young police officer, has been sent undercover as a mole in the local mafia. Lau Kin Ming, a young mafia member, infiltrates the police force. Years later, their older counterparts, Chen Wing Yan and Inspector Lau Kin Ming, respectively, race against time to expose the mole within their midst.",
+    "poster_path": "/gix9thDBXfjJ8M7rYbihqbQGBcP.jpg",
+    "backdrop_path": "/4Mm5l3TcKGynSNto0eyRJgBrkJ7.jpg",
+    "release_date": "2002-12-12",
+    "director": "Alan Mak Siu-Fai",
+    "runtime": 101,
+    "genres": [
+      "Drama",
+      "Action",
+      "Thriller",
+      "Crime",
+      "Mystery"
+    ],
+    "vote_average": 7.806
+  },
   "Aks: Trans Stories Across South Asia": null,
+  "Lady": null,
   "Preview/ Blue Film": null,
   "Rivals: Behind the Drama": null,
   "Barbara Forever": null,
   "PROTEST! Condensation Short Film Premiere": null,
   "Baby & Carer/ The End of Oak Street": null,
   "Family Film/ Flushed Away (U)": null,
+  "Family Film/ Early Man (PG)": null,
+  "Weekly Arthouse Screening": null,
   "Throwback: The Lord of the Rings: The Two Towers (Extended Edition)": {
     "tmdb_id": 121,
     "tmdb_title": "The Lord of the Rings: The Two Towers",
@@ -4509,8 +4560,41 @@
     ],
     "vote_average": 8.426
   },
+  "One Night Only": {
+    "tmdb_id": 1433367,
+    "tmdb_title": "One Night Only",
+    "tmdb_original_title": "One Night Only",
+    "overview": "Two love-starved strangers crash into each other on the one night of the year when single people are allowed to have sex.",
+    "poster_path": "/9LGEqZvzI7Tsosf8srwEY48rZsD.jpg",
+    "backdrop_path": "/mfgNUnFB25BNIwe9iPJ17cUN64S.jpg",
+    "release_date": "2026-07-28",
+    "director": "Will Gluck",
+    "runtime": 102,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "vote_average": 6.8
+  },
   "Throwback: The Lord of the Rings: The Return of the King (Extended Edition)": null,
-  "Weekly Arthouse Screening": null,
+  "Kiki's Delivery Service (Subtitled)": null,
+  "Members’ Preview: Pressure": {
+    "tmdb_id": 1318413,
+    "tmdb_title": "Pressure",
+    "tmdb_original_title": "Pressure",
+    "overview": "In the tense 72 hours before D-Day, and the fate of the free world hanging in the balance, General Dwight D. Eisenhower and Captain James Stagg face an impossible choice—launch the largest and most dangerous seaborne invasion in history or risk losing the war altogether.",
+    "poster_path": "/gFjEggtrejCN79r6SXRjM269OtG.jpg",
+    "backdrop_path": "/apfyLCPVFttB8oXcsLJ7q0NSFLx.jpg",
+    "release_date": "2026-05-25",
+    "director": "Anthony Maras",
+    "runtime": 101,
+    "genres": [
+      "Thriller",
+      "History",
+      "War"
+    ],
+    "vote_average": 7.768
+  },
   "National Theatre Live: The Misanthrope": null,
   "The Royal Ballet: Alice's Adventures In Wonderland": null,
   "The Royal Ballet: Manon": null,
