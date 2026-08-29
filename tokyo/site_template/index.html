@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tokyo Mini-Theater Showtimes</title>
     <meta name="description" content="A bilingual guide to independent and mini-theater film showtimes across Tokyo, updated from cinema listings.">
-    <link rel="canonical" href="https://www.leonelki.com/tokyo-cinemas.html">
+    <link rel="canonical" href="https://cinematokyo.com/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Tokyo Mini-Theater Showtimes">
     <meta property="og:description" content="A bilingual guide to independent and mini-theater film showtimes across Tokyo, updated from cinema listings.">
-    <meta property="og:url" content="https://www.leonelki.com/tokyo-cinemas.html">
+    <meta property="og:url" content="https://cinematokyo.com/">
     <meta property="og:locale" content="ja_JP">
     <meta name="twitter:card" content="summary">
     <link rel="manifest" href="/manifest.webmanifest">
@@ -229,6 +229,25 @@
             cursor: pointer;
             font-weight: 700;
             line-height: 1.1;
+        }
+        .site-intro {
+            max-width: 72ch;
+            margin: 0 auto 18px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        .search-guides {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 16px;
+            margin: -10px 0 20px;
+            font-size: 0.8rem;
+        }
+        .search-guides a {
+            color: var(--muted);
+            text-underline-offset: 3px;
         }
         /* --- NEW TABS --- */
         .view-tabs {
@@ -821,7 +840,7 @@
     <main class="page">
         <header class="page-header">
             <div class="header-left">
-                <h1 id="site-title"></h1>
+                <h1 id="site-title">東京ミニシアター上映スケジュール</h1>
                 <div class="site-credit" id="site-credit"></div>
                 <div class="lang-toggle" role="group" aria-label="Language">
                     <button class="lang-btn" data-lang="ja" type="button">JP</button>
@@ -839,9 +858,15 @@
                 </a>
             </div>
         </header>
+        <p class="site-intro">東京のミニシアター・名画座・インディペンデント映画館の上映時間を毎日更新。 <span lang="en">Daily independent cinema showtimes across Tokyo.</span></p>
         <nav class="view-tabs">
             <button class="tab-btn" data-view="cinema" type="button" id="view-cinema-btn"></button>
             <button class="tab-btn is-active" data-view="film" type="button" id="view-film-btn"></button>
+        </nav>
+        <nav class="search-guides" aria-label="Popular cinema schedules">
+            <a href="/today/">今日 / Today</a>
+            <a href="/tonight/">今夜 / Tonight</a>
+            <a href="/weekend/">今週末 / This weekend</a>
         </nav>
         <section class="controls-section">
             <div class="primary-controls">
@@ -2819,7 +2844,9 @@
                         }
                         var displayOverview = state.lang === "en" ? (film.overviewEn || film.overview) : film.overview;
                         if (displayOverview) {
-                            body.appendChild(createElement("p", "film-blurb", displayOverview));
+                            const blurb = createElement("p", "film-blurb", displayOverview);
+                            blurb.setAttribute("data-nosnippet", "");
+                            body.appendChild(blurb);
                         }
                         if (film.formatTags.length) {
                             const tagRow = createElement("div", "tag-row");

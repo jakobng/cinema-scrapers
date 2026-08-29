@@ -1,6 +1,6 @@
-const CACHE_NAME = "tokyo-cinema-scrapers-v2";
+const CACHE_NAME = "cinematokyo-v3";
 const CORE_ASSETS = [
-  "../tokyo-cinemas.html",
+  "./",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
@@ -35,8 +35,6 @@ self.addEventListener("fetch", (event) => {
   }
 
   const isHtml =
-    url.pathname.endsWith("/tokyo-cinemas.html") ||
-    url.pathname.endsWith("/cinemas.html") ||
     url.pathname.endsWith("/");
   if (isHtml) {
     event.respondWith(

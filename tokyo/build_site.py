@@ -35,6 +35,8 @@ import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
+from listing_identity import canonicalize_listings
+
 try:
     from zoneinfo import ZoneInfo
     JST = ZoneInfo("Asia/Tokyo")
@@ -174,7 +176,7 @@ def cinema_slug(name: str) -> str:
     """Curated romaji slug; else the Latin portion of "K's Cinema (ケイズシネマ)"."""
     if name in CINEMA_SLUG_MAP:
         return CINEMA_SLUG_MAP[name]
-    latin = re.split(r"[（(]", name, 1)[0]
+    latin = re.split(r"[（(]", name, maxsplit=1)[0]
     return slugify(latin) or slugify(name)
 
 
@@ -204,6 +206,11 @@ def e(text) -> str:
     return html.escape("" if text is None else str(text), quote=True)
 
 
+def clip_description(text: str, limit: int = 160) -> str:
+    compact = re.sub(r"\s+", " ", str(text or "")).strip()
+    return compact if len(compact) <= limit else compact[:limit - 1].rstrip() + "…"
+
+
 def poster_url(path: str | None, size: str = "w342") -> str | None:
     return f"{TMDB_IMG}/{size}{path}" if path else None
 
@@ -223,7 +230,7 @@ def aggregate(showings: list[dict]):
     film_recs: dict[str, list] = defaultdict(list)
     cinemas: dict[str, dict] = {}
 
-    for rec in showings:
+    for rec in canonicalize_listings(showings):
         fid = film_id(rec)
         film_recs[fid].append(rec)
         cname = (rec.get("cinema_name") or "").strip()
@@ -287,7 +294,7 @@ h1{font-size:1.7rem;line-height:1.2;margin:0 0 4px}
 .sub{color:var(--muted);font-size:1.05rem;margin:0 0 16px}
 .meta{font-size:.9rem;color:var(--muted);margin:0 0 20px}
 .hero{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:24px}
-.hero img{width:200px;height:auto;border-radius:8px;background:var(--line)}
+.hero img{width:200px;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:8px;background:var(--line)}
 .hero .info{flex:1;min-width:240px}
 .synopsis{margin:16px 0;max-width:62ch}
 .synopsis.en{color:var(--muted)}
@@ -330,8 +337,10 @@ def head(title: str, description: str, canonical: str, base_url: str,
         '<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">',
         f"<style>{PAGE_CSS}</style>",
     ]
-    for ld in (extra_ld or []):
-        tags.append(jsonld(ld))
+    if extra_ld:
+        graph = [{key: value for key, value in ld.items() if key != "@context"}
+                 for ld in extra_ld]
+        tags.append(jsonld({"@context": "https://schema.org", "@graph": graph}))
     tags.append("</head>")
     return "\n".join(tags)
 
@@ -362,11 +371,12 @@ def render_film_page(fid, film, slug, base_url, today):
     if genres:
         meta_bits.append(e(" / ".join(genres)))
 
-    desc_src = (film.get("synopsis_en") or film.get("tmdb_overview_en") or film.get("synopsis")
-                or f"{title_jp} screening times across Tokyo's independent cinemas.")
-    description = f"{title_jp}（{title_en}）の東京での上映スケジュール。" if title_en \
-        else f"{title_jp}の東京での上映スケジュール。"
-    description = (description + " " + desc_src)[:300]
+    title_label = f"『{title_jp}』（{title_en}）" if title_en and title_en != title_jp \
+        else f"『{title_jp}』"
+    description = clip_description(
+        f"{title_label}の東京での上映時間と上映館。"
+        f"{len(by_cinema)}館・{len(upcoming)}回の最新ミニシアター上映スケジュール。"
+    )
 
     # JSON-LD: Movie + ScreeningEvents
     movie_ld = {"@context": "https://schema.org", "@type": "Movie",
@@ -401,7 +411,8 @@ def render_film_page(fid, film, slug, base_url, today):
              f'<div class="crumb"><a href="{base_url}/">← Tokyo Cinema</a></div>',
              '<div class="hero">']
     if img:
-        parts.append(f'<img src="{e(img)}" alt="{e(title_jp)} poster" loading="lazy">')
+        parts.append(f'<img src="{e(img)}" alt="{e(title_jp)} poster" '
+                     'width="500" height="750" loading="lazy">')
     parts.append('<div class="info">')
     parts.append(f"<h1>{e(title_jp)}</h1>")
     if title_en and title_en != title_jp:
@@ -446,9 +457,10 @@ def render_cinema_page(cname, cin, slug, films, film_slugs, base_url, today):
         by_date[s["date_text"]].append(s)
 
     n_films = len({s["f"] for s in upcoming})
-    description = (f"{cname}の上映スケジュール。"
-                   f"今後{len(upcoming)}回の上映、{n_films}作品。"
-                   " Showtimes and screening schedule.")[:300]
+    description = clip_description(
+        f"{cname}の上映時間と上映作品。今後{len(upcoming)}回・{n_films}作品の"
+        "最新ミニシアタースケジュール。 Tokyo cinema showtimes."
+    )
 
     theater_ld = {"@context": "https://schema.org", "@type": "MovieTheater",
                   "name": cname, "url": canonical}
@@ -497,6 +509,59 @@ def render_cinema_page(cname, cin, slug, films, film_slugs, base_url, today):
         parts.append("</ul></div>")
 
     parts.append('<p class="foot">Source: <a href="' + base_url + '/">cinematokyo.com</a></p>')
+    parts.append("</div></body></html>")
+    return "\n".join(parts)
+
+
+def next_weekend_dates(today: str) -> set[str]:
+    current = dt.date.fromisoformat(today)
+    saturday = current - dt.timedelta(days=1) if current.weekday() == 6 else \
+        current + dt.timedelta(days=(5 - current.weekday()) % 7)
+    return {
+        day.isoformat()
+        for day in (saturday, saturday + dt.timedelta(days=1))
+        if day >= current
+    }
+
+
+def is_evening_showtime(showtime: str) -> bool:
+    match = re.fullmatch(r"(\d{2}):(\d{2})", str(showtime or ""))
+    return bool(match and int(match.group(1)) >= 18)
+
+
+def render_schedule_page(title, description, slug, showings, films, film_slugs,
+                         cinema_slugs, base_url):
+    canonical = f"{base_url}/{slug}/"
+    by_date = defaultdict(list)
+    for showing in sorted(showings, key=lambda item: (
+            item["date_text"], item["showtime"], item["cinema_name"])):
+        by_date[showing["date_text"]].append(showing)
+
+    parts = [
+        head(title, clip_description(description), canonical, base_url),
+        "<body>", '<div class="wrap">',
+        f'<div class="crumb"><a href="{base_url}/">← Tokyo Cinema</a></div>',
+        f"<h1>{e(title.split('｜', 1)[0])}</h1>",
+        f'<p class="sub">{e(description)}</p>',
+        "<h2>上映スケジュール / Showtimes</h2>",
+    ]
+    if not showings:
+        parts.append("<p>現在予定されている上映はありません。</p>")
+    for date_text, dated_showings in by_date.items():
+        parts.append(f'<div class="group"><h3>{e(date_text)}</h3><ul class="times">')
+        for showing in dated_showings:
+            film = films.get(showing["f"], {})
+            film_title = film.get("movie_title_jp") or film.get("movie_title") or "?"
+            film_slug_value = film_slugs.get(showing["f"])
+            cinema_slug_value = cinema_slugs.get(showing["cinema_name"])
+            film_link = (f'<a href="{base_url}/film/{film_slug_value}/">{e(film_title)}</a>'
+                         if film_slug_value else e(film_title))
+            cinema_link = (f'<a href="{base_url}/cinema/{cinema_slug_value}/">'
+                           f'{e(showing["cinema_name"])}</a>'
+                           if cinema_slug_value else e(showing["cinema_name"]))
+            parts.append(f'<li>{e(showing["showtime"])} {film_link} — {cinema_link}</li>')
+        parts.append("</ul></div>")
+    parts.append('<p class="foot">Schedules are updated daily. Confirm details with the cinema.</p>')
     parts.append("</div></body></html>")
     return "\n".join(parts)
 
@@ -571,18 +636,16 @@ def build_index(template: Path, films, built_cinemas, built_films,
 # --------------------------------------------------------------------------- #
 # Sitemap / robots
 # --------------------------------------------------------------------------- #
-def build_sitemap(base_url, built_cinemas, built_films, generated_at):
+def build_sitemap(base_url, built_cinemas, built_films, built_guides=()):
     """Only list pages that were actually generated (avoids 404s in the sitemap)."""
-    lastmod = generated_at[:10]
     urls = [f"{base_url}/"]
     urls += [f"{base_url}/cinema/{s}/" for s in sorted(set(built_cinemas.values()))]
     urls += [f"{base_url}/film/{s}/" for s in sorted(set(built_films.values()))]
+    urls += [f"{base_url}/{slug}/" for slug in sorted(set(built_guides))]
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
-        freq = "daily" if u.endswith("/") and "/cinema/" not in u and "/film/" not in u else "daily"
-        out.append(f"  <url><loc>{e(u)}</loc><lastmod>{lastmod}</lastmod>"
-                   f"<changefreq>{freq}</changefreq></url>")
+        out.append(f"  <url><loc>{e(u)}</loc></url>")
     out.append("</urlset>")
     return "\n".join(out)
 
@@ -610,10 +673,12 @@ def main():
     template_dir = Path(args.template)
     out = Path(args.out)
 
-    showings = json.loads(data_path.read_text(encoding="utf-8"))
+    raw_showings = json.loads(data_path.read_text(encoding="utf-8"))
+    showings = canonicalize_listings(raw_showings)
     today = args.today or jst_today()
     generated_at = dt.datetime.now(JST).isoformat(timespec="seconds")
-    print(f"Loaded {len(showings)} showings; today (JST) = {today}")
+    print(f"Loaded {len(raw_showings)} showings; publishing {len(showings)} canonical rows; "
+          f"today (JST) = {today}")
 
     films, cinemas = aggregate(showings)
 
@@ -641,7 +706,8 @@ def main():
         shutil.copytree(template_dir / "icons", out / "icons")
 
     # Data feeds.
-    shutil.copy(data_path, out / "data" / "showtimes.json")
+    (out / "data" / "showtimes.json").write_text(
+        json.dumps(showings, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     slim = build_slim(films, cinemas, generated_at)
     (out / "data" / "showtimes_slim.json").write_text(
         json.dumps(slim, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
@@ -672,16 +738,49 @@ def main():
         (d / "index.html").write_text(page, encoding="utf-8")
         built_cinemas[cname] = slug
 
+    all_showings = [
+        {**showing, "cinema_name": cinema["name"]}
+        for cinema in cinemas.values()
+        for showing in cinema["showings"]
+        if showing["date_text"] >= today
+    ]
+    weekend_dates = next_weekend_dates(today)
+    guide_specs = {
+        "today": (
+            "今日の東京ミニシアター上映｜Tokyo cinema today",
+            "今日見られる東京のミニシアター作品と上映時間。Tokyo independent cinema showtimes today.",
+            [showing for showing in all_showings if showing["date_text"] == today],
+        ),
+        "tonight": (
+            "今夜の東京ミニシアター上映｜Tokyo cinema tonight",
+            "今夜18時以降に見られる東京のミニシアター作品と上映時間。Tokyo independent cinema tonight.",
+            [showing for showing in all_showings
+             if showing["date_text"] == today and is_evening_showtime(showing["showtime"])],
+        ),
+        "weekend": (
+            "今週末の東京ミニシアター上映｜Tokyo cinema this weekend",
+            "今週末に見られる東京のミニシアター作品と上映時間。Tokyo independent cinema this weekend.",
+            [showing for showing in all_showings if showing["date_text"] in weekend_dates],
+        ),
+    }
+    for slug, (title, description, selected_showings) in guide_specs.items():
+        page = render_schedule_page(title, description, slug, selected_showings, films,
+                                    film_slugs, cinema_slugs, base_url)
+        guide_dir = out / slug
+        guide_dir.mkdir()
+        (guide_dir / "index.html").write_text(page, encoding="utf-8")
+
     # Index (SPA + pre-render), sitemap, robots, CNAME — only reference built pages.
     index_html = build_index(template_dir / "index.html", films, built_cinemas,
                              built_films, base_url, today)
     (out / "index.html").write_text(index_html, encoding="utf-8")
     (out / "sitemap.xml").write_text(
-        build_sitemap(base_url, built_cinemas, built_films, generated_at), encoding="utf-8")
+        build_sitemap(base_url, built_cinemas, built_films, guide_specs), encoding="utf-8")
     (out / "robots.txt").write_text(build_robots(base_url), encoding="utf-8")
     (out / "CNAME").write_text(args.domain + "\n", encoding="utf-8")
 
-    print(f"Built: index + {len(built_cinemas)} cinema pages + {len(built_films)} film pages")
+    print(f"Built: index + {len(built_cinemas)} cinema pages + "
+          f"{len(built_films)} film pages + {len(guide_specs)} guide pages")
     print(f"Output: {out}")
 
 

@@ -24,7 +24,7 @@ DEFAULT_RECIPIENTS_FILE = BASE_DIR / "data" / "outreach_recipients.json"
 DEFAULT_TEMPLATE_FILE = BASE_DIR / "data" / "outreach_email_ja.txt"
 DEFAULT_SUBJECT = "東京の上映情報サイトを作りました"
 DEFAULT_FROM_NAME = os.environ.get("OUTREACH_FROM_NAME", "Leo")
-DEFAULT_SITE_URL = "https://jakobng.github.io/website1/tokyo-cinemas.html"
+DEFAULT_SITE_URL = "https://cinematokyo.com/"
 DEFAULT_IG_URL = "https://www.instagram.com/tokyominitheater/"
 EXCLUDED_CINEMAS = {
     "シアター・イメージフォーラム",
