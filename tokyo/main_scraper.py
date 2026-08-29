@@ -24,6 +24,8 @@ import random
 from datetime import datetime, timezone, timedelta
 from email.message import EmailMessage
 from pathlib import Path
+
+from listing_identity import canonicalize_listings
 from typing import Optional
 from urllib.parse import quote
 from bs4 import BeautifulSoup
@@ -250,7 +252,7 @@ report = ScrapeReport()
 # could rescue previously-unmatched titles. On the next run the scraper drops the
 # cached "not found" (null) entries once so they are re-searched with the better
 # query (see reset_stale_tmdb_nulls). Confirmed matches are always preserved.
-CLEAN_TITLE_VERSION = 3
+CLEAN_TITLE_VERSION = 4
 
 
 def clean_title_for_tmdb(title: str) -> str:
@@ -277,6 +279,7 @@ def clean_title_for_tmdb(title: str) -> str:
         rf"《[^》]*?{keyword_pattern}[^》]*》",
         rf"\[[^\]]*?{keyword_pattern}[^\]]*\]",
         rf"\([^\)]*?{keyword_pattern}[^\)]*\)",
+        rf"（[^）]*?{keyword_pattern}[^）]*）",
         # Leading orphan-closing-bracket decoration, e.g. "字幕版】タイトル" — a scraped
         # fragment that lost its opening bracket. Only fires when the leading run
         # holds a known decoration keyword and ends at a close bracket.
@@ -607,7 +610,7 @@ FILMARKS_SEARCH_BASE_URL = "https://filmarks.com/search/movies"
 FILMARKS_RESULT_BASE_URL = "https://filmarks.com"
 FILMARKS_USER_AGENT = (
     "Mozilla/5.0 (compatible; TokyoCinemaShowtimes/1.0; "
-    "+https://jakobng.github.io/website1/tokyo-cinemas.html)"
+    "+https://cinematokyo.com/)"
 )
 FILMARKS_ACCEPT_SCORE = 12
 FILMARKS_ACCEPT_MARGIN = 2
@@ -972,12 +975,16 @@ def _sanitize_cosmetic_fields(listings: list) -> dict:
     return dropped
 
 def _prepare_listings_for_output(listings: list) -> list:
-    dropped = _sanitize_cosmetic_fields(listings)
+    canonical = canonicalize_listings(listings)
+    removed = len(listings) - len(canonical)
+    if removed:
+        print(f"   Removed {removed} duplicate visible showings before publication")
+    dropped = _sanitize_cosmetic_fields(canonical)
     for field, count in dropped.items():
         if count:
             print(f"   Dropped Japanese text from {count} {field} values (published without it)")
     # Stable ordering keeps daily commits small when upstream source order shifts.
-    return sorted(listings, key=_listing_sort_key)
+    return sorted(canonical, key=_listing_sort_key)
 
 def _write_json_file(path, payload, sort_keys=False):
     with open(path, "w", encoding="utf-8") as f:

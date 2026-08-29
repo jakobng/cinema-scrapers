@@ -9,6 +9,8 @@ import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+
+from listing_identity import visible_listing_key
 from urllib.parse import urlparse
 
 
@@ -247,15 +249,7 @@ def main() -> int:
     future = [item for item in data if str(item.get("date_text") or "") >= args.today]
 
     duplicates = []
-    counts = Counter(
-        (
-            item.get("cinema_name"),
-            item.get("movie_title"),
-            item.get("date_text"),
-            item.get("showtime"),
-        )
-        for item in future
-    )
+    counts = Counter(visible_listing_key(item) for item in future)
     for key, count in counts.items():
         if count > 1:
             duplicates.append((key, count))

@@ -22,7 +22,7 @@ on:
         description: "Website URL to include in the email"
         required: true
         type: string
-        default: "https://jakobng.github.io/website1/tokyo-cinemas.html"
+        default: "https://cinematokyo.com/"
       instagram_url:
         description: "Instagram URL to include in the email"
         required: true
