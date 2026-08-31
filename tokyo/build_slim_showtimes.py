@@ -23,11 +23,13 @@ from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+from listing_identity import film_identity_key
+
 JST = timezone(timedelta(hours=9))
 
 # Only the fields the website page reads (normalizeShowings() and helpers
 # in tokyo-cinemas.html). Everything else is dropped from the slim file.
-SHOWING_FIELDS = ("cinema_name", "date_text", "showtime")
+SHOWING_FIELDS = ("cinema_name", "date_text", "showtime", "cinema_site_url")
 FILM_FIELDS = (
     "movie_title",
     "movie_title_jp",
@@ -65,20 +67,8 @@ FILM_FIELDS = (
     "tmdb_poster_path",
     "tmdb_backdrop_path",
     "image_url",
+    "letterboxd_url",
 )
-
-
-def _film_key(row: dict) -> str:
-    tmdb_id = row.get("tmdb_id")
-    if tmdb_id:
-        return f"t{tmdb_id}"
-    title = (
-        row.get("movie_title")
-        or row.get("movie_title_jp")
-        or row.get("movie_title_en")
-        or ""
-    )
-    return "n" + str(title).strip()
 
 
 def _freeze(value) -> str:
@@ -86,12 +76,33 @@ def _freeze(value) -> str:
     return json.dumps(value, ensure_ascii=False, sort_keys=True)
 
 
+def _project(row: dict) -> dict:
+    return {
+        field: "" if row.get(field) is None else row.get(field, "")
+        for field in (*SHOWING_FIELDS, *FILM_FIELDS)
+    }
+
+
+def validate_round_trip(rows: list[dict], slim: dict, today: str) -> None:
+    expected = Counter(
+        _freeze(_project(row))
+        for row in rows
+        if (row.get("date_text") or "") >= today
+    )
+    actual = Counter(
+        _freeze(_project({**slim["films"].get(showing["f"], {}), **showing}))
+        for showing in slim["showings"]
+    )
+    if actual != expected:
+        raise ValueError("Slim feed round-trip mismatch")
+
+
 def build_slim(rows: list[dict], today: str) -> dict:
     future_rows = [r for r in rows if (r.get("date_text") or "") >= today]
 
     groups: dict[str, list[dict]] = defaultdict(list)
     for row in future_rows:
-        groups[_film_key(row)].append(row)
+        groups[film_identity_key(row)].append(row)
 
     films: dict[str, dict] = {}
     showings: list[dict] = []
@@ -117,12 +128,14 @@ def build_slim(rows: list[dict], today: str) -> dict:
                     showing[field] = value
             showings.append(showing)
 
-    return {
+    slim = {
         "schema": 1,
         "generated_at": datetime.now(JST).isoformat(timespec="seconds"),
         "films": films,
         "showings": showings,
     }
+    validate_round_trip(future_rows, slim, today)
+    return slim
 
 
 def main() -> int:

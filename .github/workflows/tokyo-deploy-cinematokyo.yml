@@ -32,6 +32,14 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Test site template
+        run: python -B -m unittest -v tokyo.tests.test_service_worker tokyo.tests.test_site_template_ui
+
       - name: Build static site
         run: python tokyo/build_site.py
 

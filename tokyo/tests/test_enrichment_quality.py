@@ -10,7 +10,7 @@ for path in (str(TOKYO_DIR), str(REPO_ROOT)):
         sys.path.insert(0, path)
 
 import audit_showtimes  # noqa: E402
-import build_site  # noqa: E402
+import build_slim_showtimes  # noqa: E402
 import main_scraper  # noqa: E402
 from shared.ai_enrichment import AIEnrichmentClient, extract_json_list  # noqa: E402
 
@@ -148,8 +148,7 @@ def test_build_slim_preserves_synopsis_en_and_exact_letterboxd_url():
         }
     ]
 
-    films, cinemas = build_site.aggregate(showings)
-    slim = build_site.build_slim(films, cinemas, "2026-06-20T00:00:00+09:00")
+    slim = build_slim_showtimes.build_slim(showings, "2026-06-20")
     film = slim["films"]["t987"]
 
     assert film["synopsis_en"] == "An English synopsis."

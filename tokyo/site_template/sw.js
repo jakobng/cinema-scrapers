@@ -1,4 +1,4 @@
-const CACHE_NAME = "cinematokyo-v3";
+const CACHE_NAME = "cinematokyo-v4";
 const CORE_ASSETS = [
   "./",
   "./manifest.webmanifest",
@@ -36,14 +36,20 @@ self.addEventListener("fetch", (event) => {
 
   const isHtml =
     url.pathname.endsWith("/");
-  if (isHtml) {
+  const isShowtimeData =
+    url.pathname.startsWith("/data/") && url.pathname.endsWith(".json");
+  if (isHtml || isShowtimeData) {
     event.respondWith(
       fetch(event.request)
-        .then((response) => {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-          return response;
-        })
+        .then((response) =>
+          response.ok
+            ? caches
+                .open(CACHE_NAME)
+                .then((cache) => cache.put(event.request, response.clone()))
+                .catch(() => null)
+                .then(() => response)
+            : Promise.reject(response)
+        )
         .catch(() => caches.match(event.request))
     );
     return;

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import unicodedata
 from functools import reduce
@@ -31,12 +32,19 @@ def normalize_title(value) -> str:
     return re.sub(r"[\W_]+", "", normalized, flags=re.UNICODE)
 
 
+def film_identity_key(item: dict) -> str:
+    tmdb_id = str(item.get("tmdb_id") or "").strip()
+    title = display_title(item) or str(item.get("movie_title_en") or "").strip()
+    return f"t{tmdb_id}" if tmdb_id and tmdb_id != "0" \
+        else "n" + (normalize_title(title) or title)
+
+
 def visible_listing_key(item: dict) -> tuple:
     return (
         str(item.get("cinema_name") or "").strip(),
         str(item.get("date_text") or "").strip(),
         normalize_showtime(item.get("showtime")),
-        normalize_title(display_title(item)),
+        film_identity_key(item),
     )
 
 
@@ -57,6 +65,13 @@ def _richness(item: dict) -> tuple:
     )
 
 
+def _preference_key(item: dict) -> tuple:
+    return (
+        _richness(item),
+        json.dumps(item, ensure_ascii=False, sort_keys=True, default=str),
+    )
+
+
 def _prefer(preferred: dict, fallback: dict) -> dict:
     inherited = {key: value for key, value in fallback.items() if value not in _EMPTY}
     explicit = {key: value for key, value in preferred.items() if value not in _EMPTY}
@@ -64,7 +79,7 @@ def _prefer(preferred: dict, fallback: dict) -> dict:
 
 
 def _merge_group(group: list[dict]) -> dict:
-    ordered = sorted(group, key=_richness, reverse=True)
+    ordered = sorted(group, key=_preference_key, reverse=True)
     merged = reduce(_prefer, ordered[1:], dict(ordered[0]))
     return {**merged, "showtime": normalize_showtime(merged.get("showtime"))}
 
@@ -104,8 +119,9 @@ def coalesce_film_ids(listings: list[dict]) -> list[dict]:
     )
 
     def coalesce(group: list[dict]) -> list[dict]:
-        donors = {str(item.get("tmdb_id")): item for item in group if item.get("tmdb_id")}
-        donor = next(iter(donors.values())) if len(donors) == 1 else None
+        donors = [item for item in group if item.get("tmdb_id")]
+        donor_ids = {str(item.get("tmdb_id")) for item in donors}
+        donor = max(donors, key=_preference_key) if len(donor_ids) == 1 else None
         return [
             {
                 **item,
@@ -126,4 +142,4 @@ def coalesce_film_ids(listings: list[dict]) -> list[dict]:
 
 
 def canonicalize_listings(listings: list[dict]) -> list[dict]:
-    return coalesce_film_ids(dedupe_listings(listings))
+    return dedupe_listings(coalesce_film_ids(listings))

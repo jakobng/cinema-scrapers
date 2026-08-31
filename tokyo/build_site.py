@@ -17,7 +17,7 @@ by ``main_scraper.py``) and emits a fully static, crawlable site:
 The slim feed is regenerated to stay byte-compatible with what the SPA expects:
 ``inflateSlim`` merges ``films[showing.f]`` with each showing, so the film key is
 ``t<tmdb_id>`` (or ``n<movie_title>`` when there is no TMDB id) and showings carry
-only ``{f, cinema_name, date_text, showtime}``.
+the fields that differ from the shared film record.
 
 Stdlib only — no third-party deps, so it runs unchanged in CI.
 """
@@ -35,7 +35,8 @@ import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
-from listing_identity import canonicalize_listings
+from build_slim_showtimes import FILM_FIELDS, build_slim
+from listing_identity import canonicalize_listings, film_identity_key
 
 try:
     from zoneinfo import ZoneInfo
@@ -45,19 +46,8 @@ except Exception:  # pragma: no cover - zoneinfo always present on 3.9+
 
 TMDB_IMG = "https://image.tmdb.org/t/p"
 
-# Film-level fields kept in the slim feed (mirrors the existing slim schema exactly).
-SLIM_FILM_FIELDS = [
-    "booking_url", "clean_title_jp", "detail_page_url", "director", "director_en",
-    "genres", "genres_en", "movie_title", "movie_title_en", "movie_title_jp",
-    "letterboxd_url",
-    "movie_title_original", "original_language", "runtime", "runtime_min",
-    "synopsis", "synopsis_en", "tags", "tmdb_backdrop_path", "tmdb_id", "tmdb_overview_en",
-    "tmdb_overview_jp", "tmdb_poster_path", "vote_average", "year",
-]
-# Extra fields we also aggregate for the rich static pages (not part of slim).
-PAGE_FILM_FIELDS = SLIM_FILM_FIELDS + [
-    "synopsis_en", "country", "image_url", "purchase_url",
-]
+# Extra field aggregated only for the rich static pages (not part of slim).
+PAGE_FILM_FIELDS = (*FILM_FIELDS, "country")
 
 
 # --------------------------------------------------------------------------- #
@@ -72,15 +62,6 @@ def first_nonempty(values):
         if v not in (None, "", [], {}):
             return v
     return None
-
-
-def film_id(rec: dict) -> str:
-    """Replicate the SPA's film key: t<tmdb_id> or n<movie_title>."""
-    tmdb = rec.get("tmdb_id")
-    if tmdb not in (None, "", 0, "0"):
-        return f"t{tmdb}"
-    title = (rec.get("movie_title") or rec.get("movie_title_jp") or "").strip()
-    return f"n{title}"
 
 
 _slug_re = re.compile(r"[^a-z0-9]+")
@@ -189,7 +170,11 @@ def film_slug(fid: str, film: dict) -> str:
     if fid.startswith("t"):
         tmdb = fid[1:]
         return f"{tmdb}-{base}".rstrip("-")
-    return f"{base}-{short_hash(fid)}".lstrip("-") if base else f"film-{short_hash(fid)}"
+    legacy_fid = "n" + str(
+        film.get("movie_title") or film.get("movie_title_jp") or ""
+    ).strip()
+    return f"{base}-{short_hash(legacy_fid)}".lstrip("-") \
+        if base else f"film-{short_hash(legacy_fid)}"
 
 
 def iso_start(date_text: str, showtime: str) -> str | None:
@@ -231,7 +216,7 @@ def aggregate(showings: list[dict]):
     cinemas: dict[str, dict] = {}
 
     for rec in canonicalize_listings(showings):
-        fid = film_id(rec)
+        fid = film_identity_key(rec)
         film_recs[fid].append(rec)
         cname = (rec.get("cinema_name") or "").strip()
         if not cname:
@@ -256,25 +241,6 @@ def aggregate(showings: list[dict]):
         films[fid] = film
 
     return films, cinemas
-
-
-def build_slim(films: dict, cinemas: dict, generated_at: str) -> dict:
-    slim_films = {}
-    for fid, film in films.items():
-        slim_films[fid] = {k: film.get(k) for k in SLIM_FILM_FIELDS
-                           if film.get(k) not in (None, "", [], {})}
-    showings = []
-    for cin in cinemas.values():
-        for s in cin["showings"]:
-            showings.append({
-                "f": s["f"],
-                "cinema_name": cin["name"],
-                "date_text": s["date_text"],
-                "showtime": s["showtime"],
-            })
-    showings.sort(key=lambda s: (s["date_text"], s["showtime"], s["cinema_name"]))
-    return {"schema": 1, "generated_at": generated_at,
-            "films": slim_films, "showings": showings}
 
 
 # --------------------------------------------------------------------------- #
@@ -349,7 +315,7 @@ def render_film_page(fid, film, slug, base_url, today):
     title_jp = film.get("movie_title_jp") or film.get("movie_title") or "(無題)"
     title_en = film.get("movie_title_en") or film.get("movie_title_original") or ""
     canonical = f"{base_url}/film/{slug}/"
-    img = poster_url(film.get("tmdb_poster_path"), "w500")
+    img = poster_url(film.get("tmdb_poster_path"), "w500") or film.get("image_url")
 
     upcoming = [s for s in film["_showings"] if s["date_text"] >= today]
     upcoming.sort(key=lambda s: (s["date_text"], s["showtime"]))
@@ -439,9 +405,6 @@ def render_film_page(fid, film, slug, base_url, today):
             parts.append(f"<li>{e(label)}</li>")
         parts.append("</ul></div>")
 
-    booking = film.get("booking_url") or film.get("purchase_url") or film.get("detail_page_url")
-    if booking:
-        parts.append(f'<a class="btn" href="{e(booking)}" rel="nofollow">公式サイト / Details →</a>')
     parts.append('<p class="foot">Source: <a href="' + base_url + '/">cinematokyo.com</a> · '
                  'Tokyo mini-theater &amp; independent cinema showtimes.</p>')
     parts.append("</div></body></html>")
@@ -579,11 +542,10 @@ def build_index(template: Path, films, built_cinemas, built_films,
     html_src = html_src.replace("/tokyo-cinema-scrapers/icons/", "/icons/")
     html_src = html_src.replace("tokyo-cinema-scrapers/icons/", "icons/")
 
-    # Crawler-visible block; the SPA clears #film-results-list on first render,
-    # so users never see it but search engines and link unfurlers do.
+    # Crawler-visible fallback that browsers render only without JavaScript.
     rows = []
-    rows.append("<noscript><p>JavaScript で絞り込み・検索ができます。"
-                "以下は全上映の一覧です。</p></noscript>")
+    rows.append("<p>JavaScript で絞り込み・検索ができます。"
+                "以下は全上映の一覧です。</p>")
     rows.append('<h2>Cinemas / 映画館</h2><ul>')
     for cname in sorted(built_cinemas):
         rows.append(f'<li><a href="{base_url}/cinema/{built_cinemas[cname]}/">'
@@ -596,8 +558,8 @@ def build_index(template: Path, films, built_cinemas, built_films,
             rows.append(f'<li><a href="{base_url}/film/{built_films[fid]}/">'
                         f'{e(title)}</a></li>')
     rows.append("</ul>")
-    seo_block = ('<div id="seo-prerender" data-prerender="1">'
-                 + "\n".join(rows) + "</div>")
+    seo_block = ('<noscript><div id="seo-prerender" data-prerender="1">'
+                 + "\n".join(rows) + "</div></noscript>")
 
     anchor = 'id="film-results-list">'
     if anchor in html_src:
@@ -676,7 +638,6 @@ def main():
     raw_showings = json.loads(data_path.read_text(encoding="utf-8"))
     showings = canonicalize_listings(raw_showings)
     today = args.today or jst_today()
-    generated_at = dt.datetime.now(JST).isoformat(timespec="seconds")
     print(f"Loaded {len(raw_showings)} showings; publishing {len(showings)} canonical rows; "
           f"today (JST) = {today}")
 
@@ -708,7 +669,7 @@ def main():
     # Data feeds.
     (out / "data" / "showtimes.json").write_text(
         json.dumps(showings, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    slim = build_slim(films, cinemas, generated_at)
+    slim = build_slim(showings, today)
     (out / "data" / "showtimes_slim.json").write_text(
         json.dumps(slim, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"Slim: {len(slim['films'])} films, {len(slim['showings'])} showings")
