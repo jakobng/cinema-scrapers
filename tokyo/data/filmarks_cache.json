@@ -9955,6 +9955,35 @@
     "status": "review",
     "updated_at": "2026-06-12T00:05:20.726349+00:00"
   },
+  "neverafterdarkネバーアフターダーク::2026::105::": {
+    "candidate": {
+      "director": "デイヴ・ボイル",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime"
+      ],
+      "runtime": "105",
+      "score": 16,
+      "support": 2,
+      "title": "Never After Dark／ネバーアフターダーク",
+      "url": "https://filmarks.com/movies/126751",
+      "year": "2026"
+    },
+    "candidate_count": 29,
+    "filmarks_url": "https://filmarks.com/movies/126751",
+    "query": "Never After Dark／ネバーアフターダーク",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime"
+    ],
+    "score": 16,
+    "search_url": "https://filmarks.com/search/movies?q=Never%20After%20Dark%EF%BC%8F%E3%83%8D%E3%83%90%E3%83%BC%E3%82%A2%E3%83%95%E3%82%BF%E3%83%BC%E3%83%80%E3%83%BC%E3%82%AF",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:50.433658+00:00"
+  },
   "newgroup::2026::82::下津優太": {
     "candidate": {
       "director": "下津優太",
@@ -21628,6 +21657,35 @@
     "status": "accepted",
     "updated_at": "2026-06-14T23:36:25.518533+00:00"
   },
+  "にっぽん’69セックス猟奇地帯::1969::93::中島貞夫": {
+    "candidate": {
+      "director": "ユン・スンホ",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "90",
+      "score": -4,
+      "support": 0,
+      "title": "猟奇",
+      "url": "https://filmarks.com/movies/40131",
+      "year": ""
+    },
+    "candidate_count": 23,
+    "filmarks_url": "",
+    "query": "にっぽん’69 セックス猟奇地帯",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%AB%E3%81%A3%E3%81%BD%E3%82%93%E2%80%9969%20%E3%82%BB%E3%83%83%E3%82%AF%E3%82%B9%E7%8C%9F%E5%A5%87%E5%9C%B0%E5%B8%AF",
+    "status": "review",
+    "updated_at": "2026-08-31T00:40:54.541437+00:00"
+  },
   "ぬちがふぅ命果報－玉砕場からの証言－::2012::132::朴壽南": {
     "candidate": {
       "director": "篠原哲雄",
@@ -29029,6 +29087,37 @@
     "status": "review",
     "updated_at": "2026-06-20T23:36:00.758228+00:00"
   },
+  "グルスポングの奇跡::2023::114::マリアフレデリクソン": {
+    "candidate": {
+      "director": "マリア・フレデリクソン",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "114",
+      "score": 12,
+      "support": 2,
+      "title": "グルスポングの奇跡",
+      "url": "https://filmarks.com/movies/129864",
+      "year": "2026"
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/129864",
+    "query": "グルスポングの奇跡",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B0%E3%83%AB%E3%82%B9%E3%83%9D%E3%83%B3%E3%82%B0%E3%81%AE%E5%A5%87%E8%B7%A1",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:38.591163+00:00"
+  },
   "グレイトフラマリオン::::78::": {
     "candidate": {
       "director": "アンソニー・マン",
@@ -30865,6 +30954,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%BF%E3%83%BC",
     "status": "accepted",
     "updated_at": "2026-08-27T03:28:30.540230+00:00"
+  },
+  "シケモクとクズと花火と::2025::97::山岸謙太郎": {
+    "candidate": {
+      "director": "山岸謙太郎",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "97",
+      "score": 12,
+      "support": 2,
+      "title": "シケモクとクズと花火と",
+      "url": "https://filmarks.com/movies/120082",
+      "year": "2026"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "https://filmarks.com/movies/120082",
+    "query": "シケモクとクズと花火と",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B7%E3%82%B1%E3%83%A2%E3%82%AF%E3%81%A8%E3%82%AF%E3%82%BA%E3%81%A8%E8%8A%B1%E7%81%AB%E3%81%A8",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:36.543423+00:00"
   },
   "シコふんじゃった。::1991::103::周防正行": {
     "candidate": {
@@ -34069,6 +34189,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%80%E3%83%96%E3%83%AB%E3%83%BB%E3%82%AF%E3%83%A9%E3%83%83%E3%83%81",
     "status": "accepted",
     "updated_at": "2026-06-14T23:36:16.579053+00:00"
+  },
+  "ダークスター::1974::83::ジョンカーペンター": {
+    "candidate": {
+      "director": "ジョン・カーペンター",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "83",
+      "score": 12,
+      "support": 2,
+      "title": "ダーク・スター",
+      "url": "https://filmarks.com/movies/36368",
+      "year": "1981"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "https://filmarks.com/movies/36368",
+    "query": "ダーク・スター",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%80%E3%83%BC%E3%82%AF%E3%83%BB%E3%82%B9%E3%82%BF%E3%83%BC",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:44.307133+00:00"
   },
   "ダートムーアの田舎家::::::": {
     "candidate": {
@@ -39308,6 +39459,64 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%AD%E3%83%BC%E3%83%BB%E3%83%95%E3%83%AA%E3%83%BC%E3%82%B3",
     "status": "review",
     "updated_at": "2026-06-30T23:38:30.598100+00:00"
+  },
+  "フランケンシュタインの怪獣サンダ対ガイラ::1966::88::本多猪四郎": {
+    "candidate": {
+      "director": "本多猪四郎",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "88",
+      "score": 18,
+      "support": 2,
+      "title": "フランケンシュタインの怪獣 サンダ対ガイラ",
+      "url": "https://filmarks.com/movies/19069",
+      "year": ""
+    },
+    "candidate_count": 30,
+    "filmarks_url": "https://filmarks.com/movies/19069",
+    "query": "フランケンシュタインの怪獣 サンダ対ガイラ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B1%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E3%81%AE%E6%80%AA%E7%8D%A3%20%E3%82%B5%E3%83%B3%E3%83%80%E5%AF%BE%E3%82%AC%E3%82%A4%E3%83%A9",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:47.895498+00:00"
+  },
+  "フランケンシュタイン対地底怪獣::1965::90::本多猪四郎": {
+    "candidate": {
+      "director": "本多猪四郎",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "90",
+      "score": 18,
+      "support": 2,
+      "title": "フランケンシュタイン対地底怪獣（バラゴン）",
+      "url": "https://filmarks.com/movies/10264",
+      "year": ""
+    },
+    "candidate_count": 30,
+    "filmarks_url": "https://filmarks.com/movies/10264",
+    "query": "フランケンシュタイン対地底怪獣",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B1%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E5%AF%BE%E5%9C%B0%E5%BA%95%E6%80%AA%E7%8D%A3",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:46.846147+00:00"
   },
   "フレディmムーラー特集::::::": {
     "candidate": {
@@ -49111,6 +49320,35 @@
     "status": "accepted",
     "updated_at": "2026-07-10T23:24:09.703978+00:00"
   },
+  "任侠外伝玄海灘::1976::123::唐十郎": {
+    "candidate": {
+      "director": "唐十郎",
+      "reasons": [
+        "title_exact",
+        "runtime_near",
+        "director"
+      ],
+      "runtime": "122",
+      "score": 16,
+      "support": 2,
+      "title": "任侠外伝 玄海灘",
+      "url": "https://filmarks.com/movies/33949",
+      "year": ""
+    },
+    "candidate_count": 33,
+    "filmarks_url": "https://filmarks.com/movies/33949",
+    "query": "任侠外伝 玄海灘",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_near",
+      "director"
+    ],
+    "score": 16,
+    "search_url": "https://filmarks.com/search/movies?q=%E4%BB%BB%E4%BE%A0%E5%A4%96%E4%BC%9D%20%E7%8E%84%E6%B5%B7%E7%81%98",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:51.832412+00:00"
+  },
   "伊賀忍法帖::1982::100::斎藤光正": {
     "candidate": {
       "director": "齋藤光正",
@@ -53369,6 +53607,35 @@
     "status": "accepted",
     "updated_at": "2026-08-04T23:32:56.993979+00:00"
   },
+  "喜劇とんかつ一代::1963::94::川島雄三": {
+    "candidate": {
+      "director": "川島雄三",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "94",
+      "score": 18,
+      "support": 2,
+      "title": "喜劇 とんかつ一代",
+      "url": "https://filmarks.com/movies/33468",
+      "year": ""
+    },
+    "candidate_count": 34,
+    "filmarks_url": "https://filmarks.com/movies/33468",
+    "query": "喜劇 とんかつ一代",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%96%9C%E5%8A%87%20%E3%81%A8%E3%82%93%E3%81%8B%E3%81%A4%E4%B8%80%E4%BB%A3",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:42.954960+00:00"
+  },
   "喜劇日本列島震度0::1973::90::前田陽一": {
     "candidate": {
       "director": "前田陽一",
@@ -53484,6 +53751,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E5%96%9C%E5%8A%87%20%E9%80%86%E8%BB%A2%E6%97%85%E8%A1%8C",
     "status": "accepted",
     "updated_at": "2026-06-19T23:23:39.950488+00:00"
+  },
+  "喜劇駅前弁当::1961::89::久松静児": {
+    "candidate": {
+      "director": "久松静児",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "89",
+      "score": 18,
+      "support": 2,
+      "title": "喜劇 駅前弁当",
+      "url": "https://filmarks.com/movies/6851",
+      "year": ""
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/6851",
+    "query": "喜劇 駅前弁当",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%96%9C%E5%8A%87%20%E9%A7%85%E5%89%8D%E5%BC%81%E5%BD%93",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:53.268829+00:00"
   },
   "喜劇駅前漫画::1966::94::佐伯幸三": {
     "candidate": {
@@ -58178,6 +58474,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E5%B1%B1%E6%A4%92%E5%A4%A7%E5%A4%AB",
     "status": "accepted",
     "updated_at": "2026-07-17T23:14:31.331030+00:00"
+  },
+  "山椒大夫::1954::126::溝口健二": {
+    "candidate": {
+      "director": "溝口健二",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime_near",
+        "director"
+      ],
+      "runtime": "124",
+      "score": 19,
+      "support": 3,
+      "title": "山椒大夫",
+      "url": "https://filmarks.com/movies/4765",
+      "year": "1954"
+    },
+    "candidate_count": 1,
+    "filmarks_url": "https://filmarks.com/movies/4765",
+    "query": "山椒大夫",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime_near",
+      "director"
+    ],
+    "score": 19,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%B1%B1%E6%A4%92%E5%A4%A7%E5%A4%AB",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:42.083018+00:00"
   },
   "岡本万太::2026::149::真田宗仁郎": {
     "candidate": {
@@ -69031,6 +69358,35 @@
     "status": "review",
     "updated_at": "2026-08-21T22:53:50.970346+00:00"
   },
+  "流されて…::1974::116::リナウェルトミューラー": {
+    "candidate": {
+      "director": "リナ・ウェルトミューラー",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "116",
+      "score": 18,
+      "support": 2,
+      "title": "流されて…",
+      "url": "https://filmarks.com/movies/12819",
+      "year": ""
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/12819",
+    "query": "流されて…",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%B5%81%E3%81%95%E3%82%8C%E3%81%A6%E2%80%A6",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:49.106495+00:00"
+  },
   "浪華悲歌::1936::71::溝口健二": {
     "candidate": {
       "director": "溝口健二",
@@ -73058,6 +73414,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E7%A5%9D%E8%B3%80%E3%81%AE%E5%A4%9C",
     "status": "review",
     "updated_at": "2026-06-19T00:14:00.163878+00:00"
+  },
+  "神々の深き欲望::1968::175::今村昌平": {
+    "candidate": {
+      "director": "今村昌平",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "175",
+      "score": 18,
+      "support": 2,
+      "title": "神々の深き欲望",
+      "url": "https://filmarks.com/movies/22644",
+      "year": ""
+    },
+    "candidate_count": 27,
+    "filmarks_url": "https://filmarks.com/movies/22644",
+    "query": "神々の深き欲望",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%A5%9E%E3%80%85%E3%81%AE%E6%B7%B1%E3%81%8D%E6%AC%B2%E6%9C%9B",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:45.747325+00:00"
   },
   "神探大戦::2022::101::ワイカーファイ": {
     "candidate": {
@@ -77289,6 +77674,35 @@
     "status": "accepted",
     "updated_at": "2026-07-17T23:14:29.388361+00:00"
   },
+  "西鶴一代女::1952::137::溝口健二": {
+    "candidate": {
+      "director": "溝口健二",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "137",
+      "score": 18,
+      "support": 2,
+      "title": "西鶴一代女",
+      "url": "https://filmarks.com/movies/19785",
+      "year": ""
+    },
+    "candidate_count": 3,
+    "filmarks_url": "https://filmarks.com/movies/19785",
+    "query": "西鶴一代女",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E8%A5%BF%E9%B6%B4%E4%B8%80%E4%BB%A3%E5%A5%B3",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:41.267643+00:00"
+  },
   "要心無用::::::フレッドニューメイヤー": {
     "candidate": {
       "director": "サミュエル・A・テイラー",
@@ -80247,6 +80661,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E9%9A%A3%E4%BA%BA%E3%81%9F%E3%81%A1",
     "status": "accepted",
     "updated_at": "2026-07-21T23:24:42.390388+00:00"
+  },
+  "雨月物語::1953::96::溝口健二": {
+    "candidate": {
+      "director": "溝口健二",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime_near",
+        "director"
+      ],
+      "runtime": "97",
+      "score": 19,
+      "support": 3,
+      "title": "雨月物語",
+      "url": "https://filmarks.com/movies/8682",
+      "year": "1953"
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/8682",
+    "query": "雨月物語",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime_near",
+      "director"
+    ],
+    "score": 19,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%9B%A8%E6%9C%88%E7%89%A9%E8%AA%9E",
+    "status": "accepted",
+    "updated_at": "2026-08-31T00:40:39.814488+00:00"
   },
   "雨月物語::1953::97::溝口健二": {
     "candidate": {
