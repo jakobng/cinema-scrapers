@@ -226,28 +226,8 @@
             font-size: clamp(1.8rem, 1.4rem + 1.2vw, 2.5rem);
             text-transform: uppercase;
             letter-spacing: 0.16em;
-            cursor: pointer;
             font-weight: 700;
             line-height: 1.1;
-        }
-        .site-intro {
-            max-width: 72ch;
-            margin: 0 auto 18px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-        .search-guides {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px 16px;
-            margin: -10px 0 20px;
-            font-size: 0.8rem;
-        }
-        .search-guides a {
-            color: var(--muted);
-            text-underline-offset: 3px;
         }
         /* --- NEW TABS --- */
         .view-tabs {
@@ -840,11 +820,11 @@
     <main class="page">
         <header class="page-header">
             <div class="header-left">
-                <h1 id="site-title">東京ミニシアター上映スケジュール</h1>
+                <h1><a id="site-title" href="/">東京ミニシアター上映スケジュール</a></h1>
                 <div class="site-credit" id="site-credit"></div>
                 <div class="lang-toggle" role="group" aria-label="Language">
-                    <button class="lang-btn" data-lang="ja" type="button">JP</button>
-                    <button class="lang-btn" data-lang="en" type="button">EN</button>
+                    <button class="lang-btn" data-lang="ja" type="button" aria-pressed="false">JP</button>
+                    <button class="lang-btn" data-lang="en" type="button" aria-pressed="false">EN</button>
                 </div>
             </div>
             <div class="header-right">
@@ -858,15 +838,9 @@
                 </a>
             </div>
         </header>
-        <p class="site-intro">東京のミニシアター・名画座・インディペンデント映画館の上映時間を毎日更新。 <span lang="en">Daily independent cinema showtimes across Tokyo.</span></p>
         <nav class="view-tabs">
-            <button class="tab-btn" data-view="cinema" type="button" id="view-cinema-btn"></button>
-            <button class="tab-btn is-active" data-view="film" type="button" id="view-film-btn"></button>
-        </nav>
-        <nav class="search-guides" aria-label="Popular cinema schedules">
-            <a href="/today/">今日 / Today</a>
-            <a href="/tonight/">今夜 / Tonight</a>
-            <a href="/weekend/">今週末 / This weekend</a>
+            <button class="tab-btn" data-view="cinema" type="button" id="view-cinema-btn" aria-pressed="false"></button>
+            <button class="tab-btn is-active" data-view="film" type="button" id="view-film-btn" aria-pressed="true"></button>
         </nav>
         <section class="controls-section">
             <div class="primary-controls">
@@ -926,11 +900,11 @@
                     <button class="back-btn" type="button" id="back-to-cinemas"></button>
                     <div>
                         <div class="cinema-title-row">
-                            <h2 class="cinema-title" id="cinema-title"></h2>
+                            <h2 class="cinema-title" id="cinema-title" tabindex="-1"></h2>
                             <a class="film-link cinema-site-link is-hidden" id="cinema-site-link" href="#" target="_blank" rel="noopener"></a>
                             <a class="film-link cinema-map-link" id="cinema-map-link" href="#" target="_blank" rel="noopener"></a>
                         </div>
-                        <div class="cinema-meta" id="cinema-meta"></div>
+                        <div class="cinema-meta" id="cinema-meta" role="status" aria-live="polite"></div>
                     </div>
                 </div>
                 <div id="cinema-showtimes-list"></div>
@@ -938,7 +912,7 @@
         </section>
         <section class="view-section" id="film-view">
             <div class="film-view-header">
-                <div class="results-count" id="film-results-count"></div>
+                <div class="results-count" id="film-results-count" role="status" aria-live="polite" aria-atomic="true"></div>
                 <div class="results-meta" id="film-results-meta"></div>
             </div>
             <div class="film-list" id="film-results-list">
@@ -1385,10 +1359,14 @@
                 applyingUrlState = true;
                 readUrlState();
                 elements.langButtons.forEach(function (button) {
-                    button.classList.toggle("is-active", button.getAttribute("data-lang") === state.lang);
+                    const isActive = button.getAttribute("data-lang") === state.lang;
+                    button.classList.toggle("is-active", isActive);
+                    button.setAttribute("aria-pressed", isActive ? "true" : "false");
                 });
                 elements.viewButtons.forEach(function (button) {
-                    button.classList.toggle("is-active", button.getAttribute("data-view") === state.view);
+                    const isActive = button.getAttribute("data-view") === state.view;
+                    button.classList.toggle("is-active", isActive);
+                    button.setAttribute("aria-pressed", isActive ? "true" : "false");
                 });
                 updateUIText();
                 if (elements.dateSelect.options.length) {
@@ -1474,6 +1452,7 @@
                 updateLocationStatus("");
                 updateSortOptions();
                 elements.searchInput.value = "";
+                applySmartDefaultDate(false);
                 elements.dateSelect.value = state.filters.date;
                 syncContentCheckboxes();
                 elements.regionSelect.value = "all";
@@ -1557,23 +1536,20 @@
                 elements.installButton.addEventListener("click", showIosInstallHint);
             }
             elements.backToCinemas.addEventListener("click", function () {
+                const returningCinema = state.selectedCinema;
                 state.selectedCinema = "";
                 writeUrlState(true);
                 render();
-            });
-            document.querySelector("h1").addEventListener("click", function () {
-                state.selectedCinema = "";
-                state.filters.search = "";
-                elements.searchInput.value = "";
-                writeUrlState(true);
-                render();
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                const returningButton = Array.from(elements.cinemaIndex.querySelectorAll(".cinema-card"))
+                    .find((button) => button.dataset.cinema === returningCinema) || elements.viewCinemaBtn;
+                returningButton.focus();
             });
             function setView(view) {
                 state.view = view;
                 elements.viewButtons.forEach(function (button) {
                     const isActive = button.getAttribute("data-view") === view;
                     button.classList.toggle("is-active", isActive);
+                    button.setAttribute("aria-pressed", isActive ? "true" : "false");
                 });
                 updateSortOptions();
                 writeUrlState(true);
@@ -1586,6 +1562,7 @@
                 elements.langButtons.forEach(function (button) {
                     const isActive = button.getAttribute("data-lang") === lang;
                     button.classList.toggle("is-active", isActive);
+                    button.setAttribute("aria-pressed", isActive ? "true" : "false");
                 });
                 updateUIText();
                 updateDateSelect();
@@ -1886,7 +1863,8 @@
                 }
             }
             function getCinemaWebsite(cinemaName, showings) {
-                if (cinemaWebsiteOverrides[cinemaName]) return cinemaWebsiteOverrides[cinemaName];
+                const explicitWebsite = showings.map((showing) => showing.cinemaSiteUrl).find((url) => url);
+                if (explicitWebsite || cinemaWebsiteOverrides[cinemaName]) return explicitWebsite || cinemaWebsiteOverrides[cinemaName];
                 const counts = new Map();
                 const origins = new Map();
                 showings.forEach(function (showing) {
@@ -2362,6 +2340,12 @@
                     const titleEn = item.movie_title_en || "";
                     const titleDisplay = formatBilingual(titleJp, titleEn);
                     const tmdbId = item.tmdb_id ? String(item.tmdb_id) : "";
+                    const fallbackFilmTitle = item.movie_title_jp || item.clean_title_jp
+                        || item.movie_title || item.movie_title_en || "";
+                    const normalizedFallbackFilmTitle = fallbackFilmTitle.normalize("NFKC")
+                        .toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
+                    const filmKey = item.f || (tmdbId ? "t" + tmdbId
+                        : "n" + (normalizedFallbackFilmTitle || fallbackFilmTitle.trim()));
                     const rawCinemaName = cinemaNameAliases[item.cinema_name] || item.cinema_name || t("unknownCinema");
                     const cinemaJp = getCinemaJapaneseName(rawCinemaName);
                     const region = getRegionForCinema(rawCinemaName);
@@ -2401,6 +2385,7 @@
                         ].filter(Boolean).join(" ");
                     return {
                         id: index,
+                        filmKey: filmKey,
                         cinema: rawCinemaName,
                         region: region,
                         cinemaDisplay: cinemaDisplay,
@@ -2413,6 +2398,7 @@
                         showtime: showtime,
                         bookingUrl: item.booking_url || item.purchase_url || "",
                         detailUrl: item.detail_page_url || item.official_site || "",
+                        cinemaSiteUrl: item.cinema_site_url || "",
                         director: item.director || "",
                         directorEn: item.director_en || "",
                         year: item.year || "",
@@ -2495,7 +2481,7 @@
                 if (normalizeLanguageCode(originalLanguage) !== "en") return false;
                 return !(hasDubMarker(formatText) && !hasOriginalAudioOrSubtitleMarker(formatText));
             }
-            function applyFilters(showings) {
+            const applyFilters = (showings, filters = state.filters) => {
                 const now = new Date();
                 const todayText = getJstDateText();
                 const tomorrowText = getJstDateOffsetText(1);
@@ -2507,67 +2493,58 @@
                         return false;
                     }
 
-                    if (state.filters.search && !showing.searchText.includes(state.filters.search)) {
+                    if (filters.search && !showing.searchText.includes(filters.search)) {
                         return false;
                     }
 
-                    if (state.filters.date === "today" && showing.dateText !== todayText) {
+                    if (filters.date === "today" && showing.dateText !== todayText) {
                         return false;
                     }
-                    if (state.filters.date === "tomorrow" && showing.dateText !== tomorrowText) {
+                    if (filters.date === "tomorrow" && showing.dateText !== tomorrowText) {
                         return false;
                     }
-                    if (state.filters.date === "next-7") {
+                    if (filters.date === "next-7") {
                         if (showing.dateText < todayText || showing.dateText > next7EndText) {
                             return false;
                         }
                     }
 
-                    if (state.filters.region !== "all" && showing.region !== state.filters.region) {
+                    if (filters.region !== "all" && showing.region !== filters.region) {
                         return false;
                     }
-                    if (state.filters.englishFriendly && !showing.isEnglishFriendly) {
+                    if (filters.englishFriendly && !showing.isEnglishFriendly) {
                         return false;
                     }
-                    if (state.filters.docOnly && !isDocumentary(showing)) {
+                    if (filters.docOnly && !isDocumentary(showing)) {
                         return false;
                     }
-                    if (state.filters.animationOnly && !isAnimation(showing)) {
+                    if (filters.animationOnly && !isAnimation(showing)) {
                         return false;
                     }
                     return true;
                 });
-            }
-            function presetHasResults(preset) {
-                const saved = state.filters.date;
-                state.filters.date = preset;
-                const count = applyFilters(state.data).length;
-                state.filters.date = saved;
-                return count > 0;
-            }
+            };
+            const presetHasResults = (preset) =>
+                applyFilters(state.data, { ...state.filters, date: preset }).length > 0;
             // "Smart today": on initial load, if today's screenings are already over,
             // fall forward to the next date preset that has upcoming showings, so the
             // site is never empty in the evening. An explicit ?date= URL is respected.
-            function applySmartDefaultDate() {
+            const applySmartDefaultDate = (respectExplicitUrl = true) => {
                 const urlDate = new URLSearchParams(window.location.hash.replace(/^#/, "")).get("date");
-                if (datePresets.indexOf(urlDate) >= 0) return;
+                if (respectExplicitUrl !== false && datePresets.indexOf(urlDate) >= 0) return;
                 if (state.filters.date !== "today") return;
                 if (presetHasResults("today")) return;
-                const fallback = ["tomorrow", "next-7", "all"].find(function (preset) {
-                    return presetHasResults(preset);
-                });
+                const fallback = ["tomorrow", "next-7", "all"].find((preset) =>
+                    presetHasResults(preset));
                 if (fallback) {
                     state.filters.date = fallback;
                     if (elements.dateSelect && elements.dateSelect.options.length) {
                         elements.dateSelect.value = fallback;
                     }
                 }
-            }
-            function getFilmKey(showing) {
-                const keyTitle = (showing.titleEn || showing.titleJp || showing.titleDisplay || "").trim();
-                return showing.tmdbId ? "tmdb-" + showing.tmdbId : "title-" + keyTitle;
-            }
-            function groupByFilm(showings) {
+            };
+            const getFilmKey = (showing) => showing.filmKey;
+            const groupByFilm = (showings) => {
                 const map = new Map();
                 showings.forEach(function (showing) {
                     const key = getFilmKey(showing);
@@ -2617,7 +2594,7 @@
                     film.formatTags = Array.from(film.formatTags);
                 });
                 return films;
-            }
+            };
             function getFiltersSummary() {
                 const parts = [];
                 if (state.filters.search) parts.push(t("search") + ": \"" + state.filters.search + "\"");
@@ -2649,11 +2626,13 @@
                 function createCinemaCard(cinema) {
                     const card = createElement("button", "cinema-card");
                     card.type = "button";
+                    card.dataset.cinema = cinema.name;
                     card.appendChild(createElement("div", "cinema-card-title", getCinemaDisplayWithDistance(cinema.name)));
                     card.addEventListener("click", function () {
                         state.selectedCinema = cinema.name;
                         writeUrlState(true);
                         render();
+                        elements.cinemaTitle.focus({ preventScroll: true });
                         elements.cinemaShowtimes.scrollIntoView({ behavior: "smooth" });
                     });
                     return card;
@@ -2741,9 +2720,12 @@
                         const key = getFilmKey(showing);
                         if (!filmMap.has(key)) {
                             filmMap.set(key, {
+                                titleJp: showing.titleJp,
+                                titleEn: showing.titleEn,
                                 titleDisplay: showing.titleDisplay,
                                 year: showing.year,
                                 director: showing.director,
+                                directorEn: showing.directorEn,
                                 runtime: showing.runtime,
                                 letterboxdUrl: showing.letterboxdUrl,
                                 showings: []
@@ -2767,7 +2749,7 @@
                         info.appendChild(titleRow);
                         const metaParts = [];
                         if (film.year) metaParts.push(film.year);
-                        var filmDirector = getFilmDirector(film);
+                        const filmDirector = getFilmDirector(film);
                         if (filmDirector) metaParts.push(filmDirector);
                         if (film.runtime) metaParts.push(film.runtime + " " + t("min"));
                         if (metaParts.length) {
@@ -2882,7 +2864,7 @@
                             row.appendChild(cinemaNameCell);
                             const timeRow = createElement("div", "time-row");
                             appendShowtimeChips(timeRow, showings, function (showing) {
-                                const includeDate = state.filters.date === "all";
+                                const includeDate = state.filters.date === "all" || state.filters.date === "next-7";
                                 return includeDate && showing.dateText
                                     ? formatDate(showing.dateText, false) + " " + (showing.showtime || t("tbd"))
                                     : (showing.showtime || t("tbd"));

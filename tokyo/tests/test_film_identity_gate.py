@@ -286,8 +286,8 @@ def test_suppressed_screening_survives_static_site_aggregation_without_tmdb():
     films, cinemas = build_site.aggregate([selected_item])
 
     assert selected_details is None
-    assert list(films) == ["n花様年華 4K + 花様年華2001"]
-    assert cinemas["NFAJ"]["showings"][0]["f"] == "n花様年華 4K + 花様年華2001"
+    assert list(films) == ["n花様年華4k花様年華2001"]
+    assert cinemas["NFAJ"]["showings"][0]["f"] == "n花様年華4k花様年華2001"
 
 
 def test_reviewed_ledger_contains_the_complete_audit_and_calibrations():
