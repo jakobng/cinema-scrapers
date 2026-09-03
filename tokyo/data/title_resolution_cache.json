@@ -59,7 +59,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -68,7 +68,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -751,7 +751,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -841,7 +841,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -917,7 +917,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -1039,7 +1039,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -1288,27 +1288,30 @@
   },
   "METライブビューイング2012-13 ヘンデル《ジュリアス・シーザー》": {
     "ai_provider": "deepseek",
-    "confidence": 1.0,
-    "country": "アメリカ",
-    "director": "C・ノーラン",
-    "english_title": "The Metropolitan Opera HD Live Season 7, Episode 12: Handel: Giulio Cesare",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-08-19T22:51:47+00:00",
-    "notes": "",
-    "original_title": "The Metropolitan Opera HD Live Season 7, Episode 12: Handel: Giulio Cesare",
-    "release_year": 2013
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
+  },
+  "METライブビューイング2015-16 ドニゼッティ《ロベルト・デヴェリュー》": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
   },
   "METライブビューイング2016-17 モーツァルト《ドン・ジョヴァンニ》": {
     "ai_provider": "deepseek",
-    "confidence": 0.9,
-    "country": "アメリカ",
-    "director": null,
-    "english_title": "The Metropolitan Opera HD Live Season 11, Episode 2: Mozart: Don Giovanni",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-08-28T06:21:54+00:00",
-    "notes": "",
-    "original_title": "METライブビューイング2016-17 モーツァルト《ドン・ジョヴァンニ》",
-    "release_year": 2016
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
   },
   "METライブビューイング2018-19 ビゼー《カルメン》": {
     "ai_provider": "deepseek",
@@ -1336,27 +1339,21 @@
   },
   "METライブビューイング2018-19 ヴェルディ《椿姫》": {
     "ai_provider": "deepseek",
-    "confidence": 1.0,
-    "country": "アメリカ",
-    "director": "ヤニック・ネゼ＝セガン",
-    "english_title": "The Metropolitan Opera HD Live Season 13, Episode 5: Verdi: La Traviata",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-08-24T22:55:18+00:00",
-    "notes": "",
-    "original_title": "METライブビューイング2018-19 ヴェルディ《椿姫》",
-    "release_year": 2018
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
   },
   "METライブビューイング2022-23 モーツァルト《魔笛》": {
     "ai_provider": "deepseek",
-    "confidence": 0.9,
-    "country": "アメリカ",
-    "director": null,
-    "english_title": "The Metropolitan Opera HD Live Season 16, Episode 10: Mozart: Die Zauberflote",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-08-28T06:21:54+00:00",
-    "notes": "",
-    "original_title": "METライブビューイング2022-23 モーツァルト《魔笛》",
-    "release_year": 2023
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
   },
   "METライブビューイング2025-26 R・シュトラウス《アラベッラ》": {
     "ai_provider": "deepseek",
@@ -1383,15 +1380,12 @@
   },
   "METライブビューイング2025-26 ジョルダーノ《アンドレア・シェニエ》": {
     "ai_provider": "deepseek",
-    "confidence": 1.0,
-    "country": "アメリカ",
-    "director": "C・ノーラン",
-    "english_title": "The Metropolitan Opera HD Live Season 19, Episode 4: Umberto Giordano - Andrea Chenier",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-08-19T22:51:47+00:00",
-    "notes": "",
-    "original_title": "The Metropolitan Opera HD Live Season 19, Episode 4: Umberto Giordano - Andrea Chenier",
-    "release_year": 2025
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
   },
   "METライブビューイング2025-26 チャイコフスキー《エフゲニー・オネーギン》": {
     "ai_provider": "deepseek",
@@ -1410,28 +1404,25 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
   "METライブビューイング2025-26 ベッリーニ《夢遊病の娘》": {
     "ai_provider": "deepseek",
-    "confidence": 1.0,
-    "country": "アメリカ",
-    "director": null,
-    "english_title": "The Metropolitan Opera HD Live Season 19, Episode 1: Vincenzo Bellini - La Sonnambula",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-08-14T22:49:26+00:00",
-    "notes": "",
-    "original_title": "The Metropolitan Opera HD Live Season 19, Episode 1: Vincenzo Bellini - La Sonnambula",
-    "release_year": 2025
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
   },
   "METライブビューイング2025-26 ベッリーニ《清教徒》": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -1529,7 +1520,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -1638,7 +1629,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -1746,7 +1737,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -1755,7 +1746,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -1764,7 +1755,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -2795,7 +2786,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -2905,7 +2896,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -2914,7 +2905,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -3229,7 +3220,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -3788,7 +3779,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -3806,7 +3797,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -4677,7 +4668,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -4686,7 +4677,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -4695,7 +4686,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -4704,7 +4695,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -5146,7 +5137,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -5429,7 +5420,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -5556,7 +5547,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -5572,7 +5563,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -5651,7 +5642,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -5924,7 +5915,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -6048,7 +6039,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -6057,7 +6048,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -6171,7 +6162,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -6227,7 +6218,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -6269,7 +6260,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -6299,6 +6290,15 @@
     "notes": "",
     "original_title": "從今以後",
     "release_year": 2024
+  },
+  "こわれゆく女": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
   },
   "さよならはスローボールで": {
     "confidence": 1.0,
@@ -6336,6 +6336,15 @@
     "notes": "",
     "original_title": "さらば箱舟",
     "release_year": 1982
+  },
+  "しびれ": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
   },
   "しわ": {
     "confidence": 0.95,
@@ -6465,7 +6474,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -6483,7 +6492,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -6671,7 +6680,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -6689,7 +6698,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -7834,7 +7843,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -7892,7 +7901,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -7901,7 +7910,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -7939,7 +7948,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -8153,7 +8162,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -8190,7 +8199,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -8239,7 +8248,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -8430,6 +8439,15 @@
     "notes": "",
     "original_title": "A Week with Kiarostami",
     "release_year": 1999
+  },
+  "キノ・ライカ　小さな町の映画館": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
   },
   "キムズビデオ": {
     "confidence": 1.0,
@@ -8681,7 +8699,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -8690,7 +8708,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -8720,7 +8738,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -8739,7 +8757,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -9254,7 +9272,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -9807,7 +9825,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -10081,7 +10099,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -10108,7 +10126,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -10929,7 +10947,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -10938,7 +10956,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-01T01:29:15+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -11180,7 +11198,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -11214,7 +11232,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -11658,7 +11676,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -11829,7 +11847,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -11847,7 +11865,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -11982,7 +12000,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -12083,7 +12101,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -12312,7 +12330,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -12567,7 +12585,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -12576,7 +12594,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -12793,7 +12811,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -12802,7 +12820,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -12850,7 +12868,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -12889,7 +12907,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -13022,7 +13040,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -13608,7 +13626,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -13627,7 +13645,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -13694,7 +13712,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -13763,7 +13781,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -13793,7 +13811,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -14004,8 +14022,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-08-18T22:52:44+00:00",
-    "notes": "local_ai_no_result",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
     "release_year": null
   },
   "ワールド・オブ・ハンス・ジマー　新次元へ": {
@@ -14172,7 +14190,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -14324,7 +14342,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -14707,7 +14725,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -14842,7 +14860,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -14949,7 +14967,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -14958,7 +14976,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -15053,6 +15071,15 @@
     "notes": "gemini_failed",
     "release_year": null
   },
+  "劇場版　少女☆歌劇 レヴュー・スタァライト": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
+    "notes": "local_ai_unavailable",
+    "release_year": null
+  },
   "劇場版　旅人検視官　道場修作": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
@@ -15077,7 +15104,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -15208,7 +15235,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -15267,7 +15294,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -15361,7 +15388,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -15494,7 +15521,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -15658,7 +15685,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -15667,7 +15694,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -15703,7 +15730,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -16061,7 +16088,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -16123,7 +16150,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -17282,7 +17309,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -17300,7 +17327,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -17488,7 +17515,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -17599,7 +17626,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -17626,7 +17653,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -17646,7 +17673,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -18063,7 +18090,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -18559,7 +18586,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -18771,7 +18798,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -18872,7 +18899,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -19005,7 +19032,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -19185,7 +19212,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -19287,7 +19314,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -19728,7 +19755,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -19737,7 +19764,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -19746,7 +19773,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -19823,7 +19850,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -19905,7 +19932,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -20284,7 +20311,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -20507,7 +20534,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -20873,7 +20900,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -21124,7 +21151,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -21348,7 +21375,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -21664,7 +21691,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -21748,7 +21775,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -21757,7 +21784,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -22019,7 +22046,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -22028,7 +22055,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -22322,7 +22349,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -22435,7 +22462,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -22746,7 +22773,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -23155,7 +23182,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -23164,7 +23191,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
@@ -23173,7 +23200,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-02T00:15:50+00:00",
+    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
     "notes": "local_ai_unavailable",
     "release_year": null
   },
