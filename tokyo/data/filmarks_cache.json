@@ -26997,6 +26997,31 @@
     "status": "review",
     "updated_at": "2026-08-03T23:33:16.177400+00:00"
   },
+  "ウィーハブアドリーム::::::": {
+    "candidate": {
+      "director": "パスカル・プリッソン",
+      "reasons": [
+        "title_exact"
+      ],
+      "runtime": "96",
+      "score": 10,
+      "support": 0,
+      "title": "ウィー・ハブ・ア・ドリーム",
+      "url": "https://filmarks.com/movies/128426",
+      "year": "2026"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "ウィー・ハブ・ア・ドリーム",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact"
+    ],
+    "score": 10,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%A6%E3%82%A3%E3%83%BC%E3%83%BB%E3%83%8F%E3%83%96%E3%83%BB%E3%82%A2%E3%83%BB%E3%83%89%E3%83%AA%E3%83%BC%E3%83%A0",
+    "status": "review",
+    "updated_at": "2026-09-06T00:01:57.979055+00:00"
+  },
   "ウォンカーウァイ艶めく熱帯夜2026::::::": {
     "candidate": {
       "director": "リー・ハンシャン",
@@ -33907,6 +33932,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%B9%E3%82%A4%E3%82%B9%E3%83%BB%E3%82%A2%E3%83%BC%E3%83%9F%E3%83%BC%E3%83%BB%E3%83%9E%E3%83%B3",
     "status": "review",
     "updated_at": "2026-08-04T23:32:51.535714+00:00"
+  },
+  "スイートリトルライズ::2010::117::矢崎仁司": {
+    "candidate": {
+      "director": "矢崎仁司",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "117",
+      "score": 21,
+      "support": 3,
+      "title": "スイートリトルライズ",
+      "url": "https://filmarks.com/movies/29817",
+      "year": "2010"
+    },
+    "candidate_count": 33,
+    "filmarks_url": "https://filmarks.com/movies/29817",
+    "query": "スイートリトルライズ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B9%E3%82%A4%E3%83%BC%E3%83%88%E3%83%AA%E3%83%88%E3%83%AB%E3%83%A9%E3%82%A4%E3%82%BA",
+    "status": "accepted",
+    "updated_at": "2026-09-06T00:01:51.469177+00:00"
   },
   "スカーフェイス::1983::170::ブライアンデパルマ": {
     "candidate": {
@@ -52054,6 +52110,35 @@
     "status": "review",
     "updated_at": "2026-07-29T23:25:28.742175+00:00"
   },
+  "健康ちえのわトランポリン教室::2026::::石川皓一": {
+    "candidate": {
+      "director": "石川皓一",
+      "reasons": [
+        "title_exact",
+        "year",
+        "director"
+      ],
+      "runtime": "103",
+      "score": 18,
+      "support": 2,
+      "title": "健康ちえのわトランポリン教室",
+      "url": "https://filmarks.com/movies/124426",
+      "year": "2026"
+    },
+    "candidate_count": 25,
+    "filmarks_url": "https://filmarks.com/movies/124426",
+    "query": "健康ちえのわトランポリン教室",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%81%A5%E5%BA%B7%E3%81%A1%E3%81%88%E3%81%AE%E3%82%8F%E3%83%88%E3%83%A9%E3%83%B3%E3%83%9D%E3%83%AA%E3%83%B3%E6%95%99%E5%AE%A4",
+    "status": "accepted",
+    "updated_at": "2026-09-06T00:01:56.792708+00:00"
+  },
   "偶然と想像::2021::121::介": {
     "candidate": {
       "director": "濱口竜介",
@@ -57533,6 +57618,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E5%A4%A2%E7%89%A9%E8%AA%9E%20The%20Living%20Dragon",
     "status": "review",
     "updated_at": "2026-06-23T23:32:52.486209+00:00"
+  },
+  "夢物語thelivingdragon::2026::78::坂本浩一,谷垣健治,下村勇二": {
+    "candidate": {
+      "director": "坂本浩一",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "78",
+      "score": 11,
+      "support": 2,
+      "title": "夢物語 The Living Dragon",
+      "url": "https://filmarks.com/movies/127910",
+      "year": "2026"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "",
+    "query": "夢物語 The Living Dragon",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%A4%A2%E7%89%A9%E8%AA%9E%20The%20Living%20Dragon",
+    "status": "review",
+    "updated_at": "2026-09-06T00:01:55.445889+00:00"
   },
   "大きな家::2024::123::竹林亮": {
     "candidate": {
@@ -74137,6 +74253,31 @@
     "status": "accepted",
     "updated_at": "2026-06-19T23:23:38.361672+00:00"
   },
+  "特集ハルハートリー::::::": {
+    "candidate": {
+      "director": "牧原亮太郎",
+      "reasons": [
+        "title_partial"
+      ],
+      "runtime": "50",
+      "score": 5,
+      "support": 0,
+      "title": "ハル",
+      "url": "https://filmarks.com/movies/54703",
+      "year": "2013"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "特集：ハル・ハートリー",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%89%B9%E9%9B%86%EF%BC%9A%E3%83%8F%E3%83%AB%E3%83%BB%E3%83%8F%E3%83%BC%E3%83%88%E3%83%AA%E3%83%BC",
+    "status": "review",
+    "updated_at": "2026-09-06T00:01:52.805390+00:00"
+  },
   "特集上映医の倫理と戦争::2025::77::山本草介": {
     "candidate": {
       "director": "山本草介",
@@ -85210,6 +85351,35 @@
     "status": "accepted",
     "updated_at": "2026-08-28T06:25:28.015768+00:00"
   },
+  "風たちの午後::1980::105::矢崎仁司": {
+    "candidate": {
+      "director": "矢崎仁司",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "105",
+      "score": 18,
+      "support": 2,
+      "title": "風たちの午後",
+      "url": "https://filmarks.com/movies/22330",
+      "year": ""
+    },
+    "candidate_count": 29,
+    "filmarks_url": "https://filmarks.com/movies/22330",
+    "query": "風たちの午後",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%A2%A8%E3%81%9F%E3%81%A1%E3%81%AE%E5%8D%88%E5%BE%8C",
+    "status": "accepted",
+    "updated_at": "2026-09-06T00:01:49.220029+00:00"
+  },
   "風たちの午後::1980::110::矢崎仁司": {
     "candidate": {
       "director": "矢崎仁司",
@@ -85659,6 +85829,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E9%A7%86%E6%BD%9C%E8%89%87K-225",
     "status": "accepted",
     "updated_at": "2026-06-08T23:35:49.624371+00:00"
+  },
+  "骨とか毒とかカスタネットとか？::2024::89::節田朋一郎": {
+    "candidate": {
+      "director": "ペドロ・コスタ",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "94",
+      "score": -4,
+      "support": 0,
+      "title": "骨",
+      "url": "https://filmarks.com/movies/11428",
+      "year": ""
+    },
+    "candidate_count": 29,
+    "filmarks_url": "",
+    "query": "骨とか 毒とか カスタネットとか？",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%AA%A8%E3%81%A8%E3%81%8B%20%E6%AF%92%E3%81%A8%E3%81%8B%20%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%8D%E3%83%83%E3%83%88%E3%81%A8%E3%81%8B%EF%BC%9F",
+    "status": "review",
+    "updated_at": "2026-09-06T00:01:54.178349+00:00"
   },
   "骨までしゃぶる::1966::88::加藤泰": {
     "candidate": {
