@@ -10390,6 +10390,37 @@
     "status": "accepted",
     "updated_at": "2026-08-31T00:40:50.433658+00:00"
   },
+  "neverafterdarkネバーアフターダーク::2026::105::デイブボイル": {
+    "candidate": {
+      "director": "デイヴ・ボイル",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "105",
+      "score": 11,
+      "support": 2,
+      "title": "Never After Dark／ネバーアフターダーク",
+      "url": "https://filmarks.com/movies/126751",
+      "year": "2026"
+    },
+    "candidate_count": 29,
+    "filmarks_url": "",
+    "query": "Never After Dark ネバーアフターダーク",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=Never%20After%20Dark%20%E3%83%8D%E3%83%90%E3%83%BC%E3%82%A2%E3%83%95%E3%82%BF%E3%83%BC%E3%83%80%E3%83%BC%E3%82%AF",
+    "status": "review",
+    "updated_at": "2026-09-07T00:01:42.752437+00:00"
+  },
   "newgroup::2026::82::下津優太": {
     "candidate": {
       "director": "下津優太",
@@ -13868,6 +13899,37 @@
     "search_url": "https://filmarks.com/search/movies?q=TAVERNA%20DE%20GAGA%20%E2%80%95%E4%BA%BA%E7%94%9F%E3%81%AF%E3%81%BE%E3%81%A0%E3%81%BE%E3%81%A0%E9%9D%A2%E7%99%BD%E3%81%84%E2%80%95",
     "status": "review",
     "updated_at": "2026-09-05T00:12:13.604406+00:00"
+  },
+  "tavernadegaga人生はまだまだ面白い::2026::106::浜野安宏": {
+    "candidate": {
+      "director": "浜野安宏",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "106",
+      "score": 1,
+      "support": 3,
+      "title": "TAVERNA DE GAGA―人生はまだまだ面白い―",
+      "url": "https://filmarks.com/movies/129922",
+      "year": "2026"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "",
+    "query": "TAVERNA DE GAGA 人生はまだまだ面白い",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 1,
+    "search_url": "https://filmarks.com/search/movies?q=TAVERNA%20DE%20GAGA%20%E4%BA%BA%E7%94%9F%E3%81%AF%E3%81%BE%E3%81%A0%E3%81%BE%E3%81%A0%E9%9D%A2%E7%99%BD%E3%81%84",
+    "status": "review",
+    "updated_at": "2026-09-07T00:01:33.274372+00:00"
   },
   "tbsレトロスペクティブ映画祭【第3回石井ふく子特集】みれん::::::": {
     "candidate": {
@@ -23293,6 +23355,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%81%B2%E3%82%8D%E3%81%97%E3%81%BE%EF%BD%9E1945%E5%B9%B48%E6%9C%886%E6%97%A5%E3%80%81%E5%8E%9F%E5%AD%90%E9%9B%B2%E3%81%AE%E4%B8%8B%E3%81%AE%E7%9C%9F%E5%AE%9F%EF%BD%9E%E3%80%88%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%AA%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E7%89%88%E3%80%89",
     "status": "review",
     "updated_at": "2026-07-27T02:31:51.155377+00:00"
+  },
+  "ふんどし医者::1960::116::稲垣浩": {
+    "candidate": {
+      "director": "稲垣浩",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "116",
+      "score": 18,
+      "support": 2,
+      "title": "ふんどし医者",
+      "url": "https://filmarks.com/movies/34786",
+      "year": ""
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/34786",
+    "query": "ふんどし医者",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%B5%E3%82%93%E3%81%A9%E3%81%97%E5%8C%BB%E8%80%85",
+    "status": "accepted",
+    "updated_at": "2026-09-07T00:01:45.211241+00:00"
   },
   "ほかげ::2023::95::塚本晋也": {
     "candidate": {
@@ -45094,6 +45185,35 @@
     "status": "accepted",
     "updated_at": "2026-08-21T22:53:52.458250+00:00"
   },
+  "メイクアップ::1987::105::中原俊": {
+    "candidate": {
+      "director": "中原俊",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "105",
+      "score": 18,
+      "support": 2,
+      "title": "メイク・アップ",
+      "url": "https://filmarks.com/movies/38382",
+      "year": ""
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/38382",
+    "query": "メイク・アップ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%A1%E3%82%A4%E3%82%AF%E3%83%BB%E3%82%A2%E3%83%83%E3%83%97",
+    "status": "accepted",
+    "updated_at": "2026-09-07T00:01:39.513642+00:00"
+  },
   "メイヤザガン美しき人::2024::178::cプーレムクマール": {
     "candidate": {
       "director": "C・プレームクマール",
@@ -47544,6 +47664,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%AA%E3%83%B3%E3%82%AB%20%E3%83%AA%E3%83%B3%E3%82%AB%E3%80%9C%E3%81%82%E3%81%AE%E5%A4%8F%E3%81%AE%E5%85%88",
     "status": "review",
     "updated_at": "2026-09-02T00:16:48.751385+00:00"
+  },
+  "リンカリンカあの夏の先::2025::100::カンドゥルン": {
+    "candidate": {
+      "director": "ヨーラン・ヒューゴ・オルソン",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "80",
+      "score": -4,
+      "support": 0,
+      "title": "あの夏",
+      "url": "https://filmarks.com/movies/93453",
+      "year": ""
+    },
+    "candidate_count": 27,
+    "filmarks_url": "",
+    "query": "リンカ リンカ あの夏の先",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AA%E3%83%B3%E3%82%AB%20%E3%83%AA%E3%83%B3%E3%82%AB%20%E3%81%82%E3%81%AE%E5%A4%8F%E3%81%AE%E5%85%88",
+    "status": "review",
+    "updated_at": "2026-09-07T00:01:35.644568+00:00"
   },
   "リング::1998::95::中田秀夫": {
     "candidate": {
@@ -52109,6 +52258,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E5%81%A5%E5%BA%B7%E3%81%A1%E3%81%88%E3%81%AE%E3%82%8F%E3%83%88%E3%83%A9%E3%83%B3%E3%83%9D%E3%83%AA%E3%83%B3%E6%95%99%E5%AE%A4",
     "status": "review",
     "updated_at": "2026-07-29T23:25:28.742175+00:00"
+  },
+  "健康ちえのわトランポリン教室::2026::103::石川皓一": {
+    "candidate": {
+      "director": "石川皓一",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "103",
+      "score": 21,
+      "support": 3,
+      "title": "健康ちえのわトランポリン教室",
+      "url": "https://filmarks.com/movies/124426",
+      "year": "2026"
+    },
+    "candidate_count": 27,
+    "filmarks_url": "https://filmarks.com/movies/124426",
+    "query": "健康ちえのわトランポリン教室",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%81%A5%E5%BA%B7%E3%81%A1%E3%81%88%E3%81%AE%E3%82%8F%E3%83%88%E3%83%A9%E3%83%B3%E3%83%9D%E3%83%AA%E3%83%B3%E6%95%99%E5%AE%A4",
+    "status": "accepted",
+    "updated_at": "2026-09-07T00:01:43.994471+00:00"
   },
   "健康ちえのわトランポリン教室::2026::::石川皓一": {
     "candidate": {
@@ -57767,6 +57947,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E5%A4%A7%E4%B8%88%E5%A4%AB%E3%81%A7%E3%81%82%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%20-Cocco%20%E7%B5%82%E3%82%8F%E3%82%89%E3%81%AA%E3%81%84%E6%97%85-",
     "status": "accepted",
     "updated_at": "2026-06-14T23:36:12.868907+00:00"
+  },
+  "大幹部無頼::1968::97::小沢啓一": {
+    "candidate": {
+      "director": "小沢啓一",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "97",
+      "score": 18,
+      "support": 2,
+      "title": "大幹部 無頼",
+      "url": "https://filmarks.com/movies/7044",
+      "year": ""
+    },
+    "candidate_count": 4,
+    "filmarks_url": "https://filmarks.com/movies/7044",
+    "query": "大幹部 無頼",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%A4%A7%E5%B9%B9%E9%83%A8%20%E7%84%A1%E9%A0%BC",
+    "status": "accepted",
+    "updated_at": "2026-09-07T00:01:36.896625+00:00"
   },
   "大幹部無頼::1968::97::小澤啓一": {
     "candidate": {
@@ -72079,6 +72288,35 @@
     "status": "review",
     "updated_at": "2026-08-21T22:53:50.970346+00:00"
   },
+  "津軽じょんがら節::1973::103::斎藤耕一": {
+    "candidate": {
+      "director": "斎藤耕一",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "103",
+      "score": 18,
+      "support": 2,
+      "title": "津軽じょんがら節",
+      "url": "https://filmarks.com/movies/26796",
+      "year": ""
+    },
+    "candidate_count": 34,
+    "filmarks_url": "https://filmarks.com/movies/26796",
+    "query": "津軽じょんがら節",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%B4%A5%E8%BB%BD%E3%81%98%E3%82%87%E3%82%93%E3%81%8C%E3%82%89%E7%AF%80",
+    "status": "accepted",
+    "updated_at": "2026-09-07T00:01:37.863505+00:00"
+  },
   "流されて…::1974::110::リナウェルトミューラー": {
     "candidate": {
       "director": "リナ・ウェルトミューラー",
@@ -72196,6 +72434,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E6%B5%AE%E3%81%8D%E9%9B%B2",
     "status": "accepted",
     "updated_at": "2026-09-02T00:16:42.290679+00:00"
+  },
+  "海ほおずきthebreath::1996::138::林海象": {
+    "candidate": {
+      "director": "林海象",
+      "reasons": [
+        "title_partial",
+        "runtime",
+        "director"
+      ],
+      "runtime": "138",
+      "score": 13,
+      "support": 2,
+      "title": "海ほおずき",
+      "url": "https://filmarks.com/movies/10756",
+      "year": ""
+    },
+    "candidate_count": 27,
+    "filmarks_url": "",
+    "query": "海ほおずき The Breath",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime",
+      "director"
+    ],
+    "score": 13,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%B5%B7%E3%81%BB%E3%81%8A%E3%81%9A%E3%81%8D%20The%20Breath",
+    "status": "review",
+    "updated_at": "2026-09-07T00:01:41.668745+00:00"
   },
   "海よりもまだ深く::2016::117::是枝裕和": {
     "candidate": {
@@ -73992,6 +74259,35 @@
     "status": "accepted",
     "updated_at": "2026-08-21T22:53:48.529519+00:00"
   },
+  "燃えつきた地図::1968::89::勅使河原宏": {
+    "candidate": {
+      "director": "勅使河原宏",
+      "reasons": [
+        "title_exact",
+        "runtime_mismatch",
+        "director"
+      ],
+      "runtime": "115",
+      "score": 11,
+      "support": 1,
+      "title": "燃えつきた地図",
+      "url": "https://filmarks.com/movies/18833",
+      "year": ""
+    },
+    "candidate_count": 22,
+    "filmarks_url": "",
+    "query": "燃えつきた地図",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_mismatch",
+      "director"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%87%83%E3%81%88%E3%81%A4%E3%81%8D%E3%81%9F%E5%9C%B0%E5%9B%B3",
+    "status": "review",
+    "updated_at": "2026-09-07T00:01:40.616495+00:00"
+  },
   "父::::::": {
     "candidate": {
       "director": "ランダル・クレイザー",
@@ -74956,6 +75252,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E7%8E%8B%E5%A5%B3%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2",
     "status": "review",
     "updated_at": "2026-07-19T23:17:23.471825+00:00"
+  },
+  "珍品堂主人::1960::120::豊田四郎": {
+    "candidate": {
+      "director": "豊田四郎",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "120",
+      "score": 18,
+      "support": 2,
+      "title": "珍品堂主人",
+      "url": "https://filmarks.com/movies/23476",
+      "year": ""
+    },
+    "candidate_count": 1,
+    "filmarks_url": "https://filmarks.com/movies/23476",
+    "query": "珍品堂主人",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%8F%8D%E5%93%81%E5%A0%82%E4%B8%BB%E4%BA%BA",
+    "status": "accepted",
+    "updated_at": "2026-09-07T00:01:46.414259+00:00"
   },
   "生きているんだ友達なんだ::2025::39::上野詩織": {
     "candidate": {
