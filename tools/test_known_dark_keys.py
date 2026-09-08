@@ -16,7 +16,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CITIES = ("london", "manchester", "tokyo")
+CITIES = ("london", "manchester", "tokyo", "taipei")
 
 
 def read(city: str) -> str:
@@ -61,7 +61,7 @@ class KnownDarkKeysTest(unittest.TestCase):
     def test_the_registries_are_actually_being_found(self):
         # Guards the regexes above: if they stop matching, every other assertion
         # here passes vacuously.
-        for city, least in (("london", 30), ("manchester", 5), ("tokyo", 40)):
+        for city, least in (("london", 30), ("manchester", 5), ("tokyo", 40), ("taipei", 15)):
             with self.subTest(city=city):
                 self.assertGreaterEqual(len(registered_names(read(city))), least)
 
