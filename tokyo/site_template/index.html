@@ -349,7 +349,7 @@
         }
         .advanced-grid {
             display: grid;
-            grid-template-columns: minmax(220px, 1.1fr) minmax(180px, 1fr) auto;
+            grid-template-columns: minmax(220px, 1.1fr) minmax(150px, 0.8fr) minmax(150px, 0.8fr) auto;
             gap: 10px;
             align-items: start;
         }
@@ -885,6 +885,10 @@
                         <label for="region-select" id="region-label"></label>
                         <select id="region-select"></select>
                     </div>
+                    <div class="control-group">
+                        <label for="time-select" id="time-label"></label>
+                        <select id="time-select"></select>
+                    </div>
                     <div class="clear-btn-wrapper">
                         <button class="link-btn" type="button" id="clear-filters"></button>
                     </div>
@@ -1061,6 +1065,12 @@
                     contentAnimation: "アニメーション",
                     region: "地域",
                     regionAll: "すべての地域",
+                    time: "時間帯",
+                    timeAll: "すべての時間",
+                    timeMorning: "午前（12時前）",
+                    timeAfternoon: "昼（12〜17時）",
+                    timeEvening: "夜（17〜21時）",
+                    timeLate: "レイト（21時以降）",
                     sort: "並び替え",
                     sortNextShowing: "上映が近い順",
                     sortReleaseNew: "公開年（新しい順）",
@@ -1128,6 +1138,12 @@
                     contentAnimation: "Animation",
                     region: "Region",
                     regionAll: "All regions",
+                    time: "Time of day",
+                    timeAll: "Any time",
+                    timeMorning: "Morning (before 12)",
+                    timeAfternoon: "Afternoon (12-17)",
+                    timeEvening: "Evening (17-21)",
+                    timeLate: "Late show (21+)",
                     sort: "Sort",
                     sortNextShowing: "Next showtime",
                     sortReleaseNew: "Release year (newest)",
@@ -1227,6 +1243,8 @@
                 filtersToggle: document.getElementById("filters-toggle"),
                 regionLabel: document.getElementById("region-label"),
                 regionSelect: document.getElementById("region-select"),
+                timeLabel: document.getElementById("time-label"),
+                timeSelect: document.getElementById("time-select"),
                 sortLabel: document.getElementById("sort-label"),
                 sortSelect: document.getElementById("sort-select"),
                 nearMeButton: document.getElementById("near-me-btn"),
@@ -1273,6 +1291,7 @@
                     docOnly: false,
                     animationOnly: false,
                     region: "all",
+                    time: "all",
                 }
             };
 
@@ -1320,6 +1339,7 @@
                 if (state.filters.search) params.set("q", state.filters.search);
                 if (state.filters.date !== "today") params.set("date", state.filters.date);
                 if (state.filters.region !== "all") params.set("region", state.filters.region);
+                if (state.filters.time !== "all") params.set("time", state.filters.time);
                 if (state.filters.englishFriendly) params.set("enfriendly", "1");
                 if (state.filters.docOnly) params.set("doc", "1");
                 if (state.filters.animationOnly) params.set("anim", "1");
@@ -1347,6 +1367,8 @@
                 const date = params.get("date");
                 state.filters.date = datePresets.indexOf(date) >= 0 ? date : "today";
                 state.filters.region = params.get("region") || "all";
+                const time = params.get("time");
+                state.filters.time = timeBands.some(function (band) { return band.value === time; }) ? time : "all";
                 state.filters.englishFriendly = params.get("enfriendly") === "1";
                 state.filters.docOnly = params.get("doc") === "1";
                 state.filters.animationOnly = params.get("anim") === "1";
@@ -1374,6 +1396,7 @@
                 }
                 updateDateSelect();
                 updateRegionSelect();
+                updateTimeSelect();
                 updateSortOptions();
                 updateLocationStatus("");
                 elements.searchInput.value = state.filters.search;
@@ -1427,6 +1450,11 @@
                 writeUrlState(false);
                 render();
             });
+            elements.timeSelect.addEventListener("change", function (event) {
+                state.filters.time = event.target.value;
+                writeUrlState(false);
+                render();
+            });
             elements.sortSelect.addEventListener("change", function (event) {
                 state.sort = event.target.value;
                 state.location.active = false;
@@ -1446,6 +1474,7 @@
                 state.filters.docOnly = false;
                 state.filters.animationOnly = false;
                 state.filters.region = "all";
+                state.filters.time = "all";
                 state.sort = getDefaultSortValue();
                 state.location.active = false;
                 state.location.coords = null;
@@ -1456,6 +1485,7 @@
                 elements.dateSelect.value = state.filters.date;
                 syncContentCheckboxes();
                 elements.regionSelect.value = "all";
+                elements.timeSelect.value = "all";
                 updateSortUI();
                 writeUrlState(false);
                 render();
@@ -1567,6 +1597,7 @@
                 updateUIText();
                 updateDateSelect();
                 updateRegionSelect();
+                updateTimeSelect();
                 updateSortOptions();
                 render();
             }
@@ -1589,6 +1620,7 @@
                 elements.docOnlyLabel.textContent = t("contentDocumentary");
                 elements.animationOnlyLabel.textContent = t("contentAnimation");
                 elements.regionLabel.textContent = t("region");
+                elements.timeLabel.textContent = t("time");
                 elements.sortLabel.textContent = t("sort");
                 elements.nearMeButton.textContent = t("nearestButton");
                 elements.clearFilters.textContent = t("clearFilters");
@@ -1638,6 +1670,37 @@
                 elements.filtersToggle.classList.toggle("is-active", expanded);
                 elements.filtersToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
                 elements.filtersContent.classList.toggle("is-expanded", expanded);
+            }
+            // Time-of-day bands, in minutes since midnight. `end: null` means open-ended,
+            // which keeps late shows (and any post-midnight row) inside the last band.
+            const timeBands = [
+                { value: "all", labelKey: "timeAll", start: null, end: null },
+                { value: "morning", labelKey: "timeMorning", start: 0, end: 12 * 60 },
+                { value: "afternoon", labelKey: "timeAfternoon", start: 12 * 60, end: 17 * 60 },
+                { value: "evening", labelKey: "timeEvening", start: 17 * 60, end: 21 * 60 },
+                { value: "late", labelKey: "timeLate", start: 21 * 60, end: null }
+            ];
+            function getTimeBandLabel(value) {
+                const band = timeBands.find(function (candidate) { return candidate.value === value; });
+                return band ? t(band.labelKey) : t("timeAll");
+            }
+            function updateTimeSelect() {
+                // State wins over the DOM here: readUrlState() has already parsed the
+                // hash, so preferring the select's current value would let a stale
+                // selection survive back/forward navigation and overwrite the filter.
+                const currentValue = state.filters.time || "all";
+                elements.timeSelect.innerHTML = "";
+                timeBands.forEach(function (band) {
+                    const option = document.createElement("option");
+                    option.value = band.value;
+                    option.textContent = t(band.labelKey);
+                    elements.timeSelect.appendChild(option);
+                });
+                const validValue = timeBands.some(function (band) {
+                    return band.value === currentValue;
+                }) ? currentValue : "all";
+                elements.timeSelect.value = validValue;
+                state.filters.time = validValue;
             }
             function updateDateSelect() {
                 const currentValue = elements.dateSelect.value || state.filters.date || getDefaultDateForView();
@@ -2512,6 +2575,15 @@
                     if (filters.region !== "all" && showing.region !== filters.region) {
                         return false;
                     }
+                    if (filters.time !== "all") {
+                        // A showing with an unparseable time is never excluded by this
+                        // filter -- dropping it would hide the film entirely.
+                        const band = timeBands.find(function (candidate) { return candidate.value === filters.time; });
+                        if (band && showing.timeMinutes !== null && showing.timeMinutes !== undefined) {
+                            if (band.start !== null && showing.timeMinutes < band.start) return false;
+                            if (band.end !== null && showing.timeMinutes >= band.end) return false;
+                        }
+                    }
                     if (filters.englishFriendly && !showing.isEnglishFriendly) {
                         return false;
                     }
@@ -2602,6 +2674,7 @@
                     parts.push(t("date") + ": " + getDatePresetLabel(state.filters.date));
                 }
                 if (state.filters.region !== "all") parts.push(t("region") + ": " + getRegionName(state.filters.region));
+                if (state.filters.time !== "all") parts.push(t("time") + ": " + getTimeBandLabel(state.filters.time));
                 const contentParts = [];
                 if (state.filters.englishFriendly) contentParts.push(t("contentEnglishFriendly"));
                 if (state.filters.docOnly) contentParts.push(t("contentDocumentary"));
