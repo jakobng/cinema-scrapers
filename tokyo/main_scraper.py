@@ -617,6 +617,9 @@ FILMARKS_ACCEPT_MARGIN = 2
 ZERO_COUNT_RETRY_CINEMAS = {
     "Shimotakaido Cinema",
     "Shinjuku Musashino-kan",
+    # Single request, no backoff, and it is the ONLY source for this venue --
+    # in production it alternates between 10 rows and 0 roughly every other day.
+    "Athenee Francais",
 }
 
 def _clean_title_for_filmarks_query(title: str) -> str:
@@ -3051,7 +3054,7 @@ def main():
         ("Human Trust Cinema Yurakucho", human_yurakucho_module.scrape_human_yurakucho, None),
         ("Laputa Asagaya", laputa_asagaya_module.scrape_laputa_asagaya, None),
         ("Shinjuku Musashino-kan", musashino_kan_module.scrape_musashino_kan, None),
-        ("Waseda Shochiku", waseda_shochiku_module.scrape_waseda_shochiku, None, False),
+        ("Waseda Shochiku", waseda_shochiku_module.scrape_waseda_shochiku, None),
         ("National Film Archive", nfaj_module.scrape_nfaj_calendar, None),
         ("Cinemart Shinjuku", cinemart_shinjuku_module.scrape_cinemart_shinjuku, None),
         ("Cine Quinto", cine_quinto_module.scrape_cine_quinto, None),
@@ -3071,12 +3074,16 @@ def main():
         ("Institut Francais Tokyo", institut_francais_module.scrape_institut_francais, None),
         ("Jack and Betty Yokohama", jack_and_betty_module.scrape_jack_and_betty, None),
         ("Cinema Novecento", cinema_novecento_module.scrape_cinema_novecento, None),
-        ("Athenee Francais", athenee_francais_module.scrape_athenee_francais, None, False),
+        ("Athenee Francais", athenee_francais_module.scrape_athenee_francais, None),
         ("White Cine Quinto", white_cine_quinto_module.scrape_white_cine_quinto, None),
         ("Yokohama Cinemarine", yokohama_cinemarine_module.scrape_yokohama_cinemarine, None),
         ("Kadokawa Cinema Yurakucho", kadokawa_yurakucho_module.scrape_kadokawa_yurakucho, None),
         ("Cinema Neko Ome", cinema_neko_module.scrape_cinema_neko, None),
-        ("Koenji Theater Bacchus", koenji_bacchus_module.scrape_koenji_bacchus, None, False),
+        ("Koenji Theater Bacchus", koenji_bacchus_module.scrape_koenji_bacchus, None),
+        # The only remaining empty-warning suppression, and the only one earned:
+        # meetup.com/koenji-cinema-club/ returns "Group not found" and the club
+        # now announces on Instagram only, so this warns every run for a reason
+        # nobody can act on. Drop the entry or re-source it, then remove this.
         ("Koenji Cinema Club", koenji_cinema_club_module.scrape_koenji_cinema_club, None, False),
         ("Cinema Amigo", cinema_amigo_module.scrape_cinema_amigo, None),
     ]
