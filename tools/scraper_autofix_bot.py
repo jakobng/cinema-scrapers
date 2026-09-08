@@ -22,6 +22,36 @@ STATE_PATH = ROOT / "logs" / "autofix_state.json"
 HEALTH_MONITOR_PATH = ROOT / "tools" / "cinema_health_monitor.py"
 
 
+class ProviderUnavailable(RuntimeError):
+    """The model API could not be reached, or refused to serve us.
+
+    Auth, quota/billing, rate limits, outages and network faults all land here.
+    None of them is a defect in this repository, so the run must not go red:
+    this bot polls every 30 minutes, and failing the workflow turns one
+    unfunded API key into ~48 alert emails a day, which trains the owner to
+    ignore the alerts that do matter. A genuinely malformed request (a dead
+    model name, a bad payload) is NOT this -- that stays a hard failure.
+    """
+
+
+# HTTP statuses that mean "not our bug, try again later" rather than "our request is wrong".
+_PROVIDER_UNAVAILABLE_STATUSES = frozenset({401, 402, 403, 408, 429})
+
+
+def _provider_error(exc: urllib.error.URLError, api_name: str) -> Exception:
+    """Classify a failed model-API call as retry-later or as a real defect."""
+    status = getattr(exc, "code", None)
+    if status is None or status in _PROVIDER_UNAVAILABLE_STATUSES or status >= 500:
+        detail = ""
+        if status is not None:
+            try:
+                detail = " -- " + exc.read().decode("utf-8", "replace").strip()[:300]
+            except Exception:
+                detail = ""
+        return ProviderUnavailable(f"{api_name} unavailable ({exc}){detail}")
+    return SystemExit(f"Could not reach {api_name}: {exc}")
+
+
 def run(cmd: list[str], *, check: bool = True, input_text: str | None = None) -> subprocess.CompletedProcess:
     return subprocess.run(
         cmd,
@@ -218,7 +248,7 @@ def call_chat_completions(
         with urllib.request.urlopen(request, timeout=timeout) as response:
             result = json.loads(response.read().decode("utf-8"))
     except urllib.error.URLError as exc:
-        raise SystemExit(f"Could not reach model API at {base_url}: {exc}") from exc
+        raise _provider_error(exc, f"model API at {base_url}") from exc
     content = result["choices"][0]["message"]["content"]
     return json.loads(content)
 
@@ -278,7 +308,7 @@ def call_deepseek(prompt: str, *, api_key: str, model: str, timeout: int) -> dic
         with urllib.request.urlopen(request, timeout=timeout) as response:
             result = json.loads(response.read().decode("utf-8"))
     except urllib.error.URLError as exc:
-        raise SystemExit(f"Could not reach DeepSeek API: {exc}") from exc
+        raise _provider_error(exc, "DeepSeek API") from exc
     content = result["choices"][0]["message"]["content"]
     cleaned = re.sub(r"^```(?:json)?\s*", "", content.strip())
     cleaned = re.sub(r"\s*```$", "", cleaned)
@@ -325,7 +355,7 @@ def call_anthropic(prompt: str, *, api_key: str, model: str, timeout: int) -> di
         with urllib.request.urlopen(request, timeout=timeout) as response:
             result = json.loads(response.read().decode("utf-8"))
     except urllib.error.URLError as exc:
-        raise SystemExit(f"Could not reach Anthropic API: {exc}") from exc
+        raise _provider_error(exc, "Anthropic API") from exc
 
     raw = result["content"][0]["text"].strip()
     cleaned = re.sub(r"^```(?:json)?\s*", "", raw)
@@ -691,12 +721,17 @@ def main() -> int:
     run(["git", "pull", "--rebase", "-X", "theirs", "origin", "main"])
 
     results: list[dict] = []
+    unavailable: ProviderUnavailable | None = None
     try:
         run_health_monitor(args)
         issues = list_candidate_issues(policy, args.limit)
         for issue in issues:
             try:
                 results.append(process_issue(issue, args, policy))
+            except ProviderUnavailable as exc:
+                unavailable = exc
+                run(["git", "checkout", "--", "."], check=False)
+                break
             except Exception as exc:
                 results.append(
                     {
@@ -714,6 +749,19 @@ def main() -> int:
                 run(["git", "pull", "--rebase", "-X", "theirs", "origin", "main"], check=False)
     finally:
         run(["git", "checkout", "main"], check=False)
+
+    if unavailable is not None:
+        # A GitHub Actions annotation surfaces this on the run page and in the
+        # weekly digest without turning the schedule into an email firehose.
+        print(f"::warning title=Auto-fix skipped::{unavailable}")
+        print(
+            f"Model provider unavailable, so no fixes were attempted: {unavailable}\n"
+            "This is an operational condition (usually an empty API balance or an "
+            "expired key), not a repository failure. Nothing was pushed. The next "
+            "scheduled run will retry.",
+            file=sys.stderr,
+        )
+        return 0
 
     if args.weekly_summary:
         post_weekly_summary(results, dry_run=args.dry_run)
