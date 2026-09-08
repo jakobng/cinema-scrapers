@@ -138,6 +138,7 @@ def _normalize_eurospace_schema(listings: list) -> list:
 # regression, which is the exact failure this whole reporting path exists to catch.
 KNOWN_DARK = {
     "Koenji Cinema Club": "meetup.com group deleted; the club now announces on Instagram only",
+    "Cinema Novecento": "Yokohama venue closed 2026-08-31; reopening in Tsurukawa, Machida, announced for 2026-10-31",
 }
 
 class ScrapeReport:

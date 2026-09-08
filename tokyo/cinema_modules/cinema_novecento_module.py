@@ -9,6 +9,23 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
+# Checked 2026-09-08: this module returns nothing because there is nothing to
+# return, not because it is broken. The Yokohama venue closed on 2026-08-31 and
+# is moving to Tsurukawa, Machida, with a reopening announced for 2026-10-31
+# (news item dated 2026.04.28 on cinema1900.wixsite.com/home).
+#
+# Evidence, so the next person does not repeat the sweep:
+#   * All 133 day sub-categories under the 10 month cbids return HTTP 404 and
+#     the string 該当する商品がありません.
+#   * sitemap.xml lists 60 ?pid= URLs; 57 return 404 with
+#     現在、この商品は扱っておりません。 -- those 57 are exactly the old ticket range.
+#   * The 3 surviving products are supporters-club memberships, not screenings.
+#   * The official site's schedule page still shows 2026年8月22日〜8月30日, and
+#     that schedule is a BITMAP (a Wix gallery of JPGs), not markup.
+#
+# Do not write a speculative parser against the old M/D H時M分「Title」 product
+# shape -- it no longer exists anywhere and could not be tested. When Tsurukawa
+# opens, re-check the shop layout from scratch; it may not be shop-pro at all.
 BASE_URL = "https://cinema1900.shop-pro.jp/"
 CINEMA_NAME = "シネマ・ノヴェチェント"
 
