@@ -1066,11 +1066,11 @@
                     region: "地域",
                     regionAll: "すべての地域",
                     time: "時間帯",
-                    timeAll: "すべての時間",
+                    timeAny: "指定なし",
                     timeMorning: "午前（12時前）",
-                    timeAfternoon: "昼（12〜17時）",
-                    timeEvening: "夜（17〜21時）",
-                    timeLate: "レイト（21時以降）",
+                    timeAfternoon: "午後（12〜17時）",
+                    timeEvening: "夕方（17〜21時）",
+                    timeLate: "夜（21時以降）",
                     sort: "並び替え",
                     sortNextShowing: "上映が近い順",
                     sortReleaseNew: "公開年（新しい順）",
@@ -1138,12 +1138,12 @@
                     contentAnimation: "Animation",
                     region: "Region",
                     regionAll: "All regions",
-                    time: "Time of day",
-                    timeAll: "Any time",
+                    time: "Time",
+                    timeAny: "Any time",
                     timeMorning: "Morning (before 12)",
                     timeAfternoon: "Afternoon (12-17)",
                     timeEvening: "Evening (17-21)",
-                    timeLate: "Late show (21+)",
+                    timeLate: "Late (after 21)",
                     sort: "Sort",
                     sortNextShowing: "Next showtime",
                     sortReleaseNew: "Release year (newest)",
@@ -1674,7 +1674,7 @@
             // Time-of-day bands, in minutes since midnight. `end: null` means open-ended,
             // which keeps late shows (and any post-midnight row) inside the last band.
             const timeBands = [
-                { value: "all", labelKey: "timeAll", start: null, end: null },
+                { value: "all", labelKey: "timeAny", start: null, end: null },
                 { value: "morning", labelKey: "timeMorning", start: 0, end: 12 * 60 },
                 { value: "afternoon", labelKey: "timeAfternoon", start: 12 * 60, end: 17 * 60 },
                 { value: "evening", labelKey: "timeEvening", start: 17 * 60, end: 21 * 60 },
@@ -1682,7 +1682,7 @@
             ];
             function getTimeBandLabel(value) {
                 const band = timeBands.find(function (candidate) { return candidate.value === value; });
-                return band ? t(band.labelKey) : t("timeAll");
+                return band ? t(band.labelKey) : t("timeAny");
             }
             function updateTimeSelect() {
                 // State wins over the DOM here: readUrlState() has already parsed the
