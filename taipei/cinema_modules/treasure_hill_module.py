@@ -13,16 +13,27 @@ from bs4 import BeautifulSoup
 BASE_URL = "https://www.artistvillage.org/"
 LISTING_URL = urljoin(BASE_URL, "event.php")
 CINEMA_NAME = "寶藏巖國際藝術村"
-KEYWORDS = (
-    "電影",
+# Treasure Hill is an artist village, not a cinema: its own event taxonomy is
+# 駐村計畫 / 展覽 / 工作坊 / 系列活動 / 表演活動 — there is no screening category, and
+# films turn up only occasionally inside a wider programme. The old list also held
+# 影像 ("image/visual"), 錄像, 影片 and the bare English film/cinema/video, which are
+# art-world medium vocabulary: they describe what an artwork is made of at least as
+# often as they announce a screening. That is exactly how the 「邊境公園－橋頭工作室
+# 進駐藝術家聯展」 group exhibition was emitted as a film — its only match was 影像
+# inside 「影像拼貼」 (image collage).
+#
+# So a listing now qualifies only on an unambiguous screening token. This is the
+# "require a co-occurring screening token" option, collapsed: since a medium word
+# can no longer qualify on its own, and a screening word always qualifies on its
+# own, requiring one strong token is equivalent and costs one list instead of two.
+# Recall is untouched — a real screening announcement names one of these — while
+# an exhibition that merely works in video no longer reads as a film.
+SCREENING_KEYWORDS = (
     "放映",
-    "影片",
-    "錄像",
-    "影像",
+    "播映",
+    "影展",
+    "電影",
     "screening",
-    "film",
-    "cinema",
-    "video",
 )
 
 
@@ -45,7 +56,7 @@ def _clean_text(value: str) -> str:
 
 def _is_screening_candidate(*values: object) -> bool:
     haystack = " ".join(_clean_text(str(value or "")) for value in values).lower()
-    return any(keyword.lower() in haystack for keyword in KEYWORDS)
+    return any(keyword.lower() in haystack for keyword in SCREENING_KEYWORDS)
 
 
 def _parse_date_range(text: str) -> tuple[Optional[str], Optional[str]]:
@@ -125,7 +136,12 @@ def scrape_treasure_hill() -> List[Dict]:
             continue
         display_date = start_date if start_date >= today else today
 
-        location_match = re.search(r"活動地點[：:]\s*([^\n]{2,120})", text)
+        # `text` has already been flattened with spaces, so [^\n] never terminates:
+        # the old {2,120} bound swallowed the title and 100 characters of body copy
+        # into screen_name (visible in the committed row on origin/main). Stop at the
+        # title's opening bracket or the first sentence punctuation instead, and cap
+        # at a plausible venue-name length.
+        location_match = re.search(r"活動地點[：:]\s*([^\n「」，。；]{2,40})", text)
         screen_name = _clean_text(location_match.group(1)) if location_match else CINEMA_NAME
 
         results.append(
