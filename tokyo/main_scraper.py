@@ -18,6 +18,7 @@ import requests
 import time
 import os
 import difflib
+import collections
 import smtplib
 import ssl
 import random
@@ -1371,6 +1372,40 @@ def _merge_eiga_with_legacy(eiga_listings: list, legacy_listings: list) -> list:
         seen.add(key)
 
     return merged
+
+def report_eiga_dependence(eiga_listings: list, legacy_listings: list) -> list:
+    """Name every cinema that only the Eiga.com aggregators are holding up.
+
+    A per-cinema row count cannot tell a working dedicated scraper from a dead
+    one, because the aggregators quietly cover most of the same venues. This is
+    the failure that hid kino cinema Yokohama Minatomirai: its LOCATIONS entry
+    was missing from day one, so all 51 of its rows came from Eiga.com Kanagawa
+    and the venue looked perfectly healthy.
+
+    Most names below are expected -- 13 or so venues have no dedicated module at
+    all. The one to act on is a venue that appears here even though a module is
+    supposed to cover it. Returns the names so a caller can assert on them.
+    """
+    legacy_cinemas = {row.get("cinema_name") for row in legacy_listings if row.get("cinema_name")}
+    eiga_only = sorted(
+        {row.get("cinema_name") for row in eiga_listings if row.get("cinema_name")} - legacy_cinemas
+    )
+    print("\n" + "=" * 65)
+    print("EIGA.COM DEPENDENCE")
+    print("=" * 65)
+    if not eiga_only:
+        print("No cinema depends on the aggregators alone.")
+        return eiga_only
+    counts = collections.Counter(
+        row.get("cinema_name") for row in eiga_listings if row.get("cinema_name") in set(eiga_only)
+    )
+    total = sum(counts.values())
+    print(f"{len(eiga_only)} cinemas ({total} showings) come from Eiga.com alone.")
+    print("If a dedicated module exists for any of these, that module is dead:")
+    for name in eiga_only:
+        print(f"   {counts[name]:5d}  {name}")
+    return eiga_only
+
 
 def _title_similarity(a: str, b: str) -> float:
     if not a or not b:
@@ -3121,6 +3156,7 @@ def main():
         norm = item[2] if len(item) > 2 else None
         _run_scraper(name, func, legacy_listings, normalize_func=norm)
 
+    report_eiga_dependence(eiga_listings, legacy_listings)
     listings = _merge_eiga_with_legacy(eiga_listings, legacy_listings)
 
     # 3. ENRICHMENT
