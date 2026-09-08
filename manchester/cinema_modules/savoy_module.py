@@ -80,6 +80,23 @@ def _parse_uk_date(date_str: str) -> Optional[dt.date]:
     return None
 
 
+def _parse_uk_date_md(date_str: str) -> Optional[dt.date]:
+    """
+    Parse the "September 8" form used in Savoy showtime links.
+    Rolls to next year when the date is well in the past (year boundary).
+    """
+    date_str = re.sub(r"(\d+)(st|nd|rd|th)", r"\1", date_str.strip())
+    for fmt in ("%B %d", "%b %d"):
+        try:
+            parsed = dt.datetime.strptime(date_str, fmt).replace(year=TODAY.year).date()
+        except ValueError:
+            continue
+        if parsed < TODAY - dt.timedelta(days=30):
+            parsed = parsed.replace(year=TODAY.year + 1)
+        return parsed
+    return None
+
+
 def _parse_time_12h(time_str: str) -> Optional[str]:
     """
     Parse 12-hour time format from Savoy listings.
@@ -217,41 +234,33 @@ def scrape_savoy() -> List[Dict]:
                 # The Savoy uses links with showtimes
                 showtime_links = movie_soup.find_all('a', href=re.compile(r'/checkout/showing/'))
 
+                # Each showtime link reads like "September 8, 5:45 pm" - it carries
+                # BOTH the real date and the real time, so parse both. Previously the
+                # date was discarded and every row was stamped with TODAY.
                 movie_showtimes = []
                 for st_link in showtime_links:
                     link_text = _clean(st_link.get_text())
-                    # Extract time from link text (format: "January 22, 4:00 pm")
-                    time_match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm))', link_text)
-                    if time_match:
-                        showtime = time_match.group(1)
-                        parsed_time = _parse_time_12h(showtime)
-                        if parsed_time:
-                            movie_showtimes.append(parsed_time)
+                    m = re.search(
+                        r'([A-Z][a-z]+\s+\d{1,2})\s*,\s*(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm))',
+                        link_text,
+                    )
+                    if not m:
+                        continue
+                    parsed_date = _parse_uk_date_md(m.group(1))
+                    parsed_time = _parse_time_12h(m.group(2))
+                    if parsed_date and parsed_time:
+                        movie_showtimes.append((parsed_date, parsed_time))
 
-                if movie_showtimes:
-                    # Create a showing for each showtime found
-                    for showtime in movie_showtimes:
-                        shows.append({
-                            "cinema_name": CINEMA_NAME,
-                            "movie_title": title,
-                            "movie_title_en": title,
-                            "date_text": TODAY.isoformat(),  # Assume today for now
-                            "showtime": showtime,
-                            "detail_page_url": detail_url,
-                            "director": "",
-                            "year": "",
-                            "country": "",
-                            "runtime_min": "",
-                            "synopsis": "",
-                        })
-                else:
-                    # If no showtimes found, still include the film with a default time
+                for show_date, showtime in movie_showtimes:
+                    # Only keep showings inside the look-ahead window.
+                    if not (TODAY <= show_date <= TODAY + dt.timedelta(days=WINDOW_DAYS)):
+                        continue
                     shows.append({
                         "cinema_name": CINEMA_NAME,
                         "movie_title": title,
                         "movie_title_en": title,
-                        "date_text": TODAY.isoformat(),
-                        "showtime": "19:00",  # Default evening time
+                        "date_text": show_date.isoformat(),
+                        "showtime": showtime,
                         "detail_page_url": detail_url,
                         "director": "",
                         "year": "",
@@ -261,21 +270,9 @@ def scrape_savoy() -> List[Dict]:
                     })
 
             except Exception as e:
+                # A film whose page we cannot read contributes nothing. Inventing a
+                # 19:00-today showing here is worse than omitting it.
                 print(f"[{CINEMA_NAME}] Error scraping movie page {detail_url}: {e}", file=sys.stderr)
-                # Still include the film even if we can't get showtimes
-                shows.append({
-                    "cinema_name": CINEMA_NAME,
-                    "movie_title": title,
-                    "movie_title_en": title,
-                    "date_text": TODAY.isoformat(),
-                    "showtime": "19:00",  # Default evening time
-                    "detail_page_url": detail_url,
-                    "director": "",
-                    "year": "",
-                    "country": "",
-                    "runtime_min": "",
-                    "synopsis": "",
-                })
 
         print(f"[{CINEMA_NAME}] Found {len(shows)} showings", file=sys.stderr)
 

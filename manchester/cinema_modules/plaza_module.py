@@ -87,11 +87,12 @@ def _parse_time_12h(time_str: str) -> Optional[str]:
     """
     time_str = time_str.strip().lower()
 
-    # Match patterns like "2:30pm", "7:45 pm", "12:15am"
-    match = re.match(r"(\d{1,2}):(\d{2})\s*(am|pm)", time_str)
+    # Plaza writes times in UK theatre style with a dot ("7.30pm") and sometimes
+    # with no minutes at all ("7pm"), as well as the colon form ("7:30 pm").
+    match = re.match(r"(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)", time_str)
     if match:
         hour = int(match.group(1))
-        minute = int(match.group(2))
+        minute = int(match.group(2) or 0)
         period = match.group(3)
 
         if period == "pm" and hour != 12:
@@ -136,7 +137,7 @@ def _extract_event_info(event_element) -> Optional[Dict]:
 
         # Extract time from date text (format: "Wednesday 21st and Thursday 22nd January at 7.30pm")
         showtime = ""
-        time_match = re.search(r'at\s+(\d{1,2}(?:\.\d{2})?\s*(?:am|pm))', date_time_text, re.IGNORECASE)
+        time_match = re.search(r'at\s+(\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm))', date_time_text, re.IGNORECASE)
         if time_match:
             showtime = time_match.group(1)
 
