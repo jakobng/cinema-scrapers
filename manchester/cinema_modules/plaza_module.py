@@ -105,6 +105,19 @@ def _parse_time_12h(time_str: str) -> Optional[str]:
     return None
 
 
+def _strip_programme_furniture(title: str) -> str:
+    """Drop the Plaza's own listing decoration from a film title.
+
+    The venue prefixes its strand ("Film:", "On Screen:") and suffixes the BBFC
+    certificate ("(Cert 15)", "(Cert 15 TBC)"). Both are presentation, not part
+    of the title, and leaving them in puts "Film: Northern Soul (Cert 15)" on the
+    site and guarantees the TMDB lookup misses.
+    """
+    title = re.sub(r"^\s*(?:film|on screen|screening)\s*:\s*", "", title, flags=re.IGNORECASE)
+    title = re.sub(r"\s*\(\s*cert\b[^)]*\)\s*$", "", title, flags=re.IGNORECASE)
+    return title.strip()
+
+
 def _extract_event_info(event_element) -> Optional[Dict]:
     """
     Extract event information from a Plaza event listing element.
@@ -116,7 +129,7 @@ def _extract_event_info(event_element) -> Optional[Dict]:
         if not title_elem:
             return None
 
-        title = _clean(title_elem.get_text())
+        title = _strip_programme_furniture(_clean(title_elem.get_text()))
 
         # Only include film events - check for film category in the filterRow
         filter_row = event_element.find('div', class_='filterRow')
