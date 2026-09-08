@@ -93,6 +93,15 @@ class ScrapeReport:
         print("-" * 70)
         print(f"Total showings scraped: {self.total_showings}")
 
+        # In CI the email path below is deliberately suppressed, so without this
+        # a silent cinema leaves no trace anywhere a human looks. Annotations put
+        # the name on the run page itself -- no new workflow, no new secret.
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            for r in failures:
+                print(f"::error title=Scraper failed::{r['cinema']}: {r.get('error') or 'unknown error'}")
+            for r in warnings:
+                print(f"::warning title=Scraper returned nothing::{r['cinema']} produced 0 showings")
+
         return failures, warnings
 
     def send_email_alert(self, failures, warnings):
