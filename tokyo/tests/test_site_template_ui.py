@@ -96,6 +96,57 @@ class SiteTemplateUiTest(unittest.TestCase):
         ):
             self.assertIn(assignment, renderer)
 
+    def test_time_of_day_bands_tile_the_day_without_gaps_or_overlap(self):
+        start = self.source.index("const timeBands = [")
+        end = self.source.index("function getTimeBandLabel", start)
+        block = self.source[start:end]
+
+        bands = re.findall(
+            r'value: "(\w+)".*?start: (null|[\d\s*]+), end: (null|[\d\s*]+)', block
+        )
+        parsed = [
+            (name, None if a.strip() == "null" else eval(a), None if b.strip() == "null" else eval(b))
+            for name, a, b in bands
+        ]
+        self.assertEqual([b[0] for b in parsed], ["all", "morning", "afternoon", "evening", "late"])
+
+        # "all" is the escape hatch and carries no bounds; the four real bands
+        # must cover midnight-to-midnight edge to edge, so no showtime can fall
+        # between two bands or be counted by both.
+        real = parsed[1:]
+        self.assertEqual(real[0][1], 0)
+        self.assertIsNone(real[-1][2])
+        for earlier, later in zip(real, real[1:]):
+            self.assertEqual(earlier[2], later[1])
+
+    def test_time_filter_never_hides_a_showing_with_an_unparseable_time(self):
+        start = self.source.index('if (filters.time !== "all") {')
+        end = self.source.index("return true;", start)
+        block = self.source[start:end]
+
+        self.assertIn("showing.timeMinutes !== null", block)
+        self.assertIn("showing.timeMinutes !== undefined", block)
+
+    def test_time_select_reads_state_not_the_dom(self):
+        start = self.source.index("function updateTimeSelect")
+        end = self.source.index("function updateDateSelect", start)
+        builder = self.source[start:end]
+
+        # Preferring elements.timeSelect.value here would let a stale selection
+        # survive back/forward navigation and overwrite what readUrlState parsed.
+        self.assertIn('const currentValue = state.filters.time || "all";', builder)
+        self.assertNotIn("elements.timeSelect.value ||", builder)
+
+    def test_time_filter_is_wired_into_url_state_and_clearing(self):
+        self.assertIn('params.set("time", state.filters.time)', self.source)
+        self.assertIn('state.filters.time = timeBands.some', self.source)
+
+        start = self.source.index('elements.clearFilters.addEventListener("click"')
+        end = self.source.index("elements.viewButtons.forEach", start)
+        handler = self.source[start:end]
+        self.assertIn('state.filters.time = "all";', handler)
+        self.assertIn('elements.timeSelect.value = "all";', handler)
+
 
 if __name__ == "__main__":
     unittest.main()

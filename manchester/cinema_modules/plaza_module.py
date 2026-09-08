@@ -87,11 +87,12 @@ def _parse_time_12h(time_str: str) -> Optional[str]:
     """
     time_str = time_str.strip().lower()
 
-    # Match patterns like "2:30pm", "7:45 pm", "12:15am"
-    match = re.match(r"(\d{1,2}):(\d{2})\s*(am|pm)", time_str)
+    # Plaza writes times in UK theatre style with a dot ("7.30pm") and sometimes
+    # with no minutes at all ("7pm"), as well as the colon form ("7:30 pm").
+    match = re.match(r"(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)", time_str)
     if match:
         hour = int(match.group(1))
-        minute = int(match.group(2))
+        minute = int(match.group(2) or 0)
         period = match.group(3)
 
         if period == "pm" and hour != 12:
@@ -102,6 +103,19 @@ def _parse_time_12h(time_str: str) -> Optional[str]:
         return f"{hour:02d}:{minute:02d}"
 
     return None
+
+
+def _strip_programme_furniture(title: str) -> str:
+    """Drop the Plaza's own listing decoration from a film title.
+
+    The venue prefixes its strand ("Film:", "On Screen:") and suffixes the BBFC
+    certificate ("(Cert 15)", "(Cert 15 TBC)"). Both are presentation, not part
+    of the title, and leaving them in puts "Film: Northern Soul (Cert 15)" on the
+    site and guarantees the TMDB lookup misses.
+    """
+    title = re.sub(r"^\s*(?:film|on screen|screening)\s*:\s*", "", title, flags=re.IGNORECASE)
+    title = re.sub(r"\s*\(\s*cert\b[^)]*\)\s*$", "", title, flags=re.IGNORECASE)
+    return title.strip()
 
 
 def _extract_event_info(event_element) -> Optional[Dict]:
@@ -115,7 +129,7 @@ def _extract_event_info(event_element) -> Optional[Dict]:
         if not title_elem:
             return None
 
-        title = _clean(title_elem.get_text())
+        title = _strip_programme_furniture(_clean(title_elem.get_text()))
 
         # Only include film events - check for film category in the filterRow
         filter_row = event_element.find('div', class_='filterRow')
@@ -136,7 +150,7 @@ def _extract_event_info(event_element) -> Optional[Dict]:
 
         # Extract time from date text (format: "Wednesday 21st and Thursday 22nd January at 7.30pm")
         showtime = ""
-        time_match = re.search(r'at\s+(\d{1,2}(?:\.\d{2})?\s*(?:am|pm))', date_time_text, re.IGNORECASE)
+        time_match = re.search(r'at\s+(\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm))', date_time_text, re.IGNORECASE)
         if time_match:
             showtime = time_match.group(1)
 

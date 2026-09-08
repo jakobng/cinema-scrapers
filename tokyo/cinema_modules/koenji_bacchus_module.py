@@ -3,27 +3,36 @@ from __future__ import annotations
 import datetime as dt
 import re
 import sys
-from typing import Dict, Iterable, List
-from urllib.parse import urljoin
+from typing import Dict, Iterable, List, Optional, Tuple
 
 import requests
-from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup
 
 CINEMA_NAME = "高円寺シアターバッカス"
 BASE_URL = "https://bacchus-tokyo.com/"
-SCREENING_URL = urljoin(BASE_URL, "/screening/")
-SCREENING_URLS = [
-    BASE_URL,
-    SCREENING_URL,
-    urljoin(BASE_URL, "/category/%E4%B8%8A%E6%98%A0/"),
-    urljoin(BASE_URL, "/category/%E7%89%B9%E9%9B%86%E4%B8%8A%E6%98%A0/"),
-]
+SCREENING_URLS = [BASE_URL]
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept-Language": "ja,en;q=0.8"}
 
+# The schedule lives in one flat text block on the front page, between these markers.
+_SCHEDULE_START = "上映スケジュール"
+_SCHEDULE_END = "高円寺シアターバッカスとは"
+
+_MAX_DAYS_AHEAD = 180
+
 _FULLWIDTH_TRANS = str.maketrans(
-    "０１２３４５６７８９：／－〜～",
-    "0123456789:/-~~",
+    "０１２３４５６７８９：／－〜～　",
+    "0123456789:/-~~ ",
 )
+
+_TIME_RE = re.compile(r"(?<!\d)(\d{1,2}):(\d{2})(?!\d)")
+# "9月24・25日", "9月7日", "10月30・31日"
+_JP_DATE_RE = re.compile(r"(\d{1,2})月((?:\d{1,2}[・,、])*\d{1,2})日")
+# "9/7"
+_SLASH_DATE_RE = re.compile(r"(?<!\d)(\d{1,2})/(\d{1,2})(?!\d/)")
+_TITLE_RE = re.compile(r"[『「]([^』」]+)[』」]")
+_WEEKDAY_PAREN_RE = re.compile(r"[（(][月火水木金土日祝・,、\s]*[）)]")
+# Circled numerals used as "screening 1 / 2 / 3" markers, not part of a title.
+_CIRCLED_NUM_RE = re.compile(r"[①-⑳❶-❿➀-➉⓵-⓾]")
 
 
 def _clean_text(text: str) -> str:
@@ -31,84 +40,154 @@ def _clean_text(text: str) -> str:
 
 
 def _normalize(text: str) -> str:
-    return _clean_text(text.translate(_FULLWIDTH_TRANS))
+    return _clean_text((text or "").translate(_FULLWIDTH_TRANS))
 
 
 def _today_jst() -> dt.date:
     try:
         from zoneinfo import ZoneInfo
-    except ImportError:
-        from backports.zoneinfo import ZoneInfo
+    except ImportError:  # pragma: no cover - Python < 3.9
+        from backports.zoneinfo import ZoneInfo  # type: ignore
     return dt.datetime.now(ZoneInfo("Asia/Tokyo")).date()
 
 
-def _resolve_year(month: int, day: int, base_year: int, today: dt.date) -> int:
-    candidate = dt.date(base_year, month, day)
+def _resolve_year(month: int, day: int, today: dt.date) -> int:
+    """Pick the calendar year that puts month/day nearest to (and mostly after) today."""
+    try:
+        candidate = dt.date(today.year, month, day)
+    except ValueError:
+        return today.year
     if candidate < today - dt.timedelta(days=45):
-        return base_year + 1
-    return base_year
+        return today.year + 1
+    return today.year
 
 
-def _iter_dates(text: str, today: dt.date) -> Iterable[dt.date]:
-    normalized = _normalize(text)
+def _dates_in_line(line: str, today: dt.date) -> List[dt.date]:
+    """Every explicit date mentioned in one line, in source order."""
+    found: List[dt.date] = []
     seen = set()
 
-    range_patterns = [
-        re.compile(r"(?:(\d{4})年)?(\d{1,2})月(\d{1,2})日.{0,20}[~/\-](?:(\d{1,2})月)?(\d{1,2})日"),
-        re.compile(r"(?:(\d{4})/)?(\d{1,2})/(\d{1,2}).{0,20}[~/\-](?:(\d{1,2})/)?(\d{1,2})"),
-    ]
-    for pattern in range_patterns:
-        for match in pattern.finditer(normalized):
-            year_raw, start_month, start_day, end_month, end_day = match.groups()
-            year = int(year_raw) if year_raw else today.year
-            sm = int(start_month)
-            sd = int(start_day)
-            em = int(end_month) if end_month else sm
-            ed = int(end_day)
-            year = _resolve_year(sm, sd, year, today)
-            try:
-                current = dt.date(year, sm, sd)
-                end = dt.date(year + (1 if em < sm else 0), em, ed)
-            except ValueError:
+    def add(month: int, day: int) -> None:
+        year = _resolve_year(month, day, today)
+        try:
+            value = dt.date(year, month, day)
+        except ValueError:
+            return
+        if value not in seen:
+            seen.add(value)
+            found.append(value)
+
+    for match in _JP_DATE_RE.finditer(line):
+        month = int(match.group(1))
+        for day_raw in re.split(r"[・,、]", match.group(2)):
+            add(month, int(day_raw))
+    for match in _SLASH_DATE_RE.finditer(line):
+        add(int(match.group(1)), int(match.group(2)))
+    return found
+
+
+def _times_in_line(line: str) -> List[str]:
+    times: List[str] = []
+    for hour, minute in _TIME_RE.findall(line):
+        value = f"{int(hour):02d}:{minute}"
+        if int(hour) <= 29 and value not in times:
+            times.append(value)
+    return times
+
+
+def _lead_label(line: str) -> str:
+    """Text before the first showtime, once dates and decoration are stripped."""
+    match = _TIME_RE.search(line)
+    lead = line[: match.start()] if match else line
+    lead = _JP_DATE_RE.sub("", lead)
+    lead = _SLASH_DATE_RE.sub("", lead)
+    lead = _WEEKDAY_PAREN_RE.sub("", lead)
+    lead = _CIRCLED_NUM_RE.sub("", lead)
+    lead = lead.strip(" ●◆◇▶・~-/:")
+    lead = _clean_text(lead)
+    return lead if len(lead) <= 30 else ""
+
+
+def _compose_title(program_title: Optional[str], line: str) -> Optional[str]:
+    """Title for a showtime line: an explicit 『…』 wins, else programme + part label."""
+    quoted = _TITLE_RE.search(line)
+    if quoted:
+        return _clean_text(quoted.group(1))
+    if not program_title:
+        return None
+    lead = _lead_label(line)
+    return _clean_text(f"{program_title} {lead}") if lead else program_title
+
+
+def _schedule_lines(soup: BeautifulSoup) -> List[str]:
+    text = soup.get_text("\n", strip=True)
+    start = text.find(_SCHEDULE_START)
+    if start < 0:
+        return []
+    end = text.find(_SCHEDULE_END, start)
+    block = text[start : end if end > start else len(text)]
+    return [_normalize(line) for line in block.splitlines()[1:]]
+
+
+def _parse_schedule(lines: Iterable[str], today: dt.date) -> List[Tuple[dt.date, str, str]]:
+    horizon = today + dt.timedelta(days=_MAX_DAYS_AHEAD)
+    out: List[Tuple[dt.date, str, str]] = []
+    seen = set()
+
+    program_title: Optional[str] = None
+    block_dates: List[dt.date] = []
+    block_times: List[str] = []
+    current_dates: List[dt.date] = []
+
+    def emit(dates: List[dt.date], times: List[str], title: Optional[str]) -> None:
+        if not (dates and times and title):
+            return
+        for date_value in dates:
+            if not (today <= date_value <= horizon):
                 continue
-            emitted = 0
-            while current <= end and emitted <= 31:
-                if current not in seen:
-                    seen.add(current)
-                    yield current
-                current += dt.timedelta(days=1)
-                emitted += 1
+            for showtime in times:
+                key = (date_value, showtime, title)
+                if key in seen:
+                    continue
+                seen.add(key)
+                out.append(key)
 
-    single_patterns = [
-        re.compile(r"(?:(\d{4})年)?(\d{1,2})月(\d{1,2})日"),
-        re.compile(r"(?:(\d{4})/)?(\d{1,2})/(\d{1,2})"),
-    ]
-    for pattern in single_patterns:
-        for match in pattern.finditer(normalized):
-            year_raw, month_raw, day_raw = match.groups()
-            month = int(month_raw)
-            day = int(day_raw)
-            year = int(year_raw) if year_raw else _resolve_year(month, day, today.year, today)
-            try:
-                value = dt.date(year, month, day)
-            except ValueError:
+    for line in lines:
+        if not line or line.startswith("http") or set(line) <= {"・", "◆", "◇", "●", " "}:
+            continue
+
+        if line.startswith("●"):
+            # New programme block: header may carry its own dates and times.
+            program_title = None
+            block_dates = _dates_in_line(line, today)
+            block_times = _times_in_line(line)
+            current_dates = list(block_dates)
+            quoted = _TITLE_RE.search(line)
+            if quoted:
+                program_title = _clean_text(quoted.group(1))
+            continue
+
+        if line.startswith("◆"):
+            dates = _dates_in_line(line, today)
+            if dates:
+                current_dates = dates
                 continue
-            if value not in seen:
-                seen.add(value)
-                yield value
 
+        times = _times_in_line(line)
+        if not times:
+            quoted = _TITLE_RE.search(line)
+            if quoted:
+                program_title = _clean_text(quoted.group(1))
+                # A ● header such as "9月28日（月）19:00～" states the time before the title.
+                if block_times and block_dates:
+                    emit(block_dates, block_times, program_title)
+                    block_times = []
+            continue
 
-def _iter_times(text: str) -> Iterable[str]:
-    for hour, minute in re.findall(r"\b(\d{1,2}):(\d{2})\b", _normalize(text)):
-        yield f"{int(hour):02d}:{minute}"
+        line_dates = _dates_in_line(line, today)
+        emit(line_dates or current_dates, times, _compose_title(program_title, line))
 
-
-def _entry_text(anchor: Tag) -> str:
-    article = anchor.find_parent("article")
-    if article:
-        return article.get_text(" ", strip=True)
-    parent = anchor.find_parent()
-    return parent.get_text(" ", strip=True) if parent else anchor.get_text(" ", strip=True)
+    return out
 
 
 def scrape_koenji_bacchus() -> List[Dict[str, str]]:
@@ -117,6 +196,7 @@ def scrape_koenji_bacchus() -> List[Dict[str, str]]:
         try:
             candidate = requests.get(url, headers=HEADERS, timeout=20)
             candidate.raise_for_status()
+            candidate.encoding = candidate.apparent_encoding
             response = candidate
             break
         except requests.RequestException:
@@ -126,34 +206,25 @@ def scrape_koenji_bacchus() -> List[Dict[str, str]]:
         return []
 
     soup = BeautifulSoup(response.text, "html.parser")
-    today = _today_jst()
-    listings: List[Dict[str, str]] = []
-    seen = set()
+    rows = _parse_schedule(_schedule_lines(soup), _today_jst())
 
-    for anchor in soup.select("h3 a[href], .entry-title a[href], article a[href]"):
-        title = _clean_text(anchor.get_text(" ", strip=True))
-        if not title or title in {"READ MORE", "上映", "TOPICS"}:
-            continue
-        detail_url = urljoin(BASE_URL, anchor.get("href", ""))
-        text = _entry_text(anchor)
-        dates = [value for value in _iter_dates(text, today) if value >= today]
-        times = list(dict.fromkeys(_iter_times(text)))
-        if not dates or not times:
-            continue
-        for date_value in dates:
-            for showtime in times:
-                key = (title, date_value.isoformat(), showtime)
-                if key in seen:
-                    continue
-                seen.add(key)
-                listings.append({
-                    "cinema_name": CINEMA_NAME,
-                    "movie_title": title,
-                    "date_text": date_value.isoformat(),
-                    "showtime": showtime,
-                    "detail_page_url": detail_url,
-                    "synopsis": _clean_text(text),
-                })
+    listings = [
+        {
+            "cinema_name": CINEMA_NAME,
+            "movie_title": title,
+            "movie_title_en": "",
+            "director": None,
+            "year": None,
+            "country": None,
+            "runtime_min": None,
+            "synopsis": None,
+            "date_text": date_value.isoformat(),
+            "showtime": showtime,
+            "detail_page_url": BASE_URL,
+            "purchase_url": None,
+        }
+        for date_value, showtime, title in sorted(rows)
+    ]
 
     if not listings:
         print(f"INFO: [{CINEMA_NAME}] No future public screenings with explicit times found.")
@@ -168,4 +239,6 @@ if __name__ == "__main__":
         except Exception:
             pass
     data = scrape_koenji_bacchus()
+    for row in data:
+        print(row["date_text"], row["showtime"], row["movie_title"])
     print(f"Collected {len(data)} listings.")

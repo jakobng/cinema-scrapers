@@ -150,50 +150,17 @@ def scrape_small_world_cinema() -> List[Dict]:
         # Look for upcoming events/screenings
         event_containers = soup.find_all(['div', 'article', 'section'], class_=re.compile(r'event|film|screening|show'))
 
-        # Also check for any elements mentioning dates or screenings
-        if not event_containers:
-            page_text = soup.get_text()
-            # Look for mentions of screenings or events
-            if re.search(r'screening|showing|film|cinema', page_text, re.IGNORECASE):
-                # Create a placeholder for their typical monthly screening
-                # Small World Cinema typically screens on the first Tuesday of each month
-
-                # Check if there's a current or upcoming screening
-                now = dt.datetime.now()
-
-                # Find the first Tuesday of the current month
-                first_day = now.replace(day=1)
-                days_to_tuesday = (1 - first_day.weekday()) % 7  # 1 = Tuesday
-                if days_to_tuesday == 0:
-                    days_to_tuesday = 7
-                first_tuesday = first_day + dt.timedelta(days=days_to_tuesday)
-
-                # If it's already past, get next month's first Tuesday
-                if first_tuesday.date() < TODAY:
-                    next_month = now.replace(day=1) + dt.timedelta(days=32)
-                    next_month = next_month.replace(day=1)
-                    days_to_tuesday = (1 - next_month.weekday()) % 7
-                    if days_to_tuesday == 0:
-                        days_to_tuesday = 7
-                    first_tuesday = next_month + dt.timedelta(days=days_to_tuesday)
-
-                event_date = first_tuesday.date()
-
-                if TODAY <= event_date <= TODAY + dt.timedelta(days=WINDOW_DAYS):
-                    # Small World Cinema Club screenings are typically family-oriented
-                    shows.append({
-                        "cinema_name": CINEMA_NAME,
-                        "movie_title": "Monthly World Cinema Screening",
-                        "movie_title_en": "Monthly World Cinema Screening",
-                        "date_text": event_date.isoformat(),
-                        "showtime": "19:00",  # Typical evening time
-                        "detail_page_url": BASE_URL,
-                        "director": "",
-                        "year": "",
-                        "country": "",
-                        "runtime_min": "",
-                        "synopsis": "Small World Cinema Club monthly screening of world cinema, children's films, and inclusive screenings.",
-                    })
+        # NOTE: CINEMA_URL (smallworldcinema.com) is NOT this venue. It belongs to
+        # Small World Cinema CIC, a children's-film charity in Bromley, Greater
+        # London. The Manchester "Small World Cinema Club" ran monthly pop-ups at
+        # Foundation Coffee House until 2018; its domain smallworldcinemaclub.com
+        # no longer resolves and no events are listed after 2018.
+        #
+        # This module previously synthesised a "Monthly World Cinema Screening" on
+        # the first Tuesday of each month whenever the fetched page merely
+        # contained the word "film". That was fabricated data about the wrong
+        # organisation. It now returns empty; the venue should be de-registered in
+        # main_scraper.py once confirmed defunct.
 
         print(f"[{CINEMA_NAME}] Found {len(shows)} showings", file=sys.stderr)
 

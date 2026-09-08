@@ -3,12 +3,14 @@ from __future__ import annotations
 import ast
 import re
 import sys
+from datetime import datetime, timedelta, timezone
 from typing import Dict, List
 from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
 
+TAIPEI_TZ = timezone(timedelta(hours=8))
 BASE_URL = "https://www.spot-hs.org.tw/movie/nowplaying.html"
 BASE_ORIGIN = "https://www.spot-hs.org.tw"
 CINEMA_NAME = "光點華山電影館"
@@ -40,6 +42,7 @@ def _split_director(text: str) -> tuple[str, str]:
 
 
 def scrape_spot_huashan() -> List[Dict]:
+    today = datetime.now(TAIPEI_TZ).date().isoformat()
     try:
         homepage = _fetch_text(BASE_URL)
     except requests.RequestException as exc:
@@ -101,6 +104,11 @@ def scrape_spot_huashan() -> List[Dict]:
             if not row:
                 continue
             date_text = row[0].replace("/", "-")
+            # A re-run reuses the film's original detail page, so MovieSchedule
+            # still carries the sessions from that first run (e.g. the 2021/2022
+            # dates on movie202112/movie20211223.html). Keep only current dates.
+            if date_text < today:
+                continue
             for session in row[1:]:
                 time_match = re.match(r"(\d{1,2}:\d{2})", session)
                 if not time_match:

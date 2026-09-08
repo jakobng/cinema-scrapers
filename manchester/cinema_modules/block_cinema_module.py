@@ -209,34 +209,11 @@ def scrape_block_cinema() -> List[Dict]:
 
         print(f"[{CINEMA_NAME}] Found {len(date_matches)} date matches in page", file=sys.stderr)
 
-        # Only use this logic if we can actually extract specific film titles with dates
-        # For now, skip this and use the placeholder approach below
-
-        # The Block Cinema shows films every Thursday at 7:00 PM
-        # Since their current schedule isn't easily accessible online, provide a generic entry
-        if not shows:
-            # Find the next Thursday for a placeholder screening
-            today = dt.date.today()
-            days_until_thursday = (3 - today.weekday()) % 7  # 3 = Thursday
-            if days_until_thursday == 0:
-                days_until_thursday = 7  # Next Thursday if today is Thursday
-
-            next_thursday = today + dt.timedelta(days=days_until_thursday)
-
-            if TODAY <= next_thursday <= TODAY + dt.timedelta(days=WINDOW_DAYS):
-                shows.append({
-                    "cinema_name": CINEMA_NAME,
-                    "movie_title": "Weekly Arthouse Screening",
-                    "movie_title_en": "Weekly Arthouse Screening",
-                    "date_text": next_thursday.isoformat(),
-                    "showtime": "19:00",  # Standard Block Cinema time (7:00 PM)
-                    "detail_page_url": f"{BASE_URL}/",
-                    "director": "",
-                    "year": "",
-                    "country": "",
-                    "runtime_min": "",
-                    "synopsis": "The Block Cinema shows arthouse and classic films every Thursday. Check their website for the current week's film.",
-                })
+        # NOTE: this module currently extracts no real screenings from the
+        # /store/ page. It previously fabricated a "Weekly Arthouse Screening"
+        # every Thursday at 19:00 regardless of what the site said. Publishing an
+        # invented title is worse than publishing nothing, so it now returns empty
+        # until a real parser for the store listings is written.
 
         print(f"[{CINEMA_NAME}] Found {len(shows)} showings", file=sys.stderr)
 

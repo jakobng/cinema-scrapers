@@ -179,8 +179,11 @@ def scrape_garden_cinema() -> List[Dict]:
             stats_text = _clean(stats_elem.get_text()) if stats_elem else ""
             metadata = _parse_film_stats(stats_text)
 
-            # Extract screening times
-            screening_panels = film_block.select(".screening-panel")
+            # Extract screening times.
+            # The site groups screenings under a per-day container that holds the
+            # date title; each ".screening-panel" inside it is a single showtime and
+            # carries no date of its own, so iterate the day containers.
+            screening_panels = film_block.select(".screening-panel__day")
 
             for panel in screening_panels:
                 # Get date from panel

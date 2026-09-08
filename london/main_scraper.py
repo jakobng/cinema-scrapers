@@ -73,6 +73,27 @@ if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
 # --- Monitor & Alert System ---
+# Venues that are real but currently produce nothing for a known, recorded reason.
+# A zero-row result from these is expected, so it is reported as a note rather than
+# a warning -- which keeps every warning that IS raised worth acting on.
+#
+# Remove an entry the moment its cause is fixed. A stale entry here hides a real
+# regression, which is the exact failure this whole reporting path exists to catch.
+KNOWN_DARK = {
+    # Blocked, not broken -- these three work from a residential connection and
+    # are refused from GitHub's runners. Delete these entries the moment the
+    # London job gets a different route out; they are worth ~130 rows a day.
+    "BFI IMAX": "403 from GitHub runners; works from a residential IP",
+    "Peckhamplex": "TCP connect timeout from GitHub runners; works from a residential IP",
+    "The Cinema Museum": "403 from GitHub runners; works from a residential IP",
+    # Cloudflare managed challenge; requests, cloudscraper, curl_cffi impersonation
+    # and headless Chromium were all refused from two datacenter vantage points.
+    "Close-Up Film Centre": "Cloudflare challenge; no approach tried gets through",
+    "Rich Mix": "Cloudflare challenge; their own feed lists 1 screening Sep-Dec anyway",
+    # Dormant at source, and covered anyway.
+    "Ciné-Real": "their Next Screening page still advertises March 2026; real screenings arrive via The Castle Cinema",
+}
+
 class ScrapeReport:
     def __init__(self):
         self.results = []
@@ -107,13 +128,18 @@ class ScrapeReport:
         for r in self.results:
             # Logic: If SUCCESS but 0 showings, treat as WARNING
             if r['status'] == 'SUCCESS' and r['count'] == 0:
-                r['status'] = 'WARNING'
-                warnings.append(r)
+                if r['cinema'] in KNOWN_DARK:
+                    r['status'] = 'DARK'
+                    r['error'] = KNOWN_DARK[r['cinema']]
+                else:
+                    r['status'] = 'WARNING'
+                    warnings.append(r)
             elif r['status'] == 'FAILURE':
                 failures.append(r)
 
             # Console Output Icons
             icon = "[OK]"
+            if r['status'] == 'DARK': icon = "[--]"
             if r['status'] == 'WARNING': icon = "[!!]"
             if r['status'] == 'FAILURE': icon = "[XX]"
 
@@ -130,6 +156,15 @@ class ScrapeReport:
             print("\nDATA QUALITY WARNINGS:")
             for message in self.quality_warnings:
                 print(f"[!!] {message}")
+
+        # In CI the email path below is deliberately suppressed, so without this
+        # a silent cinema leaves no trace anywhere a human looks. Annotations put
+        # the name on the run page itself -- no new workflow, no new secret.
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            for r in failures:
+                print(f"::error title=Scraper failed::{r['cinema']}: {r.get('error') or 'unknown error'}")
+            for r in warnings:
+                print(f"::warning title=Scraper returned nothing::{r['cinema']} produced 0 showings")
 
         return failures, warnings
 

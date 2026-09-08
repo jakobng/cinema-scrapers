@@ -18,6 +18,7 @@ import requests
 import time
 import os
 import difflib
+import collections
 import smtplib
 import ssl
 import random
@@ -67,7 +68,6 @@ from cinema_modules import (
     theatre_shinjuku_module,
     waseda_shochiku_module,
     cinemart_shinjuku_module,
-    cine_quinto_module,
     yebisu_garden_module,
     k2_cinema_module,
     kino_cinema_module,
@@ -130,18 +130,28 @@ def _normalize_eurospace_schema(listings: list) -> list:
     return normalized
 
 # --- Monitor & Alert System ---
+# Venues that are real but currently produce nothing for a known, recorded reason.
+# A zero-row result from these is expected, so it is reported as a note rather than
+# a warning -- which keeps every warning that IS raised worth acting on.
+#
+# Remove an entry the moment its cause is fixed. A stale entry here hides a real
+# regression, which is the exact failure this whole reporting path exists to catch.
+KNOWN_DARK = {
+    "Koenji Cinema Club": "meetup.com group deleted; the club now announces on Instagram only",
+    "Cinema Novecento": "Yokohama venue closed 2026-08-31; reopening in Tsurukawa, Machida, announced for 2026-10-31",
+}
+
 class ScrapeReport:
     def __init__(self):
         self.results = []
         self.total_showings = 0
 
-    def add(self, cinema_name, status, count, error=None, warn_if_empty=True):
+    def add(self, cinema_name, status, count, error=None):
         self.results.append({
             "cinema": cinema_name,
             "status": status,
             "count": count,
             "error": str(error) if error else None,
-            "warn_if_empty": warn_if_empty,
         })
         if status == "SUCCESS" and count:
             self.total_showings += count
@@ -159,16 +169,21 @@ class ScrapeReport:
         print("-" * 65)
 
         for r in self.results:
-            # Logic: If SUCCESS but 0 showings, treat as WARNING unless the
-            # source is intermittent or covered by a broader fallback scraper.
-            if r['status'] == 'SUCCESS' and r['count'] == 0 and r.get("warn_if_empty", True):
-                r['status'] = 'WARNING'
-                warnings.append(r)
+            # If SUCCESS but 0 showings, treat as WARNING unless the venue is a
+            # recorded known-dark case.
+            if r['status'] == 'SUCCESS' and r['count'] == 0:
+                if r['cinema'] in KNOWN_DARK:
+                    r['status'] = 'DARK'
+                    r['error'] = KNOWN_DARK[r['cinema']]
+                else:
+                    r['status'] = 'WARNING'
+                    warnings.append(r)
             elif r['status'] == 'FAILURE':
                 failures.append(r)
 
             # Console Output Icons
             icon = "✅"
+            if r['status'] == 'DARK': icon = "➖"
             if r['status'] == 'WARNING': icon = "⚠️ "
             if r['status'] == 'FAILURE': icon = "❌"
             
@@ -180,6 +195,15 @@ class ScrapeReport:
 
         print("-" * 65)
         print(f"Total Showings Collected: {self.total_showings}")
+        # In CI the email path below is deliberately suppressed, so without this
+        # a silent cinema leaves no trace anywhere a human looks. Annotations put
+        # the name on the run page itself -- no new workflow, no new secret.
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            for r in failures:
+                print(f"::error title=Scraper failed::{r['cinema']}: {r.get('error') or 'unknown error'}")
+            for r in warnings:
+                print(f"::warning title=Scraper returned nothing::{r['cinema']} produced 0 showings")
+
         return failures, warnings
 
     def send_email_alert(self, failures, warnings):
@@ -617,6 +641,9 @@ FILMARKS_ACCEPT_MARGIN = 2
 ZERO_COUNT_RETRY_CINEMAS = {
     "Shimotakaido Cinema",
     "Shinjuku Musashino-kan",
+    # Single request, no backoff, and it is the ONLY source for this venue --
+    # in production it alternates between 10 rows and 0 roughly every other day.
+    "Athenee Francais",
 }
 
 def _clean_title_for_filmarks_query(title: str) -> str:
@@ -1346,6 +1373,40 @@ def _merge_eiga_with_legacy(eiga_listings: list, legacy_listings: list) -> list:
         seen.add(key)
 
     return merged
+
+def report_eiga_dependence(eiga_listings: list, legacy_listings: list) -> list:
+    """Name every cinema that only the Eiga.com aggregators are holding up.
+
+    A per-cinema row count cannot tell a working dedicated scraper from a dead
+    one, because the aggregators quietly cover most of the same venues. This is
+    the failure that hid kino cinema Yokohama Minatomirai: its LOCATIONS entry
+    was missing from day one, so all 51 of its rows came from Eiga.com Kanagawa
+    and the venue looked perfectly healthy.
+
+    Most names below are expected -- 13 or so venues have no dedicated module at
+    all. The one to act on is a venue that appears here even though a module is
+    supposed to cover it. Returns the names so a caller can assert on them.
+    """
+    legacy_cinemas = {row.get("cinema_name") for row in legacy_listings if row.get("cinema_name")}
+    eiga_only = sorted(
+        {row.get("cinema_name") for row in eiga_listings if row.get("cinema_name")} - legacy_cinemas
+    )
+    print("\n" + "=" * 65)
+    print("EIGA.COM DEPENDENCE")
+    print("=" * 65)
+    if not eiga_only:
+        print("No cinema depends on the aggregators alone.")
+        return eiga_only
+    counts = collections.Counter(
+        row.get("cinema_name") for row in eiga_listings if row.get("cinema_name") in set(eiga_only)
+    )
+    total = sum(counts.values())
+    print(f"{len(eiga_only)} cinemas ({total} showings) come from Eiga.com alone.")
+    print("If a dedicated module exists for any of these, that module is dead:")
+    for name in eiga_only:
+        print(f"   {counts[name]:5d}  {name}")
+    return eiga_only
+
 
 def _title_similarity(a: str, b: str) -> float:
     if not a or not b:
@@ -2887,7 +2948,7 @@ def enrich_listings_with_tmdb_links(
 
 # --- Scraper Runner Wrapper ---
 
-def _run_scraper(name, func, listings_list, normalize_func=None, warn_if_empty=True):
+def _run_scraper(name, func, listings_list, normalize_func=None):
     """
     Runs a scraper function with robust error handling and reporting.
     """
@@ -2912,7 +2973,7 @@ def _run_scraper(name, func, listings_list, normalize_func=None, warn_if_empty=T
         listings_list.extend(rows)
         
         # Report Success
-        report.add(name, "SUCCESS", count, warn_if_empty=warn_if_empty)
+        report.add(name, "SUCCESS", count)
         
     except SystemExit as e:
         # Some scraper modules still call sys.exit() on network or parse failures.
@@ -3051,10 +3112,9 @@ def main():
         ("Human Trust Cinema Yurakucho", human_yurakucho_module.scrape_human_yurakucho, None),
         ("Laputa Asagaya", laputa_asagaya_module.scrape_laputa_asagaya, None),
         ("Shinjuku Musashino-kan", musashino_kan_module.scrape_musashino_kan, None),
-        ("Waseda Shochiku", waseda_shochiku_module.scrape_waseda_shochiku, None, False),
+        ("Waseda Shochiku", waseda_shochiku_module.scrape_waseda_shochiku, None),
         ("National Film Archive", nfaj_module.scrape_nfaj_calendar, None),
         ("Cinemart Shinjuku", cinemart_shinjuku_module.scrape_cinemart_shinjuku, None),
-        ("Cine Quinto", cine_quinto_module.scrape_cine_quinto, None),
         ("Yebisu Garden Cinema", yebisu_garden_module.scrape_yebisu_garden_cinema, None),
         ("K2 Cinema", k2_cinema_module.scrape_k2_cinema, None),
         ("Kino Cinema", kino_cinema_module.scrape_kino_cinema, None),
@@ -3071,13 +3131,16 @@ def main():
         ("Institut Francais Tokyo", institut_francais_module.scrape_institut_francais, None),
         ("Jack and Betty Yokohama", jack_and_betty_module.scrape_jack_and_betty, None),
         ("Cinema Novecento", cinema_novecento_module.scrape_cinema_novecento, None),
-        ("Athenee Francais", athenee_francais_module.scrape_athenee_francais, None, False),
+        ("Athenee Francais", athenee_francais_module.scrape_athenee_francais, None),
+        # Cine Quinto Shibuya de-registered 2026-09-08: the venue closed and reopened
+        # as "SPACE PART 3 by PARCO" on 2026-09-01, so cinequinto.com/shibuya/ lists no
+        # films. White Cine Quinto below is a DIFFERENT venue and is still running.
         ("White Cine Quinto", white_cine_quinto_module.scrape_white_cine_quinto, None),
         ("Yokohama Cinemarine", yokohama_cinemarine_module.scrape_yokohama_cinemarine, None),
         ("Kadokawa Cinema Yurakucho", kadokawa_yurakucho_module.scrape_kadokawa_yurakucho, None),
         ("Cinema Neko Ome", cinema_neko_module.scrape_cinema_neko, None),
-        ("Koenji Theater Bacchus", koenji_bacchus_module.scrape_koenji_bacchus, None, False),
-        ("Koenji Cinema Club", koenji_cinema_club_module.scrape_koenji_cinema_club, None, False),
+        ("Koenji Theater Bacchus", koenji_bacchus_module.scrape_koenji_bacchus, None),
+        ("Koenji Cinema Club", koenji_cinema_club_module.scrape_koenji_cinema_club, None),
         ("Cinema Amigo", cinema_amigo_module.scrape_cinema_amigo, None),
     ]
 
@@ -3086,16 +3149,15 @@ def main():
         name = item[0]
         func = item[1]
         norm = item[2] if len(item) > 2 else None
-        warn_if_empty = item[3] if len(item) > 3 else True
-        _run_scraper(name, func, eiga_listings, normalize_func=norm, warn_if_empty=warn_if_empty)
+        _run_scraper(name, func, eiga_listings, normalize_func=norm)
 
     for item in legacy_scrapers_to_run:
         name = item[0]
         func = item[1]
         norm = item[2] if len(item) > 2 else None
-        warn_if_empty = item[3] if len(item) > 3 else True
-        _run_scraper(name, func, legacy_listings, normalize_func=norm, warn_if_empty=warn_if_empty)
+        _run_scraper(name, func, legacy_listings, normalize_func=norm)
 
+    report_eiga_dependence(eiga_listings, legacy_listings)
     listings = _merge_eiga_with_legacy(eiga_listings, legacy_listings)
 
     # 3. ENRICHMENT

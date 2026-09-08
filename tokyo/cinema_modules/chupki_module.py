@@ -58,7 +58,7 @@ def _parse_and_split_title(text: Optional[str]) -> tuple[str, str]:
     # Remove special brackets
     text = text.replace("『", "").replace("』", "")
     # Remove notes like *6/26のみ 17:10-
-    text = re.sub(r'\s+[＊✳︎].*$', '', text.strip())
+    text = re.sub(r'\s*[＊✳︎].*$', '', text.strip())
     # Standard whitespace normalization
     text = " ".join(text.strip().split())
 
@@ -153,81 +153,274 @@ def _parse_movie_details(soup: BeautifulSoup) -> Dict[str, Dict]:
 
     return details_cache
 
-def _parse_schedule(soup: BeautifulSoup, details_cache: Dict, max_days: int) -> List[Dict]:
+# Day numbers named by a closure note. The site writes these as
+# "＊10(木)〜13(日)休映" (this row is cancelled on 10-13) or, less often, as a
+# 休館 note meaning the whole venue is shut.
+_CLOSURE_WORDS = ("休映", "休館")
+_TIME_RE = re.compile(r"\d{1,2}\s*[:：]\s*\d{2}")
+_NOTE_TAIL_RE = re.compile(r"[＊✳].*$", re.S)
+
+
+def _resolve_date(month: int, day: int, today: dt.date) -> Optional[dt.date]:
+    """Pick the year that puts month/day nearest to today (handles Dec -> Jan)."""
+    for year in (today.year, today.year + 1, today.year - 1):
+        try:
+            candidate = dt.date(year, month, day)
+        except ValueError:
+            continue
+        if abs((candidate - today).days) <= 185:
+            return candidate
+    return None
+
+
+def _closure_days(text: str) -> tuple[set[int], bool]:
     """
-    Parses the main timetable and merges with cached details.
+    Read a 休映/休館 note into the day numbers it cancels.
+
+    Returns (days, unreadable). `unreadable` is True when a closure word is
+    present but no day number could be recovered - the caller must then drop
+    the affected rows rather than publish them, because a wrong showtime sends
+    someone to a shut cinema. A note whose range wraps a month end
+    ("＊30(火)〜2(木)休映") yields no days and so reads as unreadable, which
+    drops the rows: under-reporting, never a screening on a shut day.
     """
-    timetable = soup.find("div", class_="timetable")
-    if not timetable: return []
+    if not any(word in text for word in _CLOSURE_WORDS):
+        return set(), False
 
-    header = timetable.find("h3", class_="timetable__ttl")
-    if not header: return []
-
-    header_text = header.get_text(" ", strip=True)
-    date_match = re.search(r"(\d{1,2})月(\d{1,2})日.*?([～〜])\s*(?:(\d{1,2})月)?(\d{1,2})日", header_text)
-    if not date_match: return []
-
-    start_m_str, start_d_str, _, end_m_str, end_d_str = date_match.groups()
-    start_month, start_day = int(start_m_str), int(start_d_str)
-    end_day = int(end_d_str)
-    end_month = int(end_m_str) if end_m_str else start_month
-
-    start_date = dt.date(THIS_YEAR, start_month, start_day)
-    end_date = dt.date(THIS_YEAR, end_month, end_day)
-    # Handle year rollover if end_date is in the next year
-    if start_date > end_date and start_month > end_month:
-        end_date = dt.date(THIS_YEAR + 1, end_month, end_day)
-    elif start_date > end_date and start_month <= end_month: # same month, but end_day is smaller, implies next year
-         end_date = dt.date(THIS_YEAR + 1, end_month, end_day)
+    days: set[int] = set()
+    for match in re.finditer("|".join(_CLOSURE_WORDS), text):
+        segment = text[: match.start()]
+        # A note starts at its own marker; anything before it is the film title.
+        segment = re.split(r"[＊✳、。\n]", segment)[-1]
+        segment = _TIME_RE.sub(" ", segment)              # 18:30 is not day 18
+        segment = re.sub(r"[（(][^）)]*[）)]", "", segment)  # drop (木) weekday tags
+        segment = re.sub(r"\d{1,2}\s*月", "", segment)     # drop the month number
+        compact = re.sub(r"[^0-9〜～\-–—,、，]", "", segment)
+        for part in re.split(r"[,、，]", compact):
+            if span := re.fullmatch(r"(\d{1,2})[〜～\-–—](\d{1,2})", part):
+                days.update(range(int(span.group(1)), int(span.group(2)) + 1))
+            elif part.isdigit():
+                days.add(int(part))
+    days = {d for d in days if 1 <= d <= 31}
+    return days, not days
 
 
-    closed_days_str = re.search(r"(?:休映|休館).*?([\d,]+)", header_text)
-    closed_days = {int(d) for d in closed_days_str.group(1).split(',')} if closed_days_str else set()
+def _block_notes(block, table) -> tuple[set[int], bool]:
+    """
+    Closure days that apply to every row of a block: notes written outside the
+    table, plus any 休館 (whole venue shut) note wherever it sits.
+    """
+    outside = " ".join(
+        s for s in block.find_all(string=True) if not s.find_parent("table")
+    )
+    days, unreadable = _closure_days(outside)
+    table_text = table.get_text(" ", strip=True) if table else ""
+    if "休館" in table_text:
+        venue_days, venue_unreadable = _closure_days(table_text)
+        days |= venue_days
+        unreadable = unreadable or venue_unreadable
+    return days, unreadable
 
-    valid_dates = []
-    current_date = dt.date.today() #
-    cutoff = current_date + dt.timedelta(days=max_days) #
-    while current_date <= end_date and current_date < cutoff: #
-        if start_date <= current_date and current_date.day not in closed_days: #
-            valid_dates.append(current_date) #
-        current_date += dt.timedelta(days=1) #
 
-    print(f"INFO: [{CINEMA_NAME}] Found valid dates: {[d.isoformat() for d in valid_dates]}", file=sys.stderr) #
+def _window(today: dt.date, max_days: int) -> tuple[dt.date, dt.date]:
+    """Inclusive first date and exclusive cutoff of the publishing window."""
+    return today, today + dt.timedelta(days=max_days)
+
+
+def _range_block_dates(header_text: str, today: dt.date, max_days: int) -> List[dt.date]:
+    """Dates covered by a "9月10日(木)〜9月15日(火)" style block header."""
+    match = re.search(
+        r"(\d{1,2})月(\d{1,2})日.*?[～〜]\s*(?:(\d{1,2})月)?(\d{1,2})日", header_text
+    )
+    if not match:
+        return []
+    start_month, start_day, end_month_str, end_day = match.groups()
+    start = _resolve_date(int(start_month), int(start_day), today)
+    end = _resolve_date(int(end_month_str or start_month), int(end_day), today)
+    if not start or not end:
+        return []
+    if end < start:  # range crosses into the next year
+        end = dt.date(end.year + 1, end.month, end.day)
+
+    window_start, cutoff = _window(today, max_days)
+    dates, current = [], max(start, window_start)
+    while current <= end and current < cutoff:
+        dates.append(current)
+        current += dt.timedelta(days=1)
+    return dates
+
+
+def _row_cells(table) -> List[tuple[str, str]]:
+    """(th text, td text) for each row, with tags separated so appended notes
+    do not fuse onto the end of a title."""
+    cells = []
+    for row in table.find_all("tr"):
+        th, td = row.find("th"), row.find("td")
+        if not (th and td):
+            continue
+        cells.append(
+            (
+                " ".join(th.get_text(" ").split()),
+                " ".join(td.get_text(" ").split()),
+            )
+        )
+    return cells
+
+
+def _showing(details: Dict, title_key: str, date: dt.date, showtime: str) -> Dict:
+    return {
+        "cinema_name": CINEMA_NAME,
+        "movie_title": details.get("movie_title", title_key),
+        "movie_title_en": details.get("movie_title_en", ""),
+        "date_text": date.isoformat(),
+        "showtime": showtime,
+        **{k: v for k, v in details.items() if k not in ("movie_title", "movie_title_en")},
+    }
+
+
+def _parse_range_block(
+    block, table, details_cache: Dict, today: dt.date, max_days: int
+) -> List[Dict]:
+    """Weekly block: header carries the date range, each row is time + title."""
+    header = block.find("h3", class_="timetable__ttl")
+    dates = _range_block_dates(
+        header.get_text(" ", strip=True) if header else "", today, max_days
+    )
+    if not dates:
+        return []
+
+    block_closed, block_unreadable = _block_notes(block, table)
+    if block_unreadable:
+        print(
+            f"WARN: [{CINEMA_NAME}] Block-level closure note could not be read; "
+            f"skipping block '{header.get_text(' ', strip=True) if header else ''}'.",
+            file=sys.stderr,
+        )
+        return []
 
     showings = []
-    table = timetable.find("table") #
-    if not table: return [] #
+    for th_text, td_text in _row_cells(table):
+        time_match = re.search(r"(\d{1,2}:\d{2})", th_text)
+        if not time_match:
+            continue
+        showtime = time_match.group(1)
 
-    for row in table.find_all("tr"): #
-        th = row.find("th"); td = row.find("td") #
-        if not (th and td): continue #
+        row_closed, row_unreadable = _closure_days(td_text)
+        if row_unreadable:
+            print(
+                f"WARN: [{CINEMA_NAME}] Unreadable closure note on row "
+                f"'{td_text}'; dropping the row.",
+                file=sys.stderr,
+            )
+            continue
+        closed = block_closed | row_closed
 
-        time_match = re.search(r"(\d{1,2}:\d{2})", th.get_text(strip=True)) #
-        if not time_match: continue #
-        showtime = time_match.group(1) #
-        
-        # Use the cleaned Japanese title from the timetable cell to match the cache
-        # Need to clean it similar to how cache keys are made
-        cell_text_for_key = " ".join(td.get_text().strip().split())
-        title_key, _ = _parse_and_split_title(cell_text_for_key) # Use the same cleaning logic for the key
-        
-        details = details_cache.get(title_key) #
-        if not details: #
-            print(f"WARN: [{CINEMA_NAME}] No details found in cache for title: '{title_key}'", file=sys.stderr) #
-            details = {} #
+        title_key, _ = _parse_and_split_title(_NOTE_TAIL_RE.sub("", td_text))
+        if not title_key:
+            continue
+        details = details_cache.get(title_key)
+        if details is None:
+            print(
+                f"WARN: [{CINEMA_NAME}] No details found in cache for title: '{title_key}'",
+                file=sys.stderr,
+            )
+            details = {}
 
-        for showing_date in valid_dates: #
-            # Ensure movie_title and movie_title_en are pulled from `details` which has the split titles
-            showings.append({ #
-                "cinema_name": CINEMA_NAME, #
-                "movie_title": details.get("movie_title", title_key), # Use the split Japanese title from details, fallback to cleaned cell text
-                "movie_title_en": details.get("movie_title_en", ""), # Use the split English title from details
-                "date_text": showing_date.isoformat(), #
-                "showtime": showtime, #
-                **{k: v for k, v in details.items() if k not in ["movie_title", "movie_title_en"]}, # Add other details, excluding original title fields
-            })
-
+        for date in dates:
+            if date.day in closed:
+                continue
+            showings.append(_showing(details, title_key, date, showtime))
     return showings
+
+
+def _parse_dated_rows_block(
+    block, table, details_cache: Dict, today: dt.date, max_days: int
+) -> List[Dict]:
+    """Event block: header carries one title, each row is a date + its time."""
+    header = block.find("h3", class_="timetable__ttl")
+    header_text = header.get_text(" ", strip=True) if header else ""
+    title_match = re.search(r"[「『](.+?)[」』]", header_text)
+    if not title_match:
+        return []
+    title_key, _ = _parse_and_split_title(title_match.group(1))
+    if not title_key:
+        return []
+    details = details_cache.get(title_key, {})
+
+    block_closed, block_unreadable = _block_notes(block, table)
+    if block_unreadable:
+        print(
+            f"WARN: [{CINEMA_NAME}] Block-level closure note could not be read; "
+            f"skipping block '{header_text}'.",
+            file=sys.stderr,
+        )
+        return []
+
+    window_start, cutoff = _window(today, max_days)
+    showings = []
+    for th_text, td_text in _row_cells(table):
+        date_match = re.search(r"(\d{1,2})月(\d{1,2})日", th_text)
+        time_match = re.search(r"(\d{1,2}:\d{2})", td_text)
+        if not (date_match and time_match):
+            continue
+        date = _resolve_date(int(date_match.group(1)), int(date_match.group(2)), today)
+        if not date or not (window_start <= date < cutoff):
+            continue
+
+        row_closed, row_unreadable = _closure_days(td_text)
+        if row_unreadable:
+            print(
+                f"WARN: [{CINEMA_NAME}] Unreadable closure note on row "
+                f"'{th_text} {td_text}'; dropping the row.",
+                file=sys.stderr,
+            )
+            continue
+        if date.day in (block_closed | row_closed):
+            continue
+
+        showings.append(_showing(details, title_key, date, time_match.group(1)))
+    return showings
+
+
+def _parse_schedule(
+    soup: BeautifulSoup,
+    details_cache: Dict,
+    max_days: int,
+    today: Optional[dt.date] = None,
+) -> List[Dict]:
+    """
+    Parse every div.timetable on the page.
+
+    Chupki publishes several blocks side by side (the current week, the next
+    week, plus one-off event blocks), in two shapes: a weekly grid whose header
+    holds the date range, and an event grid whose rows hold the dates. Reading
+    only the first block loses most of the week - but each block may also carry
+    a 休映 note cancelling specific days, so blocks and rows are only expanded
+    after those notes have been applied.
+    """
+    today = today or dt.date.today()
+    showings: List[Dict] = []
+    for block in soup.find_all("div", class_="timetable"):
+        table = block.find("table")
+        if not table:
+            continue
+        rows = _row_cells(table)
+        if any(re.search(r"\d{1,2}:\d{2}", th) for th, _ in rows):
+            showings.extend(_parse_range_block(block, table, details_cache, today, max_days))
+        elif any(re.search(r"\d{1,2}月\d{1,2}日", th) for th, _ in rows):
+            showings.extend(
+                _parse_dated_rows_block(block, table, details_cache, today, max_days)
+            )
+
+    seen, unique = set(), []
+    for showing in showings:
+        key = (showing["date_text"], showing["showtime"], showing["movie_title"])
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(showing)
+    return unique
+
 
 def scrape_chupki(max_days: int = 14) -> List[Dict]:
     """

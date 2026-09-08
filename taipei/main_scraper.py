@@ -47,6 +47,28 @@ SYNOPSIS_TRANSLATION_CACHE_FILE = DATA_DIR / "synopsis_translation_cache.json"
 TAIPEI_TZ = timezone(timedelta(hours=8))
 
 
+# Venues that are real but currently produce nothing for a known, recorded reason.
+# A zero-row result from these is expected, so it is reported as a note rather than
+# a warning -- which keeps every warning that IS raised worth acting on.
+#
+# Taipei has more of these than the other cities because most of its independent
+# film programming lives in festivals and art venues rather than daily cinemas.
+# All of the seasonal entries below were verified empty at source on 2026-09-08,
+# not assumed. Remove an entry the moment its cause is fixed: a stale entry hides
+# a real regression, which is the exact failure this reporting path exists to catch.
+KNOWN_DARK = {
+    "Eslite Art House Songyan": "Cloudflare challenge on every eslite.com path; the cinema IS programming daily",
+    "Taipei Film Festival": "OPENTIX organizer valid but /topics empty; the festival runs June-July",
+    "Women Make Waves": "OPENTIX organizer aboutUs reads 準備中 (in preparation); no tickets on sale",
+    "Taiwan International Queer Film Festival": "OPENTIX organizer valid but /topics empty between editions",
+    "Skyline Film": "outdoor cinema between seasons; its API lists one October activity with 0 tickets",
+    "Guling Street Avant-garde Theatre": "latest screening items are past; venue posted a summer closure",
+    "Lightbox Photo Library": "photography library; its only future event is a bookmaking workshop, not a screening",
+    "Taipei Fine Arts Museum": "Event.ashx returns talks, tours and workshops; no screenings on the calendar",
+    "Treasure Hill Artist Village": "artist village whose own taxonomy has no screening category",
+    "Taipei Cinema Park": "its API returns markets, street dance and graffiti jams, not screenings",
+}
+
 class ScrapeReport:
     def __init__(self) -> None:
         self.results: List[Dict[str, object]] = []
@@ -63,17 +85,39 @@ class ScrapeReport:
         )
         self.total_showings += count
 
-    def print_summary(self) -> None:
+    def print_summary(self) -> list:
         print("\n" + "=" * 60)
         print("TAIPEI SCRAPE HEALTH REPORT")
         print("=" * 60)
         print(f"{'STATUS':<8} {'VENUE':<28} {'COUNT':<6} NOTES")
         print("-" * 60)
+        failures, warnings = [], []
         for item in self.results:
             notes = item["error"] or ""
+            # Until now this table printed a venue that scraped nothing as SUCCESS,
+            # and returned nothing to the caller, so a broken Taipei scraper had no
+            # way of reaching anyone at all.
+            if item["status"] == "SUCCESS" and not item["count"]:
+                if item["cinema"] in KNOWN_DARK:
+                    item["status"] = "DARK"
+                    notes = KNOWN_DARK[item["cinema"]]
+                else:
+                    item["status"] = "WARNING"
+                    notes = notes or "0 showings found"
+                    warnings.append(item)
+            elif item["status"] == "FAILURE":
+                failures.append(item)
             print(f"{item['status']:<8} {item['cinema']:<28} {item['count']:<6} {notes}")
         print("-" * 60)
         print(f"Total showings collected: {self.total_showings}")
+
+        # Taipei has no email path, so annotations are the only signal that leaves CI.
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            for item in failures:
+                print(f"::error title=Scraper failed::{item['cinema']}: {item['error'] or 'unknown error'}")
+            for item in warnings:
+                print(f"::warning title=Scraper returned nothing::{item['cinema']} produced 0 showings")
+        return warnings
 
 
 def ensure_data_dir() -> None:

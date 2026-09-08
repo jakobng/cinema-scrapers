@@ -843,7 +843,23 @@ def main() -> int:
     else:
         for item in results:
             print(f"{item.get('city')} {item.get('kind')}: {item.get('status')}")
-    return 1 if any(item.get("status") == "failed" for item in results) else 0
+    # A monitor that finds a broken scraper has done its job, so findings do not
+    # fail the run -- they are reported as annotations and issues. Exiting 1 on a
+    # finding makes a working monitor look broken, which is how this workflow came
+    # to be switched off in June while four cities quietly rotted.
+    # Only the monitor failing to run at all (kind == "monitor", set when an audit
+    # raises) is a real failure.
+    findings = [item for item in results if item.get("status") == "failed"]
+    for item in findings:
+        level = "error" if item.get("kind") == "monitor" else "warning"
+        title = f"{item.get('city')} {item.get('kind')}"
+        summary = str(item.get("summary", "")).replace("\n", " ")[:400]
+        print(f"::{level} title={title}::{summary}")
+
+    broken_monitor = [item for item in findings if item.get("kind") == "monitor"]
+    if findings and not broken_monitor:
+        print(f"\n{len(findings)} health finding(s) reported above; the monitor itself ran cleanly.")
+    return 1 if broken_monitor else 0
 
 
 if __name__ == "__main__":

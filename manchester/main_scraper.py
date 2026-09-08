@@ -30,7 +30,6 @@ from cinema_modules import (
     regent_module,
     plaza_module,
     block_cinema_module,
-    small_world_cinema_module,
 )
 
 # --- Configuration ---
@@ -43,6 +42,16 @@ if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
 # --- Monitor & Alert System ---
+# Venues that are real but currently produce nothing for a known, recorded reason.
+# A zero-row result from these is expected, so it is reported as a note rather than
+# a warning -- which keeps every warning that IS raised worth acting on.
+#
+# Remove an entry the moment its cause is fixed. A stale entry here hides a real
+# regression, which is the exact failure this whole reporting path exists to catch.
+KNOWN_DARK = {
+    "The Block Cinema": "real venue, but its store page publishes no machine-readable schedule",
+}
+
 class ScrapeReport:
     def __init__(self):
         self.results = []
@@ -76,22 +85,42 @@ class ScrapeReport:
             count = str(result["count"]) if result["count"] is not None else ""
             error = result["error"]
 
-            if status == "SUCCESS":
+            if status == "SUCCESS" and result["count"] == 0:
+                # Until now a scraper that returned nothing was reported as OK,
+                # which is how The Plaza and Small World sat broken for two years
+                # while the health report showed a clean bill.
+                if result["cinema"] in KNOWN_DARK:
+                    status_icon = "--"
+                    notes = KNOWN_DARK[result["cinema"]]
+                else:
+                    status_icon = "!!"
+                    notes = error or "0 showings found"
+                    warnings.append({"cinema": cinema, "error": notes})
+            elif status == "SUCCESS":
                 status_icon = "OK"
                 notes = ""
             elif status == "FAILURE":
                 status_icon = "FAIL"
                 notes = error or "Failed"
-                failures.append((cinema, error))
+                failures.append({"cinema": cinema, "error": error})
             else:
                 status_icon = "?"
                 notes = error or "Unknown"
-                warnings.append((cinema, error))
+                warnings.append({"cinema": cinema, "error": error})
 
             print(f"{status_icon:<4} | {cinema:<30} | {count:<5} | {notes}")
 
         print("-" * 70)
         print(f"Total showings scraped: {self.total_showings}")
+
+        # In CI the email path below is deliberately suppressed, so without this
+        # a silent cinema leaves no trace anywhere a human looks. Annotations put
+        # the name on the run page itself -- no new workflow, no new secret.
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            for r in failures:
+                print(f"::error title=Scraper failed::{r['cinema']}: {r.get('error') or 'unknown error'}")
+            for r in warnings:
+                print(f"::warning title=Scraper returned nothing::{r['cinema']} produced 0 showings")
 
         return failures, warnings
 
@@ -123,13 +152,13 @@ class ScrapeReport:
 
         if failures:
             body += "FAILURES:\n"
-            for cinema, error in failures:
-                body += f"  - {cinema}: {error}\n"
+            for r in failures:
+                body += f"  - {r['cinema']}: {r['error']}\n"
 
         if warnings:
             body += "\nWARNINGS:\n"
-            for cinema, warning in warnings:
-                body += f"  - {cinema}: {warning}\n"
+            for r in warnings:
+                body += f"  - {r['cinema']}: {r['error']}\n"
 
         try:
             msg = EmailMessage()
@@ -948,7 +977,10 @@ def main():
         ("Regent Cinema", regent_module.scrape_regent),
         ("The Plaza", plaza_module.scrape_plaza),
         ("The Block Cinema", block_cinema_module.scrape_block_cinema),
-        ("Small World Cinema Club", small_world_cinema_module.scrape_small_world_cinema),
+        # Small World Cinema Club de-registered 2026-09-08: the Manchester club stopped
+        # programming in 2018 and smallworldcinemaclub.com no longer resolves. The URL the
+        # module was pointed at, smallworldcinema.com, is a different organisation entirely
+        # (a children's-film charity in Bromley), so this entry was never going to work.
     ]
 
     # 2. RUN ALL SCRAPERS IN PARALLEL

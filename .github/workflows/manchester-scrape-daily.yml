@@ -18,7 +18,9 @@ on:
     # BST (Summer): 6 AM UTC is 7 AM local, 7 AM UTC is 8 AM local.
     # 7 AM local refreshes data daily and creates the expensive cinema collage only on Mondays.
     # 8 AM local keeps the cheaper movie spotlight daily.
-    - cron: '0 6,7,8 * * *'
+    - cron: '0 6 * * *'
+    - cron: '0 7 * * *'
+    - cron: '0 8 * * *'
 
 permissions:
   contents: write
@@ -67,22 +69,44 @@ jobs:
           SCRAPE="false"
 
           if [ "${{ github.event_name }}" == "schedule" ]; then
-            current_hour=$(date +%H)
-            echo "Current Manchester Hour: $current_hour"
+            # GitHub delivers scheduled runs LATE (observed 1-11 hours late), so
+            # `date +%H` is NOT the hour this run was scheduled for. Deriving the
+            # mode from the wall clock made every run land outside the 07/08
+            # window, so the scraper never ran and the job still reported success.
+            # Derive the local hour from the cron entry that triggered this run
+            # instead - delay-proof, and still DST-correct via Europe/London.
+            schedule="${{ github.event.schedule }}"
+            echo "Schedule: $schedule"
+            scheduled_utc_hour=$(printf '%s\n' "$schedule" | awk '{print $2}')
+            current_hour=$(SCHEDULED_UTC_HOUR="$scheduled_utc_hour" python - <<'PY'
+          from datetime import datetime, timezone
+          from zoneinfo import ZoneInfo
+          import os
 
-            # 7 AM local -> scrape daily; cinema collage only on Mondays.
+          hour = int(os.environ["SCHEDULED_UTC_HOUR"])
+          today_utc = datetime.now(timezone.utc).date()
+          scheduled_utc = datetime(today_utc.year, today_utc.month, today_utc.day, hour, tzinfo=timezone.utc)
+          print(scheduled_utc.astimezone(ZoneInfo("Europe/London")).strftime("%H"))
+          PY
+          )
+            echo "Scheduled Manchester Hour: $current_hour"
+
+            # Always refresh data on any scheduled run. GitHub also DROPS cron
+            # deliveries under load (only 1 of the 3 entries fires on most days),
+            # so gating the scrape on one specific slot is what let the data go
+            # 16 days stale. Scraping is idempotent; posting stays gated below.
+            SCRAPE="true"
+            TYPE="data"
+
+            # 7 AM local -> cinema collage on Mondays only.
             if [ "$current_hour" == "07" ]; then
-              SCRAPE="true"
               day_of_week=$(date +%u)
               if [ "$day_of_week" == "1" ]; then
                 TYPE="cinema"
-              else
-                TYPE="data"
               fi
-            # 8 AM local -> Skip Scraper + Movie Post
+            # 8 AM local -> movie spotlight.
             elif [ "$current_hour" == "08" ]; then
               TYPE="movie"
-              SCRAPE="false"
             fi
 
           elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
@@ -100,12 +124,6 @@ jobs:
           echo "post_type=$TYPE" >> $GITHUB_OUTPUT
           echo "run_scraper=$SCRAPE" >> $GITHUB_OUTPUT
 
-      - name: Check if action needed
-        if: steps.mode.outputs.post_type == 'none'
-        run: |
-          echo "No action scheduled for this hour. Exiting."
-          exit 0
-
       - name: Run Scraper
         if: steps.mode.outputs.run_scraper == 'true'
         run: python main_scraper.py
@@ -115,6 +133,24 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Verify scraped data is fresh
+        if: steps.mode.outputs.run_scraper == 'true'
+        run: |
+          python - <<'PY'
+          import datetime as dt, json, sys
+          rows = json.load(open("data/showtimes.json"))
+          today = dt.date.today().isoformat()
+          future = [r for r in rows if (r.get("date_text") or "") >= today]
+          cinemas = sorted({r.get("cinema_name") for r in future})
+          print(f"rows={len(rows)} future={len(future)} cinemas={len(cinemas)}")
+          for c in cinemas:
+              print("  ", c, sum(1 for r in future if r.get("cinema_name") == c))
+          if not future:
+              sys.exit("FATAL: showtimes.json contains no showings from today onward.")
+          if len(cinemas) < 3:
+              sys.exit(f"FATAL: only {len(cinemas)} cinema(s) have future showings.")
+          PY
 
       - name: Generate Cinema Post (V1)
         if: steps.mode.outputs.post_type == 'cinema'
