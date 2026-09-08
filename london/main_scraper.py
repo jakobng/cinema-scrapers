@@ -91,7 +91,7 @@ KNOWN_DARK = {
     "Close-Up Film Centre": "Cloudflare challenge; no approach tried gets through",
     "Rich Mix": "Cloudflare challenge; their own feed lists 1 screening Sep-Dec anyway",
     # Dormant at source, and covered anyway.
-    "Cine-Real": "their Next Screening page still advertises March 2026; real screenings arrive via The Castle Cinema",
+    "Ciné-Real": "their Next Screening page still advertises March 2026; real screenings arrive via The Castle Cinema",
 }
 
 class ScrapeReport:
