@@ -958,6 +958,35 @@
     "status": "accepted",
     "updated_at": "2026-08-05T23:30:13.301402+00:00"
   },
+  "5秒で完全犯罪を生成する方法::2026::107::近藤亮太": {
+    "candidate": {
+      "director": "近藤亮太",
+      "reasons": [
+        "title_exact",
+        "year",
+        "director"
+      ],
+      "runtime": "",
+      "score": 18,
+      "support": 2,
+      "title": "5秒で完全犯罪を生成する方法",
+      "url": "https://filmarks.com/movies/127588",
+      "year": "2026"
+    },
+    "candidate_count": 30,
+    "filmarks_url": "https://filmarks.com/movies/127588",
+    "query": "5秒で完全犯罪を生成する方法",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=5%E7%A7%92%E3%81%A7%E5%AE%8C%E5%85%A8%E7%8A%AF%E7%BD%AA%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95",
+    "status": "accepted",
+    "updated_at": "2026-09-08T00:27:50.715867+00:00"
+  },
   "90メートル::2026::116::中川駿": {
     "candidate": {
       "director": "中川駿",
@@ -8598,6 +8627,35 @@
     "status": "review",
     "updated_at": "2026-08-13T23:13:01.771268+00:00"
   },
+  "metライブビューイング201213ヘンデル《ジュリアスシーザー》::2013::271::！青山真治の遺した傑作小説死の谷ʼ95を映画化": {
+    "candidate": {
+      "director": "ジョセフ・L・マンキウィッツ",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "120",
+      "score": -4,
+      "support": 0,
+      "title": "ジュリアス・シーザー",
+      "url": "https://filmarks.com/movies/6957",
+      "year": ""
+    },
+    "candidate_count": 22,
+    "filmarks_url": "",
+    "query": "METライブビューイング2012-13 ヘンデル《ジュリアス・シーザー》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02012-13%20%E3%83%98%E3%83%B3%E3%83%87%E3%83%AB%E3%80%8A%E3%82%B8%E3%83%A5%E3%83%AA%E3%82%A2%E3%82%B9%E3%83%BB%E3%82%B7%E3%83%BC%E3%82%B6%E3%83%BC%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-09-08T00:28:00.221313+00:00"
+  },
   "metライブビューイング201516ドニゼッティ《ロベルトデヴェリュー》::2016::184::cノーランの史上最高傑作": {
     "candidate": {
       "director": "デイヴィッド・マクヴィカー",
@@ -8628,6 +8686,37 @@
     "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02015-16%20%E3%83%89%E3%83%8B%E3%82%BC%E3%83%83%E3%83%86%E3%82%A3%E3%80%8A%E3%83%AD%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%83%87%E3%83%B4%E3%82%A7%E3%83%AA%E3%83%A5%E3%83%BC%E3%80%8B",
     "status": "review",
     "updated_at": "2026-09-03T00:18:31.000424+00:00"
+  },
+  "metライブビューイング201516ドニゼッティ《ロベルトデヴェリュー》::2016::184::！青山真治の遺した傑作小説死の谷ʼ95を映画化": {
+    "candidate": {
+      "director": "デイヴィッド・マクヴィカー",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "184",
+      "score": -9,
+      "support": 2,
+      "title": "METライブビューイング2015-16 ドニゼッティ「ロベルト・デヴェリュー」",
+      "url": "https://filmarks.com/movies/88047",
+      "year": "2016"
+    },
+    "candidate_count": 22,
+    "filmarks_url": "",
+    "query": "METライブビューイング2015-16 ドニゼッティ《ロベルト・デヴェリュー》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": -9,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02015-16%20%E3%83%89%E3%83%8B%E3%82%BC%E3%83%83%E3%83%86%E3%82%A3%E3%80%8A%E3%83%AD%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%83%87%E3%83%B4%E3%82%A7%E3%83%AA%E3%83%A5%E3%83%BC%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-09-08T00:28:01.396871+00:00"
   },
   "metライブビューイング201617モーツァルト《ドンジョヴァンニ》::2016::211::cノーランの史上最高傑作": {
     "candidate": {
@@ -8949,6 +9038,35 @@
     "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02025-26%20%E3%82%B8%E3%83%A7%E3%83%AB%E3%83%80%E3%83%BC%E3%83%8E%E3%80%8A%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AC%E3%82%A2%E3%83%BB%E3%82%B7%E3%82%A7%E3%83%8B%E3%82%A8%E3%80%8B",
     "status": "review",
     "updated_at": "2026-08-13T23:13:06.035619+00:00"
+  },
+  "metライブビューイング202526ジョルダーノ《アンドレアシェニエ》::2025::198::！青山真治の遺した傑作小説死の谷ʼ95を映画化": {
+    "candidate": {
+      "director": "",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime_mismatch"
+      ],
+      "runtime": "205",
+      "score": -11,
+      "support": 1,
+      "title": "METライブビューイング2024-25 ヴェルディ「アイーダ」",
+      "url": "https://filmarks.com/movies/118325",
+      "year": "2025"
+    },
+    "candidate_count": 21,
+    "filmarks_url": "",
+    "query": "METライブビューイング2025-26 ジョルダーノ《アンドレア・シェニエ》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime_mismatch"
+    ],
+    "score": -11,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02025-26%20%E3%82%B8%E3%83%A7%E3%83%AB%E3%83%80%E3%83%BC%E3%83%8E%E3%80%8A%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AC%E3%82%A2%E3%83%BB%E3%82%B7%E3%82%A7%E3%83%8B%E3%82%A8%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-09-08T00:27:57.815596+00:00"
   },
   "metライブビューイング202526チャイコフスキー《エフゲニーオネーギン》::2026::235::cノーランの史上最高傑作": {
     "candidate": {
@@ -9442,6 +9560,35 @@
     "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02025-26%20%E3%83%99%E3%83%83%E3%83%AA%E3%83%BC%E3%83%8B%E3%80%8A%E5%A4%A2%E9%81%8A%E7%97%85%E3%81%AE%E5%A8%98%E3%80%8B",
     "status": "review",
     "updated_at": "2026-08-13T23:13:03.218248+00:00"
+  },
+  "metライブビューイング202526ベッリーニ《夢遊病の娘》::2025::194::！青山真治の遺した傑作小説死の谷ʼ95を映画化": {
+    "candidate": {
+      "director": "",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime_near"
+      ],
+      "runtime": "195",
+      "score": -6,
+      "support": 2,
+      "title": "METライブビューイング2025‐26 ベッリーニ《夢遊病の娘》",
+      "url": "https://filmarks.com/movies/125489",
+      "year": "2025"
+    },
+    "candidate_count": 21,
+    "filmarks_url": "",
+    "query": "METライブビューイング2025-26 ベッリーニ《夢遊病の娘》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime_near"
+    ],
+    "score": -6,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02025-26%20%E3%83%99%E3%83%83%E3%83%AA%E3%83%BC%E3%83%8B%E3%80%8A%E5%A4%A2%E9%81%8A%E7%97%85%E3%81%AE%E5%A8%98%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-09-08T00:27:56.416854+00:00"
   },
   "metライブビューイング202526ベッリーニ《清教徒》::2026::221::cノーランの史上最高傑作": {
     "candidate": {
@@ -15338,6 +15485,33 @@
     "search_url": "https://filmarks.com/search/movies?q=The%20Metropolitan%20Opera%3A%20El%20%C3%9Altimo%20Sue%C3%B1o%20de%20Frida%20y%20Diego",
     "status": "review",
     "updated_at": "2026-07-12T23:13:51.861600+00:00"
+  },
+  "themetropolitanoperaelúltimosueñodefridaydiego::2026::156::！青山真治の遺した傑作小説死の谷ʼ95を映画化": {
+    "candidate": {
+      "director": "",
+      "reasons": [
+        "title_miss",
+        "year"
+      ],
+      "runtime": "",
+      "score": -7,
+      "support": 1,
+      "title": "METライブビューイング 2026-27 モーツァルト《コジ・ファン・トゥッテ》",
+      "url": "https://filmarks.com/movies/129226",
+      "year": "2026"
+    },
+    "candidate_count": 24,
+    "filmarks_url": "",
+    "query": "The Metropolitan Opera: El Último Sueño de Frida y Diego",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_miss",
+      "year"
+    ],
+    "score": -7,
+    "search_url": "https://filmarks.com/search/movies?q=The%20Metropolitan%20Opera%3A%20El%20%C3%9Altimo%20Sue%C3%B1o%20de%20Frida%20y%20Diego",
+    "status": "review",
+    "updated_at": "2026-09-08T00:28:02.420360+00:00"
   },
   "themirror::1975::106::アンドレイタルコフスキー": {
     "candidate": {
@@ -28023,6 +28197,35 @@
     "status": "accepted",
     "updated_at": "2026-09-05T00:12:06.616840+00:00"
   },
+  "オアシスドントルックバックインアンガー::2026::123::ディランサザーン": {
+    "candidate": {
+      "director": "是枝裕和",
+      "reasons": [
+        "title_partial",
+        "year",
+        "director_mismatch"
+      ],
+      "runtime": "",
+      "score": 3,
+      "support": 1,
+      "title": "ルックバック",
+      "url": "https://filmarks.com/movies/126181",
+      "year": "2026"
+    },
+    "candidate_count": 32,
+    "filmarks_url": "",
+    "query": "オアシス：ドント・ルック・バック・イン・アンガー",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_partial",
+      "year",
+      "director_mismatch"
+    ],
+    "score": 3,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%AA%E3%82%A2%E3%82%B7%E3%82%B9%EF%BC%9A%E3%83%89%E3%83%B3%E3%83%88%E3%83%BB%E3%83%AB%E3%83%83%E3%82%AF%E3%83%BB%E3%83%90%E3%83%83%E3%82%AF%E3%83%BB%E3%82%A4%E3%83%B3%E3%83%BB%E3%82%A2%E3%83%B3%E3%82%AC%E3%83%BC",
+    "status": "review",
+    "updated_at": "2026-09-08T00:27:52.074382+00:00"
+  },
   "オカルト::2009::110::白石晃士": {
     "candidate": {
       "director": "白石晃士",
@@ -28084,6 +28287,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%AA%E3%82%B9%E3%83%AD%E3%80%818%E6%9C%8831%E6%97%A5",
     "status": "accepted",
     "updated_at": "2026-06-19T00:14:11.180412+00:00"
+  },
+  "オデュッセイア::2026::172::クリストファーノーラン": {
+    "candidate": {
+      "director": "クリストファー・ノーラン",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "172",
+      "score": 21,
+      "support": 3,
+      "title": "オデュッセイア",
+      "url": "https://filmarks.com/movies/121234",
+      "year": "2026"
+    },
+    "candidate_count": 26,
+    "filmarks_url": "https://filmarks.com/movies/121234",
+    "query": "オデュッセイア",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%AA%E3%83%87%E3%83%A5%E3%83%83%E3%82%BB%E3%82%A4%E3%82%A2",
+    "status": "accepted",
+    "updated_at": "2026-09-08T00:27:47.549564+00:00"
   },
   "オニオンフィールド::1979::120::ハロルドベッカー": {
     "candidate": {
@@ -29592,6 +29826,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%AC%E3%83%BC%E3%83%AB%E3%83%BB%E3%82%A4%E3%83%B3%E3%83%BB%E3%82%B6%E3%83%BB%E3%82%B9%E3%83%8E%E3%82%A6%20L%E2%80%99Engloutie",
     "status": "review",
     "updated_at": "2026-06-07T05:18:12.969264+00:00"
+  },
+  "ガールズ&パンツァー劇場版::2015::119::水島努": {
+    "candidate": {
+      "director": "水島努",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime_near",
+        "director"
+      ],
+      "runtime": "120",
+      "score": 19,
+      "support": 3,
+      "title": "ガールズ＆パンツァー 劇場版",
+      "url": "https://filmarks.com/movies/64465",
+      "year": "2015"
+    },
+    "candidate_count": 35,
+    "filmarks_url": "https://filmarks.com/movies/64465",
+    "query": "ガールズ&パンツァー 劇場版",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime_near",
+      "director"
+    ],
+    "score": 19,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BA%26%E3%83%91%E3%83%B3%E3%83%84%E3%82%A1%E3%83%BC%20%E5%8A%87%E5%A0%B4%E7%89%88",
+    "status": "accepted",
+    "updated_at": "2026-09-08T00:27:53.192523+00:00"
   },
   "ギィジル監督作品海辺の恋オーパンクペ::1964::73::ギィジル": {
     "candidate": {
@@ -41082,6 +41347,37 @@
     "status": "accepted",
     "updated_at": "2026-07-07T23:28:31.783007+00:00"
   },
+  "フューリー::2014::135::デビッドエアー": {
+    "candidate": {
+      "director": "デヴィッド・エアー",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "135",
+      "score": 11,
+      "support": 2,
+      "title": "フューリー",
+      "url": "https://filmarks.com/movies/58265",
+      "year": "2014"
+    },
+    "candidate_count": 32,
+    "filmarks_url": "",
+    "query": "フューリー",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%95%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%BC",
+    "status": "review",
+    "updated_at": "2026-09-08T00:27:54.931273+00:00"
+  },
   "フランキーフリーコ::2024::85::スティーブンコスタンスキ": {
     "candidate": {
       "director": "スティーヴン・コスタンスキ",
@@ -47893,6 +48189,35 @@
     "status": "review",
     "updated_at": "2026-08-28T06:25:18.245488+00:00"
   },
+  "ルックバック::2026::99::是枝裕和": {
+    "candidate": {
+      "director": "是枝裕和",
+      "reasons": [
+        "title_exact",
+        "year",
+        "director"
+      ],
+      "runtime": "",
+      "score": 18,
+      "support": 2,
+      "title": "ルックバック",
+      "url": "https://filmarks.com/movies/126181",
+      "year": "2026"
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/126181",
+    "query": "ルックバック",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AB%E3%83%83%E3%82%AF%E3%83%90%E3%83%83%E3%82%AF",
+    "status": "accepted",
+    "updated_at": "2026-09-08T00:27:49.339186+00:00"
+  },
   "レコードオブパタノスター::2024::96::クリストファービッケル": {
     "candidate": {
       "director": "Christopher Bickel",
@@ -48989,6 +49314,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%83%E3%82%AF%EF%BC%A0%E3%82%B7%E3%83%8D%E3%83%9E2011%20%E3%82%AA%E3%83%9A%E3%83%A9%20%E3%80%8C%E3%81%B0%E3%82%89%E3%81%AE%E9%A8%8E%E5%A3%AB%E3%80%8D%20%E3%83%90%E3%83%BC%E3%83%87%E3%83%B3%E3%83%BB%E3%83%90%E3%83%BC%E3%83%87%E3%83%B3%E7%A5%9D%E7%A5%AD%E5%8A%87%E5%A0%B4",
     "status": "review",
     "updated_at": "2026-08-13T23:13:04.514921+00:00"
+  },
+  "ワールドクラシック＠シネマ2011オペラばらの騎士バーデンバーデン祝祭劇場::2011::211::！青山真治の遺した傑作小説死の谷ʼ95を映画化": {
+    "candidate": {
+      "director": "アンドリュー・ヘックラー",
+      "reasons": [
+        "title_partial",
+        "year_mismatch",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "117",
+      "score": -10,
+      "support": 0,
+      "title": "バーデン",
+      "url": "https://filmarks.com/movies/82672",
+      "year": "2022"
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "ワールドクラシック＠シネマ2011 オペラ 「ばらの騎士」 バーデン・バーデン祝祭劇場",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "year_mismatch",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -10,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%83%E3%82%AF%EF%BC%A0%E3%82%B7%E3%83%8D%E3%83%9E2011%20%E3%82%AA%E3%83%9A%E3%83%A9%20%E3%80%8C%E3%81%B0%E3%82%89%E3%81%AE%E9%A8%8E%E5%A3%AB%E3%80%8D%20%E3%83%90%E3%83%BC%E3%83%87%E3%83%B3%E3%83%BB%E3%83%90%E3%83%BC%E3%83%87%E3%83%B3%E7%A5%9D%E7%A5%AD%E5%8A%87%E5%A0%B4",
+    "status": "review",
+    "updated_at": "2026-09-08T00:27:58.770289+00:00"
   },
   "ヴァニタス::2017::104::内山拓也": {
     "candidate": {
@@ -60613,6 +60969,31 @@
     "search_url": "https://filmarks.com/search/movies?q=%E5%B0%91%E5%B9%B4%E6%8E%A2%E5%81%B5%E5%9B%A3",
     "status": "review",
     "updated_at": "2026-08-09T22:56:00.501042+00:00"
+  },
+  "少年時代::::::": {
+    "candidate": {
+      "director": "篠田正浩",
+      "reasons": [
+        "title_exact"
+      ],
+      "runtime": "117",
+      "score": 10,
+      "support": 0,
+      "title": "少年時代",
+      "url": "https://filmarks.com/movies/4065",
+      "year": ""
+    },
+    "candidate_count": 3,
+    "filmarks_url": "",
+    "query": "少年時代",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact"
+    ],
+    "score": 10,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%B0%91%E5%B9%B4%E6%99%82%E4%BB%A3",
+    "status": "review",
+    "updated_at": "2026-09-08T00:28:04.042228+00:00"
   },
   "少年猿飛佐助::1959::83::cノーランの史上最高傑作": {
     "candidate": {
@@ -77016,6 +77397,37 @@
     "status": "accepted",
     "updated_at": "2026-06-07T05:09:44.976925+00:00"
   },
+  "私がやりました::2023::103::フランソワオゾン": {
+    "candidate": {
+      "director": "フランソワ・オゾン",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "103",
+      "score": 21,
+      "support": 3,
+      "title": "私がやりました",
+      "url": "https://filmarks.com/movies/109218",
+      "year": "2023"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "https://filmarks.com/movies/109218",
+    "query": "私がやりました",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%A7%81%E3%81%8C%E3%82%84%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F",
+    "status": "accepted",
+    "updated_at": "2026-09-08T00:28:07.593490+00:00"
+  },
   "私たちの話し方::2025::132::アダムウォン": {
     "candidate": {
       "director": "アダム・ウォン",
@@ -79560,6 +79972,31 @@
     "status": "review",
     "updated_at": "2026-07-08T23:34:00.672705+00:00"
   },
+  "花を摘む少女虫を殺す少女ディレクターズカット版::::::": {
+    "candidate": {
+      "director": "三島有紀子",
+      "reasons": [
+        "title_partial"
+      ],
+      "runtime": "119",
+      "score": 5,
+      "support": 0,
+      "title": "少女",
+      "url": "https://filmarks.com/movies/66179",
+      "year": "2016"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "",
+    "query": "花を摘む少女 虫を殺す少女 ディレクターズカット版",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E8%8A%B1%E3%82%92%E6%91%98%E3%82%80%E5%B0%91%E5%A5%B3%20%E8%99%AB%E3%82%92%E6%AE%BA%E3%81%99%E5%B0%91%E5%A5%B3%20%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%82%BF%E3%83%BC%E3%82%BA%E3%82%AB%E3%83%83%E3%83%88%E7%89%88",
+    "status": "review",
+    "updated_at": "2026-09-08T00:28:04.863025+00:00"
+  },
   "花様年華25周年特別版::2001::98::ウォンカーウァイ": {
     "candidate": {
       "director": "ウォン・カーウァイ",
@@ -79903,6 +80340,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E8%8A%B8%E8%83%BD%E7%94%9F%E6%B4%BB%EF%BC%93%EF%BC%90%E5%91%A8%E5%B9%B4%E8%A8%98%E5%BF%B5%EF%BC%81%EF%BC%81%E5%A4%A7%E6%B3%89%E6%B4%8B%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BF%E3%83%AB%EF%BC%92-%E3%83%AA%E3%83%99%E3%83%B3%E3%82%B8-%20%E3%83%A9%E3%82%A4%E3%83%96%E3%83%BB%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B0%EF%BC%86%E3%83%87%E3%82%A3%E3%83%AC%E3%82%A4%E3%83%BB%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B0",
     "status": "review",
     "updated_at": "2026-06-26T23:33:12.830228+00:00"
+  },
+  "英雄の証明::2021::127::اصغرفرهادی": {
+    "candidate": {
+      "director": "アスガー・ファルハディ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "127",
+      "score": 2,
+      "support": 1,
+      "title": "英雄の証明",
+      "url": "https://filmarks.com/movies/97434",
+      "year": "2022"
+    },
+    "candidate_count": 20,
+    "filmarks_url": "",
+    "query": "英雄の証明",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 2,
+    "search_url": "https://filmarks.com/search/movies?q=%E8%8B%B1%E9%9B%84%E3%81%AE%E8%A8%BC%E6%98%8E",
+    "status": "review",
+    "updated_at": "2026-09-08T00:28:06.324197+00:00"
   },
   "茶の味【aマッソ加納セレクト】::::143::": {
     "candidate": {
