@@ -18,6 +18,7 @@ BASE_URL = "https://kinocinema.jp"
 LOCATIONS = {
     "shinjuku": "kino cinéma新宿",
     "tachikawa": "kino cinéma立川髙島屋S.C.館",
+    "minatomirai": "kino cinéma横浜みなとみらい",
 }
 
 import urllib3
