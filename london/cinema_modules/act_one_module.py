@@ -1,245 +1,232 @@
 #!/usr/bin/env python3
 # act_one_module.py
 # Scraper for ActOne Cinema & Cafe (Acton)
-# https://www.actonecinema.co.uk/now-playing/
+# https://actonecinema.co.uk/ActOneCinema.dll/WhatsOn
 #
-# Data source: Indy Systems GraphQL API.
+# Data source: the `var Events = {...}` JSON blob embedded in every Savoy
+# Systems page of the site. It carries the full programme (events + every
+# performance date/time/booking link), so one GET is enough — no JS needed.
+#
+# The cinema previously ran on Indy Systems and exposed a /graphql endpoint;
+# that has been retired and now 302-redirects, hence this rewrite.
 
 from __future__ import annotations
 
 import datetime as dt
+import html
 import json
+import re
 import sys
 from typing import Dict, List, Optional
-from zoneinfo import ZoneInfo
+from urllib.parse import urljoin
 
 import requests
 
-BASE_URL = "https://www.actonecinema.co.uk"
-GRAPHQL_URL = f"{BASE_URL}/graphql"
+BASE_URL = "https://actonecinema.co.uk"
+DLL_URL = f"{BASE_URL}/ActOneCinema.dll/"
+SCHEDULE_URL = f"{DLL_URL}WhatsOn"
 CINEMA_NAME = "ActOne Cinema & Cafe"
 
-SITE_ID = 93
-CIRCUIT_ID = 23
-
 HEADERS = {
-    "Accept": "*/*",
-    "Accept-Language": "en-GB,en;q=0.7",
-    "Circuit-Id": str(CIRCUIT_ID),
-    "Client-Type": "consumer",
-    "Content-Type": "application/json",
-    "Origin": BASE_URL,
-    "Referer": f"{BASE_URL}/now-playing/",
-    "Site-Id": str(SITE_ID),
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-GB,en;q=0.9",
 }
-
 TIMEOUT = 30
+
 TODAY = dt.date.today()
 WINDOW_DAYS = 14
-LONDON_TZ = ZoneInfo("Europe/London")
 
-DATES_QUERY = """
-query ($siteIds: [ID]) {
-  datesWithShowing(siteIds: $siteIds) {
-    value
-  }
-}
-"""
+# Non-screening programme strands that share the same feed (quiz nights, gigs).
+SKIP_TYPE_DESCRIPTIONS = {"live music", "fun in the lounge"}
 
-SHOWINGS_QUERY = """
-query ($date: String, $siteIds: [ID]) {
-  showingsForDate(date: $date, siteIds: $siteIds) {
-    data {
-      id
-      time
-      movie {
-        id
-        name
-        urlSlug
-        synopsis
-        directedBy
-        duration
-        releaseDate
-        genre
-        allGenres
-        rating
-      }
-      screen {
-        id
-        name
-      }
-    }
-  }
-}
-"""
+# Per-performance "Y"/"N" flags, in the order the site's own event key lists them.
+PERFORMANCE_FLAGS = [
+    ("CC", "Captioned"),
+    ("AD", "Audio Described"),
+    ("SF", "SEND Friendly"),
+    ("C1", "ClassicOne Cinema Club"),
+    ("CB", "Carers & Babies"),
+    ("SB", "Subtitled"),
+    ("DB", "Dubbed"),
+    ("QA", "Q+A"),
+    ("ES", "Exhibition On Screen"),
+    ("RR", "Rerelease"),
+    ("RS", "Restoration"),
+    ("FP", "Footprints"),
+    ("FF", "Family Friendly"),
+    ("NA", "No Ads/Trailers"),
+]
+
+EVENTS_RE = re.compile(r"var\s+Events\s*=\s*(\{)", re.I)
 
 
 def _clean(text: str) -> str:
+    """Clean whitespace and normalize text."""
     if not text:
         return ""
-    return " ".join(text.split())
+    return re.sub(r"\s+", " ", str(text).strip())
 
 
-def _parse_iso_date(value: str) -> Optional[dt.date]:
-    if not value:
-        return None
+def _unescape(value):
+    """The Events blob is HTML-escaped inside the page, so undo that post-parse."""
+    if isinstance(value, str):
+        return html.unescape(value)
+    if isinstance(value, list):
+        return [_unescape(v) for v in value]
+    if isinstance(value, dict):
+        return {k: _unescape(v) for k, v in value.items()}
+    return value
+
+
+def _extract_events(page_html: str) -> List[Dict]:
+    """Pull the `var Events = {...}` object out of the page and parse it."""
+    match = EVENTS_RE.search(page_html)
+    if not match:
+        raise ValueError("Could not find the `var Events` block in the ActOne page.")
+
+    start = match.start(1)
+    depth = 0
+    end = None
+    # ponytail: brace counting rather than a JS parser. Safe here because the
+    # blob is machine-generated JSON with all quotes/braces properly escaped.
+    for i in range(start, len(page_html)):
+        char = page_html[i]
+        if char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0:
+                end = i + 1
+                break
+    if end is None:
+        raise ValueError("Unterminated `var Events` block in the ActOne page.")
+
+    payload = json.loads(page_html[start:end])
+    return _unescape(payload).get("Events") or []
+
+
+def _parse_date(value: str) -> Optional[dt.date]:
     try:
-        return dt.date.fromisoformat(value)
-    except ValueError:
-        return None
-
-
-def _parse_showing_time(value: str) -> Optional[dt.datetime]:
-    if not value:
-        return None
-    try:
-        if value.endswith("Z"):
-            parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
-        else:
-            parsed = dt.datetime.fromisoformat(value)
-    except ValueError:
-        return None
-    if parsed.tzinfo is None:
-        parsed = parsed.replace(tzinfo=LONDON_TZ)
-    return parsed.astimezone(LONDON_TZ)
-
-
-def _coerce_year(value: str) -> str:
-    value = _clean(value or "")
-    if len(value) >= 4 and value[:4].isdigit():
-        return value[:4]
-    return ""
-
-
-def _coerce_runtime(value) -> str:
-    if value is None or value == "":
-        return ""
-    try:
-        return str(int(value))
+        return dt.date.fromisoformat(_clean(value))
     except (TypeError, ValueError):
-        return _clean(str(value))
+        return None
 
 
-def _post_graphql(session: requests.Session, query: str, variables: Dict) -> Dict:
-    resp = session.post(
-        GRAPHQL_URL,
-        headers=HEADERS,
-        json={"query": query, "variables": variables},
-        timeout=TIMEOUT,
-    )
-    resp.raise_for_status()
-    payload = resp.json()
-    if payload.get("errors"):
-        print(f"[{CINEMA_NAME}] GraphQL errors: {payload['errors']}", file=sys.stderr)
-    return payload.get("data") or {}
+def _parse_time(performance: Dict) -> Optional[str]:
+    """Prefer the zero-padded HHMM field, fall back to the display string."""
+    raw = _clean(performance.get("StartTime"))
+    match = re.fullmatch(r"(\d{1,2})(\d{2})", raw)
+    if not match:
+        match = re.match(r"(\d{1,2}):(\d{2})", _clean(performance.get("StartTimeAndNotes")))
+    if not match:
+        return None
+    hour, minute = int(match.group(1)), int(match.group(2))
+    if not (0 <= hour < 24 and 0 <= minute < 60):
+        return None
+    return f"{hour:02d}:{minute:02d}"
 
 
-def _fetch_dates(session: requests.Session) -> List[dt.date]:
-    data = _post_graphql(session, DATES_QUERY, {"siteIds": [SITE_ID]})
-    raw_value = (data.get("datesWithShowing") or {}).get("value")
-    if not raw_value:
-        return []
+def _format_tags(performance: Dict) -> List[str]:
+    return [label for key, label in PERFORMANCE_FLAGS if performance.get(key) == "Y"]
+
+
+def _runtime(value) -> str:
     try:
-        date_values = json.loads(raw_value)
-    except json.JSONDecodeError:
-        return []
-
-    dates = []
-    for value in date_values:
-        parsed = _parse_iso_date(value)
-        if parsed:
-            dates.append(parsed)
-    return dates
+        minutes = int(value)
+    except (TypeError, ValueError):
+        return ""
+    return str(minutes) if minutes > 0 else ""
 
 
-def _build_booking_url(showing_id: str, slug: str) -> str:
-    if slug:
-        return f"{BASE_URL}/checkout/showing/{slug}/{showing_id}"
-    return f"{BASE_URL}/checkout/showing/{showing_id}"
+def _year(value) -> str:
+    match = re.search(r"(19|20)\d{2}", _clean(value))
+    return match.group(0) if match else ""
 
 
 def scrape_act_one_cinema() -> List[Dict]:
     """
-    Scrape ActOne Cinema showtimes using the Indy Systems GraphQL endpoint.
+    Scrape ActOne Cinema showtimes from the Savoy Systems "What's On" page.
+
+    Returns a list of showtime records with standard schema.
     """
-    shows: List[Dict] = []
+    shows = []
 
     try:
-        session = requests.Session()
-        dates = _fetch_dates(session)
+        resp = requests.get(SCHEDULE_URL, headers=HEADERS, timeout=TIMEOUT)
+        resp.raise_for_status()
 
-        if not dates:
-            raise ValueError("No dates returned from ActOne GraphQL.")
+        events = _extract_events(resp.text)
+        print(f"[{CINEMA_NAME}] Found {len(events)} programme entries", file=sys.stderr)
 
         window_end = TODAY + dt.timedelta(days=WINDOW_DAYS)
-        dates = [d for d in dates if TODAY <= d < window_end]
 
-        for show_date in dates:
-            data = _post_graphql(
-                session,
-                SHOWINGS_QUERY,
-                {"date": show_date.isoformat(), "siteIds": [SITE_ID]},
-            )
-            showings = (data.get("showingsForDate") or {}).get("data") or []
+        for event in events:
+            if _clean(event.get("TypeDescription")).lower() in SKIP_TYPE_DESCRIPTIONS:
+                continue
 
-            for showing in showings:
-                show_dt = _parse_showing_time(showing.get("time"))
-                if not show_dt:
+            title = _clean(event.get("Title"))
+            if not title:
+                continue
+
+            detail_url = _clean(event.get("URL"))
+            synopsis = _clean(event.get("Synopsis"))
+            director = _clean(event.get("Director"))
+            country = _clean(event.get("Country"))
+            year = _year(event.get("Year"))
+            runtime_min = _runtime(event.get("RunningTime"))
+
+            for performance in event.get("Performances") or []:
+                show_date = _parse_date(performance.get("StartDate"))
+                if not show_date or not (TODAY <= show_date < window_end):
                     continue
 
-                local_date = show_dt.date()
-                if not (TODAY <= local_date < window_end):
+                showtime = _parse_time(performance)
+                if not showtime:
                     continue
 
-                movie = showing.get("movie") or {}
-                title = _clean(movie.get("name"))
-                if not title:
-                    continue
-
-                slug = _clean(movie.get("urlSlug"))
-                detail_url = f"{BASE_URL}/movie/{slug}" if slug else ""
-                booking_url = _build_booking_url(showing.get("id", ""), slug)
-
-                synopsis = _clean(movie.get("synopsis"))
+                booking_url = _clean(performance.get("URL"))
+                if booking_url:
+                    booking_url = urljoin(DLL_URL, booking_url)
 
                 shows.append({
                     "cinema_name": CINEMA_NAME,
                     "movie_title": title,
                     "movie_title_en": title,
-                    "date_text": local_date.isoformat(),
-                    "showtime": show_dt.strftime("%H:%M"),
+                    "date_text": show_date.isoformat(),
+                    "showtime": showtime,
                     "detail_page_url": detail_url,
                     "booking_url": booking_url,
-                    "director": _clean(movie.get("directedBy")),
-                    "year": _coerce_year(movie.get("releaseDate")),
-                    "country": "",
-                    "runtime_min": _coerce_runtime(movie.get("duration")),
+                    "director": director,
+                    "year": year,
+                    "country": country,
+                    "runtime_min": runtime_min,
                     "synopsis": synopsis[:500] if synopsis else "",
-                    "format_tags": [],
+                    "format_tags": _format_tags(performance),
                 })
 
         print(f"[{CINEMA_NAME}] Found {len(shows)} showings", file=sys.stderr)
 
-    except requests.RequestException as exc:
-        print(f"[{CINEMA_NAME}] HTTP Error: {exc}", file=sys.stderr)
+    except requests.RequestException as e:
+        print(f"[{CINEMA_NAME}] HTTP Error: {e}", file=sys.stderr)
         raise
-    except Exception as exc:
-        print(f"[{CINEMA_NAME}] Error: {exc}", file=sys.stderr)
+    except Exception as e:
+        print(f"[{CINEMA_NAME}] Error: {e}", file=sys.stderr)
         raise
 
+    # Deduplicate
     seen = set()
     unique_shows = []
-    for show in shows:
-        key = (show["movie_title"], show["date_text"], show["showtime"])
+    for s in shows:
+        key = (s["movie_title"], s["date_text"], s["showtime"])
         if key not in seen:
             seen.add(key)
-            unique_shows.append(show)
+            unique_shows.append(s)
 
     return sorted(unique_shows, key=lambda x: (x["date_text"], x["showtime"], x["movie_title"]))
 
 
 if __name__ == "__main__":
     data = scrape_act_one_cinema()
-    print(json.dumps(data, ensure_ascii=True, indent=2))
+    print(json.dumps(data, ensure_ascii=False, indent=2))
     print(f"\n[INFO] Total: {len(data)} showings", file=sys.stderr)
