@@ -5036,7 +5036,7 @@
       "Crime",
       "Thriller"
     ],
-    "vote_average": 6.04
+    "vote_average": 6.041
   },
   "Pam Grier Double Bill: Coffy": null,
   "Pam Grier Double Bill: Foxy Brown": null,
@@ -5072,7 +5072,7 @@
       "Drama",
       "Music"
     ],
-    "vote_average": 6.9
+    "vote_average": 6.888
   },
   "Rogue Hollywood: Blow Out": {
     "tmdb_id": 11644,
@@ -5089,7 +5089,7 @@
       "Mystery",
       "Thriller"
     ],
-    "vote_average": 7.354
+    "vote_average": 7.355
   },
   "Button Masher: Monsters Crash the Pajama Party": null,
   "UrbanArtistry Presents... Basquiat (Black + White Version)": null,
@@ -5110,44 +5110,6 @@
   },
   "Banff Mountain Film Festival World Tour (Blue Film Programme)": null,
   "NT Live: The Misanthrope": null,
-  "Throwback: Terminator 2 (35th Anniversary)": null,
-  "Throwback: Raiders of the Lost Ark (45th Anniversary)": {
-    "tmdb_id": 85,
-    "tmdb_title": "Raiders of the Lost Ark",
-    "tmdb_original_title": "Raiders of the Lost Ark",
-    "overview": "When Dr. Indiana Jones – the tweed-suited professor who just happens to be a celebrated archaeologist – is hired by the government to locate the legendary Ark of the Covenant, he finds himself up against the entire Nazi regime.",
-    "poster_path": "/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
-    "backdrop_path": "/zPACwR32amTNvzId9qyapCWXYDJ.jpg",
-    "release_date": "1981-06-12",
-    "director": "Steven Spielberg",
-    "runtime": 115,
-    "genres": [
-      "Adventure",
-      "Action"
-    ],
-    "vote_average": 7.929
-  },
-  "Throwback: The Transformers: The Movie (40th Anniversary)": {
-    "tmdb_id": 1857,
-    "tmdb_title": "The Transformers: The Movie",
-    "tmdb_original_title": "The Transformers: The Movie",
-    "overview": "The Autobots must stop a colossal planet-consuming robot who goes after the Autobot Matrix of Leadership. At the same time, they must defend themselves against an all-out attack from the Decepticons.",
-    "poster_path": "/xJ5W0mOAWCVaXmU0pBZh4NjSRv2.jpg",
-    "backdrop_path": "/e0djmN1YD6NcbLX6T0nSNKIvrrT.jpg",
-    "release_date": "1986-08-08",
-    "director": "Nelson Shin",
-    "runtime": 85,
-    "genres": [
-      "Animation",
-      "Science Fiction",
-      "Action",
-      "Adventure",
-      "Family"
-    ],
-    "vote_average": 7.15
-  },
-  "Exhibition on Screen: James McNeill Whistler": null,
-  "National Theatre Live: The Misanthrope": null,
   "Kiki’s Delivery Service (U) [Subtitled]": {
     "tmdb_id": 16859,
     "tmdb_title": "Kiki's Delivery Service",
@@ -5182,5 +5144,43 @@
       "Fantasy"
     ],
     "vote_average": 7.838
-  }
+  },
+  "Throwback: Terminator 2 (35th Anniversary)": null,
+  "Throwback: Raiders of the Lost Ark (45th Anniversary)": {
+    "tmdb_id": 85,
+    "tmdb_title": "Raiders of the Lost Ark",
+    "tmdb_original_title": "Raiders of the Lost Ark",
+    "overview": "When Dr. Indiana Jones – the tweed-suited professor who just happens to be a celebrated archaeologist – is hired by the government to locate the legendary Ark of the Covenant, he finds himself up against the entire Nazi regime.",
+    "poster_path": "/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
+    "backdrop_path": "/zPACwR32amTNvzId9qyapCWXYDJ.jpg",
+    "release_date": "1981-06-12",
+    "director": "Steven Spielberg",
+    "runtime": 115,
+    "genres": [
+      "Adventure",
+      "Action"
+    ],
+    "vote_average": 7.928
+  },
+  "Throwback: The Transformers: The Movie (40th Anniversary)": {
+    "tmdb_id": 1857,
+    "tmdb_title": "The Transformers: The Movie",
+    "tmdb_original_title": "The Transformers: The Movie",
+    "overview": "The Autobots must stop a colossal planet-consuming robot who goes after the Autobot Matrix of Leadership. At the same time, they must defend themselves against an all-out attack from the Decepticons.",
+    "poster_path": "/xJ5W0mOAWCVaXmU0pBZh4NjSRv2.jpg",
+    "backdrop_path": "/e0djmN1YD6NcbLX6T0nSNKIvrrT.jpg",
+    "release_date": "1986-08-08",
+    "director": "Nelson Shin",
+    "runtime": 85,
+    "genres": [
+      "Animation",
+      "Science Fiction",
+      "Action",
+      "Adventure",
+      "Family"
+    ],
+    "vote_average": 7.15
+  },
+  "National Theatre Live: The Misanthrope": null,
+  "Exhibition on Screen: James McNeill Whistler": null
 }
