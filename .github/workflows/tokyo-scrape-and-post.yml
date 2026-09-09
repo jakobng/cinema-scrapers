@@ -30,6 +30,11 @@ permissions:
 jobs:
   scrape-and-post:
     runs-on: ubuntu-latest
+    # A healthy full scrape takes ~23 minutes. The 2026-09-08/09 failures hung for
+    # 56 and 78 minutes and ended with the runner losing communication with GitHub,
+    # which reports no failing step and no traceback. Failing at a bound gives a
+    # real log ending at the module that hung.
+    timeout-minutes: 45
 
     # Run all steps inside the 'tokyo-cinema-scrapers' folder
     defaults:

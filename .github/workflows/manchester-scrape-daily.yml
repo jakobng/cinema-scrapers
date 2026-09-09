@@ -29,6 +29,9 @@ permissions:
 jobs:
   scrape-and-post:
     runs-on: ubuntu-latest
+    # Normal runs take ~8 minutes. Same guard as Tokyo and Taipei, which hung for
+    # an hour in September 2026 and killed the runner instead of failing.
+    timeout-minutes: 30
 
     defaults:
       run:
