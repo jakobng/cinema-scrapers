@@ -20,9 +20,21 @@ concurrency:
 
 jobs:
   deploy:
-    # Manual runs always proceed; automatic runs only after a successful scrape.
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    # Deploy whenever the scrape FINISHES, not only when it reports success.
+    #
+    # On 2026-09-09 the Tokyo scrape committed 3,712 rows to main and the runner
+    # then lost communication with GitHub during a later step, so the job was
+    # marked failure. The old gate read that conclusion, skipped, and left
+    # cinematokyo.com serving a build from the previous day even though the data
+    # it needed was sitting on main.
+    #
+    # Deploying unconditionally is safe: this job checks out main and builds from
+    # committed data, so it can only ever publish a complete commit. If the scrape
+    # died before committing, the build is identical and the deploy step exits on
+    # "No changes to deploy".
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion != 'cancelled' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout (latest committed data)
         uses: actions/checkout@v4

@@ -11,6 +11,9 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    # A healthy run takes 6-8 minutes. The 2026-09-08/09 failures hung for 56-57
+    # minutes and killed the runner, which produces no usable diagnostic.
+    timeout-minutes: 25
 
     defaults:
       run:
