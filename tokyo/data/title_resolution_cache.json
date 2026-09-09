@@ -35,6 +35,15 @@
     "original_title": "#RUNSEOKJIN_EP.TOUR THE MOVIE",
     "release_year": 2025
   },
+  "(Instrumental)": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "10. ボロ家の春秋": {
     "confidence": 0.95,
     "country": "Japan",
@@ -56,20 +65,23 @@
   },
   "100万カットの記憶": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "韓国",
+    "director": "コ・ヒヨン",
+    "english_title": "A Portrait of Photography",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:39+00:00",
+    "notes": "",
+    "original_title": "A Portrait of Photography",
+    "release_year": 2025
   },
   "104歳、哲代さんのひとり暮らし": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "110 番街交差点 【新宿ハードコア傑作選２】": {
@@ -104,8 +116,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "11：00 - 17：30 （POP UP \"Scent of India\"）": {
@@ -255,8 +267,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "18：00 わたしの聖なるインド Land of My Dreams": {
@@ -344,6 +356,33 @@
     "notes": "",
     "original_title": "361 – White and Black –",
     "release_year": 2026
+  },
+  "361[0911ｲﾍﾞﾝﾄ]": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
+  "361[0912ｲﾍﾞﾝﾄ]": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
+  "361[0914ｲﾍﾞﾝﾄ]": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "365DAYs+2 彷徨う大人たち": {
     "confidence": 0.0,
@@ -572,6 +611,18 @@
     "notes": "gemini_failed",
     "release_year": null
   },
+  "BULLY ブリー4K【4K上映】上映後トークショー": {
+    "ai_provider": "deepseek",
+    "confidence": 0.95,
+    "country": "United States",
+    "director": "Larry Clark",
+    "english_title": "Bully",
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:14+00:00",
+    "notes": "",
+    "original_title": "Bully",
+    "release_year": 2001
+  },
   "Bedridden 〜寝たきりを選んだ男": {
     "confidence": 1.0,
     "country": "Mongolia",
@@ -616,6 +667,15 @@
     "notes": "",
     "original_title": "破碎太阳之心",
     "release_year": 2022
+  },
+  "Bunka-ブンカ": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "B面の夏": {
     "confidence": 0.9,
@@ -787,8 +847,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "EUREKA": {
@@ -950,12 +1010,15 @@
   },
   "Fire in Water 永田康祐映像作品集": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.85,
+    "country": "日本",
+    "director": "永田康祐",
+    "english_title": "Fire in Water",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:39+00:00",
+    "notes": "",
+    "original_title": "Fire in Water 永田康祐映像作品集",
+    "release_year": 2026
   },
   "Fly Me to Minami 恋するミナミ 境界を超える無国籍映画\"シネマドリフター\"リム・カーワイー新世界の夜明けー": {
     "confidence": 1.0,
@@ -1075,8 +1138,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "HAPPYEND": {
@@ -1315,30 +1378,39 @@
   },
   "METライブビューイング2010-11 ワーグナー《ニーベルングの指環》　第1夜「ワルキューレ」": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "アメリカ",
+    "director": "はYuki",
+    "english_title": "The Metropolitan Opera HD Live Season 5, Episode 12: Wagner: Die Walkure",
     "failed": true,
-    "last_ai_attempt_at": "2026-08-31T00:40:34+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:28+00:00",
+    "notes": "",
+    "original_title": "The Metropolitan Opera HD Live Season 5, Episode 12: Wagner: Die Walkure",
+    "release_year": 2011
   },
   "METライブビューイング2012-13 ヘンデル《ジュリアス・シーザー》": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "アメリカ",
+    "director": "Yuki",
+    "english_title": "The Metropolitan Opera HD Live Season 7, Episode 12: Handel: Giulio Cesare",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:20+00:00",
+    "notes": "",
+    "original_title": "The Metropolitan Opera HD Live Season 7, Episode 12: Handel: Giulio Cesare",
+    "release_year": 2013
   },
   "METライブビューイング2015-16 ドニゼッティ《ロベルト・デヴェリュー》": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "アメリカ",
+    "director": "Yuki",
+    "english_title": "The Metropolitan Opera HD Live Season 10, Episode 9: Donizetti's Roberto Devereux",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:20+00:00",
+    "notes": "",
+    "original_title": "The Metropolitan Opera HD Live Season 10, Episode 9: Donizetti's Roberto Devereux",
+    "release_year": 2016
   },
   "METライブビューイング2016-17 モーツァルト《ドン・ジョヴァンニ》": {
     "ai_provider": "deepseek",
@@ -1393,14 +1465,14 @@
   },
   "METライブビューイング2025-26 R・シュトラウス《アラベッラ》": {
     "ai_provider": "deepseek",
-    "confidence": 0.9,
+    "confidence": 1.0,
     "country": "アメリカ",
-    "director": null,
+    "director": "はYuki",
     "english_title": "The Metropolitan Opera HD Live Season 19, Episode 3: Richard Strauss - Arabella",
     "failed": true,
-    "last_ai_attempt_at": "2026-08-18T22:51:32+00:00",
+    "last_ai_attempt_at": "2026-09-09T00:19:28+00:00",
     "notes": "",
-    "original_title": "METライブビューイング2025-26 R・シュトラウス《アラベッラ》",
+    "original_title": "The Metropolitan Opera HD Live Season 19, Episode 3: Richard Strauss - Arabella",
     "release_year": 2025
   },
   "METライブビューイング2025-26 ガブリエラ・リーナ・フランク《フリーダとディエゴ　最後の夢》": {
@@ -1416,23 +1488,26 @@
   },
   "METライブビューイング2025-26 ジョルダーノ《アンドレア・シェニエ》": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "アメリカ",
+    "director": "はYuki",
+    "english_title": "The Metropolitan Opera HD Live Season 19, Episode 4: Umberto Giordano - Andrea Chenier",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:28+00:00",
+    "notes": "",
+    "original_title": "The Metropolitan Opera HD Live Season 19, Episode 4: Umberto Giordano - Andrea Chenier",
+    "release_year": 2025
   },
   "METライブビューイング2025-26 チャイコフスキー《エフゲニー・オネーギン》": {
     "ai_provider": "deepseek",
     "confidence": 1.0,
     "country": "アメリカ",
-    "director": "C・ノーラン",
+    "director": "はYuki",
     "english_title": "The Metropolitan Opera HD Live Season 19, Episode 7: Pyotr Ilyich Tchaikovsky - Eugene Onegin",
     "failed": true,
-    "last_ai_attempt_at": "2026-08-24T22:55:18+00:00",
+    "last_ai_attempt_at": "2026-09-09T00:19:28+00:00",
     "notes": "",
-    "original_title": "METライブビューイング2025-26 チャイコフスキー《エフゲニー・オネーギン》",
+    "original_title": "The Metropolitan Opera HD Live Season 19, Episode 7: Pyotr Ilyich Tchaikovsky - Eugene Onegin",
     "release_year": 2026
   },
   "METライブビューイング2025-26 プッチーニ《ラ・ボエーム》": {
@@ -1455,21 +1530,27 @@
   },
   "METライブビューイング2025-26 ベッリーニ《清教徒》": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "アメリカ",
+    "director": "はYuki",
+    "english_title": "The Metropolitan Opera HD Live Season 19, Episode 5: Vincenzo Bellini - I Puritani",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-03T00:18:20+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:28+00:00",
+    "notes": "",
+    "original_title": "The Metropolitan Opera HD Live Season 19, Episode 5: Vincenzo Bellini - I Puritani",
+    "release_year": 2026
   },
   "METライブビューイング2025-26 ワーグナー《トリスタンとイゾルデ》": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "アメリカ",
+    "director": "はYuki",
+    "english_title": "The Metropolitan Opera HD Live Season 19, Episode 6: Richard Wagner - Tristan und Isolde",
     "failed": true,
-    "last_ai_attempt_at": "2026-08-31T00:40:34+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:28+00:00",
+    "notes": "",
+    "original_title": "The Metropolitan Opera HD Live Season 19, Episode 6: Richard Wagner - Tristan und Isolde",
+    "release_year": 2026
   },
   "MIRRORLIAR FILMS Season8": {
     "confidence": 1.0,
@@ -1535,12 +1616,15 @@
   },
   "Man": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.8,
+    "country": "Japan",
+    "director": "前田弘二",
+    "english_title": "Man",
     "failed": true,
-    "last_ai_attempt_at": "2026-08-16T22:48:03+00:00",
-    "notes": "local_ai_no_result",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:02+00:00",
+    "notes": "",
+    "original_title": "Man",
+    "release_year": 2026
   },
   "Marcel et Monsieur Pagnol（原題）": {
     "confidence": 0.95,
@@ -1662,12 +1746,14 @@
   },
   "Never After Dark ネバーアフターダーク": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 0.95,
+    "country": "Japan",
+    "director": "Dave Boyle",
+    "english_title": "Never After Dark",
+    "last_ai_attempt_at": "2026-09-09T00:19:45+00:00",
+    "notes": "",
+    "original_title": "Never After Dark ネバーアフターダーク",
+    "release_year": 2026
   },
   "Never After Dark／ネバーアフターダーク": {
     "ai_provider": "deepseek",
@@ -1960,12 +2046,15 @@
   },
   "Returnees（リターニーズ） 元こども兵 それぞれの再起": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.7,
+    "country": null,
+    "director": "Kei Kikuchi",
+    "english_title": "Returnees",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:45+00:00",
+    "notes": "",
+    "original_title": "Returnees（リターニーズ） 元こども兵 それぞれの再起",
+    "release_year": 2026
   },
   "Ryuichi Sakamoto | Playing the Orchestra 2014": {
     "ai_provider": "deepseek",
@@ -2171,8 +2260,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "TAVERNA DE GAGA 人生はまだまだ面白い": {
@@ -2180,8 +2269,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "TBSレトロスペクティブ映画祭【第3回 石井ふく子特集】女と味噌汁": {
@@ -2846,12 +2935,15 @@
   },
   "〈特集上映〉ミケランジェロ・アントニオーニ レトロスペクティヴ 愛の不毛、彷徨える魂": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.9,
+    "country": "イタリア",
+    "director": "Michelangelo Antonioni",
+    "english_title": "Story of a Love Affair",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:56+00:00",
+    "notes": "",
+    "original_title": "Cronaca di un amore",
+    "release_year": 1950
   },
   "〈特集上映〉ロッセリーニ×ゴダール［２つのゼロ年］": {
     "confidence": 0.9,
@@ -2959,8 +3051,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "《Fire in Water 永田康祐映像作品集》Program B": {
@@ -2968,8 +3060,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "《GEMNIBUS vol.2》": {
@@ -3261,6 +3353,15 @@
     "notes": "local_ai_no_result",
     "release_year": null
   },
+  "「コマ撮りってなに？展 @ SKIPシティ特集」": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "「デリカド」【神奈川独立映画館】": {
     "confidence": 0.0,
     "english_title": null,
@@ -3283,8 +3384,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "「文豪ストレイドッグス」第４シーズンオールナイト上映会": {
@@ -3860,8 +3961,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "『ルパンVS複製人間』": {
@@ -4447,8 +4548,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "『終りなき生命を』 ＊デジタル上映": {
@@ -4740,8 +4841,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "【Cプログラム】夜のバカンス／おむかえ／パリ杉並区": {
@@ -4749,8 +4850,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "【Dプログラム】自由研究事変／四次元悪魔／わからなくていいよ！": {
@@ -4758,8 +4859,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "【Eプログラム】薄情なゲーム／残るものについて／ブルーな蛸の日": {
@@ -4767,8 +4868,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "【SAMANSAショート傑作選】アニメーション": {
@@ -5209,8 +5310,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "【クロード・シャブロル傑作選 vol.2】沈黙の女": {
@@ -5492,8 +5593,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "【先行上映】長篠": {
@@ -5635,8 +5736,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "【第2回日本モンゴル映画祭】Bedridden 〜寝たきりを選んだ男": {
@@ -5984,12 +6085,15 @@
   },
   "ある日、ピナ〜": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.9,
+    "country": "Germany",
+    "director": "Wim Wenders",
+    "english_title": "Pina",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:26+00:00",
+    "notes": "",
+    "original_title": "Pina",
+    "release_year": 2011
   },
   "ある日、家族が死刑囚になって―": {
     "confidence": 0.0,
@@ -6111,18 +6215,20 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "おくりもの": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 0.9,
+    "country": "Italy",
+    "director": "Michelangelo Frammartino",
+    "english_title": "The Gift",
+    "last_ai_attempt_at": "2026-09-09T00:19:45+00:00",
+    "notes": "",
+    "original_title": "Il dono",
+    "release_year": 2003
   },
   "おしり前マン　復活のおしり前帝国": {
     "confidence": 0.95,
@@ -6234,8 +6340,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "きかんしゃﾄｰﾏｽ[0403ﾄｰﾏｽﾅｲﾄ]": {
@@ -6287,12 +6393,15 @@
   },
   "こぐまとパルマの物語": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "アルメニア・ロシア合作",
+    "director": "ウラジミール・コンダウロフ",
+    "english_title": "Palma 2",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:07+00:00",
+    "notes": "",
+    "original_title": "Palma 2",
+    "release_year": 2026
   },
   "こころの通訳者たち What a Wonderful World": {
     "ai_provider": "deepseek",
@@ -6329,12 +6438,15 @@
   },
   "この世界の（さらにいくつもの）片隅に【チョーキューメイ麗セレクト】": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 95,
+    "country": "Japan",
+    "director": "片渕須直",
+    "english_title": "In This Corner (and Other Corners) of the World",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:08+00:00",
+    "notes": "",
+    "original_title": "この世界の（さらにいくつもの）片隅に",
+    "release_year": 2019
   },
   "この場所": {
     "confidence": 0.9,
@@ -6365,12 +6477,14 @@
   },
   "こわれゆく女": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 0.95,
+    "country": "United States",
+    "director": "John Cassavetes",
+    "english_title": "A Woman Under the Influence",
+    "last_ai_attempt_at": "2026-09-09T00:20:02+00:00",
+    "notes": "",
+    "original_title": "A Woman Under the Influence",
+    "release_year": 1974
   },
   "さよならはスローボールで": {
     "confidence": 1.0,
@@ -6541,6 +6655,15 @@
     "original_title": "Soorarai Pottru",
     "release_year": 2020
   },
+  "ちむぐりさ 菜の花の沖縄日記": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "つぐない payment": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
@@ -6564,8 +6687,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-07T00:01:24+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "とうちゃん": {
@@ -7491,8 +7614,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "アロイーズAloïse": {
@@ -7631,8 +7754,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "イントロダクション": {
@@ -7793,12 +7916,15 @@
   },
   "ウィー・ハブ・ア・ドリーム": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "France",
+    "director": "Pascal Plisson",
+    "english_title": "We Have a Dream",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:45+00:00",
+    "notes": "",
+    "original_title": "We Have a Dream",
+    "release_year": 2023
   },
   "ウォンジュ・アカデミー劇場の記録": {
     "confidence": 0.95,
@@ -7985,12 +8111,15 @@
   },
   "エル　ELLE ＜シャブロルのミューズたち＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.9,
+    "country": "France",
+    "director": "Paul Verhoeven",
+    "english_title": "Elle",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:26+00:00",
+    "notes": "",
+    "original_title": "Elle",
+    "release_year": 2016
   },
   "エルジ": {
     "confidence": 1.0,
@@ -8000,6 +8129,18 @@
     "notes": "",
     "original_title": "Eltávozott nap",
     "release_year": 1968
+  },
+  "エルミタージュ幻想 デジタル・リマスター版": {
+    "ai_provider": "deepseek",
+    "confidence": 0.9,
+    "country": "Russia",
+    "director": "Alexander Sokurov",
+    "english_title": "Russian Ark",
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:14+00:00",
+    "notes": "",
+    "original_title": "Русский ковчег",
+    "release_year": 2002
   },
   "エレクション　黒社会": {
     "confidence": 1.0,
@@ -8023,12 +8164,15 @@
   },
   "エレファント6レコーディング・カンパニー": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "アメリカ",
+    "director": "チャド・ストックフレス",
+    "english_title": "The Elephant 6 Recording Co.",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:33+00:00",
+    "notes": "",
+    "original_title": "The Elephant 6 Recording Co.",
+    "release_year": 2022
   },
   "エレファント・ゴッド": {
     "confidence": 1.0,
@@ -8274,12 +8418,15 @@
   },
   "カニングハム": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "ドイツ・フランス・アメリカ",
+    "director": "アラ・コフガン",
+    "english_title": "Cunningham",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:13+00:00",
+    "notes": "",
+    "original_title": "Cunningham",
+    "release_year": 2019
   },
   "カネフスキーが見つめた20世紀の子どもたち": {
     "confidence": 0.7,
@@ -8520,12 +8667,15 @@
   },
   "キノ・ライカ　小さな町の映画館": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "フランス・フィンランド合作",
+    "director": "ベリコ・ビダク",
+    "english_title": "Cinema Laika",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:28+00:00",
+    "notes": "",
+    "original_title": "Cinema Laika",
+    "release_year": 2023
   },
   "キムズビデオ": {
     "confidence": 1.0,
@@ -8783,12 +8933,15 @@
   },
   "グルスポングの奇跡": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.9,
+    "country": "スウェーデン・ノルウェー・デンマーク",
+    "director": "マリア・フレデリクソン",
+    "english_title": "The Miracle in Gullspång",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:13+00:00",
+    "notes": "",
+    "original_title": "Miraklet i Gullspång",
+    "release_year": 2023
   },
   "グルスポングの奇跡 監督来日舞台挨拶": {
     "ai_provider": "deepseek",
@@ -8822,12 +8975,15 @@
   },
   "ケルト・ユートピア": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.9,
+    "country": "スウェーデン・アイルランド",
+    "director": "デニス・ハーベイ",
+    "english_title": "Celtic Utopia",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:13+00:00",
+    "notes": "",
+    "original_title": "Útóipe Cheilteach",
+    "release_year": 2025
   },
   "ゲキ×シネ「紅鬼物語」": {
     "confidence": 0.9,
@@ -8844,8 +9000,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "コケティッシュナイト": {
@@ -8875,6 +9031,15 @@
     "notes": "",
     "original_title": "Злой город",
     "release_year": 2025
+  },
+  "コミック・ストリップ・ヒーロー": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "コミック祭り！2026": {
     "confidence": 0.0,
@@ -9909,12 +10074,15 @@
   },
   "スタフ王の野蛮な狩り": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "ソ連",
+    "director": "ワレーリー・ルビンチク",
+    "english_title": "The Savage Hunt of King Stakh",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:07+00:00",
+    "notes": "",
+    "original_title": "Дикая охота короля Стаха",
+    "release_year": 1979
   },
   "スタントマン（1980）": {
     "confidence": 1.0,
@@ -9924,6 +10092,18 @@
     "notes": "",
     "original_title": "The Stunt Man",
     "release_year": 1980
+  },
+  "ステッペンウルフ/荒野の狼": {
+    "ai_provider": "deepseek",
+    "confidence": 0.85,
+    "country": "United States",
+    "director": "Fred Haines",
+    "english_title": "Steppenwolf",
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:19:51+00:00",
+    "notes": "",
+    "original_title": "Steppenwolf",
+    "release_year": 1974
   },
   "ストム・ソゴー作品集": {
     "confidence": 0.9,
@@ -10210,12 +10390,15 @@
   },
   "タシケントはパンの町": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.85,
+    "country": "Soviet Union",
+    "director": "Shukhrat Abbasov",
+    "english_title": "Tashkent — City of Bread",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:31+00:00",
+    "notes": "",
+    "original_title": "Ташкент — город хлебный",
+    "release_year": 1968
   },
   "タルコフスキーナイト": {
     "confidence": 0.9,
@@ -11031,21 +11214,27 @@
   },
   "ナム・ジュン・パイク": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.7,
+    "country": null,
+    "director": null,
+    "english_title": "Nam June Paik",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:20+00:00",
+    "notes": "",
+    "original_title": "ナム・ジュン・パイク",
     "release_year": null
   },
   "ナム・ジュン・パイク　月は最古のTV": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "アメリカ",
+    "director": "アマンダ・キム",
+    "english_title": "Nam June Paik: Moon Is the Oldest TV",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:13+00:00",
+    "notes": "",
+    "original_title": "Nam June Paik: Moon Is the Oldest TV",
+    "release_year": 2023
   },
   "ナム・ジュン・パイク〜": {
     "ai_provider": "deepseek",
@@ -11282,12 +11471,14 @@
   },
   "ハワの手習い": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 0.95,
+    "country": "フランス・オランダ・カタール・アフガニスタン合作",
+    "director": "ナジーバ・ヌーリ",
+    "english_title": "Writing Hawa",
+    "last_ai_attempt_at": "2026-09-09T00:19:39+00:00",
+    "notes": "",
+    "original_title": "Writing Hawa",
+    "release_year": 2024
   },
   "ハード・トゥルース": {
     "confidence": 0.0,
@@ -11760,12 +11951,15 @@
   },
   "ビートルズがいた夏": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "France/Romania",
+    "director": "Andrei Ujică",
+    "english_title": "TWST: Things We Said Today",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:45+00:00",
+    "notes": "",
+    "original_title": "TWST: Things We Said Today",
+    "release_year": 2023
   },
   "ビートルズがいた夏 Things We Said Today": {
     "ai_provider": "deepseek",
@@ -11931,12 +12125,14 @@
   },
   "フランケンフッカー": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 1.0,
+    "country": "アメリカ",
+    "director": "フランク・ヘネンロッター",
+    "english_title": "Frankenhooker",
+    "last_ai_attempt_at": "2026-09-09T00:19:20+00:00",
+    "notes": "",
+    "original_title": "Frankenhooker",
+    "release_year": 1990
   },
   "フランコフォニーのお祭り：ベルギー映画『ヴィトリヴァル』上映+監督トークセッション": {
     "confidence": 1.0,
@@ -11952,8 +12148,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "フレデリック・ワイズマン監督 緊急追悼上映ニューヨーク公共図書館 エクス・リブリスボストン市庁舎オールナイト上映": {
@@ -12417,8 +12613,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "ホームステッド　世界が崩れる時": {
@@ -12678,12 +12874,15 @@
   },
   "マイ・リトル・クイーンズ": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "スイス・スペイン・ペルー",
+    "director": "クラウディア・レイニケ",
+    "english_title": "Reinas",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:13+00:00",
+    "notes": "",
+    "original_title": "Reinas",
+    "release_year": 2024
   },
   "マザーズキングダム": {
     "ai_provider": "deepseek",
@@ -12812,6 +13011,15 @@
     "notes": "gemini_failed",
     "release_year": null
   },
+  "マルキ": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "マルグリット・デュラスのアガタ": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
@@ -12895,21 +13103,27 @@
   },
   "マーターズ ４K デジタルリマスター": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "France",
+    "director": "Pascal Laugier",
+    "english_title": "Martyrs",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:14+00:00",
+    "notes": "",
+    "original_title": "Martyrs",
+    "release_year": 2008
   },
   "マーターズ ４K デジタルリマスター【4K上映】": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "France",
+    "director": "Pascal Laugier",
+    "english_title": "Martyrs",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:14+00:00",
+    "notes": "",
+    "original_title": "Martyrs",
+    "release_year": 2008
   },
   "マーターズ先行 オールナイト上映": {
     "ai_provider": "deepseek",
@@ -12991,12 +13205,15 @@
   },
   "ミス・メンド": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.85,
+    "country": "Soviet Union",
+    "director": "Fyodor Otsep",
+    "english_title": "Miss Mend",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:31+00:00",
+    "notes": "",
+    "original_title": "Мисс Менд",
+    "release_year": 1926
   },
   "ミッシェル・オスロ監督特集 動き出す世界たち": {
     "confidence": 0.9,
@@ -13029,6 +13246,18 @@
     "notes": "",
     "original_title": "ミッドナイト",
     "release_year": null
+  },
+  "ミート・ザ・フィーブルズ": {
+    "ai_provider": "deepseek",
+    "confidence": 0.95,
+    "country": "New Zealand",
+    "director": "Peter Jackson",
+    "english_title": "Meet the Feebles",
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:19:51+00:00",
+    "notes": "",
+    "original_title": "Meet the Feebles",
+    "release_year": 1989
   },
   "ムカデ人間 4K【4K上映】上映後舞台挨拶": {
     "ai_provider": "deepseek",
@@ -13075,7 +13304,7 @@
     "director": "中原俊",
     "english_title": "Make-Up",
     "failed": true,
-    "last_ai_attempt_at": "2026-08-28T06:23:24+00:00",
+    "last_ai_attempt_at": "2026-09-09T00:20:31+00:00",
     "notes": "",
     "original_title": "メイク・アップ",
     "release_year": 1985
@@ -13122,14 +13351,26 @@
     "original_title": "Mektoub, My Love: Intermezzo",
     "release_year": null
   },
-  "メッセンジャー・ボーイ": {
+  "メクボリアン": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
+  },
+  "メッセンジャー・ボーイ": {
+    "ai_provider": "deepseek",
+    "confidence": 1.0,
+    "country": "ソ連",
+    "director": "カレン・シャフナザーロフ",
+    "english_title": "Messenger Boy",
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:19:07+00:00",
+    "notes": "",
+    "original_title": "Курьер",
+    "release_year": 1986
   },
   "メドール〜": {
     "confidence": 0.9,
@@ -13701,12 +13942,15 @@
   },
   "リンカ リンカ　あの夏の先": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.9,
+    "country": "中国",
+    "director": "カンドゥルン",
+    "english_title": "Linka Linka",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:33+00:00",
+    "notes": "",
+    "original_title": "一個夜晚与三個夏天",
+    "release_year": 2025
   },
   "リング": {
     "confidence": 1.0,
@@ -13722,8 +13966,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "リー・ミラー　彼女の瞳が映す世界": {
@@ -13741,8 +13985,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "ルーズ・ソックス": {
@@ -13877,8 +14121,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "レヴィジア": {
@@ -13907,8 +14151,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "ロストランズ　闇を狩る者": {
@@ -14821,8 +15065,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "健康ちえのわトランポリン教室": {
@@ -15072,8 +15316,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "劇場版 TUBE 40th Anniversary Live & Documentary 〜40周年の航海記〜": {
@@ -15081,8 +15325,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "劇場版 かげる針路": {
@@ -15178,12 +15422,14 @@
   },
   "劇場版　少女☆歌劇 レヴュー・スタァライト": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 0.9,
+    "country": "日本",
+    "director": "古川知宏",
+    "english_title": "Revue Starlight: The Movie",
+    "last_ai_attempt_at": "2026-09-09T00:19:20+00:00",
+    "notes": "",
+    "original_title": "劇場版　少女☆歌劇 レヴュー・スタァライト",
+    "release_year": 2021
   },
   "劇場版　旅人検視官　道場修作": {
     "ai_provider": "deepseek",
@@ -15209,8 +15455,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "劇場版「HAMAツアーズpresents “おもてなしライブ” Sparkle」": {
@@ -15337,12 +15583,15 @@
   },
   "十三人": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.85,
+    "country": "Soviet Union",
+    "director": "Mikhail Romm",
+    "english_title": "The Thirteen",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:31+00:00",
+    "notes": "",
+    "original_title": "Тринадцать",
+    "release_year": 1937
   },
   "十字砲火": {
     "ai_provider": "deepseek",
@@ -15369,8 +15618,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "南の島に雪が降る（1961）": {
@@ -15502,8 +15751,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "君と私": {
@@ -15635,8 +15884,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "国境事件": {
@@ -15730,6 +15979,15 @@
     "original_title": "在日ミャンマー人－わたしたちの自由－",
     "release_year": 2026
   },
+  "地上げ屋": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "地上げ屋[0911イベント]": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
@@ -15803,6 +16061,15 @@
     "original_title": "壁の外側と内側 パレスチナ・イスラエル取材記",
     "release_year": 2025
   },
+  "壊れそうな青春ナイト": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "声をあげるということ　性犯罪　刑法改正の記録": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
@@ -15853,8 +16120,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "夜の鴎": {
@@ -16208,12 +16475,15 @@
   },
   "女ともだち（1955）": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "イタリア",
+    "director": "ミケランジェロ・アントニオーニ",
+    "english_title": "Le Amiche",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:00+00:00",
+    "notes": "",
+    "original_title": "Le Amiche",
+    "release_year": 1955
   },
   "女の橋": {
     "confidence": 0.0,
@@ -17438,12 +17708,14 @@
   },
   "想い出の夏休み": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 0.9,
+    "country": "ソ連",
+    "director": "セルゲイ・ソロビヨフ",
+    "english_title": "One Hundred Days After Childhood",
+    "last_ai_attempt_at": "2026-09-09T00:19:00+00:00",
+    "notes": "",
+    "original_title": "Сто дней после детства",
+    "release_year": 1975
   },
   "愉快なリズム": {
     "ai_provider": "deepseek",
@@ -17456,12 +17728,15 @@
   },
   "愛と殺意": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "イタリア",
+    "director": "ミケランジェロ・アントニオーニ",
+    "english_title": "Story of a Love Affair",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:00+00:00",
+    "notes": "",
+    "original_title": "Cronaca di un amore",
+    "release_year": 1950
   },
   "愛と破滅のアヴァンギャルド ATG 真夜中篇": {
     "confidence": 0.0,
@@ -17647,8 +17922,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "打ち上げ花火、下から見るか？横から見るか？（1993）": {
@@ -17755,12 +18030,15 @@
   },
   "撃たれた自由の声を撮れ": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "アフガニスタン",
+    "director": "ザイナブ・エンテザール",
+    "english_title": "Shot the Voice of Freedom",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:39+00:00",
+    "notes": "",
+    "original_title": "Shot the Voice of Freedom",
+    "release_year": 2024
   },
   "放浪の王者": {
     "confidence": 0.95,
@@ -17782,12 +18060,15 @@
   },
   "敗北者たち": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "イタリア",
+    "director": "ミケランジェロ・アントニオーニ",
+    "english_title": "I Vinti",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:00+00:00",
+    "notes": "",
+    "original_title": "I vinti",
+    "release_year": 1953
   },
   "教授と美女": {
     "ai_provider": "deepseek",
@@ -17802,12 +18083,15 @@
   },
   "敵": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.85,
+    "country": "Japan",
+    "director": "Daihachi Yoshida",
+    "english_title": "Enemy",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:45+00:00",
+    "notes": "",
+    "original_title": "敵",
+    "release_year": 2023
   },
   "文なし横丁の人々": {
     "confidence": 1.0,
@@ -18222,8 +18506,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "映画作家ストローブ＝ユイレ　あなたの微笑みはどこに隠れたの？": {
@@ -18718,8 +19002,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "森に聴く Listen to the": {
@@ -18769,8 +19053,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "極私的恋愛映画』特別上映＆トーク 森に聴く Listen to the Forest トロフィー 森に聴く Listen to the Forest": {
@@ -19046,12 +19330,15 @@
   },
   "死者からの手紙": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "ソ連",
+    "director": "コンスタンチン・ロプシャンスキー",
+    "english_title": "Dead Man's Letters",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:00+00:00",
+    "notes": "",
+    "original_title": "Письма мёртвого человека",
+    "release_year": 1986
   },
   "死霊魂 第一部": {
     "confidence": 1.0,
@@ -19182,8 +19469,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-07T00:01:24+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "母の旅路（1958）": {
@@ -19362,8 +19649,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "泳ぎすぎた夜": {
@@ -19422,12 +19709,14 @@
   },
   "海ほおずき The Breath": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 0.9,
+    "country": "日本",
+    "director": "林海象",
+    "english_title": "The Breath",
+    "last_ai_attempt_at": "2026-09-09T00:19:39+00:00",
+    "notes": "",
+    "original_title": "海ほおずき",
+    "release_year": 1996
   },
   "海賊のフィアンセ": {
     "confidence": 1.0,
@@ -19470,12 +19759,14 @@
   },
   "渚のシンドバッド【ゆっきゅんセレクト】": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 95,
+    "country": "Japan",
+    "director": "橋口亮輔",
+    "english_title": "Like Grains of Sand",
+    "last_ai_attempt_at": "2026-09-09T00:20:08+00:00",
+    "notes": "",
+    "original_title": "渚のシンドバッド",
+    "release_year": 1995
   },
   "渡る世間は鬼ばかり ボロ家の春秋": {
     "confidence": 0.9,
@@ -19851,8 +20142,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "犬神家の一族（1976）": {
@@ -20015,12 +20306,14 @@
   },
   "男たちの挽歌": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 1.0,
+    "country": "香港",
+    "director": "ジョン・ウー",
+    "english_title": "A Better Tomorrow",
+    "last_ai_attempt_at": "2026-09-09T00:19:33+00:00",
+    "notes": "",
+    "original_title": "英雄本色",
+    "release_year": 1986
   },
   "男の魂": {
     "ai_provider": "deepseek",
@@ -20097,12 +20390,15 @@
   },
   "白い汽船": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.8,
+    "country": "Soviet Union",
+    "director": "Bolotbek Shamshiyev",
+    "english_title": "The White Ship",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:31+00:00",
+    "notes": "",
+    "original_title": "Белый пароход",
+    "release_year": 1976
   },
   "白い車に乗った女": {
     "confidence": 0.0,
@@ -20424,6 +20720,15 @@
     "original_title": "Aquele Querido Mês de Agosto",
     "release_year": 2008
   },
+  "私たちは[0913しゃべれば]": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "私たちは、ちょうどいい。": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
@@ -20488,18 +20793,20 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "私はモーリーン・カーニー　正義を殺すのは誰？": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 1.0,
+    "country": "フランス・ドイツ",
+    "director": "ジャン＝ポール・サロメ",
+    "english_title": "La Syndicaliste",
+    "last_ai_attempt_at": "2026-09-09T00:19:33+00:00",
+    "notes": "",
+    "original_title": "La Syndicaliste",
+    "release_year": 2022
   },
   "私は憎まない": {
     "confidence": 1.0,
@@ -20720,8 +21027,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "篠崎誠監督特集": {
@@ -20745,8 +21052,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "紀ノ川花の巻文緒の巻": {
@@ -20963,11 +21270,23 @@
   },
   "美しく、黙りなさい": {
     "ai_provider": "deepseek",
+    "confidence": 1.0,
+    "country": "フランス",
+    "director": "デルフィーヌ・セイリグ",
+    "english_title": "Sois belle et tais-toi",
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:19:28+00:00",
+    "notes": "",
+    "original_title": "Sois belle et tais-toi",
+    "release_year": 1976
+  },
+  "美晴に傘を": {
+    "ai_provider": "deepseek",
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "群衆の喚呼": {
@@ -21061,6 +21380,18 @@
     "notes": "local_ai_no_result",
     "release_year": null
   },
+  "肉体の悪魔〈1971年〉": {
+    "ai_provider": "deepseek",
+    "confidence": 0.7,
+    "country": "Italy",
+    "director": "Marco Bellocchio",
+    "english_title": "The Devil in the Flesh",
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:19:51+00:00",
+    "notes": "",
+    "original_title": "Il diavolo nel corpo",
+    "release_year": 1971
+  },
   "肉体の悪魔（1971）": {
     "ai_provider": "deepseek",
     "confidence": 0.6,
@@ -21092,12 +21423,15 @@
   },
   "肉屋 ＜シャブロルのミューズたち｜シャブロル傑作選 Vol.1 Encore＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "France",
+    "director": "Claude Chabrol",
+    "english_title": "Le Boucher",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:26+00:00",
+    "notes": "",
+    "original_title": "Le Boucher",
+    "release_year": 1970
   },
   "肉屋〈1970年・デジタルリマスター版〉": {
     "confidence": 1.0,
@@ -21274,8 +21608,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "花嫁はどこへ": {
@@ -21352,12 +21686,14 @@
   },
   "茶の味【Aマッソ加納セレクト】": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "confidence": 0.9,
+    "country": "Japan",
+    "director": "石井克人",
+    "english_title": "The Taste of Tea",
+    "last_ai_attempt_at": "2026-09-09T00:20:02+00:00",
+    "notes": "",
+    "original_title": "茶の味",
+    "release_year": 2004
   },
   "草を刈る娘「思春の泉」改題版": {
     "confidence": 0.0,
@@ -21579,8 +21915,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "見知らぬ人でなく": {
@@ -21835,8 +22171,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "赤い殺意（1964）": {
@@ -21892,12 +22228,15 @@
   },
   "赤と黒（1954）": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.9,
+    "country": "フランス",
+    "director": "クロード・オータン＝ララ",
+    "english_title": "The Red and the Black",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:39+00:00",
+    "notes": "",
+    "original_title": "Le rouge et le noir",
+    "release_year": 1954
   },
   "走り来る男": {
     "confidence": 1.0,
@@ -21979,8 +22318,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-07T00:01:24+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "軍服を着た神様": {
@@ -21988,8 +22327,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "輪舞（1950）": {
@@ -22114,11 +22453,13 @@
   },
   "遭難者": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "confidence": 0.4,
+    "country": "France",
+    "director": "Guillaume Brac",
+    "english_title": "The Lost",
+    "last_ai_attempt_at": "2026-09-09T00:20:26+00:00",
+    "notes": "",
+    "original_title": "Les Égarés",
     "release_year": null
   },
   "郊外の鳥たち": {
@@ -22250,8 +22591,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "銀座ル・ジャルダンへようこそ2～1986年～": {
@@ -22259,8 +22600,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "銀魂 吉原大炎上【odessa vol+】": {
@@ -22550,12 +22891,15 @@
   },
   "零下五十度の抑留者": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.9,
+    "country": "台湾",
+    "director": "コー・ビンスン",
+    "english_title": "Memories Frozen in Time",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:19:00+00:00",
+    "notes": "",
+    "original_title": "冰封的記憶",
+    "release_year": 2025
   },
   "雷鳴の湾": {
     "ai_provider": "deepseek",
@@ -22666,8 +23010,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "青髭 リストア版": {
@@ -22783,6 +23127,15 @@
     "notes": "",
     "original_title": "뮤지컬 모차르트!",
     "release_year": 2026
+  },
+  "音声ガイド付き自主制作映画祭": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "音楽 ブラッシュアップ版": {
     "confidence": 0.9,
@@ -23071,8 +23424,8 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
+    "last_ai_attempt_at": "2026-09-09T00:20:39+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "骨（1997）": {
@@ -23392,30 +23745,39 @@
   },
   "＜クロード・シャブロル傑作選 Vol.2＞ ベティ": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "France",
+    "director": "Claude Chabrol",
+    "english_title": "Betty",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:26+00:00",
+    "notes": "",
+    "original_title": "Betty",
+    "release_year": 1992
   },
   "＜クロード・シャブロル傑作選 Vol.2＞ ヴィオレット・ノジエール": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.95,
+    "country": "France",
+    "director": "Claude Chabrol",
+    "english_title": "Violette Nozière",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:26+00:00",
+    "notes": "",
+    "original_title": "Violette Nozière",
+    "release_year": 1978
   },
   "＜クロード・シャブロル傑作選 Vol.2＞ 沈黙の女": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.9,
+    "country": "France",
+    "director": "Claude Chabrol",
+    "english_title": "La Cérémonie",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-08T00:27:38+00:00",
-    "notes": "local_ai_unavailable",
-    "release_year": null
+    "last_ai_attempt_at": "2026-09-09T00:20:26+00:00",
+    "notes": "",
+    "original_title": "La Cérémonie",
+    "release_year": 1995
   },
   "＜ロックの時間＞ アニタ　反逆の女神": {
     "ai_provider": "deepseek",
