@@ -138,6 +138,46 @@ def _normalize_screen_name(raw: str) -> str:
 _detail_cache: Dict[str, Dict] = {}
 
 
+_BOOKING_ANNOTATION = re.compile(r"[\[［][^\]］]*[\]］]\s*$")
+
+
+def _strip_booking_annotation(title: str | None) -> tuple[str | None, bool]:
+    """Drop the booking system's trailing "[0911イベント]" style annotation.
+
+    Returned flag says whether anything was stripped, because a stripped title
+    may also have been truncated and needs the repair below.
+    """
+    if not title:
+        return title, False
+    cleaned = _BOOKING_ANNOTATION.sub("", title).strip()
+    return (cleaned or title), (cleaned != title.strip() and bool(cleaned))
+
+
+def _repair_truncated_titles(rows: list[dict]) -> list[dict]:
+    """Restore titles the booking system cut short before appending its annotation.
+
+    TTCG shows an event title in a fixed-width field, so "私たちは、ちょうどいい。"
+    arrives as "私たちは[0913しゃべれば]" and "361 WHITE AND BLACK【アンコール上映】"
+    as "361[0911ｲﾍﾞﾝﾄ]" -- a different film record per date, none of which match TMDB.
+
+    Once the annotation is gone the remainder is a prefix of the real title, which
+    the same scrape almost always carries in full from a detail page that did load.
+    Only rows whose annotation was actually stripped are repaired, so an ordinary
+    short title can never be swallowed by a longer unrelated one.
+    """
+    full = {r["movie_title"] for r in rows if r.get("movie_title") and not r.get("_annotated")}
+    for row in rows:
+        if not row.pop("_annotated", False):
+            continue
+        stub = row.get("movie_title")
+        if not stub:
+            continue
+        matches = [t for t in full if t != stub and t.startswith(stub)]
+        if len(matches) == 1:
+            row["movie_title"] = matches[0]
+    return rows
+
+
 def _scrape_detail_page(movie_id: str) -> Dict[str, Optional[str]]:
     if movie_id in _detail_cache:
         return _detail_cache[movie_id]
@@ -261,12 +301,19 @@ def scrape_human_shibuya(max_days: int = 7) -> List[Dict]:
                         if isinstance(mv, list):
                             mv = mv[0] if mv else {}
                         if isinstance(mv, dict):
-                            meta["movie_title"] = mv.get("name") or mv.get("cname") or mv.get("title")
+                            # Reached only when the detail page 404s. The booking
+                            # feed's name carries the "[0911イベント]" annotation and
+                            # is truncated to fit the field, so clean it and mark it
+                            # for the prefix repair below.
+                            raw = mv.get("name") or mv.get("cname") or mv.get("title")
+                            meta["movie_title"], annotated = _strip_booking_annotation(raw)
+                            meta["_annotated"] = annotated
 
                     result.append(
                         {
                             "cinema_name": CINEMA_NAME,
                             "movie_title": meta.get("movie_title"),
+                            "_annotated": meta.get("_annotated", False),
                             "date_text": iso_date,
                             "showtime": showtime,
                             "director": meta.get("director"),
@@ -281,6 +328,7 @@ def scrape_human_shibuya(max_days: int = 7) -> List[Dict]:
                         }
                     )
 
+    result = _repair_truncated_titles(result)
     unique = [dict(t) for t in {tuple(sorted(d.items())) for d in result}]
     return sorted(unique, key=lambda x: (x["date_text"], x["showtime"], x.get("movie_title") or ""))
 
