@@ -5426,11 +5426,14 @@
     "tmdb_title_original": "Mercy",
     "vote_average": 7.04
   },
+  "METライブビューイング2009-10 ヴェルディ《シモン・ボッカネグラ》": null,
   "METライブビューイング2010-11 ワーグナー《ニーベルングの指環》　第1夜「ワルキューレ」": null,
   "METライブビューイング2012-13 ヘンデル《ジュリアス・シーザー》": null,
   "METライブビューイング2015-16 ドニゼッティ《ロベルト・デヴェリュー》": null,
   "METライブビューイング2016-17 モーツァルト《ドン・ジョヴァンニ》": null,
+  "METライブビューイング2018-19 プーランク《カルメル会修道女の対話》": null,
   "METライブビューイング2018-19 ヴェルディ《椿姫》": null,
+  "METライブビューイング2019-20 プッチーニ《トゥーランドット》": null,
   "METライブビューイング2022-23 モーツァルト《魔笛》": null,
   "METライブビューイング2025-26 R・シュトラウス《アラベッラ》": null,
   "METライブビューイング2025-26 ガブリエラ・リーナ・フランク《フリーダとディエゴ　最後の夢》": {
@@ -17777,6 +17780,38 @@
     "tmdb_title_jp": "黒の牛",
     "tmdb_title_original": "黒の牛",
     "vote_average": 7.5
+  },
+  "tmdb:1169789": {
+    "backdrop_path": "/m0VOz5KTHxGZB5iegG48U5EjHQD.jpg",
+    "director": "Tracie Laymon",
+    "director_en": "Tracie Laymon",
+    "director_jp": "Tracie Laymon",
+    "genres": [
+      "コメディ",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Drama"
+    ],
+    "overview": "住み込みで友人の介助をしながら暮らすリリー・トレヴィノ。 幼い頃に母に捨てられ、父とも疎遠になった彼女は、孤独を抱えながら生きていた。ある日、父と連絡を取ろうと SNS で父を探し始めたリリー。だが、父だと思って友達申請を送った相手は、父と同姓同名の見知らぬ男性、ボブ・トレヴィノだった。 ボブは建設会社で働く心優しい男性。妻ジーニーと支え合いながら生きてきた彼は、自分のことよりも相手を優先してしまう性格だった。偶然つながったリリーの孤独に気づいたボブは、彼女にそっと寄り添いはじめる。 何気ないメッセージのやり取りを重ねるうちに、リリーとボブの間には少しずつ特別な友情が芽生えていく。ただの人違いだったはずの出会いは、やがてふたりにとってかけがえのない居場所になっていく――。",
+    "overview_en": "Lily Trevino unexpectedly befriends an online stranger who shares her self-centered father’s name. This new Bob Trevino’s support could transform her life.",
+    "poster_path": "/ph7qM5ptaSXkzmP2elftbdGAjFy.jpg",
+    "release_date": "2025-03-20",
+    "runtime": 101,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 1169789,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Bob Trevino Likes It",
+    "tmdb_title_jp": "私たちは、ちょうどいい。",
+    "tmdb_title_original": "Bob Trevino Likes It",
+    "vote_average": 7.433
   },
   "tmdb:1170215": {
     "backdrop_path": "/tShlFArLm6eCMXJ6JhlnvlXCLBt.jpg",
@@ -33351,6 +33386,48 @@
     "tmdb_title_jp": "月は地球を廻ってる",
     "tmdb_title_original": "月は地球を廻ってる",
     "vote_average": 0.0
+  },
+  "tmdb:1497946": {
+    "backdrop_path": "/1moirGqeeDEcPu3aeTrCzTZo9yW.jpg",
+    "director": "塚本晋也",
+    "director_en": "Shinya Tsukamoto",
+    "director_jp": "塚本晋也",
+    "genres": [
+      "ドラマ",
+      "戦争"
+    ],
+    "genres_en": [
+      "Drama",
+      "War"
+    ],
+    "overview": "貧困や差別から抜け出すために18歳で入隊したアフリカ系アメリカ人のアレン・ネルソン。ベトナムという苛烈な戦地で学んだことはただひとつ、いかに多くの人を殺せるか。その対価として得たのは、ごくわずかな賃金とPTSD（戦争後遺症）だけだった。23歳で家を追い出され、ホームレスとなったアレンをこの世につなぎ止めたのは、退役軍人病院でカウンセリングを行っていたダニエルズ医師の存在だった。",
+    "overview_en": "Vietnam veteran Allen Nelson returns with severe PTSD, winding up on the streets before crossing paths with Dr. Daniels of the Veterans Affairs who sets about trying to help him.",
+    "poster_path": "/9CKA9mGKUxFFuShat0aZnOS2QMd.jpg",
+    "release_date": "2026-09-11",
+    "runtime": 116,
+    "tmdb_alt_titles_jp": [
+      "Nelson san, anata ha hito wo koroshimashitaka?"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "VN",
+        "name": "Vietnam"
+      }
+    ],
+    "tmdb_id": 1497946,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Mr. Nelson, Did You Kill People?",
+    "tmdb_title_jp": "ネルソンさん、あなたは人を殺しましたか？",
+    "tmdb_title_original": "ネルソンさん、あなたは人を殺しましたか？",
+    "vote_average": 7.5
   },
   "tmdb:1497970": {
     "backdrop_path": "/9VM1KI9sVZETl0d00FK7CnBzxiw.jpg",
@@ -49160,6 +49237,40 @@
     "tmdb_title_jp": "みかへりの塔",
     "tmdb_title_original": "みかへりの塔",
     "vote_average": 6.7
+  },
+  "tmdb:25951": {
+    "backdrop_path": "/snkw8maFYKOf42H8pFu9Wt1x0aN.jpg",
+    "director": "塚本晋也",
+    "director_en": "Shinya Tsukamoto",
+    "director_jp": "塚本晋也",
+    "genres": [
+      "ドラマ",
+      "スリラー",
+      "犯罪"
+    ],
+    "genres_en": [
+      "Drama",
+      "Thriller",
+      "Crime"
+    ],
+    "overview": "",
+    "overview_en": "After his girlfriend commits suicide, a man becomes embroiled in gang warfare attempting to obtain a gun in hopes to kill himself.",
+    "poster_path": "/yRmSOwZAnwlV7uoEKSulNMp21Px.jpg",
+    "release_date": "1998-12-01",
+    "runtime": 87,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 25951,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Bullet Ballet",
+    "tmdb_title_jp": "バレット・バレエ",
+    "tmdb_title_original": "バレット・バレエ",
+    "vote_average": 7.058
   },
   "tmdb:25970": {
     "backdrop_path": "/xrb2llOfcqX5dL5JLca4ZiTdwyu.jpg",
@@ -92196,6 +92307,40 @@
     "tmdb_title_original": "Martyrs",
     "vote_average": 7.298
   },
+  "tmdb:95482": {
+    "backdrop_path": "/5iwtSyrrus3V1MfkiXdKQjdhx9s.jpg",
+    "director": "イ・チャンドン",
+    "director_en": "Lee Chang-dong",
+    "director_jp": "イ・チャンドン",
+    "genres": [
+      "ドラマ",
+      "犯罪"
+    ],
+    "genres_en": [
+      "Drama",
+      "Crime"
+    ],
+    "overview": "",
+    "overview_en": "Returning home and finding his town drastically changed, a former soldier falls in with gangsters.",
+    "poster_path": "/7MYtfpFLBED3gFwourExvC0fRRh.jpg",
+    "release_date": "1997-02-07",
+    "runtime": 111,
+    "tmdb_alt_titles_jp": [
+      "グリーンフィッシュ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "KR",
+        "name": "South Korea"
+      }
+    ],
+    "tmdb_id": 95482,
+    "tmdb_original_language": "ko",
+    "tmdb_title_en": "Green Fish",
+    "tmdb_title_jp": "초록물고기",
+    "tmdb_title_original": "초록물고기",
+    "vote_average": 6.9
+  },
   "tmdb:95533": {
     "backdrop_path": "/iZ7x8dpJt28vU7GQBXUv8ByogkK.jpg",
     "director": "Pedro Costa",
@@ -119355,7 +119500,40 @@
     "tmdb_title_original": "グリーンバレット 最強殺し屋伝説国岡[合宿編]",
     "vote_average": 8.2
   },
-  "グリーンフィッシュ 4Kレストア": null,
+  "グリーンフィッシュ 4Kレストア": {
+    "backdrop_path": "/5iwtSyrrus3V1MfkiXdKQjdhx9s.jpg",
+    "director": "イ・チャンドン",
+    "director_en": "Lee Chang-dong",
+    "director_jp": "イ・チャンドン",
+    "genres": [
+      "ドラマ",
+      "犯罪"
+    ],
+    "genres_en": [
+      "Drama",
+      "Crime"
+    ],
+    "overview": "",
+    "overview_en": "Returning home and finding his town drastically changed, a former soldier falls in with gangsters.",
+    "poster_path": "/7MYtfpFLBED3gFwourExvC0fRRh.jpg",
+    "release_date": "1997-02-07",
+    "runtime": 111,
+    "tmdb_alt_titles_jp": [
+      "グリーンフィッシュ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "KR",
+        "name": "South Korea"
+      }
+    ],
+    "tmdb_id": 95482,
+    "tmdb_original_language": "ko",
+    "tmdb_title_en": "Green Fish",
+    "tmdb_title_jp": "초록물고기",
+    "tmdb_title_original": "초록물고기",
+    "vote_average": 6.9
+  },
   "グリーンマイル": {
     "backdrop_path": "/lgJlu0Fp1mdTaFEeaQJ7DskhSOr.jpg",
     "director": "Frank Darabont",
@@ -131545,6 +131723,48 @@
     "tmdb_title_original": "Nénette et Boni",
     "vote_average": 6.4
   },
+  "ネルソンさん、あなたは人を殺しましたか？": {
+    "backdrop_path": "/1moirGqeeDEcPu3aeTrCzTZo9yW.jpg",
+    "director": "塚本晋也",
+    "director_en": "Shinya Tsukamoto",
+    "director_jp": "塚本晋也",
+    "genres": [
+      "ドラマ",
+      "戦争"
+    ],
+    "genres_en": [
+      "Drama",
+      "War"
+    ],
+    "overview": "貧困や差別から抜け出すために18歳で入隊したアフリカ系アメリカ人のアレン・ネルソン。ベトナムという苛烈な戦地で学んだことはただひとつ、いかに多くの人を殺せるか。その対価として得たのは、ごくわずかな賃金とPTSD（戦争後遺症）だけだった。23歳で家を追い出され、ホームレスとなったアレンをこの世につなぎ止めたのは、退役軍人病院でカウンセリングを行っていたダニエルズ医師の存在だった。",
+    "overview_en": "Vietnam veteran Allen Nelson returns with severe PTSD, winding up on the streets before crossing paths with Dr. Daniels of the Veterans Affairs who sets about trying to help him.",
+    "poster_path": "/9CKA9mGKUxFFuShat0aZnOS2QMd.jpg",
+    "release_date": "2026-09-11",
+    "runtime": 116,
+    "tmdb_alt_titles_jp": [
+      "Nelson san, anata ha hito wo koroshimashitaka?"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "VN",
+        "name": "Vietnam"
+      }
+    ],
+    "tmdb_id": 1497946,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Mr. Nelson, Did You Kill People?",
+    "tmdb_title_jp": "ネルソンさん、あなたは人を殺しましたか？",
+    "tmdb_title_original": "ネルソンさん、あなたは人を殺しましたか？",
+    "vote_average": 7.5
+  },
   "ノスタルジア 4K修復版": {
     "backdrop_path": "/z0ZAEC2aZuflzua3HOSygVzE6Jq.jpg",
     "director": "安德烈·塔尔科夫斯基",
@@ -132858,6 +133078,40 @@
     "tmdb_title_jp": "バルタザールどこへ行く",
     "tmdb_title_original": "Au hasard Balthazar",
     "vote_average": 7.524
+  },
+  "バレット・バレエ": {
+    "backdrop_path": "/snkw8maFYKOf42H8pFu9Wt1x0aN.jpg",
+    "director": "塚本晋也",
+    "director_en": "Shinya Tsukamoto",
+    "director_jp": "塚本晋也",
+    "genres": [
+      "ドラマ",
+      "スリラー",
+      "犯罪"
+    ],
+    "genres_en": [
+      "Drama",
+      "Thriller",
+      "Crime"
+    ],
+    "overview": "",
+    "overview_en": "After his girlfriend commits suicide, a man becomes embroiled in gang warfare attempting to obtain a gun in hopes to kill himself.",
+    "poster_path": "/yRmSOwZAnwlV7uoEKSulNMp21Px.jpg",
+    "release_date": "1998-12-01",
+    "runtime": 87,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 25951,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Bullet Ballet",
+    "tmdb_title_jp": "バレット・バレエ",
+    "tmdb_title_original": "バレット・バレエ",
+    "vote_average": 7.058
   },
   "バロン": {
     "backdrop_path": "/mBh3NXCkSCasZGovzAuc9UlFCru.jpg",
@@ -144687,6 +144941,7 @@
     "tmdb_title_original": "Reprise",
     "vote_average": 7.14
   },
+  "リベンジャーズ・トラジディ": null,
   "リリイ・シュシュのすべて": {
     "backdrop_path": "/nZ7PeP09wioVQppxopmXHUfrAn1.jpg",
     "director": "岩井俊二",
@@ -163425,6 +163680,7 @@
     "tmdb_title_original": "괴기열차",
     "vote_average": 7.365
   },
+  "恋するブラジャー大作戦(仮)": null,
   "恋する惑星": {
     "backdrop_path": "/vuglA60RqvpHK9rIcG8sXaiWw1L.jpg",
     "director": "ウォン・カーウァイ",
@@ -179920,7 +180176,38 @@
     "vote_average": 7.0
   },
   "私たちは[0913しゃべれば]": null,
-  "私たちは、ちょうどいい。": null,
+  "私たちは、ちょうどいい。": {
+    "backdrop_path": "/m0VOz5KTHxGZB5iegG48U5EjHQD.jpg",
+    "director": "Tracie Laymon",
+    "director_en": "Tracie Laymon",
+    "director_jp": "Tracie Laymon",
+    "genres": [
+      "コメディ",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Drama"
+    ],
+    "overview": "住み込みで友人の介助をしながら暮らすリリー・トレヴィノ。 幼い頃に母に捨てられ、父とも疎遠になった彼女は、孤独を抱えながら生きていた。ある日、父と連絡を取ろうと SNS で父を探し始めたリリー。だが、父だと思って友達申請を送った相手は、父と同姓同名の見知らぬ男性、ボブ・トレヴィノだった。 ボブは建設会社で働く心優しい男性。妻ジーニーと支え合いながら生きてきた彼は、自分のことよりも相手を優先してしまう性格だった。偶然つながったリリーの孤独に気づいたボブは、彼女にそっと寄り添いはじめる。 何気ないメッセージのやり取りを重ねるうちに、リリーとボブの間には少しずつ特別な友情が芽生えていく。ただの人違いだったはずの出会いは、やがてふたりにとってかけがえのない居場所になっていく――。",
+    "overview_en": "Lily Trevino unexpectedly befriends an online stranger who shares her self-centered father’s name. This new Bob Trevino’s support could transform her life.",
+    "poster_path": "/ph7qM5ptaSXkzmP2elftbdGAjFy.jpg",
+    "release_date": "2025-03-20",
+    "runtime": 101,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 1169789,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Bob Trevino Likes It",
+    "tmdb_title_jp": "私たちは、ちょうどいい。",
+    "tmdb_title_original": "Bob Trevino Likes It",
+    "vote_average": 7.433
+  },
   "私のすべて": {
     "backdrop_path": "/2pVKWDIzSKf7VbBiJ5sTsJsUeI.jpg",
     "director": "市川崑",
