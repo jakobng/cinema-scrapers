@@ -674,6 +674,7 @@
     "country": null,
     "director": null,
     "english_title": "Bunka",
+    "failed": true,
     "last_ai_attempt_at": "2026-09-10T00:22:34+00:00",
     "notes": "",
     "original_title": "Bunka-ブンカ",
@@ -22492,14 +22493,11 @@
   },
   "遭難者": {
     "ai_provider": "deepseek",
-    "confidence": 0.4,
-    "country": "France",
-    "director": "Guillaume Brac",
-    "english_title": "The Lost",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-09T00:20:26+00:00",
-    "notes": "",
-    "original_title": "Les Égarés",
+    "last_ai_attempt_at": "2026-09-10T00:49:17+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "郊外の鳥たち": {
