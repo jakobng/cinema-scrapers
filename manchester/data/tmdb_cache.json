@@ -5088,6 +5088,22 @@
     ],
     "vote_average": 6.039
   },
+  "Sense and Sensibility (2026)": {
+    "tmdb_id": 4584,
+    "tmdb_title": "Sense and Sensibility",
+    "tmdb_original_title": "Sense and Sensibility",
+    "overview": "The Dashwood sisters, sensible Elinor and passionate Marianne, learn that their prospects of marriage seem doomed by their family's sudden loss of fortune. After Henry Dashwood dies unexpectedly, his estate must pass on by law to his son. These circumstances leave Mr. Dashwood's wife and daughters without a home and with barely enough money to live on. As Elinor and Marianne struggle to find romantic fulfillment in a society obsessed with financial and social status, they must learn to mix sense with sensibility in their dealings with both money and men.",
+    "poster_path": "/9YdQ73YmvInxpXZVNjEKePw9tRO.jpg",
+    "backdrop_path": "/cFnyfWHL6HjOOVal6lp8e5gqibK.jpg",
+    "release_date": "1995-12-13",
+    "director": "Ang Lee",
+    "runtime": 136,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "vote_average": 7.416
+  },
   "Rogue Hollywood: Coffy": {
     "tmdb_id": 22021,
     "tmdb_title": "Coffy",
@@ -5137,7 +5153,7 @@
       "Science Fiction",
       "Mystery"
     ],
-    "vote_average": 6.596
+    "vote_average": 6.597
   },
   "Cult School: New Hollywood": null,
   "Spit in the Lock presents: Velvet Goldmine": {
@@ -5175,6 +5191,23 @@
   },
   "Button Masher: Monsters Crash the Pajama Party": null,
   "UrbanArtistry Presents... Basquiat (Black + White Version)": null,
+  "Counterfilms presents: Alphaville": {
+    "tmdb_id": 8072,
+    "tmdb_title": "Alphaville",
+    "tmdb_original_title": "Alphaville, une étrange aventure de Lemmy Caution",
+    "overview": "Lemmy Caution is on a mission to eliminate Professor Von Braun, the creator of a malevolent computer that rules the city of Alphaville. Befriended by the scientist’s daughter Natasha, Lemmy must unravel the mysteries of the strictly logical Alpha 60 and teach Natasha the meaning of the word “love.”",
+    "poster_path": "/fFJP3D5fJDFxN7ChqSye1DZ0fTL.jpg",
+    "backdrop_path": "/iOUhnp01rP9Xr5QG66LMAKSDkYv.jpg",
+    "release_date": "1965-05-05",
+    "director": "Jean-Luc Godard",
+    "runtime": 99,
+    "genres": [
+      "Drama",
+      "Science Fiction",
+      "Mystery"
+    ],
+    "vote_average": 6.897
+  },
   "Northern Soul: Still Burning": {
     "tmdb_id": 503443,
     "tmdb_title": "Still Burning",
@@ -5244,23 +5277,6 @@
     ],
     "vote_average": 7.416
   },
-  "Kiki’s Delivery Service (U) [Subtitled]": {
-    "tmdb_id": 16859,
-    "tmdb_title": "Kiki's Delivery Service",
-    "tmdb_original_title": "魔女の宅急便",
-    "overview": "A young witch, on her mandatory year of independent life, finds fitting into a new community difficult while she supports herself by running an air courier service.",
-    "poster_path": "/Aufa4YdZIv4AXpR9rznwVA5SEfd.jpg",
-    "backdrop_path": "/ooGaNXI2OYszAajCFdIXLr73E1S.jpg",
-    "release_date": "1989-07-29",
-    "director": "Hayao Miyazaki",
-    "runtime": 103,
-    "genres": [
-      "Animation",
-      "Family",
-      "Fantasy"
-    ],
-    "vote_average": 7.838
-  },
   "Family Film/ Short Films for Wee Ones (U)": null,
   "Kiki’s Delivery Service (U) [Dubbed]": {
     "tmdb_id": 16859,
@@ -5279,5 +5295,38 @@
     ],
     "vote_average": 7.838
   },
-  "Exhibition on Screen: James McNeill Whistler": null
+  "Kiki’s Delivery Service (U) [Subtitled]": {
+    "tmdb_id": 16859,
+    "tmdb_title": "Kiki's Delivery Service",
+    "tmdb_original_title": "魔女の宅急便",
+    "overview": "A young witch, on her mandatory year of independent life, finds fitting into a new community difficult while she supports herself by running an air courier service.",
+    "poster_path": "/Aufa4YdZIv4AXpR9rznwVA5SEfd.jpg",
+    "backdrop_path": "/ooGaNXI2OYszAajCFdIXLr73E1S.jpg",
+    "release_date": "1989-07-29",
+    "director": "Hayao Miyazaki",
+    "runtime": 103,
+    "genres": [
+      "Animation",
+      "Family",
+      "Fantasy"
+    ],
+    "vote_average": 7.838
+  },
+  "It’s Nice Up North - 20th Anniversary (U) + Q&A": null,
+  "Exhibition on Screen: James McNeill Whistler": null,
+  "Bad Apples": {
+    "tmdb_id": 497269,
+    "tmdb_title": "Bad Apples",
+    "tmdb_original_title": "Bad Apples",
+    "overview": "It’s Halloween night, and two “bad apples” decide to play some wicked tricks on the one house in a suburban cul-de-sac that is not celebrating Halloween. They terrorize a young couple in their home and these tricks become increasingly more sinister as the night progresses, finally ending in a Halloween the entire neighborhood will never forget.",
+    "poster_path": "/sasH9EeTPBsJ9xW5PIG7i9Jy3Ou.jpg",
+    "backdrop_path": "/6ZhXu8S9h6GaIF8qWKNqbTC9NZ1.jpg",
+    "release_date": "2018-02-06",
+    "director": "Bryan Coyne",
+    "runtime": 85,
+    "genres": [
+      "Horror"
+    ],
+    "vote_average": 4.342
+  }
 }
