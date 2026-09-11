@@ -2617,6 +2617,35 @@
     "status": "review",
     "updated_at": "2026-06-16T23:59:24.172986+00:00"
   },
+  "bulletballetバレットバレエ::2000::87::塚本晋也": {
+    "candidate": {
+      "director": "塚本晋也",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "87",
+      "score": 8,
+      "support": 1,
+      "title": "BULLET BALLET バレット・バレエ",
+      "url": "https://filmarks.com/movies/21834",
+      "year": ""
+    },
+    "candidate_count": 33,
+    "filmarks_url": "",
+    "query": "BULLET BALLET バレット・バレエ",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 8,
+    "search_url": "https://filmarks.com/search/movies?q=BULLET%20BALLET%20%E3%83%90%E3%83%AC%E3%83%83%E3%83%88%E3%83%BB%E3%83%90%E3%83%AC%E3%82%A8",
+    "status": "review",
+    "updated_at": "2026-09-11T00:17:02.305881+00:00"
+  },
   "bullyブリー4k【4k上映】上映後トークショー::::::ラリークラーク": {
     "candidate": {
       "director": "ラリー・クラーク",
@@ -23090,6 +23119,37 @@
     "status": "accepted",
     "updated_at": "2026-09-09T00:26:10.425548+00:00"
   },
+  "ちむぐりさ菜の花の沖縄日記::2020::106::平良いずみ": {
+    "candidate": {
+      "director": "平良いずみ",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "106",
+      "score": 21,
+      "support": 3,
+      "title": "ちむぐりさ 菜の花の沖縄日記",
+      "url": "https://filmarks.com/movies/87666",
+      "year": "2020"
+    },
+    "candidate_count": 25,
+    "filmarks_url": "https://filmarks.com/movies/87666",
+    "query": "ちむぐりさ 菜の花の沖縄日記",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%A1%E3%82%80%E3%81%90%E3%82%8A%E3%81%95%20%E8%8F%9C%E3%81%AE%E8%8A%B1%E3%81%AE%E6%B2%96%E7%B8%84%E6%97%A5%E8%A8%98",
+    "status": "accepted",
+    "updated_at": "2026-09-11T00:17:21.335968+00:00"
+  },
   "つぐないpayment::2026::39::宮部一通": {
     "candidate": {
       "director": "宮部一通",
@@ -32280,6 +32340,35 @@
     "status": "review",
     "updated_at": "2026-09-09T00:25:41.691701+00:00"
   },
+  "コミックストリップヒーロー::1967::96::アランジェシュア": {
+    "candidate": {
+      "director": "アラン・ジェシュア",
+      "reasons": [
+        "title_partial",
+        "runtime",
+        "director"
+      ],
+      "runtime": "96",
+      "score": 13,
+      "support": 2,
+      "title": "殺人ゲーム／コミックストリップヒーロー",
+      "url": "https://filmarks.com/movies/57823",
+      "year": ""
+    },
+    "candidate_count": 32,
+    "filmarks_url": "",
+    "query": "コミック・ストリップ・ヒーロー",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime",
+      "director"
+    ],
+    "score": 13,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF%E3%83%BB%E3%82%B9%E3%83%88%E3%83%AA%E3%83%83%E3%83%97%E3%83%BB%E3%83%92%E3%83%BC%E3%83%AD%E3%83%BC",
+    "status": "review",
+    "updated_at": "2026-09-11T00:17:05.127209+00:00"
+  },
   "コミックストリップヒーロー::::::": {
     "candidate": {
       "director": "アラン・ジェシュア",
@@ -32996,6 +33085,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%B5%E3%83%8A%E3%82%AE%E3%80%8F%E3%80%8E%E3%81%82%E3%82%8B%E9%A2%A8%E6%99%AF%E3%80%8F%E3%80%8E%E3%83%94%E3%83%BC%E3%82%B9%E3%83%95%E3%83%AB%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89",
     "status": "review",
     "updated_at": "2026-06-19T00:14:23.945923+00:00"
+  },
+  "サマーキャンプインフェルノ::1983::84::ロバートヒルチック": {
+    "candidate": {
+      "director": "ロバート・ヒルツィック",
+      "reasons": [
+        "title_exact",
+        "runtime_near",
+        "director_mismatch"
+      ],
+      "runtime": "85",
+      "score": 6,
+      "support": 1,
+      "title": "サマーキャンプ・インフェルノ",
+      "url": "https://filmarks.com/movies/45595",
+      "year": ""
+    },
+    "candidate_count": 32,
+    "filmarks_url": "",
+    "query": "サマーキャンプ・インフェルノ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_near",
+      "director_mismatch"
+    ],
+    "score": 6,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B5%E3%83%9E%E3%83%BC%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E3%83%BB%E3%82%A4%E3%83%B3%E3%83%95%E3%82%A7%E3%83%AB%E3%83%8E",
+    "status": "review",
+    "updated_at": "2026-09-11T00:17:08.328359+00:00"
   },
   "サマーキャンプインフェルノ::1983::85::roberthiltzik": {
     "candidate": {
@@ -35848,6 +35966,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%B9%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0",
     "status": "accepted",
     "updated_at": "2026-07-04T23:32:24.414977+00:00"
+  },
+  "ステッペンウルフ荒野の狼::1974::107::フレッドヘインズ": {
+    "candidate": {
+      "director": "フレッド・ヘインズ",
+      "reasons": [
+        "title_exact",
+        "runtime_near",
+        "director"
+      ],
+      "runtime": "106",
+      "score": 16,
+      "support": 2,
+      "title": "ステッペンウルフ／荒野の狼",
+      "url": "https://filmarks.com/movies/29491",
+      "year": ""
+    },
+    "candidate_count": 33,
+    "filmarks_url": "https://filmarks.com/movies/29491",
+    "query": "ステッペンウルフ 荒野の狼",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_near",
+      "director"
+    ],
+    "score": 16,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B9%E3%83%86%E3%83%83%E3%83%9A%E3%83%B3%E3%82%A6%E3%83%AB%E3%83%95%20%E8%8D%92%E9%87%8E%E3%81%AE%E7%8B%BC",
+    "status": "accepted",
+    "updated_at": "2026-09-11T00:17:10.796545+00:00"
   },
   "ステッペンウルフ荒野の狼::::::": {
     "candidate": {
@@ -45970,6 +46117,35 @@
     "status": "accepted",
     "updated_at": "2026-06-07T05:08:18.330855+00:00"
   },
+  "マルキ::1989::84::アンリグズヌー": {
+    "candidate": {
+      "director": "アンリ・グズヌー",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "84",
+      "score": 18,
+      "support": 2,
+      "title": "マルキ",
+      "url": "https://filmarks.com/movies/41168",
+      "year": ""
+    },
+    "candidate_count": 14,
+    "filmarks_url": "https://filmarks.com/movies/41168",
+    "query": "マルキ",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%9E%E3%83%AB%E3%82%AD",
+    "status": "accepted",
+    "updated_at": "2026-09-11T00:17:12.361521+00:00"
+  },
   "マルキ::::::": {
     "candidate": {
       "director": "アンリ・グズヌー",
@@ -46828,6 +47004,35 @@
     "status": "review",
     "updated_at": "2026-07-21T23:24:06.920358+00:00"
   },
+  "ミートザフィーブルズ::1989::97::ピータージャクソン": {
+    "candidate": {
+      "director": "ピーター・ジャクソン",
+      "reasons": [
+        "title_partial",
+        "runtime",
+        "director"
+      ],
+      "runtime": "97",
+      "score": 13,
+      "support": 2,
+      "title": "ミート・ザ・フィーブルズ／怒りのヒポポタマス",
+      "url": "https://filmarks.com/movies/10674",
+      "year": ""
+    },
+    "candidate_count": 35,
+    "filmarks_url": "",
+    "query": "ミート・ザ・フィーブルズ",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime",
+      "director"
+    ],
+    "score": 13,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%9F%E3%83%BC%E3%83%88%E3%83%BB%E3%82%B6%E3%83%BB%E3%83%95%E3%82%A3%E3%83%BC%E3%83%96%E3%83%AB%E3%82%BA",
+    "status": "review",
+    "updated_at": "2026-09-11T00:17:06.981837+00:00"
+  },
   "ミートザフィーブルズ::::::": {
     "candidate": {
       "director": "ピーター・ジャクソン",
@@ -47065,6 +47270,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%A0%E3%82%AB%E3%83%87%E4%BA%BA%E9%96%93",
     "status": "review",
     "updated_at": "2026-08-16T22:48:48.610300+00:00"
+  },
+  "ムーンフリート::1955::86::フリッツラング": {
+    "candidate": {
+      "director": "フリッツ・ラング",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "86",
+      "score": 18,
+      "support": 2,
+      "title": "ムーンフリート",
+      "url": "https://filmarks.com/movies/32187",
+      "year": ""
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/32187",
+    "query": "ムーンフリート",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%A0%E3%83%BC%E3%83%B3%E3%83%95%E3%83%AA%E3%83%BC%E3%83%88",
+    "status": "accepted",
+    "updated_at": "2026-09-11T00:17:15.173584+00:00"
   },
   "メイクアップ::1985::105::中原俊": {
     "candidate": {
@@ -49538,6 +49772,35 @@
     "status": "accepted",
     "updated_at": "2026-06-19T00:14:12.120860+00:00"
   },
+  "リベンジャーズトラジディ::2002::110::アレックスコックス": {
+    "candidate": {
+      "director": "アレックス・コックス",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "110",
+      "score": 18,
+      "support": 2,
+      "title": "リベンジャーズ・トラジディ",
+      "url": "https://filmarks.com/movies/27291",
+      "year": ""
+    },
+    "candidate_count": 33,
+    "filmarks_url": "https://filmarks.com/movies/27291",
+    "query": "リベンジャーズ・トラジディ",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AA%E3%83%99%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%BC%E3%82%BA%E3%83%BB%E3%83%88%E3%83%A9%E3%82%B8%E3%83%87%E3%82%A3",
+    "status": "accepted",
+    "updated_at": "2026-09-11T00:17:13.371940+00:00"
+  },
   "リベンジャーズトラジディ::::::": {
     "candidate": {
       "director": "アレックス・コックス",
@@ -49939,6 +50202,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%AB%E3%82%AB%E3%81%98%E3%81%84%E3%81%95%E3%82%93%E3%81%A8%E8%8B%97%E6%9C%A8",
     "status": "review",
     "updated_at": "2026-08-28T06:25:18.245488+00:00"
+  },
+  "ルックバック::2026::58::押山清高": {
+    "candidate": {
+      "director": "押山清高",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "58",
+      "score": 12,
+      "support": 2,
+      "title": "ルックバック",
+      "url": "https://filmarks.com/movies/114872",
+      "year": "2024"
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/114872",
+    "query": "ルックバック",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AB%E3%83%83%E3%82%AF%E3%83%90%E3%83%83%E3%82%AF",
+    "status": "accepted",
+    "updated_at": "2026-09-11T00:17:19.614029+00:00"
   },
   "ルックバック::2026::99::是枝裕和": {
     "candidate": {
@@ -53930,6 +54224,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E4%BD%8F%E6%B0%91%E3%81%8C%E9%81%B8%E6%8A%9E%E3%81%97%E3%81%9F%E7%94%BA%E3%81%AE%E7%A6%8F%E7%A5%89",
     "status": "review",
     "updated_at": "2026-06-24T23:34:27.446479+00:00"
+  },
+  "佐々木、イン、マイマイン::2020::119::内山拓也": {
+    "candidate": {
+      "director": "内山拓也",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "119",
+      "score": 21,
+      "support": 3,
+      "title": "佐々木、イン、マイマイン",
+      "url": "https://filmarks.com/movies/88965",
+      "year": "2020"
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/88965",
+    "query": "佐々木、イン、マイマイン",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E4%BD%90%E3%80%85%E6%9C%A8%E3%80%81%E3%82%A4%E3%83%B3%E3%80%81%E3%83%9E%E3%82%A4%E3%83%9E%E3%82%A4%E3%83%B3",
+    "status": "accepted",
+    "updated_at": "2026-09-11T00:17:16.754811+00:00"
   },
   "佐々木、イン、マイマイン::2020::120::内山拓也": {
     "candidate": {
@@ -59426,6 +59751,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E5%9C%B0%E7%90%83%E3%81%AE%E9%9D%99%E6%AD%A2%E3%81%99%E3%82%8B%E6%97%A5",
     "status": "review",
     "updated_at": "2026-06-22T23:44:27.261545+00:00"
+  },
+  "墓にツバをかけろ::1959::109::ミシェルガスト": {
+    "candidate": {
+      "director": "ミシェル・ガスト",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "109",
+      "score": 18,
+      "support": 2,
+      "title": "墓にツバをかけろ",
+      "url": "https://filmarks.com/movies/5595",
+      "year": ""
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/5595",
+    "query": "墓にツバをかけろ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%A2%93%E3%81%AB%E3%83%84%E3%83%90%E3%82%92%E3%81%8B%E3%81%91%E3%82%8D",
+    "status": "accepted",
+    "updated_at": "2026-09-11T00:17:09.522119+00:00"
   },
   "墓にツバをかけろ::1959::110::michelgast": {
     "candidate": {
@@ -72590,6 +72944,37 @@
     "status": "review",
     "updated_at": "2026-07-07T23:28:21.486058+00:00"
   },
+  "歌って！::2026::84::髙村剛志": {
+    "candidate": {
+      "director": "髙村剛志",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "84",
+      "score": 21,
+      "support": 3,
+      "title": "歌って！",
+      "url": "https://filmarks.com/movies/129927",
+      "year": "2026"
+    },
+    "candidate_count": 30,
+    "filmarks_url": "https://filmarks.com/movies/129927",
+    "query": "歌って！",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%AD%8C%E3%81%A3%E3%81%A6%EF%BC%81",
+    "status": "accepted",
+    "updated_at": "2026-09-11T00:17:03.523529+00:00"
+  },
   "歌舞伎役者片岡仁左衛門人と芸の巻上::::::": {
     "candidate": {
       "director": "羽田澄子",
@@ -81619,6 +82004,37 @@
     "status": "accepted",
     "updated_at": "2026-09-09T00:26:11.889225+00:00"
   },
+  "美晴に傘を::2025::123::渋谷悠": {
+    "candidate": {
+      "director": "渋谷悠",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "123",
+      "score": 21,
+      "support": 3,
+      "title": "美晴に傘を",
+      "url": "https://filmarks.com/movies/119434",
+      "year": "2025"
+    },
+    "candidate_count": 14,
+    "filmarks_url": "https://filmarks.com/movies/119434",
+    "query": "美晴に傘を",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%BE%8E%E6%99%B4%E3%81%AB%E5%82%98%E3%82%92",
+    "status": "accepted",
+    "updated_at": "2026-09-11T00:17:22.620934+00:00"
+  },
   "美男子::1987::90::姜大衞": {
     "candidate": null,
     "candidate_count": 0,
@@ -86853,6 +87269,37 @@
     "status": "accepted",
     "updated_at": "2026-07-11T23:14:26.208694+00:00"
   },
+  "鉄男::1989::67::塚本晋也": {
+    "candidate": {
+      "director": "塚本晋也",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "67",
+      "score": -9,
+      "support": 2,
+      "title": "鉄男 TETSUO",
+      "url": "https://filmarks.com/movies/16129",
+      "year": "1989"
+    },
+    "candidate_count": 3,
+    "filmarks_url": "",
+    "query": "鉄男",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": -9,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%89%84%E7%94%B7",
+    "status": "review",
+    "updated_at": "2026-09-11T00:17:01.037763+00:00"
+  },
   "鉄男::1989::68::塚本晋也": {
     "candidate": {
       "director": "塚本晋也",
@@ -89336,6 +89783,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E9%AA%A8%E3%81%A8%E3%81%8B%20%E6%AF%92%E3%81%A8%E3%81%8B%20%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%8D%E3%83%83%E3%83%88%E3%81%A8%E3%81%8B%EF%BC%9F",
     "status": "review",
     "updated_at": "2026-09-06T00:01:54.178349+00:00"
+  },
+  "骨とか毒とかカスタネットとか？::2026::90::節田朋一郎": {
+    "candidate": {
+      "director": "ペドロ・コスタ",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "94",
+      "score": -4,
+      "support": 0,
+      "title": "骨",
+      "url": "https://filmarks.com/movies/11428",
+      "year": ""
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "骨とか毒とかカスタネットとか？",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%AA%A8%E3%81%A8%E3%81%8B%E6%AF%92%E3%81%A8%E3%81%8B%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%8D%E3%83%83%E3%83%88%E3%81%A8%E3%81%8B%EF%BC%9F",
+    "status": "review",
+    "updated_at": "2026-09-11T00:17:18.195029+00:00"
   },
   "骨までしゃぶる::1966::88::加藤泰": {
     "candidate": {
