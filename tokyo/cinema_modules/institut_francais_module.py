@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import json
 import re
 import sys
 from datetime import datetime
+from pathlib import Path
 from typing import Dict, List, Optional
 from urllib.parse import urljoin, urlparse
 
@@ -17,6 +19,7 @@ EVENT_API_URL = f"{BASE_ORIGIN}/wp-json/wp/v2/event"
 TOKYO_HOST_ID = 39
 CINEMA_TAXONOMY_ID = 20
 CINEMA_NAME = "アンスティチュ・フランセ東京"
+CACHE_PATH = Path(__file__).resolve().parents[1] / "data" / "institut_francais_cache.json"
 EVENT_URL_RE = re.compile(r"/event/[^/?#]+")
 DATE_TIME_RE = re.compile(
     r"(?:(?P<year>20\d{2})\s*年\s*)?"
@@ -65,6 +68,37 @@ def fetch_event_records() -> List[Dict]:
     except (requests.RequestException, ValueError) as e:
         print(f"ERROR: [{CINEMA_NAME}] Could not fetch event API: {e}", file=sys.stderr)
         return []
+
+
+def _read_event_cache(today_iso: str) -> List[Dict]:
+    """Keep published future screenings available when XServer blocks CI hosts."""
+    try:
+        cached = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    if not isinstance(cached, list):
+        return []
+    rows = [row for row in cached if row.get("date_text", "") >= today_iso]
+    if rows:
+        print(
+            f"INFO: [{CINEMA_NAME}] Using {len(rows)} cached future showings; "
+            "the live host was unavailable"
+        )
+    return rows
+
+
+def _write_event_cache(rows: List[Dict]) -> None:
+    """Refresh the tracked fallback after a successful live scrape."""
+    if not rows:
+        return
+    try:
+        CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        CACHE_PATH.write_text(
+            json.dumps(rows, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    except OSError as e:
+        print(f"WARNING: [{CINEMA_NAME}] Could not refresh fallback cache: {e}")
 
 
 def _event_year(text: str) -> int:
@@ -313,11 +347,12 @@ def scrape_institut_francais() -> List[Dict]:
                 if row.get("date_text", "") >= today_iso:
                     results.append(row)
         if results:
+            _write_event_cache(results)
             return results
 
     soup = fetch_soup(BASE_URL)
     if soup is None:
-        return results
+        return _read_event_cache(today_iso)
 
     events: Dict[str, str] = {}
 
@@ -355,7 +390,10 @@ def scrape_institut_francais() -> List[Dict]:
         results.extend(
             row for row in event_results if row.get("date_text", "") >= today_iso
         )
-    return results
+    if results:
+        _write_event_cache(results)
+        return results
+    return _read_event_cache(today_iso)
 
 
 if __name__ == "__main__":

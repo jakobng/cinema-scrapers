@@ -85,6 +85,7 @@ def test_non_tokyo_venue_is_rejected(monkeypatch):
 
 
 def test_wordpress_api_bypasses_an_empty_cached_archive(monkeypatch):
+    monkeypatch.setattr(institut, "_write_event_cache", lambda _rows: None)
     monkeypatch.setattr(
         institut,
         "fetch_event_records",
@@ -110,3 +111,21 @@ def test_wordpress_api_bypasses_an_empty_cached_archive(monkeypatch):
         "2026-10-11",
         "2026-10-17",
     }
+
+
+def test_checked_in_cache_survives_ci_host_block(monkeypatch, tmp_path):
+    cached = [
+        {
+            "cinema_name": institut.CINEMA_NAME,
+            "movie_title": "Cached programme",
+            "date_text": "2099-10-03",
+            "showtime": "14:00",
+        }
+    ]
+    cache_path = tmp_path / "institut.json"
+    cache_path.write_text(__import__("json").dumps(cached), encoding="utf-8")
+    monkeypatch.setattr(institut, "CACHE_PATH", cache_path)
+    monkeypatch.setattr(institut, "fetch_event_records", lambda: [])
+    monkeypatch.setattr(institut, "fetch_soup", lambda _url: None)
+
+    assert institut.scrape_institut_francais() == cached
