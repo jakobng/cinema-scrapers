@@ -82,3 +82,31 @@ def test_schedule_is_parsed_before_peatix_tickets_exist(monkeypatch):
 def test_non_tokyo_venue_is_rejected(monkeypatch):
     html = AKER_MAN_HTML.replace("東京日仏学院エスパス・イマージュ", "福岡市総合図書館 映像ホール・シネラ")
     assert _parse(html, "福岡の上映", monkeypatch) == []
+
+
+def test_wordpress_api_bypasses_an_empty_cached_archive(monkeypatch):
+    monkeypatch.setattr(
+        institut,
+        "fetch_event_records",
+        lambda: [
+            {
+                "link": "https://culture.institutfrancais.jp/event/akerman",
+                "title": {"rendered": "シャンタル・アケルマン映画祭"},
+                "content": {"rendered": AKER_MAN_HTML},
+            }
+        ],
+    )
+    monkeypatch.setattr(
+        institut,
+        "fetch_soup",
+        lambda _url: (_ for _ in ()).throw(AssertionError("archive fallback used")),
+    )
+
+    rows = institut.scrape_institut_francais()
+
+    assert len(rows) == 3
+    assert {row["date_text"] for row in rows} == {
+        "2026-10-03",
+        "2026-10-11",
+        "2026-10-17",
+    }

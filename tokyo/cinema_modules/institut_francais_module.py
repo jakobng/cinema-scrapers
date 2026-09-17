@@ -13,6 +13,9 @@ BASE_ORIGIN = "https://culture.institutfrancais.jp"
 # Restrict the listing at source.  The unscoped cinema feed also contains
 # events in Fukuoka, Kyoto, Yokohama, and other Institut francais venues.
 BASE_URL = f"{BASE_ORIGIN}/event?taxonomy=cinema&host=tokyo"
+EVENT_API_URL = f"{BASE_ORIGIN}/wp-json/wp/v2/event"
+TOKYO_HOST_ID = 39
+CINEMA_TAXONOMY_ID = 20
 CINEMA_NAME = "アンスティチュ・フランセ東京"
 EVENT_URL_RE = re.compile(r"/event/[^/?#]+")
 DATE_TIME_RE = re.compile(
@@ -39,6 +42,29 @@ def fetch_soup(url: str) -> Optional[BeautifulSoup]:
     except requests.RequestException as e:
         print(f"ERROR: [{CINEMA_NAME}] Could not fetch {url}: {e}", file=sys.stderr)
         return None
+
+
+def fetch_event_records() -> List[Dict]:
+    """Fetch Tokyo cinema events from the site's public WordPress API."""
+    try:
+        resp = requests.get(
+            EVENT_API_URL,
+            params={
+                "event-host": TOKYO_HOST_ID,
+                "event-taxonomy": CINEMA_TAXONOMY_ID,
+                "per_page": 100,
+                "orderby": "date",
+                "order": "desc",
+                "_fields": "link,title,content,_eventorganiser_schedule_start_start",
+            },
+            timeout=20,
+        )
+        resp.raise_for_status()
+        records = resp.json()
+        return records if isinstance(records, list) else []
+    except (requests.RequestException, ValueError) as e:
+        print(f"ERROR: [{CINEMA_NAME}] Could not fetch event API: {e}", file=sys.stderr)
+        return []
 
 
 def _event_year(text: str) -> int:
@@ -170,12 +196,17 @@ def _listing(
     }
 
 
-def scrape_event_page(url: str, event_title: str) -> List[Dict]:
+def scrape_event_page(
+    url: str,
+    event_title: str,
+    soup: Optional[BeautifulSoup] = None,
+    reference_year: Optional[int] = None,
+) -> List[Dict]:
     """
     Extract specific screenings from an event detail page.
     """
     results = []
-    soup = fetch_soup(url)
+    soup = soup or fetch_soup(url)
     if not soup:
         return results
 
@@ -184,7 +215,7 @@ def scrape_event_page(url: str, event_title: str) -> List[Dict]:
         return results
 
     event_title = _extract_event_title(soup, event_title)
-    reference_year = _event_year(page_text)
+    reference_year = reference_year or _event_year(page_text)
     seen = set()
 
     # Specific screenings are often in 'text-box' or 'detail-box'
@@ -217,7 +248,12 @@ def scrape_event_page(url: str, event_title: str) -> List[Dict]:
     # Some programmes publish their schedule before individual Peatix tickets
     # go on sale. Parse dated paragraphs as well, but skip Peatix paragraphs
     # already handled above.
-    for node in soup.select(".detail-box p, .detail-box li"):
+    schedule_nodes = soup.select(".detail-box p, .detail-box li")
+    # WordPress REST returns the post body fragment without the theme's
+    # outer .detail-box wrapper.
+    if not schedule_nodes:
+        schedule_nodes = soup.select("p, li")
+    for node in schedule_nodes:
         if node.find("a", href=lambda h: h and "peatix.com" in h):
             continue
         node_text = clean_text(node.get_text(" ", strip=True))
@@ -248,6 +284,37 @@ def scrape_institut_francais() -> List[Dict]:
     Scrape Institut Français Tokyo screenings.
     """
     results: List[Dict] = []
+    today_iso = datetime.now().date().isoformat()
+
+    # The archive page is cached differently by region and returned no event
+    # cards to GitHub Actions in September 2026.  The public WordPress endpoint
+    # exposes the same posts and rendered content without that cache layer, so
+    # use it first and retain the archive HTML as a fallback.
+    api_records = fetch_event_records()
+    if api_records:
+        for record in api_records:
+            event_url = record.get("link") or ""
+            title_html = (record.get("title") or {}).get("rendered") or ""
+            content_html = (record.get("content") or {}).get("rendered") or ""
+            if not event_url or not content_html:
+                continue
+            title_soup = BeautifulSoup(title_html, "html.parser")
+            event_title = clean_text(title_soup.get_text(" ", strip=True))
+            content_soup = BeautifulSoup(content_html, "html.parser")
+            event_start = str(record.get("_eventorganiser_schedule_start_start") or "")
+            start_year_match = re.match(r"(20\d{2})", event_start)
+            reference_year = int(start_year_match.group(1)) if start_year_match else None
+            for row in scrape_event_page(
+                event_url,
+                event_title,
+                soup=content_soup,
+                reference_year=reference_year,
+            ):
+                if row.get("date_text", "") >= today_iso:
+                    results.append(row)
+        if results:
+            return results
+
     soup = fetch_soup(BASE_URL)
     if soup is None:
         return results
@@ -285,7 +352,9 @@ def scrape_institut_francais() -> List[Dict]:
 
     for event_url, event_title in events.items():
         event_results = scrape_event_page(event_url, event_title)
-        results.extend(event_results)
+        results.extend(
+            row for row in event_results if row.get("date_text", "") >= today_iso
+        )
     return results
 
 
