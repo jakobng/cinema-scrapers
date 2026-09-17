@@ -6248,6 +6248,7 @@
     "country": "アメリカ",
     "director": "アルバート・リューイン",
     "english_title": "The Picture of Dorian Gray",
+    "failed": true,
     "last_ai_attempt_at": "2026-09-17T00:33:16+00:00",
     "notes": "",
     "original_title": "The Picture of Dorian Gray",
@@ -16285,15 +16286,15 @@
   },
   "十三人": {
     "ai_provider": "deepseek",
-    "confidence": 0.5,
+    "confidence": 0.9,
     "country": "Japan",
-    "director": "Kazuo Kuroki",
-    "english_title": "Thirteen",
+    "director": "三池崇史",
+    "english_title": "13 Assassins",
     "failed": true,
-    "last_ai_attempt_at": "2026-09-16T00:25:42+00:00",
+    "last_ai_attempt_at": "2026-09-17T01:01:12+00:00",
     "notes": "",
-    "original_title": "十三人",
-    "release_year": 1974
+    "original_title": "十三人の刺客",
+    "release_year": 2010
   },
   "十字砲火": {
     "ai_provider": "deepseek",
@@ -20044,14 +20045,11 @@
   },
   "歓迎来龍餐館／龍飯店へようこそ【日本語字幕無し】": {
     "ai_provider": "deepseek",
-    "confidence": 0.5,
-    "country": null,
-    "director": "ウェン・ムーイエ【文牧野】",
-    "english_title": "Welcome to the Dragon Restaurant",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-09-16T00:25:21+00:00",
-    "notes": "",
-    "original_title": "歓迎来龍餐館",
+    "last_ai_attempt_at": "2026-09-17T01:01:12+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "正義廻廊＜上映後イベント＞": {
@@ -21931,18 +21929,6 @@
     "last_ai_attempt_at": "2026-09-17T00:33:21+00:00",
     "notes": "",
     "original_title": "Golos dukha",
-    "release_year": 1995
-  },
-  "精神の声<第1話-第5話>": {
-    "ai_provider": "deepseek",
-    "confidence": 0.9,
-    "country": "ロシア",
-    "director": "アレクサンドル・ソクーロフ",
-    "english_title": "Spiritual Voices from the Diaries of War: A Narrative in Five Episodes",
-    "failed": true,
-    "last_ai_attempt_at": "2026-09-17T00:32:43+00:00",
-    "notes": "",
-    "original_title": "Духовные голоса. Из дневников войны. Повествование в пяти частях",
     "release_year": 1995
   },
   "精神の声<第1話-第5話>": {
