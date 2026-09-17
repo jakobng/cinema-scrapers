@@ -27,3 +27,14 @@ jobs:
             head -c 500 body.txt
             echo
           done
+
+  probe-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Probe Institut from macOS runner
+        shell: bash
+        run: |
+          url='https://culture.institutfrancais.jp/wp-json/wp/v2/event?event-host=39&event-taxonomy=20&per_page=2&_fields=link,title,content,_eventorganiser_schedule_start_start'
+          curl -sS -L -D headers.txt -o body.txt -w '%{http_code} %{size_download} %{time_total}\n' "$url"
+          sed -n '1,20p' headers.txt
+          head -c 500 body.txt
