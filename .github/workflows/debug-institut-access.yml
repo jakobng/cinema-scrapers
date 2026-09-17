@@ -1,0 +1,29 @@
+name: Debug Institut Access
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe Institut endpoints
+        shell: bash
+        run: |
+          set +e
+          url='https://culture.institutfrancais.jp/wp-json/wp/v2/event?event-host=39&event-taxonomy=20&per_page=2&_fields=link,title,content,_eventorganiser_schedule_start_start'
+          for mode in default browser referer cache_bust http1; do
+            args=(-sS -L -D headers.txt -o body.txt -w '%{http_code} %{size_download} %{time_total}')
+            case "$mode" in
+              browser) args+=(-A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36') ;;
+              referer) args+=(-A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36' -e 'https://culture.institutfrancais.jp/event?taxonomy=cinema&host=tokyo' -H 'Accept: application/json') ;;
+              cache_bust) url="${url}&_probe=${GITHUB_RUN_ID}" ;;
+              http1) args+=(--http1.1 -A 'Mozilla/5.0') ;;
+            esac
+            echo "== $mode =="
+            curl "${args[@]}" "$url"
+            echo
+            sed -n '1,20p' headers.txt
+            head -c 500 body.txt
+            echo
+          done
