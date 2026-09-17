@@ -69,7 +69,9 @@ jobs:
       AI_BATCH_SIZE: "8"
       LINK_COVERAGE_WARN_THRESHOLD: "0.95"
       SCRAPER_FAIL_ON_FAILURE: "1"
-      SCRAPER_FAIL_ON_WARNING: "0"
+      # Any unaccounted-for zero-row source is a broken feed. Known closures are
+      # classified as DARK in main_scraper.py and do not fail the run.
+      SCRAPER_FAIL_ON_WARNING: "1"
 
     steps:
       - name: Checkout code
