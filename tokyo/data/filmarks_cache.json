@@ -4259,6 +4259,35 @@
     "status": "review",
     "updated_at": "2026-07-18T23:15:20.820506+00:00"
   },
+  "enlaciudaddesylvia::2007::82::joséluisguerín": {
+    "candidate": {
+      "director": "ゴードン・ダグラス",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "115",
+      "score": -4,
+      "support": 0,
+      "title": "シルビア",
+      "url": "https://filmarks.com/movies/13707",
+      "year": ""
+    },
+    "candidate_count": 25,
+    "filmarks_url": "",
+    "query": "En la ciudad de Sylvia",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=En%20la%20ciudad%20de%20Sylvia",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:51.340700+00:00"
+  },
   "enlaciudaddesylvia::2007::85::ホセルイスゲリン": {
     "candidate": {
       "director": "ゴードン・ダグラス",
@@ -9762,6 +9791,35 @@
     "status": "review",
     "updated_at": "2026-09-13T00:17:26.043738+00:00"
   },
+  "metライブビューイング201011ワーグナー《ニーベルングの指環》第1夜ワルキューレ::2011::320::無用の人特報映像解禁": {
+    "candidate": {
+      "director": "ウーリー・エデル",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "184",
+      "score": -4,
+      "support": 0,
+      "title": "ニーベルングの指環",
+      "url": "https://filmarks.com/movies/55679",
+      "year": ""
+    },
+    "candidate_count": 21,
+    "filmarks_url": "",
+    "query": "METライブビューイング2010-11 ワーグナー《ニーベルングの指環》 第1夜「ワルキューレ",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02010-11%20%E3%83%AF%E3%83%BC%E3%82%B0%E3%83%8A%E3%83%BC%E3%80%8A%E3%83%8B%E3%83%BC%E3%83%99%E3%83%AB%E3%83%B3%E3%82%B0%E3%81%AE%E6%8C%87%E7%92%B0%E3%80%8B%20%E7%AC%AC1%E5%A4%9C%E3%80%8C%E3%83%AF%E3%83%AB%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%AC",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:43.548552+00:00"
+  },
   "metライブビューイング201213ヘンデル《ジュリアスシーザー》::2013::271::cノーランの史上最高傑作": {
     "candidate": {
       "director": "ジョセフ・L・マンキウィッツ",
@@ -10177,6 +10235,35 @@
     "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02016-17%20%E3%83%A2%E3%83%BC%E3%83%84%E3%82%A1%E3%83%AB%E3%83%88%E3%80%8A%E3%83%89%E3%83%B3%E3%83%BB%E3%82%B8%E3%83%A7%E3%83%B4%E3%82%A1%E3%83%B3%E3%83%8B%E3%80%8B",
     "status": "review",
     "updated_at": "2026-09-17T00:35:28.379989+00:00"
+  },
+  "metライブビューイング201617モーツァルト《ドンジョヴァンニ》::2016::211::無用の人特報映像解禁": {
+    "candidate": {
+      "director": "",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime"
+      ],
+      "runtime": "211",
+      "score": -4,
+      "support": 2,
+      "title": "METライブビューイング2016-17 モーツァルト「ドン・ジョヴァンニ」",
+      "url": "https://filmarks.com/movies/70968",
+      "year": "2016"
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "METライブビューイング2016-17 モーツァルト《ドン・ジョヴァンニ》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02016-17%20%E3%83%A2%E3%83%BC%E3%83%84%E3%82%A1%E3%83%AB%E3%83%88%E3%80%8A%E3%83%89%E3%83%B3%E3%83%BB%E3%82%B8%E3%83%A7%E3%83%B4%E3%82%A1%E3%83%B3%E3%83%8B%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:36.524631+00:00"
   },
   "metライブビューイング201819ビゼー《カルメン》::2019::210::リチャードエアーのダイナミックなプロダクションで描いたビゼーの名作オペラカルメン2019年2月2日上演を収録。19世紀スペイン。故郷で幼なじみのミカエラと結婚することを夢見る伍長ドンホセの前に、自由奔放なジプシーの美女カルメンが現れる。すっかりカルメンに魅入られたホセは、ケンカ騒ぎで捕らえられた彼女を逃し営倉送りとなる。出所したホセはカルメンの仲間である無法者一味に加わるが、カルメンの心は花形闘牛士に傾いていき……。": {
     "candidate": {
@@ -10729,6 +10816,35 @@
     "status": "review",
     "updated_at": "2026-09-17T00:35:26.203029+00:00"
   },
+  "metライブビューイング201920プッチーニ《トゥーランドット》::2019::200::無用の人特報映像解禁": {
+    "candidate": {
+      "director": "",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime_mismatch"
+      ],
+      "runtime": "205",
+      "score": -11,
+      "support": 1,
+      "title": "METライブビューイング2018-19 ヴェルディ「椿姫」",
+      "url": "https://filmarks.com/movies/80532",
+      "year": "2019"
+    },
+    "candidate_count": 16,
+    "filmarks_url": "",
+    "query": "METライブビューイング2019-20 プッチーニ《トゥーランドット》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime_mismatch"
+    ],
+    "score": -11,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02019-20%20%E3%83%97%E3%83%83%E3%83%81%E3%83%BC%E3%83%8B%E3%80%8A%E3%83%88%E3%82%A5%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89%E3%83%83%E3%83%88%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:40.274525+00:00"
+  },
   "metライブビューイング202223モーツァルト《魔笛》::2023::208::cノーランの史上最高傑作": {
     "candidate": {
       "director": "サイモン・マクバーニー",
@@ -10852,6 +10968,37 @@
     "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02022-23%20%E3%83%A2%E3%83%BC%E3%83%84%E3%82%A1%E3%83%AB%E3%83%88%E3%80%8A%E9%AD%94%E7%AC%9B%E3%80%8B",
     "status": "review",
     "updated_at": "2026-09-17T00:35:30.530301+00:00"
+  },
+  "metライブビューイング202223モーツァルト《魔笛》::2023::208::無用の人特報映像解禁": {
+    "candidate": {
+      "director": "サイモン・マクバーニー",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "208",
+      "score": -9,
+      "support": 2,
+      "title": "METライブビューイング2022-23 モーツァルト「魔笛」",
+      "url": "https://filmarks.com/movies/105123",
+      "year": "2023"
+    },
+    "candidate_count": 23,
+    "filmarks_url": "",
+    "query": "METライブビューイング2022-23 モーツァルト《魔笛》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": -9,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02022-23%20%E3%83%A2%E3%83%BC%E3%83%84%E3%82%A1%E3%83%AB%E3%83%88%E3%80%8A%E9%AD%94%E7%AC%9B%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:39.085423+00:00"
   },
   "metライブビューイング202526rシュトラウス《アラベッラ》::2025::224::cノーランの史上最高傑作": {
     "candidate": {
@@ -11636,6 +11783,35 @@
     "status": "review",
     "updated_at": "2026-06-29T23:25:37.399626+00:00"
   },
+  "metライブビューイング202526チャイコフスキー《エフゲニーオネーギン》::2026::235::無用の人特報映像解禁": {
+    "candidate": {
+      "director": "イーゴリ・タランキン",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "154",
+      "score": -4,
+      "support": 0,
+      "title": "チャイコフスキー",
+      "url": "https://filmarks.com/movies/23043",
+      "year": ""
+    },
+    "candidate_count": 22,
+    "filmarks_url": "",
+    "query": "METライブビューイング2025-26 チャイコフスキー《エフゲニー・オネーギン》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02025-26%20%E3%83%81%E3%83%A3%E3%82%A4%E3%82%B3%E3%83%95%E3%82%B9%E3%82%AD%E3%83%BC%E3%80%8A%E3%82%A8%E3%83%95%E3%82%B2%E3%83%8B%E3%83%BC%E3%83%BB%E3%82%AA%E3%83%8D%E3%83%BC%E3%82%AE%E3%83%B3%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:41.404765+00:00"
+  },
   "metライブビューイング202526チャイコフスキー《エフゲニーオネーギン》::2026::235::率いる分福の新鋭が2名で監督を担当": {
     "candidate": {
       "director": "イーゴリ・タランキン",
@@ -11780,6 +11956,35 @@
     "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02025-26%20%E3%83%97%E3%83%83%E3%83%81%E3%83%BC%E3%83%8B%E3%80%8A%E3%83%A9%E3%83%BB%E3%83%9C%E3%82%A8%E3%83%BC%E3%83%A0%E3%80%8B",
     "status": "review",
     "updated_at": "2026-09-17T00:35:29.390133+00:00"
+  },
+  "metライブビューイング202526プッチーニ《ラボエーム》::2025::205::無用の人特報映像解禁": {
+    "candidate": {
+      "director": "",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime"
+      ],
+      "runtime": "205",
+      "score": -4,
+      "support": 2,
+      "title": "METライブビューイング2024-25 ヴェルディ「アイーダ」",
+      "url": "https://filmarks.com/movies/118325",
+      "year": "2025"
+    },
+    "candidate_count": 18,
+    "filmarks_url": "",
+    "query": "METライブビューイング2025-26 プッチーニ《ラ・ボエーム》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02025-26%20%E3%83%97%E3%83%83%E3%83%81%E3%83%BC%E3%83%8B%E3%80%8A%E3%83%A9%E3%83%BB%E3%83%9C%E3%82%A8%E3%83%BC%E3%83%A0%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:37.919892+00:00"
   },
   "metライブビューイング202526ベッリーニ《夢遊病の娘》::2025::194::cノーランの史上最高傑作": {
     "candidate": {
@@ -12215,6 +12420,35 @@
     "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02025-26%20%E3%83%AF%E3%83%BC%E3%82%B0%E3%83%8A%E3%83%BC%E3%80%8A%E3%83%88%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%B3%E3%81%A8%E3%82%A4%E3%82%BE%E3%83%AB%E3%83%87%E3%80%8B",
     "status": "review",
     "updated_at": "2026-09-13T00:17:27.369317+00:00"
+  },
+  "metライブビューイング202526ワーグナー《トリスタンとイゾルデ》::2026::310::無用の人特報映像解禁": {
+    "candidate": {
+      "director": "ケヴィン・レイノルズ",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "125",
+      "score": -4,
+      "support": 0,
+      "title": "トリスタンとイゾルデ",
+      "url": "https://filmarks.com/movies/30233",
+      "year": ""
+    },
+    "candidate_count": 22,
+    "filmarks_url": "",
+    "query": "METライブビューイング2025-26 ワーグナー《トリスタンとイゾルデ》",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=MET%E3%83%A9%E3%82%A4%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B02025-26%20%E3%83%AF%E3%83%BC%E3%82%B0%E3%83%8A%E3%83%BC%E3%80%8A%E3%83%88%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%B3%E3%81%A8%E3%82%A4%E3%82%BE%E3%83%AB%E3%83%87%E3%80%8B",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:44.778679+00:00"
   },
   "michaelマイケル::2026::127::アントワンフークア": {
     "candidate": {
@@ -16827,6 +17061,31 @@
     "search_url": "https://filmarks.com/search/movies?q=TAVERNA%20DE%20GAGA%20%E2%80%95%E4%BA%BA%E7%94%9F%E3%81%AF%E3%81%BE%E3%81%A0%E3%81%BE%E3%81%A0%E9%9D%A2%E7%99%BD%E3%81%84%E2%80%95",
     "status": "review",
     "updated_at": "2026-09-05T00:12:13.604406+00:00"
+  },
+  "tavernadegaga―人生はまだまだ面白い―::::::": {
+    "candidate": {
+      "director": "浜野安宏",
+      "reasons": [
+        "title_exact"
+      ],
+      "runtime": "106",
+      "score": 10,
+      "support": 0,
+      "title": "TAVERNA DE GAGA―人生はまだまだ面白い―",
+      "url": "https://filmarks.com/movies/129922",
+      "year": "2026"
+    },
+    "candidate_count": 30,
+    "filmarks_url": "",
+    "query": "TAVERNA DE GAGA―人生はまだまだ面白い―",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact"
+    ],
+    "score": 10,
+    "search_url": "https://filmarks.com/search/movies?q=TAVERNA%20DE%20GAGA%E2%80%95%E4%BA%BA%E7%94%9F%E3%81%AF%E3%81%BE%E3%81%A0%E3%81%BE%E3%81%A0%E9%9D%A2%E7%99%BD%E3%81%84%E2%80%95",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:50.122556+00:00"
   },
   "tavernadegaga人生はまだまだ面白い::2026::106::浜野安宏": {
     "candidate": {
@@ -25099,6 +25358,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%81%97%E3%81%B3%E3%82%8C",
     "status": "accepted",
     "updated_at": "2026-09-05T00:11:52.928974+00:00"
+  },
+  "しらぬひ::2026::36::片野坂亮": {
+    "candidate": {
+      "director": "片野坂亮",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime_near",
+        "director"
+      ],
+      "runtime": "35",
+      "score": 19,
+      "support": 3,
+      "title": "しらぬひ",
+      "url": "https://filmarks.com/movies/127669",
+      "year": "2026"
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/127669",
+    "query": "しらぬひ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime_near",
+      "director"
+    ],
+    "score": 19,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%97%E3%82%89%E3%81%AC%E3%81%B2",
+    "status": "accepted",
+    "updated_at": "2026-09-19T00:25:46.036349+00:00"
   },
   "じゃりン子チエ劇場版::1981::110::高畑勲": {
     "candidate": {
@@ -34445,6 +34735,33 @@
     "status": "review",
     "updated_at": "2026-09-14T00:22:39.170361+00:00"
   },
+  "キャロルキング＆ジェイムステイラージャストコールアウトマイネームトークイベント付き::2026::97::": {
+    "candidate": {
+      "director": "龍村仁",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch"
+      ],
+      "runtime": "111",
+      "score": 1,
+      "support": 0,
+      "title": "キャロル",
+      "url": "https://filmarks.com/movies/27200",
+      "year": ""
+    },
+    "candidate_count": 30,
+    "filmarks_url": "",
+    "query": "キャロル・キング＆ジェイムス・テイラー：ジャスト・コール・アウト・マイ・ネーム』トークイベント付き",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch"
+    ],
+    "score": 1,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%AD%E3%83%A3%E3%83%AD%E3%83%AB%E3%83%BB%E3%82%AD%E3%83%B3%E3%82%B0%EF%BC%86%E3%82%B8%E3%82%A7%E3%82%A4%E3%83%A0%E3%82%B9%E3%83%BB%E3%83%86%E3%82%A4%E3%83%A9%E3%83%BC%EF%BC%9A%E3%82%B8%E3%83%A3%E3%82%B9%E3%83%88%E3%83%BB%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%BB%E3%82%A2%E3%82%A6%E3%83%88%E3%83%BB%E3%83%9E%E3%82%A4%E3%83%BB%E3%83%8D%E3%83%BC%E3%83%A0%E3%80%8F%E3%83%88%E3%83%BC%E3%82%AF%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E4%BB%98%E3%81%8D",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:59.903876+00:00"
+  },
   "キリコの風景::1998::105::明石知幸": {
     "candidate": {
       "director": "明石知幸",
@@ -38411,6 +38728,35 @@
     "status": "review",
     "updated_at": "2026-06-07T05:16:21.878980+00:00"
   },
+  "ジェイムズブッカー愛すべきピアノジャンキートークイベント付き::2026::99::": {
+    "candidate": {
+      "director": "リリー・キーバー",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime_near"
+      ],
+      "runtime": "98",
+      "score": -6,
+      "support": 2,
+      "title": "ジェイムズ・ブッカー 愛すべきピアノ・ジャンキー／ジェイムズ・ブッカー ニュー・オーリンズのピアノ王⼦",
+      "url": "https://filmarks.com/movies/124545",
+      "year": "2026"
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "ジェイムズ・ブッカー／愛すべきピアノ・ジャンキー』トークイベント付き",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime_near"
+    ],
+    "score": -6,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B8%E3%82%A7%E3%82%A4%E3%83%A0%E3%82%BA%E3%83%BB%E3%83%96%E3%83%83%E3%82%AB%E3%83%BC%EF%BC%8F%E6%84%9B%E3%81%99%E3%81%B9%E3%81%8D%E3%83%94%E3%82%A2%E3%83%8E%E3%83%BB%E3%82%B8%E3%83%A3%E3%83%B3%E3%82%AD%E3%83%BC%E3%80%8F%E3%83%88%E3%83%BC%E3%82%AF%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E4%BB%98%E3%81%8D",
+    "status": "review",
+    "updated_at": "2026-09-19T00:26:02.513499+00:00"
+  },
   "ジェニーペンはご機嫌ななめ::2024::104::ジェームズアッシュクロフト": {
     "candidate": {
       "director": "ジェイムズ・アシュクロフト",
@@ -39240,6 +39586,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%B9%E3%82%BF%E3%83%95%E7%8E%8B%E3%81%AE%E9%87%8E%E8%9B%AE%E3%81%AA%E7%8B%A9%E3%82%8A",
     "status": "accepted",
     "updated_at": "2026-08-28T06:25:14.987909+00:00"
+  },
+  "スタントマン武替道::2024::114::アルバートレオン": {
+    "candidate": {
+      "director": "アルバート・レオン",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "114",
+      "score": 12,
+      "support": 2,
+      "title": "スタントマン 武替道",
+      "url": "https://filmarks.com/movies/119030",
+      "year": "2025"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "https://filmarks.com/movies/119030",
+    "query": "スタントマン 武替道",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%88%E3%83%9E%E3%83%B3%20%E6%AD%A6%E6%9B%BF%E9%81%93",
+    "status": "accepted",
+    "updated_at": "2026-09-19T00:25:34.750259+00:00"
   },
   "スタントマン武替道::2024::114::梁冠堯": {
     "candidate": {
@@ -41345,6 +41722,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%81%E3%83%A3%E3%83%83%E3%82%AF%E3%83%BB%E3%83%99%E3%83%AA%E3%83%BC%20%E3%83%96%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%89%E3%83%BB%E3%83%8F%E3%83%B3%E3%82%B5%E3%83%A0%E3%83%BB%E3%83%9E%E3%83%B3",
     "status": "accepted",
     "updated_at": "2026-08-12T23:14:20.003485+00:00"
+  },
+  "チャックベリーブラウンアイドハンサムマントークイベント付き::2026::55::": {
+    "candidate": {
+      "director": "ロン・ワイズナー",
+      "reasons": [
+        "title_partial",
+        "year",
+        "runtime"
+      ],
+      "runtime": "55",
+      "score": 11,
+      "support": 2,
+      "title": "チャック・ベリー ブラウン・アイド・ハンサム・マン",
+      "url": "https://filmarks.com/movies/125401",
+      "year": "2026"
+    },
+    "candidate_count": 27,
+    "filmarks_url": "",
+    "query": "チャック・ベリー ブラウン・アイド・ハンサム・マン』トークイベント付き",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "year",
+      "runtime"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%81%E3%83%A3%E3%83%83%E3%82%AF%E3%83%BB%E3%83%99%E3%83%AA%E3%83%BC%20%E3%83%96%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%89%E3%83%BB%E3%83%8F%E3%83%B3%E3%82%B5%E3%83%A0%E3%83%BB%E3%83%9E%E3%83%B3%E3%80%8F%E3%83%88%E3%83%BC%E3%82%AF%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E4%BB%98%E3%81%8D",
+    "status": "review",
+    "updated_at": "2026-09-19T00:26:01.355146+00:00"
   },
   "チャーリーイズマイダーリン::2012::63::ピーターホワイトヘッド": {
     "candidate": {
@@ -43942,6 +44348,33 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%9D%E3%83%BC%E3%83%88%E3%83%BB%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E3%83%BB%E3%83%95%E3%82%A7%E3%82%B9%E3%83%86%E3%82%A3%E3%83%B4%E3%82%A1%E3%83%AB%E3%81%AE%E5%A4%A2",
     "status": "review",
     "updated_at": "2026-09-14T00:22:36.602277+00:00"
+  },
+  "ニューポートフォークフェスティヴァルの夢トークイベント付き::2026::100::": {
+    "candidate": {
+      "director": "ミハイル・ロンム",
+      "reasons": [
+        "title_partial",
+        "runtime"
+      ],
+      "runtime": "100",
+      "score": 8,
+      "support": 1,
+      "title": "夢",
+      "url": "https://filmarks.com/movies/61045",
+      "year": ""
+    },
+    "candidate_count": 30,
+    "filmarks_url": "",
+    "query": "ニューポート・フォーク・フェスティヴァルの夢』トークイベント付き",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime"
+    ],
+    "score": 8,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%9D%E3%83%BC%E3%83%88%E3%83%BB%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E3%83%BB%E3%83%95%E3%82%A7%E3%82%B9%E3%83%86%E3%82%A3%E3%83%B4%E3%82%A1%E3%83%AB%E3%81%AE%E5%A4%A2%E3%80%8F%E3%83%88%E3%83%BC%E3%82%AF%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E4%BB%98%E3%81%8D",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:58.636382+00:00"
   },
   "ニューヨークラブストーリー::1990::90::halhartley": {
     "candidate": {
@@ -56045,6 +56478,37 @@
     "status": "review",
     "updated_at": "2026-08-13T23:13:04.514921+00:00"
   },
+  "ワールドクラシック＠シネマ2011オペラばらの騎士バーデンバーデン祝祭劇場::2011::211::無用の人特報映像解禁": {
+    "candidate": {
+      "director": "アンドリュー・ヘックラー",
+      "reasons": [
+        "title_partial",
+        "year_mismatch",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "117",
+      "score": -10,
+      "support": 0,
+      "title": "バーデン",
+      "url": "https://filmarks.com/movies/82672",
+      "year": "2022"
+    },
+    "candidate_count": 23,
+    "filmarks_url": "",
+    "query": "ワールドクラシック＠シネマ2011 オペラ 「ばらの騎士」 バーデン・バーデン祝祭劇場",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "year_mismatch",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -10,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%83%E3%82%AF%EF%BC%A0%E3%82%B7%E3%83%8D%E3%83%9E2011%20%E3%82%AA%E3%83%9A%E3%83%A9%20%E3%80%8C%E3%81%B0%E3%82%89%E3%81%AE%E9%A8%8E%E5%A3%AB%E3%80%8D%20%E3%83%90%E3%83%BC%E3%83%87%E3%83%B3%E3%83%BB%E3%83%90%E3%83%BC%E3%83%87%E3%83%B3%E7%A5%9D%E7%A5%AD%E5%8A%87%E5%A0%B4",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:42.430887+00:00"
+  },
   "ワールドクラシック＠シネマ2011オペラばらの騎士バーデンバーデン祝祭劇場::2011::211::！青山真治の遺した傑作小説死の谷ʼ95を映画化": {
     "candidate": {
       "director": "アンドリュー・ヘックラー",
@@ -56926,6 +57390,33 @@
     "search_url": "https://filmarks.com/search/movies?q=%E4%B8%89%E6%9C%88%E3%81%AE%E3%83%A9%E3%82%A4%E3%82%AA%E3%83%B3",
     "status": "accepted",
     "updated_at": "2026-07-01T23:40:51.852318+00:00"
+  },
+  "三角の陥穽::::88::": {
+    "candidate": {
+      "director": "小谷承靖",
+      "reasons": [
+        "title_miss",
+        "runtime_near"
+      ],
+      "runtime": "90",
+      "score": -9,
+      "support": 1,
+      "title": "バミューダの謎/魔の三角水域に棲む巨大モンスター!",
+      "url": "https://filmarks.com/movies/65886",
+      "year": ""
+    },
+    "candidate_count": 8,
+    "filmarks_url": "",
+    "query": "三角の陥穽",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "runtime_near"
+    ],
+    "score": -9,
+    "search_url": "https://filmarks.com/search/movies?q=%E4%B8%89%E8%A7%92%E3%81%AE%E9%99%A5%E7%A9%BD",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:57.643076+00:00"
   },
   "三角屋の交差点で::2025::94::山田徹日本95分インプレオdcp": {
     "candidate": {
@@ -58814,6 +59305,33 @@
     "search_url": "https://filmarks.com/search/movies?q=%E4%BC%8A%E8%B3%80%E5%BF%8D%E6%B3%95%E5%B8%96",
     "status": "accepted",
     "updated_at": "2026-08-05T23:30:18.662782+00:00"
+  },
+  "休日::1968::74::이만희": {
+    "candidate": {
+      "director": "山田孝之",
+      "reasons": [
+        "title_miss",
+        "director_mismatch"
+      ],
+      "runtime": "",
+      "score": -15,
+      "support": 0,
+      "title": "沙良ちゃんの休日",
+      "url": "https://filmarks.com/movies/102753",
+      "year": ""
+    },
+    "candidate_count": 21,
+    "filmarks_url": "",
+    "query": "休日",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_miss",
+      "director_mismatch"
+    ],
+    "score": -15,
+    "search_url": "https://filmarks.com/search/movies?q=%E4%BC%91%E6%97%A5",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:52.710251+00:00"
   },
   "伝説巨神イデオン一挙::::::": {
     "candidate": {
@@ -69991,6 +70509,35 @@
     "status": "review",
     "updated_at": "2026-07-07T23:28:36.955675+00:00"
   },
+  "帰らざる海兵::1963::110::이만희": {
+    "candidate": {
+      "director": "イ・マニ",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "110",
+      "score": 8,
+      "support": 1,
+      "title": "帰らざる海兵",
+      "url": "https://filmarks.com/movies/46410",
+      "year": ""
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "帰らざる海兵",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 8,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%B8%B0%E3%82%89%E3%81%96%E3%82%8B%E6%B5%B7%E5%85%B5",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:55.023240+00:00"
+  },
   "帽子箱を持った少女::1927::66::борисбарнет": {
     "candidate": {
       "director": "ボリス・バルネット",
@@ -78498,6 +79045,33 @@
     "status": "review",
     "updated_at": "2026-06-07T05:18:53.742621+00:00"
   },
+  "森浦への道::::101::": {
+    "candidate": {
+      "director": "フェデリコ・フェリーニ",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch"
+      ],
+      "runtime": "115",
+      "score": 1,
+      "support": 0,
+      "title": "道",
+      "url": "https://filmarks.com/movies/32290",
+      "year": "1957"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "森浦への道",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch"
+    ],
+    "score": 1,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%A3%AE%E6%B5%A6%E3%81%B8%E3%81%AE%E9%81%93",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:56.426722+00:00"
+  },
   "楊貴妃::1955::91::溝口健二": {
     "candidate": {
       "director": "溝口健二",
@@ -81727,6 +82301,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E6%B5%B7%E3%82%88%E3%82%8A%E3%82%82%E3%81%BE%E3%81%A0%E6%B7%B1%E3%81%8F",
     "status": "accepted",
     "updated_at": "2026-06-07T05:10:48.176529+00:00"
+  },
+  "海獣の子供::2019::111::渡辺歩": {
+    "candidate": {
+      "director": "渡辺歩",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "111",
+      "score": 21,
+      "support": 3,
+      "title": "海獣の子供",
+      "url": "https://filmarks.com/movies/80105",
+      "year": "2019"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "https://filmarks.com/movies/80105",
+    "query": "海獣の子供",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%B5%B7%E7%8D%A3%E3%81%AE%E5%AD%90%E4%BE%9B",
+    "status": "accepted",
+    "updated_at": "2026-09-19T00:25:48.635525+00:00"
   },
   "海街diary::2015::126::是枝裕和": {
     "candidate": {
@@ -85749,6 +86354,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E7%9C%A9%E6%9A%88%20Vertigo",
     "status": "review",
     "updated_at": "2026-06-30T23:38:43.647581+00:00"
+  },
+  "眺めのいい部屋::1986::117::ジェームズアイボリー": {
+    "candidate": {
+      "director": "ジェームズ・アイヴォリー",
+      "reasons": [
+        "title_partial",
+        "year_mismatch",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "117",
+      "score": -3,
+      "support": 1,
+      "title": "眺めのいい部屋 4K",
+      "url": "https://filmarks.com/movies/129882",
+      "year": "2026"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "眺めのいい部屋",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_partial",
+      "year_mismatch",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": -3,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%9C%BA%E3%82%81%E3%81%AE%E3%81%84%E3%81%84%E9%83%A8%E5%B1%8B",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:47.462456+00:00"
   },
   "瞼の母1962::1962::83::加藤泰": {
     "candidate": {
@@ -97585,6 +98221,31 @@
     "search_url": "https://filmarks.com/search/movies?q=%E9%BB%92%E3%81%84%E9%9B%A8",
     "status": "review",
     "updated_at": "2026-08-02T23:21:45.980491+00:00"
+  },
+  "黒い髪::::107::": {
+    "candidate": {
+      "director": "城戸品郎",
+      "reasons": [
+        "title_miss"
+      ],
+      "runtime": "",
+      "score": -10,
+      "support": 0,
+      "title": "髪",
+      "url": "https://filmarks.com/movies/61638",
+      "year": ""
+    },
+    "candidate_count": 24,
+    "filmarks_url": "",
+    "query": "黒い髪",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss"
+    ],
+    "score": -10,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%BB%92%E3%81%84%E9%AB%AA",
+    "status": "review",
+    "updated_at": "2026-09-19T00:25:53.907433+00:00"
   },
   "黒の牛::2024::114::蔦哲一朗": {
     "candidate": {
