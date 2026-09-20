@@ -399,32 +399,6 @@
   },
   {
     "cinema_name": "Cultplex",
-    "movie_title": "Movie Church: The Parallax View",
-    "movie_title_en": "Movie Church: The Parallax View",
-    "date_text": "2026-09-20",
-    "showtime": "13:00",
-    "detail_page_url": "https://cultplex.co.uk/Cultplex.dll/WhatsOn?f=1279399",
-    "director": "Alan J. Pakula",
-    "year": "1974",
-    "country": "USA",
-    "runtime_min": "102",
-    "synopsis": "Part of Cinema Rediscovered on Tour: a Watershed project in association with Wiper &amp; True and collaboration with principal sponsors Park Circus and StudioCanal. With support from BFI Audience Projects Fund awarding National Lottery funding.  The films in this season, far from the liberal consensus o...",
-    "tmdb_id": 17365,
-    "tmdb_title": "The Parallax View",
-    "tmdb_original_title": "The Parallax View",
-    "tmdb_backdrop_path": "/xpLfNYeICRtVPHPU2RN0a20c5zy.jpg",
-    "tmdb_poster_path": "/5ClPRox438lwK2Eze7X5xySDaYC.jpg",
-    "tmdb_overview": "An ambitious reporter gets in trouble while investigating a senator's assassination which leads to a vast conspiracy involving a multinational corporation behind every event in the world's headlines.",
-    "runtime": 102,
-    "genres": [
-      "Crime",
-      "Drama",
-      "Thriller"
-    ],
-    "vote_average": 6.837
-  },
-  {
-    "cinema_name": "Cultplex",
     "movie_title": "Under the Silver Lake",
     "movie_title_en": "Under the Silver Lake",
     "date_text": "2026-09-23",
@@ -955,37 +929,6 @@
       "Drama"
     ],
     "vote_average": 6.89
-  },
-  {
-    "cinema_name": "Everyman Manchester",
-    "movie_title": "Practical Magic 2",
-    "movie_title_en": "Practical Magic 2",
-    "date_text": "2026-09-20",
-    "showtime": "10:00",
-    "detail_page_url": "https://www.everymancinema.com/film-listing/1000004679",
-    "booking_url": "",
-    "director": "Susanne Bier",
-    "year": "2026",
-    "country": "",
-    "runtime_min": "130",
-    "synopsis": "A multi-generational family of witches, cursed to be loveless for centuries, attempts to break the spell by confronting dark secrets and sacrificing for each other.",
-    "format_tags": [
-      "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
-    ],
-    "tmdb_id": 1302904,
-    "tmdb_title": "Practical Magic 2",
-    "tmdb_original_title": "Practical Magic 2",
-    "tmdb_backdrop_path": "/nUcauJ000dFBYkgGpxyxJ5aWEH2.jpg",
-    "tmdb_poster_path": "/7jCV8dkRFK3DGJ4dTqlvrMTFPwZ.jpg",
-    "tmdb_overview": "The Owens sisters must confront the dark curse that threatens to unravel their family once and for all.",
-    "runtime": 130,
-    "genres": [
-      "Romance",
-      "Fantasy",
-      "Comedy"
-    ],
-    "vote_average": 6.7
   },
   {
     "cinema_name": "Everyman Manchester",
@@ -3362,80 +3305,6 @@
       "Documentary"
     ],
     "vote_average": 0.0
-  },
-  {
-    "cinema_name": "HOME Manchester",
-    "movie_title": "Queen At Sea",
-    "movie_title_en": "Queen At Sea",
-    "date_text": "2026-09-20",
-    "showtime": "12:55",
-    "detail_page_url": "https://homemcr.org/whats-on/queen-at-sea-15-8y2l",
-    "director": "Lance Hammer",
-    "year": "2026",
-    "country": "",
-    "runtime_min": "121",
-    "synopsis": "As advanced dementia erodes Leslie’s ability to communicate her inner life, her husband and daughter struggle to act in her best interests.",
-    "tmdb_id": 1021848,
-    "tmdb_title": "Queen at Sea",
-    "tmdb_original_title": "Queen at Sea",
-    "tmdb_backdrop_path": "/uamyuT0gNRXbS5fgsnLVbydifk7.jpg",
-    "tmdb_poster_path": "/iGfTwhMYMLd1z81AO3d1MHVTCbP.jpg",
-    "tmdb_overview": "As advanced dementia erodes an older woman’s ability to communicate her inner life, her husband and daughter struggle to act in her best interests, navigating love and the fragile boundaries between care, protection and autonomy.",
-    "runtime": 121,
-    "genres": [
-      "Drama"
-    ],
-    "vote_average": 7.0
-  },
-  {
-    "cinema_name": "HOME Manchester",
-    "movie_title": "The Incomer",
-    "movie_title_en": "The Incomer",
-    "date_text": "2026-09-20",
-    "showtime": "13:10",
-    "detail_page_url": "https://homemcr.org/whats-on/the-incomer-12a-c7cj",
-    "director": "Louis Paxton",
-    "year": "2026",
-    "country": "",
-    "runtime_min": "102",
-    "synopsis": "A community turns on its own when a mysterious outsider arrives, in this tense thriller.",
-    "tmdb_id": 1554956,
-    "tmdb_title": "The Incomer",
-    "tmdb_original_title": "The Incomer",
-    "tmdb_backdrop_path": "/gdqm7D25PTLxnIaizZbCGXdqKMD.jpg",
-    "tmdb_poster_path": "/iccroKK1eUTdCnLfmp7I3YXwAKF.jpg",
-    "tmdb_overview": "On an Orkney isle, siblings Isla and Sandy survive by hunting seabirds, retelling the stories of their ancestors, and defending the isle from dreaded \"Incomers\". Their world is upended with the arrival of an awkward council worker who has come to uproot them from their homeland.",
-    "runtime": 102,
-    "genres": [
-      "Comedy",
-      "Drama"
-    ],
-    "vote_average": 7.0
-  },
-  {
-    "cinema_name": "HOME Manchester",
-    "movie_title": "Just An Illusion",
-    "movie_title_en": "Just An Illusion",
-    "date_text": "2026-09-20",
-    "showtime": "13:15",
-    "detail_page_url": "https://homemcr.org/whats-on/just-an-illusion-12a-c8ry",
-    "director": "Olivier Nakache",
-    "year": "2026",
-    "country": "",
-    "runtime_min": "119",
-    "synopsis": "Vincent is fumbling through life’s big questions: identity, friendship, family, and first crushes.",
-    "tmdb_id": 1404684,
-    "tmdb_title": "Just an Illusion",
-    "tmdb_original_title": "Juste une illusion",
-    "tmdb_backdrop_path": "/l1fhfzNclQcp4oBz550KMY0CTre.jpg",
-    "tmdb_poster_path": "/eWPq3wSvJEMakESTXzaBECUNBYr.jpg",
-    "tmdb_overview": "In 1985 suburban Paris, 12-year-old Vincent lives with his distant older brother and quarrelling parents. Amid laughter and unease, he navigates friendship and first love, while beginning to confront the adult world.",
-    "runtime": 119,
-    "genres": [
-      "Comedy",
-      "Drama"
-    ],
-    "vote_average": 7.3
   },
   {
     "cinema_name": "HOME Manchester",
