@@ -5870,25 +5870,6 @@
     ],
     "vote_average": 7.253
   },
-  "Sense and Sensibility (2026)": {
-    "tmdb_id": 4584,
-    "tmdb_title": "Sense and Sensibility",
-    "tmdb_original_title": "Sense and Sensibility",
-    "overview": "The Dashwood sisters, sensible Elinor and passionate Marianne, learn that their prospects of marriage seem doomed by their family's sudden loss of fortune. After Henry Dashwood dies unexpectedly, his estate must pass on by law to his son. These circumstances leave Mr. Dashwood's wife and daughters without a home and with barely enough money to live on. As Elinor and Marianne struggle to find romantic fulfillment in a society obsessed with financial and social status, they must learn to mix sense with sensibility in their dealings with both money and men.",
-    "poster_path": "/9YdQ73YmvInxpXZVNjEKePw9tRO.jpg",
-    "backdrop_path": "/cFnyfWHL6HjOOVal6lp8e5gqibK.jpg",
-    "release_date": "1995-12-13",
-    "director": "Ang Lee",
-    "runtime": 136,
-    "genres": [
-      "Drama",
-      "Romance"
-    ],
-    "vote_average": 7.413
-  },
-  "Sense and Sensibility 2026 (Charity Show)": null,
-  "Animation Weekender: Alice": null,
-  "Obscure Film Presesnts: Dance Along Stop Making Sense": null,
   "Animation Weekender: Unicorn Wars": {
     "tmdb_id": 587092,
     "tmdb_title": "Unicorn Wars",
@@ -5908,6 +5889,23 @@
     ],
     "vote_average": 7.742
   },
+  "Sense and Sensibility (2026)": {
+    "tmdb_id": 4584,
+    "tmdb_title": "Sense and Sensibility",
+    "tmdb_original_title": "Sense and Sensibility",
+    "overview": "The Dashwood sisters, sensible Elinor and passionate Marianne, learn that their prospects of marriage seem doomed by their family's sudden loss of fortune. After Henry Dashwood dies unexpectedly, his estate must pass on by law to his son. These circumstances leave Mr. Dashwood's wife and daughters without a home and with barely enough money to live on. As Elinor and Marianne struggle to find romantic fulfillment in a society obsessed with financial and social status, they must learn to mix sense with sensibility in their dealings with both money and men.",
+    "poster_path": "/9YdQ73YmvInxpXZVNjEKePw9tRO.jpg",
+    "backdrop_path": "/cFnyfWHL6HjOOVal6lp8e5gqibK.jpg",
+    "release_date": "1995-12-13",
+    "director": "Ang Lee",
+    "runtime": 136,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "vote_average": 7.413
+  },
+  "Sense and Sensibility 2026 (Charity Show)": null,
   "Interference Films Presents: Santa Sangre 4K": null,
   "GASP! All Dayer: Short Film Showcase": null,
   "GASP! All Dayer: Dracula's Daughter (90th Anniversary)": {
@@ -5960,7 +5958,76 @@
   },
   "STAB: Reel Gems presents: The Exorcist III": null,
   "STAB: Make A Scene Presents: Ghost Hunting with Girls Aloud": null,
+  "STAB: Frankenweenie": {
+    "tmdb_id": 62214,
+    "tmdb_title": "Frankenweenie",
+    "tmdb_original_title": "Frankenweenie",
+    "overview": "When a car hits young Victor's pet dog Sparky, Victor decides to bring him back to life the only way he knows how. But when the bolt-necked \"monster\" wreaks havoc and terror in the hearts of Victor's neighbors, he has to convince them that Sparky's still the good, loyal friend he was.",
+    "poster_path": "/yGjVbLVdZRBlZTTQVBsj2KUjL1s.jpg",
+    "backdrop_path": "/yfTZ2MSRWc06cBrFOsAF4Lebi4.jpg",
+    "release_date": "2012-10-04",
+    "director": "Tim Burton",
+    "runtime": 87,
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "vote_average": 7.011
+  },
+  "STAB: I Saw the Devil": {
+    "tmdb_id": 1352581,
+    "tmdb_title": "I Saw the Devil",
+    "tmdb_original_title": "I Saw the Devil",
+    "overview": "Following an unspeakable tragedy, a rogue secret agent seeks revenge against a serial killer through a demented game of cat and mouse.",
+    "poster_path": null,
+    "backdrop_path": null,
+    "release_date": "",
+    "director": "",
+    "runtime": 0,
+    "genres": [
+      "Action",
+      "Crime",
+      "Horror",
+      "Thriller"
+    ],
+    "vote_average": 0.0
+  },
+  "STAB: £1 Screening: The Cabin in the Woods": null,
+  "STAB Haunted House All-Nighter: The Shining": {
+    "tmdb_id": 694,
+    "tmdb_title": "The Shining",
+    "tmdb_original_title": "The Shining",
+    "overview": "Jack Torrance accepts a caretaker job at the Overlook Hotel, where he, along with his wife Wendy and their son Danny, must live isolated from the rest of the world for the winter. But they aren't prepared for the madness that lurks within.",
+    "poster_path": "/uAR0AWqhQL1hQa69UDEbb2rE5Wx.jpg",
+    "backdrop_path": "/AdKA2F1SzYPhSZdEbjH1Zh75UVQ.jpg",
+    "release_date": "1980-05-23",
+    "director": "Stanley Kubrick",
+    "runtime": 144,
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "vote_average": 8.2
+  },
+  "STAB Haunted House All-Nighter: House": null,
   "Counter Narratives": null,
+  "Vox Lumiere: Metropolis": {
+    "tmdb_id": 19,
+    "tmdb_title": "Metropolis",
+    "tmdb_original_title": "Metropolis",
+    "overview": "In a futuristic city sharply divided between the rich and the poor, the son of the city's mastermind meets a prophet who predicts the coming of a savior to mediate their differences.",
+    "poster_path": "/kr9wXRN23zLuWJIelahas1mtnYj.jpg",
+    "backdrop_path": "/eeMoFKxjjiCi6iep2GEZtSAMYIr.jpg",
+    "release_date": "1927-01-10",
+    "director": "Fritz Lang",
+    "runtime": 148,
+    "genres": [
+      "Drama",
+      "Science Fiction"
+    ],
+    "vote_average": 8.084
+  },
   "Avengers Endgame: Encore": {
     "tmdb_id": 299534,
     "tmdb_title": "Avengers: Endgame",
@@ -5969,7 +6036,7 @@
     "poster_path": "/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
     "backdrop_path": "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
     "release_date": "2019-04-24",
-    "director": "Joe Russo",
+    "director": "Anthony Russo",
     "runtime": 181,
     "genres": [
       "Adventure",
@@ -6013,11 +6080,25 @@
     ],
     "vote_average": 7.575
   },
-  "NT Live/ The Misanthrope": null,
   "Dog-friendly Screening/ Sense and Sensibility (U)": null,
   "Baby & Carer/ Sense and Sensibility (U)": null,
   "Rondallas": null,
-  "Mamma Mia: Charity Screening!": null,
+  "Family Film/ Stitch Head (U)": null,
+  "Cotton Queen": {
+    "tmdb_id": 974228,
+    "tmdb_title": "Cotton Queen",
+    "tmdb_original_title": "ملكة القطن",
+    "overview": "In a cotton-farming village in Sudan, teenage Nafisa is raised on heroic tales of battling British colonizers told by her grandmother, the village matriarch Al-Sit. But when a young businessman arrives from abroad with a new development plan and genetically engineered cotton, Nafisa becomes the center of a power play to determine the future of the village. Awakening to her own strength, Nafisa sets out to save the cotton fields – and herself. Neither she nor her community will ever be the same again.",
+    "poster_path": "/p0veSdE8OHuiX39nk0jql1k2e5n.jpg",
+    "backdrop_path": "/wFDLq0hl1YdWXXQSU2BSDLcJX9T.jpg",
+    "release_date": "2026-04-23",
+    "director": "Suzannah Mirghani",
+    "runtime": 94,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 6.75
+  },
   "National Theatre Live: The Misanthrope": null,
   "LIVE: Purple Town Musical": null
 }
