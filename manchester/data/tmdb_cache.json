@@ -6201,22 +6201,6 @@
     ],
     "vote_average": 7.0
   },
-  "Sense and Sensibility (2026)": {
-    "tmdb_id": 4584,
-    "tmdb_title": "Sense and Sensibility",
-    "tmdb_original_title": "Sense and Sensibility",
-    "overview": "The Dashwood sisters, sensible Elinor and passionate Marianne, learn that their prospects of marriage seem doomed by their family's sudden loss of fortune. After Henry Dashwood dies unexpectedly, his estate must pass on by law to his son. These circumstances leave Mr. Dashwood's wife and daughters without a home and with barely enough money to live on. As Elinor and Marianne struggle to find romantic fulfillment in a society obsessed with financial and social status, they must learn to mix sense with sensibility in their dealings with both money and men.",
-    "poster_path": "/9YdQ73YmvInxpXZVNjEKePw9tRO.jpg",
-    "backdrop_path": "/cFnyfWHL6HjOOVal6lp8e5gqibK.jpg",
-    "release_date": "1995-12-13",
-    "director": "Ang Lee",
-    "runtime": 136,
-    "genres": [
-      "Drama",
-      "Romance"
-    ],
-    "vote_average": 7.414
-  },
   "GASP! All Dayer: Short Film Showcase": null,
   "GASP! All Dayer: Dracula's Daughter (90th Anniversary)": {
     "tmdb_id": 22440,
@@ -6283,7 +6267,7 @@
       "Horror",
       "Thriller"
     ],
-    "vote_average": 8.201
+    "vote_average": 8.2
   },
   "STAB Haunted House All-Nighter: House": null,
   "STAB Haunted House All-Nighter:The Beyond": null,
@@ -6305,6 +6289,38 @@
   "Mystery Shit Film Club": null,
   "STAB: Cult School: BODY HORROR 101: FALLING APART - REFLECTIONS ON BODY HORROR AND THE MIND": null,
   "STAB: The Independent Horror Society: Indie Film Showcase": null,
+  "OBSCURE FILM PRESENTS: BEASTIE BOYS IN... AWESOME: I F*CKIN' SHOT THAT! + VINYL DJ SET": null,
+  "STAB: Dracula 4K Restoration": {
+    "tmdb_id": 11868,
+    "tmdb_title": "Dracula",
+    "tmdb_original_title": "Dracula",
+    "overview": "After Jonathan Harker attacks Dracula at his castle, the vampire travels to a nearby city, where he preys on the family of Harker's fiancée. The only one who may be able to protect them is Dr. van Helsing, Harker's friend and fellow-student of vampires, who is determined to destroy Dracula, whatever the cost.",
+    "poster_path": "/9UHOATvzXQWbElSGygOY1ar3vpp.jpg",
+    "backdrop_path": "/ijbBzlKSKwWNRpebLUGfmXhBrvg.jpg",
+    "release_date": "1958-04-21",
+    "director": "Terence Fisher",
+    "runtime": 82,
+    "genres": [
+      "Horror"
+    ],
+    "vote_average": 7.3
+  },
+  "Sense and Sensibility (2026)": {
+    "tmdb_id": 4584,
+    "tmdb_title": "Sense and Sensibility",
+    "tmdb_original_title": "Sense and Sensibility",
+    "overview": "The Dashwood sisters, sensible Elinor and passionate Marianne, learn that their prospects of marriage seem doomed by their family's sudden loss of fortune. After Henry Dashwood dies unexpectedly, his estate must pass on by law to his son. These circumstances leave Mr. Dashwood's wife and daughters without a home and with barely enough money to live on. As Elinor and Marianne struggle to find romantic fulfillment in a society obsessed with financial and social status, they must learn to mix sense with sensibility in their dealings with both money and men.",
+    "poster_path": "/9YdQ73YmvInxpXZVNjEKePw9tRO.jpg",
+    "backdrop_path": "/cFnyfWHL6HjOOVal6lp8e5gqibK.jpg",
+    "release_date": "1995-12-13",
+    "director": "Ang Lee",
+    "runtime": 136,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "vote_average": 7.414
+  },
   "Vox Lumiere: Metropolis": {
     "tmdb_id": 19,
     "tmdb_title": "Metropolis",
@@ -6361,5 +6377,21 @@
   "UK Premiere/ Generation Trust (CTBA) + discussion": null,
   "M (PG)": null,
   "LFF: Opening Night Film/ Elsinore": null,
-  "LIVE: Purple Town Musical": null
+  "LFF: Wild Horse Nine": {
+    "tmdb_id": 891621,
+    "tmdb_title": "Wild Horse Nine",
+    "tmdb_original_title": "Wild Horse Nine",
+    "overview": "Shortly before the 1973 Chilean coup, CIA agents Chris and Lee are dispatched from Santiago to Easter Island by their bureau chief, MJ. Amongst the Island's iconic statues, and as the longtime partners wrestle with their dark pasts and present conspiracies, Chris's newfound bond with a pair of rebellious students threatens to send everyone’s trip to this remote paradise sideways.",
+    "poster_path": "/dNJFRtVg3xLQ7dbNIQ55cmmIniD.jpg",
+    "backdrop_path": "/b17UWf3LqHgKolQkXckne32qv0.jpg",
+    "release_date": "2026-10-30",
+    "director": "Martin McDonagh",
+    "runtime": 118,
+    "genres": [
+      "Comedy",
+      "Crime",
+      "Thriller"
+    ],
+    "vote_average": 0.0
+  }
 }
