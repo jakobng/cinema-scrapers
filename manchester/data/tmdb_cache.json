@@ -6689,7 +6689,6 @@
     ],
     "vote_average": 7.433
   },
-  "STAB: Make A Scene Presents: Ghost Hunting with Girls Aloud": null,
   "STAB: £1 Screening: The Cabin in the Woods": null,
   "STAB Haunted House All-Nighter: The Shining": {
     "tmdb_id": 694,
@@ -6722,7 +6721,7 @@
     "genres": [
       "Horror"
     ],
-    "vote_average": 7.2
+    "vote_average": 7.163
   },
   "Mystery Shit Film Club": null,
   "STAB: Cult School: BODY HORROR 101: FALLING APART - REFLECTIONS ON BODY HORROR AND THE MIND": null,
@@ -6741,7 +6740,7 @@
     "genres": [
       "Horror"
     ],
-    "vote_average": 7.2
+    "vote_average": 7.243
   },
   "DAVID LYNCH DRAG NIGHT": null,
   "Counterfilm Presents: Penda's Fen": {
@@ -6761,8 +6760,11 @@
       "Horror",
       "Mystery"
     ],
-    "vote_average": 7.444
+    "vote_average": 7.4
   },
+  "STAB: Northern Folklore Archive: The Wolf of Snow Hollow": null,
+  "STAB: The Velocipastor &amp; The Velocipastor 2 (UK PREMIERE)": null,
+  "STAB! The Velocipastor 2 Midnight Screening": null,
   "Vox Lumiere: Metropolis": {
     "tmdb_id": 19,
     "tmdb_title": "Metropolis",
@@ -6777,7 +6779,7 @@
       "Drama",
       "Science Fiction"
     ],
-    "vote_average": 8.1
+    "vote_average": 8.083
   },
   "24 Hour Party People (24 Year Anniversary)": null,
   "Throwback: The Hunger Games": {
@@ -6798,6 +6800,37 @@
     ],
     "vote_average": 7.223
   },
+  "Whalefall": {
+    "tmdb_id": 1255833,
+    "tmdb_title": "Whalefall",
+    "tmdb_original_title": "Whalefall",
+    "overview": "Following the death of his father, Jay Gardiner goes diving off the central Coast of California in search of his remains, but is swallowed by a massive sperm whale. While trapped inside its belly with only one hour of oxygen left, Jay comes to realize that the hard-earned lessons his father imparted may be the key to his escape.",
+    "poster_path": "/vjTYUTgh9nO88i6HZ4YPRhiFL05.jpg",
+    "backdrop_path": "/dUzzwJpX4Fiet2QJy5P1TxpW1Qa.jpg",
+    "release_date": "2026-10-14",
+    "director": "Brian Duffield",
+    "runtime": 98,
+    "genres": [
+      "Thriller"
+    ],
+    "vote_average": 0.0
+  },
+  "Street Fighter": {
+    "tmdb_id": 1153576,
+    "tmdb_title": "Street Fighter",
+    "tmdb_original_title": "Street Fighter",
+    "overview": "In 1993, estranged Street Fighters Ryu and Ken Masters are thrown back into combat when the mysterious Chun-Li recruits them for the next World Warrior Tournament: a brutal clash of fists, fate, and fury. But behind this battle royale lies a deadly conspiracy that forces them to face off against each other and the demons of their past. And if they don't, it's GAME OVER!",
+    "poster_path": "/dJPT2Uf12X6aFg8i5N67NTpIZ9t.jpg",
+    "backdrop_path": "/zDE9hd1SG9695YncbZGjSf7Z9Jk.jpg",
+    "release_date": "2026-10-13",
+    "director": "Kitao Sakurai",
+    "runtime": 120,
+    "genres": [
+      "Action",
+      "Fantasy"
+    ],
+    "vote_average": 0.0
+  },
   "Throwback: The Rocky Horror Picture Show": {
     "tmdb_id": 36685,
     "tmdb_title": "The Rocky Horror Picture Show",
@@ -6813,7 +6846,7 @@
       "Science Fiction",
       "Horror"
     ],
-    "vote_average": 7.443
+    "vote_average": 7.4
   },
   "Members' Preview: Wicker": {
     "tmdb_id": 1195803,
@@ -6832,6 +6865,38 @@
     ],
     "vote_average": 0.0
   },
+  "Ali G: Who Iz I?": {
+    "tmdb_id": 1727734,
+    "tmdb_title": "Ali G: Who Iz I?",
+    "tmdb_original_title": "Ali G: Who Iz I?",
+    "overview": "After twenty years spent \"chillin', tokin' and bonin'\", Ali G is shocked to discover that his long-term girlfriend, Julie, is 8 months pregnant. Faced with an extra mouth to feed, he gets off his batty and heads to America to reclaim his former glory… but soon encounters adversaries who will ultimately threaten his and his child's very existence.",
+    "poster_path": "/uTyVxPeWX8Ai30IQoyDDQONNcq.jpg",
+    "backdrop_path": "/7GxXdTAbSSLMuEVbkzoGUpx4Mvc.jpg",
+    "release_date": "2026-10-22",
+    "director": "Sacha Baron Cohen",
+    "runtime": 89,
+    "genres": [
+      "Comedy"
+    ],
+    "vote_average": 0.0
+  },
+  "Clayface": {
+    "tmdb_id": 1400940,
+    "tmdb_title": "Clayface",
+    "tmdb_original_title": "Clayface",
+    "overview": "Matt Hagen's meteoric rise from Gotham street kid to Hollywood leading man is tragically cut short when a local crime boss's actions leave him horribly disfigured. Abandoned by his team and with nothing left, Matt seeks out a cutting edge treatment that miraculously returns him to his former self… but also unexpectedly affects his grip on reality, spiraling him down a destructive path of all-consuming revenge.",
+    "poster_path": "/5jCpQnWPikggmQZoDp1eAi6BI6w.jpg",
+    "backdrop_path": "/1A7s8zG4PF6YoJrncrTO6N4r0Sx.jpg",
+    "release_date": "2026-10-21",
+    "director": "James Watkins",
+    "runtime": 108,
+    "genres": [
+      "Horror",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "vote_average": 0.0
+  },
   "24 Hour Party People - 24th Anniversary 4K Re-Release": {
     "tmdb_id": 2750,
     "tmdb_title": "24 Hour Party People",
@@ -6847,9 +6912,26 @@
       "Drama",
       "Music"
     ],
-    "vote_average": 7.0
+    "vote_average": 6.97
   },
   "MLF presents Gruffalo Granny Celebration (U)": null,
+  "Screen Talk: Danny Boyle": null,
+  "LFF: Ink": {
+    "tmdb_id": 24869,
+    "tmdb_title": "Ink",
+    "tmdb_original_title": "Ink",
+    "overview": "Invisible forces exert power over us in our sleep. A mercenary named Ink, on a literal nightmare mission, captures the spirit of 8-year-old Emma in the dream world. To save her, the dream-givers marshal all their resources, focusing on saving the soul of Emma's tragically broken father.",
+    "poster_path": "/9vYyX7c8gZtxuqd6SiRukRb4gRd.jpg",
+    "backdrop_path": "/bDB9NAjkB1J7ab3lgydj75aLo7o.jpg",
+    "release_date": "2009-01-23",
+    "director": "Jamin Winans",
+    "runtime": 106,
+    "genres": [
+      "Action",
+      "Fantasy"
+    ],
+    "vote_average": 6.325
+  },
   "Trad (& Special Musical Performance)": null,
   "Fallen Angels by Noel Coward": null
 }
