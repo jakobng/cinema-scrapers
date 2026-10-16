@@ -46,7 +46,22 @@ def _parse_date(month: int, day: int, anchor: _dt.date) -> _dt.date:
 
 
 def _expand_date_line(line: str, anchor: _dt.date) -> List[_dt.date]:
-    normalized = _normalize(line)
+    normalized = _normalize(line).lstrip("■● ")
+    parts = re.split(r"[・、,]", normalized)
+    if len(parts) > 1:
+        first_month = re.match(r"^(\d{1,2})/", parts[0])
+        if not first_month:
+            return []
+        month = first_month.group(1)
+        dates = []
+        for part in parts:
+            explicit_month = re.match(r"^(\d{1,2})/", part.strip())
+            month = explicit_month.group(1) if explicit_month else month
+            expanded = _expand_date_line(part.strip() if explicit_month else month + "/" + part.strip(), anchor)
+            if not expanded:
+                return []
+            dates.extend(expanded)
+        return list(dict.fromkeys(dates))
     match = _DATE_RANGE_RE.match(normalized)
     if not match:
         return []
