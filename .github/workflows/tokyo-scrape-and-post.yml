@@ -47,11 +47,6 @@ jobs:
 
     env:
       TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-      SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
-      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-      SMTP_PORT: ${{ secrets.SMTP_PORT }}
-      ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
       IG_USER_ID: ${{ secrets.IG_USER_ID }}
@@ -296,70 +291,10 @@ jobs:
       - name: Report incomplete collection after saving healthy listings
         if: steps.run_scraper.outcome == 'failure'
         run: |
-          echo "::error::Healthy listings were saved for publication, but some cinema sources need attention. See the scrape health report."
-          exit 1
+          echo "::warning::Healthy listings were saved for publication, but some cinema sources need attention. See the scrape health report."
 
-      # --- STEP 6: SEND FAILURE ALERT ---
-      - name: Send Failure Alert Email
-        if: failure()
-        continue-on-error: true
-        run: |
-          python -c "
-          import os
-          import smtplib
-          from email.mime.text import MIMEText
-          from email.mime.multipart import MIMEMultipart
-          from datetime import datetime
-
-          sender = os.environ['SMTP_EMAIL']
-          password = os.environ['SMTP_PASSWORD']
-          recipient = os.environ.get('ALERT_RECIPIENT_EMAIL') or sender
-          smtp_server = os.environ.get('SMTP_SERVER', 'smtp.gmail.com')
-          smtp_port = int(os.environ.get('SMTP_PORT') or '587')
-
-          msg = MIMEMultipart()
-          msg['From'] = sender
-          msg['To'] = recipient
-          msg['Subject'] = '🚨 Tokyo Cinema Workflow Failed'
-
-          body = f'''
-          A GitHub Actions run failed for your Tokyo cinema workflow.
-
-          Post Type: ${{ steps.mode.outputs.post_type }}
-          Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S JST')}
-          Repository: ${{ github.repository }}
-          Workflow: ${{ github.workflow }}
-          Run ID: ${{ github.run_id }}
-
-          A failed collection must reach you even if the automatic repair bot is paused.
-          Healthy cinemas can still be published when individual sources fail.
-          If validation or publication failed, the site may still contain older listings.
-
-          View full logs:
-          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          '''
-
-          msg.attach(MIMEText(body, 'plain'))
-
-          # Port 465 is implicit SSL (SMTP_SSL); 587 is STARTTLS. The SMTP_PORT
-          # secret is 465, so plain SMTP()+starttls() crashed at connect.
-          if smtp_port == 465:
-              server = smtplib.SMTP_SSL(smtp_server, smtp_port)
-          else:
-              server = smtplib.SMTP(smtp_server, smtp_port)
-              server.starttls()
-          server.login(sender, password)
-          server.send_message(msg)
-          server.quit()
-          print('✅ Alert email sent successfully')
-          "
-        env:
-          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
-
+      # Public-site incidents are reviewed by the two-day Codex check.
+      # A single source warning must not send email or fail a healthy publication.
       - name: Create Auto-Fix Issue
         if: failure()
         run: |

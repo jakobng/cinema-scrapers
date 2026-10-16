@@ -811,6 +811,8 @@ def main() -> int:
     parser.add_argument("--vision-base-url", default=os.environ.get("OLLAMA_VISION_BASE_URL", os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")))
     parser.add_argument("--create-issues", action="store_true")
     parser.add_argument("--email-summary", action="store_true")
+    parser.add_argument("--email-exclude-city", action="append", choices=sorted(CITIES),
+                        help="Omit this city from email summaries only; checks and issues still run. Repeatable.")
     parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
@@ -837,7 +839,7 @@ def main() -> int:
     if args.create_issues:
         issue_urls = create_issues_for_failures(results, args.dry_run)
     if args.email_summary:
-        send_summary_email(results)
+        send_summary_email([item for item in results if item.get("city") not in (args.email_exclude_city or [])])
 
     payload = {"week": iso_week_key(), "results": results, "created_issues": issue_urls}
     if args.json:
