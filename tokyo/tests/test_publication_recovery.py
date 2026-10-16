@@ -142,6 +142,10 @@ def test_workflow_publishes_valid_partial_data_then_alerts_on_the_failed_source(
     assert names.index("Commit & Push Data (Cinema Scrapers Repo)") < names.index("Report incomplete collection after saving healthy listings")
     assert by_name["Send Failure Alert Email"]["if"] == "failure()"
     assert "publication_health.py --run-id" in by_name["Validate Showtime Data"]["run"]
+    deployment = yaml.safe_load((TOKYO.parent / ".github/workflows/tokyo-deploy-cinematokyo.yml").read_text())
+    alert = deployment["jobs"]["deploy"]["steps"][-1]
+    assert alert["if"] == "failure()"
+    assert "send_summary_email" in alert["run"]
 
 
 def test_visible_collection_notice_uses_collection_time_not_build_time():
