@@ -158,7 +158,7 @@ def _parse_movie_details(soup: BeautifulSoup) -> Dict[str, Dict]:
 # 休館 note meaning the whole venue is shut.
 _CLOSURE_WORDS = ("休映", "休館")
 _TIME_RE = re.compile(r"\d{1,2}\s*[:：]\s*\d{2}")
-_NOTE_TAIL_RE = re.compile(r"[＊✳].*$", re.S)
+_NOTE_TAIL_RE = re.compile(r"[＊✳※].*$", re.S)
 
 
 def _resolve_date(month: int, day: int, today: dt.date) -> Optional[dt.date]:
@@ -173,7 +173,7 @@ def _resolve_date(month: int, day: int, today: dt.date) -> Optional[dt.date]:
     return None
 
 
-def _closure_days(text: str) -> tuple[set[int], bool]:
+def _closure_days(text: str, dates=()) -> tuple[set[int], bool]:
     """
     Read a 休映/休館 note into the day numbers it cancels.
 
@@ -188,24 +188,34 @@ def _closure_days(text: str) -> tuple[set[int], bool]:
         return set(), False
 
     days: set[int] = set()
+    unreadable = False
     for match in re.finditer("|".join(_CLOSURE_WORDS), text):
         segment = text[: match.start()]
         # A note starts at its own marker; anything before it is the film title.
-        segment = re.split(r"[＊✳、。\n]", segment)[-1]
+        segment = re.split(r"[＊✳※、。\n]", segment)[-1]
+        weekday = re.fullmatch(r"\s*(?:毎週)?([月火水木金土日])曜(?:日)?(?:は)?\s*", segment)
+        if weekday:
+            days.update(day.day for day in dates
+                        if day.weekday() == "月火水木金土日".index(weekday.group(1)))
+            unreadable = unreadable or not dates
+            continue
         segment = _TIME_RE.sub(" ", segment)              # 18:30 is not day 18
         segment = re.sub(r"[（(][^）)]*[）)]", "", segment)  # drop (木) weekday tags
         segment = re.sub(r"\d{1,2}\s*月", "", segment)     # drop the month number
         compact = re.sub(r"[^0-9〜～\-–—,、，]", "", segment)
+        note_days = set()
         for part in re.split(r"[,、，]", compact):
             if span := re.fullmatch(r"(\d{1,2})[〜～\-–—](\d{1,2})", part):
-                days.update(range(int(span.group(1)), int(span.group(2)) + 1))
+                note_days.update(range(int(span.group(1)), int(span.group(2)) + 1))
             elif part.isdigit():
-                days.add(int(part))
-    days = {d for d in days if 1 <= d <= 31}
-    return days, not days
+                note_days.add(int(part))
+        valid_days = {d for d in note_days if 1 <= d <= 31}
+        days.update(valid_days)
+        unreadable = unreadable or not valid_days
+    return days, unreadable
 
 
-def _block_notes(block, table) -> tuple[set[int], bool]:
+def _block_notes(block, table, dates=()) -> tuple[set[int], bool]:
     """
     Closure days that apply to every row of a block: notes written outside the
     table, plus any 休館 (whole venue shut) note wherever it sits.
@@ -213,10 +223,10 @@ def _block_notes(block, table) -> tuple[set[int], bool]:
     outside = " ".join(
         s for s in block.find_all(string=True) if not s.find_parent("table")
     )
-    days, unreadable = _closure_days(outside)
+    days, unreadable = _closure_days(outside, dates)
     table_text = table.get_text(" ", strip=True) if table else ""
     if "休館" in table_text:
-        venue_days, venue_unreadable = _closure_days(table_text)
+        venue_days, venue_unreadable = _closure_days(table_text, dates)
         days |= venue_days
         unreadable = unreadable or venue_unreadable
     return days, unreadable
@@ -289,7 +299,7 @@ def _parse_range_block(
     if not dates:
         return []
 
-    block_closed, block_unreadable = _block_notes(block, table)
+    block_closed, block_unreadable = _block_notes(block, table, dates)
     if block_unreadable:
         print(
             f"WARN: [{CINEMA_NAME}] Block-level closure note could not be read; "
@@ -305,7 +315,7 @@ def _parse_range_block(
             continue
         showtime = time_match.group(1)
 
-        row_closed, row_unreadable = _closure_days(td_text)
+        row_closed, row_unreadable = _closure_days(td_text, dates)
         if row_unreadable:
             print(
                 f"WARN: [{CINEMA_NAME}] Unreadable closure note on row "
@@ -347,7 +357,9 @@ def _parse_dated_rows_block(
         return []
     details = details_cache.get(title_key, {})
 
-    block_closed, block_unreadable = _block_notes(block, table)
+    window_start, cutoff = _window(today, max_days)
+    window_dates = [window_start + dt.timedelta(days=offset) for offset in range(max_days)]
+    block_closed, block_unreadable = _block_notes(block, table, window_dates)
     if block_unreadable:
         print(
             f"WARN: [{CINEMA_NAME}] Block-level closure note could not be read; "
@@ -356,7 +368,6 @@ def _parse_dated_rows_block(
         )
         return []
 
-    window_start, cutoff = _window(today, max_days)
     showings = []
     for th_text, td_text in _row_cells(table):
         date_match = re.search(r"(\d{1,2})月(\d{1,2})日", th_text)
@@ -367,7 +378,7 @@ def _parse_dated_rows_block(
         if not date or not (window_start <= date < cutoff):
             continue
 
-        row_closed, row_unreadable = _closure_days(td_text)
+        row_closed, row_unreadable = _closure_days(td_text, [date])
         if row_unreadable:
             print(
                 f"WARN: [{CINEMA_NAME}] Unreadable closure note on row "
