@@ -18,5 +18,6 @@ jobs:
         with:
           python-version: '3.11'
       - name: Check the public site's collection age and cinema coverage
-        # Keep technical checks in GitHub; the two-day Codex check handles serious incidents.
+        # Record findings without repeated GitHub failure emails; Codex reviews serious incidents.
+        continue-on-error: true
         run: python tokyo/publication_health.py --live

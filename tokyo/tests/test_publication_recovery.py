@@ -178,6 +178,7 @@ def test_workflow_publishes_valid_partial_data_without_emailing_about_one_source
         assert "send_summary_email" not in source
     watch = (TOKYO.parent / ".github/workflows/tokyo-publication-watch.yml").read_text()
     assert "publication_health.py --live" in watch
+    assert yaml.safe_load(watch)["jobs"]["check-live-listings"]["steps"][-1]["continue-on-error"] is True
     weekly = (TOKYO.parent / ".github/workflows/cinema-health-monitor.yml").read_text()
     assert "--email-exclude-city tokyo" in weekly
 
