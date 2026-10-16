@@ -134,6 +134,19 @@ def test_unreadable_closure_notes_drop_rows_instead_of_publishing_them():
     assert _closure_days("＊都合により休映日あり") == (set(), True)
 
 
+def test_weekly_wednesday_closure_does_not_cancel_the_whole_date_range():
+    soup = BeautifulSoup('''<div class="timetable">
+      <h3 class="timetable__ttl">10月17日(土)〜23日(金)<br>※水曜休映</h3>
+      <table><tr><th>10:00〜11:52</th><td>軍服を着た神様</td></tr></table>
+      </div>''', "html.parser")
+    found = _parse_schedule(soup, {}, max_days=14, today=dt.date(2026, 10, 17))
+    assert {row["date_text"] for row in found} == {
+        "2026-10-17", "2026-10-18", "2026-10-19", "2026-10-20", "2026-10-22", "2026-10-23"}
+    # A recognised closure on a day outside this block leaves it usable.
+    assert _closure_days("※水曜休映", [dt.date(2026, 10, 17)]) == (set(), False)
+    assert _closure_days("※都合により休映日あり", [dt.date(2026, 10, 17)]) == (set(), True)
+
+
 if __name__ == "__main__":
     test_every_timetable_block_is_read()
     test_the_closure_note_is_honoured_row_by_row()
