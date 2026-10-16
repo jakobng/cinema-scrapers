@@ -1,0 +1,28 @@
+name: Tokyo - Regression Tests
+
+on:
+  pull_request:
+    paths:
+      - 'tokyo/**'
+      - 'shared/**'
+      - 'tools/cinema_health_monitor.py'
+      - '.github/workflows/tokyo-*.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: pip install -r tokyo/requirements.txt pytest
+      - run: python -B -m pytest tokyo/tests tools/test_scraper_autofix_bot.py -q

@@ -847,6 +847,7 @@
             <button class="tab-btn" data-view="cinema" type="button" id="view-cinema-btn" aria-pressed="false"></button>
             <button class="tab-btn is-active" data-view="film" type="button" id="view-film-btn" aria-pressed="true"></button>
         </nav>
+        <p id="listing-freshness" role="status" aria-live="polite" style="font-size:.85rem"></p>
         <section class="controls-section">
             <div class="primary-controls">
                 <div class="search-wrapper">
@@ -1107,6 +1108,10 @@
                     installIosHint: "共有ボタン → 「ホーム画面に追加」でアプリとして使えます",
                     footerDisclaimer: "上映情報は各劇場サイトから取得しています。最終確認は公式ページでお願いします。",
                     downloadJson: "上映情報JSONをダウンロード",
+                    collectedAt: "情報取得日時：",
+                    collectionUnknown: "情報取得日時を確認できません。劇場の公式サイトでご確認ください。",
+                    collectionStale: "上映情報が古くなっています。劇場の公式サイトでご確認ください。",
+                    collectionPartial: "一部の上映情報が不足している可能性があります。",
                     mapReset: "すべての地域を表示",
                     mapShow: "地図を表示",
                     mapHide: "地図を隠す",
@@ -1180,6 +1185,10 @@
                     installIosHint: "Tap Share → “Add to Home Screen” to use this page as an app",
                     footerDisclaimer: "Listings are scraped from cinema sites. Always double-check the booking page for last-minute changes.",
                     downloadJson: "Download raw showtimes JSON",
+                    collectedAt: "Listings collected: ",
+                    collectionUnknown: "Collection time is unavailable. Please check cinema websites.",
+                    collectionStale: "Listings are out of date. Please check cinema websites.",
+                    collectionPartial: "Some cinema listings may be incomplete.",
                     mapReset: "Show all regions",
                     mapShow: "Show map",
                     mapHide: "Hide map",
@@ -1283,6 +1292,7 @@
 
             const state = {
                 data: [],
+                scrapeStatus: null,
                 view: "film",
                 sort: "next-showing",
                 selectedCinema: "",
@@ -1643,7 +1653,25 @@
                 // Footer
                 elements.footerDisclaimer.textContent = t("footerDisclaimer");
                 elements.footerDownloadLink.textContent = t("downloadJson");
+                renderCollectionStatus();
             }
+            const collectionStatusText = (status, lang, now = Date.now()) => {
+                const messages = i18n[lang] || i18n.en;
+                const collected = Date.parse(status?.scraped_at || "");
+                const valid = Number.isFinite(collected) && collected <= now + 360000;
+                const timestamp = valid ? new Intl.DateTimeFormat(lang === "en" ? "en-GB" : "ja-JP", {
+                    timeZone: "Asia/Tokyo", dateStyle: "medium", timeStyle: "short"
+                }).format(new Date(collected)) + " JST" : "";
+                return !valid ? messages.collectionUnknown : [
+                    now - collected > 36 * 3600000 ? messages.collectionStale : "",
+                    messages.collectedAt + timestamp,
+                    status.source_issues?.length ? messages.collectionPartial : ""
+                ].filter(Boolean).join(" · ");
+            };
+            const renderCollectionStatus = () => {
+                const notice = document.getElementById("listing-freshness");
+                notice.textContent = collectionStatusText(state.scrapeStatus, state.lang);
+            };
             function getJstDateOffsetText(offsetDays) {
                 const date = new Date(getJstDateText() + "T00:00:00+09:00");
                 date.setUTCDate(date.getUTCDate() + offsetDays);
@@ -3036,6 +3064,7 @@
                         if (!payload || !payload.films || !Array.isArray(payload.showings)) {
                             throw new Error("Unexpected slim payload");
                         }
+                        state.scrapeStatus = payload.scrape_status || null;
                         return inflateSlim(payload);
                     })
                     .catch(function () {
@@ -3051,6 +3080,7 @@
                         });
                         buildFilterOptions(state.data);
                         applySmartDefaultDate();
+                        renderCollectionStatus();
                         render();
                     })
                     .catch(function () {

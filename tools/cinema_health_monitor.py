@@ -14,6 +14,7 @@ from pathlib import Path
 import random
 import re
 import smtplib
+import ssl
 import subprocess
 import sys
 import time
@@ -752,12 +753,14 @@ def create_issues_for_failures(results: list[dict[str, Any]], dry_run: bool) -> 
 
 
 def send_summary_email(results: list[dict[str, Any]]) -> None:
+    failed = [item for item in results if item.get("status") == "failed"]
+    if not failed:
+        return
     smtp_email = os.environ.get("SMTP_EMAIL", "").strip()
     smtp_password = os.environ.get("SMTP_PASSWORD", "").strip()
     recipient = os.environ.get("ALERT_RECIPIENT_EMAIL", "").strip() or smtp_email
     if not smtp_email or not smtp_password or not recipient:
-        print("Skipping health summary email: missing SMTP_EMAIL, SMTP_PASSWORD, or recipient.")
-        return
+        raise RuntimeError("Cannot send cinema alert: SMTP credentials or recipient are missing.")
 
     smtp_server = os.environ.get("SMTP_SERVER", "smtp.gmail.com").strip()
     smtp_port = int(os.environ.get("SMTP_PORT") or "587")
@@ -786,16 +789,15 @@ def send_summary_email(results: list[dict[str, Any]]) -> None:
     msg = EmailMessage()
     msg["From"] = smtp_email
     msg["To"] = recipient
-    msg["Subject"] = f"Cinema health monitor: {len(failed)} failed check(s)"
+    msg["Subject"] = f"ACTION NEEDED: Cinema listings — {len(failed)} failed check(s)"
     msg.set_content("\n".join(lines), charset="utf-8")
 
-    try:
-        with smtplib.SMTP(smtp_server, smtp_port, timeout=30) as server:
-            server.starttls()
-            server.login(smtp_email, smtp_password)
-            server.send_message(msg)
-    except Exception as exc:
-        print(f"Skipping health summary email after SMTP failure: {exc}")
+    connection = smtplib.SMTP_SSL if smtp_port == 465 else smtplib.SMTP
+    with connection(smtp_server, smtp_port, timeout=30) as server:
+        if smtp_port != 465:
+            server.starttls(context=ssl.create_default_context())
+        server.login(smtp_email, smtp_password)
+        server.send_message(msg)
 
 
 def main() -> int:

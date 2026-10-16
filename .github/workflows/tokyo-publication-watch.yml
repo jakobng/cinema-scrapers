@@ -1,0 +1,27 @@
+name: Tokyo - Published Listings Watch
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '25 4,16 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  check-live-listings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check the public site's collection age and cinema coverage
+        run: python tokyo/publication_health.py --live --email-on-failure
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
