@@ -66,14 +66,16 @@ def test_meguro_rolls_only_the_overnight_rows_to_the_next_calendar_day(monkeypat
     assert [day.isoformat() for day in meguro._parse_dates_from_text("10/19(月)・10/22(木)")] == ["2030-10-19", "2030-10-22"]
 
 
-@pytest.mark.parametrize("cinema", ["CINEMA AMIGO", "小田原シネマ館"])
-def test_verified_nouvelle_vague_correction_is_limited_to_verified_listings(cinema):
+@pytest.mark.parametrize("cinema,title", [("CINEMA AMIGO", "ヌーヴェルヴァーグ"),
+                                        ("小田原シネマ館", "ヌーヴェルヴァーグ"),
+                                        ("CINEMA AMIGO", " Nouvelle Vague")])
+def test_verified_nouvelle_vague_correction_is_limited_to_verified_listings(cinema, title):
     import main_scraper
     decisions = main_scraper.load_film_identity_decisions(TOKYO / "data/film_identity_decisions.tsv")
     correct = {"tmdb_id": 1254808, "release_date": "2025-10-08", "director_en": "Richard Linklater"}
     wrong = {"tmdb_id": 32691, "release_date": "1990-01-01"}
     selected, details = main_scraper._select_film_identity_details(
-        {"cinema_name": cinema, "movie_title": "ヌーヴェルヴァーグ", "year": "2025"},
+        {"cinema_name": cinema, "movie_title": title, "year": "2025"},
         wrong, decisions, {"tmdb:1254808": correct})
     assert selected["tmdb_id"] == 1254808
     assert selected["year"] == "2025"
@@ -82,6 +84,31 @@ def test_verified_nouvelle_vague_correction_is_limited_to_verified_listings(cine
         {"cinema_name": "Another cinema", "movie_title": "ヌーヴェルヴァーグ", "year": "1990"},
         wrong, decisions, {"tmdb:1254808": correct})
     assert original["tmdb_id"] == 32691
+
+
+def test_amigo_pdf_cannot_add_guessed_times_to_a_date_in_the_booking_calendar(monkeypatch):
+    from cinema_modules import cinema_amigo_module as amigo
+    exact = [{"movie_title": "ヌーヴェルヴァーグ", "date_text": "2026-10-21", "showtime": "15:10"}]
+    pdf = [{"movie_title": "Nouvelle Vague", "date_text": "2026-10-21", "showtime": "15:00"},
+           {"movie_title": "Future film", "date_text": "2026-11-01", "showtime": "10:00"}]
+    monkeypatch.setattr(amigo, "_fetch_airreserve_showtimes", lambda: exact)
+    monkeypatch.setattr(amigo, "_fetch_pdf_showtimes", lambda: pdf)
+    assert amigo.scrape_cinema_amigo() == [exact[0], pdf[1]]
+    assert amigo._clean_pdf_movie_title("貸 切") == ""
+
+
+def test_amigo_pdf_does_not_turn_last_months_screenings_into_next_year(monkeypatch):
+    from cinema_modules import cinema_amigo_module as amigo
+    from datetime import date
+    from types import SimpleNamespace
+    blocks = [(200, 100, 240, 110, "9/29（火）"), (200, 130, 240, 140, "10/21（水）"),
+              (300, 100, 330, 110, "Old Film"), (450, 130, 500, 140, "Nouvelle Vague")]
+    page = SimpleNamespace(get_text=lambda kind=None: blocks if kind == "blocks" else "MOVIE & EVENT SCHEDULE 2026.10")
+    monkeypatch.setitem(sys.modules, "fitz", SimpleNamespace(open=lambda **_: [page]))
+    monkeypatch.setattr(amigo, "_today_jst", lambda: date(2026, 10, 17))
+    monkeypatch.setattr(amigo.requests, "get", lambda *_, **__: SimpleNamespace(content=b"fixture", raise_for_status=lambda: None))
+    rows = amigo._fetch_pdf_showtimes()
+    assert [(row["movie_title"], row["date_text"]) for row in rows] == [("Nouvelle Vague", "2026-10-21")]
 
 
 def test_film_pages_keep_each_cinemas_booking_link_and_the_existing_counter(tmp_path, monkeypatch):

@@ -253,6 +253,8 @@ def _clean_pdf_movie_title(text: str) -> str:
         if re.search(r"^\d{4}年", normalized):
             continue
         compact = re.sub(r"\s+", "", normalized).upper()
+        if compact in SKIP_TITLES:
+            continue
         if any(skip in compact for skip in ("休映", "休館", "CLOSED", "AMIGO", "逗子海岸映画祭", "BARTIME", "MARKET")):
             continue
         if "上映" in compact and re.search(r"\d{1,2}:\d{2}", compact):
@@ -306,7 +308,8 @@ def _fetch_pdf_showtimes() -> List[Dict[str, str]]:
             if not month:
                 continue
             day = int(match.group(2))
-            year = schedule_year + (1 if month < current_month and current_month >= 10 else 0)
+            year = schedule_year + (1 if month < current_month - 6
+                                    else -1 if month > current_month + 6 else 0)
             try:
                 date_value = dt.date(year, month, day)
             except ValueError:
@@ -347,9 +350,13 @@ def _fetch_pdf_showtimes() -> List[Dict[str, str]]:
 def scrape_cinema_amigo() -> List[Dict[str, str]]:
     airreserve_listings = _fetch_airreserve_showtimes()
     pdf_listings = _fetch_pdf_showtimes()
+    # PDF columns only supply the regular slots. The booking calendar has exact
+    # times and titles, so use the PDF only for dates not yet in that calendar.
+    booking_dates = {row["date_text"] for row in airreserve_listings}
+    fallback_listings = [row for row in pdf_listings if row["date_text"] not in booking_dates]
     listings: List[Dict[str, str]] = []
     seen = set()
-    for item in airreserve_listings + pdf_listings:
+    for item in airreserve_listings + fallback_listings:
         key = (item.get("movie_title"), item.get("date_text"), item.get("showtime"))
         if key in seen:
             continue
