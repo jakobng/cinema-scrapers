@@ -233,7 +233,7 @@ jobs:
             exit 0
           fi
           cd /tmp
-          git clone https://github.com/jakobng/website1.git website1-sync
+          git clone --depth 1 https://github.com/jakobng/website1.git website1-sync
           cd website1-sync
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
