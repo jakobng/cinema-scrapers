@@ -141,6 +141,10 @@ KNOWN_DARK = {
     "Koenji Cinema Club": "meetup.com group deleted; the club now announces on Instagram only",
     "Cinema Novecento": "Yokohama venue closed 2026-08-31; reopening in Tsurukawa, Machida, announced for 2026-10-31",
 }
+LIVE_CLOSURE_CHECKS = {
+    "Shinjuku Musashino-kan": musashino_kan_module.current_closure_reason,
+    "Cinema Blue Studio": bluestudio_module.current_closure_reason,
+}
 
 class ScrapeReport:
     def __init__(self):
@@ -173,9 +177,11 @@ class ScrapeReport:
             # If SUCCESS but 0 showings, treat as WARNING unless the venue is a
             # recorded known-dark case.
             if r['status'] == 'SUCCESS' and r['count'] == 0:
-                if r['cinema'] in KNOWN_DARK:
+                checker = LIVE_CLOSURE_CHECKS.get(r['cinema'])
+                reason = KNOWN_DARK.get(r['cinema']) or (checker() if checker else None)
+                if reason:
                     r['status'] = 'DARK'
-                    r['error'] = KNOWN_DARK[r['cinema']]
+                    r['error'] = reason
                 else:
                     r['status'] = 'WARNING'
                     warnings.append(r)
@@ -196,9 +202,8 @@ class ScrapeReport:
 
         print("-" * 65)
         print(f"Total Showings Collected: {self.total_showings}")
-        # In CI the email path below is deliberately suppressed, so without this
-        # a silent cinema leaves no trace anywhere a human looks. Annotations put
-        # the name on the run page itself -- no new workflow, no new secret.
+        # Keep source-level details on the run page; the workflow sends its
+        # owner alert after deciding whether the collected data can be saved.
         if os.environ.get("GITHUB_ACTIONS") == "true":
             for r in failures:
                 print(f"::error title=Scraper failed::{r['cinema']}: {r.get('error') or 'unknown error'}")
@@ -208,7 +213,7 @@ class ScrapeReport:
         return failures, warnings
 
     def send_email_alert(self, failures, warnings):
-        """Sends an email if things went wrong. Suppressed in CI — auto-fix bot handles failures."""
+        """Send local-run alerts; CI sends its alert from the workflow after validation."""
         if os.environ.get("GITHUB_ACTIONS") == "true":
             return
         if not failures and not warnings:

@@ -234,6 +234,23 @@ def _parse_details_from_text(text: str) -> Dict:
 # -------------------------------------------------------------------
 # Main scraper
 # -------------------------------------------------------------------
+def current_closure_reason(today=None):
+    soup = fetch_soup(BASE_URL)
+    if not soup:
+        return None
+    today = today or dt.date.today()
+    for note in soup.stripped_strings:
+        if "通常上映の予定はございません" not in note:
+            continue
+        try:
+            period = _extract_date_range(note)
+        except ValueError:
+            continue
+        if period and period[0] <= today <= period[1]:
+            return f"The official schedule pauses regular screenings through {period[1].isoformat()}."
+    return None
+
+
 def scrape_bluestudio(max_days: int = 14) -> List[Dict]:
     print(f"INFO: [{CINEMA_NAME}] Starting scrape...", file=sys.stderr)
     soup = fetch_soup(BASE_URL)

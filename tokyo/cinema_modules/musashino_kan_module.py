@@ -130,6 +130,14 @@ def _parse_movie_details(soup: BeautifulSoup) -> Dict[str, Optional[str]]:
 
 # --- Main Scraping Logic ---
 
+def current_closure_reason():
+    """Recognise a current closure banner, rather than remembering it forever."""
+    soup = _fetch_soup(MAIN_SITE_URL)
+    if soup and "上映中の作品はありません" in soup.get_text():
+        if any("臨時休館" in title.get_text() for title in soup.select(".module-hero .title")):
+            return "The official homepage currently announces a temporary closure and no current films."
+    return None
+
 def scrape_musashino_kan() -> List[Dict]:
     """Scrapes movie showtimes and details from the Musashino-kan website."""
     movie_to_url_map = _get_movie_detail_urls()
