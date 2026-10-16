@@ -25,4 +25,5 @@ jobs:
         with:
           node-version: '24'
       - run: pip install -r tokyo/requirements.txt pytest
-      - run: python -B -m pytest tokyo/tests tools/test_scraper_autofix_bot.py -q
+      - run: python -B -m pytest tests ../tools/test_scraper_autofix_bot.py -q
+        working-directory: tokyo
