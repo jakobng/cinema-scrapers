@@ -38,6 +38,7 @@ from pathlib import Path
 from build_slim_showtimes import FILM_FIELDS, build_slim
 from listing_identity import canonicalize_listings, film_identity_key
 from publication_health import load_status
+from audit_showtimes import CINEMA_SITE_FALLBACKS, is_blocked_detail_url
 
 try:
     from zoneinfo import ZoneInfo
@@ -247,16 +248,30 @@ def aggregate(showings: list[dict]):
 
 
 def showtime_url(row):
-    return next((str(row[field]) for field in (
-        "booking_url", "purchase_url", "detail_page_url", "cinema_site_url", "official_site"
-    ) if str(row.get(field) or "").startswith(("https://", "http://"))), "")
+    detail = row.get("detail_page_url") or ""
+    candidates = (row.get("booking_url"), row.get("purchase_url"),
+                  detail if not is_blocked_detail_url(row) else "",
+                  row.get("cinema_site_url"),
+                  CINEMA_SITE_FALLBACKS.get(row.get("cinema_name")),
+                  row.get("official_site"), detail)
+    return next((str(url) for url in candidates
+                 if str(url or "").startswith(("https://", "http://"))), "")
 
 
-def with_analytics(page, template):
+def with_publication_details(page, template, status):
     # Reuse the template's existing beacon and token, including on search landing pages.
     beacon = re.search(r'<script[^>]+src="https://static\.cloudflareinsights\.com/beacon\.min\.js"[^>]*></script>', template)
-    return page.replace("</head>", beacon.group(0) + "\n</head>", 1) \
+    page = page.replace("</head>", beacon.group(0) + "\n</head>", 1) \
         if beacon and "static.cloudflareinsights.com/beacon.min.js" not in page else page
+    try:
+        collected = dt.datetime.fromisoformat(status["scraped_at"].replace("Z", "+00:00"))
+        if collected.tzinfo is None:
+            raise ValueError("Collection time needs a timezone")
+        label = collected.astimezone(JST).strftime("%Y-%m-%d %H:%M JST")
+        notice = f'最終取得 / Listings collected: <time datetime="{e(status["scraped_at"])}">{label}</time>'
+    except (KeyError, ValueError, TypeError):
+        notice = "最終取得日時を確認できません / Collection time unavailable"
+    return page.replace('<div class="wrap">', '<div class="wrap">\n<p class="meta">' + notice + '</p>', 1)
 
 
 # --------------------------------------------------------------------------- #
@@ -710,7 +725,7 @@ def main():
         page = render_film_page(fid, film, slug, base_url, today)
         d = out / "film" / slug
         d.mkdir(parents=True, exist_ok=True)
-        (d / "index.html").write_text(with_analytics(page, template_source), encoding="utf-8")
+        (d / "index.html").write_text(with_publication_details(page, template_source, scrape_status), encoding="utf-8")
         built_films[fid] = slug
 
     # Per-cinema pages (only cinemas with upcoming showings).
@@ -722,7 +737,7 @@ def main():
         page = render_cinema_page(cname, cin, slug, films, film_slugs, base_url, today)
         d = out / "cinema" / slug
         d.mkdir(parents=True, exist_ok=True)
-        (d / "index.html").write_text(with_analytics(page, template_source), encoding="utf-8")
+        (d / "index.html").write_text(with_publication_details(page, template_source, scrape_status), encoding="utf-8")
         built_cinemas[cname] = slug
 
     all_showings = [
@@ -755,7 +770,7 @@ def main():
                                     film_slugs, cinema_slugs, base_url)
         guide_dir = out / slug
         guide_dir.mkdir()
-        (guide_dir / "index.html").write_text(with_analytics(page, template_source), encoding="utf-8")
+        (guide_dir / "index.html").write_text(with_publication_details(page, template_source, scrape_status), encoding="utf-8")
 
     # Index (SPA + pre-render), sitemap, robots, CNAME — only reference built pages.
     index_html = build_index(template_dir / "index.html", films, built_cinemas,

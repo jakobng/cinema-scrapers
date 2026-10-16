@@ -66,17 +66,22 @@ def test_meguro_rolls_only_the_overnight_rows_to_the_next_calendar_day(monkeypat
     assert [day.isoformat() for day in meguro._parse_dates_from_text("10/19(月)・10/22(木)")] == ["2030-10-19", "2030-10-22"]
 
 
-def test_verified_nouvelle_vague_correction_applies_to_amigo_and_other_venues():
+@pytest.mark.parametrize("cinema", ["CINEMA AMIGO", "小田原シネマ館"])
+def test_verified_nouvelle_vague_correction_is_limited_to_verified_listings(cinema):
     import main_scraper
     decisions = main_scraper.load_film_identity_decisions(TOKYO / "data/film_identity_decisions.tsv")
     correct = {"tmdb_id": 1254808, "release_date": "2025-10-08", "director_en": "Richard Linklater"}
     wrong = {"tmdb_id": 32691, "release_date": "1990-01-01"}
     selected, details = main_scraper._select_film_identity_details(
-        {"cinema_name": "CINEMA AMIGO", "movie_title": "ヌーヴェルヴァーグ", "year": "2025"},
+        {"cinema_name": cinema, "movie_title": "ヌーヴェルヴァーグ", "year": "2025"},
         wrong, decisions, {"tmdb:1254808": correct})
     assert selected["tmdb_id"] == 1254808
     assert selected["year"] == "2025"
     assert details["director_en"] == "Richard Linklater"
+    _, original = main_scraper._select_film_identity_details(
+        {"cinema_name": "Another cinema", "movie_title": "ヌーヴェルヴァーグ", "year": "1990"},
+        wrong, decisions, {"tmdb:1254808": correct})
+    assert original["tmdb_id"] == 32691
 
 
 def test_film_pages_keep_each_cinemas_booking_link_and_the_existing_counter(tmp_path, monkeypatch):
@@ -96,7 +101,16 @@ def test_film_pages_keep_each_cinemas_booking_link_and_the_existing_counter(tmp_
     assert 'href="https://b.example/book"' in film
     pages = list(out.rglob("*.html"))
     assert all(page.read_text().count("static.cloudflareinsights.com/beacon.min.js") == 1 for page in pages)
+    assert all("2026-10-17 12:00 JST" in page.read_text()
+               for page in pages if page != out / "index.html")
     assert json.loads((out / "data/showtimes_slim.json").read_text())["scrape_status"]["scraped_at"] == status["scraped_at"]
+
+
+def test_static_booking_links_prefer_the_cinema_to_a_generic_movie_database():
+    assert build_site.showtime_url({"cinema_name": "目黒シネマ",
+                                   "detail_page_url": "https://eiga.com/movie/123/"}) == "https://www.okura-movie.co.jp/meguro_cinema/"
+    assert build_site.showtime_url({"cinema_name": "Cinema A", "purchase_url": "https://a.example/book",
+                                   "detail_page_url": "https://eiga.com/movie/123/"}) == "https://a.example/book"
 
 
 @pytest.mark.parametrize("port", [465, 587])
@@ -125,7 +139,7 @@ def test_workflow_publishes_valid_partial_data_then_alerts_on_the_failed_source(
     by_name = {step["name"]: step for step in steps}
     assert by_name["Run Scraper"]["continue-on-error"] is True
     names = [step["name"] for step in steps]
-    assert names.index("Commit & Push Data (Cinema Scrapers Repo)") < names.index("Report incomplete collection after publishing healthy listings")
+    assert names.index("Commit & Push Data (Cinema Scrapers Repo)") < names.index("Report incomplete collection after saving healthy listings")
     assert by_name["Send Failure Alert Email"]["if"] == "failure()"
     assert "publication_health.py --run-id" in by_name["Validate Showtime Data"]["run"]
 
