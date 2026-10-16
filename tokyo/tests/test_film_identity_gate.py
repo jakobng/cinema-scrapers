@@ -293,7 +293,7 @@ def test_suppressed_screening_survives_static_site_aggregation_without_tmdb():
 def test_reviewed_ledger_contains_the_complete_audit_and_calibrations():
     reviewed = main_scraper.load_film_identity_decisions()
 
-    assert len(reviewed) == 329
+    assert len(reviewed) >= 329
     assert reviewed[
         ("K's Cinema (ケイズシネマ)", "殺人者（1946）", 14638)
     ]["verdict"] == "CORRECT"

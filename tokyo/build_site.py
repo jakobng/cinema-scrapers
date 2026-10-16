@@ -37,6 +37,7 @@ from pathlib import Path
 
 from build_slim_showtimes import FILM_FIELDS, build_slim
 from listing_identity import canonicalize_listings, film_identity_key
+from publication_health import load_status
 
 try:
     from zoneinfo import ZoneInfo
@@ -226,6 +227,7 @@ def aggregate(showings: list[dict]):
             "f": fid,
             "date_text": rec.get("date_text", ""),
             "showtime": rec.get("showtime", ""),
+            "booking_url": showtime_url(rec),
         })
         for key in ("cinema_address", "cinema_site_url"):
             if not cin["meta"].get(key) and rec.get(key):
@@ -237,10 +239,24 @@ def aggregate(showings: list[dict]):
             "cinema_name": (r.get("cinema_name") or "").strip(),
             "date_text": r.get("date_text", ""),
             "showtime": r.get("showtime", ""),
+            "booking_url": showtime_url(r),
         } for r in recs]
         films[fid] = film
 
     return films, cinemas
+
+
+def showtime_url(row):
+    return next((str(row[field]) for field in (
+        "booking_url", "purchase_url", "detail_page_url", "cinema_site_url", "official_site"
+    ) if str(row.get(field) or "").startswith(("https://", "http://"))), "")
+
+
+def with_analytics(page, template):
+    # Reuse the template's existing beacon and token, including on search landing pages.
+    beacon = re.search(r'<script[^>]+src="https://static\.cloudflareinsights\.com/beacon\.min\.js"[^>]*></script>', template)
+    return page.replace("</head>", beacon.group(0) + "\n</head>", 1) \
+        if beacon and "static.cloudflareinsights.com/beacon.min.js" not in page else page
 
 
 # --------------------------------------------------------------------------- #
@@ -402,7 +418,9 @@ def render_film_page(fid, film, slug, base_url, today):
         parts.append(f'<div class="group"><h3>{link}</h3><ul class="times">')
         for s in slist:
             label = f'{s["date_text"][5:]} {s["showtime"]}'.strip()
-            parts.append(f"<li>{e(label)}</li>")
+            target = showtime_url(s)
+            parts.append(f'<li><a href="{e(target)}" rel="noopener">{e(label)}</a></li>'
+                         if target else f"<li>{e(label)}</li>")
         parts.append("</ul></div>")
 
     parts.append('<p class="foot">Source: <a href="' + base_url + '/">cinematokyo.com</a> · '
@@ -469,6 +487,9 @@ def render_cinema_page(cname, cin, slug, films, film_slugs, base_url, today):
                              f'style="text-decoration:none">{e(label)}</a></li>')
             else:
                 parts.append(f"<li>{e(label)}</li>")
+            target = showtime_url(s)
+            if target:
+                parts.append(f'<li><a href="{e(target)}" rel="noopener">公式・予約 / Book</a></li>')
         parts.append("</ul></div>")
 
     parts.append('<p class="foot">Source: <a href="' + base_url + '/">cinematokyo.com</a></p>')
@@ -633,6 +654,8 @@ def main():
     base_url = args.base_url.rstrip("/")
     data_path = Path(args.data)
     template_dir = Path(args.template)
+    template_source = (template_dir / "index.html").read_text(encoding="utf-8")
+    scrape_status = load_status(data_path.with_name("scrape_status.json"))
     out = Path(args.out)
 
     raw_showings = json.loads(data_path.read_text(encoding="utf-8"))
@@ -670,6 +693,9 @@ def main():
     (out / "data" / "showtimes.json").write_text(
         json.dumps(showings, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     slim = build_slim(showings, today)
+    slim["scrape_status"] = scrape_status
+    (out / "data" / "scrape_status.json").write_text(
+        json.dumps(scrape_status, ensure_ascii=False, indent=2), encoding="utf-8")
     (out / "data" / "showtimes_slim.json").write_text(
         json.dumps(slim, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"Slim: {len(slim['films'])} films, {len(slim['showings'])} showings")
@@ -684,7 +710,7 @@ def main():
         page = render_film_page(fid, film, slug, base_url, today)
         d = out / "film" / slug
         d.mkdir(parents=True, exist_ok=True)
-        (d / "index.html").write_text(page, encoding="utf-8")
+        (d / "index.html").write_text(with_analytics(page, template_source), encoding="utf-8")
         built_films[fid] = slug
 
     # Per-cinema pages (only cinemas with upcoming showings).
@@ -696,7 +722,7 @@ def main():
         page = render_cinema_page(cname, cin, slug, films, film_slugs, base_url, today)
         d = out / "cinema" / slug
         d.mkdir(parents=True, exist_ok=True)
-        (d / "index.html").write_text(page, encoding="utf-8")
+        (d / "index.html").write_text(with_analytics(page, template_source), encoding="utf-8")
         built_cinemas[cname] = slug
 
     all_showings = [
@@ -729,7 +755,7 @@ def main():
                                     film_slugs, cinema_slugs, base_url)
         guide_dir = out / slug
         guide_dir.mkdir()
-        (guide_dir / "index.html").write_text(page, encoding="utf-8")
+        (guide_dir / "index.html").write_text(with_analytics(page, template_source), encoding="utf-8")
 
     # Index (SPA + pre-render), sitemap, robots, CNAME — only reference built pages.
     index_html = build_index(template_dir / "index.html", films, built_cinemas,

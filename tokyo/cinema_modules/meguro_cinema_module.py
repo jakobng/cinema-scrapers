@@ -7,7 +7,8 @@ from __future__ import annotations
 import json
 import re
 import sys
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
+from itertools import accumulate
 from typing import Dict, List, Optional
 from urllib.parse import urljoin
 
@@ -37,7 +38,7 @@ def _fetch_soup(url: str) -> Optional[BeautifulSoup]:
 def _parse_dates_from_text(text: str) -> List[date]:
     """Parses multiple date formats from a given string."""
     dates = []
-    matches = re.findall(r'(\d{1,2})月(\d{1,2})日', text)
+    matches = re.findall(r'(\d{1,2})(?:月|/)(\d{1,2})(?:日)?', text)
     for month_str, day_str in matches:
         try:
             d = date(CURRENT_YEAR, int(month_str), int(day_str))
@@ -46,6 +47,13 @@ def _parse_dates_from_text(text: str) -> List[date]:
         except ValueError:
             continue
     return sorted(dates)
+
+
+def _overnight_offsets(times):
+    """A programme's early-morning rows belong to the following calendar day."""
+    minutes = [int(value.split(":")[0]) * 60 + int(value.split(":")[1]) for value in times]
+    return list(accumulate([0] + [int(before >= 18 * 60 and after < 6 * 60)
+                                  for before, after in zip(minutes, minutes[1:])])) if times else []
 
 # --- Main Scraping Logic ---
 
@@ -136,26 +144,29 @@ def scrape_meguro_cinema() -> List[Dict]:
         show_dates = _parse_dates_from_text(date_p.get_text())
         if not show_dates: continue
 
+        table_times = [match.group(1) for cell in table.select("td.time_type2")
+                       if (match := re.search(r'\b(\d{1,2}:\d{2})\b', cell.get_text(strip=True)))]
+        time_offsets = iter(_overnight_offsets(table_times))
+
         for row in table.find_all("tr"):
             title_cell = row.find("td", class_="time_title")
-            if not title_cell: continue
-
-            raw_title_text = title_cell.get_text(strip=True).replace(' ','')
-            found_title = next((cached_title for cached_title in movie_details_cache if raw_title_text.startswith(cached_title.replace(' ',''))), None)
-            if not found_title: continue
-
-            details = movie_details_cache[found_title]
+            raw_title_text = title_cell.get_text(strip=True).replace(' ','') if title_cell else ""
+            found_title = next((cached_title for cached_title in movie_details_cache
+                                if raw_title_text.startswith(cached_title.replace(' ',''))), None)
+            details = movie_details_cache.get(found_title, {})
 
             for time_cell in row.find_all("td", class_="time_type2"):
                 time_match = re.search(r'\b(\d{1,2}:\d{2})\b', time_cell.get_text(strip=True))
                 if time_match:
                     showtime = time_match.group(1)
+                    day_offset = next(time_offsets)
+                    if not found_title: continue
                     for d in show_dates:
                         all_showings.append({
                             "cinema_name":     CINEMA_NAME,
                             "movie_title":     found_title,
                             "movie_title_en":  "",
-                            "date_text":       d.isoformat(),
+                            "date_text":       (d + timedelta(days=day_offset)).isoformat(),
                             "showtime":        showtime,
                             "director":        details.get("director") or "",
                             "year":            details.get("year") or "",
@@ -166,7 +177,7 @@ def scrape_meguro_cinema() -> List[Dict]:
                         })
 
     # --- FIX: Filter out past dates ---
-    today = date.today()
+    today = datetime.now(timezone(timedelta(hours=9))).date()
     future_showings = [s for s in all_showings if date.fromisoformat(s['date_text']) >= today]
 
     unique_showings = list({(s["date_text"], s["movie_title"], s["showtime"]): s for s in future_showings}.values())

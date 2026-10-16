@@ -27,6 +27,7 @@ from email.message import EmailMessage
 from pathlib import Path
 
 from listing_identity import canonicalize_listings
+from publication_health import collection_status
 from typing import Optional
 from urllib.parse import quote
 from bs4 import BeautifulSoup
@@ -3240,6 +3241,10 @@ def main():
 
     # 5. REPORTING & ALERTS
     failures, warnings = report.print_summary()
+    # Only a real collection writes this marker. Enrichment and site builds must
+    # never make old listings look freshly collected.
+    _write_json_file(os.path.join(DATA_DIR, "scrape_status.json"),
+                     collection_status(listings, report.results))
     
     # Send email if configured
     report.send_email_alert(failures, warnings)

@@ -24,6 +24,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from listing_identity import film_identity_key
+from publication_health import load_status
 
 JST = timezone(timedelta(hours=9))
 
@@ -152,6 +153,7 @@ def main() -> int:
         return 1
 
     slim = build_slim(rows, today)
+    slim["scrape_status"] = load_status(Path(args.src).with_name("scrape_status.json"))
     if not slim["showings"]:
         print(f"❌ No current/future showings (today={today}); refusing to build slim file.")
         return 1

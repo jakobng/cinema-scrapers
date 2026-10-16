@@ -1,6 +1,7 @@
 """Regression coverage for Institut francais Tokyo's current schedule markup."""
 
 import sys
+from datetime import datetime
 from pathlib import Path
 
 from bs4 import BeautifulSoup
@@ -85,6 +86,12 @@ def test_non_tokyo_venue_is_rejected(monkeypatch):
 
 
 def test_wordpress_api_bypasses_an_empty_cached_archive(monkeypatch):
+    class BeforeProgramme(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return cls(2026, 10, 1)
+
+    monkeypatch.setattr(institut, "datetime", BeforeProgramme)
     monkeypatch.setattr(institut, "_write_event_cache", lambda _rows: None)
     monkeypatch.setattr(
         institut,
