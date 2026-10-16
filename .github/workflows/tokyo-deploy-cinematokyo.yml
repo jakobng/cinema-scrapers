@@ -87,19 +87,3 @@ jobs:
           fi
           echo "✅ Deployed to cinematokyo.com"
 
-      - name: Alert if the public site could not be published
-        if: failure()
-        env:
-          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
-        run: |
-          python - <<'PY'
-          from tools.cinema_health_monitor import send_summary_email
-          send_summary_email([{
-              "city": "tokyo", "kind": "publication", "status": "failed",
-              "summary": "The cinematokyo.com publication failed. Visitors may still see older listings. https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
-          }])
-          PY

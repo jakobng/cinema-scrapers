@@ -160,19 +160,44 @@ def test_alerts_use_the_configured_smtp_transport_and_do_not_hide_delivery_error
         monitor.send_summary_email([{"status": "failed"}])
 
 
-def test_workflow_publishes_valid_partial_data_then_alerts_on_the_failed_source():
+def test_workflow_publishes_valid_partial_data_without_emailing_about_one_source():
     workflow = yaml.safe_load((TOKYO.parent / ".github/workflows/tokyo-scrape-and-post.yml").read_text())
     steps = workflow["jobs"]["scrape-and-post"]["steps"]
     by_name = {step["name"]: step for step in steps}
     assert by_name["Run Scraper"]["continue-on-error"] is True
     names = [step["name"] for step in steps]
     assert names.index("Commit & Push Data (Cinema Scrapers Repo)") < names.index("Report incomplete collection after saving healthy listings")
-    assert by_name["Send Failure Alert Email"]["if"] == "failure()"
+    report = by_name["Report incomplete collection after saving healthy listings"]["run"]
+    assert "::warning::" in report
+    assert "exit 1" not in report
     assert "publication_health.py --run-id" in by_name["Validate Showtime Data"]["run"]
-    deployment = yaml.safe_load((TOKYO.parent / ".github/workflows/tokyo-deploy-cinematokyo.yml").read_text())
-    alert = deployment["jobs"]["deploy"]["steps"][-1]
-    assert alert["if"] == "failure()"
-    assert "send_summary_email" in alert["run"]
+    for name in ("tokyo-scrape-and-post", "tokyo-deploy-cinematokyo", "tokyo-publication-watch"):
+        source = (TOKYO.parent / f".github/workflows/{name}.yml").read_text()
+        assert "SMTP_PASSWORD" not in source
+        assert "--email-on-failure" not in source
+        assert "send_summary_email" not in source
+    watch = (TOKYO.parent / ".github/workflows/tokyo-publication-watch.yml").read_text()
+    assert "publication_health.py --live" in watch
+    weekly = (TOKYO.parent / ".github/workflows/cinema-health-monitor.yml").read_text()
+    assert "--email-exclude-city tokyo" in weekly
+
+
+def test_monitor_omits_tokyo_from_emails_but_keeps_checks_and_repair_issues(monkeypatch, capsys):
+    monkeypatch.setattr(sys, "argv", ["monitor", "--city", "tokyo", "--city", "london",
+                                     "--email-summary", "--email-exclude-city", "tokyo",
+                                     "--create-issues", "--json"])
+    monkeypatch.setattr(monitor, "load_showtimes", lambda config: [])
+    for name in ("audit_data_freshness", "audit_source_rows", "audit_repo_output",
+                 "audit_image_files", "ollama_vision_review", "audit_instagram"):
+        monkeypatch.setattr(monitor, name, lambda config, *args: {
+            "city": config.name, "kind": "source-audit", "status": "failed"})
+    email, issues = MagicMock(), MagicMock(return_value=[])
+    monkeypatch.setattr(monitor, "send_summary_email", email)
+    monkeypatch.setattr(monitor, "create_issues_for_failures", issues)
+    assert monitor.main() == 0
+    assert {item["city"] for item in email.call_args.args[0]} == {"london"}
+    assert {item["city"] for item in issues.call_args.args[0]} == {"tokyo", "london"}
+    assert '"city": "tokyo"' in capsys.readouterr().out
 
 
 def test_visible_collection_notice_uses_collection_time_not_build_time():

@@ -51,4 +51,5 @@ jobs:
             --sample-size "$sample_size" \
             --create-issues \
             --email-summary \
+            --email-exclude-city tokyo \
             --json
