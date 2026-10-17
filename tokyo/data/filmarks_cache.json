@@ -3324,6 +3324,37 @@
     "status": "review",
     "updated_at": "2026-10-16T16:21:03.393999+00:00"
   },
+  "catvideofest2023::2023::73::版xファイル、シリーズ化が決定": {
+    "candidate": {
+      "director": "ユン・ジョンヒョン",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "87",
+      "score": -16,
+      "support": 1,
+      "title": "トンソン荘事件の記録",
+      "url": "https://filmarks.com/movies/108151",
+      "year": "2023"
+    },
+    "candidate_count": 22,
+    "filmarks_url": "",
+    "query": "CatVideoFest 2023",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -16,
+    "search_url": "https://filmarks.com/search/movies?q=CatVideoFest%202023",
+    "status": "review",
+    "updated_at": "2026-10-17T00:34:37.118869+00:00"
+  },
   "catvideofest2025::2025::73::ウィルブレイデン": {
     "candidate": {
       "director": "ベンジャミン・カーランド",
@@ -19403,6 +19434,37 @@
     "search_url": "https://filmarks.com/search/movies?q=The%20Choral",
     "status": "accepted",
     "updated_at": "2026-07-04T23:32:14.119933+00:00"
+  },
+  "thedayicelandstoodstill::2025::71::pamelahogan": {
+    "candidate": {
+      "director": "パメラ・ホーガン",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "71",
+      "score": 11,
+      "support": 2,
+      "title": "女性の休日",
+      "url": "https://filmarks.com/movies/123111",
+      "year": "2025"
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "The Day Iceland Stood Still",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=The%20Day%20Iceland%20Stood%20Still",
+    "status": "review",
+    "updated_at": "2026-10-17T00:34:40.467913+00:00"
   },
   "thedayicelandstoodstill::2025::71::パメラホーガン": {
     "candidate": {
@@ -82609,6 +82671,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E6%88%A6%E8%89%A6%E3%83%9D%E3%83%81%E3%83%A7%E3%83%A0%E3%82%AD%E3%83%B3",
     "status": "review",
     "updated_at": "2026-09-14T00:22:33.366657+00:00"
+  },
+  "手でふれてみる世界::2022::60::とが困難なコロナ禍の下でイタリアへ通った": {
+    "candidate": {
+      "director": "松居大悟",
+      "reasons": [
+        "title_partial",
+        "year",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "99",
+      "score": -1,
+      "support": 1,
+      "title": "手",
+      "url": "https://filmarks.com/movies/103655",
+      "year": "2022"
+    },
+    "candidate_count": 27,
+    "filmarks_url": "",
+    "query": "手でふれてみる世界",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "year",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -1,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%89%8B%E3%81%A7%E3%81%B5%E3%82%8C%E3%81%A6%E3%81%BF%E3%82%8B%E4%B8%96%E7%95%8C",
+    "status": "review",
+    "updated_at": "2026-10-17T00:34:39.124939+00:00"
   },
   "打ち上げ花火、下から見るか？横から見るか？::1995::45::岩井俊二": {
     "candidate": {
