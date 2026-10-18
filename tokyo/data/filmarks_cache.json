@@ -3293,6 +3293,37 @@
     "status": "accepted",
     "updated_at": "2026-08-13T23:13:10.014539+00:00"
   },
+  "catvideofest2023::2023::73::、28年後...第3弾は優先順位が下がったと明かす": {
+    "candidate": {
+      "director": "ユン・ジョンヒョン",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "87",
+      "score": -16,
+      "support": 1,
+      "title": "トンソン荘事件の記録",
+      "url": "https://filmarks.com/movies/108151",
+      "year": "2023"
+    },
+    "candidate_count": 22,
+    "filmarks_url": "",
+    "query": "CatVideoFest 2023",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -16,
+    "search_url": "https://filmarks.com/search/movies?q=CatVideoFest%202023",
+    "status": "review",
+    "updated_at": "2026-10-18T00:12:00.767398+00:00"
+  },
   "catvideofest2023::2023::73::がやってる人が頭おかしいと大興奮！": {
     "candidate": {
       "director": "ユン・ジョンヒョン",
@@ -3383,6 +3414,31 @@
     "search_url": "https://filmarks.com/search/movies?q=CatVideoFest%202025",
     "status": "review",
     "updated_at": "2026-10-16T16:23:36.538825+00:00"
+  },
+  "cbgbニューヨーク、punkが生まれた場所::::::": {
+    "candidate": {
+      "director": "ランドール・ミラー",
+      "reasons": [
+        "title_exact"
+      ],
+      "runtime": "102",
+      "score": 10,
+      "support": 0,
+      "title": "CBGB ニューヨーク、PUNKが生まれた場所",
+      "url": "https://filmarks.com/movies/65959",
+      "year": "2026"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "",
+    "query": "CBGB ニューヨーク、PUNKが生まれた場所",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact"
+    ],
+    "score": 10,
+    "search_url": "https://filmarks.com/search/movies?q=CBGB%20%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%A8%E3%83%BC%E3%82%AF%E3%80%81PUNK%E3%81%8C%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%9F%E5%A0%B4%E6%89%80",
+    "status": "review",
+    "updated_at": "2026-10-18T00:12:10.593002+00:00"
   },
   "chassegardée::2023::101::antoninfourlon": {
     "candidate": {
@@ -18029,6 +18085,37 @@
     "search_url": "https://filmarks.com/search/movies?q=SEKIRO%3A%20NO%20DEFEAT",
     "status": "accepted",
     "updated_at": "2026-09-01T01:29:21.766937+00:00"
+  },
+  "september30,1955::1977::101::ジェームズブリッジス": {
+    "candidate": {
+      "director": "ジェームズ・ブリッジス",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "101",
+      "score": 12,
+      "support": 2,
+      "title": "ジェームズ・ディーンにさよならを",
+      "url": "https://filmarks.com/movies/43659",
+      "year": "2026"
+    },
+    "candidate_count": 34,
+    "filmarks_url": "https://filmarks.com/movies/43659",
+    "query": "September 30, 1955",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=September%2030%2C%201955",
+    "status": "accepted",
+    "updated_at": "2026-10-18T00:12:02.710296+00:00"
   },
   "septpromenadesavecmarkbrown::2025::104::vincentbarré": {
     "candidate": {
@@ -33693,6 +33780,37 @@
     "status": "review",
     "updated_at": "2026-09-16T00:27:30.453817+00:00"
   },
+  "イレイザーヘッド::1977::89::デヴィッドリンチ": {
+    "candidate": {
+      "director": "デヴィッド・リンチ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "89",
+      "score": 12,
+      "support": 2,
+      "title": "イレイザーヘッド",
+      "url": "https://filmarks.com/movies/13984",
+      "year": "1981"
+    },
+    "candidate_count": 35,
+    "filmarks_url": "https://filmarks.com/movies/13984",
+    "query": "イレイザーヘッド",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%A4%E3%83%AC%E3%82%A4%E3%82%B6%E3%83%BC%E3%83%98%E3%83%83%E3%83%89",
+    "status": "accepted",
+    "updated_at": "2026-10-18T00:12:04.119516+00:00"
+  },
   "イレブン::2025::135::ロケーシュアジルス": {
     "candidate": {
       "director": "ロケーシュ・アジルス",
@@ -48313,6 +48431,31 @@
     "status": "review",
     "updated_at": "2026-08-18T22:54:51.620676+00:00"
   },
+  "ナイトシフト〈1981年〉::::::": {
+    "candidate": {
+      "director": "ロビーナ・ローズ",
+      "reasons": [
+        "title_partial"
+      ],
+      "runtime": "68",
+      "score": 5,
+      "support": 0,
+      "title": "ナイトシフト",
+      "url": "https://filmarks.com/movies/129224",
+      "year": "2026"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "",
+    "query": "ナイトシフト〈1981年〉",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%8A%E3%82%A4%E3%83%88%E3%82%B7%E3%83%95%E3%83%88%E3%80%881981%E5%B9%B4%E3%80%89",
+    "status": "review",
+    "updated_at": "2026-10-18T00:12:09.099909+00:00"
+  },
   "ナイトフラワー::2025::124::内田英治": {
     "candidate": {
       "director": "内田英治",
@@ -58929,6 +59072,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%A6%E3%83%9E%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%86%E3%82%A3%E3%81%AE%E8%A1%8C%E3%81%8D%E6%AD%A2%E3%81%BE%E3%82%8A",
     "status": "review",
     "updated_at": "2026-07-04T23:32:02.742039+00:00"
+  },
+  "ユメ十夜::2007::110::市川崑": {
+    "candidate": {
+      "director": "実相寺昭雄",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "110",
+      "score": 11,
+      "support": 2,
+      "title": "ユメ十夜",
+      "url": "https://filmarks.com/movies/2158",
+      "year": "2007"
+    },
+    "candidate_count": 1,
+    "filmarks_url": "",
+    "query": "ユメ十夜",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%A6%E3%83%A1%E5%8D%81%E5%A4%9C",
+    "status": "review",
+    "updated_at": "2026-10-18T00:12:08.309880+00:00"
   },
   "ユメ十夜＜オムニバス映画＞::2006::110::": {
     "candidate": {
@@ -103699,6 +103873,37 @@
     "status": "review",
     "updated_at": "2026-07-01T23:40:38.280474+00:00"
   },
+  "詩人たちはフアナビニョッシに会いに行く::2019::90::ラウラシタレラ": {
+    "candidate": {
+      "director": "ラウラ・シタレラ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime_mismatch",
+        "director"
+      ],
+      "runtime": "98",
+      "score": 5,
+      "support": 1,
+      "title": "詩人たちはフアナ・ビニョッシに会いに行く",
+      "url": "https://filmarks.com/movies/122014",
+      "year": "2025"
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "詩人たちはフアナ・ビニョッシに会いに行く",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime_mismatch",
+      "director"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E8%A9%A9%E4%BA%BA%E3%81%9F%E3%81%A1%E3%81%AF%E3%83%95%E3%82%A2%E3%83%8A%E3%83%BB%E3%83%93%E3%83%8B%E3%83%A7%E3%83%83%E3%82%B7%E3%81%AB%E4%BC%9A%E3%81%84%E3%81%AB%E8%A1%8C%E3%81%8F",
+    "status": "review",
+    "updated_at": "2026-10-18T00:12:05.360593+00:00"
+  },
   "誓い::1981::85::カリンブッハー、トーマスカラー": {
     "candidate": {
       "director": "ピーター・ウィアー",
@@ -111190,6 +111395,31 @@
     "search_url": "https://filmarks.com/search/movies?q=%EF%BC%9C%E3%82%AA%E3%83%BC%E3%83%AB%E3%83%8A%E3%82%A4%E3%83%88%EF%BC%9E%20%E3%83%AB%E3%83%91%E3%83%B3%E4%B8%89%E4%B8%96%20Part%EF%BC%91/%20TV%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA%20%E5%85%A823%E8%A9%B1%EF%BC%88%E5%89%8D%E5%8D%8A%EF%BC%89",
     "status": "review",
     "updated_at": "2026-10-16T16:23:55.462191+00:00"
+  },
+  "＜オールナイト＞ルパン三世part１tvシリーズ全23話後半::::::": {
+    "candidate": {
+      "director": "北村龍平",
+      "reasons": [
+        "title_partial"
+      ],
+      "runtime": "133",
+      "score": 5,
+      "support": 0,
+      "title": "ルパン三世",
+      "url": "https://filmarks.com/movies/56553",
+      "year": "2014"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "",
+    "query": "＜オールナイト＞ ルパン三世 Part１/ TVシリーズ 全23話（後半）",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%EF%BC%9C%E3%82%AA%E3%83%BC%E3%83%AB%E3%83%8A%E3%82%A4%E3%83%88%EF%BC%9E%20%E3%83%AB%E3%83%91%E3%83%B3%E4%B8%89%E4%B8%96%20Part%EF%BC%91/%20TV%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA%20%E5%85%A823%E8%A9%B1%EF%BC%88%E5%BE%8C%E5%8D%8A%EF%BC%89",
+    "status": "review",
+    "updated_at": "2026-10-18T00:12:06.787821+00:00"
   },
   "＜クロードシャブロル傑作選vol.2＞ベティ::::::": {
     "candidate": {
