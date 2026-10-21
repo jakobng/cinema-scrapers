@@ -73894,22 +73894,6 @@
     ],
     "vote_average": 7.006
   },
-  "Fatherland": {
-    "tmdb_id": 1437696,
-    "tmdb_title": "Fatherland",
-    "tmdb_original_title": "Ojczyzna",
-    "overview": "In 1949, German writer Thomas Mann and his daughter Erika embark on a road trip across a Germany in ruins, from US-dominated Frankfurt to Soviet-controlled Weimar.",
-    "poster_path": "/oNejN1l69nBF8LdQwy5FkAQZT44.jpg",
-    "backdrop_path": "/zKoBjLggS4v22a9ZiCvmLaZrht7.jpg",
-    "release_date": "2026-06-19",
-    "director": "Paweł Pawlikowski",
-    "runtime": 82,
-    "genres": [
-      "Drama",
-      "History"
-    ],
-    "vote_average": 7.436
-  },
   "Forever is Now + Q&amp;A": {
     "tmdb_id": 1632649,
     "tmdb_title": "Forever is Now",
@@ -74198,8 +74182,6 @@
     ],
     "vote_average": 0.0
   },
-  "Digger": null,
-  "The Watermelon Woman - Black History Month 2026": null,
   "NAZA + Q&A": {
     "tmdb_id": 1755291,
     "tmdb_title": "NAZA",
@@ -74216,7 +74198,106 @@
     ],
     "vote_average": 8.093
   },
+  "Forgotten Island": {
+    "tmdb_id": 1465063,
+    "tmdb_title": "Forgotten Island",
+    "tmdb_original_title": "Forgotten Island",
+    "overview": "While celebrating their last night together, high school graduates and best friends Jo and Raissa stumble upon a mysterious portal that transports them to the fantastical island of Nakali. When they discover that the memories of their entire friendship are the price for returning home, Jo and Raissa must race to find a way to leave the island before they forget each other forever.",
+    "poster_path": "/myd1K3gefdNAWFsGNRDdMeiK9Qg.jpg",
+    "backdrop_path": "/cNICUho5uiAGkfCAQq1ihyaMla4.jpg",
+    "release_date": "2026-09-10",
+    "director": "Januel Mercado",
+    "runtime": 109,
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Fantasy",
+      "Comedy",
+      "Family"
+    ],
+    "vote_average": 7.9
+  },
+  "Faust - 100th anniversary with live score": {
+    "tmdb_id": 10728,
+    "tmdb_title": "Faust",
+    "tmdb_original_title": "Faust - Eine deutsche Volkssage",
+    "overview": "Murnau’s epic adaptation of Goethe’s tragedy stands with Fritz Lang’s Metropolis among the supreme achievements of German silent cinema. Gösta Ekman plays the alchemist who, his faith shaken in a time of plague, is offered the gift of healing and eternal youth… in exchange for his soul.",
+    "poster_path": "/rN703hMFxmkZfyEzsXvFtuFhkXE.jpg",
+    "backdrop_path": "/dQbnFqsbtyHS7OD108vuFJiUyzy.jpg",
+    "release_date": "1926-10-14",
+    "director": "F. W. Murnau",
+    "runtime": 106,
+    "genres": [
+      "Fantasy",
+      "Drama",
+      "Horror"
+    ],
+    "vote_average": 7.9
+  },
+  "Godzilla Minus One + Introduction (12A)": {
+    "tmdb_id": 940721,
+    "tmdb_title": "Godzilla Minus One",
+    "tmdb_original_title": "ゴジラ-1.0",
+    "overview": "In postwar Japan, Godzilla brings new devastation to an already scorched landscape. With no military intervention or government help in sight, the survivors must join together in the face of despair and fight back against an unrelenting horror.",
+    "poster_path": "/2E2WTX0TJEflAged6kzErwqX1kt.jpg",
+    "backdrop_path": "/oHBhHoNe59VH6bUMazDtJmWOFSS.jpg",
+    "release_date": "2023-11-03",
+    "director": "Takashi Yamazaki",
+    "runtime": 125,
+    "genres": [
+      "Science Fiction",
+      "Horror",
+      "Action"
+    ],
+    "vote_average": 7.604
+  },
+  "Backrooms (2026)": {
+    "tmdb_id": 1083381,
+    "tmdb_title": "Backrooms",
+    "tmdb_original_title": "Backrooms",
+    "overview": "A strange doorway appears in the basement of a furniture showroom.",
+    "poster_path": "/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+    "backdrop_path": "/dqmMWNWfLnExDRpMtIMqI97GQFR.jpg",
+    "release_date": "2026-05-27",
+    "director": "Kane Parsons",
+    "runtime": 111,
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Science Fiction"
+    ],
+    "vote_average": 7.013
+  },
+  "Disney Junior Cinema Club": {
+    "tmdb_id": 1371912,
+    "tmdb_title": "Disney Junior Cinema Club",
+    "tmdb_original_title": "Disney Junior Cinema Club",
+    "overview": "On the big screen, Mickey Mouse as the animated host leads you and your little ones, through shows, songs and games over the course of 50 minutes.",
+    "poster_path": "/f6V9JgayTbZlXaBx112UxQ6KptM.jpg",
+    "backdrop_path": "/mwy9xfh1qGk7xSQLfPDWx1SnGBL.jpg",
+    "release_date": "2024-10-04",
+    "director": "",
+    "runtime": 51,
+    "genres": [],
+    "vote_average": 0.0
+  },
   "VIOLET HOUR XIII: Through A Glass Darkly": null,
+  "Digger": {
+    "tmdb_id": 1248832,
+    "tmdb_title": "Digger",
+    "tmdb_original_title": "Digger",
+    "overview": "The most powerful man in the world embarks on a frantic mission to prove he is humanity's savior before the disaster he's unleashed destroys everything.",
+    "poster_path": "/1ATXKrIPJyKNwnJ6lcG088Sa6zi.jpg",
+    "backdrop_path": "/b7t3r39Oll5qPxBKzLZ8eHMBD7l.jpg",
+    "release_date": "2026-09-28",
+    "director": "Alejandro G. Iñárritu",
+    "runtime": 129,
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "vote_average": 7.485
+  },
   "Big Bike Film Night 2026": null,
   "Pitchblack Playback: Amy Winehouse 'Back To Black' (20th Anniversary)": {
     "tmdb_id": 555377,
@@ -74234,6 +74315,7 @@
     ],
     "vote_average": 7.6
   },
+  "Fatherland": null,
   "Cine-Real presents: Dead of Night": {
     "tmdb_id": 13581,
     "tmdb_title": "Dead of Night",
@@ -74280,31 +74362,23 @@
     "genres": [
       "Horror"
     ],
-    "vote_average": 7.3
+    "vote_average": 7.265
   },
   "Sinners - Black History Month 2026": null,
   "MUERTE ES VIDA + Q&A": null,
-  "Parent and Baby: The Social Reckoning": null,
-  "Forgotten Island": {
-    "tmdb_id": 1465063,
-    "tmdb_title": "Forgotten Island",
-    "tmdb_original_title": "Forgotten Island",
-    "overview": "While celebrating their last night together, high school graduates and best friends Jo and Raissa stumble upon a mysterious portal that transports them to the fantastical island of Nakali. When they discover that the memories of their entire friendship are the price for returning home, Jo and Raissa must race to find a way to leave the island before they forget each other forever.",
-    "poster_path": "/myd1K3gefdNAWFsGNRDdMeiK9Qg.jpg",
-    "backdrop_path": "/cNICUho5uiAGkfCAQq1ihyaMla4.jpg",
-    "release_date": "2026-09-10",
-    "director": "Januel Mercado",
-    "runtime": 109,
-    "genres": [
-      "Animation",
-      "Adventure",
-      "Fantasy",
-      "Comedy",
-      "Family"
-    ],
-    "vote_average": 7.9
-  },
-  "Parent and Baby: Klara and the Sun": null,
+  "The Last of England + Intro & Book Launch": null,
+  "Site&Sound 12 - Suburbs": null,
+  "Video Bazaar presents: Possession (North American Cut)": null,
+  "Kikuyu Land": null,
+  "Madness: Take It or Leave It": null,
+  "The Ear": null,
+  "Last Train Home": null,
+  "London Breeze: Silent Grace + Panel: Pathfinders- Women’s Progress Through the Film Industry": null,
+  "London Breeze Industry Event: Festival Formula Meet the Festivals Marketplace": null,
+  "London Breeze: Home is Where the Heart Is": null,
+  "London Breeze Film Festival presents Dreamland [Dubbed]": null,
+  "London Breeze: The Sound of Storytelling + Networking": null,
+  "London Breeze: Industry Networker": null,
   "The Others - 25th anniversary": {
     "tmdb_id": 1933,
     "tmdb_title": "The Others",
@@ -74322,35 +74396,6 @@
     ],
     "vote_average": 7.618
   },
-  "Faust - 100th anniversary with live score": {
-    "tmdb_id": 10728,
-    "tmdb_title": "Faust",
-    "tmdb_original_title": "Faust - Eine deutsche Volkssage",
-    "overview": "Murnau’s epic adaptation of Goethe’s tragedy stands with Fritz Lang’s Metropolis among the supreme achievements of German silent cinema. Gösta Ekman plays the alchemist who, his faith shaken in a time of plague, is offered the gift of healing and eternal youth… in exchange for his soul.",
-    "poster_path": "/rN703hMFxmkZfyEzsXvFtuFhkXE.jpg",
-    "backdrop_path": "/dQbnFqsbtyHS7OD108vuFJiUyzy.jpg",
-    "release_date": "1926-10-14",
-    "director": "F. W. Murnau",
-    "runtime": 106,
-    "genres": [
-      "Fantasy",
-      "Drama",
-      "Horror"
-    ],
-    "vote_average": 7.9
-  },
-  "Site&Sound 12 - Suburbs": null,
-  "Video Bazaar presents: Possession (North American Cut)": null,
-  "Kikuyu Land": null,
-  "Madness: Take It or Leave It": null,
-  "The Ear": null,
-  "Last Train Home": null,
-  "London Breeze: Silent Grace + Panel: Pathfinders- Women’s Progress Through the Film Industry": null,
-  "London Breeze Industry Event: Festival Formula Meet the Festivals Marketplace": null,
-  "London Breeze: Home is Where the Heart Is": null,
-  "London Breeze Film Festival presents Dreamland [Dubbed]": null,
-  "London Breeze: The Sound of Storytelling + Networking": null,
-  "London Breeze: Industry Networker": null,
   "Taiwanese nibbles, traditional drinks + The Dull Ice Flower": {
     "tmdb_id": 316880,
     "tmdb_title": "The Dull-Ice Flower",
@@ -74385,7 +74430,7 @@
       "Horror",
       "Drama"
     ],
-    "vote_average": 6.7
+    "vote_average": 6.657
   },
   "Franken-BINGO 2026": null,
   "Double Vision": null,
@@ -74393,6 +74438,12 @@
   "Before It Was Cool: The Brooklyn Beat From Lauterbach’s + Q&A": null,
   "In-Edit Cine-Documental: Omega wants to dance": null,
   "John Berger at 100: Jonah Who Will Be 25 in the Year 2000": null,
+  "Bar Shorts with Darren Walsh & Russell McLean": null,
+  "What We Were and What We Are": null,
+  "The Battle of Chile, Part 2: The Coup D’Etat": null,
+  "The Battle of Chile, Part 3: The Power of the People": null,
+  "The Gardener, the Buddhist and the Spy": null,
+  "Parent and Baby: Klara and the Sun": null,
   "Bar Trash 250: DESTROY ALL MONSTERS (1968)": {
     "tmdb_id": 3107,
     "tmdb_title": "Destroy All Monsters",
@@ -74478,13 +74529,6 @@
   "Ten Women In Black Presented by YMC": null,
   "Bar Trash: MYSTERY APOCALYPSE FILM?!": null,
   "Halloween (1978)- Halloween at Genesis": null,
-  "Sheffield DocFest Spotlights: MKO": null,
-  "What We Were and What We Are": null,
-  "The Battle of Chile, Part 2: The Coup D’Etat": null,
-  "The Battle of Chile, Part 3: The Power of the People": null,
-  "The Gardener, the Buddhist and the Spy": null,
-  "Possession": null,
-  "Seven": null,
   "Mystery Horror Movie": null,
   "The Exorcist (Extended Cut)": null,
   "Haxan with Live Score": null,
@@ -74496,6 +74540,7 @@
   "Scooby-Dooble Feature": null,
   "Mystery Horror Movie Marathon": null,
   "Classic Horror Marathon": null,
+  "Possession": null,
   "Nosferatu with Live Score": null,
   "Manhunter : The Final Cut": null,
   "Prince Charles Cinema Film Quiz": null,
@@ -74535,6 +74580,55 @@
     ],
     "vote_average": 8.491
   },
+  "Antichrist": {
+    "tmdb_id": 17609,
+    "tmdb_title": "Antichrist",
+    "tmdb_original_title": "Antichrist",
+    "overview": "A grieving couple retreats to their cabin 'Eden' in the woods, hoping to repair their broken hearts and troubled marriage. But nature takes its course and things go from bad to worse.",
+    "poster_path": "/ge7zbYvpfsDP3luKi0iSpzOgncM.jpg",
+    "backdrop_path": "/utABPVjXBlM8NUOBecCyLLuzQSe.jpg",
+    "release_date": "2009-05-20",
+    "director": "Lars von Trier",
+    "runtime": 104,
+    "genres": [
+      "Drama",
+      "Horror",
+      "Thriller"
+    ],
+    "vote_average": 6.608
+  },
+  "Black Narcissus": {
+    "tmdb_id": 16391,
+    "tmdb_title": "Black Narcissus",
+    "tmdb_original_title": "Black Narcissus",
+    "overview": "A group of Anglican nuns, led by Sister Clodagh, are sent to a mountain in the Himalayas. The climate in the region is hostile and the nuns are housed in an odd old palace. They work to establish a school and a hospital, but slowly their focus shifts. Sister Ruth falls for a government worker, Mr. Dean, and begins to question her vow of celibacy. As Sister Ruth obsesses over Mr. Dean, Sister Clodagh becomes immersed in her own memories of love.",
+    "poster_path": "/jSbFWWbkUq5N5ikewJHNATcWnxS.jpg",
+    "backdrop_path": "/hAyWibhJjMHyWXrMVX8N2MrEqF8.jpg",
+    "release_date": "1947-05-26",
+    "director": "Michael Powell",
+    "runtime": 100,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 7.5
+  },
+  "NEVER ON SUNDAY": {
+    "tmdb_id": 43039,
+    "tmdb_title": "Never on Sunday",
+    "tmdb_original_title": "Ποτέ την Κυριακή",
+    "overview": "An American scholar in Greece sets about improving the local prostitute with whom he is infatuated.",
+    "poster_path": "/t9zLlS5O5GB57BKjJCtzB21VKZB.jpg",
+    "backdrop_path": "/6YgRhojLENb3y3ufWqC6SUH1IBE.jpg",
+    "release_date": "1960-05-24",
+    "director": "Jules Dassin",
+    "runtime": 91,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "vote_average": 6.8
+  },
+  "LIELA'S JOURNEY": null,
   "Akinola Davies presents BELLY": null,
   "Pink Palace: IT CAME FROM KUCHAR": null,
   "Akinola Davies presents ROCKERS": null,
@@ -74562,7 +74656,7 @@
       "Drama",
       "History"
     ],
-    "vote_average": 7.4
+    "vote_average": 7.422
   },
   "DOC'N ROLL: SHORTS NIGHT": null,
   "HACKNEY CHILDREN'S FILM FEST: TRINIDAD & TOBAGO FILM FESTIVAL: BIG STORIES FOR LITTLE ONES": null,
@@ -74578,7 +74672,7 @@
     "poster_path": "/bt7zLQo5ca8UmQAmkdw29TwVPNi.jpg",
     "backdrop_path": "/dkEcmpGqx9P3Qh7MFGBBM6kJe7S.jpg",
     "release_date": "1987-05-27",
-    "director": "Charles Sturridge",
+    "director": "Nicolas Roeg",
     "runtime": 97,
     "genres": [
       "Music",
@@ -74595,7 +74689,6 @@
   "Queer Horror Nights: THE ROCKY HORROR PICTURE SHOW with Shadow Cast": null,
   "Black History Month: Alain Gomis' DAO": null,
   "LONDON FESTIVAL OF QUEER SPANISH CULTURE: LA BOLA NEGRA": null,
-  "LIELA'S JOURNEY": null,
   "The People's Emergency Briefing + Discussion": null,
   "Black History Month: Red, White and Blue": null,
   "London Breeze Film Festival Shorts: UK Women of Film- Pt 2": null,
@@ -74627,30 +74720,41 @@
   "Phoenix For Nature: How Deep Is Your Love + director Q&amp;A": null,
   "Tribute to Tim Curry: The Rocky Horror Picture Show": null,
   "Japanese Film Club: Ringu": null,
-  "ROYAL BALLET & OPERA LIVE: MACBETH": null,
-  "London Breeze Film Festival: Oska Bright ‘Best of the Festival’ Showcase - Relaxed Screening": null,
-  "London Breeze Film Festival: Common Threads- Documentary Shorts": null,
-  "ROYAL BALLET & OPERA LIVE: MANON": null,
-  "ActOne Arcade": null,
-  "GENERAL WITCHFINDERS PRESENT: DR JEKYLL & SISTER HYDE": null,
-  "Ken Russell's The Devils": null,
-  "Godzilla Minus One + Introduction (12A)": {
-    "tmdb_id": 940721,
-    "tmdb_title": "Godzilla Minus One",
-    "tmdb_original_title": "ゴジラ-1.0",
-    "overview": "In postwar Japan, Godzilla brings new devastation to an already scorched landscape. With no military intervention or government help in sight, the survivors must join together in the face of despair and fight back against an unrelenting horror.",
-    "poster_path": "/2E2WTX0TJEflAged6kzErwqX1kt.jpg",
-    "backdrop_path": "/oHBhHoNe59VH6bUMazDtJmWOFSS.jpg",
-    "release_date": "2023-11-03",
-    "director": "Takashi Yamazaki",
-    "runtime": 125,
+  "Babykino: Sense & Sensibility": {
+    "tmdb_id": 1503762,
+    "tmdb_title": "Sense and Sensibility",
+    "tmdb_original_title": "Sense and Sensibility",
+    "overview": "A charming, witty, and deeply relatable story of love and sisterhood.",
+    "poster_path": "/czsyPHosFNbh4PPqXfqWu1aBXnA.jpg",
+    "backdrop_path": "/YpzEwCpoOdFD2itSYf3pbVGTXH.jpg",
+    "release_date": "2026-09-23",
+    "director": "Georgia Oakley",
+    "runtime": 132,
     "genres": [
-      "Science Fiction",
-      "Horror",
-      "Action"
+      "Drama",
+      "Romance"
     ],
-    "vote_average": 7.604
+    "vote_average": 7.3
   },
+  "De Gaulle: Part Two - Liberté": null,
+  "Exhibition on Screen: James McNeill Whistler": null,
+  "GIANT - The Play": {
+    "tmdb_id": 1694097,
+    "tmdb_title": "Giant",
+    "tmdb_original_title": "Giant - The Play",
+    "overview": "Set in the summer of 1983, just before the release of The Witches, Giant imagines a tense meeting between Roald Dahl and his American and British publishers as they scramble to contain the fallout from his public denunciation of Israel and defence of the Palestinians in a review of a book on the 1982 Lebanon war. Filmed live onstage at the Harold Pinter Theatre in London's West End in 2025.",
+    "poster_path": "/mI3F2JdhxQuXiCoWKAtAZssQVkj.jpg",
+    "backdrop_path": "/wI6ljMHvNEySdpxih6dG8nFAxCC.jpg",
+    "release_date": "2026-11-19",
+    "director": "Nicholas Hytner",
+    "runtime": 136,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 0.0
+  },
+  "Babka: short film screening and panel discussion": null,
+  "The Voice of La Raza & Nationtime (12*)": null,
   "NAZA (15)": {
     "tmdb_id": 1755291,
     "tmdb_title": "NAZA",
@@ -74665,31 +74769,20 @@
       "Documentary",
       "War"
     ],
-    "vote_average": 8.093
+    "vote_average": 8.149
   },
+  "London Breeze Festival Short Films 2026": null,
   "BAD APPLES (Babes-In-Arms)": null,
   "SCHOOL OF ROCK (Relaxed Screening)": null,
-  "London Breeze Festival Short Films 2026": null,
-  "Special Preview of Fatherland with Katja Hoyer": null,
-  "Babykino: Sense & Sensibility": {
-    "tmdb_id": 1503762,
-    "tmdb_title": "Sense and Sensibility",
-    "tmdb_original_title": "Sense and Sensibility",
-    "overview": "A charming, witty, and deeply relatable story of love and sisterhood.",
-    "poster_path": "/czsyPHosFNbh4PPqXfqWu1aBXnA.jpg",
-    "backdrop_path": "/nrLVr8C2pkbOGwXKay2xrxvlHmh.jpg",
-    "release_date": "2026-09-23",
-    "director": "Georgia Oakley",
-    "runtime": 132,
-    "genres": [
-      "Drama",
-      "Romance"
-    ],
-    "vote_average": 7.3
-  },
-  "De Gaulle: Part Two - Liberté": null,
-  "Exhibition on Screen: James McNeill Whistler": null,
-  "The Social Reckoning (15) captioned screening parent and baby screening": null,
+  "London Breeze Film Festival: Oska Bright ‘Best of the Festival’ Showcase - Relaxed Screening": null,
+  "London Breeze Film Festival: Common Threads- Documentary Shorts": null,
+  "ROYAL BALLET & OPERA LIVE: MANON": null,
+  "ActOne Arcade": null,
+  "GENERAL WITCHFINDERS PRESENT: DR JEKYLL & SISTER HYDE": null,
+  "Ken Russell's The Devils": null,
+  "London Breeze Film Festival: UK Women of Film Part 1": null,
+  "London Breeze Film Festival Industry Roundtables": null,
+  "London Breeze Film Festival Opening Gala Film: LOVE CHAOS KIN + Q&A and Reception": null,
   "The Social Reckoning (15) captioned screening": {
     "tmdb_id": 1281331,
     "tmdb_title": "The Social Reckoning",
@@ -74704,7 +74797,7 @@
       "Drama",
       "Thriller"
     ],
-    "vote_average": 6.9
+    "vote_average": 6.958
   },
   "Scottish Ballet: These Violent Delights": null,
   "Extra Geography (15) captioned screening": {
@@ -74738,14 +74831,9 @@
       "Drama",
       "History"
     ],
-    "vote_average": 7.945
+    "vote_average": 7.9
   },
   "Hadestown (PG) captioned screening": null,
-  "De Gaulle (Part 2): Liberté": null,
-  "De Gaulle (Part 1): Résistance": null,
-  "De Gaulle: Résistance (Pt1)": null,
-  "De Gaulle: Liberté (Pt2)": null,
-  "RBO: Macbeth": null,
   "Winter Of The Crow + Q&A With Lesley Manville": {
     "tmdb_id": 1212310,
     "tmdb_title": "Winter of the Crow",
@@ -74763,6 +74851,8 @@
     "vote_average": 6.7
   },
   "Manhunter: The Final Cut": null,
+  "De Gaulle: Résistance (Pt1)": null,
+  "De Gaulle: Liberté (Pt2)": null,
   "Final Show - The Odyssey": null,
   "RBO: Manon": null,
   "Ozzy & Black Sabbath: Back to the Beginning": {
@@ -74796,10 +74886,9 @@
       "Action",
       "Thriller"
     ],
-    "vote_average": 7.577
+    "vote_average": 7.578
   },
   "RBO: Carmen": null,
-  "Black History Month: Rustin": null,
   "Lights, Camera, Coffee: Forgotten Island": null,
   "Adults Only: Forgotten Island (£3 Tickets)": null,
   "Pink Ulysses + Director Intro": {
@@ -74838,12 +74927,11 @@
       "Horror",
       "Music"
     ],
-    "vote_average": 7.031
+    "vote_average": 7.03
   },
   "Mystery LGBTQ+ Horror Preview + Director Intro": null,
   "Live Laugh Lesbian's Homicidal Divas: Resident Evil": null,
   "Ken Russell’s The Devils - The Director's Cut": null,
-  "The Rocky Horror Picture Show Interactive Screening with Pixie Polite": null,
   "Late Night Halloween Screening: Jennifer's Body": null,
   "Rerun: Mystery LGBTQ+ Horror Preview": null,
   "Joseph James Presents: Club Moonchaser": null,
@@ -74883,23 +74971,8 @@
     ],
     "vote_average": 8.0
   },
-  "Backrooms (2026)": {
-    "tmdb_id": 1083381,
-    "tmdb_title": "Backrooms",
-    "tmdb_original_title": "Backrooms",
-    "overview": "A strange doorway appears in the basement of a furniture showroom.",
-    "poster_path": "/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
-    "backdrop_path": "/dqmMWNWfLnExDRpMtIMqI97GQFR.jpg",
-    "release_date": "2026-05-27",
-    "director": "Kane Parsons",
-    "runtime": 111,
-    "genres": [
-      "Horror",
-      "Mystery",
-      "Science Fiction"
-    ],
-    "vote_average": 7.013
-  },
+  "De Gaulle (Part 2): Liberté": null,
+  "De Gaulle (Part 1): Résistance": null,
   "OffBeat presents LONDON IN THE RAW (1964)": null,
   "Suspiria Double Bill": {
     "tmdb_id": 11906,
@@ -74915,7 +74988,7 @@
       "Horror",
       "Mystery"
     ],
-    "vote_average": 7.5
+    "vote_average": 7.459
   },
   "TRANS VIDEO REBELS PRESENTS: CAMP (2025) + PRERECORDED Q&A": {
     "tmdb_id": 1362262,
@@ -74974,6 +75047,66 @@
     ],
     "vote_average": 6.491
   },
+  "Manhunter: The Final Cut (4K Restoration)": null,
+  "Ben’Imana": null,
+  "Twende: African Women and Cinema Symposium": null,
+  "Gillian Anderson in conversation": null,
+  "BFI Southbank and BFI IMAX Tour": null,
+  "Fear of the Dark: Lola Young on Race, Gender and Sexuality in Cinema": null,
+  "The Man in Search of His Murderer": null,
+  "Member Halloween Quiz": null,
+  "Animated Shorts from the BFI Film Fund": null,
+  "Martin McDonagh in Conversation": null,
+  "Tongues Untied": {
+    "tmdb_id": 97049,
+    "tmdb_title": "Tongues Untied",
+    "tmdb_original_title": "Tongues Untied",
+    "overview": "Marlon Riggs, with assistance from other gay Black men, especially poet Essex Hemphill, celebrates Black men loving Black men as a revolutionary act. The film intercuts footage of Hemphill reciting his poetry, Riggs telling the story of his growing up, scenes of men in social intercourse and dance, and various comic riffs, including a visit to the \"Institute of Snap!thology,\" where men take lessons in how to snap their fingers: the sling snap, the point snap, the diva snap.",
+    "poster_path": "/wbrcRd695aB8D6pkWh0hSurKRbO.jpg",
+    "backdrop_path": "/8Tvq2tkvr8LslXJpwjWPEap4BNa.jpg",
+    "release_date": "1990-03-16",
+    "director": "Marlon Riggs",
+    "runtime": 55,
+    "genres": [
+      "Documentary"
+    ],
+    "vote_average": 6.7
+  },
+  "The Emperor’s New Groove": {
+    "tmdb_id": 11688,
+    "tmdb_title": "The Emperor's New Groove",
+    "tmdb_original_title": "The Emperor's New Groove",
+    "overview": "When the self‑absorbed Emperor Kuzco is accidentally transformed into a llama, he must rely on a humble villager to survive the jungle and reclaim his throne.",
+    "poster_path": "/wwbgkXQBEKtnyIJapk6gUgWkVw8.jpg",
+    "backdrop_path": "/mZj8EUr6F1x2PWZjKPxaeYd5WRw.jpg",
+    "release_date": "2000-12-15",
+    "director": "Mark Dindal",
+    "runtime": 78,
+    "genres": [
+      "Adventure",
+      "Animation",
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "vote_average": 7.567
+  },
+  "Loving": {
+    "tmdb_id": 339419,
+    "tmdb_title": "Loving",
+    "tmdb_original_title": "Loving",
+    "overview": "In 1958, in the state of Virginia, the idea of interracial marriage was not only considered to be immoral to many, it was also illegal. When Richard and Mildred fall in love, they are aware of the eyes staring at them and the words said behind their backs. It's when they get married, however, that words and looks become actions, and the two are arrested. The couple decide to take their case all of the way to the Supreme Court in order to fight for their love. Based on a true story.",
+    "poster_path": "/teNPeDIRGWxtvMaJsNa7lw5IgiL.jpg",
+    "backdrop_path": "/zjvX2vJmm3f25JujVEp5DEu2eKi.jpg",
+    "release_date": "2016-11-04",
+    "director": "Jeff Nichols",
+    "runtime": 123,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "vote_average": 6.693
+  },
   "CHAMPAGNE AND BULLETS": null,
   "MYSTERY EROTIC HORROR": null,
   "BLACK DEVIL DOLL FROM HELL (ON VHS)": null,
@@ -75006,6 +75139,23 @@
     "vote_average": 7.4
   },
   "MYSTERY DOJO: SURPRISE KUNG FU MATINEES": null,
+  "PAT GARRETT AND BILLY THE KID + BOB DYLAN CONCERT FOOTAGE": {
+    "tmdb_id": 11577,
+    "tmdb_title": "Pat Garrett & Billy the Kid",
+    "tmdb_original_title": "Pat Garrett & Billy the Kid",
+    "overview": "Pat Garrett is hired as a lawman on behalf of a group of wealthy New Mexico cattle barons to bring down his old friend Billy the Kid.",
+    "poster_path": "/vRDvPypWsjGs7spo7G5bz1cSacC.jpg",
+    "backdrop_path": "/mEEJC1tHmxJZ49L0Gc7jsFlvQXJ.jpg",
+    "release_date": "1973-05-23",
+    "director": "Sam Peckinpah",
+    "runtime": 106,
+    "genres": [
+      "Western",
+      "Drama",
+      "History"
+    ],
+    "vote_average": 7.211
+  },
   "The Omen": null,
   "Fallen Angels": null,
   "The Hunger Games: Marathon Screening": null,
@@ -75032,51 +75182,7 @@
     ],
     "vote_average": 7.761
   },
-  "Disney Junior Cinema Club": {
-    "tmdb_id": 1371912,
-    "tmdb_title": "Disney Junior Cinema Club",
-    "tmdb_original_title": "Disney Junior Cinema Club",
-    "overview": "On the big screen, Mickey Mouse as the animated host leads you and your little ones, through shows, songs and games over the course of 50 minutes.",
-    "poster_path": "/f6V9JgayTbZlXaBx112UxQ6KptM.jpg",
-    "backdrop_path": "/mwy9xfh1qGk7xSQLfPDWx1SnGBL.jpg",
-    "release_date": "2024-10-04",
-    "director": "",
-    "runtime": 51,
-    "genres": [],
-    "vote_average": 0.0
-  },
-  "House of Usher (aka The Fall of the House of Usher)": null,
-  "Manhunter: The Final Cut (4K Restoration)": null,
-  "Ben’Imana": null,
-  "Twende: African Women and Cinema Symposium": null,
-  "Gillian Anderson in conversation": null,
-  "BFI Southbank and BFI IMAX Tour": null,
-  "Fear of the Dark: Lola Young on Race, Gender and Sexuality in Cinema": null,
-  "The Man in Search of His Murderer": null,
-  "Member Halloween Quiz": null,
-  "Animated Shorts from the BFI Film Fund": null,
-  "De Gaulle: Part 2- Liberte": null,
-  "Dracula 4K Restoration": {
-    "tmdb_id": 1246049,
-    "tmdb_title": "Dracula",
-    "tmdb_original_title": "Dracula",
-    "overview": "In late 15th-century Eastern Europe, Prince Vlad II’s bride is brutally murdered. As a result, he renounces God and damns Heaven itself. Cursed with eternal life, Vlad is reborn as Dracula, an immortal warlord who defies fate in a blood-soaked crusade to wrench his lost love back from death.",
-    "poster_path": "/ykyRfv7JDofLxXLAwtLXaSuaFfM.jpg",
-    "backdrop_path": "/be5SIsRGMckO8tU9lrLcIik70Dy.jpg",
-    "release_date": "2025-07-30",
-    "director": "Luc Besson",
-    "runtime": 130,
-    "genres": [
-      "Horror",
-      "Fantasy",
-      "Romance"
-    ],
-    "vote_average": 7.273
-  },
-  "The Odyssey (70mm)": null,
-  "MilkTea Presents: A Preview of In Waves": null,
-  "The Brixton Reel: in commemoration of Black History Month": null,
-  "It's Nice Up North (20th Anniversary) + Q+A": null,
+  "Met Opera Encore 2026-27: Macbeth": null,
   "We're Going on a Bear Hunt + The Tiger Who Came To Tea": {
     "tmdb_id": 431591,
     "tmdb_title": "We're Going on a Bear Hunt",
@@ -75094,7 +75200,25 @@
     ],
     "vote_average": 6.7
   },
-  "Met Opera Encore 2026-27: Macbeth": null,
+  "Dracula 4K Restoration": {
+    "tmdb_id": 1246049,
+    "tmdb_title": "Dracula",
+    "tmdb_original_title": "Dracula",
+    "overview": "In late 15th-century Eastern Europe, Prince Vlad II’s bride is brutally murdered. As a result, he renounces God and damns Heaven itself. Cursed with eternal life, Vlad is reborn as Dracula, an immortal warlord who defies fate in a blood-soaked crusade to wrench his lost love back from death.",
+    "poster_path": "/ykyRfv7JDofLxXLAwtLXaSuaFfM.jpg",
+    "backdrop_path": "/be5SIsRGMckO8tU9lrLcIik70Dy.jpg",
+    "release_date": "2025-07-30",
+    "director": "Luc Besson",
+    "runtime": 130,
+    "genres": [
+      "Horror",
+      "Fantasy",
+      "Romance"
+    ],
+    "vote_average": 7.273
+  },
+  "De Gaulle: Part 2- Liberte": null,
+  "The Odyssey (70mm)": null,
   "Green Screen: Derek vs Derek": {
     "tmdb_id": 1638280,
     "tmdb_title": "Derek vs Derek",
@@ -75126,7 +75250,7 @@
       "Drama",
       "Music"
     ],
-    "vote_average": 6.966
+    "vote_average": 7.0
   },
   "Fallen Angels by Noël Coward": null,
   "MilkTea Presents: Mixtape: Youth Edition + Q+A": null,
@@ -75233,7 +75357,7 @@
       "Comedy",
       "History"
     ],
-    "vote_average": 7.28
+    "vote_average": 7.27
   },
   "Ghost Town plus Director Q&A": null,
   "Book Club: Audrey Niffenegger In Conversation": null,
@@ -75264,6 +75388,7 @@
   "Wild Horse Nine - Preview": null,
   "RBO Encore 2026-27: Manon": null,
   "Rammstein - Live in Mexico City": null,
+  "Out at Clapham: George Michael: The Faith Tour": null,
   "UKJFF 2026: The Sea": null,
   "The Big Ritzy Quiz": null,
   "RBO Live 2026-27: Carmen": null,
@@ -75280,7 +75405,7 @@
   "Scared to Dance: Rose of Nevada (35mm) + Mark Jenkin Q&A": null,
   "SLA 2026: To You in the Beyond": null,
   "SLA 2026: Samurai Ballerina": null,
-  "A Long Winter Livestream Q+A": null,
+  "MUBI FEST LIVE: A LONG WINTER + Q&A": null,
   "SLA 2026: Poupelle of Chimney Town": null,
   "RBO Encore 2026-27: Carmen": null,
   "Pip and Posy: The Cinema Show": null,
@@ -75410,12 +75535,11 @@
   "RBO Encore 2026-27: Romeo & Juliet (2025 Encore)": null,
   "Met Opera Live 2026-27: Parsifal": null,
   "Met Opera Encore 2026-27: Parsifal": null,
-  "Hocus Pocus": null,
   "De Gaulle: Part 2 - Liberte": null,
-  "De Gaulle: Part 1 - Résistance": null,
-  "The Last of the Mohicans (35mm)": null,
+  "Hocus Pocus": null,
   "Dracula (4K Restoration)": null,
   "Throwback: The Rocky Horror Picture Show": null,
+  "De Gaulle: Part 1 - Résistance": null,
   "The Odyssey (35mm)": null,
   "Toddler Club: Paw Patrol: The Dino Movie": null,
   "Toddler Club: We're Going on a Bear Hunt + The Tiger Who Came to Tea": null,
@@ -75454,7 +75578,7 @@
       "Horror",
       "Mystery"
     ],
-    "vote_average": 7.437
+    "vote_average": 7.438
   },
   "Unrestricted View Horror Film Festival 2026: Opening Night": null,
   "RBO Cinema Season 2026-27: Manon": null,
@@ -75482,6 +75606,7 @@
     ],
     "vote_average": 7.761
   },
+  "Pan's Labyrinth (3D) (20th Anniversary)": null,
   "Arrows Of Desire Book Launch Friendship S Death": null,
   "Imamura Stolen Desire": null,
   "Imamura Endless Desire": null,
