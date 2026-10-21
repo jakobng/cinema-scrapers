@@ -2640,8 +2640,42 @@
     "tmdb_title_original": "Blue Heron",
     "vote_average": 6.5
   },
+  "Blue Heron／ブルーヘロン": null,
   "Bunka-ブンカ": null,
   "CBGB ニューヨーク、PUNKが生まれた場所": null,
+  "CBGB ニューヨーク、パンクが生れた場所": {
+    "backdrop_path": "/tQbRiVWlznLEr7P6DIFrSvqgYE5.jpg",
+    "director": "Randall Miller",
+    "director_en": "Randall Miller",
+    "director_jp": "Randall Miller",
+    "genres": [
+      "ドラマ",
+      "音楽"
+    ],
+    "genres_en": [
+      "Drama",
+      "Music"
+    ],
+    "overview": "",
+    "overview_en": "A look at New York's dynamic punk rock scene through the lens of the ground-breaking Lower East Side club started by eccentric Hilly Kristal in 1973 which launched thousands of bands.",
+    "poster_path": "/9xHdRPamTjLG4bosURJju6UYCHp.jpg",
+    "release_date": "2013-10-11",
+    "runtime": 101,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 111479,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "CBGB",
+    "tmdb_title_jp": "CBGB",
+    "tmdb_title_original": "CBGB",
+    "vote_average": 6.4
+  },
+  "CBGB ﾆｭｰﾖｰｸ、PUNK 初日舞台挨拶": null,
   "CLIMAX クライマックス": {
     "backdrop_path": "/v0sblc9A8eaE8EqDQ5Y6fELj4oB.jpg",
     "director": "ギャスパー・ノエ",
@@ -7192,6 +7226,7 @@
     "tmdb_title_original": "Un monde",
     "vote_average": 7.056
   },
+  "RE:AL REIWAROMAN 〜Documentary of RE:IWAROMAN〜": null,
   "RED ROOMS": {
     "backdrop_path": "/5abiH5m7CGV3WBqHEaN0wzOTOQf.jpg",
     "director": "Sarah Baril Gaudet",
@@ -8781,6 +8816,40 @@
     "tmdb_title_original": "T-Men",
     "vote_average": 6.8
   },
+  "URCHIN／アーチン": {
+    "backdrop_path": "/1M8MgXc9UifZFA8qeC2gG4UCQe.jpg",
+    "director": "ハリス・ディキンソン",
+    "director_en": "Harris Dickinson",
+    "director_jp": "ハリス・ディキンソン",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Mike, a rough sleeper in London, is trapped in a cycle of self-destruction as he attempts to turn his life around. Along the way, he encounters unexpected chances for a fresh start.",
+    "poster_path": "/zehE12ErqzG4Y9znKtYDAvBOvmZ.jpg",
+    "release_date": "2025-10-03",
+    "runtime": 99,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 1283320,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Urchin",
+    "tmdb_title_jp": "URCHIN／アーチン",
+    "tmdb_title_original": "Urchin",
+    "vote_average": 6.746
+  },
   "V. MARIA": {
     "backdrop_path": null,
     "director": "宮崎大祐",
@@ -9176,6 +9245,7 @@
     "tmdb_title_original": "曦曦",
     "vote_average": 0.0
   },
+  "YAMANEKO": null,
   "YESMAN / NOMAN / MORE YESMAN": {
     "backdrop_path": null,
     "director": "松村浩行",
@@ -13302,6 +13372,40 @@
     "tmdb_title_original": "虎の洞窟",
     "vote_average": 0.0
   },
+  "tmdb:1064028": {
+    "backdrop_path": "/co7oxvpWxgd6FZU24DnljDDHYQA.jpg",
+    "director": "S.K. Dale",
+    "director_en": "S.K. Dale",
+    "director_jp": "S.K. Dale",
+    "genres": [
+      "ホラー",
+      "サイエンスフィクション",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Horror",
+      "Science Fiction",
+      "Thriller"
+    ],
+    "overview": "",
+    "overview_en": "With his wife out sick, a struggling father brings home a lifelike AI, only to have his self-aware new help want everything her new family has to offer... Like the affection of her owner and she'll kill to get it.",
+    "poster_path": "/gBenxR01Uy0Ev9RTIw6dVBPoyQU.jpg",
+    "release_date": "2024-08-15",
+    "runtime": 105,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 1064028,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Soumise",
+    "tmdb_title_jp": "Subservience",
+    "tmdb_title_original": "Subservience",
+    "vote_average": 6.655
+  },
   "tmdb:1064307": {
     "backdrop_path": "/5OEcsHKZy9TLFz9qXLp5NJN9K8e.jpg",
     "director": "Tommy Wirkola",
@@ -16248,6 +16352,38 @@
     "tmdb_title_jp": "우리의 하루",
     "tmdb_title_original": "우리의 하루",
     "vote_average": 6.9
+  },
+  "tmdb:111479": {
+    "backdrop_path": "/tQbRiVWlznLEr7P6DIFrSvqgYE5.jpg",
+    "director": "Randall Miller",
+    "director_en": "Randall Miller",
+    "director_jp": "Randall Miller",
+    "genres": [
+      "ドラマ",
+      "音楽"
+    ],
+    "genres_en": [
+      "Drama",
+      "Music"
+    ],
+    "overview": "",
+    "overview_en": "A look at New York's dynamic punk rock scene through the lens of the ground-breaking Lower East Side club started by eccentric Hilly Kristal in 1973 which launched thousands of bands.",
+    "poster_path": "/9xHdRPamTjLG4bosURJju6UYCHp.jpg",
+    "release_date": "2013-10-11",
+    "runtime": 101,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 111479,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "CBGB",
+    "tmdb_title_jp": "CBGB",
+    "tmdb_title_original": "CBGB",
+    "vote_average": 6.4
   },
   "tmdb:1115518": {
     "backdrop_path": "/nrnZczhOQcRGT6A08zjDxwNt4qh.jpg",
@@ -25753,6 +25889,40 @@
     "tmdb_title_original": "喜劇 男は愛嬌",
     "vote_average": 0.0
   },
+  "tmdb:1283320": {
+    "backdrop_path": "/1M8MgXc9UifZFA8qeC2gG4UCQe.jpg",
+    "director": "ハリス・ディキンソン",
+    "director_en": "Harris Dickinson",
+    "director_jp": "ハリス・ディキンソン",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Mike, a rough sleeper in London, is trapped in a cycle of self-destruction as he attempts to turn his life around. Along the way, he encounters unexpected chances for a fresh start.",
+    "poster_path": "/zehE12ErqzG4Y9znKtYDAvBOvmZ.jpg",
+    "release_date": "2025-10-03",
+    "runtime": 99,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 1283320,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Urchin",
+    "tmdb_title_jp": "URCHIN／アーチン",
+    "tmdb_title_original": "Urchin",
+    "vote_average": 6.746
+  },
   "tmdb:1284034": {
     "backdrop_path": "/iM4ukbL5903EuxBfIiukNwzwNca.jpg",
     "director": "Paco Plaza",
@@ -35211,6 +35381,44 @@
     "tmdb_title_original": "ふつうの子ども",
     "vote_average": 2.5
   },
+  "tmdb:1477104": {
+    "backdrop_path": "/mG8tVv1RPAKnARWxKTND5dRgMpw.jpg",
+    "director": "Steve Cox",
+    "director_en": "Steve Cox",
+    "director_jp": "Steve Cox",
+    "genres": [
+      "アニメーション",
+      "コメディ",
+      "ファミリー"
+    ],
+    "genres_en": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "overview": "",
+    "overview_en": "On Halloween Eve at Mossy Bottom Farm, excitement turns to dismay when the clumsy Farmer ruins the pumpkin patch. Shaun tries fixing it with science experiments, but things go awry when a wild beast appears in the woods.",
+    "poster_path": "/mMOptSPBVGUA9GHgnpsC35GzZ7e.jpg",
+    "release_date": "2026-09-17",
+    "runtime": 81,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 1477104,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Shaun the Sheep: The Beast of Mossy Bottom",
+    "tmdb_title_jp": "映画 ひつじのショーン かぼちゃ畑の怪物！",
+    "tmdb_title_original": "Shaun the Sheep: The Beast of Mossy Bottom",
+    "vote_average": 7.2
+  },
   "tmdb:14784": {
     "backdrop_path": "/vNrXoT45xscHY6AN4IGf44vHxVJ.jpg",
     "director": "ターセム・シン",
@@ -35244,6 +35452,38 @@
     "tmdb_title_original": "The Fall",
     "vote_average": 7.619
   },
+  "tmdb:1478969": {
+    "backdrop_path": null,
+    "director": "野村芳太郎",
+    "director_en": "Yoshitarō Nomura",
+    "director_jp": "野村芳太郎",
+    "genres": [
+      "コメディ"
+    ],
+    "genres_en": [
+      "Comedy"
+    ],
+    "overview": "",
+    "overview_en": "Set in a rubber company in Tokyo, this comedy depicts the sorrows of salarymen in a humorous way, centering on the commotion caused by the passionate salaryman Goro Mutsu, who is transferred from Kyushu.",
+    "poster_path": "/vbx5GbyCZ6Fu4oNMbxY3llItpYT.jpg",
+    "release_date": "1958-03-11",
+    "runtime": 99,
+    "tmdb_alt_titles_jp": [
+      "Gekkyû 13,000-en"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1478969,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Monthly Salary: 13,000 Yen",
+    "tmdb_title_jp": "月給13,000円",
+    "tmdb_title_original": "月給13,000円",
+    "vote_average": 0.0
+  },
   "tmdb:1478983": {
     "backdrop_path": null,
     "director": "野村芳太郎",
@@ -35260,6 +35500,7 @@
     "poster_path": "/iyaNHEKRkXHMayewIPOs7akCaw5.jpg",
     "release_date": "1958-07-13",
     "runtime": 93,
+    "tmdb_alt_titles_jp": [],
     "tmdb_countries": [
       {
         "iso_3166_1": "JP",
@@ -39341,6 +39582,36 @@
     "tmdb_title_en": "Daybreak Chorus",
     "tmdb_title_jp": "暁の合唱",
     "tmdb_title_original": "暁の合唱",
+    "vote_average": 0.0
+  },
+  "tmdb:1549667": {
+    "backdrop_path": null,
+    "director": "小林茂",
+    "director_en": "Shigeru Kobayashi",
+    "director_jp": "小林茂",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "Sexual abuse has been characterized as a “murder of the spirit.” But is this a suffering that one person must bear alone? Beyond despair, there is hope, a faint ray of light from the spirit.  A friend of the filmmaker suffers from PTSD, having flashbacks of sexual abuse. Having witnessed this, the filmmaker meets a photographer who is also a survivor and decides to make a film. The long production process lasted eight years. What is the nature of the despair, and the hope, that reside deep within these people suffering from PTSD conditions including regret, murderous impulses, depression, insomnia, detachment, and suicidal thoughts? The director appears on screen, questioning the very meaning of making this film. He tries to see light in how they live, looking upward from the depths of suffering.",
+    "poster_path": "/35LGDJy0WWukDqek4xGzFGfwOaV.jpg",
+    "release_date": "2025-10-14",
+    "runtime": 97,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1549667,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "In Their Traces",
+    "tmdb_title_jp": "魂のきせき",
+    "tmdb_title_original": "魂のきせき",
     "vote_average": 0.0
   },
   "tmdb:1550008": {
@@ -47308,7 +47579,7 @@
     "tmdb_title_en": "NAZA",
     "tmdb_title_jp": "NAZA ナザ",
     "tmdb_title_original": "NAZA",
-    "vote_average": 8.1
+    "vote_average": 8.111
   },
   "tmdb:1758157": {
     "backdrop_path": "/qUPkGjE3uglPSpzvLyMhqjtRbE9.jpg",
@@ -50550,6 +50821,38 @@
     "tmdb_title_jp": "花よりもなほ",
     "tmdb_title_original": "花よりもなほ",
     "vote_average": 6.6
+  },
+  "tmdb:20530": {
+    "backdrop_path": "/sKEncrsqPxibvlWbsXYsPhXGBjw.jpg",
+    "director": "小津安二郎",
+    "director_en": "Yasujirō Ozu",
+    "director_jp": "小津安二郎",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "鎌倉で一人娘の紀子と2人で暮らす大学教授の曽宮周吉。妻を早くに亡くしたこともあり、紀子は27歳になる今でも父を置いてよそへ嫁ごうとはしなかった。周吉の実妹・田口まさは、そんな2人が気が気でなく、何かと世話を焼いていた。いつまでも渋る紀子を結婚させるため、周吉はついにある決断をするのだった。",
+    "overview_en": "Noriko is perfectly happy living at home with her widowed father, Shukichi, and has no plans to marry -- that is, until her aunt Masa convinces Shukichi that unless he marries off his 27-year-old daughter soon, she will likely remain alone for the rest of her life. When Noriko resists Masa's matchmaking, Shukichi is forced to deceive his daughter and sacrifice his own happiness to do what he believes is right.",
+    "poster_path": "/2uhhHtWtkmqtlAXE0ect4MGVuti.jpg",
+    "release_date": "1949-09-13",
+    "runtime": 108,
+    "tmdb_alt_titles_jp": [
+      "Banshun"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 20530,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Late Spring",
+    "tmdb_title_jp": "晩春",
+    "tmdb_title_original": "晩春",
+    "vote_average": 8.0
   },
   "tmdb:20532": {
     "backdrop_path": "/7m8b1YwEeK8NeMkiSbPY8CMJx6a.jpg",
@@ -98030,6 +98333,41 @@
     "tmdb_title_original": "特攻任侠自衛隊",
     "vote_average": 0.0
   },
+  "tmdb:88270": {
+    "backdrop_path": "/itp8lyOKRXabVGGoJrg12rvkyZZ.jpg",
+    "director": "小津安二郎",
+    "director_en": "Yasujirō Ozu",
+    "director_jp": "小津安二郎",
+    "genres": [
+      "ロマンス",
+      "コメディ"
+    ],
+    "genres_en": [
+      "Romance",
+      "Comedy"
+    ],
+    "overview": "天下の二枚目にして喜劇センスにも秀でた岡田時彦が主演する爆笑ナンセンス・コメディ。バンカラな学生が髯を剃ったら就職も恋愛もうまくいったという気楽に楽しめる喜劇。『お嬢さん』と同じく原作・脚色は北村小松で、ギャグ担当者としてゼームス・槇が参画している。\r 立派な髭を生やした保守的でバンカラな学生・岡島（岡田時彦）は、友人の行本（月田一郎）から妹（飯塚敏子）の誕生パーティに招待される。そこに行く途中で、広子（川崎弘子）を不良モガ（伊達里子）たちから救ってやる。その後、岡島が仕事を見つけられないでいる時に、慎み深く伝統的な広子は髭を剃るようにすすめる。彼はそれに従い仕事を見つけることに成功する。モガは岡島に愛情を抱くがライバル広子に負けを認め、更生を誓って去っていくのだった。",
+    "overview_en": "Graduate Okajima finds his old-fashioned beard makes life difficult in a comedy exploring the  tension between tradition and modernity.",
+    "poster_path": "/qP2EmE0jB7ixCwRFtTVsZrtwtff.jpg",
+    "release_date": "1931-02-07",
+    "runtime": 75,
+    "tmdb_alt_titles_jp": [
+      "Shukujo To Hige",
+      "淑女と髯"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 88270,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "The Lady and the Beard",
+    "tmdb_title_jp": "淑女と髭",
+    "tmdb_title_original": "淑女と髭",
+    "vote_average": 6.0
+  },
   "tmdb:88273": {
     "backdrop_path": "/mcoZV42CxmW07Ob8ynDuZ7wKZSr.jpg",
     "director": "Nikolaj Arcel",
@@ -111141,6 +111479,7 @@
     "tmdb_title_original": "Nocturne in Black",
     "vote_average": 0.0
   },
+  "【20分シネマ】リアリティ・プラス": null,
   "【Aプログラム】BADLAND／そしてナイフを手にした": null,
   "【Cプログラム】夜のバカンス／おむかえ／パリ杉並区": null,
   "【Dプログラム】自由研究事変／四次元悪魔／わからなくていいよ！": null,
@@ -113924,6 +114263,7 @@
     "tmdb_title_original": "あなたが好きです、大好きです。",
     "vote_average": 3.0
   },
+  "あなたがトラックなら私は鹿　+　石を投げれば届く距離": null,
   "あなたならどうする？　人生を決める百万ドルのキス": {
     "backdrop_path": null,
     "director": "Thu Trang",
@@ -134816,6 +135156,41 @@
     "tmdb_title_original": "The Cell",
     "vote_average": 6.272
   },
+  "ザ・ハウスメAIド <服従>": null,
+  "ザ・ハウスメAIド〈服従〉": {
+    "backdrop_path": "/co7oxvpWxgd6FZU24DnljDDHYQA.jpg",
+    "director": "S.K. Dale",
+    "director_en": "S.K. Dale",
+    "director_jp": "S.K. Dale",
+    "genres": [
+      "ホラー",
+      "サイエンスフィクション",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Horror",
+      "Science Fiction",
+      "Thriller"
+    ],
+    "overview": "",
+    "overview_en": "With his wife out sick, a struggling father brings home a lifelike AI, only to have his self-aware new help want everything her new family has to offer... Like the affection of her owner and she'll kill to get it.",
+    "poster_path": "/gBenxR01Uy0Ev9RTIw6dVBPoyQU.jpg",
+    "release_date": "2024-08-15",
+    "runtime": 105,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 1064028,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Soumise",
+    "tmdb_title_jp": "Subservience",
+    "tmdb_title_original": "Subservience",
+    "vote_average": 6.655
+  },
   "ザ・ビートルズ・アンド・インディア": {
     "backdrop_path": "/sN4ccLh301NKSDb1bQRThqPnvF1.jpg",
     "director": "Ajoy Bhose",
@@ -136860,6 +137235,7 @@
     "vote_average": 7.399
   },
   "ジャーマン・イメージ": null,
+  "ジュディ・シル 贖罪のシンガーソングライター": null,
   "ジョゼと虎と魚たち【朝井リョウセレクト】": {
     "backdrop_path": "/fdtGbLY9F5RWixb2mRibuMSzQXv.jpg",
     "director": "犬童一心",
@@ -144204,6 +144580,42 @@
     "tmdb_title_jp": "ナギダイアリー",
     "tmdb_title_original": "ナギダイアリー",
     "vote_average": 0.0
+  },
+  "ナザ": {
+    "backdrop_path": "/7EzH0dlEN9OZWWBXBWwT5PbMNUz.jpg",
+    "director": "ユヴァル・アブラハム",
+    "director_en": "Yuval Abraham",
+    "director_jp": "ユヴァル・アブラハム",
+    "genres": [
+      "ドキュメンタリー",
+      "戦争"
+    ],
+    "genres_en": [
+      "Documentary",
+      "War"
+    ],
+    "overview": "夜のテルアビブ、とある建物の屋上でイスラエル人ジャーナリストのユヴァル・アブラハームとラヘル・ショールは、イスラエル軍の兵士と諜報員24名に極秘インタビューを行った。ガザでの民間人殺害について、どのような指令を受けたのか。何をしたのか。ある者はデジタル化された遠隔攻撃を「事務作業のようなものだ」と語り、ある者は「食糧配給所に人が集まったところを撃った」と証言する。ひとりひとりの言葉から浮かび上がるのは、イスラエル国家が組織的に作り上げた、人間を人間としてみなさない＜虐殺を可能にするシステム＞だった。",
+    "overview_en": "Filmed at night from Tel Aviv rooftops, this investigative documentary examines the civilian casualties of Israel's military operations in Gaza and the systems behind targeted killings of Palestinians.",
+    "poster_path": "/12lO7y7j57j6mpQCUccOdEpSZzA.jpg",
+    "release_date": "2026-09-25",
+    "runtime": 77,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      }
+    ],
+    "tmdb_id": 1755291,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "NAZA",
+    "tmdb_title_jp": "NAZA ナザ",
+    "tmdb_title_original": "NAZA",
+    "vote_average": 8.111
   },
   "ナショナル・ギャラリー 英国の至宝【追悼フレデリック・ワイズマン】": {
     "backdrop_path": "/yIMBmCDSRjnPTuCuvmqmamdcQxK.jpg",
@@ -157332,6 +157744,36 @@
     "tmdb_title_original": "モダン道中 その恋待ったなし",
     "vote_average": 0.0
   },
+  "モダン道中その恋待ったなし": {
+    "backdrop_path": null,
+    "director": "野村芳太郎",
+    "director_en": "Yoshitarō Nomura",
+    "director_jp": "野村芳太郎",
+    "genres": [
+      "コメディ"
+    ],
+    "genres_en": [
+      "Comedy"
+    ],
+    "overview": "",
+    "overview_en": "A road trip comedy set against the backdrop of the famous historical sites of Tohoku and Hokkaido.",
+    "poster_path": "/iyaNHEKRkXHMayewIPOs7akCaw5.jpg",
+    "release_date": "1958-07-13",
+    "runtime": 93,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1478983,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Modan dôchû: Sono koi matta nashi",
+    "tmdb_title_jp": "モダン道中 その恋待ったなし",
+    "tmdb_title_original": "モダン道中 その恋待ったなし",
+    "vote_average": 0.0
+  },
   "モテキ": {
     "backdrop_path": "/hASJhtA3GTEXJxj7CQgkashSl4F.jpg",
     "director": "大根仁",
@@ -164067,6 +164509,7 @@
     "tmdb_title_original": "Polvo serán",
     "vote_average": 6.6
   },
+  "中国山地 牛と人風土記 G": null,
   "中山教頭の人生テスト": {
     "backdrop_path": null,
     "director": "佐向大",
@@ -164551,6 +164994,7 @@
     "tmdb_title_original": "五瓣の椿",
     "vote_average": 5.2
   },
+  "亡き両親への手紙": null,
   "亡命記": {
     "backdrop_path": "/dXHGbBFR9wsqaOIMJe5OfpbgV9t.jpg",
     "director": "野村芳太郎",
@@ -176352,6 +176796,7 @@
     "tmdb_title_original": "The Devil Wears Prada",
     "vote_average": 7.433
   },
+  "季節": null,
   "学校の怪談4": {
     "backdrop_path": "/vBsttCkaQU9hshzHZyAysuJLO7o.jpg",
     "director": "平山秀幸",
@@ -185377,6 +185822,44 @@
     "tmdb_title_original": "それいけ！アンパンマン　パンタンと約束の星",
     "vote_average": 0.0
   },
+  "映画 ひつじのショーン かぼちゃ畑の怪物！": {
+    "backdrop_path": "/mG8tVv1RPAKnARWxKTND5dRgMpw.jpg",
+    "director": "Steve Cox",
+    "director_en": "Steve Cox",
+    "director_jp": "Steve Cox",
+    "genres": [
+      "アニメーション",
+      "コメディ",
+      "ファミリー"
+    ],
+    "genres_en": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "overview": "",
+    "overview_en": "On Halloween Eve at Mossy Bottom Farm, excitement turns to dismay when the clumsy Farmer ruins the pumpkin patch. Shaun tries fixing it with science experiments, but things go awry when a wild beast appears in the woods.",
+    "poster_path": "/mMOptSPBVGUA9GHgnpsC35GzZ7e.jpg",
+    "release_date": "2026-09-17",
+    "runtime": 81,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 1477104,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Shaun the Sheep: The Beast of Mossy Bottom",
+    "tmdb_title_jp": "映画 ひつじのショーン かぼちゃ畑の怪物！",
+    "tmdb_title_original": "Shaun the Sheep: The Beast of Mossy Bottom",
+    "vote_average": 7.2
+  },
   "映画 プリキュアオールスターズDX3 未来にとどけ！世界をつなぐ☆虹色の花": {
     "backdrop_path": "/nDJ8wjLaA7y6fmuI0u4Rxx6STvZ.jpg",
     "director": "大塚隆史",
@@ -186614,6 +187097,38 @@
     "vote_average": 0.0
   },
   "時間ですよ（デジタル修復版）TBSレトロスペクティブ映画祭 石井ふく子特集": null,
+  "晩春": {
+    "backdrop_path": "/sKEncrsqPxibvlWbsXYsPhXGBjw.jpg",
+    "director": "小津安二郎",
+    "director_en": "Yasujirō Ozu",
+    "director_jp": "小津安二郎",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "鎌倉で一人娘の紀子と2人で暮らす大学教授の曽宮周吉。妻を早くに亡くしたこともあり、紀子は27歳になる今でも父を置いてよそへ嫁ごうとはしなかった。周吉の実妹・田口まさは、そんな2人が気が気でなく、何かと世話を焼いていた。いつまでも渋る紀子を結婚させるため、周吉はついにある決断をするのだった。",
+    "overview_en": "Noriko is perfectly happy living at home with her widowed father, Shukichi, and has no plans to marry -- that is, until her aunt Masa convinces Shukichi that unless he marries off his 27-year-old daughter soon, she will likely remain alone for the rest of her life. When Noriko resists Masa's matchmaking, Shukichi is forced to deceive his daughter and sacrifice his own happiness to do what he believes is right.",
+    "poster_path": "/2uhhHtWtkmqtlAXE0ect4MGVuti.jpg",
+    "release_date": "1949-09-13",
+    "runtime": 108,
+    "tmdb_alt_titles_jp": [
+      "Banshun"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 20530,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Late Spring",
+    "tmdb_title_jp": "晩春",
+    "tmdb_title_original": "晩春",
+    "vote_average": 8.0
+  },
   "晩秋": {
     "backdrop_path": "/66jPR8KMmdGzo8wa4VsSDevLTAf.jpg",
     "director": "ゲイリー・デヴィッド・ゴールドバーグ",
@@ -187741,6 +188256,7 @@
     "tmdb_title_original": "Moon",
     "vote_average": 7.561
   },
+  "月の糸杉": null,
   "月は地球を廻ってる": {
     "backdrop_path": null,
     "director": "春原政久",
@@ -187921,6 +188437,38 @@
     "tmdb_title_jp": "月曜日のユカ",
     "tmdb_title_original": "月曜日のユカ",
     "vote_average": 6.2
+  },
+  "月給¥13,000._": {
+    "backdrop_path": null,
+    "director": "野村芳太郎",
+    "director_en": "Yoshitarō Nomura",
+    "director_jp": "野村芳太郎",
+    "genres": [
+      "コメディ"
+    ],
+    "genres_en": [
+      "Comedy"
+    ],
+    "overview": "",
+    "overview_en": "Set in a rubber company in Tokyo, this comedy depicts the sorrows of salarymen in a humorous way, centering on the commotion caused by the passionate salaryman Goro Mutsu, who is transferred from Kyushu.",
+    "poster_path": "/vbx5GbyCZ6Fu4oNMbxY3llItpYT.jpg",
+    "release_date": "1958-03-11",
+    "runtime": 99,
+    "tmdb_alt_titles_jp": [
+      "Gekkyû 13,000-en"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1478969,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Monthly Salary: 13,000 Yen",
+    "tmdb_title_jp": "月給13,000円",
+    "tmdb_title_original": "月給13,000円",
+    "vote_average": 0.0
   },
   "有りがたうさん": {
     "backdrop_path": "/pGLJqCREnCERxwbqsKv7ZNKIm9E.jpg",
@@ -192997,6 +193545,41 @@
     "tmdb_title_original": "涼宮ハルヒの消失",
     "vote_average": 7.8
   },
+  "淑女と髯": {
+    "backdrop_path": "/itp8lyOKRXabVGGoJrg12rvkyZZ.jpg",
+    "director": "小津安二郎",
+    "director_en": "Yasujirō Ozu",
+    "director_jp": "小津安二郎",
+    "genres": [
+      "ロマンス",
+      "コメディ"
+    ],
+    "genres_en": [
+      "Romance",
+      "Comedy"
+    ],
+    "overview": "天下の二枚目にして喜劇センスにも秀でた岡田時彦が主演する爆笑ナンセンス・コメディ。バンカラな学生が髯を剃ったら就職も恋愛もうまくいったという気楽に楽しめる喜劇。『お嬢さん』と同じく原作・脚色は北村小松で、ギャグ担当者としてゼームス・槇が参画している。\r 立派な髭を生やした保守的でバンカラな学生・岡島（岡田時彦）は、友人の行本（月田一郎）から妹（飯塚敏子）の誕生パーティに招待される。そこに行く途中で、広子（川崎弘子）を不良モガ（伊達里子）たちから救ってやる。その後、岡島が仕事を見つけられないでいる時に、慎み深く伝統的な広子は髭を剃るようにすすめる。彼はそれに従い仕事を見つけることに成功する。モガは岡島に愛情を抱くがライバル広子に負けを認め、更生を誓って去っていくのだった。",
+    "overview_en": "Graduate Okajima finds his old-fashioned beard makes life difficult in a comedy exploring the  tension between tradition and modernity.",
+    "poster_path": "/qP2EmE0jB7ixCwRFtTVsZrtwtff.jpg",
+    "release_date": "1931-02-07",
+    "runtime": 75,
+    "tmdb_alt_titles_jp": [
+      "Shukujo To Hige",
+      "淑女と髯"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 88270,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "The Lady and the Beard",
+    "tmdb_title_jp": "淑女と髭",
+    "tmdb_title_original": "淑女と髭",
+    "vote_average": 6.0
+  },
   "淡いぬくもり": {
     "backdrop_path": null,
     "director": "東盛直道",
@@ -194224,6 +194807,7 @@
     "tmdb_title_original": "炎上",
     "vote_average": 7.1
   },
+  "炭鉱奇譚　＋　木々が揺れ、心騒ぐ": null,
   "烤火房(プラーハン)で見るいくつかの夢": {
     "backdrop_path": "/ezeGwR7kWGg61vw4TBmpWph2bhe.jpg",
     "director": "莎韻西孟",
@@ -206236,6 +206820,7 @@
     "tmdb_title_original": "Silver Lode",
     "vote_average": 6.1
   },
+  "進行曲 マーチングボーイズ 上映後トークショー": null,
   "進行曲　マーチングボーイズ": null,
   "遊侠列伝": {
     "backdrop_path": "/trvwBomo7xgCuuHvrtfvTQOkTuV.jpg",
@@ -211163,6 +211748,36 @@
     "tmdb_title_jp": "魁!!男塾",
     "tmdb_title_original": "魁!!男塾",
     "vote_average": 4.7
+  },
+  "魂のきせき": {
+    "backdrop_path": null,
+    "director": "小林茂",
+    "director_en": "Shigeru Kobayashi",
+    "director_jp": "小林茂",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "Sexual abuse has been characterized as a “murder of the spirit.” But is this a suffering that one person must bear alone? Beyond despair, there is hope, a faint ray of light from the spirit.  A friend of the filmmaker suffers from PTSD, having flashbacks of sexual abuse. Having witnessed this, the filmmaker meets a photographer who is also a survivor and decides to make a film. The long production process lasted eight years. What is the nature of the despair, and the hope, that reside deep within these people suffering from PTSD conditions including regret, murderous impulses, depression, insomnia, detachment, and suicidal thoughts? The director appears on screen, questioning the very meaning of making this film. He tries to see light in how they live, looking upward from the depths of suffering.",
+    "poster_path": "/35LGDJy0WWukDqek4xGzFGfwOaV.jpg",
+    "release_date": "2025-10-14",
+    "runtime": 97,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1549667,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "In Their Traces",
+    "tmdb_title_jp": "魂のきせき",
+    "tmdb_title_original": "魂のきせき",
+    "vote_average": 0.0
   },
   "魅せられて": {
     "backdrop_path": "/bJFapHYlJIhXpfqH8uaNLtUxHwD.jpg",
