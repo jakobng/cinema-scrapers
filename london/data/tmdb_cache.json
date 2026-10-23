@@ -73317,22 +73317,6 @@
     ],
     "vote_average": 5.3
   },
-  "City of Masks": {
-    "tmdb_id": 873275,
-    "tmdb_title": "The City of Masks",
-    "tmdb_original_title": "The City of Masks",
-    "overview": "After immigrating to America, a handful of European nobles find themselves living and working as common laborers. They join together one night a week to maintain the Continental style they once were accustomed to.",
-    "poster_path": "/nxIM441dx1Zm2hKRSaO7Sq7Q5Yf.jpg",
-    "backdrop_path": null,
-    "release_date": "1920-07-11",
-    "director": "Thomas N. Heffron",
-    "runtime": 50,
-    "genres": [
-      "Comedy",
-      "Drama"
-    ],
-    "vote_average": 10.0
-  },
   "Preview: The Restoration at Grayson Manor": {
     "tmdb_id": 1528009,
     "tmdb_title": "The Restoration at Grayson Manor",
@@ -74231,22 +74215,6 @@
     "genres": [],
     "vote_average": 0.0
   },
-  "Digger": {
-    "tmdb_id": 1248832,
-    "tmdb_title": "Digger",
-    "tmdb_original_title": "Digger",
-    "overview": "The most powerful man in the world embarks on a frantic mission to prove he is humanity's savior before the disaster he's unleashed destroys everything.",
-    "poster_path": "/1ATXKrIPJyKNwnJ6lcG088Sa6zi.jpg",
-    "backdrop_path": "/b7t3r39Oll5qPxBKzLZ8eHMBD7l.jpg",
-    "release_date": "2026-09-28",
-    "director": "Alejandro G. Iñárritu",
-    "runtime": 129,
-    "genres": [
-      "Comedy",
-      "Drama"
-    ],
-    "vote_average": 7.485
-  },
   "Antichrist": {
     "tmdb_id": 17609,
     "tmdb_title": "Antichrist",
@@ -74632,7 +74600,6 @@
     ],
     "vote_average": 5.0
   },
-  "Big Bike Film Night 2026": null,
   "Pitchblack Playback: Amy Winehouse 'Back To Black' (20th Anniversary)": {
     "tmdb_id": 555377,
     "tmdb_title": "Classic Albums: Amy Winehouse - Back to Black",
@@ -74648,6 +74615,39 @@
       "Music"
     ],
     "vote_average": 7.6
+  },
+  "Colette & Justin + Q&A": {
+    "tmdb_id": 454652,
+    "tmdb_title": "Colette",
+    "tmdb_original_title": "Colette",
+    "overview": "After marrying a successful Parisian writer known commonly as Willy, Sidonie-Gabrielle Colette is transplanted from her childhood home in rural France to the intellectual and artistic splendor of Paris. Soon after, Willy convinces Colette to ghostwrite for him. She pens a semi-autobiographical novel about a witty and brazen country girl named Claudine, sparking a bestseller and a cultural sensation. After its success, Colette and Willy become the talk of Paris and their adventures inspire additional Claudine novels.",
+    "poster_path": "/5fvcs8x7k16wGdet16qkx1cKBPM.jpg",
+    "backdrop_path": "/mNiVBMDBaQU2A5XA1KnvmkL6rPI.jpg",
+    "release_date": "2018-09-21",
+    "director": "Wash Westmoreland",
+    "runtime": 112,
+    "genres": [
+      "Drama",
+      "History"
+    ],
+    "vote_average": 6.871
+  },
+  "Dracula 4K Restoration": {
+    "tmdb_id": 1246049,
+    "tmdb_title": "Dracula",
+    "tmdb_original_title": "Dracula",
+    "overview": "In late 15th-century Eastern Europe, Prince Vlad II’s bride is brutally murdered. As a result, he renounces God and damns Heaven itself. Cursed with eternal life, Vlad is reborn as Dracula, an immortal warlord who defies fate in a blood-soaked crusade to wrench his lost love back from death.",
+    "poster_path": "/ykyRfv7JDofLxXLAwtLXaSuaFfM.jpg",
+    "backdrop_path": "/be5SIsRGMckO8tU9lrLcIik70Dy.jpg",
+    "release_date": "2025-07-30",
+    "director": "Luc Besson",
+    "runtime": 130,
+    "genres": [
+      "Horror",
+      "Fantasy",
+      "Romance"
+    ],
+    "vote_average": 7.3
   },
   "Fatherland": null,
   "Cine-Real presents: Dead of Night": {
@@ -74719,30 +74719,112 @@
     "vote_average": 6.1
   },
   "Parent and Baby: Klara and the Sun": null,
-  "Wicker": {
-    "tmdb_id": 1195803,
-    "tmdb_title": "Wicker",
-    "tmdb_original_title": "Wicker",
-    "overview": "On the outskirts of a village by the sea, lives a Fisherwoman; smelly, single and perpetually ridiculed. One day, fed up with her stuffy, small-minded neighbours, she commissions herself a husband to be made from wicker. In an otherwise conservative town, this unconventional romance sparks outrage, jealousy and chaos.",
-    "poster_path": "/6FcBZOKvyrLCKGCyBG0ySCR4okt.jpg",
-    "backdrop_path": "/xVh1ypMoVkMf5IB7y3hnRplJ14c.jpg",
-    "release_date": "2026-10-21",
-    "director": "Alex Huston Fischer",
-    "runtime": 105,
+  "Wicker": null,
+  "The Nightmare Before Christmas": {
+    "tmdb_id": 9479,
+    "tmdb_title": "The Nightmare Before Christmas",
+    "tmdb_original_title": "The Nightmare Before Christmas",
+    "overview": "Tired of scaring humans every October 31 with the same old bag of tricks, Jack Skellington, the spindly king of Halloween Town, kidnaps Santa Claus and plans to deliver shrunken heads and other ghoulish gifts to children on Christmas morning. But as Christmas approaches, Jack's rag-doll girlfriend, Sally, tries to foil his misguided plans.",
+    "poster_path": "/oQffRNjK8e19rF7xVYEN8ew0j7b.jpg",
+    "backdrop_path": "/dSfrsjhqC6lYe7LYDYnzWeXZmEl.jpg",
+    "release_date": "1993-10-09",
+    "director": "Henry Selick",
+    "runtime": 76,
     "genres": [
-      "Romance",
       "Fantasy",
-      "Comedy"
+      "Animation",
+      "Family"
     ],
-    "vote_average": 6.2
+    "vote_average": 7.852
   },
+  "Parent and Baby: Wicker": null,
   "The Battle of Chile, Part 2: The Coup D’Etat": null,
   "The Battle of Chile, Part 3: The Power of the People": null,
   "The Gardener, the Buddhist and the Spy": null,
-  "LIELA'S JOURNEY": null,
-  "Haxan with Live Score": null,
-  "Backrooms: Everything Must Go Edition With Bonus Footage": null,
-  "Solve Along A Murder She Wrote": null,
+  "LIELA'S JOURNEY": {
+    "tmdb_id": 1804626,
+    "tmdb_title": "Liela's Journey",
+    "tmdb_original_title": "Liela's Journey",
+    "overview": "Liela's Journey tells the deeply moving story of an elderly woman's harrowing escape from the devastating war in Sudan back to her home in England. Using her raw and intimate personal voice notes alongside a poignant original score, this documentary acts as a powerful testament to the human cost of conflict and a driving call to action to help Sudanese refugees.",
+    "poster_path": "/61TQ7yKP3BKK0UglVqHAsRcI0Ni.jpg",
+    "backdrop_path": null,
+    "release_date": "2025-08-23",
+    "director": "Tom Newman",
+    "runtime": 25,
+    "genres": [
+      "Documentary"
+    ],
+    "vote_average": 0.0
+  },
+  "Amoeba + virtual Q&A Presented by Bun Bites": {
+    "tmdb_id": 385594,
+    "tmdb_title": "Amoeba",
+    "tmdb_original_title": "അമീബ",
+    "overview": "Amoeba is the second directorial of Manoj Kana after his critically acclaimed Chayilyam.The film starred Anumol, Indrans and Anoop Chandran in the lead.  From wikipedia",
+    "poster_path": "/6j422NSD63gfw1SmESDftFGnxzS.jpg",
+    "backdrop_path": "/64a9eQGnYHocGKVAasKdt1s0OxX.jpg",
+    "release_date": "2016-01-29",
+    "director": "Manoj Kana",
+    "runtime": 92,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 0.0
+  },
+  "Digger": null,
+  "Bunnylovr + Recorded Q&A Presented by Lucila's Film Club": {
+    "tmdb_id": 1364297,
+    "tmdb_title": "Bunnylovr",
+    "tmdb_original_title": "Bunnylovr",
+    "overview": "A drifting Chinese American cam girl struggles to navigate an increasingly toxic relationship with one of her clients while rekindling her relationship with her dying estranged father.",
+    "poster_path": "/rZc2c85zUkUXWzBogPyQb2YxIi6.jpg",
+    "backdrop_path": "/trGQW5KSIw58Q92qId6ObuDaHpp.jpg",
+    "release_date": "2026-04-10",
+    "director": "Katarina Zhu",
+    "runtime": 86,
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
+    "vote_average": 5.7
+  },
+  "Steel on Film (in 35 mm) + Q&A": null,
+  "Run + Q&A": {
+    "tmdb_id": 546121,
+    "tmdb_title": "Run",
+    "tmdb_original_title": "Run",
+    "overview": "Chloe, a teenager who is confined to a wheelchair, is homeschooled by her mother, Diane. Chloe soon becomes suspicious of her mother and begins to suspect that she may be harboring a dark secret.",
+    "poster_path": "/ilHG4EayOVoYeKqslspY3pR4wzC.jpg",
+    "backdrop_path": "/rLchzndbDRy41J9X363pMePbV5x.jpg",
+    "release_date": "2020-11-20",
+    "director": "Aneesh Chaganty",
+    "runtime": 90,
+    "genres": [
+      "Thriller",
+      "Horror",
+      "Drama"
+    ],
+    "vote_average": 7.2
+  },
+  "Ten Women In Black Presented by YMC": null,
+  "Bar Trash: MYSTERY APOCALYPSE FILM?!": null,
+  "City of Masks": {
+    "tmdb_id": 1804039,
+    "tmdb_title": "City of Masks",
+    "tmdb_original_title": "City of Masks",
+    "overview": "Ambition, obsession, and lost love collide in a haunted West End theatre where a disfigured composer, a rising star, and a jealous rival fight for control of a mysterious musical-and the masked legacy that threatens to destroy them all.",
+    "poster_path": "/vORv4gR1DTrNcZnehbHbaTcVEOe.jpg",
+    "backdrop_path": null,
+    "release_date": "2026-10-30",
+    "director": "Andrea M. Catinella",
+    "runtime": 93,
+    "genres": [
+      "Romance",
+      "Thriller"
+    ],
+    "vote_average": 0.0
+  },
+  "Halloween (1978)- Halloween at Genesis": null,
   "Rob Zombie's Halloween (2007) • Director's Cut": null,
   "Rob Zombie's Halloween II (2009) • Director's Cut": null,
   "The Cabinet of Dr. Caligari with Live Score": null,
@@ -74752,6 +74834,7 @@
   "Classic Horror Marathon": null,
   "Possession": null,
   "Nosferatu with Live Score": null,
+  "Backrooms: Everything Must Go Edition With Bonus Footage": null,
   "Manhunter : The Final Cut": null,
   "Prince Charles Cinema Film Quiz": null,
   "Mystery Horror Movie": null,
@@ -74805,11 +74888,26 @@
       "Comedy",
       "Romance"
     ],
-    "vote_average": 7.919
+    "vote_average": 7.9
   },
   "Mystery Movie": null,
-  "Pink Palace: J.G.Ballard’s CRASH": null,
-  "Never Watching Movies: EMPIRE RECORDS": null,
+  "V For Vendetta": {
+    "tmdb_id": 752,
+    "tmdb_title": "V for Vendetta",
+    "tmdb_original_title": "V for Vendetta",
+    "overview": "In a world in which Great Britain has become a fascist state, a masked vigilante known only as “V” conducts guerrilla warfare against the oppressive British government. When V rescues a young woman from the secret police, he finds in her an ally with whom he can continue his fight to free the people of Britain.",
+    "poster_path": "/1avD1JeaRiJX5M4ahPdZPypGoGN.jpg",
+    "backdrop_path": "/sFEYsEfzTx7hhjetlNrme8B5OUo.jpg",
+    "release_date": "2006-02-23",
+    "director": "James McTeigue",
+    "runtime": 132,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "vote_average": 7.898
+  },
   "DOC'N ROLL: NOFX: 40 YEARS OF F*N’ UP!": null,
   "Category H: THE LURE + PHANTOM OF THE PARADISE": null,
   "Hackney Children’s Film Fest: THE WILD ROBOT": null,
@@ -74832,7 +74930,7 @@
       "Drama",
       "History"
     ],
-    "vote_average": 7.5
+    "vote_average": 7.4
   },
   "DOC'N ROLL: SHORTS NIGHT": null,
   "HACKNEY CHILDREN'S FILM FEST: TRINIDAD & TOBAGO FILM FESTIVAL: BIG STORIES FOR LITTLE ONES": null,
@@ -74848,7 +74946,7 @@
     "poster_path": "/bt7zLQo5ca8UmQAmkdw29TwVPNi.jpg",
     "backdrop_path": "/dkEcmpGqx9P3Qh7MFGBBM6kJe7S.jpg",
     "release_date": "1987-05-27",
-    "director": "Nicolas Roeg",
+    "director": "Charles Sturridge",
     "runtime": 97,
     "genres": [
       "Music",
@@ -74865,76 +74963,23 @@
   "Queer Horror Nights: THE ROCKY HORROR PICTURE SHOW with Shadow Cast": null,
   "Black History Month: Alain Gomis' DAO": null,
   "LONDON FESTIVAL OF QUEER SPANISH CULTURE: LA BOLA NEGRA": null,
-  "Rosemary's Baby Presented by the Cult Classic Collective": null,
-  "Colette & Justin + Q&A": {
-    "tmdb_id": 454652,
-    "tmdb_title": "Colette",
-    "tmdb_original_title": "Colette",
-    "overview": "After marrying a successful Parisian writer known commonly as Willy, Sidonie-Gabrielle Colette is transplanted from her childhood home in rural France to the intellectual and artistic splendor of Paris. Soon after, Willy convinces Colette to ghostwrite for him. She pens a semi-autobiographical novel about a witty and brazen country girl named Claudine, sparking a bestseller and a cultural sensation. After its success, Colette and Willy become the talk of Paris and their adventures inspire additional Claudine novels.",
-    "poster_path": "/5fvcs8x7k16wGdet16qkx1cKBPM.jpg",
-    "backdrop_path": "/mNiVBMDBaQU2A5XA1KnvmkL6rPI.jpg",
-    "release_date": "2018-09-21",
-    "director": "Wash Westmoreland",
-    "runtime": 112,
+  "Pink Palace: WHO KILLED TEDDY BEAR": {
+    "tmdb_id": 85246,
+    "tmdb_title": "Who Killed Teddy Bear?",
+    "tmdb_original_title": "Who Killed Teddy Bear?",
+    "overview": "A grim police detective embarks on a one-man crusade to track down a depraved sex maniac when a nightclub deejay receives a disturbing series of obscene phone calls. Finding himself getting far too close to the victim for comfort, the hard-boiled cop must track down the unbalanced pervert before he can carry out his sick threats.",
+    "poster_path": "/dQrzV5QaqI5pERSSmSqUympcAk9.jpg",
+    "backdrop_path": "/eYOil3TxFHKpvFRmj4ArUHgZMGq.jpg",
+    "release_date": "1965-09-01",
+    "director": "Joseph Cates",
+    "runtime": 94,
     "genres": [
+      "Crime",
       "Drama",
-      "History"
+      "Thriller"
     ],
-    "vote_average": 6.871
+    "vote_average": 6.4
   },
-  "Amoeba + virtual Q&A Presented by Bun Bites": {
-    "tmdb_id": 385594,
-    "tmdb_title": "Amoeba",
-    "tmdb_original_title": "അമീബ",
-    "overview": "Amoeba is the second directorial of Manoj Kana after his critically acclaimed Chayilyam.The film starred Anumol, Indrans and Anoop Chandran in the lead.  From wikipedia",
-    "poster_path": "/6j422NSD63gfw1SmESDftFGnxzS.jpg",
-    "backdrop_path": "/64a9eQGnYHocGKVAasKdt1s0OxX.jpg",
-    "release_date": "2016-01-29",
-    "director": "Manoj Kana",
-    "runtime": 92,
-    "genres": [
-      "Drama"
-    ],
-    "vote_average": 0.0
-  },
-  "Bunnylovr + Recorded Q&A Presented by Lucila's Film Club": {
-    "tmdb_id": 1364297,
-    "tmdb_title": "Bunnylovr",
-    "tmdb_original_title": "Bunnylovr",
-    "overview": "A drifting Chinese American cam girl struggles to navigate an increasingly toxic relationship with one of her clients while rekindling her relationship with her dying estranged father.",
-    "poster_path": "/rZc2c85zUkUXWzBogPyQb2YxIi6.jpg",
-    "backdrop_path": "/trGQW5KSIw58Q92qId6ObuDaHpp.jpg",
-    "release_date": "2026-04-10",
-    "director": "Katarina Zhu",
-    "runtime": 86,
-    "genres": [
-      "Drama",
-      "Comedy"
-    ],
-    "vote_average": 5.7
-  },
-  "Steel on Film (in 35 mm) + Q&A": null,
-  "Run + Q&A": {
-    "tmdb_id": 546121,
-    "tmdb_title": "Run",
-    "tmdb_original_title": "Run",
-    "overview": "Chloe, a teenager who is confined to a wheelchair, is homeschooled by her mother, Diane. Chloe soon becomes suspicious of her mother and begins to suspect that she may be harboring a dark secret.",
-    "poster_path": "/ilHG4EayOVoYeKqslspY3pR4wzC.jpg",
-    "backdrop_path": "/rLchzndbDRy41J9X363pMePbV5x.jpg",
-    "release_date": "2020-11-20",
-    "director": "Aneesh Chaganty",
-    "runtime": 90,
-    "genres": [
-      "Thriller",
-      "Horror",
-      "Drama"
-    ],
-    "vote_average": 7.199
-  },
-  "Ten Women In Black Presented by YMC": null,
-  "Bar Trash: MYSTERY APOCALYPSE FILM?!": null,
-  "Halloween (1978)- Halloween at Genesis": null,
-  "Black History Month: Red, White and Blue": null,
   "London Breeze Film Festival Shorts: UK Women of Film- Pt 2": null,
   "Spotlight: Ratcatcher (1999) (4K Restoration)": null,
   "Film Africa: In a Whisper": null,
@@ -74963,7 +75008,7 @@
     "tmdb_title": "We, the Hated",
     "tmdb_original_title": "We, the Hated",
     "overview": "An intimate portrait of Just Stop Oil protestors asks what it really costs to take a stand in a supposedly democratic society.",
-    "poster_path": "/sPLmoztG18o7pH0VrGS7RrdLmSK.jpg",
+    "poster_path": "/2RAgfwiqZnKWDQriuDyfbkfyKlG.jpg",
     "backdrop_path": null,
     "release_date": "2026-06-10",
     "director": "Rich Felgate",
@@ -74973,7 +75018,38 @@
     ],
     "vote_average": 0.0
   },
-  "Fallen Angels by Noel Coward": null,
+  "NAZA (15)": {
+    "tmdb_id": 1755291,
+    "tmdb_title": "NAZA",
+    "tmdb_original_title": "NAZA",
+    "overview": "Filmed at night from Tel Aviv rooftops, this investigative documentary examines the civilian casualties of Israel's military operations in Gaza and the systems behind targeted killings of Palestinians.",
+    "poster_path": "/b4Gyj8VRoJAeU13jfKPuOTMr5GL.jpg",
+    "backdrop_path": "/7EzH0dlEN9OZWWBXBWwT5PbMNUz.jpg",
+    "release_date": "2026-09-25",
+    "director": "Yuval Abraham",
+    "runtime": 77,
+    "genres": [
+      "Documentary",
+      "War"
+    ],
+    "vote_average": 8.14
+  },
+  "FUGS FILM! + ScreenTalk with director Chuck Smith (15*)": null,
+  "Possible Love (15)": {
+    "tmdb_id": 1483525,
+    "tmdb_title": "Possible Love",
+    "tmdb_original_title": "가능한 사랑",
+    "overview": "A laid-off worker and his wife cross paths with a documentary filmmaker and her spouse and confront their hidden desires.",
+    "poster_path": "/dLz9yHeLw4x4sD0WTSNi7HuK2ke.jpg",
+    "backdrop_path": "/kPbyLj2OyjojqvR1jfK1VvXzabg.jpg",
+    "release_date": "2026-09-23",
+    "director": "Lee Chang-dong",
+    "runtime": 165,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 8.1
+  },
   "Nosferatu live score by Hugo Max": null,
   "Royal Ballet &amp; Opera 2026/27: Manon": null,
   "Phoenix For Nature: How Deep Is Your Love + director Q&amp;A": null,
@@ -74997,15 +75073,32 @@
     ],
     "vote_average": 8.3
   },
-  "London Breeze Film Festival: Oska Bright ‘Best of the Festival’ Showcase - Relaxed Screening": null,
-  "London Breeze Film Festival: Common Threads- Documentary Shorts": null,
   "ROYAL BALLET & OPERA LIVE: MANON": null,
   "ActOne Arcade": null,
   "GENERAL WITCHFINDERS PRESENT: DR JEKYLL & SISTER HYDE": null,
   "Ken Russell's The Devils": null,
-  "London Breeze Festival Short Films 2026": null,
+  "Babykino: Sense & Sensibility": {
+    "tmdb_id": 1503762,
+    "tmdb_title": "Sense and Sensibility",
+    "tmdb_original_title": "Sense and Sensibility",
+    "overview": "A charming, witty, and deeply relatable story of love and sisterhood.",
+    "poster_path": "/czsyPHosFNbh4PPqXfqWu1aBXnA.jpg",
+    "backdrop_path": "/nrLVr8C2pkbOGwXKay2xrxvlHmh.jpg",
+    "release_date": "2026-09-23",
+    "director": "Georgia Oakley",
+    "runtime": 132,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "vote_average": 7.3
+  },
+  "De Gaulle: Part Two - Liberté": null,
+  "Exhibition on Screen: James McNeill Whistler": null,
+  "Babka: short film screening and panel discussion": null,
   "BAD APPLES (Babes-In-Arms)": null,
   "SCHOOL OF ROCK (Relaxed Screening)": null,
+  "London Breeze Festival Short Films 2026": null,
   "Extra Geography (15) captioned screening": {
     "tmdb_id": 1528830,
     "tmdb_title": "Extra Geography",
@@ -75036,30 +75129,12 @@
       "Drama",
       "History"
     ],
-    "vote_average": 7.943
+    "vote_average": 7.937
   },
   "Hadestown (PG) captioned screening": null,
-  "Babykino: Sense & Sensibility": {
-    "tmdb_id": 1503762,
-    "tmdb_title": "Sense and Sensibility",
-    "tmdb_original_title": "Sense and Sensibility",
-    "overview": "A charming, witty, and deeply relatable story of love and sisterhood.",
-    "poster_path": "/czsyPHosFNbh4PPqXfqWu1aBXnA.jpg",
-    "backdrop_path": "/nrLVr8C2pkbOGwXKay2xrxvlHmh.jpg",
-    "release_date": "2026-09-23",
-    "director": "Georgia Oakley",
-    "runtime": 132,
-    "genres": [
-      "Drama",
-      "Romance"
-    ],
-    "vote_average": 7.4
-  },
-  "De Gaulle: Part Two - Liberté": null,
-  "Exhibition on Screen: James McNeill Whistler": null,
-  "Babka: short film screening and panel discussion": null,
-  "De Gaulle: Liberté (Pt2)": null,
+  "De Gaulle (Part 1): Résistance": null,
   "De Gaulle: Résistance (Pt1)": null,
+  "De Gaulle: Liberté (Pt2)": null,
   "Final Show - The Odyssey": null,
   "RBO: Manon": null,
   "Ozzy & Black Sabbath: Back to the Beginning": {
@@ -75096,7 +75171,6 @@
     "vote_average": 7.578
   },
   "RBO: Carmen": null,
-  "Adults Only: Forgotten Island (£3 Tickets)": null,
   "Last Screening: Girls Like Girls": null,
   "Pink Ulysses + Director Intro": {
     "tmdb_id": 265845,
@@ -75134,18 +75208,65 @@
       "Horror",
       "Music"
     ],
-    "vote_average": 7.03
+    "vote_average": 7.028
   },
   "Mystery LGBTQ+ Horror Preview + Director Intro": null,
   "Live Laugh Lesbian's Homicidal Divas: Resident Evil": null,
   "Ken Russell’s The Devils - The Director's Cut": null,
+  "The Rage: Carrie 2": {
+    "tmdb_id": 7341,
+    "tmdb_title": "The Rage: Carrie 2",
+    "tmdb_original_title": "The Rage: Carrie 2",
+    "overview": "A horrible massacre strikes up after an outcast teenage girl is taunted by a group of high school jocks, all of them unaware of her cutthroat telekinetic powers.",
+    "poster_path": "/jJmIf22gwwQPAFJfZ6Tr1MwSpRg.jpg",
+    "backdrop_path": "/tloUICX4JQH0nm4lJLp0zgFCLGM.jpg",
+    "release_date": "1999-03-12",
+    "director": "Katt Shea",
+    "runtime": 105,
+    "genres": [
+      "Horror",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "vote_average": 5.717
+  },
   "Late Night Halloween Screening: Jennifer's Body": null,
   "Rerun: Mystery LGBTQ+ Horror Preview": null,
+  "Preview: The Restoration at Grayson Manor + Q&amp;A with Chris Colfer": {
+    "tmdb_id": 1528009,
+    "tmdb_title": "The Restoration at Grayson Manor",
+    "tmdb_original_title": "The Restoration at Grayson Manor",
+    "overview": "The foundations of Grayson Manor are shaken when an accident leaves Boyd Grayson handless and his mother invests in radical new technology to help him.",
+    "poster_path": "/m9aKkiCwlQWri27z9WEwezfkUcw.jpg",
+    "backdrop_path": "/eOassvwSzhNfHzPA00XtDD0jYs4.jpg",
+    "release_date": "2026-10-29",
+    "director": "Glenn McQuaid",
+    "runtime": 96,
+    "genres": [
+      "Horror"
+    ],
+    "vote_average": 0.0
+  },
   "Joseph James Presents: Club Moonchaser": null,
   "Lights, Camera, Coffee: Ken Russell's The Devils": null,
   "La Bola Negra Preview": null,
   "George Michael: The Faith Tour Party Screening": null,
   "Lights, Camera, Coffee: La Bola Negra": null,
+  "Preview: Big Girls Don't Cry + Director Q&amp;A": {
+    "tmdb_id": 1477963,
+    "tmdb_title": "Big Girls Don't Cry",
+    "tmdb_original_title": "Big Girls Don't Cry",
+    "overview": "Over one transformative summer in rural New Zealand in 2006, 14-year-old Sid discovers desire, identity, and the internet as she imitates the people she longs to be loved by.",
+    "poster_path": "/u7AAna0FE3d0yIzlLeBbxIcvtp0.jpg",
+    "backdrop_path": "/5SXqcE79Jn210KsFgIyIy7t1Kdo.jpg",
+    "release_date": "2026-10-08",
+    "director": "Paloma Schneideman",
+    "runtime": 100,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 0.0
+  },
   "Doctor Who: The Satan Pit + Intro from Sophia Stardust": {
     "tmdb_id": 1770183,
     "tmdb_title": "Doctor Who: The Satan Pit",
@@ -75163,6 +75284,7 @@
     ],
     "vote_average": 0.0
   },
+  "Encore: Doctor Who: The Satan Pit": null,
   "There Is A Light That Never Goes Out: The Lost Film of the UK AIDS Memorial Quilt at Hyde Park, 1994": {
     "tmdb_id": 1497694,
     "tmdb_title": "There Is a Light That Never Goes Out",
@@ -75177,23 +75299,6 @@
       "Documentary"
     ],
     "vote_average": 8.0
-  },
-  "WOLF + ScreenTalk with director Christian Cargill and Patrick Wolf": null,
-  "NAZA (15)": {
-    "tmdb_id": 1755291,
-    "tmdb_title": "NAZA",
-    "tmdb_original_title": "NAZA",
-    "overview": "Filmed at night from Tel Aviv rooftops, this investigative documentary examines the civilian casualties of Israel's military operations in Gaza and the systems behind targeted killings of Palestinians.",
-    "poster_path": "/b4Gyj8VRoJAeU13jfKPuOTMr5GL.jpg",
-    "backdrop_path": "/7EzH0dlEN9OZWWBXBWwT5PbMNUz.jpg",
-    "release_date": "2026-09-25",
-    "director": "Yuval Abraham",
-    "runtime": 77,
-    "genres": [
-      "Documentary",
-      "War"
-    ],
-    "vote_average": 8.1
   },
   "Suspiria Double Bill": {
     "tmdb_id": 11906,
@@ -75268,7 +75373,7 @@
     ],
     "vote_average": 6.5
   },
-  "De Gaulle (Part 1): Résistance": null,
+  "Soho Horror Fest 2026": null,
   "CHAMPAGNE AND BULLETS": null,
   "MYSTERY EROTIC HORROR": null,
   "BLACK DEVIL DOLL FROM HELL (ON VHS)": null,
@@ -75327,6 +75432,90 @@
     ],
     "vote_average": 6.9
   },
+  "Ganja and Hess": {
+    "tmdb_id": 83096,
+    "tmdb_title": "Ganja & Hess",
+    "tmdb_original_title": "Ganja & Hess",
+    "overview": "After being stabbed with an ancient, germ-infested knife, a doctor finds himself with an insatiable desire for blood.",
+    "poster_path": "/iRfFNBin9RgsOapel5Ejqlj5wFc.jpg",
+    "backdrop_path": "/2BiBj49zY1mwj9rOMLkDMyPYpLs.jpg",
+    "release_date": "1973-04-20",
+    "director": "Bill Gunn",
+    "runtime": 113,
+    "genres": [
+      "Drama",
+      "Horror"
+    ],
+    "vote_average": 5.7
+  },
+  "The St. Valentine’s Day Massacre": {
+    "tmdb_id": 42702,
+    "tmdb_title": "The St. Valentine's Day Massacre",
+    "tmdb_original_title": "The St. Valentine's Day Massacre",
+    "overview": "Chicago February 14th 1929. Al Capone finally establishes himself as the city's boss of organised crime. In a north-side garage his hoods, dressed as policemen, surprise and mow down with machine-guns the key members of Bugs Moran's rival gang. The film traces the history of the incident, and the lives affected and in some cases ended by it.",
+    "poster_path": "/jNESk6Y5ViKmbOHPocKkatGbNb5.jpg",
+    "backdrop_path": "/4N1ppAie727z3w3Vr8R3YKVtx1g.jpg",
+    "release_date": "1967-06-30",
+    "director": "Roger Corman",
+    "runtime": 100,
+    "genres": [
+      "History",
+      "Crime"
+    ],
+    "vote_average": 6.325
+  },
+  "Blake’s 7: Series 3": null,
+  "Tim Burton’s Corpse Bride": {
+    "tmdb_id": 3933,
+    "tmdb_title": "Corpse Bride",
+    "tmdb_original_title": "Corpse Bride",
+    "overview": "In a 19th-century European village, a young man about to be married is whisked away to the underworld and wed to a mysterious corpse bride, while his real bride waits bereft in the land of the living.",
+    "poster_path": "/3RAoVTxUk1OzZClscAsynuu670p.jpg",
+    "backdrop_path": "/v23fWgJUEt8EMmvn19btIacxP8E.jpg",
+    "release_date": "2005-09-12",
+    "director": "Mike Johnson",
+    "runtime": 77,
+    "genres": [
+      "Romance",
+      "Fantasy",
+      "Animation"
+    ],
+    "vote_average": 7.594
+  },
+  "Hold Back the Dawn": {
+    "tmdb_id": 51395,
+    "tmdb_title": "Hold Back the Dawn",
+    "tmdb_original_title": "Hold Back the Dawn",
+    "overview": "Romanian-French gigolo Georges Iscovescu wishes to enter the USA. Stopped in Mexico by the quota system, he decides to marry an American, then desert her and join his old partner Anita, who's done likewise. But after sweeping teacher Emmy Brown off her feet, he finds her so sweet that love and jealousy endanger his plans.",
+    "poster_path": "/wYfLVAvGZcikP3KI3gTNsrLX3W2.jpg",
+    "backdrop_path": "/uudTreOlFCOefYNGXFlLcaAI3lj.jpg",
+    "release_date": "1941-09-26",
+    "director": "Mitchell Leisen",
+    "runtime": 116,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "vote_average": 6.7
+  },
+  "The Raven": {
+    "tmdb_id": 29056,
+    "tmdb_title": "The Raven",
+    "tmdb_original_title": "The Raven",
+    "overview": "A magician who has been turned into a raven turns to a former sorcerer for help.",
+    "poster_path": "/tt7m22ki1raa0NrvesawJgsQ4Jn.jpg",
+    "backdrop_path": "/y4DdIOaqH2PD9zpvx2IqzSvGiBw.jpg",
+    "release_date": "1963-01-25",
+    "director": "Roger Corman",
+    "runtime": 86,
+    "genres": [
+      "Comedy",
+      "Horror",
+      "Fantasy",
+      "Drama"
+    ],
+    "vote_average": 6.34
+  },
   "Fallen Angels": null,
   "The Hunger Games: Marathon Screening": null,
   "The Tragedy of Macbeth + Francesca Annis Q&A": null,
@@ -75334,7 +75523,6 @@
   "The Royal Ballet: Manon": null,
   "Marnie": null,
   "The Estate + Panel Discussion": null,
-  "The Celebrity Traitors - Live Final": null,
   "Donnie Darko 25th Anniversary": {
     "tmdb_id": 141,
     "tmdb_title": "Donnie Darko",
@@ -75353,59 +75541,6 @@
     "vote_average": 7.761
   },
   "Farewell, My Lovely [a.k.a Murder, My Sweet]": null,
-  "De Gaulle: Part 2- Liberte": null,
-  "Fallen Angels by Noël Coward": null,
-  "The Odyssey (70mm)": null,
-  "Dracula 4K Restoration": {
-    "tmdb_id": 1246049,
-    "tmdb_title": "Dracula",
-    "tmdb_original_title": "Dracula",
-    "overview": "In late 15th-century Eastern Europe, Prince Vlad II’s bride is brutally murdered. As a result, he renounces God and damns Heaven itself. Cursed with eternal life, Vlad is reborn as Dracula, an immortal warlord who defies fate in a blood-soaked crusade to wrench his lost love back from death.",
-    "poster_path": "/ykyRfv7JDofLxXLAwtLXaSuaFfM.jpg",
-    "backdrop_path": "/be5SIsRGMckO8tU9lrLcIik70Dy.jpg",
-    "release_date": "2025-07-30",
-    "director": "Luc Besson",
-    "runtime": 130,
-    "genres": [
-      "Horror",
-      "Fantasy",
-      "Romance"
-    ],
-    "vote_average": 7.3
-  },
-  "MilkTea Presents: Mixtape: Youth Edition + Q+A": null,
-  "We're Going on a Bear Hunt + The Tiger Who Came To Tea": {
-    "tmdb_id": 431591,
-    "tmdb_title": "We're Going on a Bear Hunt",
-    "tmdb_original_title": "We're Going on a Bear Hunt",
-    "overview": "We're Going on a Bear Hunt follows the intrepid adventures of siblings Stan, Katie, Rosie, Max, the baby and Rufus the dog, who decide one day to go on an adventure in search of bears. Coming up against a host of obstacles the family ventures through whirling snowstorms, thick oozing mud and dark forests on their ambitious quest. But when Rosie and Rufus become detached from the rest of the party it looks like bear-hunting might not be such fun after all...",
-    "poster_path": "/vh2ggFtDpYW1zoOx1bfEAuCkiQ0.jpg",
-    "backdrop_path": "/6WTCi9XDxJJbFtAGJoAfUwvZUX2.jpg",
-    "release_date": "2016-12-24",
-    "director": "Robin Shaw",
-    "runtime": 30,
-    "genres": [
-      "Animation",
-      "Family",
-      "TV Movie"
-    ],
-    "vote_average": 6.7
-  },
-  "Relaxed-Screening: Sunset Boulevard": {
-    "tmdb_id": 599,
-    "tmdb_title": "Sunset Boulevard",
-    "tmdb_original_title": "Sunset Boulevard",
-    "overview": "A hack screenwriter writes a screenplay for a former silent film star who has faded into Hollywood obscurity.",
-    "poster_path": "/zt8aQ6ksqK6p1AopC5zVTDS9pKT.jpg",
-    "backdrop_path": "/p47ihFj4A7EpBjmPHdTj4ipyq1S.jpg",
-    "release_date": "1950-08-10",
-    "director": "Billy Wilder",
-    "runtime": 110,
-    "genres": [
-      "Drama"
-    ],
-    "vote_average": 8.277
-  },
   "Met Opera Encore 2026-27: Macbeth": null,
   "London Breeze Film Festival: Miss Jobson + Director Q&A": null,
   "Dub Me Always: Vinyl Reggae": null,
@@ -75423,9 +75558,41 @@
       "Horror",
       "Thriller"
     ],
-    "vote_average": 7.56
+    "vote_average": 7.559
   },
-  "Private Hire (1 hour)": null,
+  "We're Going on a Bear Hunt + The Tiger Who Came To Tea": {
+    "tmdb_id": 431591,
+    "tmdb_title": "We're Going on a Bear Hunt",
+    "tmdb_original_title": "We're Going on a Bear Hunt",
+    "overview": "We're Going on a Bear Hunt follows the intrepid adventures of siblings Stan, Katie, Rosie, Max, the baby and Rufus the dog, who decide one day to go on an adventure in search of bears. Coming up against a host of obstacles the family ventures through whirling snowstorms, thick oozing mud and dark forests on their ambitious quest. But when Rosie and Rufus become detached from the rest of the party it looks like bear-hunting might not be such fun after all...",
+    "poster_path": "/vh2ggFtDpYW1zoOx1bfEAuCkiQ0.jpg",
+    "backdrop_path": "/6WTCi9XDxJJbFtAGJoAfUwvZUX2.jpg",
+    "release_date": "2016-12-24",
+    "director": "Joanna Harrison",
+    "runtime": 30,
+    "genres": [
+      "Animation",
+      "Family",
+      "TV Movie"
+    ],
+    "vote_average": 6.7
+  },
+  "The Odyssey (70mm)": null,
+  "Fallen Angels by Noël Coward": {
+    "tmdb_id": 1702350,
+    "tmdb_title": "Fallen Angels by Noël Coward",
+    "tmdb_original_title": "Fallen Angels by Noël Coward",
+    "overview": "Two upper-class wives, their husbands away for the day, share a few toasts to their pre-marital dalliances—with the same man, who just may be en route from France to visit. Old rivalries and past scandals bubble to the surface in this intoxicating romp from one of theatre’s comedy masters.",
+    "poster_path": "/fVUdqgCL8hgWzEho5mGMTdXPY2o.jpg",
+    "backdrop_path": "/lFfcRErLoDpzfOgh6Kq71L6uRQw.jpg",
+    "release_date": "2026-10-22",
+    "director": "Annette Jolles",
+    "runtime": 105,
+    "genres": [
+      "Comedy"
+    ],
+    "vote_average": 8.0
+  },
   "28 Days Later... (Re-release)": null,
   "Kung Fu Cinema: Kung Fu Hustle": null,
   "Wicker - Preview": null,
@@ -75437,7 +75604,7 @@
     "tmdb_title": "We, the Hated",
     "tmdb_original_title": "We, the Hated",
     "overview": "An intimate portrait of Just Stop Oil protestors asks what it really costs to take a stand in a supposedly democratic society.",
-    "poster_path": "/sPLmoztG18o7pH0VrGS7RrdLmSK.jpg",
+    "poster_path": "/2RAgfwiqZnKWDQriuDyfbkfyKlG.jpg",
     "backdrop_path": null,
     "release_date": "2026-06-10",
     "director": "Rich Felgate",
@@ -75486,6 +75653,21 @@
   "Book Club: Audrey Niffenegger In Conversation": null,
   "Big Screen Karaoke": null,
   "We Are Doc Women presents: Ghost Town plus Q&A": null,
+  "Relaxed-Screening: Sunset Boulevard": {
+    "tmdb_id": 599,
+    "tmdb_title": "Sunset Boulevard",
+    "tmdb_original_title": "Sunset Boulevard",
+    "overview": "A hack screenwriter writes a screenplay for a former silent film star who has faded into Hollywood obscurity.",
+    "poster_path": "/zt8aQ6ksqK6p1AopC5zVTDS9pKT.jpg",
+    "backdrop_path": "/p47ihFj4A7EpBjmPHdTj4ipyq1S.jpg",
+    "release_date": "1950-08-10",
+    "director": "Billy Wilder",
+    "runtime": 110,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 8.277
+  },
   "Blues at the Ritzy": null,
   "Dog Friendly: Scooby-Doo": null,
   "Pan's Labyrinth (20th Anniversary Restoration)": {
@@ -75503,7 +75685,7 @@
       "Drama",
       "War"
     ],
-    "vote_average": 7.8
+    "vote_average": 7.77
   },
   "DRINK AND DINE: Hereditary": null,
   "DRINK AND DINE :Nightmare on Elm Street 4": null,
@@ -75588,6 +75770,22 @@
   "RBO Encore 2026-27: Gotterdammerung": null,
   "RBO Live 2026-27: Cosi Fan Tutte": null,
   "RBO Encore 2026-27: Cosi Fan Tutte": null,
+  "Oxide Ghosts: The Brass Eye Tapes + Q&A (2027)": {
+    "tmdb_id": 475376,
+    "tmdb_title": "Oxide Ghosts: The Brass Eye Tapes",
+    "tmdb_original_title": "Oxide Ghosts: The Brass Eye Tapes",
+    "overview": "Only shown at live events, Oxide Ghosts: The Brass Eye Tapes is made from unseen sketches and outtakes from seminal British TV series Brass Eye.",
+    "poster_path": "/bPA7WPQLOOvxm34PMVP5DEkiMMf.jpg",
+    "backdrop_path": "/tt9E6K8qXCntZAGvoyn9vSRvejR.jpg",
+    "release_date": "2017-09-11",
+    "director": "Michael Cumming",
+    "runtime": 60,
+    "genres": [
+      "Documentary",
+      "Comedy"
+    ],
+    "vote_average": 8.0
+  },
   "Met Opera Live 2026-26: Silent Night": null,
   "Met Opera Encore 2026-26: Silent Night": null,
   "RBO Live 2026-27: Alice's Adventures In Wonderland": {
@@ -75662,14 +75860,25 @@
   "RBO Encore 2026-27: Romeo & Juliet (2025 Encore)": null,
   "Met Opera Live 2026-27: Parsifal": null,
   "Met Opera Encore 2026-27: Parsifal": null,
-  "De Gaulle: Part 1 - Résistance": null,
-  "Hocus Pocus": null,
-  "Dracula (4K Restoration)": null,
-  "The Odyssey (35mm)": null,
-  "De Gaulle: Part 2 - Liberte": null,
   "Toddler Club: Paw Patrol: The Dino Movie": null,
-  "Toddler Club: We're Going on a Bear Hunt + The Tiger Who Came to Tea": null,
+  "Hocus Pocus": null,
+  "Fallen Angels by Noel Coward": {
+    "tmdb_id": 1702350,
+    "tmdb_title": "Fallen Angels by Noël Coward",
+    "tmdb_original_title": "Fallen Angels by Noël Coward",
+    "overview": "Two upper-class wives, their husbands away for the day, share a few toasts to their pre-marital dalliances—with the same man, who just may be en route from France to visit. Old rivalries and past scandals bubble to the surface in this intoxicating romp from one of theatre’s comedy masters.",
+    "poster_path": "/fVUdqgCL8hgWzEho5mGMTdXPY2o.jpg",
+    "backdrop_path": "/lFfcRErLoDpzfOgh6Kq71L6uRQw.jpg",
+    "release_date": "2026-10-22",
+    "director": "Annette Jolles",
+    "runtime": 105,
+    "genres": [
+      "Comedy"
+    ],
+    "vote_average": 8.0
+  },
   "Heat (35mm)": null,
+  "De Gaulle: Part 1 - Résistance": null,
   "After Dark: Backrooms": null,
   "Toddler Club: Disney Junior Cinema Club 2026": null,
   "Avengers Endgame: Encore": {
@@ -75687,7 +75896,7 @@
       "Science Fiction",
       "Action"
     ],
-    "vote_average": 8.246
+    "vote_average": 8.247
   },
   "Throwback: Scream (30th Anniversary)": {
     "tmdb_id": 4232,
@@ -75706,7 +75915,10 @@
     ],
     "vote_average": 7.438
   },
+  "De Gaulle: Part 2 - Liberte": null,
+  "Toddler Club: We're Going on a Bear Hunt + The Tiger Who Came to Tea": null,
   "Unrestricted View Horror Film Festival 2026: Opening Night": null,
+  "Dracula (4K Restoration)": null,
   "RBO Cinema Season 2026-27: Manon": null,
   "Soundtracking Film Club: Wild Horse Nine": null,
   "Ozzy & Black Sabbath: Back To The Beginning": null,
@@ -75733,8 +75945,9 @@
     "vote_average": 7.761
   },
   "Pan's Labyrinth (3D) (20th Anniversary)": null,
-  "Imamura Stolen Desire": null,
+  "Ramayana: Rise of a Legend (Directors Cut)": null,
   "Imamura Endless Desire": null,
+  "Imamura My Second Brother": null,
   "Andy Warhol S Prison Dorothy Dean Book Launch": null,
   "Edges Of Cinema Little Boy": null,
   "The Edges Of Cinema Book Launch Panel Discussion": null
