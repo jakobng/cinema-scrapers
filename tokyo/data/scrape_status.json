@@ -1,50 +1,14 @@
 {
-  "scraped_at": "2026-10-22T00:53:36+00:00",
-  "run_id": "39700427253",
-  "current_showings": 3169,
-  "current_cinemas": 54,
+  "scraped_at": "2026-10-23T01:08:34+00:00",
+  "run_id": "39878608367",
+  "current_showings": 3612,
+  "current_cinemas": 55,
   "source_issues": [
-    {
-      "cinema": "Shin-Bungeiza",
-      "status": "WARNING",
-      "count": 0,
-      "error": null
-    },
-    {
-      "cinema": "Image Forum",
-      "status": "FAILURE",
-      "count": 0,
-      "error": "502 Server Error: Bad Gateway for url: https://www.imageforum.co.jp/theatre/schedule/"
-    },
-    {
-      "cinema": "Shinjuku Musashino-kan",
-      "status": "WARNING",
-      "count": 0,
-      "error": null
-    },
     {
       "cinema": "Kino Cinema",
       "status": "WARNING",
       "count": 0,
       "error": null
-    },
-    {
-      "cinema": "Eurospace",
-      "status": "FAILURE",
-      "count": 0,
-      "error": "Failed to GET schedule page: 502 Server Error: Bad Gateway for url: http://www.eurospace.co.jp/schedule/"
-    },
-    {
-      "cinema": "Jack and Betty Yokohama",
-      "status": "WARNING",
-      "count": 0,
-      "error": null
-    },
-    {
-      "cinema": "White Cine Quinto",
-      "status": "FAILURE",
-      "count": 0,
-      "error": "404 Client Error: Not Found for url: https://www.cinequinto.com/white/movie/"
     }
   ]
 }
