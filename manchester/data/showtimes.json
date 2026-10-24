@@ -1,19 +1,6 @@
 [
   {
     "cinema_name": "Cultplex",
-    "movie_title": "STAB: Bottomless Scooby-Doo 2: Monsters Unleashed",
-    "movie_title_en": "STAB: Bottomless Scooby-Doo 2: Monsters Unleashed",
-    "date_text": "2026-10-24",
-    "showtime": "13:00",
-    "detail_page_url": "https://cultplex.co.uk/Cultplex.dll/WhatsOn?f=1298818",
-    "director": "Raja Gosnell",
-    "year": "2004",
-    "country": "U.S.A",
-    "runtime_min": "93",
-    "synopsis": "Screening as part of STAB!  Zoinks! Treat your inner child to a big-screen adventure with Scooby and the gang! With plenty of Boozy Snacks!   The Mystery Inc. gang must save Coolsville from an attack of their past monsters brought to life by an evil masked figure trying to take down the gang. And as..."
-  },
-  {
-    "cinema_name": "Cultplex",
     "movie_title": "STAB: Benny's Video",
     "movie_title_en": "STAB: Benny's Video",
     "date_text": "2026-10-24",
@@ -213,7 +200,7 @@
       "Horror",
       "Thriller"
     ],
-    "vote_average": 7.342
+    "vote_average": 7.343
   },
   {
     "cinema_name": "Cultplex",
@@ -891,36 +878,6 @@
   },
   {
     "cinema_name": "Everyman Manchester",
-    "movie_title": "Verity",
-    "movie_title_en": "Verity",
-    "date_text": "2026-10-24",
-    "showtime": "10:45",
-    "detail_page_url": "https://www.everymancinema.com/film-listing/1000015739",
-    "booking_url": "",
-    "director": "Michael Showalter",
-    "year": "2026",
-    "country": "",
-    "runtime_min": "114",
-    "synopsis": "",
-    "format_tags": [
-      "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
-    ],
-    "tmdb_id": 1283515,
-    "tmdb_title": "Verity",
-    "tmdb_original_title": "Verity",
-    "tmdb_backdrop_path": "/9qxyrJfjk577ym5WD6HCDmunoyO.jpg",
-    "tmdb_poster_path": "/e2t7NjahJTgz2PMx2BW4ZRgHR6Z.jpg",
-    "tmdb_overview": "Lowen Ashleigh is hired by Jeremy Crawford to ghostwrite novels for his bestselling author wife Verity, who is unable to finish following an accident. Lowen gradually uncovers Verity's disturbing truths while residing at the Crawfords' home to work.",
-    "runtime": 117,
-    "genres": [
-      "Mystery",
-      "Thriller"
-    ],
-    "vote_average": 10.0
-  },
-  {
-    "cinema_name": "Everyman Manchester",
     "movie_title": "Wildwood",
     "movie_title_en": "Wildwood",
     "date_text": "2026-10-24",
@@ -1176,7 +1133,8 @@
     "synopsis": "",
     "format_tags": [
       "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
+      "Format.Projection.Digital",
+      "Internal.Data.AlmostSoldOut"
     ],
     "tmdb_id": 1400940,
     "tmdb_title": "Clayface",
@@ -3699,34 +3657,6 @@
       "Auditorium.Comfort.ReservedSeating",
       "Format.Projection.Digital"
     ]
-  },
-  {
-    "cinema_name": "HOME Manchester",
-    "movie_title": "Fatherland",
-    "movie_title_en": "Fatherland",
-    "date_text": "2026-10-24",
-    "showtime": "13:35",
-    "detail_page_url": "https://homemcr.org/whats-on/fatherland-12a-l442",
-    "director": "Christopher Menaul",
-    "year": "1994",
-    "country": "",
-    "runtime_min": "82",
-    "synopsis": "An impeccably shot and evocative drama that meditates on the healing process for a fractured national identity, starring Sandra Hüller.",
-    "tmdb_id": 11248,
-    "tmdb_title": "Fatherland",
-    "tmdb_original_title": "Fatherland",
-    "tmdb_backdrop_path": "/znWxInJXM4GZ3SzMYbfRZMjlEtQ.jpg",
-    "tmdb_poster_path": "/8HbeLtS7FRaQ6Ys8Qf62HW1VBSn.jpg",
-    "tmdb_overview": "Fictional account of what might have happened if Hitler had won the war. It is now the 1960s and Germany's war crimes have so far been kept a secret. Hitler wants to talk peace with the US president. An American journalist and a German homicide cop stumble into a plot to destroy all evidence of the genocide.",
-    "runtime": 106,
-    "genres": [
-      "Drama",
-      "Thriller",
-      "Action",
-      "TV Movie",
-      "War"
-    ],
-    "vote_average": 6.262
   },
   {
     "cinema_name": "HOME Manchester",
