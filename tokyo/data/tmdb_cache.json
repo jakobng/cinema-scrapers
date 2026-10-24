@@ -2642,6 +2642,7 @@
     "vote_average": 6.5
   },
   "Blue Heron／ブルーヘロン": null,
+  "Breath": null,
   "Bunka-ブンカ": null,
   "CBGB ニューヨーク、PUNKが生まれた場所": null,
   "CBGB ニューヨーク、パンクが生れた場所": {
@@ -38127,6 +38128,44 @@
     "tmdb_title_original": "パリに咲くエトワール",
     "vote_average": 0.0
   },
+  "tmdb:1526917": {
+    "backdrop_path": "/7vZSK3hXn9fNiaij2YjvNXdwOUn.jpg",
+    "director": "小島正幸",
+    "director_en": "Masayuki Kojima",
+    "director_jp": "小島正幸",
+    "genres": [
+      "アニメーション",
+      "サイエンスフィクション",
+      "ファンタジー",
+      "アドベンチャー"
+    ],
+    "genres_en": [
+      "Animation",
+      "Science Fiction",
+      "Fantasy",
+      "Adventure"
+    ],
+    "overview": "",
+    "overview_en": "Sequel to Made in Abyss: The Golden City of the Scorching Sun.",
+    "poster_path": "/7HfBlYDlMVaHnvd7NEpZLd8r7FO.jpg",
+    "release_date": "2026-10-23",
+    "runtime": 71,
+    "tmdb_alt_titles_jp": [
+      "Made in Abyss: Mezameru Shinpi"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1526917,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Made in Abyss: Mezameru Shinpi",
+    "tmdb_title_jp": "メイドインアビス 目覚める神秘",
+    "tmdb_title_original": "メイドインアビス 目覚める神秘",
+    "vote_average": 0.0
+  },
   "tmdb:1527843": {
     "backdrop_path": null,
     "director": "松本准平",
@@ -43747,6 +43786,41 @@
     "tmdb_title_original": "The Wicker Man",
     "vote_average": 7.3
   },
+  "tmdb:16308": {
+    "backdrop_path": "/3m6rRRxJl7nzcLiNbA3TfQE7UZX.jpg",
+    "director": "富野由悠季",
+    "director_en": "Yoshiyuki Tomino",
+    "director_jp": "富野由悠季",
+    "genres": [
+      "アニメーション",
+      "サイエンスフィクション"
+    ],
+    "genres_en": [
+      "Animation",
+      "Science Fiction"
+    ],
+    "overview": "宇宙世紀0123年。月の周辺に新設されたフロンティア・サイドのコロニー、フロンティアIV。その内部にあるフロンティア学園では学園祭が開催され、いつもと変わらぬ平和な一日が過ぎようとしていた。  そんな中、フロンティアIVに近づくMS部隊の姿があった。彼らの名は、クロスボーン・バンガード。庶民のための真の貴族による支配主義「コスモ貴族主義」を標榜するマイッツアー・ロナが創設した武装集団に所属するMSだった。",
+    "overview_en": "U.C. 0123. After a generation of peace, the Earth Federation has begun to build new space colonies to house humanity's growing population. But a new force, the aristocratic Crossbone Vanguard, plans to seize the colonies of the newly constructed Frontier Side for itself. As their home becomes a battlefield, a handful of young civilians struggle to escape the conflict. To save his friends and family, the reluctant warrior Seabook Arno becomes the pilot of a new Gundam which bears the code name F91.",
+    "poster_path": "/o2wgfzTIfHoyzLWSHM9Pt3wbgpx.jpg",
+    "release_date": "1991-03-16",
+    "runtime": 121,
+    "tmdb_alt_titles_jp": [
+      "Kidou Senshi Gundam F91",
+      "Kidou Senshi Gundam Formula 91"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 16308,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Mobile Suit Gundam F91",
+    "tmdb_title_jp": "機動戦士ガンダムF91",
+    "tmdb_title_original": "機動戦士ガンダムF91",
+    "vote_average": 6.509
+  },
   "tmdb:1631314": {
     "backdrop_path": null,
     "director": "上田誠",
@@ -43912,6 +43986,36 @@
     "tmdb_title_en": "Entoko no uta: Neta kiri kajin Endo Shigeru",
     "tmdb_title_jp": "えんとこの歌　寝たきり歌人・遠藤滋",
     "tmdb_title_original": "えんとこの歌　寝たきり歌人・遠藤滋",
+    "vote_average": 0.0
+  },
+  "tmdb:1633683": {
+    "backdrop_path": null,
+    "director": "Ryutaro Tano",
+    "director_en": "Ryutaro Tano",
+    "director_jp": "Ryutaro Tano",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "",
+    "poster_path": "/mlYy91AX6DRHYIcdNbuCUzoUlqj.jpg",
+    "release_date": "2024-11-30",
+    "runtime": 127,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1633683,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "About Jun",
+    "tmdb_title_jp": "ジュンについて",
+    "tmdb_title_original": "ジュンについて",
     "vote_average": 0.0
   },
   "tmdb:1633790": {
@@ -125015,6 +125119,42 @@
     "tmdb_title_original": "إسكندرية كمان وكمان",
     "vote_average": 4.8
   },
+  "アレキサンドリア　今も昔も": {
+    "backdrop_path": "/8EjU0LSqWhMGTQDoq0NFXevS2oF.jpg",
+    "director": "Youssef Chahine",
+    "director_en": "Youssef Chahine",
+    "director_jp": "Youssef Chahine",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "映画監督の男は、キャリアの絶頂にもかかわらずハンガーストライキに参加する。新作の制作も危ぶまれる状況で、女神のような女性との運命の出会いが待っていた。",
+    "overview_en": "Set in 1987 against the backdrop of a hunger strike by the Egyptian film industry, Chahine himself steps in to play Yehia, the famed Egyptian director whose life is chronicled in \"Alexandria, Why?\" and \"An Egyptian Story\". Obsessed with Amr, the handsome actor he discovered and cast as his alter-ego in parts one and two of The Alexandria Trilogy, Yehia pressures Amr to star in various film projects that change even as Yehia's perception of the young actor begins to change. He first casts Amr as Hamlet, which the actor deems too demanding for his talents, then as the lead in a musical biopic of demigod Alexander the Great, who founded the city of Alexandria in 332 B.C.",
+    "poster_path": "/bpyvkAMk1PwEAzfBBc9QNzRA9An.jpg",
+    "release_date": "1989-12-04",
+    "runtime": 109,
+    "tmdb_alt_titles_jp": [
+      "アレキサンドリア －今も昔も－"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "EG",
+        "name": "Egypt"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 123652,
+    "tmdb_original_language": "ar",
+    "tmdb_title_en": "Alexandria Again and Forever",
+    "tmdb_title_jp": "アレキサンドリア －今も昔も－",
+    "tmdb_title_original": "إسكندرية كمان وكمان",
+    "vote_average": 4.8
+  },
   "アレックス3部作 LOVE MEETS レオス・カラックス": null,
   "アロイーズAloïse": {
     "backdrop_path": "/mhiAi5IHpvYiAc6sfrwcbKeQTX0.jpg",
@@ -133032,6 +133172,8 @@
     "tmdb_title_original": "ケルベロス 地獄の番犬",
     "vote_average": 6.4
   },
+  "ゲアトルーズ": null,
+  "ゲキ×シネ「紅鬼物語」": null,
   "ゲキ×シネ「蒼の乱」": null,
   "ゲキ×シネ「蛮幽鬼」": null,
   "ゲゲゲの鬼太郎 最強妖怪軍団!日本上陸!! ／悪魔くん": null,
@@ -137970,6 +138112,36 @@
   "ジャーマン・イメージ": null,
   "ジュディ・シル 贖罪のシンガーソングライター": null,
   "ジュディ・シル　贖罪のシンガーソングライター": null,
+  "ジュンについて": {
+    "backdrop_path": null,
+    "director": "Ryutaro Tano",
+    "director_en": "Ryutaro Tano",
+    "director_jp": "Ryutaro Tano",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "",
+    "poster_path": "/mlYy91AX6DRHYIcdNbuCUzoUlqj.jpg",
+    "release_date": "2024-11-30",
+    "runtime": 127,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1633683,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "About Jun",
+    "tmdb_title_jp": "ジュンについて",
+    "tmdb_title_original": "ジュンについて",
+    "vote_average": 0.0
+  },
   "ジョゼと虎と魚たち【朝井リョウセレクト】": {
     "backdrop_path": "/fdtGbLY9F5RWixb2mRibuMSzQXv.jpg",
     "director": "犬童一心",
@@ -141706,6 +141878,7 @@
     "tmdb_title_original": "Cha Cha",
     "vote_average": 8.0
   },
+  "チュルヒャー兄弟 ミニアチュールの詩学『動物三部作』": null,
   "チューズ・ミー": {
     "backdrop_path": "/tEc74NqUNHExvPSYMIp1kYG2nwc.jpg",
     "director": "Alan Rudolph",
@@ -157801,6 +157974,44 @@
     "tmdb_title_en": "Makeup",
     "tmdb_title_jp": "メイク・アップ",
     "tmdb_title_original": "メイク・アップ",
+    "vote_average": 0.0
+  },
+  "メイドインアビス　目覚める神秘": {
+    "backdrop_path": "/7vZSK3hXn9fNiaij2YjvNXdwOUn.jpg",
+    "director": "小島正幸",
+    "director_en": "Masayuki Kojima",
+    "director_jp": "小島正幸",
+    "genres": [
+      "アニメーション",
+      "サイエンスフィクション",
+      "ファンタジー",
+      "アドベンチャー"
+    ],
+    "genres_en": [
+      "Animation",
+      "Science Fiction",
+      "Fantasy",
+      "Adventure"
+    ],
+    "overview": "",
+    "overview_en": "Sequel to Made in Abyss: The Golden City of the Scorching Sun.",
+    "poster_path": "/7HfBlYDlMVaHnvd7NEpZLd8r7FO.jpg",
+    "release_date": "2026-10-23",
+    "runtime": 71,
+    "tmdb_alt_titles_jp": [
+      "Made in Abyss: Mezameru Shinpi"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1526917,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Made in Abyss: Mezameru Shinpi",
+    "tmdb_title_jp": "メイドインアビス 目覚める神秘",
+    "tmdb_title_original": "メイドインアビス 目覚める神秘",
     "vote_average": 0.0
   },
   "メイヤザガン　美しき人": {
@@ -178496,6 +178707,7 @@
     "tmdb_title_original": "寝ても覚めても",
     "vote_average": 6.771
   },
+  "寝る映画": null,
   "審判": {
     "backdrop_path": "/wdpmlzhOLzas0FivEP1Bri399jv.jpg",
     "director": "パク・チャヌク",
@@ -180464,6 +180676,7 @@
     "tmdb_title_original": "The Thin Man",
     "vote_average": 7.503
   },
+  "彷徨う者たち": null,
   "役者になったスパイ": {
     "backdrop_path": "/lJ4xGL4jMYeeLtvAEWRBIAjCqOm.jpg",
     "director": "Micha Lewinsky",
@@ -190986,6 +191199,41 @@
     "tmdb_title_jp": "橋のない川",
     "tmdb_title_original": "橋のない川",
     "vote_average": 6.0
+  },
+  "機動戦士ガンダムF91": {
+    "backdrop_path": "/3m6rRRxJl7nzcLiNbA3TfQE7UZX.jpg",
+    "director": "富野由悠季",
+    "director_en": "Yoshiyuki Tomino",
+    "director_jp": "富野由悠季",
+    "genres": [
+      "アニメーション",
+      "サイエンスフィクション"
+    ],
+    "genres_en": [
+      "Animation",
+      "Science Fiction"
+    ],
+    "overview": "宇宙世紀0123年。月の周辺に新設されたフロンティア・サイドのコロニー、フロンティアIV。その内部にあるフロンティア学園では学園祭が開催され、いつもと変わらぬ平和な一日が過ぎようとしていた。  そんな中、フロンティアIVに近づくMS部隊の姿があった。彼らの名は、クロスボーン・バンガード。庶民のための真の貴族による支配主義「コスモ貴族主義」を標榜するマイッツアー・ロナが創設した武装集団に所属するMSだった。",
+    "overview_en": "U.C. 0123. After a generation of peace, the Earth Federation has begun to build new space colonies to house humanity's growing population. But a new force, the aristocratic Crossbone Vanguard, plans to seize the colonies of the newly constructed Frontier Side for itself. As their home becomes a battlefield, a handful of young civilians struggle to escape the conflict. To save his friends and family, the reluctant warrior Seabook Arno becomes the pilot of a new Gundam which bears the code name F91.",
+    "poster_path": "/o2wgfzTIfHoyzLWSHM9Pt3wbgpx.jpg",
+    "release_date": "1991-03-16",
+    "runtime": 121,
+    "tmdb_alt_titles_jp": [
+      "Kidou Senshi Gundam F91",
+      "Kidou Senshi Gundam Formula 91"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 16308,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Mobile Suit Gundam F91",
+    "tmdb_title_jp": "機動戦士ガンダムF91",
+    "tmdb_title_original": "機動戦士ガンダムF91",
+    "vote_average": 6.509
   },
   "機動戦士ガンダム　閃光のハサウェイ": {
     "backdrop_path": "/mI0Qo7VtgW5siCtQQqNPXIk0Ar6.jpg",
