@@ -868,30 +868,6 @@
   },
   {
     "cinema_name": "HOME Manchester",
-    "movie_title": "Possible Love",
-    "movie_title_en": "Possible Love",
-    "date_text": "2026-10-25",
-    "showtime": "12:30",
-    "detail_page_url": "https://homemcr.org/whats-on/possible-love-15-bnf1",
-    "director": "Lee Chang-dong",
-    "year": "2026",
-    "country": "",
-    "runtime_min": "166",
-    "synopsis": "Lee Chang-dong’s masterfully directed follow-up to Burning finds four strangers’ lives entwined by hidden desires and repressed emotions.",
-    "tmdb_id": 1483525,
-    "tmdb_title": "Possible Love",
-    "tmdb_original_title": "가능한 사랑",
-    "tmdb_backdrop_path": "/kPbyLj2OyjojqvR1jfK1VvXzabg.jpg",
-    "tmdb_poster_path": "/dLz9yHeLw4x4sD0WTSNi7HuK2ke.jpg",
-    "tmdb_overview": "A laid-off worker and his wife cross paths with a documentary filmmaker and her spouse and confront their hidden desires.",
-    "runtime": 165,
-    "genres": [
-      "Drama"
-    ],
-    "vote_average": 8.2
-  },
-  {
-    "cinema_name": "HOME Manchester",
     "movie_title": "Shaun the Sheep: The Beast of Mossy Bottom (U)",
     "movie_title_en": "Shaun the Sheep: The Beast of Mossy Bottom (U)",
     "date_text": "2026-10-25",
@@ -3686,7 +3662,8 @@
     "synopsis": "It’s spooky season, so join me for Kyron’s Horror Night In! My boyfriend won’t watch horror, so I’m finding my own crowd. Come comfy, come solo or bring a mate, think a sleepover at a friend’s house, with Everyman’s big screen. You won’t be screaming alone!\n\nWe will be screening Donnie Darko, an awkward teenager, who befriends Frank, a figure in a bunny costume only he can see, who informs Donnie that the world will end in 28 days, 6 hours, 42 minutes, and 12 seconds.\n\nEach ticket includes a complimentary small popcorn and bottle of water.",
     "format_tags": [
       "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
+      "Format.Projection.Digital",
+      "Internal.Data.AlmostSoldOut"
     ]
   },
   {
