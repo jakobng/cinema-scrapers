@@ -4483,6 +4483,7 @@
     "tmdb_title_original": "Helpless",
     "vote_average": 0.0
   },
+  "Here": null,
   "INFINITE 15TH ANNIVERSARY CONCERT LIMITED EDITION THE MOVIE": {
     "backdrop_path": "/iiNwJzG0rbjeyrukQLVkUXRJMFI.jpg",
     "director": "손석",
@@ -15582,6 +15583,50 @@
     "tmdb_title_original": "너를 줍다",
     "vote_average": 5.0
   },
+  "tmdb:11010": {
+    "backdrop_path": "/32pvxFiXNo2TdNpBiuHN8k2Mr4K.jpg",
+    "director": "マイケル・ラドフォード",
+    "director_en": "Michael Radford",
+    "director_jp": "マイケル・ラドフォード",
+    "genres": [
+      "コメディ",
+      "ドラマ",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ],
+    "overview": "イタリア、ナポリに浮かぶ小さな島に、チリ政府に追われた世界的詩人パブロ・ネルーダが亡命し、滞在することとなった。彼だけに郵便を届ける配達人となった村の貧しい青年マリオは、ネルーダとの交流の中で、少しずつ詩の世界に触れ、恋を知るのだった。美しい風景の中で切ない愛と友情を描く感動作。",
+    "overview_en": "Simple Italian postman learns to love poetry while delivering mail to a famous poet; he uses this to woo local beauty Beatrice.",
+    "poster_path": "/vCluZ0hOZZNbOEM8fR84kvPhXZV.jpg",
+    "release_date": "1994-09-22",
+    "runtime": 114,
+    "tmdb_alt_titles_jp": [
+      "イル・ポスティーノ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "IT",
+        "name": "Italy"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "BE",
+        "name": "Belgium"
+      }
+    ],
+    "tmdb_id": 11010,
+    "tmdb_original_language": "it",
+    "tmdb_title_en": "The Postman",
+    "tmdb_title_jp": "イル・ポスティーノ",
+    "tmdb_title_original": "Il postino",
+    "vote_average": 7.906
+  },
   "tmdb:1101383": {
     "backdrop_path": "/b9q9VmbXDvJmTziRqkwdEmFdwhr.jpg",
     "director": "デヴィッド・ロバート・ミッチェル",
@@ -18725,6 +18770,38 @@
     "tmdb_title_jp": "ションベン・ライダー",
     "tmdb_title_original": "ションベン・ライダー",
     "vote_average": 6.0
+  },
+  "tmdb:115784": {
+    "backdrop_path": "/iJtbO8WvdcZN69XPTQP2585lvvT.jpg",
+    "director": "相米慎二",
+    "director_en": "Shinji Sōmai",
+    "director_jp": "相米慎二",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "ある日、小学6年生のレンコの両親は離婚を前提に別居を始めてしまう。父が家を出て行ったため、母と二人暮しとなったレンコだったが、勝手なことばかり言う両親の間に挟まれ、どうにも納得がいかない。なんとか両親の仲を戻そうと、去年も行ったびわ湖畔への家族旅行を強引に計画する。",
+    "overview_en": "Physically separated from her father and at odds with her distraught mother, a girl must negotiate her own passage to maturity.",
+    "poster_path": "/3E0Ju1rOy2hCC7UNVknXlFZQ8Cy.jpg",
+    "release_date": "1993-03-20",
+    "runtime": 124,
+    "tmdb_alt_titles_jp": [
+      "Ohikkoshi"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 115784,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Moving",
+    "tmdb_title_jp": "お引越し",
+    "tmdb_title_original": "お引越し",
+    "vote_average": 7.5
   },
   "tmdb:115799": {
     "backdrop_path": "/9nf27pcLu6edN6g4MHIJ0LNVAoH.jpg",
@@ -27496,6 +27573,36 @@
     "tmdb_title_original": "明日を夜に捨てて",
     "vote_average": 0.0
   },
+  "tmdb:1306457": {
+    "backdrop_path": null,
+    "director": "谷口慈彦",
+    "director_en": "Yoshihiko Taniguchi",
+    "director_jp": "谷口慈彦",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Junior high school student Kiki belongs to a family of five, with her father Kensuke, mother Mayumi, younger brother Ryo, and younger sister Anna. After moving from their former apartment to a housing complex, they had been happy for a time, with Kiki and her mother filling the balcony with flowers. But they lose the emotional bedrock of their family when their mother suddenly dies, changing everything.",
+    "poster_path": "/sKsg45hrpxmXZK3AgAcWAbqPmQD.jpg",
+    "release_date": "2024-07-14",
+    "runtime": 91,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1306457,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Happy Life",
+    "tmdb_title_jp": "嬉々な生活",
+    "tmdb_title_original": "嬉々な生活",
+    "vote_average": 0.0
+  },
   "tmdb:1308545": {
     "backdrop_path": "/Agffw58ImoHhiXYCy3iKepG3fXC.jpg",
     "director": "岗珍",
@@ -30196,6 +30303,44 @@
     "tmdb_title_jp": "拳と祈り ―袴田巖の生涯―",
     "tmdb_title_original": "拳と祈り ―袴田巖の生涯―",
     "vote_average": 0.0
+  },
+  "tmdb:1372489": {
+    "backdrop_path": "/vncMpsAUDnL1JOb73e5q48gX32S.jpg",
+    "director": "寺本幸代",
+    "director_en": "Yukiyo Teramoto",
+    "director_jp": "寺本幸代",
+    "genres": [
+      "アドベンチャー",
+      "アニメーション",
+      "ファミリー",
+      "ファンタジー"
+    ],
+    "genres_en": [
+      "Adventure",
+      "Animation",
+      "Family",
+      "Fantasy"
+    ],
+    "overview": "数十億円の価値がある絵画が発見されたニュースを横目に、夏休みの宿題である“絵”に取り組むのび太。その前に、突然絵の切れ端が落ちてきた。ひみつ道具「はいりこみライト」を使い絵の中に入って探検していると、不思議な少女・クレアと出会う。彼女の頼みを受けて〈アートリア公国〉を目指すドラえもんたちだったが、そこはなんと、ニュースで話題の絵画に描かれた、中世ヨーロッパの世界だった！そしてその世界には〈アートリアブルー〉という幻の宝石がどこかに眠っているらしい。絵の中の世界〈アートリア公国〉とは一体･･･？幻の宝石のひみつを探るドラえもんたち。しかし、〈アートリア公国〉に伝わる“世界滅亡”の伝説が蘇えってしまい、大ピンチに！！はたして、のび太たちは伝説を打ち破り、世界を救うことができるのか！？",
+    "overview_en": "Nobita and Doraemon enter the world in a European Renaissance painting, but run into trouble as they hop from piece to piece in search of a malevolent time traveler who wishes to recreate the extinct pigment of \"Artoria Blue\".",
+    "poster_path": "/tf7NQJ4zL8iCN1aPi8Q5HHyeWSO.jpg",
+    "release_date": "2025-03-07",
+    "runtime": 105,
+    "tmdb_alt_titles_jp": [
+      "Doraemon Movie 44: Nobita no E Sekai Monogatari"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1372489,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Doraemon the Movie: Nobita's Art World Tales",
+    "tmdb_title_jp": "映画ドラえもん のび太の絵世界物語",
+    "tmdb_title_original": "映画ドラえもん のび太の絵世界物語",
+    "vote_average": 8.037
   },
   "tmdb:1373801": {
     "backdrop_path": "/qukLFui60lgA9eWYWnFMA9CdD8Q.jpg",
@@ -91240,7 +91385,7 @@
     "tmdb_title_en": "Chie the Brat",
     "tmdb_title_jp": "じゃりン子チエ 劇場版",
     "tmdb_title_original": "じゃりン子チエ 劇場版",
-    "vote_average": 6.826
+    "vote_average": 6.8
   },
   "tmdb:71": {
     "backdrop_path": "/urzflyf41uySpgciGHdQzpcaMOY.jpg",
@@ -116977,6 +117122,38 @@
     "tmdb_title_original": "お尋ね者七人",
     "vote_average": 0.0
   },
+  "お引越し": {
+    "backdrop_path": "/iJtbO8WvdcZN69XPTQP2585lvvT.jpg",
+    "director": "相米慎二",
+    "director_en": "Shinji Sōmai",
+    "director_jp": "相米慎二",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "ある日、小学6年生のレンコの両親は離婚を前提に別居を始めてしまう。父が家を出て行ったため、母と二人暮しとなったレンコだったが、勝手なことばかり言う両親の間に挟まれ、どうにも納得がいかない。なんとか両親の仲を戻そうと、去年も行ったびわ湖畔への家族旅行を強引に計画する。",
+    "overview_en": "Physically separated from her father and at odds with her distraught mother, a girl must negotiate her own passage to maturity.",
+    "poster_path": "/3E0Ju1rOy2hCC7UNVknXlFZQ8Cy.jpg",
+    "release_date": "1993-03-20",
+    "runtime": 124,
+    "tmdb_alt_titles_jp": [
+      "Ohikkoshi"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 115784,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Moving",
+    "tmdb_title_jp": "お引越し",
+    "tmdb_title_original": "お引越し",
+    "vote_average": 7.5
+  },
   "お早よう": {
     "backdrop_path": "/qH9wiXnx9mU9kNGCH1exaey9CqU.jpg",
     "director": "小津安二郎",
@@ -118494,6 +118671,45 @@
     "tmdb_title_jp": "しらぬひ",
     "tmdb_title_original": "しらぬひ",
     "vote_average": 0.0
+  },
+  "じゃりン子チエ": {
+    "backdrop_path": "/iVogcMvpuhCR2cuiLBzMYEhqeUM.jpg",
+    "director": "高畑勲",
+    "director_en": "Isao Takahata",
+    "director_jp": "高畑勲",
+    "genres": [
+      "ファミリー",
+      "アニメーション",
+      "コメディ",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Family",
+      "Animation",
+      "Comedy",
+      "Drama"
+    ],
+    "overview": "バクチ好きの父親、テツに代わり自宅のホルモン屋を切り盛りしている逞しい大阪の女子小学生の竹本チエ。そんなチエは時々テツと別居中の母ヨシ江と父に秘密で会っており縁日での休みを満喫するが、その現場をテツに見られてしまい…。",
+    "overview_en": "Chie Takemoto is a dependable girl who struggles to help her troublesome father run a small tavern in Osaka. Unbeknown to her dad, she occasionally visits her mother who left him not too long ago. She plans on trying to reunite them, but not until her father gets a job.",
+    "poster_path": "/emnUOYwQTVZf8opGsCH5Ugk3dXT.jpg",
+    "release_date": "1981-04-11",
+    "runtime": 105,
+    "tmdb_alt_titles_jp": [
+      "Jarinko Chie",
+      "じゃりン子チエ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 70927,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Chie the Brat",
+    "tmdb_title_jp": "じゃりン子チエ 劇場版",
+    "tmdb_title_original": "じゃりン子チエ 劇場版",
+    "vote_average": 6.8
   },
   "じょしこう騎兵隊だっ": {
     "backdrop_path": null,
@@ -126285,6 +126501,50 @@
     "tmdb_title_original": "Irma Vep",
     "vote_average": 6.665
   },
+  "イル・ポスティーノ": {
+    "backdrop_path": "/32pvxFiXNo2TdNpBiuHN8k2Mr4K.jpg",
+    "director": "マイケル・ラドフォード",
+    "director_en": "Michael Radford",
+    "director_jp": "マイケル・ラドフォード",
+    "genres": [
+      "コメディ",
+      "ドラマ",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ],
+    "overview": "イタリア、ナポリに浮かぶ小さな島に、チリ政府に追われた世界的詩人パブロ・ネルーダが亡命し、滞在することとなった。彼だけに郵便を届ける配達人となった村の貧しい青年マリオは、ネルーダとの交流の中で、少しずつ詩の世界に触れ、恋を知るのだった。美しい風景の中で切ない愛と友情を描く感動作。",
+    "overview_en": "Simple Italian postman learns to love poetry while delivering mail to a famous poet; he uses this to woo local beauty Beatrice.",
+    "poster_path": "/vCluZ0hOZZNbOEM8fR84kvPhXZV.jpg",
+    "release_date": "1994-09-22",
+    "runtime": 114,
+    "tmdb_alt_titles_jp": [
+      "イル・ポスティーノ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "IT",
+        "name": "Italy"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "BE",
+        "name": "Belgium"
+      }
+    ],
+    "tmdb_id": 11010,
+    "tmdb_original_language": "it",
+    "tmdb_title_en": "The Postman",
+    "tmdb_title_jp": "イル・ポスティーノ",
+    "tmdb_title_original": "Il postino",
+    "vote_average": 7.906
+  },
   "イレイザーヘッド 4K": {
     "backdrop_path": "/ApB0mF2d5Oqioi3yxjuogiotSLI.jpg",
     "director": "デヴィッド・リンチ",
@@ -131449,6 +131709,7 @@
     "tmdb_title_original": "キッチンから花束を",
     "vote_average": 6.0
   },
+  "キノ・ライカ 小さな町の映画館": null,
   "キノ・ライカ 小さな町の映画館【『キノ・ライカ』＋アキ・カウリスマキ監督特集【『クロノス・カイロス』公開記念】】": {
     "backdrop_path": "/9MQv9pf760GIiopBfNeUj66t1M9.jpg",
     "director": "Veljko Vidak",
@@ -134486,6 +134747,7 @@
     "tmdb_title_original": "ゴースト・オブ・ウエノ",
     "vote_average": 0.0
   },
+  "ゴースト・トロピック": null,
   "ゴールデンカムイ　網走監獄襲撃編": {
     "backdrop_path": null,
     "director": "片桐健滋",
@@ -177937,6 +178199,36 @@
     "tmdb_title_jp": "시집가는 날",
     "vote_average": 6.0
   },
+  "嬉々な生活": {
+    "backdrop_path": null,
+    "director": "谷口慈彦",
+    "director_en": "Yoshihiko Taniguchi",
+    "director_jp": "谷口慈彦",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Junior high school student Kiki belongs to a family of five, with her father Kensuke, mother Mayumi, younger brother Ryo, and younger sister Anna. After moving from their former apartment to a housing complex, they had been happy for a time, with Kiki and her mother filling the balcony with flowers. But they lose the emotional bedrock of their family when their mother suddenly dies, changing everything.",
+    "poster_path": "/sKsg45hrpxmXZK3AgAcWAbqPmQD.jpg",
+    "release_date": "2024-07-14",
+    "runtime": 91,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1306457,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Happy Life",
+    "tmdb_title_jp": "嬉々な生活",
+    "tmdb_title_original": "嬉々な生活",
+    "vote_average": 0.0
+  },
   "嬲られ者": {
     "backdrop_path": "/rk8VKIWR2xwc4TA265teyXXhyJH.jpg",
     "director": "艾伦·德万",
@@ -187880,6 +188172,44 @@
     "tmdb_title_original": "映画ドラえもん 新・のび太の海底鬼岩城",
     "vote_average": 7.3
   },
+  "映画ドラえもん　のび太の絵世界物語": {
+    "backdrop_path": "/vncMpsAUDnL1JOb73e5q48gX32S.jpg",
+    "director": "寺本幸代",
+    "director_en": "Yukiyo Teramoto",
+    "director_jp": "寺本幸代",
+    "genres": [
+      "アドベンチャー",
+      "アニメーション",
+      "ファミリー",
+      "ファンタジー"
+    ],
+    "genres_en": [
+      "Adventure",
+      "Animation",
+      "Family",
+      "Fantasy"
+    ],
+    "overview": "数十億円の価値がある絵画が発見されたニュースを横目に、夏休みの宿題である“絵”に取り組むのび太。その前に、突然絵の切れ端が落ちてきた。ひみつ道具「はいりこみライト」を使い絵の中に入って探検していると、不思議な少女・クレアと出会う。彼女の頼みを受けて〈アートリア公国〉を目指すドラえもんたちだったが、そこはなんと、ニュースで話題の絵画に描かれた、中世ヨーロッパの世界だった！そしてその世界には〈アートリアブルー〉という幻の宝石がどこかに眠っているらしい。絵の中の世界〈アートリア公国〉とは一体･･･？幻の宝石のひみつを探るドラえもんたち。しかし、〈アートリア公国〉に伝わる“世界滅亡”の伝説が蘇えってしまい、大ピンチに！！はたして、のび太たちは伝説を打ち破り、世界を救うことができるのか！？",
+    "overview_en": "Nobita and Doraemon enter the world in a European Renaissance painting, but run into trouble as they hop from piece to piece in search of a malevolent time traveler who wishes to recreate the extinct pigment of \"Artoria Blue\".",
+    "poster_path": "/tf7NQJ4zL8iCN1aPi8Q5HHyeWSO.jpg",
+    "release_date": "2025-03-07",
+    "runtime": 105,
+    "tmdb_alt_titles_jp": [
+      "Doraemon Movie 44: Nobita no E Sekai Monogatari"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1372489,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Doraemon the Movie: Nobita's Art World Tales",
+    "tmdb_title_jp": "映画ドラえもん のび太の絵世界物語",
+    "tmdb_title_original": "映画ドラえもん のび太の絵世界物語",
+    "vote_average": 8.037
+  },
   "映画ドラえもん　新・のび太の海底鬼岩城": {
     "backdrop_path": "/pxd9rc03EMMln3tVFdfd427Fpsi.jpg",
     "director": "矢嶋哲生",
@@ -196681,6 +197011,7 @@
     "tmdb_title_original": "無頼無法の徒 さぶ",
     "vote_average": 0.0
   },
+  "焼け石と雨粒": null,
   "煉獄エロイカ": {
     "backdrop_path": "/nruxi2qZ7MqrPrEzbE3jECJw4WZ.jpg",
     "director": "吉田喜重",
