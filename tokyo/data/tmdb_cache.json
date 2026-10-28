@@ -7368,6 +7368,7 @@
     "tmdb_title_original": "రౌద్రం రణం రుధిరం",
     "vote_average": 7.734
   },
+  "RYUJI 竜二": null,
   "Return to My Blue": {
     "backdrop_path": null,
     "director": "野口雄大",
@@ -8628,6 +8629,38 @@
     "vote_average": 5.922
   },
   "The Ozu Diaries 小津ダイアリー": {
+    "backdrop_path": "/h2LsSToMcLDRwc4cxuLl9TPRX7Q.jpg",
+    "director": "Daniel Raim",
+    "director_en": "Daniel Raim",
+    "director_jp": "Daniel Raim",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "Unveiling Yasujiro Ozu’s legacy through his personal diaries, letters, and interviews, the documentary delves into his life, creative process, and lasting impact on filmmaking.",
+    "poster_path": "/hNfmTq2zaU03gHlg6tBZWcMVcci.jpg",
+    "release_date": "2025-09-02",
+    "runtime": 140,
+    "tmdb_alt_titles_jp": [
+      "小津ダイアリーズ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 1423984,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "The Ozu Diaries",
+    "tmdb_title_jp": "The Ozu Diaries",
+    "tmdb_title_original": "The Ozu Diaries",
+    "vote_average": 0.0
+  },
+  "The Ozu Diaries／小津ダイアリー": {
     "backdrop_path": "/h2LsSToMcLDRwc4cxuLl9TPRX7Q.jpg",
     "director": "Daniel Raim",
     "director_en": "Daniel Raim",
@@ -14536,6 +14569,46 @@
     "tmdb_title_original": "Golem",
     "vote_average": 6.838
   },
+  "tmdb:108": {
+    "backdrop_path": "/pXvYw0QOPbHJVvwGbZfrSNY2vnB.jpg",
+    "director": "クシシュトフ・キェシロフスキ",
+    "director_en": "Krzysztof Kieślowski",
+    "director_jp": "クシシュトフ・キェシロフスキ",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "音楽家の夫を事故で失ったジュリーは、全ての財産を処分しようとした。過去から離れて暮らそうとしたのだった。だがそのとき、彼女は、夫の子を身ごもっている愛人と出会う……。",
+    "overview_en": "The wife of a famous composer survives a car accident that kills her husband and daughter. Now alone, she shakes off her old identity and explores her newfound freedom but finds that she is unbreakably bound to other humans, including her husband’s mistress, whose existence she never suspected.",
+    "poster_path": "/2TBwuULiA7A4pp3h7wQ51FEUJoD.jpg",
+    "release_date": "1993-09-08",
+    "runtime": 98,
+    "tmdb_alt_titles_jp": [
+      "Torikorôru: Ao no Ai"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "PL",
+        "name": "Poland"
+      },
+      {
+        "iso_3166_1": "CH",
+        "name": "Switzerland"
+      }
+    ],
+    "tmdb_id": 108,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "Three Colors: Blue",
+    "tmdb_title_jp": "トリコロール／青の愛",
+    "tmdb_title_original": "Trois couleurs : Bleu",
+    "vote_average": 7.6
+  },
   "tmdb:108071": {
     "backdrop_path": null,
     "director": "黒木和雄",
@@ -15034,6 +15107,50 @@
     "tmdb_title_jp": "The Chase",
     "tmdb_title_original": "The Chase",
     "vote_average": 0.0
+  },
+  "tmdb:109": {
+    "backdrop_path": "/b1CVjSYinzm6tx1TGA7c75W8X9k.jpg",
+    "director": "クシシュトフ・キェシロフスキ",
+    "director_en": "Krzysztof Kieślowski",
+    "director_jp": "クシシュトフ・キェシロフスキ",
+    "genres": [
+      "コメディ",
+      "ドラマ",
+      "謎"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Drama",
+      "Mystery"
+    ],
+    "overview": "性的不能から妻に去られた男が、やがて金持ちになって、妻に奇妙な復讐をするまでを描く。",
+    "overview_en": "Polish immigrant Karol Karol finds himself out of a marriage, a job and a country when his French wife, Dominique, divorces him after six months due to his impotence. Forced to leave France after losing the business they jointly owned, Karol enlists fellow Polish expatriate Mikołaj to smuggle him back to their homeland.",
+    "poster_path": "/qm15mfZdfacNlVYCteCzr8Mmwyw.jpg",
+    "release_date": "1994-01-26",
+    "runtime": 92,
+    "tmdb_alt_titles_jp": [
+      "Torikorôru: Shiro no Ai"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "PL",
+        "name": "Poland"
+      },
+      {
+        "iso_3166_1": "CH",
+        "name": "Switzerland"
+      }
+    ],
+    "tmdb_id": 109,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "Three Colors: White",
+    "tmdb_title_jp": "トリコロール／白の愛",
+    "tmdb_title_original": "Trois couleurs : Blanc",
+    "vote_average": 7.4
   },
   "tmdb:109054": {
     "backdrop_path": "/atzaQS9YSTWJFuTD2DYAOSiGkkk.jpg",
@@ -15582,6 +15699,50 @@
     "tmdb_title_jp": "너를 줍다",
     "tmdb_title_original": "너를 줍다",
     "vote_average": 5.0
+  },
+  "tmdb:110": {
+    "backdrop_path": "/xkk7cqXFzY4aCCG5AYWZCFQFbIX.jpg",
+    "director": "クシシュトフ・キェシロフスキ",
+    "director_en": "Krzysztof Kieślowski",
+    "director_jp": "クシシュトフ・キェシロフスキ",
+    "genres": [
+      "ドラマ",
+      "謎",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Drama",
+      "Mystery",
+      "Romance"
+    ],
+    "overview": "女学生のヴァランティーヌが知り合った初老の元判事には、他人の電話を盗聴するという悪習があった。彼女はそれをやめさせようと、男の過去を探っていくが……。",
+    "overview_en": "Part-time model Valentine unexpectedly befriends a retired judge after she runs over his dog. At first, the grumpy man shows no concern about the dog, and Valentine decides to keep it. But the two form a bond when she returns to his house and catches him listening to his neighbors’ phone calls.",
+    "poster_path": "/8Ie8Cq057qAQuc7jsJFEzLYbsJs.jpg",
+    "release_date": "1994-05-18",
+    "runtime": 100,
+    "tmdb_alt_titles_jp": [
+      "Torikorôru: Aka no Ai"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "PL",
+        "name": "Poland"
+      },
+      {
+        "iso_3166_1": "CH",
+        "name": "Switzerland"
+      }
+    ],
+    "tmdb_id": 110,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "Three Colors: Red",
+    "tmdb_title_jp": "トリコロール／赤の愛",
+    "tmdb_title_original": "Trois couleurs : Rouge",
+    "vote_average": 7.9
   },
   "tmdb:11010": {
     "backdrop_path": "/32pvxFiXNo2TdNpBiuHN8k2Mr4K.jpg",
@@ -18619,6 +18780,42 @@
     "tmdb_title_original": "ブルーを笑えるその日まで",
     "vote_average": 9.0
   },
+  "tmdb:115572": {
+    "backdrop_path": "/ddN1VJM2Vz7PupsiLxLx458FEkM.jpg",
+    "director": "野村芳太郎",
+    "director_en": "Yoshitarō Nomura",
+    "director_jp": "野村芳太郎",
+    "genres": [
+      "ドラマ",
+      "犯罪",
+      "謎"
+    ],
+    "genres_en": [
+      "Drama",
+      "Crime",
+      "Mystery"
+    ],
+    "overview": "新婚一週間目に夫が消えた! 生きているなら証言して! 連続殺人を包む謎の霧! 鍵を握る三人の女! ! 広告社に勤める憲一は、新婚7日目に金沢へ出張、そのまま消息を絶った。妻の禎子は金沢へ出掛け、単身捜査に乗り出すが、手がかりはつかめなかった。やがて憲一が広告社に勤める前に、巡査の風紀係だったことが判明し、事件はそれに絡んでいる模様。そして意外な事実が明るみになってくる。野村芳太郎監督が、北陸を舞台に人間の孤独と悲しさをスリリングに描いた傑作。",
+    "overview_en": "One week into newlywed Teiko Uhara's marriage, her husband, Kenichi, leaves on a short business trip and never returns. Teiko travels across Japan to search for him, and along the way discovers some surprising facts about her husband's past. With only a pair of old photographs among his belongings to go off of, Teiko tries to figure out what has happened to him.",
+    "poster_path": "/62fcf4gAcSTI2EAPl9kNYiOBpWZ.jpg",
+    "release_date": "1961-03-19",
+    "runtime": 95,
+    "tmdb_alt_titles_jp": [
+      "Zero no shôten"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 115572,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Zero Focus",
+    "tmdb_title_jp": "ゼロの焦点",
+    "tmdb_title_original": "ゼロの焦点",
+    "vote_average": 6.3
+  },
   "tmdb:115596": {
     "backdrop_path": "/mzveSC4QlAFL7zYc9ucKvdgBvBN.jpg",
     "director": "清水宏",
@@ -21651,6 +21848,38 @@
     "tmdb_title_jp": "エレノアってグレイト。",
     "tmdb_title_original": "Eleanor the Great",
     "vote_average": 6.9
+  },
+  "tmdb:121238": {
+    "backdrop_path": "/gKgDAN2cmA1KqS0rdeDra7tJnkR.jpg",
+    "director": "James Cruze",
+    "director_en": "James Cruze",
+    "director_jp": "James Cruze",
+    "genres": [
+      "ドラマ",
+      "コメディ"
+    ],
+    "genres_en": [
+      "Drama",
+      "Comedy"
+    ],
+    "overview": "",
+    "overview_en": "An elderly business tycoon, believed to be dying, decides to give a million dollars each to eight strangers chosen at random from the phone directory.",
+    "poster_path": "/qHFusV8b94ayRPrEEfWKuo3jNCE.jpg",
+    "release_date": "1932-11-18",
+    "runtime": 88,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 121238,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "If I Had a Million",
+    "tmdb_title_jp": "百万円貰ったら",
+    "tmdb_title_original": "If I Had a Million",
+    "vote_average": 6.5
   },
   "tmdb:1212461": {
     "backdrop_path": "/3qVlwBtOt3eivzKaVg7PDqUrJns.jpg",
@@ -30826,6 +31055,46 @@
     "tmdb_title_original": "The Last Rodeo",
     "vote_average": 7.754
   },
+  "tmdb:1381071": {
+    "backdrop_path": "/oqrYIDH4tvfEzPe1yqT4jzmAWHQ.jpg",
+    "director": "山崎貴",
+    "director_en": "Takashi Yamazaki",
+    "director_jp": "山崎貴",
+    "genres": [
+      "サイエンスフィクション",
+      "ホラー",
+      "アクション"
+    ],
+    "genres_en": [
+      "Science Fiction",
+      "Horror",
+      "Action"
+    ],
+    "overview": "",
+    "overview_en": "War reduced Japan to zero, and Godzilla plunged it into minus. Two years have passed since then, and the country has faced agonizing struggles to achieve recovery and finally reclaim its daily life. Just as humanity managed to cling to a hard-won peace, a new threat strikes, crushing hope in an instant. There is no third time. Everything ends here.",
+    "poster_path": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
+    "release_date": "2026-11-03",
+    "runtime": 135,
+    "tmdb_alt_titles_jp": [
+      "超大作怪獣映画",
+      "G-0.0",
+      "Gojira -0.0",
+      "ゴジラ-0.0（ゴジラマイナスゼロ）",
+      "ゴジラマイナスゼロ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1381071,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Godzilla Minus Zero",
+    "tmdb_title_jp": "ゴジラ-0.0",
+    "tmdb_title_original": "ゴジラ-0.0",
+    "vote_average": 0.0
+  },
   "tmdb:1381159": {
     "backdrop_path": "/uaqvBbLw1tTLJxhaatpLyVULFm0.jpg",
     "director": "横浜聡子",
@@ -35999,6 +36268,38 @@
     "tmdb_title_original": "Thomas and Friends: Sodor Sings Together",
     "vote_average": 5.0
   },
+  "tmdb:1479336": {
+    "backdrop_path": null,
+    "director": "野村芳太郎",
+    "director_en": "Yoshitarō Nomura",
+    "director_jp": "野村芳太郎",
+    "genres": [
+      "コメディ"
+    ],
+    "genres_en": [
+      "Comedy"
+    ],
+    "overview": "",
+    "overview_en": "The film is based on the 1959 hit song of the same name by the Three Cats.",
+    "poster_path": "/tHcKpbU6SmO4IvnkTJqLyQhT7rJ.jpg",
+    "release_date": "1960-03-18",
+    "runtime": 76,
+    "tmdb_alt_titles_jp": [
+      "Kiiroi sakurambo"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1479336,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Yellow Cherries",
+    "tmdb_title_jp": "黄色いさくらんぼ",
+    "tmdb_title_original": "黄色いさくらんぼ",
+    "vote_average": 0.0
+  },
   "tmdb:1479653": {
     "backdrop_path": "/xt03qFiQpNWNXrTwEKpXuJOaOLF.jpg",
     "director": "Deborah Colker",
@@ -40948,6 +41249,38 @@
     "tmdb_title_jp": "少女ムシェット",
     "tmdb_title_original": "Mouchette",
     "vote_average": 7.409
+  },
+  "tmdb:1561614": {
+    "backdrop_path": null,
+    "director": "藤川佳三",
+    "director_en": "Keizo Fujikawa",
+    "director_jp": "藤川佳三",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "Japan’s oldest student dormitory holds a century of autonomous history. Facing a university demanding their eviction due to the building’s age, the residents, fighting for the survival of their space, question the future using dialogue as their foundation.",
+    "poster_path": "/4NqrgXyOXgnjN8Mvlz54AW3NrIr.jpg",
+    "release_date": "2025-10-12",
+    "runtime": 0,
+    "tmdb_alt_titles_jp": [
+      "対話のゆくえ　京都大学吉田寮"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1561614,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "The Yoshida-ryo Dormitory",
+    "tmdb_title_jp": "対話のゆくえ　京都大学吉田寮",
+    "tmdb_title_original": "対話のゆくえ　京都大学吉田寮",
+    "vote_average": 0.0
   },
   "tmdb:1561767": {
     "backdrop_path": null,
@@ -47934,6 +48267,38 @@
     "tmdb_title_original": "361 - White and Black",
     "vote_average": 0.0
   },
+  "tmdb:1737455": {
+    "backdrop_path": null,
+    "director": "矢崎仁司",
+    "director_en": "Hitoshi Yazaki",
+    "director_jp": "矢崎仁司",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "末期の乳がんを患い余命1年を宣告され、治療しないことを選択し故郷の瀬戸内海の島に戻ってきた音楽教師の踊場京香（広瀬アリス）。 祖母の営むカフェを手伝いながら、母校の合唱部の指導をすることになり、そこでいつも笑顔を絶やさない不思議な高校生・志津川沖晴と出会う。 ある時京香は彼が津波で家族を亡くしたことを知るが、笑いながらそのことを話す沖晴に京香はなぜ笑うのか聞くと、彼は津波に流されたときに喜び以外の感情「嫌悪・怒り・哀しみ・恐れ」を失い、何も感じないのだと答える。 ところが、ある事件をきっかけに失われた感情の1つがうっすらと顔を出し始め、余命わずかな京香と、感情を失った沖晴の、感情を取り戻す不思議な日常が始まる。",
+    "overview_en": "A woman with one year left to live meets a high school student who has lost all emotions other than joy.",
+    "poster_path": "/zTrDAC1mXpVfwYPD0lBsfcIaQA7.jpg",
+    "release_date": "2026-10-02",
+    "runtime": 123,
+    "tmdb_alt_titles_jp": [
+      "Okiharu-kun no Namida o Koroshite"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1737455,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Kill Okiharu's Tears",
+    "tmdb_title_jp": "沖晴くんの涙を殺して",
+    "tmdb_title_original": "沖晴くんの涙を殺して",
+    "vote_average": 0.0
+  },
   "tmdb:174106": {
     "backdrop_path": "/jzv73F58jKjWkyaCOouIeHXtTj.jpg",
     "director": "篠田正浩",
@@ -49190,6 +49555,36 @@
     "tmdb_title_jp": "Olly Olly Oxen Free",
     "tmdb_title_original": "Olly Olly Oxen Free",
     "vote_average": 4.5
+  },
+  "tmdb:1807401": {
+    "backdrop_path": null,
+    "director": "二村真弘",
+    "director_en": "Masahiro Nimura",
+    "director_jp": "二村真弘",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "2020年7月、ALS（筋萎縮性側索硬化症）を患う女性からの依頼で薬物を投与し殺害したとして、2人の医師が逮捕された。ひとり暮らしの彼女は事件当時は眼球しか動かせず、24時間の介護を必要としていた。主犯の大久保愉一は、女性が“安楽死”を望む言葉を投稿していたSNSで彼女と出会っており、事前に130万円の報酬を受け取り、初対面からわずか15分ほどで殺害を実行した。捜査により過去の殺人事件への関与も浮上するなか、メディアは大久保の過去のブログなどから、彼の生命軽視の姿勢を大々的に報じた。そして2025年、嘱託殺人罪などで懲役18年の刑が確定。救命が第一義とされるはずの医師が、なぜ一線を越えて彼女を手にかけたのか。",
+    "overview_en": "",
+    "poster_path": "/sQ8zvmDBuiNcPQrAwCSIf7YPlpy.jpg",
+    "release_date": "2026-10-31",
+    "runtime": 98,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1807401,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Kyoto ALS Patient Assisted Murder Case",
+    "tmdb_title_jp": "京都ALS患者嘱託殺人事件",
+    "tmdb_title_original": "京都ALS患者嘱託殺人事件",
+    "vote_average": 0.0
   },
   "tmdb:1807431": {
     "backdrop_path": null,
@@ -106434,6 +106829,9 @@
     "tmdb_title_original": "KING OF PRISM by PrettyRhythm",
     "vote_average": 6.0
   },
+  "「MANIAC」田中未来監督特集上映［A program］": null,
+  "「MANIAC」田中未来監督特集上映［B program］": null,
+  "「MANIAC」田中未来監督特集上映［Special Screenings］": null,
   "「MUSIC＝PEACE」@佐藤タイジ ソロLIVE": null,
   "「SF西遊記 スタージンガー」シリーズ": null,
   "「ぼっち・ざ・ろっく！」劇場総集編 一挙上映": {
@@ -107877,6 +108275,7 @@
     "tmdb_title_original": "みな殺しの霊歌",
     "vote_average": 7.2
   },
+  "『わたしの知らない子どもたち』トークイベント付": null,
   "『わんぱく天使』": {
     "backdrop_path": null,
     "director": "久松静児",
@@ -110305,6 +110704,7 @@
     "tmdb_title_original": "怪談",
     "vote_average": 7.7
   },
+  "『恒星の向こう側』舞台挨拶付き": null,
   "『悪太郎』": {
     "backdrop_path": "/s364eSrDB89APtDVYqqWrSlGgKB.jpg",
     "director": "鈴木清順",
@@ -127549,6 +127949,7 @@
     "tmdb_title_jp": "インランド・エンパイア",
     "vote_average": 6.995
   },
+  "イ・チャンドン オールナイト": null,
   "イージー★ライダー": {
     "backdrop_path": "/qvTmYyYsv71qTq5syAq24k1kGk.jpg",
     "director": "デニス・ホッパー",
@@ -132142,6 +132543,7 @@
     "tmdb_title_original": "The Curse of the Cat People",
     "vote_average": 6.228
   },
+  "キャトルミューティ玲子": null,
   "キャリー（1976）": {
     "backdrop_path": "/zwJFfKQdfiptK2GY6N8GkZFrAxJ.jpg",
     "director": "ブライアン・デ・パルマ",
@@ -134955,6 +135357,46 @@
     "tmdb_title_jp": "ゴジラ",
     "tmdb_title_original": "ゴジラ",
     "vote_average": 7.6
+  },
+  "ゴジラ－0.0": {
+    "backdrop_path": "/oqrYIDH4tvfEzPe1yqT4jzmAWHQ.jpg",
+    "director": "山崎貴",
+    "director_en": "Takashi Yamazaki",
+    "director_jp": "山崎貴",
+    "genres": [
+      "サイエンスフィクション",
+      "ホラー",
+      "アクション"
+    ],
+    "genres_en": [
+      "Science Fiction",
+      "Horror",
+      "Action"
+    ],
+    "overview": "",
+    "overview_en": "War reduced Japan to zero, and Godzilla plunged it into minus. Two years have passed since then, and the country has faced agonizing struggles to achieve recovery and finally reclaim its daily life. Just as humanity managed to cling to a hard-won peace, a new threat strikes, crushing hope in an instant. There is no third time. Everything ends here.",
+    "poster_path": "/zpcoFlZwyLnBt7bb5wmvGDCdg06.jpg",
+    "release_date": "2026-11-03",
+    "runtime": 135,
+    "tmdb_alt_titles_jp": [
+      "超大作怪獣映画",
+      "G-0.0",
+      "Gojira -0.0",
+      "ゴジラ-0.0（ゴジラマイナスゼロ）",
+      "ゴジラマイナスゼロ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1381071,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Godzilla Minus Zero",
+    "tmdb_title_jp": "ゴジラ-0.0",
+    "tmdb_title_original": "ゴジラ-0.0",
+    "vote_average": 0.0
   },
   "ゴダールのリア王": {
     "backdrop_path": "/jTE51uGW3YT9ghnhbRcZx5OUfbS.jpg",
@@ -141319,6 +141761,42 @@
     "tmdb_title_original": "They Will Kill You",
     "vote_average": 6.673
   },
+  "ゼロの焦点": {
+    "backdrop_path": "/ddN1VJM2Vz7PupsiLxLx458FEkM.jpg",
+    "director": "野村芳太郎",
+    "director_en": "Yoshitarō Nomura",
+    "director_jp": "野村芳太郎",
+    "genres": [
+      "ドラマ",
+      "犯罪",
+      "謎"
+    ],
+    "genres_en": [
+      "Drama",
+      "Crime",
+      "Mystery"
+    ],
+    "overview": "新婚一週間目に夫が消えた! 生きているなら証言して! 連続殺人を包む謎の霧! 鍵を握る三人の女! ! 広告社に勤める憲一は、新婚7日目に金沢へ出張、そのまま消息を絶った。妻の禎子は金沢へ出掛け、単身捜査に乗り出すが、手がかりはつかめなかった。やがて憲一が広告社に勤める前に、巡査の風紀係だったことが判明し、事件はそれに絡んでいる模様。そして意外な事実が明るみになってくる。野村芳太郎監督が、北陸を舞台に人間の孤独と悲しさをスリリングに描いた傑作。",
+    "overview_en": "One week into newlywed Teiko Uhara's marriage, her husband, Kenichi, leaves on a short business trip and never returns. Teiko travels across Japan to search for him, and along the way discovers some surprising facts about her husband's past. With only a pair of old photographs among his belongings to go off of, Teiko tries to figure out what has happened to him.",
+    "poster_path": "/62fcf4gAcSTI2EAPl9kNYiOBpWZ.jpg",
+    "release_date": "1961-03-19",
+    "runtime": 95,
+    "tmdb_alt_titles_jp": [
+      "Zero no shôten"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 115572,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Zero Focus",
+    "tmdb_title_jp": "ゼロの焦点",
+    "tmdb_title_original": "ゼロの焦点",
+    "vote_average": 6.3
+  },
   "ゼンブ・オブ・トーキョー": {
     "backdrop_path": null,
     "director": "熊切和嘉",
@@ -142787,6 +143265,7 @@
     "tmdb_title_original": "Cha Cha",
     "vote_average": 8.0
   },
+  "チュルヒャー兄弟 ミニアチュールの詩学「動物三部作」": null,
   "チュルヒャー兄弟 ミニアチュールの詩学『動物三部作』": null,
   "チューズ・ミー": {
     "backdrop_path": "/tEc74NqUNHExvPSYMIp1kYG2nwc.jpg",
@@ -144168,6 +144647,7 @@
     "tmdb_title_original": "Dangerous Animals",
     "vote_average": 6.415
   },
+  "デヴィッド・リンチ：アートライフ": null,
   "デーモンラヴァー": {
     "backdrop_path": "/iv5ZHMglzn8I9qn1phdP8xSoHKs.jpg",
     "director": "Olivier Assayas",
@@ -144886,6 +145366,134 @@
     "tmdb_title_jp": "トランジット・イン・フラミンゴ",
     "tmdb_title_original": "トランジット・イン・フラミンゴ",
     "vote_average": 0.0
+  },
+  "トリコロール　白の愛": {
+    "backdrop_path": "/b1CVjSYinzm6tx1TGA7c75W8X9k.jpg",
+    "director": "クシシュトフ・キェシロフスキ",
+    "director_en": "Krzysztof Kieślowski",
+    "director_jp": "クシシュトフ・キェシロフスキ",
+    "genres": [
+      "コメディ",
+      "ドラマ",
+      "謎"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Drama",
+      "Mystery"
+    ],
+    "overview": "性的不能から妻に去られた男が、やがて金持ちになって、妻に奇妙な復讐をするまでを描く。",
+    "overview_en": "Polish immigrant Karol Karol finds himself out of a marriage, a job and a country when his French wife, Dominique, divorces him after six months due to his impotence. Forced to leave France after losing the business they jointly owned, Karol enlists fellow Polish expatriate Mikołaj to smuggle him back to their homeland.",
+    "poster_path": "/qm15mfZdfacNlVYCteCzr8Mmwyw.jpg",
+    "release_date": "1994-01-26",
+    "runtime": 92,
+    "tmdb_alt_titles_jp": [
+      "Torikorôru: Shiro no Ai"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "PL",
+        "name": "Poland"
+      },
+      {
+        "iso_3166_1": "CH",
+        "name": "Switzerland"
+      }
+    ],
+    "tmdb_id": 109,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "Three Colors: White",
+    "tmdb_title_jp": "トリコロール／白の愛",
+    "tmdb_title_original": "Trois couleurs : Blanc",
+    "vote_average": 7.4
+  },
+  "トリコロール　赤の愛": {
+    "backdrop_path": "/xkk7cqXFzY4aCCG5AYWZCFQFbIX.jpg",
+    "director": "クシシュトフ・キェシロフスキ",
+    "director_en": "Krzysztof Kieślowski",
+    "director_jp": "クシシュトフ・キェシロフスキ",
+    "genres": [
+      "ドラマ",
+      "謎",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Drama",
+      "Mystery",
+      "Romance"
+    ],
+    "overview": "女学生のヴァランティーヌが知り合った初老の元判事には、他人の電話を盗聴するという悪習があった。彼女はそれをやめさせようと、男の過去を探っていくが……。",
+    "overview_en": "Part-time model Valentine unexpectedly befriends a retired judge after she runs over his dog. At first, the grumpy man shows no concern about the dog, and Valentine decides to keep it. But the two form a bond when she returns to his house and catches him listening to his neighbors’ phone calls.",
+    "poster_path": "/8Ie8Cq057qAQuc7jsJFEzLYbsJs.jpg",
+    "release_date": "1994-05-18",
+    "runtime": 100,
+    "tmdb_alt_titles_jp": [
+      "Torikorôru: Aka no Ai"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "PL",
+        "name": "Poland"
+      },
+      {
+        "iso_3166_1": "CH",
+        "name": "Switzerland"
+      }
+    ],
+    "tmdb_id": 110,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "Three Colors: Red",
+    "tmdb_title_jp": "トリコロール／赤の愛",
+    "tmdb_title_original": "Trois couleurs : Rouge",
+    "vote_average": 7.9
+  },
+  "トリコロール　青の愛": {
+    "backdrop_path": "/pXvYw0QOPbHJVvwGbZfrSNY2vnB.jpg",
+    "director": "クシシュトフ・キェシロフスキ",
+    "director_en": "Krzysztof Kieślowski",
+    "director_jp": "クシシュトフ・キェシロフスキ",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "音楽家の夫を事故で失ったジュリーは、全ての財産を処分しようとした。過去から離れて暮らそうとしたのだった。だがそのとき、彼女は、夫の子を身ごもっている愛人と出会う……。",
+    "overview_en": "The wife of a famous composer survives a car accident that kills her husband and daughter. Now alone, she shakes off her old identity and explores her newfound freedom but finds that she is unbreakably bound to other humans, including her husband’s mistress, whose existence she never suspected.",
+    "poster_path": "/2TBwuULiA7A4pp3h7wQ51FEUJoD.jpg",
+    "release_date": "1993-09-08",
+    "runtime": 98,
+    "tmdb_alt_titles_jp": [
+      "Torikorôru: Ao no Ai"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "PL",
+        "name": "Poland"
+      },
+      {
+        "iso_3166_1": "CH",
+        "name": "Switzerland"
+      }
+    ],
+    "tmdb_id": 108,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "Three Colors: Blue",
+    "tmdb_title_jp": "トリコロール／青の愛",
+    "tmdb_title_original": "Trois couleurs : Bleu",
+    "vote_average": 7.6
   },
   "トリツカレ男": {
     "backdrop_path": "/7aaiLHEALz8YFpci3wRheWSddrh.jpg",
@@ -149889,6 +150497,7 @@
     "tmdb_title_original": "기생충",
     "vote_average": 8.492
   },
+  "パラジャーノフ、ゆうべはどんな夢を見た？": null,
   "パラダイスの夕暮れ": {
     "backdrop_path": "/l94l89eMmFKh7na2a1u5q67VgNx.jpg",
     "director": "アキ・カウリスマキ",
@@ -151740,6 +152349,7 @@
     "tmdb_title_original": "ఫిదా",
     "vote_average": 7.4
   },
+  "フィダーイー・フィルム": null,
   "フィッシュストーリー": {
     "backdrop_path": "/ubcXF21nUkm1ijkH7ZFCm0pzkMm.jpg",
     "director": "中村義洋",
@@ -167032,6 +167642,36 @@
     "tmdb_title_original": "京化粧",
     "vote_average": 0.0
   },
+  "京都ALS患者嘱託殺人事件": {
+    "backdrop_path": null,
+    "director": "二村真弘",
+    "director_en": "Masahiro Nimura",
+    "director_jp": "二村真弘",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "2020年7月、ALS（筋萎縮性側索硬化症）を患う女性からの依頼で薬物を投与し殺害したとして、2人の医師が逮捕された。ひとり暮らしの彼女は事件当時は眼球しか動かせず、24時間の介護を必要としていた。主犯の大久保愉一は、女性が“安楽死”を望む言葉を投稿していたSNSで彼女と出会っており、事前に130万円の報酬を受け取り、初対面からわずか15分ほどで殺害を実行した。捜査により過去の殺人事件への関与も浮上するなか、メディアは大久保の過去のブログなどから、彼の生命軽視の姿勢を大々的に報じた。そして2025年、嘱託殺人罪などで懲役18年の刑が確定。救命が第一義とされるはずの医師が、なぜ一線を越えて彼女を手にかけたのか。",
+    "overview_en": "",
+    "poster_path": "/sQ8zvmDBuiNcPQrAwCSIf7YPlpy.jpg",
+    "release_date": "2026-10-31",
+    "runtime": 98,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1807401,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Kyoto ALS Patient Assisted Murder Case",
+    "tmdb_title_jp": "京都ALS患者嘱託殺人事件",
+    "tmdb_title_original": "京都ALS患者嘱託殺人事件",
+    "vote_average": 0.0
+  },
   "人はなぜラブレターを書くのか": {
     "backdrop_path": "/z8W1NEn7jjqNJsfdwqmyYPgSoxi.jpg",
     "director": "石井裕也",
@@ -179771,6 +180411,38 @@
     "tmdb_title_original": "심판",
     "vote_average": 6.276
   },
+  "対話のゆくえ 京都大学吉田寮": {
+    "backdrop_path": null,
+    "director": "藤川佳三",
+    "director_en": "Keizo Fujikawa",
+    "director_jp": "藤川佳三",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "Japan’s oldest student dormitory holds a century of autonomous history. Facing a university demanding their eviction due to the building’s age, the residents, fighting for the survival of their space, question the future using dialogue as their foundation.",
+    "poster_path": "/4NqrgXyOXgnjN8Mvlz54AW3NrIr.jpg",
+    "release_date": "2025-10-12",
+    "runtime": 0,
+    "tmdb_alt_titles_jp": [
+      "対話のゆくえ　京都大学吉田寮"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1561614,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "The Yoshida-ryo Dormitory",
+    "tmdb_title_jp": "対話のゆくえ　京都大学吉田寮",
+    "tmdb_title_original": "対話のゆくえ　京都大学吉田寮",
+    "vote_average": 0.0
+  },
   "射鵰英雄伝": {
     "backdrop_path": "/1DTIRhw4cpLJlHlrPPbKzq6amHc.jpg",
     "director": "徐克",
@@ -183341,6 +184013,7 @@
     "tmdb_title_original": "恐怖份子",
     "vote_average": 7.4
   },
+  "恒星の向こう側": null,
   "息を殺して": {
     "backdrop_path": "/qeWENBqvb5gS9u3RtUt7fFeIxBV.jpg",
     "director": "五十嵐耕平",
@@ -187714,6 +188387,7 @@
     "tmdb_title_original": "明治天皇と日露大戦争",
     "vote_average": 8.0
   },
+  "昔々、テレビは/ガワスへの帰郷": null,
   "星くず兄弟の伝説": {
     "backdrop_path": "/l6dwa57KqjUn6h7OODNvN6zuq0W.jpg",
     "director": "手塚眞",
@@ -194908,6 +195582,38 @@
     "tmdb_title_original": "沓掛時次郎",
     "vote_average": 6.5
   },
+  "沖晴くんの涙を殺して": {
+    "backdrop_path": null,
+    "director": "矢崎仁司",
+    "director_en": "Hitoshi Yazaki",
+    "director_jp": "矢崎仁司",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "末期の乳がんを患い余命1年を宣告され、治療しないことを選択し故郷の瀬戸内海の島に戻ってきた音楽教師の踊場京香（広瀬アリス）。 祖母の営むカフェを手伝いながら、母校の合唱部の指導をすることになり、そこでいつも笑顔を絶やさない不思議な高校生・志津川沖晴と出会う。 ある時京香は彼が津波で家族を亡くしたことを知るが、笑いながらそのことを話す沖晴に京香はなぜ笑うのか聞くと、彼は津波に流されたときに喜び以外の感情「嫌悪・怒り・哀しみ・恐れ」を失い、何も感じないのだと答える。 ところが、ある事件をきっかけに失われた感情の1つがうっすらと顔を出し始め、余命わずかな京香と、感情を失った沖晴の、感情を取り戻す不思議な日常が始まる。",
+    "overview_en": "A woman with one year left to live meets a high school student who has lost all emotions other than joy.",
+    "poster_path": "/zTrDAC1mXpVfwYPD0lBsfcIaQA7.jpg",
+    "release_date": "2026-10-02",
+    "runtime": 123,
+    "tmdb_alt_titles_jp": [
+      "Okiharu-kun no Namida o Koroshite"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1737455,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Kill Okiharu's Tears",
+    "tmdb_title_jp": "沖晴くんの涙を殺して",
+    "tmdb_title_original": "沖晴くんの涙を殺して",
+    "vote_average": 0.0
+  },
   "沢田美由紀のガマランドにお邪魔します": {
     "backdrop_path": null,
     "director": "西井紘輝",
@@ -198809,6 +199515,7 @@
     "tmdb_title_original": "猫を放つ",
     "vote_average": 0.0
   },
+  "猫オチ（仮）": null,
   "獄門島（1977）": {
     "backdrop_path": "/juW2eRgeeFfzMYABN1d9cTffUam.jpg",
     "director": "市川崑",
@@ -200134,6 +200841,38 @@
     "tmdb_title_jp": "百万円と苦虫女",
     "tmdb_title_original": "百万円と苦虫女",
     "vote_average": 7.121
+  },
+  "百万円貰ったら": {
+    "backdrop_path": "/gKgDAN2cmA1KqS0rdeDra7tJnkR.jpg",
+    "director": "James Cruze",
+    "director_en": "James Cruze",
+    "director_jp": "James Cruze",
+    "genres": [
+      "ドラマ",
+      "コメディ"
+    ],
+    "genres_en": [
+      "Drama",
+      "Comedy"
+    ],
+    "overview": "",
+    "overview_en": "An elderly business tycoon, believed to be dying, decides to give a million dollars each to eight strangers chosen at random from the phone directory.",
+    "poster_path": "/qHFusV8b94ayRPrEEfWKuo3jNCE.jpg",
+    "release_date": "1932-11-18",
+    "runtime": 88,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 121238,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "If I Had a Million",
+    "tmdb_title_jp": "百万円貰ったら",
+    "tmdb_title_original": "If I Had a Million",
+    "vote_average": 6.5
   },
   "百姓、わらう。": null,
   "百発百中 Ghilli": {
@@ -205947,6 +206686,7 @@
     "tmdb_title_original": "Rocco e i suoi fratelli",
     "vote_average": 8.006
   },
+  "英国ロイヤル・バレエ＆オペラ in シネマ 2024/25 ロイヤル・バレエ「不思議の国のアリス」": null,
   "英雄の証明": {
     "backdrop_path": "/rXRf5Okqg0FzDpmZkt4wly2asB2.jpg",
     "director": "اصغر فرهادی",
@@ -214821,6 +215561,7 @@
     "tmdb_title_original": "我在這裡等你",
     "vote_average": 7.4
   },
+  "鳥を導く": null,
   "鳩": {
     "backdrop_path": null,
     "director": "野村芳太郎",
@@ -215031,6 +215772,38 @@
     "tmdb_title_jp": "黄線地帯",
     "tmdb_title_original": "黄線地帯",
     "vote_average": 7.75
+  },
+  "黄色いさくらんぼ": {
+    "backdrop_path": null,
+    "director": "野村芳太郎",
+    "director_en": "Yoshitarō Nomura",
+    "director_jp": "野村芳太郎",
+    "genres": [
+      "コメディ"
+    ],
+    "genres_en": [
+      "Comedy"
+    ],
+    "overview": "",
+    "overview_en": "The film is based on the 1959 hit song of the same name by the Three Cats.",
+    "poster_path": "/tHcKpbU6SmO4IvnkTJqLyQhT7rJ.jpg",
+    "release_date": "1960-03-18",
+    "runtime": 76,
+    "tmdb_alt_titles_jp": [
+      "Kiiroi sakurambo"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1479336,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Yellow Cherries",
+    "tmdb_title_jp": "黄色いさくらんぼ",
+    "tmdb_title_original": "黄色いさくらんぼ",
+    "vote_average": 0.0
   },
   "黄金の馬車": {
     "backdrop_path": "/sCFbxavogjcE6xTnT71nZxTV5ia.jpg",
