@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-10-29T02:01:13+00:00",
-  "run_id": "40801918027",
+  "scraped_at": "2026-10-30T02:08:22+00:00",
+  "run_id": "40987987912",
   "current_showings": 3629,
-  "current_cinemas": 53,
+  "current_cinemas": 54,
   "source_issues": [
     {
       "cinema": "Kino Cinema",
@@ -12,12 +12,6 @@
     },
     {
       "cinema": "Cine Switch Ginza",
-      "status": "WARNING",
-      "count": 0,
-      "error": null
-    },
-    {
-      "cinema": "Kadokawa Cinema Yurakucho",
       "status": "WARNING",
       "count": 0,
       "error": null
