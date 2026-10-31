@@ -7854,8 +7854,6 @@
     ],
     "vote_average": 6.7
   },
-  "STAB: Partisan Cinema Presents: The Shout": null,
-  "STAB: INTERFERENCE FILMS XXXtreme: EDEN LAKE &amp; MARTYRS": null,
   "STAB: Carrie (50th Anniversary)": {
     "tmdb_id": 7340,
     "tmdb_title": "Carrie",
@@ -7905,6 +7903,21 @@
     ],
     "vote_average": 0.0
   },
+  "Friday the 13th": {
+    "tmdb_id": 4488,
+    "tmdb_title": "Friday the 13th",
+    "tmdb_original_title": "Friday the 13th",
+    "overview": "Camp counselors are stalked and murdered by an unknown assailant while trying to reopen a summer camp that was the site of a child's drowning.",
+    "poster_path": "/uGGpnWHOmWTARVN9wbC1nPxNgps.jpg",
+    "backdrop_path": "/edVRp9npNwQwJtD05KyZlzp1J2p.jpg",
+    "release_date": "1980-05-09",
+    "director": "Sean S. Cunningham",
+    "runtime": 95,
+    "genres": [
+      "Horror"
+    ],
+    "vote_average": 6.402
+  },
   "Banff Mountain Film Festival World Tour (Blue Film Programme) -": null,
   "The Snowman: Live with Yorkshire Imperial Band": null,
   "Pan's Labyrinth (3D) (20th Anniversary)": null,
@@ -7923,13 +7936,44 @@
       "Drama",
       "Mystery"
     ],
-    "vote_average": 7.76
+    "vote_average": 7.761
   },
   "National Theatre Live: Golden Boy": null,
-  "Witchfinder General + A Field in England": null,
+  "La Bola Negra": {
+    "tmdb_id": 1422041,
+    "tmdb_title": "LA BOLA NEGRA",
+    "tmdb_original_title": "La bola negra",
+    "overview": "The intertwined lives of three men in three different eras, three lives intimately linked by sexuality and desire, pain, and legacy.",
+    "poster_path": "/jT5SR5qc9KvVg7HUEmjMWEUYMce.jpg",
+    "backdrop_path": "/bDsmYvrzto7xrEwqDpLC3SPhn9A.jpg",
+    "release_date": "2026-09-25",
+    "director": "Javier Ambrossi",
+    "runtime": 159,
+    "genres": [
+      "Drama",
+      "War"
+    ],
+    "vote_average": 8.1
+  },
+  "Throwback: Rocky (50th Anniversary)": {
+    "tmdb_id": 1366,
+    "tmdb_title": "Rocky",
+    "tmdb_original_title": "Rocky",
+    "overview": "Rocky Balboa is a Philadelphia club fighter who seems to be going nowhere. But when a stroke of fate puts him in the ring with a world heavyweight champion, Rocky knows that it's his one shot at the big time — a once-in-a-lifetime opportunity to go the distance and come out a winner!",
+    "poster_path": "/raayaQ9WTUGolsYHPWc2bGonu58.jpg",
+    "backdrop_path": "/bacOuUnRBoAO1NjMfsAGX2EKRrS.jpg",
+    "release_date": "1976-12-03",
+    "director": "John G. Avildsen",
+    "runtime": 120,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 7.8
+  },
   "Ken Russell's The Devils": null,
   "Quatermass and the Pit + Lifeforce": null,
   "November Mystery Film": null,
   "Royal Ballet/ Manon": null,
-  "NT Live/ Golden Boy": null
+  "NT Live/ Golden Boy": null,
+  "Dead Souls (CTBA) + Q&A": null
 }
