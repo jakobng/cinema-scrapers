@@ -7854,6 +7854,37 @@
     ],
     "vote_average": 6.7
   },
+  "Friday the 13th": {
+    "tmdb_id": 4488,
+    "tmdb_title": "Friday the 13th",
+    "tmdb_original_title": "Friday the 13th",
+    "overview": "Camp counselors are stalked and murdered by an unknown assailant while trying to reopen a summer camp that was the site of a child's drowning.",
+    "poster_path": "/uGGpnWHOmWTARVN9wbC1nPxNgps.jpg",
+    "backdrop_path": "/edVRp9npNwQwJtD05KyZlzp1J2p.jpg",
+    "release_date": "1980-05-09",
+    "director": "Sean S. Cunningham",
+    "runtime": 95,
+    "genres": [
+      "Horror"
+    ],
+    "vote_average": 6.402
+  },
+  "La Bola Negra": {
+    "tmdb_id": 1422041,
+    "tmdb_title": "LA BOLA NEGRA",
+    "tmdb_original_title": "La bola negra",
+    "overview": "The intertwined lives of three men in three different eras, three lives intimately linked by sexuality and desire, pain, and legacy.",
+    "poster_path": "/jT5SR5qc9KvVg7HUEmjMWEUYMce.jpg",
+    "backdrop_path": "/bDsmYvrzto7xrEwqDpLC3SPhn9A.jpg",
+    "release_date": "2026-09-25",
+    "director": "Javier Ambrossi",
+    "runtime": 159,
+    "genres": [
+      "Drama",
+      "War"
+    ],
+    "vote_average": 8.1
+  },
   "STAB: Carrie (50th Anniversary)": {
     "tmdb_id": 7340,
     "tmdb_title": "Carrie",
@@ -7903,23 +7934,14 @@
     ],
     "vote_average": 0.0
   },
-  "Friday the 13th": {
-    "tmdb_id": 4488,
-    "tmdb_title": "Friday the 13th",
-    "tmdb_original_title": "Friday the 13th",
-    "overview": "Camp counselors are stalked and murdered by an unknown assailant while trying to reopen a summer camp that was the site of a child's drowning.",
-    "poster_path": "/uGGpnWHOmWTARVN9wbC1nPxNgps.jpg",
-    "backdrop_path": "/edVRp9npNwQwJtD05KyZlzp1J2p.jpg",
-    "release_date": "1980-05-09",
-    "director": "Sean S. Cunningham",
-    "runtime": 95,
-    "genres": [
-      "Horror"
-    ],
-    "vote_average": 6.402
-  },
   "Banff Mountain Film Festival World Tour (Blue Film Programme) -": null,
   "The Snowman: Live with Yorkshire Imperial Band": null,
+  "Ken Russell's The Devils": null,
+  "Quatermass and the Pit + Lifeforce": null,
+  "November Mystery Film": null,
+  "Royal Ballet/ Manon": null,
+  "NT Live/ Golden Boy": null,
+  "Dead Souls (CTBA) + Q&A": null,
   "Pan's Labyrinth (3D) (20th Anniversary)": null,
   "Throwback: Donnie Darko (25th Anniversary)": {
     "tmdb_id": 141,
@@ -7939,22 +7961,6 @@
     "vote_average": 7.761
   },
   "National Theatre Live: Golden Boy": null,
-  "La Bola Negra": {
-    "tmdb_id": 1422041,
-    "tmdb_title": "LA BOLA NEGRA",
-    "tmdb_original_title": "La bola negra",
-    "overview": "The intertwined lives of three men in three different eras, three lives intimately linked by sexuality and desire, pain, and legacy.",
-    "poster_path": "/jT5SR5qc9KvVg7HUEmjMWEUYMce.jpg",
-    "backdrop_path": "/bDsmYvrzto7xrEwqDpLC3SPhn9A.jpg",
-    "release_date": "2026-09-25",
-    "director": "Javier Ambrossi",
-    "runtime": 159,
-    "genres": [
-      "Drama",
-      "War"
-    ],
-    "vote_average": 8.1
-  },
   "Throwback: Rocky (50th Anniversary)": {
     "tmdb_id": 1366,
     "tmdb_title": "Rocky",
@@ -7969,11 +7975,5 @@
       "Drama"
     ],
     "vote_average": 7.8
-  },
-  "Ken Russell's The Devils": null,
-  "Quatermass and the Pit + Lifeforce": null,
-  "November Mystery Film": null,
-  "Royal Ballet/ Manon": null,
-  "NT Live/ Golden Boy": null,
-  "Dead Souls (CTBA) + Q&A": null
+  }
 }
