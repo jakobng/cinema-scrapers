@@ -2,22 +2,8 @@ name: Manchester - Scrape & Post
 
 on:
   workflow_dispatch:
-    inputs:
-      post_type:
-        description: 'Post Type'
-        required: true
-        default: 'cinema'
-        type: choice
-        options:
-        - cinema
-        - movie
-        - data
   schedule:
-    # We run at 6, 7, and 8 AM UTC to ensure we hit 7 AM and 8 AM local London time regardless of BST/GMT
-    # GMT (Winter): 7 AM UTC is 7 AM local, 8 AM UTC is 8 AM local.
-    # BST (Summer): 6 AM UTC is 7 AM local, 7 AM UTC is 8 AM local.
-    # 7 AM local refreshes data daily and creates the expensive cinema collage only on Mondays.
-    # 8 AM local keeps the cheaper movie spotlight daily.
+    # Refresh cinema data and sync the website; Instagram accounts are being deleted.
     - cron: '0 6 * * *'
     - cron: '0 7 * * *'
     - cron: '0 8 * * *'
@@ -40,9 +26,6 @@ jobs:
     env:
       TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
-      IG_USER_ID: ${{ secrets.MANCHESTER_IG_USER_ID }}
-      IG_ACCESS_TOKEN: ${{ secrets.MANCHESTER_IG_ACCESS_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -62,77 +45,13 @@ jobs:
           playwright install chromium
           sudo apt-get install -y fonts-noto-cjk
 
-      - name: Determine Run Mode
-        id: mode
-        run: |
-          TYPE="none"
-          SCRAPE="false"
-
-          if [ "${{ github.event_name }}" == "schedule" ]; then
-            # GitHub delivers scheduled runs LATE (observed 1-11 hours late), so
-            # `date +%H` is NOT the hour this run was scheduled for. Deriving the
-            # mode from the wall clock made every run land outside the 07/08
-            # window, so the scraper never ran and the job still reported success.
-            # Derive the local hour from the cron entry that triggered this run
-            # instead - delay-proof, and still DST-correct via Europe/London.
-            schedule="${{ github.event.schedule }}"
-            echo "Schedule: $schedule"
-            scheduled_utc_hour=$(printf '%s\n' "$schedule" | awk '{print $2}')
-            current_hour=$(SCHEDULED_UTC_HOUR="$scheduled_utc_hour" python - <<'PY'
-          from datetime import datetime, timezone
-          from zoneinfo import ZoneInfo
-          import os
-
-          hour = int(os.environ["SCHEDULED_UTC_HOUR"])
-          today_utc = datetime.now(timezone.utc).date()
-          scheduled_utc = datetime(today_utc.year, today_utc.month, today_utc.day, hour, tzinfo=timezone.utc)
-          print(scheduled_utc.astimezone(ZoneInfo("Europe/London")).strftime("%H"))
-          PY
-          )
-            echo "Scheduled Manchester Hour: $current_hour"
-
-            # Always refresh data on any scheduled run. GitHub also DROPS cron
-            # deliveries under load (only 1 of the 3 entries fires on most days),
-            # so gating the scrape on one specific slot is what let the data go
-            # 16 days stale. Scraping is idempotent; posting stays gated below.
-            SCRAPE="true"
-            TYPE="data"
-
-            # 7 AM local -> cinema collage on Mondays only.
-            if [ "$current_hour" == "07" ]; then
-              day_of_week=$(date +%u)
-              if [ "$day_of_week" == "1" ]; then
-                TYPE="cinema"
-              fi
-            # 8 AM local -> movie spotlight.
-            elif [ "$current_hour" == "08" ]; then
-              TYPE="movie"
-            fi
-
-          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            TYPE="${{ inputs.post_type }}"
-            if [ "$TYPE" == "movie" ]; then
-              SCRAPE="false"
-            else
-              SCRAPE="true"
-            fi
-          fi
-
-          echo "Selected Type: $TYPE"
-          echo "Run Scraper: $SCRAPE"
-
-          echo "post_type=$TYPE" >> $GITHUB_OUTPUT
-          echo "run_scraper=$SCRAPE" >> $GITHUB_OUTPUT
-
       - name: Run Scraper
-        if: steps.mode.outputs.run_scraper == 'true'
         run: python main_scraper.py
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Verify scraped data is fresh
-        if: steps.mode.outputs.run_scraper == 'true'
         run: |
           python - <<'PY'
           import datetime as dt, json, sys
@@ -149,35 +68,19 @@ jobs:
               sys.exit(f"FATAL: only {len(cinemas)} cinema(s) have future showings.")
           PY
 
-      - name: Generate Cinema Post (V1)
-        if: steps.mode.outputs.post_type == 'cinema'
-        run: python generate_post.py
-        env:
-          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-
-      - name: Generate Movie Post (V2)
-        if: steps.mode.outputs.post_type == 'movie'
-        run: python generate_post2.py
-        env:
-          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-
       - name: Commit & Push Data (Cinema Scrapers Repo)
-        id: commit_data
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-          git add data/*.json ig_posts/*.png ig_posts/*.txt
-          git commit -m "Auto-Update: manchester ${{ steps.mode.outputs.post_type }} content" || echo "No changes to commit"
+          git add data/*.json
+          git commit -m "Auto-Update: manchester data content" || echo "No changes to commit"
 
           git stash --include-untracked || true
           git pull --rebase -X theirs origin main
           git stash drop || true
 
           git push
-          echo "image_host_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Sync Data to Website1 Repo
         run: |
@@ -204,22 +107,6 @@ jobs:
           git push
         env:
           WEBSITE1_SYNC_TOKEN: ${{ secrets.WEBSITE1_SYNC_TOKEN }}
-
-      - name: Wait for GitHub Pages deployment
-        if: steps.mode.outputs.post_type != 'data'
-        run: |
-          echo "⏳ Waiting 90 seconds for GitHub Pages to deploy new images..."
-          sleep 90
-          echo "✅ Wait complete. Proceeding with upload."
-
-      - name: Upload to Instagram
-        id: instagram_upload
-        if: steps.mode.outputs.post_type != 'data'
-        run: python upload_to_instagram.py --type ${{ steps.mode.outputs.post_type }}
-        env:
-          MANCHESTER_IG_USER_ID: ${{ secrets.MANCHESTER_IG_USER_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.MANCHESTER_IG_ACCESS_TOKEN }}
-          PUBLIC_IMAGE_BASE_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.commit_data.outputs.image_host_sha }}/manchester/ig_posts/
 
       # Failure details stay in Actions and auto-fix issues; email alerts disabled at Leo's request.
       - name: Create Auto-Fix Issue
