@@ -39,9 +39,6 @@ jobs:
 
     env:
       TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-      SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
-      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-      ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
       IG_USER_ID: ${{ secrets.MANCHESTER_IG_USER_ID }}
@@ -132,9 +129,6 @@ jobs:
         run: python main_scraper.py
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Verify scraped data is fresh
@@ -227,59 +221,7 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.MANCHESTER_IG_ACCESS_TOKEN }}
           PUBLIC_IMAGE_BASE_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.commit_data.outputs.image_host_sha }}/manchester/ig_posts/
 
-      - name: Send Failure Alert Email
-        if: failure() && steps.instagram_upload.outcome == 'failure'
-        run: |
-          python -c "
-          import smtplib
-          from email.mime.text import MIMEText
-          from email.mime.multipart import MIMEMultipart
-          import os
-          from datetime import datetime
-
-          sender = os.environ['SMTP_EMAIL']
-          password = os.environ['SMTP_PASSWORD']
-          recipient = os.environ['ALERT_RECIPIENT_EMAIL']
-
-          msg = MIMEMultipart()
-          msg['From'] = sender
-          msg['To'] = recipient
-          msg['Subject'] = '🚨 Instagram Upload Failed - Manchester Cinema Scraper'
-
-          body = f'''
-          Instagram upload failed for your Manchester cinema scraper.
-
-          Post Type: ${{ steps.mode.outputs.post_type }}
-          Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UK')}
-
-          Common causes:
-          - Instagram access token expired or invalidated
-          - Authentication error (check IG_ACCESS_TOKEN secret)
-          - API rate limit exceeded
-
-          View full logs:
-          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-          To fix expired token:
-          1. Go to Facebook Graph API Explorer
-          2. Generate a new long-lived access token
-          3. Update IG_ACCESS_TOKEN in repository secrets
-          '''
-
-          msg.attach(MIMEText(body, 'plain'))
-
-          server = smtplib.SMTP('smtp.gmail.com', 587)
-          server.starttls()
-          server.login(sender, password)
-          server.send_message(msg)
-          server.quit()
-          print('✅ Alert email sent successfully')
-          "
-        env:
-          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL }}
-
+      # Failure details stay in Actions and auto-fix issues; email alerts disabled at Leo's request.
       - name: Create Auto-Fix Issue
         if: failure()
         run: |
