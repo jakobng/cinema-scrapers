@@ -45,6 +45,10 @@ TIMEOUT        = 20
 
 # regex helpers -------------------------------------------------------------
 _TIME_RE       = re.compile(r"(\d{1,2}:\d{2})")
+_END_TIME_RE   = re.compile(
+    r"(?:[～〜~]\s*(?:[（(]?(?:終了|終映|終)[）)]?)?|"
+    r"[（(](?:終了|終映|終)[）)]|(?:終了|終映|終)\s*[:：]?)\s*\d{1,2}:\d{2}"
+)
 _YEAR_RE       = re.compile(r"(19\d{2}|20\d{2})")
 _RUNTIME_RE    = re.compile(r"(\d+)\s*分")
 # Regex to clean title suffixes like " 4K", " ４Kレストア", etc.
@@ -157,7 +161,9 @@ def _grab_times(snippet_rel: str) -> List[str]:
         if exc.response.status_code == 404:
             return []  # snippet not yet published
         raise
-    return _TIME_RE.findall(BeautifulSoup(html, "html.parser").get_text(" ", strip=True))
+    text = BeautifulSoup(html, "html.parser").get_text(" ", strip=True)
+    # The final "19:45～(終)21:30" is one screening, ending at 21:30.
+    return list(dict.fromkeys(_TIME_RE.findall(_END_TIME_RE.sub("", text))))
 
 # ---------------------------------------------------------------------------
 #  Main scraper

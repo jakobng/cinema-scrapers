@@ -6,10 +6,13 @@ import json
 import re
 import unicodedata
 from functools import reduce
+from collections import defaultdict
 
 
 _EMPTY = (None, "", [], {})
 _TMDB_IDENTITY_FIELDS = ("tmdb_id", "letterboxd_url")
+_CREDIT_ROLES = {"監督", "脚本", "監督・脚本", "製作", "原作", "出演", "撮影", "音楽", "編集",
+                 "director", "screenplay", "writer", "cast"}
 
 
 def normalize_showtime(value) -> str:
@@ -101,45 +104,76 @@ def dedupe_listings(listings: list[dict]) -> list[dict]:
 def _compatible_year(item: dict, donor: dict) -> bool:
     item_year = str(item.get("year") or "").strip()
     donor_year = str(donor.get("year") or "").strip()
-    return not item_year or not donor_year or item_year == donor_year
+    same_year = not item_year or not donor_year or item_year == donor_year
+    # A festival/production year can differ from a local release year. Only
+    # reconcile that conflict with the same runtime AND physical screening.
+    same_screening = all(item.get(field) and item.get(field) == donor.get(field)
+                         for field in ("cinema_name", "date_text", "showtime"))
+    runtime = str(item.get("runtime_min") or item.get("runtime") or "")
+    donor_runtime = str(donor.get("runtime_min") or donor.get("runtime") or "")
+    adjacent_year = (item_year.isdigit() and donor_year.isdigit()
+                     and abs(int(item_year) - int(donor_year)) == 1)
+    return same_year or bool(adjacent_year and same_screening and runtime
+                             and runtime == donor_runtime)
+
+
+def _title_aliases(item: dict) -> set[str]:
+    return {normalize_title(item.get(field)) for field in (
+        "movie_title", "movie_title_jp", "clean_title_jp", "movie_title_en",
+        "movie_title_original",
+    ) if item.get(field)}
 
 
 def coalesce_film_ids(listings: list[dict]) -> list[dict]:
-    # ponytail: same bounded immutable grouping as dedupe_listings.
-    groups = reduce(
-        lambda acc, item: {
-            **acc,
-            normalize_title(display_title(item)): [
-                *acc.get(normalize_title(display_title(item)), []),
-                dict(item),
-            ],
-        },
-        listings,
-        {},
-    )
+    aliases = defaultdict(list)
+    for item in listings:
+        if item.get("tmdb_id"):
+            for alias in _title_aliases(item):
+                aliases[alias].append(item)
 
-    def coalesce(group: list[dict]) -> list[dict]:
-        donors = [item for item in group if item.get("tmdb_id")]
+    def coalesce(item: dict) -> dict:
+        donors = [donor for alias in _title_aliases(item) for donor in aliases[alias]
+                  if _compatible_year(item, donor)]
         donor_ids = {str(item.get("tmdb_id")) for item in donors}
         donor = max(donors, key=_preference_key) if len(donor_ids) == 1 else None
-        return [
-            {
-                **item,
-                **(
-                    {
-                        field: donor.get(field)
-                        for field in _TMDB_IDENTITY_FIELDS
-                        if donor.get(field)
-                    }
-                    if donor and _compatible_year(item, donor)
-                    else {}
-                ),
-            }
-            for item in group
-        ]
+        return {**item, **({field: donor[field] for field in _TMDB_IDENTITY_FIELDS
+                           if donor.get(field)} if donor else {})}
 
-    return [item for group in groups.values() for item in coalesce(group)]
+    return [coalesce(item) for item in listings]
+
+
+def _clean_credits(item: dict) -> dict:
+    return {**item, **{
+        field: "" for field in ("director", "director_jp", "director_en")
+        if str(item.get(field) or "").strip().casefold() in _CREDIT_ROLES
+    }}
+
+
+def _coalesce_film_metadata(listings: list[dict]) -> list[dict]:
+    groups = defaultdict(list)
+    for item in listings:
+        groups[film_identity_key(item)].append(item)
+
+    def metadata(group):
+        years = [item for item in group if item.get("year")]
+        # Prefer the cinema's production information to an aggregator's local
+        # release year. Apply it to every row so card order cannot change it.
+        year_source = max(years, key=lambda item: (
+            not _is_eiga_detail(item), _preference_key(item)
+        )) if years else {}
+        originals = [item["movie_title_original"] for item in group
+                     if item.get("original_language") == "en"
+                     and str(item.get("movie_title_original") or "").isascii()
+                     and normalize_title(item.get("movie_title_original"))
+                     == normalize_title(display_title(item))]
+        return {**({"year": year_source["year"]} if year_source else {}),
+                **({"movie_title_en": sorted(set(originals))[0]} if originals else {})}
+
+    return [{**item, **fields} for group in groups.values()
+            for fields in (metadata(group),) for item in group]
 
 
 def canonicalize_listings(listings: list[dict]) -> list[dict]:
-    return dedupe_listings(coalesce_film_ids(listings))
+    return dedupe_listings(_coalesce_film_metadata(coalesce_film_ids([
+        _clean_credits(item) for item in listings
+    ])))

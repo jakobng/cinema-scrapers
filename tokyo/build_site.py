@@ -528,6 +528,81 @@ def is_evening_showtime(showtime: str) -> bool:
     return bool(match and int(match.group(1)) >= 18)
 
 
+def guide_refresh_script(slug, film_slugs, cinema_slugs):
+    config = json.dumps({"intent": slug, "films": film_slugs, "cinemas": cinema_slugs},
+                        ensure_ascii=False).replace("<", "\\u003c")
+    return r'''<script>
+(() => {
+    const config = __CONFIG__;
+    const guideDateText = (now = new Date()) => new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Tokyo", year: "numeric", month: "2-digit", day: "2-digit"
+    }).format(now);
+    const selectGuideShowings = (rows, today, intent) => {
+        const day = new Date(today + "T00:00:00Z").getUTCDay();
+        const saturday = new Date(today + "T00:00:00Z");
+        saturday.setUTCDate(saturday.getUTCDate() + (day === 0 ? -1 : (6 - day + 7) % 7));
+        const sunday = new Date(saturday);
+        sunday.setUTCDate(sunday.getUTCDate() + 1);
+        const weekend = [saturday, sunday].map(date => date.toISOString().slice(0, 10));
+        return rows.filter(row => intent === "weekend"
+            ? row.date_text >= today && weekend.includes(row.date_text)
+            : row.date_text === today && (intent !== "tonight" || /^(?:18|19|2[0-9]):[0-5][0-9]$/.test(row.showtime)));
+    };
+    const renderGuide = (rows, today) => {
+        const results = document.getElementById("schedule-results");
+        results.replaceChildren();
+        results.dataset.date = today;
+        const groups = new Map();
+        const link = (label, path) => {
+            const node = document.createElement(path ? "a" : "span");
+            node.textContent = label;
+            path && node.setAttribute("href", path);
+            return node;
+        };
+        rows.slice().sort((a, b) => (a.date_text + a.showtime + a.cinema_name)
+            .localeCompare(b.date_text + b.showtime + b.cinema_name)).forEach(row => {
+            const group = groups.get(row.date_text) || document.createElement("ul");
+            !groups.has(row.date_text) && (() => {
+                const heading = document.createElement("h3");
+                heading.textContent = row.date_text;
+                group.className = "times";
+                results.append(heading, group);
+                groups.set(row.date_text, group);
+            })();
+            const item = document.createElement("li");
+            const filmPath = config.films[row.f];
+            const cinemaPath = config.cinemas[row.cinema_name];
+            item.append(row.showtime + " ",
+                link(row.movie_title_jp || row.movie_title || "?", filmPath && "/film/" + filmPath + "/"),
+                " — ", link(row.cinema_name, cinemaPath && "/cinema/" + cinemaPath + "/"));
+            group.appendChild(item);
+        });
+        !rows.length && (results.textContent = today + " — No listed screenings / 上映情報はありません。");
+    };
+    const refreshGuide = () => {
+        const results = document.getElementById("schedule-results");
+        results.textContent = "Loading current listings / 最新の上映情報を読み込み中…";
+        return fetch("/data/showtimes_slim.json", { cache: "no-cache" })
+            .then(response => response.ok ? response.json() : Promise.reject(new Error("Listings unavailable")))
+            .then(payload => {
+                const today = guideDateText();
+                const rows = payload.showings.map(row => ({ ...payload.films[row.f], ...row }));
+                renderGuide(selectGuideShowings(rows, today, config.intent), today);
+                const notice = document.querySelector(".meta");
+                const collected = new Date(payload.scrape_status?.scraped_at || "");
+                notice && (notice.textContent = Number.isNaN(collected.getTime())
+                    ? "Collection time unavailable"
+                    : "Listings collected: " + collected.toLocaleString("en-GB", { timeZone: "Asia/Tokyo" }) + " JST");
+            })
+            .catch(() => { results.textContent = "Current listings could not be loaded. Please check the cinema website / 最新の上映情報を取得できません。映画館の公式サイトをご確認ください。"; });
+    };
+    refreshGuide();
+    document.addEventListener("visibilitychange", () => document.visibilityState === "visible" && refreshGuide());
+    setInterval(() => document.getElementById("schedule-results").dataset.date !== guideDateText() && refreshGuide(), 60000);
+})();
+</script>'''.replace("__CONFIG__", config)
+
+
 def render_schedule_page(title, description, slug, showings, films, film_slugs,
                          cinema_slugs, base_url):
     canonical = f"{base_url}/{slug}/"
@@ -543,6 +618,7 @@ def render_schedule_page(title, description, slug, showings, films, film_slugs,
         f"<h1>{e(title.split('｜', 1)[0])}</h1>",
         f'<p class="sub">{e(description)}</p>',
         "<h2>上映スケジュール / Showtimes</h2>",
+        '<div id="schedule-results" aria-live="polite">',
     ]
     if not showings:
         parts.append("<p>現在予定されている上映はありません。</p>")
@@ -560,7 +636,8 @@ def render_schedule_page(title, description, slug, showings, films, film_slugs,
                            if cinema_slug_value else e(showing["cinema_name"]))
             parts.append(f'<li>{e(showing["showtime"])} {film_link} — {cinema_link}</li>')
         parts.append("</ul></div>")
-    parts.append('<p class="foot">Schedules are updated daily. Confirm details with the cinema.</p>')
+    parts.append('</div><p class="foot">Schedules are updated daily. Confirm details with the cinema.</p>')
+    parts.append(guide_refresh_script(slug, film_slugs, cinema_slugs))
     parts.append("</div></body></html>")
     return "\n".join(parts)
 
