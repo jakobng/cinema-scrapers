@@ -78200,6 +78200,22 @@
     ],
     "vote_average": 6.728
   },
+  "Fedora": {
+    "tmdb_id": 54000,
+    "tmdb_title": "Fedora",
+    "tmdb_original_title": "Fedora",
+    "overview": "Down-on-his-luck Hollywood producer Barry 'Dutch' Detweiler attempts to lure Fedora, a famous but reclusive film actress, out of retirement, only to discover the horrifying truth behind her success.",
+    "poster_path": "/ArU150uZXJ9IVa5puxZKotw54DP.jpg",
+    "backdrop_path": "/5j1ezbq2yJIilKRNL9W5z5ha5nR.jpg",
+    "release_date": "1978-06-29",
+    "director": "Billy Wilder",
+    "runtime": 109,
+    "genres": [
+      "Drama",
+      "Mystery"
+    ],
+    "vote_average": 6.692
+  },
   "Doc 'n' Roll: PEVEN EVERETT: VOICE OF A GENERATION + Director Q&A": null,
   "Doc 'n' Roll: HEAVEN 17: THE LAST TEMPTATION + Director Q&A": null,
   "Wolfwalkers - Trans Awareness Programme 2026": null,
@@ -78209,9 +78225,6 @@
   "Orlando: My Political Biography - Trans Awareness Programme 2026": null,
   "Pitchblack Playback: Joni Mitchell 'Hejira' (50th Anniversary)": null,
   "Parent & Baby: Wild Horse Nine": null,
-  "Women and the World Festival: Traces": null,
-  "Steel on Film": null,
-  "Sheffield DocFest Spotlights: We, The Hated": null,
   "Some Like it Swing": null,
   "Forgotten Island": null,
   "Who Is Detective Muffins?": null,
@@ -78286,6 +78299,9 @@
     "vote_average": 3.92
   },
   "Lost Highway Presented by the Cult Classic Collective": null,
+  "Women and the World Festival: Traces": null,
+  "Steel on Film": null,
+  "Sheffield DocFest Spotlights: We, The Hated": null,
   "Fatherland": null,
   "Women and the World International Film Festival: LAYA": null,
   "Women and the World: DOVZHENKO. FIRST LOOK": null,
@@ -78311,11 +78327,82 @@
     "vote_average": 7.5
   },
   "London Palestine Film Festival: A TRIBUTE TO MOHAMMAD BAKRI + Q&A": null,
+  "NAZA (15)": {
+    "tmdb_id": 1755291,
+    "tmdb_title": "NAZA",
+    "tmdb_original_title": "NAZA",
+    "overview": "Filmed at night from Tel Aviv rooftops, this investigative documentary examines the civilian casualties of Israel's military operations in Gaza and the systems behind targeted killings of Palestinians.",
+    "poster_path": "/cbxiZ1l21KUATu2KKQQ8J8fJhpe.jpg",
+    "backdrop_path": "/qkuEfYYOZTW6ymbZMeyJeYQaMd7.jpg",
+    "release_date": "2026-09-25",
+    "director": "Yuval Abraham",
+    "runtime": 77,
+    "genres": [
+      "Documentary",
+      "War"
+    ],
+    "vote_average": 8.1
+  },
   "Women and the World Festival: British Shorts (Block 1) + Q&amp;A": null,
   "Women and the World Festival: British Shorts (Block 2) + Q&amp;A": null,
   "Classroom Cinema: The Staffroom (2021) + Introduction": null,
   "Gugu's World (UK Premiere)": null,
   "Classroom Cinema: The Teachers' Lounge (2023) + Panel Discussion": null,
+  "Ghost Town + director Q&amp;A": {
+    "tmdb_id": 1657849,
+    "tmdb_title": "Ghost Town",
+    "tmdb_original_title": "Ghost Town",
+    "overview": "In a Japanese coastal town haunted by the 2011 tsunami, the filmmaker installs her camera inside the city's taxis to capture conversations between the living and, it turns out, the dead.",
+    "poster_path": "/n3qZSbfCv2p1FH0ykX2jwUEW62u.jpg",
+    "backdrop_path": null,
+    "release_date": "2026-04-23",
+    "director": "Katharine Round",
+    "runtime": 64,
+    "genres": [
+      "Documentary"
+    ],
+    "vote_average": 0.0
+  },
+  "Parents &amp; Baby Screening - Wicker": null,
+  "DEMENTIA FILM CLUB (FREE)": null,
+  "THE FATHER (2020) + Q&amp;A (FREE)": {
+    "tmdb_id": 600354,
+    "tmdb_title": "The Father",
+    "tmdb_original_title": "The Father",
+    "overview": "A man refuses all assistance from his daughter as he ages and, as he tries to make sense of his changing circumstances, he begins to doubt his loved ones, his own mind and even the fabric of his reality.",
+    "poster_path": "/pr3bEQ517uMb5loLvjFQi8uLAsp.jpg",
+    "backdrop_path": "/h3weAFgg06GqchI2xDfufBgSFTj.jpg",
+    "release_date": "2020-12-23",
+    "director": "Florian Zeller",
+    "runtime": 97,
+    "genres": [
+      "Drama"
+    ],
+    "vote_average": 8.089
+  },
+  "George Michael: The Faith Tour": null,
+  "Ken Russell's The Devils": null,
+  "ROYAL BALLET & OPERA LIVE: CARMEN": null,
+  "Film London with Nigel Smith": null,
+  "THE BIG CHRISTMAS QUIZ FUNDRAISER 2026": null,
+  "BAD APPLES (Babes-In-Arms)": null,
+  "BEING HUEMANN": null,
+  "HAIRSPRAY - Dementia Friendly": null,
+  "HAISPRAY - RELAXED": null,
+  "ROUTES TO ROOTS": null,
+  "SENSE & SENSIBILITY - BiAS": {
+    "tmdb_id": 1558542,
+    "tmdb_title": "Sense",
+    "tmdb_original_title": "Sense",
+    "overview": "Whispers crawl through soil\r Old roots murmur secrets\r He cannot reach, cannot speak\r His eyes taste the sky",
+    "poster_path": "/8NZ9Ate51KnjZSmTOoWxsPsfayx.jpg",
+    "backdrop_path": null,
+    "release_date": "2000-01-17",
+    "director": "Pater Sparrow",
+    "runtime": 0,
+    "genres": [],
+    "vote_average": 0.0
+  },
   "Ken Russell's The Devils: The Director's Cut": null,
   "Short Cuts : 35mm Roadshow Tour": null,
   "Manhunter : The Final Cut": null,
@@ -78406,76 +78493,22 @@
   "Music Video Preservation Society with special guest Tim Pope": null,
   "Mystery Movie": null,
   "Ten Years of Monkey Tennis (with Peter Serafinowicz)": null,
-  "Ken Russell's The Devils": null,
-  "ROYAL BALLET & OPERA LIVE: CARMEN": null,
-  "George Michael: The Faith Tour": null,
-  "Film London with Nigel Smith": null,
-  "Ghost Town + director Q&amp;A": {
-    "tmdb_id": 1657849,
-    "tmdb_title": "Ghost Town",
-    "tmdb_original_title": "Ghost Town",
-    "overview": "In a Japanese coastal town haunted by the 2011 tsunami, the filmmaker installs her camera inside the city's taxis to capture conversations between the living and, it turns out, the dead.",
-    "poster_path": "/n3qZSbfCv2p1FH0ykX2jwUEW62u.jpg",
-    "backdrop_path": null,
-    "release_date": "2026-04-23",
-    "director": "Katharine Round",
-    "runtime": 64,
+  "Wild Horse Nine (15) captioned screening": {
+    "tmdb_id": 891621,
+    "tmdb_title": "Wild Horse Nine",
+    "tmdb_original_title": "Wild Horse Nine",
+    "overview": "Shortly before the 1973 Chilean coup, CIA agents Chris and Lee are dispatched from Santiago to Easter Island by their bureau chief, MJ. Amongst the Island's iconic statues, and as the longtime partners wrestle with their dark pasts and present conspiracies, Chris's newfound bond with a pair of rebellious students threatens to send everyone’s trip to this remote paradise sideways.",
+    "poster_path": "/dNJFRtVg3xLQ7dbNIQ55cmmIniD.jpg",
+    "backdrop_path": "/b17UWf3LqHgKolQkXckne32qv0.jpg",
+    "release_date": "2026-10-30",
+    "director": "Martin McDonagh",
+    "runtime": 117,
     "genres": [
-      "Documentary"
+      "Comedy",
+      "Crime",
+      "Thriller"
     ],
-    "vote_average": 0.0
-  },
-  "Parents &amp; Baby Screening - Wicker": null,
-  "DEMENTIA FILM CLUB (FREE)": null,
-  "THE FATHER (2020) + Q&amp;A (FREE)": {
-    "tmdb_id": 600354,
-    "tmdb_title": "The Father",
-    "tmdb_original_title": "The Father",
-    "overview": "A man refuses all assistance from his daughter as he ages and, as he tries to make sense of his changing circumstances, he begins to doubt his loved ones, his own mind and even the fabric of his reality.",
-    "poster_path": "/pr3bEQ517uMb5loLvjFQi8uLAsp.jpg",
-    "backdrop_path": "/h3weAFgg06GqchI2xDfufBgSFTj.jpg",
-    "release_date": "2020-12-23",
-    "director": "Florian Zeller",
-    "runtime": 97,
-    "genres": [
-      "Drama"
-    ],
-    "vote_average": 8.089
-  },
-  "NAZA (15)": {
-    "tmdb_id": 1755291,
-    "tmdb_title": "NAZA",
-    "tmdb_original_title": "NAZA",
-    "overview": "Filmed at night from Tel Aviv rooftops, this investigative documentary examines the civilian casualties of Israel's military operations in Gaza and the systems behind targeted killings of Palestinians.",
-    "poster_path": "/cbxiZ1l21KUATu2KKQQ8J8fJhpe.jpg",
-    "backdrop_path": "/qkuEfYYOZTW6ymbZMeyJeYQaMd7.jpg",
-    "release_date": "2026-09-25",
-    "director": "Yuval Abraham",
-    "runtime": 77,
-    "genres": [
-      "Documentary",
-      "War"
-    ],
-    "vote_average": 8.1
-  },
-  "THE BIG CHRISTMAS QUIZ FUNDRAISER 2026": null,
-  "BAD APPLES (Babes-In-Arms)": null,
-  "BEING HUEMANN": null,
-  "HAIRSPRAY - Dementia Friendly": null,
-  "HAISPRAY - RELAXED": null,
-  "ROUTES TO ROOTS": null,
-  "SENSE & SENSIBILITY - BiAS": {
-    "tmdb_id": 1558542,
-    "tmdb_title": "Sense",
-    "tmdb_original_title": "Sense",
-    "overview": "Whispers crawl through soil\r Old roots murmur secrets\r He cannot reach, cannot speak\r His eyes taste the sky",
-    "poster_path": "/8NZ9Ate51KnjZSmTOoWxsPsfayx.jpg",
-    "backdrop_path": null,
-    "release_date": "2000-01-17",
-    "director": "Pater Sparrow",
-    "runtime": 0,
-    "genres": [],
-    "vote_average": 0.0
+    "vote_average": 8.6
   },
   "UKJF feature film: The Long Journey Home": null,
   "De Gaulle: Part Two - Liberté": null,
@@ -78495,24 +78528,7 @@
       "Drama",
       "History"
     ],
-    "vote_average": 7.3
-  },
-  "Wild Horse Nine (15) captioned screening": {
-    "tmdb_id": 891621,
-    "tmdb_title": "Wild Horse Nine",
-    "tmdb_original_title": "Wild Horse Nine",
-    "overview": "Shortly before the 1973 Chilean coup, CIA agents Chris and Lee are dispatched from Santiago to Easter Island by their bureau chief, MJ. Amongst the Island's iconic statues, and as the longtime partners wrestle with their dark pasts and present conspiracies, Chris's newfound bond with a pair of rebellious students threatens to send everyone’s trip to this remote paradise sideways.",
-    "poster_path": "/dNJFRtVg3xLQ7dbNIQ55cmmIniD.jpg",
-    "backdrop_path": "/b17UWf3LqHgKolQkXckne32qv0.jpg",
-    "release_date": "2026-10-30",
-    "director": "Martin McDonagh",
-    "runtime": 117,
-    "genres": [
-      "Comedy",
-      "Crime",
-      "Thriller"
-    ],
-    "vote_average": 8.6
+    "vote_average": 7.276
   },
   "De Gaulle (Part 2): Liberté": null,
   "Final Shows: De Gaulle: Résistance (Pt1)": null,
@@ -78606,37 +78622,6 @@
   "Exploding Cinema": null,
   "James Brown Live in Paris ’67 with DJ Fraggle (Poetic Funk)": null,
   "British Horror Studio Season: Spoiling You": null,
-  "MYSTERY MOVIE": null,
-  "WHO KILLED CAPTAIN ALEX?": null,
-  "BIJOU": null,
-  "BLUE MONDAY - MYSTERY XXX CINEMA": null,
-  "CRIMES OF PASSION (16MM)": null,
-  "STAY": null,
-  "DONT LOOK BACK + BOB DYLAN CONCERT FOOTAGE": {
-    "tmdb_id": 135,
-    "tmdb_title": "Bob Dylan – Don't Look Back",
-    "tmdb_original_title": "Bob Dylan – Don't Look Back",
-    "overview": "In this wildly entertaining vision of one of the twentieth century’s greatest artists, Bob Dylan is surrounded by teen fans, gets into heated philosophical jousts with journalists, and kicks back with fellow musicians Joan Baez, Donovan, and Alan Price.",
-    "poster_path": "/2kd5XfH2MhFlChq7DkjxWBLoYPF.jpg",
-    "backdrop_path": "/5dJ8t6CljwZ1NUXwW1nsmEpMf8x.jpg",
-    "release_date": "1967-05-17",
-    "director": "D. A. Pennebaker",
-    "runtime": 96,
-    "genres": [
-      "Documentary",
-      "Music"
-    ],
-    "vote_average": 7.374
-  },
-  "MYSTERY DOJO: SURPRISE KUNG FU MATINEES": null,
-  "SEX AND FURY": null,
-  "SISTERS": null,
-  "COP (VHS)": null,
-  "DIABOLIQUE (16MM)": null,
-  "ERASERHEAD (ON 16MM)": null,
-  "SMOOTH TALK": null,
-  "ABBOTT AND COSTELLO MEET FRANKENSTEIN (16MM)": null,
-  "SUNDAY SABBATH - MYSTERY HORROR MATINEE": null,
   "De Gaulle: Part 2- Liberte": null,
   "Kids Club: Wonka": null,
   "Minotaur": null,
@@ -78681,6 +78666,37 @@
   "LPFF 2026 Gaza Shorts: Survival Among the Ruins": null,
   "LPFF 2026 Short Session: Between Worlds": null,
   "Film Club: Black Beyond: Blade": null,
+  "MYSTERY MOVIE": null,
+  "WHO KILLED CAPTAIN ALEX?": null,
+  "BIJOU": null,
+  "BLUE MONDAY - MYSTERY XXX CINEMA": null,
+  "CRIMES OF PASSION (16MM)": null,
+  "STAY": null,
+  "DONT LOOK BACK + BOB DYLAN CONCERT FOOTAGE": {
+    "tmdb_id": 135,
+    "tmdb_title": "Bob Dylan – Don't Look Back",
+    "tmdb_original_title": "Bob Dylan – Don't Look Back",
+    "overview": "In this wildly entertaining vision of one of the twentieth century’s greatest artists, Bob Dylan is surrounded by teen fans, gets into heated philosophical jousts with journalists, and kicks back with fellow musicians Joan Baez, Donovan, and Alan Price.",
+    "poster_path": "/2kd5XfH2MhFlChq7DkjxWBLoYPF.jpg",
+    "backdrop_path": "/5dJ8t6CljwZ1NUXwW1nsmEpMf8x.jpg",
+    "release_date": "1967-05-17",
+    "director": "D. A. Pennebaker",
+    "runtime": 96,
+    "genres": [
+      "Documentary",
+      "Music"
+    ],
+    "vote_average": 7.374
+  },
+  "MYSTERY DOJO: SURPRISE KUNG FU MATINEES": null,
+  "SEX AND FURY": null,
+  "SISTERS": null,
+  "COP (VHS)": null,
+  "DIABOLIQUE (16MM)": null,
+  "ERASERHEAD (ON 16MM)": null,
+  "SMOOTH TALK": null,
+  "ABBOTT AND COSTELLO MEET FRANKENSTEIN (16MM)": null,
+  "SUNDAY SABBATH - MYSTERY HORROR MATINEE": null,
   "Pan’s Labyrinth (2D)": null,
   "Pan’s Labyrinth (3D)": null,
   "Mark Kermode Live in 3D at the BFI": null,
@@ -78690,22 +78706,6 @@
   "Mongrels": null,
   "Julie Corman in Conversation": null,
   "House of Usher (aka The Fall of the House of Usher)": null,
-  "Fedora": {
-    "tmdb_id": 54000,
-    "tmdb_title": "Fedora",
-    "tmdb_original_title": "Fedora",
-    "overview": "Down-on-his-luck Hollywood producer Barry 'Dutch' Detweiler attempts to lure Fedora, a famous but reclusive film actress, out of retirement, only to discover the horrifying truth behind her success.",
-    "poster_path": "/ArU150uZXJ9IVa5puxZKotw54DP.jpg",
-    "backdrop_path": "/5j1ezbq2yJIilKRNL9W5z5ha5nR.jpg",
-    "release_date": "1978-06-29",
-    "director": "Billy Wilder",
-    "runtime": 109,
-    "genres": [
-      "Drama",
-      "Mystery"
-    ],
-    "vote_average": 6.692
-  },
   "Ramayana: Rise of a Legend (Directors Cut)": null,
   "After Dark: La Haine": null,
   "Toddler Club: Shaun the Sheep: The Beast of Mossy Bottom": null,
@@ -78741,7 +78741,7 @@
       "Thriller",
       "Drama"
     ],
-    "vote_average": 6.8
+    "vote_average": 6.809
   },
   "Toddler Club: Zog + The Snail & the Whale": null,
   "After Dark: The Piano Teacher": null,
@@ -78764,9 +78764,6 @@
   },
   "City Lights Film Gala": null,
   "Sunrise Event Screening - The Hunger Games: Sunrise on the Reaping": null,
-  "Imamura A Man Vanishes": null,
-  "Marina Grzinic Aina Smid Films 1984 1997": null,
-  "Imamura Profound Desires Of The Gods": null,
   "Foyles Presents: La Bola Negra + Panel Discussion": null,
   "Out at Clapham: George Michael: The Faith Tour": null,
   "Rammstein - Live in Mexico City": null,
@@ -79199,5 +79196,8 @@
   "RBO Encore 2026-27: Romeo & Juliet (2025 Encore)": null,
   "Met Opera Live 2026-27: Parsifal": null,
   "Met Opera Encore 2026-27: Parsifal": null,
-  "RBO Live 2026-27: Manon": null
+  "RBO Live 2026-27: Manon": null,
+  "Imamura A Man Vanishes": null,
+  "Marina Grzinic Aina Smid Films 1984 1997": null,
+  "Imamura Profound Desires Of The Gods": null
 }
