@@ -15,7 +15,7 @@ MIN_SHOWINGS = 100
 MIN_CINEMAS = 20
 
 
-def collection_status(rows, sources, *, now=None, run_id=None):
+def collection_status(rows, sources, *, now=None, run_id=None, ai_issues=None):
     collected = now or datetime.now(timezone.utc)
     today = collected.astimezone(JST).date().isoformat()
     current = [row for row in rows if str(row.get("date_text") or "") >= today]
@@ -26,7 +26,34 @@ def collection_status(rows, sources, *, now=None, run_id=None):
         "current_cinemas": len({row["cinema_name"] for row in current}),
         "source_issues": [source for source in sources
                           if source["status"] in ("FAILURE", "WARNING")],
+        "ai_issues": list(ai_issues or []),
     }
+
+
+def ai_problems(status):
+    """Messages for AI provider account failures recorded by the last collection.
+
+    Listings are still published without AI, so this is checked after publication:
+    the run goes red and opens an issue instead of quietly serving Japanese text
+    in English mode until someone notices.
+    """
+    seen = set()
+    problems = []
+    for issue in status.get("ai_issues") or []:
+        key = (issue.get("provider"), issue.get("status"))
+        if key in seen:
+            continue
+        seen.add(key)
+        if issue.get("status") == 402:
+            action = "Top up the provider balance."
+        else:
+            action = "Check the provider API key secret."
+        problems.append(
+            f"AI {issue.get('provider')} returned HTTP {issue.get('status')} "
+            f"({issue.get('message') or 'no message'}); English titles and synopses "
+            f"were not translated this run. {action}"
+        )
+    return problems
 
 
 def audit_publication(rows, status, *, now=None, run_id=None):
@@ -73,7 +100,16 @@ def main():
     parser.add_argument("--data", default="data/showtimes.json")
     parser.add_argument("--status", default="data/scrape_status.json")
     parser.add_argument("--run-id")
+    parser.add_argument("--check-ai", action="store_true",
+                        help="Only check the status file for AI provider account failures")
     args = parser.parse_args()
+    if args.check_ai:
+        problems = ai_problems(load_status(args.status))
+        for problem in problems:
+            print(f"::error title=Tokyo AI translation unavailable::{problem}")
+        if not problems:
+            print("AI provider answered normally during the last collection.")
+        return 1 if problems else 0
     try:
         if args.live:
             # Read actual published files: a successful deployment is not a freshness check.

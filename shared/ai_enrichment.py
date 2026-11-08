@@ -12,7 +12,33 @@ import requests
 LOCAL_AI_UNAVAILABLE = "local_ai_unavailable"
 LOCAL_AI_PARSE_FAILED = "local_ai_parse_failed"
 LOCAL_AI_NO_RESULT = "local_ai_no_result"
+AI_ACCOUNT_UNAVAILABLE = "ai_account_unavailable"
 TMDB_RETRY_FAILED = "tmdb_failed"
+
+# The provider never answered these requests (outage, timeout, exhausted credit,
+# rejected key), so the 12-hour wait meant for unhelpful answers does not apply.
+NEVER_ANSWERED_NOTES = frozenset({
+    LOCAL_AI_UNAVAILABLE,
+    AI_ACCOUNT_UNAVAILABLE,
+    "gemini_unavailable",
+    "gemini_error",
+})
+
+# HTTP statuses that mean the account itself is unusable: 401 bad key, 402 no
+# credit (DeepSeek "Insufficient Balance"), 403 key not permitted. None of them
+# recovers within a run, and all need a person to act.
+ACCOUNT_ERROR_STATUSES = frozenset({401, 402, 403})
+
+_account_errors: List[Dict] = []
+
+
+def account_errors() -> List[Dict]:
+    """Provider account problems seen during this process, for the run's status file."""
+    return list(_account_errors)
+
+
+def reset_account_errors() -> None:
+    _account_errors.clear()
 
 
 def env_truthy(name: str, default: bool = False) -> bool:
@@ -53,6 +79,8 @@ def local_ai_retry_due(entry: object, retry_hours: Optional[float] = None) -> bo
     # small whitelist — a legacy 'gemini_failed', or the empty note left by a TMDB
     # re-validation miss — was wedged as never-retry, permanently locking those films
     # out of posters/Letterboxd even after the pipeline improved.
+    if entry.get("notes") in NEVER_ANSWERED_NOTES:
+        return True
     attempted_at = entry.get("last_ai_attempt_at")
     if not attempted_at:
         return True
@@ -235,6 +263,8 @@ class AIEnrichmentClient:
         self.api_key: Optional[str] = None
         self.available: Optional[bool] = None
         self.last_error_note: Optional[str] = None
+        # Set once the account itself is unusable, so later calls report why.
+        self.latched_error_note: Optional[str] = None
 
     @classmethod
     def from_env(cls, session: requests.Session) -> Optional["AIEnrichmentClient"]:
@@ -312,9 +342,27 @@ class AIEnrichmentClient:
             print(f"   Local AI available via {self.base_url} (model={self.model}).")
         return bool(self.available)
 
+    def _latch_account_error(self, status_code: int, body: str) -> None:
+        """Turn AI off for the rest of the run and record why, so the run fails loudly.
+
+        Every later request would hit the same wall, and the run used to report
+        "Translated 0" as a success while the site silently fell back to Japanese.
+        """
+        self.available = False
+        self.last_error_note = self.latched_error_note = AI_ACCOUNT_UNAVAILABLE
+        message = (body or "").strip()[:200]
+        _account_errors.append({
+            "provider": self.provider,
+            "model": self.model,
+            "status": status_code,
+            "message": message,
+        })
+        reason = "out of credit" if status_code == 402 else "rejected the API key"
+        print(f"   ❌ AI DISABLED for this run: {self.provider} {reason} (HTTP {status_code}): {message}")
+
     def _chat_completion(self, prompt: str, temperature: float, max_tokens: int, model: str = "") -> str:
         if not self.health_check():
-            self.last_error_note = LOCAL_AI_UNAVAILABLE
+            self.last_error_note = self.latched_error_note or LOCAL_AI_UNAVAILABLE
             return ""
         payload = {
             "model": model or self.model,
@@ -345,6 +393,9 @@ class AIEnrichmentClient:
             self.last_error_note = LOCAL_AI_UNAVAILABLE
             print(f"   Local AI request failed: {exc}")
             return ""
+        if response.status_code in ACCOUNT_ERROR_STATUSES:
+            self._latch_account_error(response.status_code, response.text)
+            return ""
         if response.status_code != 200:
             self.last_error_note = LOCAL_AI_UNAVAILABLE
             print(f"   Local AI error {response.status_code}: {response.text[:200]}")
@@ -370,6 +421,9 @@ class AIEnrichmentClient:
         api_key = os.environ.get("GEMINI_API_KEY")
         if not api_key:
             return ""
+        if self.latched_error_note:
+            self.last_error_note = self.latched_error_note
+            return ""
         payload = {
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {
@@ -385,6 +439,9 @@ class AIEnrichmentClient:
         except requests.exceptions.RequestException as exc:
             self.last_error_note = "gemini_unavailable"
             print(f"   Gemini request failed: {exc}")
+            return ""
+        if response.status_code in ACCOUNT_ERROR_STATUSES:
+            self._latch_account_error(response.status_code, response.text)
             return ""
         if response.status_code != 200:
             self.last_error_note = "gemini_error"
@@ -415,7 +472,7 @@ class AIEnrichmentClient:
         if not titles:
             return {}
         if not self.health_check():
-            self.last_error_note = LOCAL_AI_UNAVAILABLE
+            self.last_error_note = self.latched_error_note or LOCAL_AI_UNAVAILABLE
             return {}
 
         hints = hints or {}
@@ -533,7 +590,7 @@ class AIEnrichmentClient:
         if not synopses_to_translate:
             return {}
         if not self.health_check():
-            self.last_error_note = LOCAL_AI_UNAVAILABLE
+            self.last_error_note = self.latched_error_note or LOCAL_AI_UNAVAILABLE
             return {}
         results: Dict[str, str] = {}
         items = list(synopses_to_translate.items())
