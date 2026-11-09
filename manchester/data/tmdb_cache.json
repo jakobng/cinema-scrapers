@@ -8205,6 +8205,24 @@
   "On Screen - NT Live: Golden Boy": null,
   "Ken Russell's The Devils": null,
   "Family Film/ Festive Fun with Peppa Cinema Experience (CTBA)": null,
+  "To Have and Have Not (PG) + intro": {
+    "tmdb_id": 22584,
+    "tmdb_title": "To Have and Have Not",
+    "tmdb_original_title": "To Have and Have Not",
+    "overview": "A Martinique charter boat skipper gets mixed up with the underground French resistance operatives during WWII.",
+    "poster_path": "/m6EjBAY7gA6tx5RMutXGtZWFzyI.jpg",
+    "backdrop_path": "/uYRnUnBE4kk5ocvyBckRfMAsZpJ.jpg",
+    "release_date": "1945-01-20",
+    "director": "Howard Hawks",
+    "runtime": 100,
+    "genres": [
+      "Adventure",
+      "Romance",
+      "War"
+    ],
+    "vote_average": 7.5
+  },
+  "National Theatre Live: Golden Boy": null,
   "Throwback: Rocky (50th Anniversary)": {
     "tmdb_id": 1366,
     "tmdb_title": "Rocky",
@@ -8218,9 +8236,8 @@
     "genres": [
       "Drama"
     ],
-    "vote_average": 7.802
+    "vote_average": 7.803
   },
-  "National Theatre Live: Golden Boy": null,
   "Throwback: Almost Famous (25th Anniversary)": {
     "tmdb_id": 786,
     "tmdb_title": "Almost Famous",
@@ -8235,6 +8252,39 @@
       "Drama",
       "Music"
     ],
-    "vote_average": 7.5
+    "vote_average": 7.507
+  },
+  "Throwback: Elf": {
+    "tmdb_id": 10719,
+    "tmdb_title": "Elf",
+    "tmdb_original_title": "Elf",
+    "overview": "When young Buddy falls into Santa's gift sack on Christmas Eve, he's transported back to the North Pole and raised as a toy-making elf by Santa's helpers. But as he grows into adulthood, he can't shake the nagging feeling that he doesn't belong. Buddy vows to visit Manhattan and find his real dad, a workaholic.",
+    "poster_path": "/oOleziEempUPu96jkGs0Pj6tKxj.jpg",
+    "backdrop_path": "/5nhp41gx49vXjwXuDXJwQrRFsng.jpg",
+    "release_date": "2003-11-07",
+    "director": "Jon Favreau",
+    "runtime": 97,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "vote_average": 6.668
+  },
+  "Members’ Preview: Focker-In–Law": {
+    "tmdb_id": 1400336,
+    "tmdb_title": "Focker-in-Law",
+    "tmdb_original_title": "Focker-in-Law",
+    "overview": "Henry, son of Greg and Pam Focker, faces family chaos when he decides to marry a strong-willed woman who appears to be his complete mismatch.",
+    "poster_path": "/gPdzdeehaoaYqxH2rA6yayEDSsS.jpg",
+    "backdrop_path": "/6IfsmHoVWwgJwzxA9DLim2XZbSn.jpg",
+    "release_date": "2026-11-21",
+    "director": "John Hamburg",
+    "runtime": 105,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "vote_average": 0.0
   }
 }
