@@ -2731,7 +2731,38 @@
   "Blue Heron／ブルーヘロン": null,
   "Breath": null,
   "Bunka-ブンカ": null,
-  "CBGB ニューヨーク、PUNKが生まれた場所": null,
+  "CBGB ニューヨーク、PUNKが生まれた場所": {
+    "backdrop_path": "/tQbRiVWlznLEr7P6DIFrSvqgYE5.jpg",
+    "director": "Randall Miller",
+    "director_en": "Randall Miller",
+    "director_jp": "Randall Miller",
+    "genres": [
+      "ドラマ",
+      "音楽"
+    ],
+    "genres_en": [
+      "Drama",
+      "Music"
+    ],
+    "overview": "",
+    "overview_en": "A look at New York's dynamic punk rock scene through the lens of the ground-breaking Lower East Side club started by eccentric Hilly Kristal in 1973 which launched thousands of bands.",
+    "poster_path": "/9xHdRPamTjLG4bosURJju6UYCHp.jpg",
+    "release_date": "2013-10-11",
+    "runtime": 101,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 111479,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "CBGB",
+    "tmdb_title_jp": "CBGB ニューヨーク、PUNKが生まれた場所",
+    "tmdb_title_original": "CBGB",
+    "vote_average": 6.4
+  },
   "CBGB ニューヨーク、パンクが生れた場所": {
     "backdrop_path": "/tQbRiVWlznLEr7P6DIFrSvqgYE5.jpg",
     "director": "Randall Miller",
@@ -8262,7 +8293,46 @@
     "tmdb_title_original": "Shiva Baby",
     "vote_average": 7.113
   },
-  "S風暴": null,
+  "S風暴": {
+    "backdrop_path": "/bXORDijbHKFCfBbIM0oCPNvHkBZ.jpg",
+    "director": "林德禄",
+    "director_en": "David Lam Tak-luk",
+    "director_jp": "林德禄",
+    "genres": [
+      "犯罪",
+      "アクション",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Crime",
+      "Action",
+      "Thriller"
+    ],
+    "overview": "スポーツ賭博が絡む事件を捜査する事になったＩＣＡＣ。 その捜査中に目の前で渦中の男を殺害されてしまう事態が発生。 警察との対立と協力、賭博組織の妨害と様々な苦難を乗り越え巨悪に迫っていくチームの姿を描い…",
+    "overview_en": "A suspect is killed while the ICAC team is investigating illegal soccer gambling in Hong Kong.",
+    "poster_path": "/nQB7jrcUHstqJNJOeIXoTNBz2TY.jpg",
+    "release_date": "2016-09-14",
+    "runtime": 95,
+    "tmdb_alt_titles_jp": [
+      "S風暴：2016"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "CN",
+        "name": "China"
+      },
+      {
+        "iso_3166_1": "HK",
+        "name": "Hong Kong"
+      }
+    ],
+    "tmdb_id": 367195,
+    "tmdb_original_language": "cn",
+    "tmdb_title_en": "S Storm",
+    "tmdb_title_jp": "Sの嵐",
+    "tmdb_title_original": "S風暴",
+    "vote_average": 5.632
+  },
   "T2 トレインスポッティング": {
     "backdrop_path": "/kR48L1E3OLOkQcnlmpi5wDj7ZZt.jpg",
     "director": "ダニー・ボイル",
@@ -17024,7 +17094,7 @@
     "tmdb_id": 111479,
     "tmdb_original_language": "en",
     "tmdb_title_en": "CBGB",
-    "tmdb_title_jp": "CBGB",
+    "tmdb_title_jp": "CBGB ニューヨーク、PUNKが生まれた場所",
     "tmdb_title_original": "CBGB",
     "vote_average": 6.4
   },
@@ -18283,6 +18353,36 @@
     "tmdb_title_jp": "これって生きてる？",
     "tmdb_title_original": "Is This Thing On?",
     "vote_average": 6.457
+  },
+  "tmdb:1140724": {
+    "backdrop_path": "/mUoQmNHY9TOoXuysdrooiYPZh6q.jpg",
+    "director": "Pascal Plisson",
+    "director_en": "Pascal Plisson",
+    "director_jp": "Pascal Plisson",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "Who said living with disabilities meant giving up one’s greatest dreams? Across the world, Pascal Plisson met Maud (France), Charles (Kenya), Nirmala and Khendo (Nepal), Xavier (Rwanda) and Antonio (Brazil) : extraordinary children who will prove that love, inclusive education, humour and courage can move mountains, and that fate is sometimes full of surprises.",
+    "poster_path": "/pAzq7Axtgbo1gUknBp85rFwkmC.jpg",
+    "release_date": "2023-09-27",
+    "runtime": 96,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 1140724,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "We Have a Dream",
+    "tmdb_title_jp": "ウィー・ハブ・ア・ドリーム",
+    "tmdb_title_original": "We Have a Dream",
+    "vote_average": 7.8
   },
   "tmdb:114151": {
     "backdrop_path": "/lpBOK5uVA3ptoeXcV8Zz4LCpxec.jpg",
@@ -38695,6 +38795,38 @@
     "tmdb_title_original": "かぐや姫の物語",
     "vote_average": 8.093
   },
+  "tmdb:1498729": {
+    "backdrop_path": "/AfdVZEhR5y0oLaC1pDgFNecn8fw.jpg",
+    "director": "ジュゼッペ・トルナトーレ",
+    "director_en": "Giuseppe Tornatore",
+    "director_jp": "ジュゼッペ・トルナトーレ",
+    "genres": [
+      "ドキュメンタリー",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Documentary",
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "A farmer's son transforms into a fashion mogul, building a billion-dollar luxury empire while staying true to his humanistic values and commitment to ethical business practices and fine craftsmanship.",
+    "poster_path": "/kpnsAPMYzLxDPNv4yIxACCWQ6qg.jpg",
+    "release_date": "2025-12-09",
+    "runtime": 121,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "IT",
+        "name": "Italy"
+      }
+    ],
+    "tmdb_id": 1498729,
+    "tmdb_original_language": "it",
+    "tmdb_title_en": "Brunello: The Gracious Visionary",
+    "tmdb_title_jp": "Brunello - Il visionario garbato",
+    "tmdb_title_original": "Brunello - Il visionario garbato",
+    "vote_average": 6.1
+  },
   "tmdb:1499101": {
     "backdrop_path": "/g8HqOlJyh4UvSdUa0zuz4dE8hzE.jpg",
     "director": "内田英治",
@@ -42536,6 +42668,7 @@
     "poster_path": "/8HAn6m2cKZRkCh4VU0AoJ2X6WSZ.jpg",
     "release_date": "1967-03-28",
     "runtime": 81,
+    "tmdb_alt_titles_jp": [],
     "tmdb_countries": [
       {
         "iso_3166_1": "FR",
@@ -42547,7 +42680,7 @@
     "tmdb_title_en": "Mouchette",
     "tmdb_title_jp": "少女ムシェット",
     "tmdb_title_original": "Mouchette",
-    "vote_average": 7.409
+    "vote_average": 7.4
   },
   "tmdb:1561614": {
     "backdrop_path": null,
@@ -53499,6 +53632,7 @@
     "poster_path": "/wI0TyRjiWWMpxP1TVOzSJnxQbn3.jpg",
     "release_date": "1966-05-25",
     "runtime": 96,
+    "tmdb_alt_titles_jp": [],
     "tmdb_countries": [
       {
         "iso_3166_1": "FR",
@@ -53514,7 +53648,7 @@
     "tmdb_title_en": "Au Hasard Balthazar",
     "tmdb_title_jp": "バルタザールどこへ行く",
     "tmdb_title_original": "Au hasard Balthazar",
-    "vote_average": 7.524
+    "vote_average": 7.55
   },
   "tmdb:20126": {
     "backdrop_path": "/nIl67C3sKQ68y1kVxuDTLXBJqYX.jpg",
@@ -56521,6 +56655,41 @@
     "tmdb_title_original": "月山",
     "vote_average": 0.0
   },
+  "tmdb:240962": {
+    "backdrop_path": null,
+    "director": "サトウトシキ",
+    "director_en": "Toshiki Satō",
+    "director_jp": "サトウトシキ",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "危ない男女交際術を描いたエロスドラマテレクラで知り合った男にバージンを捧げようとした千里は、手錠をかけられたので慌てて逃げ出す。必死の思いで逃げ出した千里は、ひょんなことから同級生の高史と関係を持つ。",
+    "overview_en": "Spread over three time periods (Summer 10 Years Ago/Summer 5 Years Ago/This Summer), Lost Virgin tells the tale of good-time girl Chisato (Sasaki), hungry for new experiences yet ultimately in search of emotional fulfilment.",
+    "poster_path": "/1Og13aDMjHaNZReue8uKbwjNhcR.jpg",
+    "release_date": "2002-09-27",
+    "runtime": 71,
+    "tmdb_alt_titles_jp": [
+      "Cuffs",
+      "Lost virgin: Yamitsuki enjo kôsai",
+      "Rosuto baajin: Yamitsuki enjo kôsai",
+      "手錠"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 240962,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "The Lost Virgin",
+    "tmdb_title_jp": "ロスト・ヴァージン やみつき援助交際",
+    "tmdb_title_original": "ロスト・ヴァージン やみつき援助交際",
+    "vote_average": 3.5
+  },
   "tmdb:24128": {
     "backdrop_path": "/kdDQn3Oi7iy1VK7GWhMRyPXUf9K.jpg",
     "director": "ジョナサン・デミ",
@@ -58527,6 +58696,42 @@
     "tmdb_title_jp": "下妻物語",
     "tmdb_title_original": "下妻物語",
     "vote_average": 7.122
+  },
+  "tmdb:26286": {
+    "backdrop_path": "/51xuevXW4ifZw221EMGxwpmdXv2.jpg",
+    "director": "ジョセフ・Ｌ・マンキウィッツ",
+    "director_en": "Joseph L. Mankiewicz",
+    "director_jp": "ジョセフ・Ｌ・マンキウィッツ",
+    "genres": [
+      "ドラマ",
+      "ロマンス",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Drama",
+      "Romance",
+      "Thriller"
+    ],
+    "overview": "",
+    "overview_en": "A simple Connecticut farm girl is recruited by a distant relative, an aristocratic patroon, to be governess to his young daughter in his Hudson Valley mansion.",
+    "poster_path": "/guyisLW25bpd7bMGA30OYLbssm6.jpg",
+    "release_date": "1946-04-10",
+    "runtime": 103,
+    "tmdb_alt_titles_jp": [
+      "のろわれたしろ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 26286,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Dragonwyck",
+    "tmdb_title_jp": "呪われた城",
+    "tmdb_title_original": "Dragonwyck",
+    "vote_average": 6.606
   },
   "tmdb:262907": {
     "backdrop_path": null,
@@ -60611,6 +60816,41 @@
     "tmdb_title_jp": "ポンヌフの恋人",
     "tmdb_title_original": "Les Amants du Pont-Neuf",
     "vote_average": 7.399
+  },
+  "tmdb:277781": {
+    "backdrop_path": "/74EyBWshnxtobkGSkEuPUSS7sly.jpg",
+    "director": "溝口健二",
+    "director_en": "Kenji Mizoguchi",
+    "director_jp": "溝口健二",
+    "genres": [
+      "ドラマ",
+      "履歴"
+    ],
+    "genres_en": [
+      "Drama",
+      "History"
+    ],
+    "overview": "",
+    "overview_en": "Representing a destitute mother in an infanticide trial, a female lawyer attempts to convince a conservative prosecutor of the benefits of Japan's democratized post-war legal system.",
+    "poster_path": "/5GONxWiEF0EGc0KkqTaX2kT0H62.jpg",
+    "release_date": "1946-04-18",
+    "runtime": 84,
+    "tmdb_alt_titles_jp": [
+      "Josei no shôri",
+      "Josei no shōri"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 277781,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Victory of Women",
+    "tmdb_title_jp": "女性の勝利",
+    "tmdb_title_original": "女性の勝利",
+    "vote_average": 7.1
   },
   "tmdb:277835": {
     "backdrop_path": "/JxWyAGbLDC6VOJOH3hQ9ecb7b4.jpg",
@@ -63317,6 +63557,46 @@
     "tmdb_title_jp": "レニングラード・カウボーイズ、モーゼに会う",
     "tmdb_title_original": "Leningrad Cowboys Meet Moses",
     "vote_average": 5.9
+  },
+  "tmdb:304023": {
+    "backdrop_path": "/poTFhNtA1kZa3Qb6ulCwa5HPEKb.jpg",
+    "director": "水島精二",
+    "director_en": "Seiji Mizushima",
+    "director_jp": "水島精二",
+    "genres": [
+      "アニメーション",
+      "サイエンスフィクション",
+      "アクション",
+      "アドベンチャー"
+    ],
+    "genres_en": [
+      "Animation",
+      "Science Fiction",
+      "Action",
+      "Adventure"
+    ],
+    "overview": "ナノハザードにより廃墟と化した地球。人類の98%は地上と自らの肉体を捨て、データとなって電脳世界「ディーヴァ」で暮らすようになっていた。西暦2400年現在、その「ディーヴァ」が異変に晒されていた。「フロンティアセッター」と名乗る謎の存在による「ディーヴァ」へのハッキングを地上世界から受け、捜査官アンジェラは生身の身体・マテリアルボディを身にまとい地上世界へと降り立つ。",
+    "overview_en": "A.D. 2400, DEVA's central council detects an incident of unauthorized access into their mainframe. Someone on Earth was trying to hack into the system. The only information DEVA was able to retrieve was that hacker referred to themselves as \"Frontier Setter.\"  To investigate the mysterious hacker's motives, the high officials of DEVA dispatch system Security Third Officer Angela Balzac to the Earth's surface. Equipped with a prosthetic \"material body,\" Angela attempts to make contact with a local agent Dingo, but what awaited her instead was a swarm of Sandworms now infesting the Earth's surface. Angela intercepts the gruesome pests with her exoskeleton powered suit Arhan.",
+    "poster_path": "/iKgMqRSZ9kxsZ5D9WgtMdi5gAx6.jpg",
+    "release_date": "2014-11-15",
+    "runtime": 104,
+    "tmdb_alt_titles_jp": [
+      "Rakuen Tsuihō: Expelled from Paradise",
+      "Rakuen Tsuihou: Expelled from Paradise",
+      "Rakuen Tsuiho: Expelled from Paradise"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 304023,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Expelled from Paradise",
+    "tmdb_title_jp": "楽園追放 -Expelled from Paradise-",
+    "tmdb_title_original": "楽園追放 -Expelled from Paradise-",
+    "vote_average": 6.5
   },
   "tmdb:304027": {
     "backdrop_path": "/6NGiOaQX5rcLinwSpouQAFk8YsN.jpg",
@@ -74119,6 +74399,38 @@
     "tmdb_title_original": "危城",
     "vote_average": 6.426
   },
+  "tmdb:413765": {
+    "backdrop_path": "/9qMP1aquRST8XfJ58EqTMAZ9kA6.jpg",
+    "director": "Jon Nguyen",
+    "director_en": "Jon Nguyen",
+    "director_jp": "Jon Nguyen",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "An intimate journey through the formative years of David Lynch's life. From his idyllic upbringing in small town America to the dark streets of Philadelphia, we follow Lynch as he traces the events that have helped to shape one of cinema's most enigmatic directors.",
+    "poster_path": "/pgtQceTZKylB2B237t18h2pOXpE.jpg",
+    "release_date": "2017-02-15",
+    "runtime": 89,
+    "tmdb_alt_titles_jp": [
+      "デヴィッド・リンチ　アートライフ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 413765,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "David Lynch: The Art Life",
+    "tmdb_title_jp": "デヴィッド・リンチ：アートライフ",
+    "tmdb_title_original": "David Lynch: The Art Life",
+    "vote_average": 7.0
+  },
   "tmdb:413812": {
     "backdrop_path": "/ijcV9hwbgCnAZFHlLD68buipUG1.jpg",
     "director": "Alex Crowton",
@@ -74841,6 +75153,7 @@
     "poster_path": "/7KPq52V27rCukeQUjCflX8DSsZ9.jpg",
     "release_date": "1983-05-18",
     "runtime": 85,
+    "tmdb_alt_titles_jp": [],
     "tmdb_countries": [
       {
         "iso_3166_1": "FR",
@@ -74856,7 +75169,7 @@
     "tmdb_title_en": "L'Argent",
     "tmdb_title_jp": "ラルジャン",
     "tmdb_title_original": "L'Argent",
-    "vote_average": 6.937
+    "vote_average": 6.948
   },
   "tmdb:42136": {
     "backdrop_path": "/5m3iuO5ACGuOE15Gv1TXmNweXRK.jpg",
@@ -78641,6 +78954,38 @@
     "tmdb_title_original": "雪夫人絵図",
     "vote_average": 6.7
   },
+  "tmdb:46046": {
+    "backdrop_path": "/u0zc2s7q0vnvXSLQnemQTwzgcRx.jpg",
+    "director": "溝口健二",
+    "director_en": "Kenji Mizoguchi",
+    "director_jp": "溝口健二",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Stage director Shimamura, who is bringing western theatre to Japan, falls in love with outspoken actress Sumako Matsui, and leaves his family to be with her, while trying to keep his Art Theatre solvent.",
+    "poster_path": "/ugI8HGncyyr5WUOImD5uOQ0HXck.jpg",
+    "release_date": "1947-08-16",
+    "runtime": 96,
+    "tmdb_alt_titles_jp": [
+      "Joyu Sumako no koi"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 46046,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "The Love of the Actress Sumako",
+    "tmdb_title_jp": "女優須磨子の恋",
+    "tmdb_title_original": "女優須磨子の恋",
+    "vote_average": 7.0
+  },
   "tmdb:46069": {
     "backdrop_path": "/jl8Te0ZZXxO6iBuQmZgZSZqqCnd.jpg",
     "director": "溝口健二",
@@ -80076,6 +80421,48 @@
     "tmdb_title_jp": "泳ぎすぎた夜",
     "tmdb_title_original": "泳ぎすぎた夜",
     "vote_average": 6.5
+  },
+  "tmdb:47430": {
+    "backdrop_path": "/4lV7RWF2XnoWlExYQM0ibfVS4or.jpg",
+    "director": "アンジェイ・ワイダ",
+    "director_en": "Andrzej Wajda",
+    "director_jp": "アンジェイ・ワイダ",
+    "genres": [
+      "ドラマ",
+      "履歴",
+      "戦争"
+    ],
+    "genres_en": [
+      "Drama",
+      "History",
+      "War"
+    ],
+    "overview": "",
+    "overview_en": "The story of Polish pedagogue Janusz Korczak and his dedication to protecting Jewish orphans during the war.",
+    "poster_path": "/oCrjLiap6UXaqqD18s7ZziwJlwV.jpg",
+    "release_date": "1990-05-06",
+    "runtime": 115,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "DE",
+        "name": "Germany"
+      },
+      {
+        "iso_3166_1": "PL",
+        "name": "Poland"
+      },
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      }
+    ],
+    "tmdb_id": 47430,
+    "tmdb_original_language": "pl",
+    "tmdb_title_en": "Korczak",
+    "tmdb_title_jp": "Korczak",
+    "tmdb_title_original": "Korczak",
+    "vote_average": 7.1
   },
   "tmdb:47536": {
     "backdrop_path": "/gCZndZuX1m5UDoWi7uxlU8UsOnW.jpg",
@@ -86376,6 +86763,38 @@
     "tmdb_title_original": "町奉行日記　鉄火牡丹",
     "vote_average": 0.0
   },
+  "tmdb:55589": {
+    "backdrop_path": "/cscHKe13svp1Txa6ttcj0mDDvCZ.jpg",
+    "director": "カール・テオドア・ドライヤー",
+    "director_en": "Carl Theodor Dreyer",
+    "director_jp": "カール・テオドア・ドライヤー",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "When a man becomes tyrannical towards his family, the women of the house decide to teach him a lesson in gratitude.",
+    "poster_path": "/avbjXm1erfn0cTftsKEdwQzpIX5.jpg",
+    "release_date": "1925-10-05",
+    "runtime": 107,
+    "tmdb_alt_titles_jp": [
+      "あるじ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "DK",
+        "name": "Denmark"
+      }
+    ],
+    "tmdb_id": 55589,
+    "tmdb_original_language": "da",
+    "tmdb_title_en": "Master of the House",
+    "tmdb_title_jp": "Du skal ære din hustru",
+    "tmdb_title_original": "Du skal ære din hustru",
+    "vote_average": 6.9
+  },
   "tmdb:556001": {
     "backdrop_path": null,
     "director": "鈴木則文",
@@ -86611,6 +87030,9 @@
     "poster_path": "/kYLXWA4YqIpXREIjnwD7rmSOYxU.jpg",
     "release_date": "1972-02-02",
     "runtime": 82,
+    "tmdb_alt_titles_jp": [
+      "白夜"
+    ],
     "tmdb_countries": [
       {
         "iso_3166_1": "FR",
@@ -86622,7 +87044,7 @@
     "tmdb_title_en": "Four Nights of a Dreamer",
     "tmdb_title_jp": "白夜",
     "tmdb_title_original": "Quatre nuits d'un rêveur",
-    "vote_average": 7.107
+    "vote_average": 7.1
   },
   "tmdb:55859": {
     "backdrop_path": "/zeIbItfG8cPFNawVc94yETafi9i.jpg",
@@ -91257,6 +91679,54 @@
     "tmdb_title_original": "L'une chante, l'autre pas",
     "vote_average": 7.131
   },
+  "tmdb:634": {
+    "backdrop_path": "/9rSpxsMhG1FnFtUDdvSAXdtLtb3.jpg",
+    "director": "シャロン・マグワイア",
+    "director_en": "Sharon Maguire",
+    "director_jp": "シャロン・マグワイア",
+    "genres": [
+      "コメディ",
+      "ロマンス",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Romance",
+      "Drama"
+    ],
+    "overview": "出版社勤務の32歳、ブリジット・ジョーンズは禁煙とダイエットを決意する。そんな矢先、気になる上司ダニエルからEメールが届き……。ヘレン・フィールディングの大ベストセラーを映画化したラヴ・コメディ。",
+    "overview_en": "Bridget Jones is an average woman struggling against expectations. As a New Year's resolution, Bridget decides to take control of her life, starting by keeping a diary in which she will always tell the complete truth. Her charming boss takes an interest in her, and she cannot stop running into a rather disagreeable acquaintance whom Bridget cannot help finding quietly attractive.",
+    "poster_path": "/2HSXeyg0JTrBpsgEbtPp6bSmEtt.jpg",
+    "release_date": "2001-04-13",
+    "runtime": 97,
+    "tmdb_alt_titles_jp": [
+      "Burijitto Jonzu no nikki"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "IE",
+        "name": "Ireland"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      }
+    ],
+    "tmdb_id": 634,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Bridget Jones's Diary",
+    "tmdb_title_jp": "ブリジット・ジョーンズの日記",
+    "tmdb_title_original": "Bridget Jones's Diary",
+    "vote_average": 6.733
+  },
   "tmdb:634151": {
     "backdrop_path": "/xH5rSTl6lHr8ockZS6brgBc2JvF.jpg",
     "director": "Umid Khamdamov",
@@ -94056,6 +94526,7 @@
     "poster_path": "/rh0A5WoEhRLZlRbWM95bGIkqDHj.jpg",
     "release_date": "1959-12-16",
     "runtime": 75,
+    "tmdb_alt_titles_jp": [],
     "tmdb_countries": [
       {
         "iso_3166_1": "FR",
@@ -94067,7 +94538,7 @@
     "tmdb_title_en": "Pickpocket",
     "tmdb_title_jp": "スリ",
     "tmdb_title_original": "Pickpocket",
-    "vote_average": 7.3
+    "vote_average": 7.283
   },
   "tmdb:690015": {
     "backdrop_path": null,
@@ -107365,6 +107836,50 @@
     "tmdb_title_original": "ゾンビランドサガ ゆめぎんがパラダイス",
     "vote_average": 0.0
   },
+  "tmdb:960206": {
+    "backdrop_path": "/sKBB1Fh9YMiLMsUUCPvdcbpVTfo.jpg",
+    "director": "Hlynur Pálmason",
+    "director_en": "Hlynur Pálmason",
+    "director_jp": "Hlynur Pálmason",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "若きデンマーク人の牧師ルーカスが、植民地アイスランドへ布教の旅に出る。任務は、辺境の村に教会を建てること。しかしアイスランドの浜辺から馬に乗り、陸路ではるか遠い目的地をめざす旅は、想像を絶する厳しさだった。デンマーク嫌いでアイスランド人の年老いたガイド、ラグナルとは対立し、さらに予期せぬアクシデントに見舞われたルーカスは、やがて狂気の淵に落ちていく。瀕死の状態で村にたどり着くが…",
+    "overview_en": "In the late 19th century, a young Danish priest travels to a remote part of Iceland to build a church and photograph its people. But the deeper he goes into the unforgiving landscape, the more he strays from his purpose, the mission and morality.",
+    "poster_path": "/3AE7aZUIOqOI2fP5Im2K38MuiZC.jpg",
+    "release_date": "2022-12-01",
+    "runtime": 143,
+    "tmdb_alt_titles_jp": [
+      "ゴッドランド/GODLAND"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "DK",
+        "name": "Denmark"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "IS",
+        "name": "Iceland"
+      },
+      {
+        "iso_3166_1": "SE",
+        "name": "Sweden"
+      }
+    ],
+    "tmdb_id": 960206,
+    "tmdb_original_language": "da",
+    "tmdb_title_en": "Godland",
+    "tmdb_title_jp": "ゴッドランド／GODLAND",
+    "tmdb_title_original": "Vanskabte land",
+    "vote_average": 6.716
+  },
   "tmdb:96043": {
     "backdrop_path": "/dLuT4cGaJoqFrX0B5uLbFmo7Hrr.jpg",
     "director": "石井輝男",
@@ -108949,6 +109464,10 @@
       {
         "iso_3166_1": "GB",
         "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
       }
     ],
     "tmdb_id": 993,
@@ -108956,7 +109475,7 @@
     "tmdb_title_en": "Sleuth",
     "tmdb_title_jp": "探偵スルース",
     "tmdb_title_original": "Sleuth",
-    "vote_average": 7.698
+    "vote_average": 7.681
   },
   "tmdb:996": {
     "backdrop_path": "/byQdu1nzQLI9t1VeoP1xuQfru3L.jpg",
@@ -109915,6 +110434,7 @@
   "《ジャンモンチー47KMシリーズ》⑤『自画像：47KMの死』": null,
   "《ジャンモンチー47KMシリーズ》⑥『自画像：47KMに生まれて』": null,
   "《ジャンモンチー47KMシリーズ》⑦『自画像：47KMのスフィンクス』": null,
+  "《ジャンモンチー47KMシリーズ》⑧『自画像：47KMの窓』": null,
   "《ジャンモンチー47KMシリーズ》⑩『自画像：47KM 2020』": null,
   "《本橋成一の映画》アラヤシキの住人たち G": {
     "backdrop_path": null,
@@ -116815,6 +117335,7 @@
   },
   "【FILMex2026】彼女が戻ってきた日": null,
   "【FILMex2026】無気力症シンドローム": null,
+  "【FILMex2026】阿Girl": null,
   "【FILMex2026】霧の中の象たち": null,
   "【Filmarks 90's】ユージュアル・サスペクツ": {
     "backdrop_path": "/hy0Hx9fMPk2fmw26Li60z1S2giU.jpg",
@@ -119249,10 +119770,13 @@
     "vote_average": 0.0
   },
   "【闇映画祭】Gaua": null,
+  "【闇映画祭】Hold to Death:Hand in Hand": null,
   "【闇映画祭】Night Feeds + Short A": null,
   "【闇映画祭】No Rest for the Wicked": null,
+  "【闇映画祭】Short A": null,
   "【闇映画祭】Short B": null,
   "【闇映画祭】Species": null,
+  "【闇映画祭】When You Open the Door": null,
   "【ｲﾍﾞﾝﾄ】リンカリンカ～あの夏の先": null,
   "【ｲﾍﾞﾝﾄ付】猫たちと7000ﾏｲﾙの旅": null,
   "【ﾁｪｺ】火葬人[0418ｲﾍﾞﾝﾄ]": {
@@ -120075,6 +120599,38 @@
     "tmdb_title_original": "あの橋の畔で·第二部",
     "vote_average": 0.0
   },
+  "あの橋の畔で 第3部": {
+    "backdrop_path": null,
+    "director": "野村芳太郎",
+    "director_en": "Yoshitarō Nomura",
+    "director_jp": "野村芳太郎",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "",
+    "poster_path": "/4WqekTspW66djm7U9ljrKPjPTO7.jpg",
+    "release_date": "1963-01-06",
+    "runtime": 92,
+    "tmdb_alt_titles_jp": [
+      "Ano hashi no hotori de 3"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 1410496,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "At the Side of the Bridge 3",
+    "tmdb_title_jp": "あの橋の畔で·第三部",
+    "tmdb_title_original": "あの橋の畔で·第三部",
+    "vote_average": 0.0
+  },
   "あの橋の畔で第三部": {
     "backdrop_path": null,
     "director": "野村芳太郎",
@@ -120350,6 +120906,38 @@
     "tmdb_title_jp": "あらくれ",
     "tmdb_title_original": "あらくれ",
     "vote_average": 7.4
+  },
+  "あるじ": {
+    "backdrop_path": "/cscHKe13svp1Txa6ttcj0mDDvCZ.jpg",
+    "director": "カール・テオドア・ドライヤー",
+    "director_en": "Carl Theodor Dreyer",
+    "director_jp": "カール・テオドア・ドライヤー",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "When a man becomes tyrannical towards his family, the women of the house decide to teach him a lesson in gratitude.",
+    "poster_path": "/avbjXm1erfn0cTftsKEdwQzpIX5.jpg",
+    "release_date": "1925-10-05",
+    "runtime": 107,
+    "tmdb_alt_titles_jp": [
+      "あるじ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "DK",
+        "name": "Denmark"
+      }
+    ],
+    "tmdb_id": 55589,
+    "tmdb_original_language": "da",
+    "tmdb_title_en": "Master of the House",
+    "tmdb_title_jp": "Du skal ære din hustru",
+    "tmdb_title_original": "Du skal ære din hustru",
+    "vote_average": 6.9
   },
   "ある夏の記録": {
     "backdrop_path": "/bolMHmAoPcY9CQ9IMpJPLSr4azQ.jpg",
@@ -132502,7 +133090,36 @@
     "tmdb_title_original": "Winchester '73",
     "vote_average": 7.306
   },
-  "ウィー・ハブ・ア・ドリーム": null,
+  "ウィー・ハブ・ア・ドリーム": {
+    "backdrop_path": "/mUoQmNHY9TOoXuysdrooiYPZh6q.jpg",
+    "director": "Pascal Plisson",
+    "director_en": "Pascal Plisson",
+    "director_jp": "Pascal Plisson",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "Who said living with disabilities meant giving up one’s greatest dreams? Across the world, Pascal Plisson met Maud (France), Charles (Kenya), Nirmala and Khendo (Nepal), Xavier (Rwanda) and Antonio (Brazil) : extraordinary children who will prove that love, inclusive education, humour and courage can move mountains, and that fate is sometimes full of surprises.",
+    "poster_path": "/pAzq7Axtgbo1gUknBp85rFwkmC.jpg",
+    "release_date": "2023-09-27",
+    "runtime": 96,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 1140724,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "We Have a Dream",
+    "tmdb_title_jp": "ウィー・ハブ・ア・ドリーム",
+    "tmdb_title_original": "We Have a Dream",
+    "vote_average": 7.8
+  },
   "ウエスト・サイド物語": {
     "backdrop_path": "/bkahbHkwBSbIDtTm667Tu1ba2bu.jpg",
     "director": "Jerome Robbins",
@@ -138839,7 +139456,48 @@
     "vote_average": 6.0
   },
   "コミュニティ論": null,
-  "コルチャック先生": null,
+  "コルチャック先生": {
+    "backdrop_path": "/4lV7RWF2XnoWlExYQM0ibfVS4or.jpg",
+    "director": "アンジェイ・ワイダ",
+    "director_en": "Andrzej Wajda",
+    "director_jp": "アンジェイ・ワイダ",
+    "genres": [
+      "ドラマ",
+      "履歴",
+      "戦争"
+    ],
+    "genres_en": [
+      "Drama",
+      "History",
+      "War"
+    ],
+    "overview": "",
+    "overview_en": "The story of Polish pedagogue Janusz Korczak and his dedication to protecting Jewish orphans during the war.",
+    "poster_path": "/oCrjLiap6UXaqqD18s7ZziwJlwV.jpg",
+    "release_date": "1990-05-06",
+    "runtime": 115,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "DE",
+        "name": "Germany"
+      },
+      {
+        "iso_3166_1": "PL",
+        "name": "Poland"
+      },
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      }
+    ],
+    "tmdb_id": 47430,
+    "tmdb_original_language": "pl",
+    "tmdb_title_en": "Korczak",
+    "tmdb_title_jp": "Korczak",
+    "tmdb_title_original": "Korczak",
+    "vote_average": 7.1
+  },
   "コロッサル・ユース": {
     "backdrop_path": "/tVYETgmandqHmUpwf68yXAuXpm3.jpg",
     "director": "Pedro Costa",
@@ -139756,6 +140414,50 @@
     "tmdb_title_jp": "ゴッドファーザー",
     "tmdb_title_original": "The Godfather",
     "vote_average": 8.689
+  },
+  "ゴッドランド／GODLAND": {
+    "backdrop_path": "/sKBB1Fh9YMiLMsUUCPvdcbpVTfo.jpg",
+    "director": "Hlynur Pálmason",
+    "director_en": "Hlynur Pálmason",
+    "director_jp": "Hlynur Pálmason",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "若きデンマーク人の牧師ルーカスが、植民地アイスランドへ布教の旅に出る。任務は、辺境の村に教会を建てること。しかしアイスランドの浜辺から馬に乗り、陸路ではるか遠い目的地をめざす旅は、想像を絶する厳しさだった。デンマーク嫌いでアイスランド人の年老いたガイド、ラグナルとは対立し、さらに予期せぬアクシデントに見舞われたルーカスは、やがて狂気の淵に落ちていく。瀕死の状態で村にたどり着くが…",
+    "overview_en": "In the late 19th century, a young Danish priest travels to a remote part of Iceland to build a church and photograph its people. But the deeper he goes into the unforgiving landscape, the more he strays from his purpose, the mission and morality.",
+    "poster_path": "/3AE7aZUIOqOI2fP5Im2K38MuiZC.jpg",
+    "release_date": "2022-12-01",
+    "runtime": 143,
+    "tmdb_alt_titles_jp": [
+      "ゴッドランド/GODLAND"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "DK",
+        "name": "Denmark"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "IS",
+        "name": "Iceland"
+      },
+      {
+        "iso_3166_1": "SE",
+        "name": "Sweden"
+      }
+    ],
+    "tmdb_id": 960206,
+    "tmdb_original_language": "da",
+    "tmdb_title_en": "Godland",
+    "tmdb_title_jp": "ゴッドランド／GODLAND",
+    "tmdb_title_original": "Vanskabte land",
+    "vote_average": 6.716
   },
   "ゴーストRE:BIRTH 仮面ライダースペクター": {
     "backdrop_path": "/28DMLlEZlWv9L065kI4L74GR0cs.jpg",
@@ -145585,7 +146287,38 @@
     "tmdb_title_original": "Pickpocket",
     "vote_average": 7.3
   },
-  "スリ ＜ロベール・ブレッソン傑作選＞": null,
+  "スリ ＜ロベール・ブレッソン傑作選＞": {
+    "backdrop_path": "/5ApVROxPul7vu9NiB2DJWqlA3kE.jpg",
+    "director": "ロベール・ブレッソン",
+    "director_en": "Robert Bresson",
+    "director_jp": "ロベール・ブレッソン",
+    "genres": [
+      "犯罪",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Crime",
+      "Drama"
+    ],
+    "overview": "貧しい大学生ミシェルは、ふとしたきっかけで、自分にスリの才能があることを発見する。一度は刑事に捕まったものの、証拠不十分で釈放されるや、再び他人の財布を狙い出す。やがてその手口は、仲間を引き込んだ組織的なものになっていった……。「抵抗」では“脱獄”をリアルにスリリングに描いたＲ・ブレッソンが、今度はその焦点を“スリ”に当てた作品で、実際の手口を紹介しながら、人間不信の孤独な青年の姿を描く。素人ばかりの出演者から生まれるリアリティと、様々なスリの描写によって生み出されるサスペンスが混然となった迫真の傑作だ。",
+    "overview_en": "Michel takes up pickpocketing on a lark and is arrested soon after. His mother dies shortly after his release, and despite the objections of his only friend, Jacques, and his mother's neighbor Jeanne, Michel teams up with a couple of petty thieves in order to improve his craft. With a police inspector keeping an eye on him, Michel also tries to get a straight job, but the temptation to steal is hard to resist.",
+    "poster_path": "/rh0A5WoEhRLZlRbWM95bGIkqDHj.jpg",
+    "release_date": "1959-12-16",
+    "runtime": 75,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 690,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "Pickpocket",
+    "tmdb_title_jp": "スリ",
+    "tmdb_title_original": "Pickpocket",
+    "vote_average": 7.283
+  },
   "スルターン": {
     "backdrop_path": "/vLanw88oSsTJCFDyLxacuQG8INa.jpg",
     "director": "Bhagyaraj Kannan",
@@ -149122,7 +149855,38 @@
     "tmdb_title_original": "Dangerous Animals",
     "vote_average": 6.415
   },
-  "デヴィッド・リンチ　アートライフ": null,
+  "デヴィッド・リンチ　アートライフ": {
+    "backdrop_path": "/9qMP1aquRST8XfJ58EqTMAZ9kA6.jpg",
+    "director": "Jon Nguyen",
+    "director_en": "Jon Nguyen",
+    "director_jp": "Jon Nguyen",
+    "genres": [
+      "ドキュメンタリー"
+    ],
+    "genres_en": [
+      "Documentary"
+    ],
+    "overview": "",
+    "overview_en": "An intimate journey through the formative years of David Lynch's life. From his idyllic upbringing in small town America to the dark streets of Philadelphia, we follow Lynch as he traces the events that have helped to shape one of cinema's most enigmatic directors.",
+    "poster_path": "/pgtQceTZKylB2B237t18h2pOXpE.jpg",
+    "release_date": "2017-02-15",
+    "runtime": 89,
+    "tmdb_alt_titles_jp": [
+      "デヴィッド・リンチ　アートライフ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 413765,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "David Lynch: The Art Life",
+    "tmdb_title_jp": "デヴィッド・リンチ：アートライフ",
+    "tmdb_title_original": "David Lynch: The Art Life",
+    "vote_average": 7.0
+  },
   "デヴィッド・リンチ：アートライフ": null,
   "デヴィッド・リンチ：アートライフ【「CINEMA FOR THE FUTURE」特別上映】": null,
   "デーモンラヴァー": {
@@ -154130,7 +154894,40 @@
     "tmdb_title_original": "Au hasard Balthazar",
     "vote_average": 7.524
   },
-  "バルタザールどこへ行く ＜ロベール・ブレッソン傑作選＞": null,
+  "バルタザールどこへ行く ＜ロベール・ブレッソン傑作選＞": {
+    "backdrop_path": "/7LPz7NEYtLXcV44j0kRLLkZ54yH.jpg",
+    "director": "ロベール・ブレッソン",
+    "director_en": "Robert Bresson",
+    "director_jp": "ロベール・ブレッソン",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "ピレネーの小村。教師の娘マリーは農園主の息子ジャックと共に、生まれたばかりのロバに“バルタザール”と名前をつけ可愛がる。ある日ジャックが引っ越すことになり、バルタザールもどこかへ行ってしまう。10年後、バルタザールが再び現れ、マリーが喜んであちこち“彼”に馬車を引かせ出かけるのを見て、彼女に思慕を寄せる不良のジェラールは嫉妬し、バルタザールを痛めつけ、実家のパン屋の仕事にこき使う・・・。",
+    "overview_en": "The story of a donkey Balthazar as he is passed from owner to owner, some kind and some cruel but all with motivations beyond his understanding. Balthazar, whose life parallels that of his first keeper, Marie, is truly a beast of burden, suffering the sins of humankind. But despite his powerlessness, he accepts his fate nobly.",
+    "poster_path": "/wI0TyRjiWWMpxP1TVOzSJnxQbn3.jpg",
+    "release_date": "1966-05-25",
+    "runtime": 96,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "SE",
+        "name": "Sweden"
+      }
+    ],
+    "tmdb_id": 20108,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "Au Hasard Balthazar",
+    "tmdb_title_jp": "バルタザールどこへ行く",
+    "tmdb_title_original": "Au hasard Balthazar",
+    "vote_average": 7.55
+  },
   "バレット・バレエ": {
     "backdrop_path": "/snkw8maFYKOf42H8pFu9Wt1x0aN.jpg",
     "director": "塚本晋也",
@@ -158152,6 +158949,54 @@
     "tmdb_title_original": "Brigitte et Brigitte",
     "vote_average": 6.1
   },
+  "ブリジット・ジョーンズの日記": {
+    "backdrop_path": "/9rSpxsMhG1FnFtUDdvSAXdtLtb3.jpg",
+    "director": "シャロン・マグワイア",
+    "director_en": "Sharon Maguire",
+    "director_jp": "シャロン・マグワイア",
+    "genres": [
+      "コメディ",
+      "ロマンス",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Comedy",
+      "Romance",
+      "Drama"
+    ],
+    "overview": "出版社勤務の32歳、ブリジット・ジョーンズは禁煙とダイエットを決意する。そんな矢先、気になる上司ダニエルからEメールが届き……。ヘレン・フィールディングの大ベストセラーを映画化したラヴ・コメディ。",
+    "overview_en": "Bridget Jones is an average woman struggling against expectations. As a New Year's resolution, Bridget decides to take control of her life, starting by keeping a diary in which she will always tell the complete truth. Her charming boss takes an interest in her, and she cannot stop running into a rather disagreeable acquaintance whom Bridget cannot help finding quietly attractive.",
+    "poster_path": "/2HSXeyg0JTrBpsgEbtPp6bSmEtt.jpg",
+    "release_date": "2001-04-13",
+    "runtime": 97,
+    "tmdb_alt_titles_jp": [
+      "Burijitto Jonzu no nikki"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "IE",
+        "name": "Ireland"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      },
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      }
+    ],
+    "tmdb_id": 634,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Bridget Jones's Diary",
+    "tmdb_title_jp": "ブリジット・ジョーンズの日記",
+    "tmdb_title_original": "Bridget Jones's Diary",
+    "vote_average": 6.733
+  },
   "ブリュッセル、60年代後半の少女のポートレートPortrait d’une jeune fille de la fin des années 60 à Bruxelle": null,
   "ブリング・ハー・バック": {
     "backdrop_path": "/2IIKts2A9vnUdM9tTC76B8tDmuZ.jpg",
@@ -158323,7 +159168,38 @@
     "tmdb_title_original": "I Fell in Love with a Z-Grade Director in Brooklyn",
     "vote_average": 0.0
   },
-  "ブルネロ　静かなる先見者": null,
+  "ブルネロ　静かなる先見者": {
+    "backdrop_path": "/AfdVZEhR5y0oLaC1pDgFNecn8fw.jpg",
+    "director": "ジュゼッペ・トルナトーレ",
+    "director_en": "Giuseppe Tornatore",
+    "director_jp": "ジュゼッペ・トルナトーレ",
+    "genres": [
+      "ドキュメンタリー",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Documentary",
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "A farmer's son transforms into a fashion mogul, building a billion-dollar luxury empire while staying true to his humanistic values and commitment to ethical business practices and fine craftsmanship.",
+    "poster_path": "/kpnsAPMYzLxDPNv4yIxACCWQ6qg.jpg",
+    "release_date": "2025-12-09",
+    "runtime": 121,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "IT",
+        "name": "Italy"
+      }
+    ],
+    "tmdb_id": 1498729,
+    "tmdb_original_language": "it",
+    "tmdb_title_en": "Brunello: The Gracious Visionary",
+    "tmdb_title_jp": "Brunello - Il visionario garbato",
+    "tmdb_title_original": "Brunello - Il visionario garbato",
+    "vote_average": 6.1
+  },
   "ブルーを笑えるその日まで【夏休み限定上映】": {
     "backdrop_path": "/lfnXsKHodCZXFOSjBDHFTU9BrcK.jpg",
     "director": "Karin Takeda",
@@ -166518,7 +167394,42 @@
     "tmdb_title_original": "L'Argent",
     "vote_average": 6.937
   },
-  "ラルジャン ＜ロベール・ブレッソン傑作選＞": null,
+  "ラルジャン ＜ロベール・ブレッソン傑作選＞": {
+    "backdrop_path": "/a62YSsCwYd5EyzB5EbaeX2FmM4m.jpg",
+    "director": "ロベール・ブレッソン",
+    "director_en": "Robert Bresson",
+    "director_jp": "ロベール・ブレッソン",
+    "genres": [
+      "犯罪",
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Crime",
+      "Drama"
+    ],
+    "overview": "「抵抗（レジスタンス）　死刑囚の手記より」「少女ムシェット」などの名作を残したフランスの名匠ロベール・ブレッソン監督が、ロシアの文豪トルストイの原作をもとに、偶然手にしてしまったニセ札を知らずに使ってしまったことから、一家惨殺事件を引き起こし転落していく人生を歩む青年イボンの姿を描いた。",
+    "overview_en": "A forged 500-franc note is passed from person to person and shop to shop, until it falls into the hands of a genuine innocent who doesn't see it for what it is—which will have devastating consequences on his life.",
+    "poster_path": "/7KPq52V27rCukeQUjCflX8DSsZ9.jpg",
+    "release_date": "1983-05-18",
+    "runtime": 85,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      },
+      {
+        "iso_3166_1": "CH",
+        "name": "Switzerland"
+      }
+    ],
+    "tmdb_id": 42112,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "L'Argent",
+    "tmdb_title_jp": "ラルジャン",
+    "tmdb_title_original": "L'Argent",
+    "vote_average": 6.948
+  },
   "ランサム": {
     "backdrop_path": "/9xOs5k8zFakxs9iN5BqABdTiAyE.jpg",
     "director": "室賀厚",
@@ -168750,6 +169661,41 @@
     "tmdb_title_jp": "ロスト・イン・トランスレーション",
     "tmdb_title_original": "Lost in Translation",
     "vote_average": 7.4
+  },
+  "ロスト・ヴァージンやみつき援助交際": {
+    "backdrop_path": null,
+    "director": "サトウトシキ",
+    "director_en": "Toshiki Satō",
+    "director_jp": "サトウトシキ",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "危ない男女交際術を描いたエロスドラマテレクラで知り合った男にバージンを捧げようとした千里は、手錠をかけられたので慌てて逃げ出す。必死の思いで逃げ出した千里は、ひょんなことから同級生の高史と関係を持つ。",
+    "overview_en": "Spread over three time periods (Summer 10 Years Ago/Summer 5 Years Ago/This Summer), Lost Virgin tells the tale of good-time girl Chisato (Sasaki), hungry for new experiences yet ultimately in search of emotional fulfilment.",
+    "poster_path": "/1Og13aDMjHaNZReue8uKbwjNhcR.jpg",
+    "release_date": "2002-09-27",
+    "runtime": 71,
+    "tmdb_alt_titles_jp": [
+      "Cuffs",
+      "Lost virgin: Yamitsuki enjo kôsai",
+      "Rosuto baajin: Yamitsuki enjo kôsai",
+      "手錠"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 240962,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "The Lost Virgin",
+    "tmdb_title_jp": "ロスト・ヴァージン やみつき援助交際",
+    "tmdb_title_original": "ロスト・ヴァージン やみつき援助交際",
+    "vote_average": 3.5
   },
   "ロゼッタ": {
     "backdrop_path": "/1ZBPashbl6CQ3IhfbM38A67tNnj.jpg",
@@ -179184,7 +180130,43 @@
     "tmdb_title_original": "Denial",
     "vote_average": 6.832
   },
-  "呪われた城": null,
+  "吸血鬼": null,
+  "呪われた城": {
+    "backdrop_path": "/51xuevXW4ifZw221EMGxwpmdXv2.jpg",
+    "director": "ジョセフ・Ｌ・マンキウィッツ",
+    "director_en": "Joseph L. Mankiewicz",
+    "director_jp": "ジョセフ・Ｌ・マンキウィッツ",
+    "genres": [
+      "ドラマ",
+      "ロマンス",
+      "スリラー"
+    ],
+    "genres_en": [
+      "Drama",
+      "Romance",
+      "Thriller"
+    ],
+    "overview": "",
+    "overview_en": "A simple Connecticut farm girl is recruited by a distant relative, an aristocratic patroon, to be governess to his young daughter in his Hudson Valley mansion.",
+    "poster_path": "/guyisLW25bpd7bMGA30OYLbssm6.jpg",
+    "release_date": "1946-04-10",
+    "runtime": 103,
+    "tmdb_alt_titles_jp": [
+      "のろわれたしろ"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 26286,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Dragonwyck",
+    "tmdb_title_jp": "呪われた城",
+    "tmdb_title_original": "Dragonwyck",
+    "vote_average": 6.606
+  },
   "呪区": {
     "backdrop_path": null,
     "director": "千葉誠治",
@@ -183895,6 +184877,38 @@
     "tmdb_title_original": "Une femme est une femme",
     "vote_average": 7.3
   },
+  "女優須磨子の恋": {
+    "backdrop_path": "/u0zc2s7q0vnvXSLQnemQTwzgcRx.jpg",
+    "director": "溝口健二",
+    "director_en": "Kenji Mizoguchi",
+    "director_jp": "溝口健二",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "",
+    "overview_en": "Stage director Shimamura, who is bringing western theatre to Japan, falls in love with outspoken actress Sumako Matsui, and leaves his family to be with her, while trying to keep his Art Theatre solvent.",
+    "poster_path": "/ugI8HGncyyr5WUOImD5uOQ0HXck.jpg",
+    "release_date": "1947-08-16",
+    "runtime": 96,
+    "tmdb_alt_titles_jp": [
+      "Joyu Sumako no koi"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 46046,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "The Love of the Actress Sumako",
+    "tmdb_title_jp": "女優須磨子の恋",
+    "tmdb_title_original": "女優須磨子の恋",
+    "vote_average": 7.0
+  },
   "女吸血鬼": {
     "backdrop_path": "/6bUQJFGfehSx93t9bcG8UYJckZp.jpg",
     "director": "中川信夫",
@@ -183981,6 +184995,41 @@
     "tmdb_title_jp": "The Day Iceland Stood Still",
     "tmdb_title_original": "The Day Iceland Stood Still",
     "vote_average": 8.7
+  },
+  "女性の勝利（1946）": {
+    "backdrop_path": "/74EyBWshnxtobkGSkEuPUSS7sly.jpg",
+    "director": "溝口健二",
+    "director_en": "Kenji Mizoguchi",
+    "director_jp": "溝口健二",
+    "genres": [
+      "ドラマ",
+      "履歴"
+    ],
+    "genres_en": [
+      "Drama",
+      "History"
+    ],
+    "overview": "",
+    "overview_en": "Representing a destitute mother in an infanticide trial, a female lawyer attempts to convince a conservative prosecutor of the benefits of Japan's democratized post-war legal system.",
+    "poster_path": "/5GONxWiEF0EGc0KkqTaX2kT0H62.jpg",
+    "release_date": "1946-04-18",
+    "runtime": 84,
+    "tmdb_alt_titles_jp": [
+      "Josei no shôri",
+      "Josei no shōri"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 277781,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Victory of Women",
+    "tmdb_title_jp": "女性の勝利",
+    "tmdb_title_original": "女性の勝利",
+    "vote_average": 7.1
   },
   "女湯・女湯・女湯": {
     "backdrop_path": null,
@@ -186148,7 +187197,36 @@
     "tmdb_title_original": "Mouchette",
     "vote_average": 7.409
   },
-  "少女ムシェット ＜ロベール・ブレッソン傑作選＞": null,
+  "少女ムシェット ＜ロベール・ブレッソン傑作選＞": {
+    "backdrop_path": "/uwF6l5rNtxwkgA2TuXoSJXJrchD.jpg",
+    "director": "ロベール・ブレッソン",
+    "director_en": "Robert Bresson",
+    "director_jp": "ロベール・ブレッソン",
+    "genres": [
+      "ドラマ"
+    ],
+    "genres_en": [
+      "Drama"
+    ],
+    "overview": "14歳のムシェット。家庭の貧困と父の暴力と、同級生の豊かさと美しさ、そして土曜の午後のカンタータの練習に痛めつけられる少女。森番の洩らす秘密を知って、約束を守ると誓ったのに犯されてしまう無垢な肉体。しかし、その秘密すらただの幻影に過ぎなかったと分かって、少女は完全な孤立を味わう。そんな彼女に残された選択は……。ブレッソンが、「田舎司祭の日記」の原作者G・ベルナノスの小説を、自ら脚色して映画化。",
+    "overview_en": "A young girl living in the French countryside suffers constant indignities at the hand of alcoholism and her fellow man.",
+    "poster_path": "/8HAn6m2cKZRkCh4VU0AoJ2X6WSZ.jpg",
+    "release_date": "1967-03-28",
+    "runtime": 81,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 1561,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "Mouchette",
+    "tmdb_title_jp": "少女ムシェット",
+    "tmdb_title_original": "Mouchette",
+    "vote_average": 7.4
+  },
   "少年ジャックと魔法使い": {
     "backdrop_path": "/8faOIKZQwZ7SPdLkLp6D2OTIJNq.jpg",
     "director": "藪下泰司",
@@ -191717,7 +192795,44 @@
     "tmdb_title_jp": "A Lawless Street",
     "vote_average": 5.3
   },
-  "探偵スル―ス": null,
+  "探偵スル―ス": {
+    "backdrop_path": "/rVdKBzVyHTG1gv8bAAJnr5Eu6gl.jpg",
+    "director": "ジョセフ・Ｌ・マンキウィッツ",
+    "director_en": "Joseph L. Mankiewicz",
+    "director_jp": "ジョセフ・Ｌ・マンキウィッツ",
+    "genres": [
+      "スリラー",
+      "謎",
+      "犯罪"
+    ],
+    "genres_en": [
+      "Thriller",
+      "Mystery",
+      "Crime"
+    ],
+    "overview": "著名なミステリー作家のワイクは、妻の不倫相手で美容師のティンドルを自宅に呼びつけた。不倫の追及を受けるものと思っていたティンドルだったが、ワイクは「浪費家の妻にはほとほと困り果てていた」「私にも素敵な愛人がいる」と切り出し、自宅の金庫に保管している宝石を泥棒に扮して盗んで欲しいと言い出した。宝石には盗難保険がかかっているため、双方に利益があるという言い分であった。あまりにも虫の良い話だったが、金銭的に厳しいティンドルはワイクの筋書きどおりに、珍妙な手順で宝石を盗み始める。",
+    "overview_en": "A man who loves games and theatre invites his wife's lover to meet, setting up a battle of wits with potentially deadly results.",
+    "poster_path": "/jAREYLUnYGwPjbQr0vs1s38QLkH.jpg",
+    "release_date": "1972-12-10",
+    "runtime": 138,
+    "tmdb_alt_titles_jp": [],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "GB",
+        "name": "United Kingdom"
+      },
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "tmdb_id": 993,
+    "tmdb_original_language": "en",
+    "tmdb_title_en": "Sleuth",
+    "tmdb_title_jp": "探偵スルース",
+    "tmdb_title_original": "Sleuth",
+    "vote_average": 7.681
+  },
   "探偵スルース": {
     "backdrop_path": "/rVdKBzVyHTG1gv8bAAJnr5Eu6gl.jpg",
     "director": "ジョセフ・Ｌ・マンキウィッツ",
@@ -198454,6 +199569,46 @@
     "tmdb_title_jp": "極道の妻たち",
     "tmdb_title_original": "極道の妻たち",
     "vote_average": 5.3
+  },
+  "楽園追放 Expelled from Paradise": {
+    "backdrop_path": "/poTFhNtA1kZa3Qb6ulCwa5HPEKb.jpg",
+    "director": "水島精二",
+    "director_en": "Seiji Mizushima",
+    "director_jp": "水島精二",
+    "genres": [
+      "アニメーション",
+      "サイエンスフィクション",
+      "アクション",
+      "アドベンチャー"
+    ],
+    "genres_en": [
+      "Animation",
+      "Science Fiction",
+      "Action",
+      "Adventure"
+    ],
+    "overview": "ナノハザードにより廃墟と化した地球。人類の98%は地上と自らの肉体を捨て、データとなって電脳世界「ディーヴァ」で暮らすようになっていた。西暦2400年現在、その「ディーヴァ」が異変に晒されていた。「フロンティアセッター」と名乗る謎の存在による「ディーヴァ」へのハッキングを地上世界から受け、捜査官アンジェラは生身の身体・マテリアルボディを身にまとい地上世界へと降り立つ。",
+    "overview_en": "A.D. 2400, DEVA's central council detects an incident of unauthorized access into their mainframe. Someone on Earth was trying to hack into the system. The only information DEVA was able to retrieve was that hacker referred to themselves as \"Frontier Setter.\"  To investigate the mysterious hacker's motives, the high officials of DEVA dispatch system Security Third Officer Angela Balzac to the Earth's surface. Equipped with a prosthetic \"material body,\" Angela attempts to make contact with a local agent Dingo, but what awaited her instead was a swarm of Sandworms now infesting the Earth's surface. Angela intercepts the gruesome pests with her exoskeleton powered suit Arhan.",
+    "poster_path": "/iKgMqRSZ9kxsZ5D9WgtMdi5gAx6.jpg",
+    "release_date": "2014-11-15",
+    "runtime": 104,
+    "tmdb_alt_titles_jp": [
+      "Rakuen Tsuihō: Expelled from Paradise",
+      "Rakuen Tsuihou: Expelled from Paradise",
+      "Rakuen Tsuiho: Expelled from Paradise"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "JP",
+        "name": "Japan"
+      }
+    ],
+    "tmdb_id": 304023,
+    "tmdb_original_language": "ja",
+    "tmdb_title_en": "Expelled from Paradise",
+    "tmdb_title_jp": "楽園追放 -Expelled from Paradise-",
+    "tmdb_title_original": "楽園追放 -Expelled from Paradise-",
+    "vote_average": 6.5
   },
   "楽園追放　心のレゾナンス": {
     "backdrop_path": null,
@@ -206571,7 +207726,40 @@
     "tmdb_title_original": "Quatre nuits d'un rêveur",
     "vote_average": 7.107
   },
-  "白夜 ＜ロベール・ブレッソン傑作選＞": null,
+  "白夜 ＜ロベール・ブレッソン傑作選＞": {
+    "backdrop_path": "/5kh4VMRflkmlOcvnB0WW2LgbZg9.jpg",
+    "director": "ロベール・ブレッソン",
+    "director_en": "Robert Bresson",
+    "director_jp": "ロベール・ブレッソン",
+    "genres": [
+      "ドラマ",
+      "ロマンス"
+    ],
+    "genres_en": [
+      "Drama",
+      "Romance"
+    ],
+    "overview": "画家の卵であるジャックはある夜、セーヌに身投げしようとする少女マルトを助ける。彼女には一年前アメリカ留学に発った恋人がおり、二人が再会を約束したのがその晩だったのだ。青年は苦悶に沈む彼女を美しいと思った。そして、激しい愛の衝動につき動かされながら、努めて平静を装い、彼女の心が恋人から離れるのを望み、そこに罪悪感を覚える。'５７年版と同じく、有名なドストエフスキーの悲恋小説を現代を舞台に翻案した、ブレッソンの覚醒した世界観を窺わす痛烈な作品だ。ヴィスコンティのロマンチズムはここになく、青年の盲愛が、彼の習性である思いのたけをミニ・テレコに吹き込むという形で、露骨に顕わになる様が見ていく苦しいほどだ。\r ＜allcinema＞",
+    "overview_en": "Jacques, a young man with artistic aspirations, spends four nights wandering Paris with a young woman, whom he rescued from suicide.",
+    "poster_path": "/kYLXWA4YqIpXREIjnwD7rmSOYxU.jpg",
+    "release_date": "1972-02-02",
+    "runtime": 82,
+    "tmdb_alt_titles_jp": [
+      "白夜"
+    ],
+    "tmdb_countries": [
+      {
+        "iso_3166_1": "FR",
+        "name": "France"
+      }
+    ],
+    "tmdb_id": 55847,
+    "tmdb_original_language": "fr",
+    "tmdb_title_en": "Four Nights of a Dreamer",
+    "tmdb_title_jp": "白夜",
+    "tmdb_title_original": "Quatre nuits d'un rêveur",
+    "vote_average": 7.1
+  },
   "白蛇伝": {
     "backdrop_path": "/vAYXaOOjlelRqNy9Hxd2mIkdGXQ.jpg",
     "director": "藪下泰司",
@@ -211988,10 +213176,12 @@
   },
   "自画像 47KM": null,
   "自画像 47KMに生まれて": null,
+  "自画像 47KMのスフィンクス": null,
   "自画像 47KMのダンス": null,
   "自画像 47KMの夢": null,
   "自画像 47KMの橋": null,
   "自画像 47KMの死": null,
+  "自画像 47KMの窓": null,
   "至福のレストラン　三つ星トロワグロ": {
     "backdrop_path": "/5ELDLGm5CewuuoZmJFU1hZBqfI7.jpg",
     "director": "Frederick Wiseman",
