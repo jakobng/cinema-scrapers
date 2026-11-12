@@ -8258,31 +8258,6 @@
     ],
     "vote_average": 6.7
   },
-  "Face Film Festival + Forum": {
-    "tmdb_id": 1565392,
-    "tmdb_title": "FORUM",
-    "tmdb_original_title": "FORUM",
-    "overview": "",
-    "poster_path": "/6lkS0afU3KJukQ7ZUtI4meOQEAf.jpg",
-    "backdrop_path": "/wRwhHWGHaeULRD50220fJJT9mon.jpg",
-    "release_date": "2025-10-15",
-    "director": "Simona Volpe",
-    "runtime": 0,
-    "genres": [
-      "Drama"
-    ],
-    "vote_average": 0.0
-  },
-  "Over the Garden Wall": null,
-  "Colectivo Film Hub presents: The Lost Pussy of the Incas": null,
-  "Warren Miller's Day Off": null,
-  "CULT SCHOOL: NUNSPLOITATION": null,
-  "MMU Present: Burton Bash - The Nightmare Before Christmas": null,
-  "Counterfilms Present: Souleyman's Story": null,
-  "Urban Artistry Presents... Wild Style": null,
-  "Twilight Saga Marathon": null,
-  "The Snowman: Live with Yorkshire Imperial Band": null,
-  "On Screen - NT Live: Golden Boy": null,
   "Throwback: Rocky (50th Anniversary)": {
     "tmdb_id": 1366,
     "tmdb_title": "Rocky",
@@ -8298,6 +8273,68 @@
     ],
     "vote_average": 7.803
   },
+  "Face Film Festival + Forum": {
+    "tmdb_id": 142002,
+    "tmdb_title": "#FORUM",
+    "tmdb_original_title": "#FORUM",
+    "overview": "#FORUM presented by Special Blend, Forum, Foursquare brings you the best from #andreaswiig #patmoore #jakewelch #nicsauve #austensweetin #campierce #danielek #mariokaeppeli",
+    "poster_path": "/dK2atwk558POONrhknaVyZTtqfc.jpg",
+    "backdrop_path": null,
+    "release_date": "2012-01-01",
+    "director": "",
+    "runtime": 0,
+    "genres": [
+      "Documentary"
+    ],
+    "vote_average": 0.0
+  },
+  "Over the Garden Wall": null,
+  "Colectivo Film Hub presents: The Lost Pussy of the Incas": null,
+  "Warren Miller's Day Off": null,
+  "CULT SCHOOL: NUNSPLOITATION": null,
+  "MMU Present: Burton Bash - The Nightmare Before Christmas": null,
+  "Counterfilms Present: Souleyman's Story": null,
+  "Urban Artistry Presents... Wild Style": null,
+  "Twilight Saga Marathon": null,
+  "OBSCURE FILM PRESENTS: GENRE IDENTITIES 4 - ECOLOGIES, INDIGENOUS IDENTITIES, AND GENRE": null,
+  "POST CREDIT FILM CLUB PRESENTS: SING STREET": {
+    "tmdb_id": 369557,
+    "tmdb_title": "Sing Street",
+    "tmdb_original_title": "Sing Street",
+    "overview": "A boy growing up in Dublin during the 1980s escapes his strained family life by starting a band to impress the mysterious girl he likes.",
+    "poster_path": "/sUWpVlrvzU2SJbnVZqIeKulPKwk.jpg",
+    "backdrop_path": "/eiJ8s0akgzHFhbMxw75B6UtRzQ4.jpg",
+    "release_date": "2016-03-11",
+    "director": "John Carney",
+    "runtime": 105,
+    "genres": [
+      "Romance",
+      "Drama",
+      "Music",
+      "Comedy"
+    ],
+    "vote_average": 7.861
+  },
+  "The Snowman: Live with Yorkshire Imperial Band": null,
+  "On Screen - NT Live: Golden Boy": null,
+  "Ken Russell's The Devils": null,
+  "Family Film/ Festive Fun with Peppa Cinema Experience (U)": null,
+  "Royal Opera/ Carmen": null,
+  "Better Go Mad in the Wild": {
+    "tmdb_id": 1491966,
+    "tmdb_title": "Better Go Mad in the Wild",
+    "tmdb_original_title": "Raději zešílet v divočině",
+    "overview": "Franta and Ondra, eternal children and inseparable twins, live in a quietly magical world with their beloved animals. They share every moment, every thought, every routine. Outwardly they appear identical, yet inside they are two entirely different souls. Over time, their closeness begins to suffocate. Franta yearns for freedom, for flight, for life beyond the walls they share. Ondra remains rooted, content in the familiar, closed to change. Their bond begins to fray. Can they ever truly separate? How do you escape a world that wears your face? In the end, will love endure or will only death set them apart?",
+    "poster_path": "/hvwRKFN8Gpje9KYmphTG5aUrAmS.jpg",
+    "backdrop_path": "/8QEPrWaHn6PdXGQl8sIXmP1o1tr.jpg",
+    "release_date": "2025-09-18",
+    "director": "Miro Remo",
+    "runtime": 77,
+    "genres": [
+      "Documentary"
+    ],
+    "vote_average": 10.0
+  },
   "Throwback: Almost Famous (25th Anniversary)": {
     "tmdb_id": 786,
     "tmdb_title": "Almost Famous",
@@ -8312,7 +8349,7 @@
       "Drama",
       "Music"
     ],
-    "vote_average": 7.5
+    "vote_average": 7.508
   },
   "Throwback: Elf": {
     "tmdb_id": 10719,
@@ -8346,8 +8383,5 @@
       "Romance"
     ],
     "vote_average": 0.0
-  },
-  "Ken Russell's The Devils": null,
-  "Family Film/ Festive Fun with Peppa Cinema Experience (U)": null,
-  "Royal Opera/ Carmen (CTBA)": null
+  }
 }
