@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-11-13T02:54:54+00:00",
-  "run_id": "43352658478",
-  "current_showings": 3737,
-  "current_cinemas": 52,
+  "scraped_at": "2026-11-14T02:32:54+00:00",
+  "run_id": "43544868986",
+  "current_showings": 3402,
+  "current_cinemas": 51,
   "source_issues": [
     {
       "cinema": "Kino Cinema",
@@ -12,6 +12,12 @@
     },
     {
       "cinema": "Cine Switch Ginza",
+      "status": "WARNING",
+      "count": 0,
+      "error": null
+    },
+    {
+      "cinema": "Koenji Theater Bacchus",
       "status": "WARNING",
       "count": 0,
       "error": null
