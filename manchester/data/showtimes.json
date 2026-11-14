@@ -799,36 +799,6 @@
   },
   {
     "cinema_name": "Everyman Manchester",
-    "movie_title": "I Play Rocky",
-    "movie_title_en": "I Play Rocky",
-    "date_text": "2026-11-14",
-    "showtime": "10:45",
-    "detail_page_url": "https://www.everymancinema.com/film-listing/1000002678",
-    "booking_url": "",
-    "director": "Peter Farrelly",
-    "year": "2026",
-    "country": "",
-    "runtime_min": "128",
-    "synopsis": "",
-    "format_tags": [
-      "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
-    ],
-    "tmdb_id": 1286656,
-    "tmdb_title": "I Play Rocky",
-    "tmdb_original_title": "I Play Rocky",
-    "tmdb_backdrop_path": "/1lnnjBCRLZzKRhQipK5zm61YkPe.jpg",
-    "tmdb_poster_path": "/xE5tY3lppZUyG7WKKThsuYHuAHr.jpg",
-    "tmdb_overview": "The electrifying true story about an unknown actor with an unshakable belief that he wasn't just meant to write Rocky—he was meant to be Rocky Balboa. Told \"no\" at every turn, Sylvester Stallone bets everything on himself, holding the line on playing the lead against seemingly impossible odds.",
-    "runtime": 128,
-    "genres": [
-      "Drama",
-      "History"
-    ],
-    "vote_average": 10.0
-  },
-  {
-    "cinema_name": "Everyman Manchester",
     "movie_title": "Wicker",
     "movie_title_en": "Wicker",
     "date_text": "2026-11-14",
@@ -994,7 +964,8 @@
     "synopsis": "",
     "format_tags": [
       "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
+      "Format.Projection.Digital",
+      "Internal.Data.AlmostSoldOut"
     ],
     "tmdb_id": 1286656,
     "tmdb_title": "I Play Rocky",
