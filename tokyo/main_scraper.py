@@ -40,6 +40,7 @@ from shared.ai_enrichment import (
     AIEnrichmentClient,
     LOCAL_AI_NO_RESULT,
     TMDB_RETRY_FAILED,
+    account_errors as ai_account_errors,
     env_truthy,
     local_ai_retry_due,
     make_ai_failure_entry,
@@ -1443,6 +1444,23 @@ def _contains_japanese(text: str) -> bool:
     if not text:
         return False
     return re.search(r"[\u3040-\u30ff\u3400-\u9fff]", text) is not None
+
+def _english_title_or_blank(item: dict) -> str:
+    """Blank an "English" title that is just the Japanese title again.
+
+    TMDB falls back to the original title when a film has no English title, so
+    films like キオク arrived with movie_title_en == movie_title. That reads as
+    "has an English title" to every consumer and audit while the site shows
+    Japanese. Mixed-script titles that differ from the Japanese one are kept.
+    """
+    title_en = str(item.get("movie_title_en") or "").strip()
+    if not title_en or not _contains_japanese(title_en):
+        return title_en
+    japanese_titles = {
+        str(item.get(key) or "").strip()
+        for key in ("movie_title", "movie_title_jp", "clean_title_jp", "movie_title_original")
+    }
+    return "" if title_en in japanese_titles else title_en
 
 def _pick_english_title_from_translations(translations: dict) -> str:
     if not translations:
@@ -3187,6 +3205,7 @@ def main():
             item["movie_title_jp"] = item.get("movie_title") or ""
         if "movie_title_en" not in item:
             item["movie_title_en"] = ""
+        item["movie_title_en"] = _english_title_or_blank(item)
         if not item.get("director_jp"):
             item["director_jp"] = item.get("director") or ""
         if "director_en" not in item:
@@ -3249,7 +3268,8 @@ def main():
     # Only a real collection writes this marker. Enrichment and site builds must
     # never make old listings look freshly collected.
     _write_json_file(os.path.join(DATA_DIR, "scrape_status.json"),
-                     collection_status(listings, report.results))
+                     collection_status(listings, report.results,
+                                       ai_issues=ai_account_errors()))
     
     # Send email if configured
     report.send_email_alert(failures, warnings)
