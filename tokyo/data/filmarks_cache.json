@@ -10552,6 +10552,37 @@
     "status": "review",
     "updated_at": "2026-07-27T02:31:39.290999+00:00"
   },
+  "leassaggiatrici::2025::123::シルヴィオソルディーニ": {
+    "candidate": {
+      "director": "シルヴィオ・ソルディーニ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "123",
+      "score": 12,
+      "support": 2,
+      "title": "ヒトラーの毒見役",
+      "url": "https://filmarks.com/movies/125452",
+      "year": "2026"
+    },
+    "candidate_count": 26,
+    "filmarks_url": "https://filmarks.com/movies/125452",
+    "query": "Le assaggiatrici",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=Le%20assaggiatrici",
+    "status": "accepted",
+    "updated_at": "2026-11-15T02:01:55.529968+00:00"
+  },
   "leboucher::1970::89::クロードシャブロル": {
     "candidate": {
       "director": "クロード・シャブロル",
@@ -26334,6 +26365,37 @@
     "status": "not_found",
     "updated_at": "2026-07-27T23:32:53.829999+00:00"
   },
+  "పుష్పా2therule::2024::222::スクマール": {
+    "candidate": {
+      "director": "スクマール",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "222",
+      "score": 12,
+      "support": 2,
+      "title": "プシュパ 君臨",
+      "url": "https://filmarks.com/movies/116047",
+      "year": "2026"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "https://filmarks.com/movies/116047",
+    "query": "పుష్పా 2 - The Rule",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E0%B0%AA%E0%B1%81%E0%B0%B7%E0%B1%8D%E0%B0%AA%E0%B0%BE%202%20-%20The%20Rule",
+    "status": "accepted",
+    "updated_at": "2026-11-15T02:01:53.166669+00:00"
+  },
   "ಕಾಂತಾರ::2022::148::リシャブシェッティ": {
     "candidate": null,
     "candidate_count": 0,
@@ -27486,6 +27548,31 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%80%90FILMex2026%E3%80%91%E9%9C%A7%E3%81%AE%E4%B8%AD%E3%81%AE%E8%B1%A1%E3%81%9F%E3%81%A1",
     "status": "review",
     "updated_at": "2026-11-08T01:34:10.072934+00:00"
+  },
+  "【アンコール】ドルフィ⽥イル⾹の偏屈なダンス::::::": {
+    "candidate": {
+      "director": "フレッド・リンカーン",
+      "reasons": [
+        "title_partial"
+      ],
+      "runtime": "82",
+      "score": 5,
+      "support": 0,
+      "title": "アンコール",
+      "url": "https://filmarks.com/movies/44557",
+      "year": ""
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "【アンコール】「ドルフィ⽥イル⾹の偏屈なダンス",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%80%90%E3%82%A2%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%AB%E3%80%91%E3%80%8C%E3%83%89%E3%83%AB%E3%83%95%E3%82%A3%E2%BD%A5%E3%82%A4%E3%83%AB%E2%BE%B9%E3%81%AE%E5%81%8F%E5%B1%88%E3%81%AA%E3%83%80%E3%83%B3%E3%82%B9",
+    "status": "review",
+    "updated_at": "2026-11-15T02:01:56.656610+00:00"
   },
   "【アンパンマンナイト】それいけ！アンパンマンパンタンと約束の星::::62::矢野博之": {
     "candidate": {
@@ -28949,6 +29036,35 @@
     "status": "review",
     "updated_at": "2026-10-21T00:49:39.768829+00:00"
   },
+  "あなたが母親の手料理を食べられる回数は、あとどれくらい残ってますか？::2026::105::": {
+    "candidate": {
+      "director": "キム・テヨン",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime"
+      ],
+      "runtime": "105",
+      "score": 16,
+      "support": 2,
+      "title": "あなたが母親の手料理を食べられる回数は、あとどれくらい残ってますか？",
+      "url": "https://filmarks.com/movies/127057",
+      "year": "2026"
+    },
+    "candidate_count": 24,
+    "filmarks_url": "https://filmarks.com/movies/127057",
+    "query": "あなたが母親の手料理を食べられる回数は、あとどれくらい残ってますか？",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime"
+    ],
+    "score": 16,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%82%E3%81%AA%E3%81%9F%E3%81%8C%E6%AF%8D%E8%A6%AA%E3%81%AE%E6%89%8B%E6%96%99%E7%90%86%E3%82%92%E9%A3%9F%E3%81%B9%E3%82%89%E3%82%8C%E3%82%8B%E5%9B%9E%E6%95%B0%E3%81%AF%E3%80%81%E3%81%82%E3%81%A8%E3%81%A9%E3%82%8C%E3%81%8F%E3%82%89%E3%81%84%E6%AE%8B%E3%81%A3%E3%81%A6%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F",
+    "status": "accepted",
+    "updated_at": "2026-11-15T02:02:02.823193+00:00"
+  },
   "あなたならどうする？人生を決める百万ドルのキス::::::": {
     "candidate": {
       "director": "トゥー・チャン",
@@ -29203,6 +29319,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%81%82%E3%81%AE%E6%A9%8B%E3%81%AE%E7%95%94%E3%81%A7",
     "status": "review",
     "updated_at": "2026-10-26T00:22:41.722822+00:00"
+  },
+  "あの橋の畔で·完結篇::1963::90::野村芳太郎、安倍獏、山田洋次": {
+    "candidate": {
+      "director": "野村芳太郎",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "90",
+      "score": 8,
+      "support": 1,
+      "title": "あの橋の畔で 完結篇",
+      "url": "https://filmarks.com/movies/32884",
+      "year": ""
+    },
+    "candidate_count": 34,
+    "filmarks_url": "",
+    "query": "あの橋の畔で·完結篇",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 8,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%82%E3%81%AE%E6%A9%8B%E3%81%AE%E7%95%94%E3%81%A7%C2%B7%E5%AE%8C%E7%B5%90%E7%AF%87",
+    "status": "review",
+    "updated_at": "2026-11-15T02:02:00.204563+00:00"
   },
   "あの橋の畔で·第三部::1963::92::野村芳太郎": {
     "candidate": {
@@ -29713,6 +29858,31 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%81%82%E3%82%8B%E6%97%A5%E3%80%81%E3%83%94%E3%83%8A%E3%81%AF%E5%B0%8B%E3%81%AD%E3%81%9F%E2%80%A6%EF%BC%8B%E3%83%94%E3%83%B3%E3%82%AF%E3%83%BB%E3%82%B7%E3%83%A5%E3%83%AC%E3%83%B3%E3%83%9E%E3%83%BC",
     "status": "review",
     "updated_at": "2026-10-16T16:25:20.570349+00:00"
+  },
+  "ある精肉店のはなし2026アンコール::::::": {
+    "candidate": {
+      "director": "フレッド・リンカーン",
+      "reasons": [
+        "title_partial"
+      ],
+      "runtime": "82",
+      "score": 5,
+      "support": 0,
+      "title": "アンコール",
+      "url": "https://filmarks.com/movies/44557",
+      "year": ""
+    },
+    "candidate_count": 24,
+    "filmarks_url": "",
+    "query": "ある精肉店のはなし 2026アンコール",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%82%E3%82%8B%E7%B2%BE%E8%82%89%E5%BA%97%E3%81%AE%E3%81%AF%E3%81%AA%E3%81%97%202026%E3%82%A2%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%AB",
+    "status": "review",
+    "updated_at": "2026-11-15T02:01:57.869750+00:00"
   },
   "あゝひめゆりの塔::1968::127::舛田利雄": {
     "candidate": {
@@ -60175,6 +60345,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%8F%E3%83%AF%E3%81%AE%E6%89%8B%E7%BF%92%E3%81%84",
     "status": "review",
     "updated_at": "2026-07-27T23:32:45.304393+00:00"
+  },
+  "ハワの手習い::2025::85::najibanoori": {
+    "candidate": {
+      "director": "ナジーバ・ヌーリ",
+      "reasons": [
+        "title_miss",
+        "year_mismatch",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "85",
+      "score": -18,
+      "support": 1,
+      "title": "ハワの⼿習い",
+      "url": "https://filmarks.com/movies/124327",
+      "year": "2026"
+    },
+    "candidate_count": 1,
+    "filmarks_url": "",
+    "query": "ハワの手習い",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_miss",
+      "year_mismatch",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": -18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%8F%E3%83%AF%E3%81%AE%E6%89%8B%E7%BF%92%E3%81%84",
+    "status": "review",
+    "updated_at": "2026-11-15T02:01:54.693243+00:00"
   },
   "ハワの手習い::2025::85::ナジーバヌーリ": {
     "candidate": {
@@ -107718,6 +107919,35 @@
     "status": "review",
     "updated_at": "2026-08-21T22:54:07.186231+00:00"
   },
+  "母のおもかげ::1959::89::清水宏": {
+    "candidate": {
+      "director": "清水宏",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "89",
+      "score": 18,
+      "support": 2,
+      "title": "母のおもかげ",
+      "url": "https://filmarks.com/movies/16233",
+      "year": ""
+    },
+    "candidate_count": 24,
+    "filmarks_url": "https://filmarks.com/movies/16233",
+    "query": "母のおもかげ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%AF%8D%E3%81%AE%E3%81%8A%E3%82%82%E3%81%8B%E3%81%92",
+    "status": "accepted",
+    "updated_at": "2026-11-15T02:01:58.960485+00:00"
+  },
   "母べえ+母と暮せば::::::": {
     "candidate": {
       "director": "山田洋次",
@@ -117629,6 +117859,33 @@
     "search_url": "https://filmarks.com/search/movies?q=%E7%B4%94%E6%83%85%E3%81%AE%E9%83%BD",
     "status": "accepted",
     "updated_at": "2026-11-02T01:42:03.221927+00:00"
+  },
+  "素敵な今晩わ::1965::82::馬場当": {
+    "candidate": {
+      "director": "野村芳太郎",
+      "reasons": [
+        "title_exact",
+        "director_mismatch"
+      ],
+      "runtime": "",
+      "score": 5,
+      "support": 0,
+      "title": "素敵な今晩わ",
+      "url": "https://filmarks.com/movies/16231",
+      "year": ""
+    },
+    "candidate_count": 30,
+    "filmarks_url": "",
+    "query": "素敵な今晩わ",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "director_mismatch"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%B4%A0%E6%95%B5%E3%81%AA%E4%BB%8A%E6%99%A9%E3%82%8F",
+    "status": "review",
+    "updated_at": "2026-11-15T02:02:01.591232+00:00"
   },
   "結婚陣内原田御両家篇45分＋穴の牙::::48::": {
     "candidate": {
