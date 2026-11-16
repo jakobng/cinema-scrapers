@@ -2376,6 +2376,7 @@
                     link.rel = "noopener";
                     if (showing.bookingUrl && bestLink === showing.bookingUrl) {
                         link.classList.add("is-bookable");
+                        link.dataset.bookingClick = "";
                     }
                     container.appendChild(link);
                 } else {
@@ -3102,6 +3103,7 @@
             }
         });
     </script>
+    <script defer src="/booking-clicks.js"></script>
     <!-- Cloudflare Web Analytics -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a8e7e0e3e286477497d1b95c40ab8b47"}'></script>
     <!-- End Cloudflare Web Analytics -->

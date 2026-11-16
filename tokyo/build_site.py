@@ -246,7 +246,7 @@ def aggregate(showings: list[dict]):
             "f": fid,
             "date_text": rec.get("date_text", ""),
             "showtime": rec.get("showtime", ""),
-            "booking_url": showtime_url(rec),
+            **showtime_link_fields(rec),
         })
         for key in ("cinema_address", "cinema_site_url"):
             if not cin["meta"].get(key) and rec.get(key):
@@ -258,7 +258,7 @@ def aggregate(showings: list[dict]):
             "cinema_name": (r.get("cinema_name") or "").strip(),
             "date_text": r.get("date_text", ""),
             "showtime": r.get("showtime", ""),
-            "booking_url": showtime_url(r),
+            **showtime_link_fields(r),
         } for r in recs]
         films[fid] = film
 
@@ -274,6 +274,18 @@ def showtime_url(row):
                   row.get("official_site"), detail)
     return next((str(url) for url in candidates
                  if str(url or "").startswith(("https://", "http://"))), "")
+
+
+def showtime_link_fields(row):
+    target = showtime_url(row)
+    return {
+        "booking_url": target,
+        "is_booking_link": bool(target and target in (row.get("booking_url"), row.get("purchase_url"))),
+    }
+
+
+def booking_click_attribute(showing):
+    return ' data-booking-click' if showing.get("is_booking_link") else ''
 
 
 def with_publication_details(page, template, status):
@@ -351,6 +363,7 @@ def head(title: str, description: str, canonical: str, base_url: str,
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
         '<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">',
         f"<style>{PAGE_CSS}</style>",
+        '<script defer src="/booking-clicks.js"></script>',
     ]
     if extra_ld:
         graph = [{key: value for key, value in ld.items() if key != "@context"}
@@ -459,7 +472,8 @@ def render_film_page(fid, film, slug, base_url, today, *, last_listed=None):
         for s in slist:
             label = f'{s["date_text"][5:]} {s["showtime"]}'.strip()
             target = showtime_url(s)
-            parts.append(f'<li><a href="{e(target)}" rel="noopener">{e(label)}</a></li>'
+            parts.append(f'<li><a href="{e(target)}" rel="noopener"{booking_click_attribute(s)}>'
+                         f'{e(label)}</a></li>'
                          if target else f"<li>{e(label)}</li>")
         parts.append("</ul></div>")
 
@@ -529,7 +543,8 @@ def render_cinema_page(cname, cin, slug, films, film_slugs, base_url, today):
                 parts.append(f"<li>{e(label)}</li>")
             target = showtime_url(s)
             if target:
-                parts.append(f'<li><a href="{e(target)}" rel="noopener">公式・予約 / Book</a></li>')
+                parts.append(f'<li><a href="{e(target)}" rel="noopener"{booking_click_attribute(s)}>'
+                             '公式・予約 / Book</a></li>')
         parts.append("</ul></div>")
 
     parts.append('<p class="foot">Source: <a href="' + base_url + '/">cinematokyo.com</a></p>')
@@ -819,7 +834,7 @@ def main():
     (out / "film").mkdir()
 
     # Static assets from the template dir.
-    for name in ("manifest.webmanifest", "sw.js"):
+    for name in ("manifest.webmanifest", "sw.js", "booking-clicks.js"):
         src = template_dir / name
         if src.exists():
             shutil.copy(src, out / name)
