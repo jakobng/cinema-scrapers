@@ -50,12 +50,9 @@ jobs:
           node-version: '24'
 
       - name: Test site template
-        run: python -B -m unittest -v tokyo.tests.test_service_worker tokyo.tests.test_site_template_ui
+        run: python -B -m unittest -v tokyo.tests.test_service_worker tokyo.tests.test_site_template_ui tokyo.tests.test_film_catalog
 
-      - name: Build static site
-        run: python tokyo/build_site.py
-
-      - name: Deploy to cinematokyo repo
+      - name: Read current cinematokyo deployment
         env:
           CINEMATOKYO_SYNC_TOKEN: ${{ secrets.WEBSITE1_SYNC_TOKEN }}
         run: |
@@ -67,6 +64,16 @@ jobs:
           git clone --depth 1 \
             "https://x-access-token:${CINEMATOKYO_SYNC_TOKEN}@github.com/jakobng/cinematokyo.git" \
             /tmp/cinematokyo-deploy
+
+      - name: Build static site
+        run: >
+          python tokyo/build_site.py
+          --film-catalog-seed tokyo/film_catalog_seed.json
+          --previous-film-catalog /tmp/cinematokyo-deploy/data/film_catalog.json
+
+      - name: Deploy to cinematokyo repo
+        run: |
+          set -euo pipefail
           # Mirror the freshly built site into the Pages repo (keep its .git).
           rsync -a --delete --exclude='.git' \
             "${GITHUB_WORKSPACE}/tokyo/site_build/" /tmp/cinematokyo-deploy/

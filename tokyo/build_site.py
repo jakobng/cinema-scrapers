@@ -10,6 +10,7 @@ by ``main_scraper.py``) and emits a fully static, crawlable site:
     film/<slug>/index.html  # one page per film    (Movie + ScreeningEvent schema)
     data/showtimes.json     # copy of the full feed (SPA fallback)
     data/showtimes_slim.json# regenerated slim feed the SPA consumes
+    data/film_catalog.json  # film metadata and stable URLs for the next build
     sitemap.xml             # index + every cinema + every film page
     robots.txt
     CNAME
@@ -50,6 +51,11 @@ TMDB_IMG = "https://image.tmdb.org/t/p"
 
 # Extra field aggregated only for the rich static pages (not part of slim).
 PAGE_FILM_FIELDS = (*FILM_FIELDS, "country")
+FILM_CATALOG_FIELDS = (
+    "movie_title", "movie_title_jp", "movie_title_en", "movie_title_original",
+    "director", "director_en", "year", "runtime", "runtime_min", "genres", "genres_en",
+    "tmdb_poster_path", "image_url", "synopsis", "synopsis_en", "tmdb_overview_en",
+)
 
 
 # --------------------------------------------------------------------------- #
@@ -179,6 +185,18 @@ def film_slug(fid: str, film: dict) -> str:
         if base else f"film-{short_hash(legacy_fid)}"
 
 
+def load_film_catalog(seed: Path | None, previous: Path | None) -> dict:
+    catalog = json.loads(seed.read_text(encoding="utf-8")) if seed is not None else {}
+    if previous is not None and previous.exists():
+        catalog.update(json.loads(previous.read_text(encoding="utf-8")))
+    slugs = [entry["slug"] for entry in catalog.values()]
+    if len(slugs) != len(set(slugs)) or any(
+        not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug) for slug in slugs
+    ):
+        raise ValueError("Film catalog contains duplicate or invalid URL slugs")
+    return catalog
+
+
 def iso_start(date_text: str, showtime: str) -> str | None:
     if not date_text:
         return None
@@ -204,7 +222,7 @@ def poster_url(path: str | None, size: str = "w342") -> str | None:
 
 def jsonld(obj) -> str:
     return ('<script type="application/ld+json">'
-            + json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+            + json.dumps(obj, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
             + "</script>")
 
 
@@ -342,7 +360,7 @@ def head(title: str, description: str, canonical: str, base_url: str,
     return "\n".join(tags)
 
 
-def render_film_page(fid, film, slug, base_url, today):
+def render_film_page(fid, film, slug, base_url, today, *, last_listed=None):
     title_jp = film.get("movie_title_jp") or film.get("movie_title") or "(無題)"
     title_en = film.get("movie_title_en") or film.get("movie_title_original") or ""
     canonical = f"{base_url}/film/{slug}/"
@@ -370,10 +388,15 @@ def render_film_page(fid, film, slug, base_url, today):
 
     title_label = f"『{title_jp}』（{title_en}）" if title_en and title_en != title_jp \
         else f"『{title_jp}』"
-    description = clip_description(
-        f"{title_label}の東京での上映時間と上映館。"
-        f"{len(by_cinema)}館・{len(upcoming)}回の最新ミニシアター上映スケジュール。"
-    )
+    if upcoming:
+        description = clip_description(
+            f"{title_label}の東京での上映時間と上映館。"
+            f"{len(by_cinema)}館・{len(upcoming)}回の最新ミニシアター上映スケジュール。"
+        )
+    else:
+        description = clip_description(
+            f"{title_label}の作品情報。" + (film.get("synopsis") or "現在掲載中の上映はありません。")
+        )
 
     # JSON-LD: Movie + ScreeningEvents
     movie_ld = {"@context": "https://schema.org", "@type": "Movie",
@@ -425,7 +448,9 @@ def render_film_page(fid, film, slug, base_url, today):
 
     parts.append("<h2>上映スケジュール / Showtimes</h2>")
     if not upcoming:
-        parts.append("<p>現在予定されている上映はありません。</p>")
+        parts.append("<p>現在掲載中の上映はありません。 / No upcoming screenings listed.</p>")
+        if last_listed and last_listed < today:
+            parts.append(f'<p>最終掲載上映日 / Last listed screening: <time>{e(last_listed)}</time></p>')
     cinema_slugs = render_film_page.cinema_slugs
     for cname, slist in by_cinema.items():
         cslug = cinema_slugs.get(cname)
@@ -737,6 +762,10 @@ def main():
     ap.add_argument("--data", default="tokyo/data/showtimes.json")
     ap.add_argument("--template", default="tokyo/site_template")
     ap.add_argument("--out", default="tokyo/site_build")
+    ap.add_argument("--film-catalog-seed", type=Path,
+                    help="Film metadata recovered from historical deployments.")
+    ap.add_argument("--previous-film-catalog", type=Path,
+                    help="Film catalog from the previous deployment, if available.")
     ap.add_argument("--base-url", default="https://cinematokyo.com")
     ap.add_argument("--domain", default="cinematokyo.com")
     ap.add_argument("--today", default=None,
@@ -762,9 +791,25 @@ def main():
     cinema_slugs, taken_c = {}, set()
     for cname in sorted(cinemas):
         cinema_slugs[cname] = unique(cinema_slug(cname), taken_c, "cinema")
-    film_slugs, taken_f = {}, set()
+    film_catalog = load_film_catalog(args.film_catalog_seed, args.previous_film_catalog)
+    taken_f = {entry["slug"] for entry in film_catalog.values()}
+    active_films = {
+        fid: film for fid, film in films.items()
+        if any(showing["date_text"] >= today for showing in film["_showings"])
+    }
+    film_slugs = {}
     for fid in sorted(films):
-        film_slugs[fid] = unique(film_slug(fid, films[fid]), taken_f, "film")
+        film = films[fid]
+        previous = film_catalog.get(fid)
+        slug = previous["slug"] if previous else unique(film_slug(fid, film), taken_f, "film")
+        film_slugs[fid] = slug
+        if fid not in active_films:
+            continue
+        film_catalog[fid] = {
+            "slug": slug,
+            "film": {field: film[field] for field in FILM_CATALOG_FIELDS if film.get(field)},
+            "last_listed": max(showing["date_text"] for showing in film["_showings"]),
+        }
 
     # Reset & prepare output tree.
     if out.exists():
@@ -790,20 +835,21 @@ def main():
         json.dumps(scrape_status, ensure_ascii=False, indent=2), encoding="utf-8")
     (out / "data" / "showtimes_slim.json").write_text(
         json.dumps(slim, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    (out / "data" / "film_catalog.json").write_text(
+        json.dumps(film_catalog, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
+        encoding="utf-8",
+    )
     print(f"Slim: {len(slim['films'])} films, {len(slim['showings'])} showings")
 
-    # Per-film pages (only films with upcoming showings).
+    # Keep published film URLs after their screenings end.
     render_film_page.cinema_slugs = cinema_slugs  # share for cross-links
-    built_films = {}
-    for fid, film in films.items():
-        if not any(s["date_text"] >= today for s in film["_showings"]):
-            continue
-        slug = film_slugs[fid]
-        page = render_film_page(fid, film, slug, base_url, today)
+    for fid, entry in film_catalog.items():
+        slug = entry["slug"]
+        film = active_films.get(fid, {**entry["film"], "_showings": []})
+        page = render_film_page(fid, film, slug, base_url, today, last_listed=entry["last_listed"])
         d = out / "film" / slug
         d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(with_publication_details(page, template_source, scrape_status), encoding="utf-8")
-        built_films[fid] = slug
 
     # Per-cinema pages (only cinemas with upcoming showings).
     built_cinemas = {}
@@ -851,15 +897,18 @@ def main():
 
     # Index (SPA + pre-render), sitemap, robots, CNAME — only reference built pages.
     index_html = build_index(template_dir / "index.html", films, built_cinemas,
-                             built_films, base_url, today)
+                             {fid: film_slugs[fid] for fid in active_films}, base_url, today)
     (out / "index.html").write_text(index_html, encoding="utf-8")
     (out / "sitemap.xml").write_text(
-        build_sitemap(base_url, built_cinemas, built_films, guide_specs), encoding="utf-8")
+        build_sitemap(base_url, built_cinemas,
+                      {fid: entry["slug"] for fid, entry in film_catalog.items()}, guide_specs),
+        encoding="utf-8")
     (out / "robots.txt").write_text(build_robots(base_url), encoding="utf-8")
     (out / "CNAME").write_text(args.domain + "\n", encoding="utf-8")
 
     print(f"Built: index + {len(built_cinemas)} cinema pages + "
-          f"{len(built_films)} film pages + {len(guide_specs)} guide pages")
+          f"{len(film_catalog)} film pages ({len(active_films)} with showings) + "
+          f"{len(guide_specs)} guide pages")
     print(f"Output: {out}")
 
 
