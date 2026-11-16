@@ -73,7 +73,13 @@ const origin = "https://cinematokyo.com";
 const accepted = await worker.fetch(new Request(request, { headers: { Origin: origin } }), env);
 assert.equal(accepted.status, 204);
 assert.equal(accepted.headers.get("Access-Control-Allow-Origin"), origin);
-assert.equal(statements.length, 1);
+const streamed = new Request(request.url, {
+    method: "POST", headers: { Origin: origin },
+    body: new Uint8Array(), duplex: "half",
+});
+assert.notEqual(streamed.body, null);
+assert.equal((await worker.fetch(streamed, env)).status, 204);
+assert.equal(statements.length, 2);
 assert.match(statements[0], /ON CONFLICT\(day\) DO UPDATE SET clicks = clicks \+ 1/);
 """
     subprocess.run(["node", "--input-type=module", "-e", script], cwd=TOKYO, check=True)

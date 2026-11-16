@@ -6,7 +6,7 @@ export default {
         if (url.pathname !== "/click" || request.method !== "POST") {
             return new Response(null, { status: 404 });
         }
-        if (request.headers.get("Origin") !== siteOrigin || request.body !== null) {
+        if (request.headers.get("Origin") !== siteOrigin) {
             return new Response(null, { status: 403 });
         }
 
