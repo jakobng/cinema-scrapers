@@ -905,69 +905,6 @@
   },
   {
     "cinema_name": "Everyman Manchester",
-    "movie_title": "The Hunger Games: Sunrise on the Reaping",
-    "movie_title_en": "The Hunger Games: Sunrise on the Reaping",
-    "date_text": "2026-11-18",
-    "showtime": "13:00",
-    "detail_page_url": "https://www.everymancinema.com/film-listing/1000004528",
-    "booking_url": "",
-    "director": "Francis Lawrence",
-    "year": "2026",
-    "country": "",
-    "runtime_min": "158",
-    "synopsis": "The Hunger Games: Sunrise on the Reaping will revisit the world of Panem twenty-four years before the events of The Hunger Games, starting on the morning of the reaping of the Fiftieth Hunger Games, also known as the Second Quarter Quell.",
-    "format_tags": [
-      "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
-    ],
-    "tmdb_id": 1300968,
-    "tmdb_title": "The Hunger Games: Sunrise on the Reaping",
-    "tmdb_original_title": "The Hunger Games: Sunrise on the Reaping",
-    "tmdb_backdrop_path": "/aqFZcr2dxSZ2UwWSo1WC6C0rwDf.jpg",
-    "tmdb_poster_path": "/jNcZH8yplxttRlf0wwqfGGMKHxX.jpg",
-    "tmdb_overview": "Return to the world of Panem 24 years before the events of The Hunger Games, starting on the morning of the reaping of the 50th Hunger Games, also known as the Second Quarter Quell.",
-    "runtime": 159,
-    "genres": [
-      "Science Fiction",
-      "Action",
-      "Adventure"
-    ],
-    "vote_average": 0.0
-  },
-  {
-    "cinema_name": "Everyman Manchester",
-    "movie_title": "I Play Rocky",
-    "movie_title_en": "I Play Rocky",
-    "date_text": "2026-11-18",
-    "showtime": "14:15",
-    "detail_page_url": "https://www.everymancinema.com/film-listing/1000002678",
-    "booking_url": "",
-    "director": "Peter Farrelly",
-    "year": "2026",
-    "country": "",
-    "runtime_min": "128",
-    "synopsis": "",
-    "format_tags": [
-      "Showtime.Accessibility.ClosedCaption",
-      "Showtime.Restriction.SilverScreen",
-      "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
-    ],
-    "tmdb_id": 1286656,
-    "tmdb_title": "I Play Rocky",
-    "tmdb_original_title": "I Play Rocky",
-    "tmdb_backdrop_path": "/1lnnjBCRLZzKRhQipK5zm61YkPe.jpg",
-    "tmdb_poster_path": "/xE5tY3lppZUyG7WKKThsuYHuAHr.jpg",
-    "tmdb_overview": "The electrifying true story about an unknown actor with an unshakable belief that he wasn't just meant to write Rocky—he was meant to be Rocky Balboa. Told \"no\" at every turn, Sylvester Stallone bets everything on himself, holding the line on playing the lead against seemingly impossible odds.",
-    "runtime": 128,
-    "genres": [
-      "Drama",
-      "History"
-    ],
-    "vote_average": 10.0
-  },
-  {
-    "cinema_name": "Everyman Manchester",
     "movie_title": "Ebenezer",
     "movie_title_en": "Ebenezer",
     "date_text": "2026-11-18",
@@ -1838,7 +1775,8 @@
     "synopsis": "Thirty-four days before she’s sent to prison, notorious Silicon Valley founder Elizabeth Holmes invites a sceptical film crew to document her every move. What begins as an intimate portrait of an enigmatic felon becomes a mind-bending three-year journey into the abyss.",
     "format_tags": [
       "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
+      "Format.Projection.Digital",
+      "Internal.Data.AlmostSoldOut"
     ],
     "tmdb_id": 1765072,
     "tmdb_title": "You Can See Everything",
@@ -4024,19 +3962,6 @@
       "Drama"
     ],
     "vote_average": 7.098
-  },
-  {
-    "cinema_name": "HOME Manchester",
-    "movie_title": "Ken Russell's The Devils",
-    "movie_title_en": "Ken Russell's The Devils",
-    "date_text": "2026-11-18",
-    "showtime": "17:15",
-    "detail_page_url": "https://homemcr.org/whats-on/ken-russell-s-the-devils-18-9qcn",
-    "director": "",
-    "year": "",
-    "country": "",
-    "runtime_min": "115",
-    "synopsis": "A fully restored director's cut of Ken Russell's epic of obsession and corruption starring Oliver Reed and Vanessa Redgrave."
   },
   {
     "cinema_name": "HOME Manchester",
