@@ -146,6 +146,27 @@ def expected_letterboxd_url(item: dict) -> str:
     return f"https://letterboxd.com/tmdb/{tmdb_id}/"
 
 
+# Above this share of films showing a Japanese synopsis in English mode, the run
+# warns. Normal days sit near 0% once translation runs; an exhausted AI balance
+# pushed it past 10% (34 of 327 films on 8 Nov 2026) with no signal at all.
+ENGLISH_MODE_SYNOPSIS_WARN_SHARE = 0.05
+
+
+def english_mode_title(item: dict) -> str:
+    """The title the site shows in English mode (site_template getFilmDisplayTitle)."""
+    return str(item.get("movie_title_en") or item.get("movie_title_jp") or item.get("movie_title") or "")
+
+
+def english_mode_synopsis(item: dict) -> str:
+    """The synopsis the site shows in English mode: English if any, else the Japanese one."""
+    english = item.get("synopsis_en") or item.get("tmdb_overview_en")
+    return str(english or item.get("synopsis") or item.get("tmdb_overview_jp") or "")
+
+
+def film_key(item: dict) -> str:
+    return str(item.get("tmdb_id") or item.get("movie_title") or item.get("movie_title_jp") or "")
+
+
 def print_frontend_quality(data: list[dict], today: str | None = None) -> dict:
     future = [item for item in data if not today or str(item.get("date_text") or "") >= today]
     bad_synopsis_en = [item for item in future if contains_japanese(item.get("synopsis_en"))]
@@ -153,6 +174,15 @@ def print_frontend_quality(data: list[dict], today: str | None = None) -> dict:
         item for item in future
         if contains_japanese(item.get("synopsis_en") or item.get("tmdb_overview_en") or "")
     ]
+    # What a reader actually sees in English mode, including the Japanese fallback
+    # when no English text exists. The checks above only look inside English fields,
+    # so an empty field (failed translation) was invisible to them.
+    english_mode_japanese_title = [item for item in future if contains_japanese(english_mode_title(item))]
+    english_mode_japanese_synopsis = [item for item in future if contains_japanese(english_mode_synopsis(item))]
+    future_films = {film_key(item) for item in future}
+    japanese_title_films = {film_key(item) for item in english_mode_japanese_title}
+    japanese_synopsis_films = {film_key(item) for item in english_mode_japanese_synopsis}
+    synopsis_share = len(japanese_synopsis_films) / len(future_films) if future_films else 0.0
     invalid_letterboxd = [
         item for item in future
         if item.get("letterboxd_url") and item.get("letterboxd_url") != expected_letterboxd_url(item)
@@ -163,7 +193,21 @@ def print_frontend_quality(data: list[dict], today: str | None = None) -> dict:
     missing_tmdb = [item for item in eligible if not item.get("tmdb_id")]
 
     print("Frontend quality")
-    print(f"  English-mode Japanese synopsis rows: {len(english_japanese)}")
+    print(
+        f"  English mode shows a Japanese title: {len(japanese_title_films)}/{len(future_films)} films "
+        f"({len(english_mode_japanese_title)} rows)"
+    )
+    print(
+        f"  English mode shows a Japanese synopsis: {len(japanese_synopsis_films)}/{len(future_films)} films "
+        f"({len(english_mode_japanese_synopsis)} rows)"
+    )
+    if synopsis_share > ENGLISH_MODE_SYNOPSIS_WARN_SHARE:
+        print(
+            "::warning title=Japanese synopses in English mode::"
+            f"{len(japanese_synopsis_films)} of {len(future_films)} films ({synopsis_share:.0%}) show a "
+            "Japanese synopsis in English mode. Check that AI translation ran."
+        )
+    print(f"  Japanese inside English synopsis fields: {len(english_japanese)} rows")
     print(f"  synopsis_en containing Japanese: {len(bad_synopsis_en)}")
     print(f"  invalid exact Letterboxd URLs: {len(invalid_letterboxd)}")
     print(f"  program/event rows separated: {len(program_rows)}")
@@ -177,6 +221,8 @@ def print_frontend_quality(data: list[dict], today: str | None = None) -> dict:
     return {
         "bad_synopsis_en": bad_synopsis_en,
         "english_japanese": english_japanese,
+        "english_mode_japanese_title": english_mode_japanese_title,
+        "english_mode_japanese_synopsis": english_mode_japanese_synopsis,
         "invalid_letterboxd": invalid_letterboxd,
         "program_rows": program_rows,
         "eligible": eligible,
