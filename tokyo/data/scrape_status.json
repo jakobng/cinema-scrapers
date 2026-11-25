@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-11-24T06:13:17+00:00",
-  "run_id": "45336236576",
-  "current_showings": 2609,
-  "current_cinemas": 52,
+  "scraped_at": "2026-11-25T05:18:58+00:00",
+  "run_id": "45549484501",
+  "current_showings": 3462,
+  "current_cinemas": 53,
   "source_issues": [
     {
       "cinema": "Kino Cinema",
@@ -18,12 +18,6 @@
     },
     {
       "cinema": "Cine Switch Ginza",
-      "status": "WARNING",
-      "count": 0,
-      "error": null
-    },
-    {
-      "cinema": "White Cine Quinto",
       "status": "WARNING",
       "count": 0,
       "error": null
