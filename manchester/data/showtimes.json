@@ -449,19 +449,6 @@
   },
   {
     "cinema_name": "Cultplex",
-    "movie_title": "OBSCURE FILM PRESENTS: GENRE IDENTITIES 4 - ECOLOGIES, INDIGENOUS IDENTITIES, AND GENRE",
-    "movie_title_en": "OBSCURE FILM PRESENTS: GENRE IDENTITIES 4 - ECOLOGIES, INDIGENOUS IDENTITIES, AND GENRE",
-    "date_text": "2026-11-25",
-    "showtime": "18:00",
-    "detail_page_url": "https://cultplex.co.uk/Cultplex.dll/WhatsOn?f=1544675",
-    "director": "",
-    "year": "",
-    "country": "",
-    "runtime_min": "90",
-    "synopsis": "The penultimate screening of the year presented by Obscure Film at CULTPLEX! Each of the Genre Identities programmes features two hours of short films by local and international filmmakers, exploring the relationship between themes and concepts of a wide variety of film genres and the identities of ..."
-  },
-  {
-    "cinema_name": "Cultplex",
     "movie_title": "POST CREDIT FILM CLUB PRESENTS: SING STREET",
     "movie_title_en": "POST CREDIT FILM CLUB PRESENTS: SING STREET",
     "date_text": "2026-11-25",
@@ -923,37 +910,6 @@
   },
   {
     "cinema_name": "Everyman Manchester",
-    "movie_title": "The Hunger Games: Sunrise on the Reaping",
-    "movie_title_en": "The Hunger Games: Sunrise on the Reaping",
-    "date_text": "2026-11-25",
-    "showtime": "14:30",
-    "detail_page_url": "https://www.everymancinema.com/film-listing/1000004528",
-    "booking_url": "",
-    "director": "Francis Lawrence",
-    "year": "2026",
-    "country": "",
-    "runtime_min": "158",
-    "synopsis": "The Hunger Games: Sunrise on the Reaping will revisit the world of Panem twenty-four years before the events of The Hunger Games, starting on the morning of the reaping of the Fiftieth Hunger Games, also known as the Second Quarter Quell.",
-    "format_tags": [
-      "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
-    ],
-    "tmdb_id": 1300968,
-    "tmdb_title": "The Hunger Games: Sunrise on the Reaping",
-    "tmdb_original_title": "The Hunger Games: Sunrise on the Reaping",
-    "tmdb_backdrop_path": "/aqFZcr2dxSZ2UwWSo1WC6C0rwDf.jpg",
-    "tmdb_poster_path": "/jNcZH8yplxttRlf0wwqfGGMKHxX.jpg",
-    "tmdb_overview": "Return to the world of Panem 24 years before the events of The Hunger Games, starting on the morning of the reaping of the 50th Hunger Games, also known as the Second Quarter Quell.",
-    "runtime": 159,
-    "genres": [
-      "Science Fiction",
-      "Action",
-      "Adventure"
-    ],
-    "vote_average": 0.0
-  },
-  {
-    "cinema_name": "Everyman Manchester",
     "movie_title": "La Bola Negra",
     "movie_title_en": "La Bola Negra",
     "date_text": "2026-11-25",
@@ -1029,7 +985,8 @@
     "synopsis": "Thirty-four days before she’s sent to prison, notorious Silicon Valley founder Elizabeth Holmes invites a sceptical film crew to document her every move. What begins as an intimate portrait of an enigmatic felon becomes a mind-bending three-year journey into the abyss.",
     "format_tags": [
       "Auditorium.Comfort.ReservedSeating",
-      "Format.Projection.Digital"
+      "Format.Projection.Digital",
+      "Internal.Data.AlmostSoldOut"
     ],
     "tmdb_id": 1765072,
     "tmdb_title": "You Can See Everything",
