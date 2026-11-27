@@ -8367,6 +8367,31 @@
     "status": "accepted",
     "updated_at": "2026-11-12T03:10:16.914622+00:00"
   },
+  "heelヒール::::::": {
+    "candidate": {
+      "director": "ヤン・コマサ",
+      "reasons": [
+        "title_exact"
+      ],
+      "runtime": "110",
+      "score": 10,
+      "support": 0,
+      "title": "HEEL/ヒール",
+      "url": "https://filmarks.com/movies/127056",
+      "year": "2026"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "HEEL／ヒール",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact"
+    ],
+    "score": 10,
+    "search_url": "https://filmarks.com/search/movies?q=HEEL%EF%BC%8F%E3%83%92%E3%83%BC%E3%83%AB",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:42.929000+00:00"
+  },
   "heldin::2025::92::ペトラビオンディナフォックス": {
     "candidate": {
       "director": "リー・スタンリー",
@@ -21666,6 +21691,37 @@
     "status": "review",
     "updated_at": "2026-07-05T23:28:53.060558+00:00"
   },
+  "silentfriends::2025::147::イルディコーエニェディ": {
+    "candidate": {
+      "director": "イルディコー・エニェディ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "147",
+      "score": 12,
+      "support": 2,
+      "title": "静かな友人",
+      "url": "https://filmarks.com/movies/124343",
+      "year": "2026"
+    },
+    "candidate_count": 30,
+    "filmarks_url": "https://filmarks.com/movies/124343",
+    "query": "Silent Friends",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=Silent%20Friends",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:36.487071+00:00"
+  },
   "sirenandlife–ウクライナで続く、戦争と日常。::2026::80::": {
     "candidate": {
       "director": "笹部香",
@@ -22224,6 +22280,33 @@
     "search_url": "https://filmarks.com/search/movies?q=SWANEE%20%E9%87%8E%E6%AF%9B%E6%8E%A2%E5%81%B5%E4%BA%8B%E5%8B%99%E6%89%80",
     "status": "accepted",
     "updated_at": "2026-08-19T22:54:09.980792+00:00"
+  },
+  "symphonyno.0::2026::::菅野祐悟": {
+    "candidate": {
+      "director": "菅野祐悟",
+      "reasons": [
+        "title_exact",
+        "director"
+      ],
+      "runtime": "27",
+      "score": 15,
+      "support": 1,
+      "title": "Symphony No.0",
+      "url": "https://filmarks.com/movies/128057",
+      "year": ""
+    },
+    "candidate_count": 16,
+    "filmarks_url": "https://filmarks.com/movies/128057",
+    "query": "Symphony No.0",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "director"
+    ],
+    "score": 15,
+    "search_url": "https://filmarks.com/search/movies?q=Symphony%20No.0",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:18.233236+00:00"
   },
   "sárkányokkabulfelett::2025::97::ゾンボルディガ": {
     "candidate": {
@@ -24607,6 +24690,35 @@
     "search_url": "https://filmarks.com/search/movies?q=The%20Spirit%20of%20Yokohama",
     "status": "review",
     "updated_at": "2026-10-20T01:20:00.466496+00:00"
+  },
+  "theworldbefore英題::2026::115::ユンダンビ": {
+    "candidate": {
+      "director": "ミルチョ・マンチェフスキー",
+      "reasons": [
+        "title_miss",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "115",
+      "score": -12,
+      "support": 1,
+      "title": "ビフォア・ザ・レイン",
+      "url": "https://filmarks.com/movies/26534",
+      "year": ""
+    },
+    "candidate_count": 27,
+    "filmarks_url": "",
+    "query": "The World Before（英題）",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": -12,
+    "search_url": "https://filmarks.com/search/movies?q=The%20World%20Before%EF%BC%88%E8%8B%B1%E9%A1%8C%EF%BC%89",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:08.652847+00:00"
   },
   "thingswesaidtoday::1993::34::johnmillermonzon": {
     "candidate": {
@@ -30374,6 +30486,33 @@
     "status": "accepted",
     "updated_at": "2026-11-11T02:11:29.333603+00:00"
   },
+  "あの娘は地球外生命体だから::2026::73::戸巻のぞみ": {
+    "candidate": {
+      "director": "鷹森立一",
+      "reasons": [
+        "title_miss",
+        "director_mismatch"
+      ],
+      "runtime": "",
+      "score": -15,
+      "support": 0,
+      "title": "可愛いあの娘",
+      "url": "https://filmarks.com/movies/26816",
+      "year": ""
+    },
+    "candidate_count": 29,
+    "filmarks_url": "",
+    "query": "あの娘は地球外生命体だから",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "director_mismatch"
+    ],
+    "score": -15,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%82%E3%81%AE%E5%A8%98%E3%81%AF%E5%9C%B0%E7%90%83%E5%A4%96%E7%94%9F%E5%91%BD%E4%BD%93%E3%81%A0%E3%81%8B%E3%82%89",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:02.176795+00:00"
+  },
   "あの彼らの出会い::::::": {
     "candidate": {
       "director": "ジェローム・ボネル",
@@ -34543,6 +34682,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%81%99%E3%81%B9%E3%81%A6%E7%9C%9F%E5%A4%9C%E4%B8%AD%E3%81%AE%E6%81%8B%E4%BA%BA%E3%81%9F%E3%81%A1",
     "status": "accepted",
     "updated_at": "2026-11-10T04:22:22.069175+00:00"
+  },
+  "するとかしないとか::2026::::小関裕次郎": {
+    "candidate": {
+      "director": "ティム・ミーランツ",
+      "reasons": [
+        "title_miss",
+        "year",
+        "director_mismatch"
+      ],
+      "runtime": "98",
+      "score": -12,
+      "support": 1,
+      "title": "決断するとき",
+      "url": "https://filmarks.com/movies/114591",
+      "year": "2026"
+    },
+    "candidate_count": 29,
+    "filmarks_url": "",
+    "query": "するとかしないとか",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "director_mismatch"
+    ],
+    "score": -12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8B%E3%81%97%E3%81%AA%E3%81%84%E3%81%A8%E3%81%8B",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:06.001306+00:00"
   },
   "そこのみにて光輝く::2014::120::呉美保": {
     "candidate": {
@@ -39715,6 +39883,37 @@
     "status": "review",
     "updated_at": "2026-11-23T02:47:30.629913+00:00"
   },
+  "アウステルリッツ::2016::94::セルゲイロズニツァ": {
+    "candidate": {
+      "director": "セルゲイ・ロズニツァ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "94",
+      "score": 12,
+      "support": 2,
+      "title": "アウステルリッツ",
+      "url": "https://filmarks.com/movies/89255",
+      "year": "2020"
+    },
+    "candidate_count": 30,
+    "filmarks_url": "https://filmarks.com/movies/89255",
+    "query": "アウステルリッツ",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%A2%E3%82%A6%E3%82%B9%E3%83%86%E3%83%AB%E3%83%AA%E3%83%83%E3%83%84",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:27.077659+00:00"
+  },
   "アオのハコseason1＜day1＞1話～12話::::::": {
     "candidate": {
       "director": "スコット・マクギー",
@@ -40275,6 +40474,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%A2%E3%83%8B%E3%82%A8%E3%82%B9%E3%81%AB%E3%82%88%E3%82%8B%E3%83%B4%E3%82%A1%E3%83%AB%E3%83%80",
     "status": "review",
     "updated_at": "2026-07-02T23:33:39.310286+00:00"
+  },
+  "アニカの伝言::2025::91::イバンフンド": {
+    "candidate": {
+      "director": "イバン・ファンド",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "91",
+      "score": 2,
+      "support": 1,
+      "title": "アニカの伝言",
+      "url": "https://filmarks.com/movies/121334",
+      "year": "2026"
+    },
+    "candidate_count": 17,
+    "filmarks_url": "",
+    "query": "アニカの伝言",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 2,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%A2%E3%83%8B%E3%82%AB%E3%81%AE%E4%BC%9D%E8%A8%80",
+    "status": "review",
+    "updated_at": "2026-11-27T04:22:58.355882+00:00"
   },
   "アニカの伝言::::91::イバンフンド": {
     "candidate": {
@@ -47991,6 +48221,35 @@
     "status": "review",
     "updated_at": "2026-11-23T02:47:23.518552+00:00"
   },
+  "キエフ裁判::2022::106::セルゲイロズニツァ": {
+    "candidate": {
+      "director": "小森白",
+      "reasons": [
+        "title_miss",
+        "runtime_near",
+        "director_mismatch"
+      ],
+      "runtime": "104",
+      "score": -14,
+      "support": 1,
+      "title": "大東亜戦争と国際裁判",
+      "url": "https://filmarks.com/movies/35259",
+      "year": ""
+    },
+    "candidate_count": 29,
+    "filmarks_url": "",
+    "query": "キエフ裁判",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "runtime_near",
+      "director_mismatch"
+    ],
+    "score": -14,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%AD%E3%82%A8%E3%83%95%E8%A3%81%E5%88%A4",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:23.316581+00:00"
+  },
   "キオク::1980::4::yukoasano": {
     "candidate": {
       "director": "マーティン・ダフィ",
@@ -49067,6 +49326,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%89%E3%83%BB%E3%82%B7%E3%83%A3%E3%83%96%E3%83%AD%E3%83%AB%E5%82%91%E4%BD%9C%E9%81%B8vol.%EF%BC%92",
     "status": "review",
     "updated_at": "2026-11-22T02:20:53.071241+00:00"
+  },
+  "クローン人間ブルースリー怒りのスリードラゴン::1980::90::ジョセフコン": {
+    "candidate": {
+      "director": "ジョセフ・コン",
+      "reasons": [
+        "title_partial",
+        "runtime",
+        "director"
+      ],
+      "runtime": "90",
+      "score": 13,
+      "support": 2,
+      "title": "複製（クローン）人間ブルース・リー／怒りのスリー・ドラゴン",
+      "url": "https://filmarks.com/movies/45444",
+      "year": ""
+    },
+    "candidate_count": 32,
+    "filmarks_url": "",
+    "query": "クローン人間ブルース・リー 怒りのスリードラゴン",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime",
+      "director"
+    ],
+    "score": 13,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E4%BA%BA%E9%96%93%E3%83%96%E3%83%AB%E3%83%BC%E3%82%B9%E3%83%BB%E3%83%AA%E3%83%BC%20%E6%80%92%E3%82%8A%E3%81%AE%E3%82%B9%E3%83%AA%E3%83%BC%E3%83%89%E3%83%A9%E3%82%B4%E3%83%B3",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:17.059761+00:00"
   },
   "グッドストライプス::2015::119::岨手由貴子": {
     "candidate": {
@@ -50428,6 +50716,66 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%B4%E3%83%83%E3%83%89%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B6%E3%83%BC",
     "status": "accepted",
     "updated_at": "2026-10-22T00:53:28.753544+00:00"
+  },
+  "ゴッドファーザーpartii::1974::202::フランシスフォードコッポラ": {
+    "candidate": {
+      "director": "フランシス・フォード・コッポラ",
+      "reasons": [
+        "title_partial",
+        "year_mismatch",
+        "runtime_mismatch",
+        "director"
+      ],
+      "runtime": "175",
+      "score": 0,
+      "support": 1,
+      "title": "ゴッドファーザー",
+      "url": "https://filmarks.com/movies/12825",
+      "year": "1972"
+    },
+    "candidate_count": 30,
+    "filmarks_url": "",
+    "query": "ゴッドファーザー PART II",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_partial",
+      "year_mismatch",
+      "runtime_mismatch",
+      "director"
+    ],
+    "score": 0,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B4%E3%83%83%E3%83%89%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B6%E3%83%BC%20PART%20II",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:31.472692+00:00"
+  },
+  "ゴッドファーザー最終章マイケルコルレオーネの最期::2020::158::フランシスフォードコッポラ": {
+    "candidate": {
+      "director": "フランシス・フォード・コッポラ",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director"
+      ],
+      "runtime": "158",
+      "score": 18,
+      "support": 2,
+      "title": "ゴッドファーザー(最終章):マイケル・コルレオーネの最期",
+      "url": "https://filmarks.com/movies/93717",
+      "year": ""
+    },
+    "candidate_count": 33,
+    "filmarks_url": "https://filmarks.com/movies/93717",
+    "query": "ゴッドファーザー 最終章 マイケル・コルレオーネの最期",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director"
+    ],
+    "score": 18,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B4%E3%83%83%E3%83%89%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B6%E3%83%BC%20%E6%9C%80%E7%B5%82%E7%AB%A0%20%E3%83%9E%E3%82%A4%E3%82%B1%E3%83%AB%E3%83%BB%E3%82%B3%E3%83%AB%E3%83%AC%E3%82%AA%E3%83%BC%E3%83%8D%E3%81%AE%E6%9C%80%E6%9C%9F",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:30.282785+00:00"
   },
   "ゴッドランドgodland::2022::143::hlynurpálmason": {
     "candidate": {
@@ -54020,6 +54368,33 @@
     "status": "accepted",
     "updated_at": "2026-09-05T00:12:09.113286+00:00"
   },
+  "シークレットベイビー大逆転::2026::::小栗はるひ": {
+    "candidate": {
+      "director": "アルヴィン・ラーコフ",
+      "reasons": [
+        "title_partial",
+        "director_mismatch"
+      ],
+      "runtime": "100",
+      "score": 0,
+      "support": 0,
+      "title": "大逆転",
+      "url": "https://filmarks.com/movies/20443",
+      "year": ""
+    },
+    "candidate_count": 35,
+    "filmarks_url": "",
+    "query": "シークレット・ベイビー 大逆転",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "director_mismatch"
+    ],
+    "score": 0,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%B7%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88%E3%83%BB%E3%83%99%E3%82%A4%E3%83%93%E3%83%BC%20%E5%A4%A7%E9%80%86%E8%BB%A2",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:03.531956+00:00"
+  },
   "シーシュポスたちのまなざし::2026::94::井上博貴": {
     "candidate": {
       "director": "井上博貴",
@@ -56765,6 +57140,37 @@
     "status": "review",
     "updated_at": "2026-11-24T06:13:12.950978+00:00"
   },
+  "セブン::1995::126::デヴィッドフィンチャー": {
+    "candidate": {
+      "director": "デヴィッド・フィンチャー",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "126",
+      "score": 12,
+      "support": 2,
+      "title": "セブン",
+      "url": "https://filmarks.com/movies/9361",
+      "year": "1996"
+    },
+    "candidate_count": 34,
+    "filmarks_url": "https://filmarks.com/movies/9361",
+    "query": "セブン",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%BB%E3%83%96%E3%83%B3",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:37.535475+00:00"
+  },
   "センチメンタルバリュー::2025::133::ヨアキムトリアー": {
     "candidate": {
       "director": "ヨアキム・トリアー",
@@ -57401,6 +57807,31 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%83%A9%E3%83%96",
     "status": "accepted",
     "updated_at": "2026-11-13T02:54:16.108588+00:00"
+  },
+  "タコピーの原罪::::::": {
+    "candidate": {
+      "director": "飯野慎也",
+      "reasons": [
+        "title_partial"
+      ],
+      "runtime": "",
+      "score": 5,
+      "support": 0,
+      "title": "タコピーの原罪 -ありがとう、また明日-",
+      "url": "https://filmarks.com/movies/128907",
+      "year": "2026"
+    },
+    "candidate_count": 23,
+    "filmarks_url": "",
+    "query": "タコピーの原罪",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial"
+    ],
+    "score": 5,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%82%BF%E3%82%B3%E3%83%94%E3%83%BC%E3%81%AE%E5%8E%9F%E7%BD%AA",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:41.536636+00:00"
   },
   "タコピーの原罪ありがとう、また明日::2026::153::飯野慎也": {
     "candidate": {
@@ -58777,6 +59208,33 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%84%E3%83%BC%E3%83%AA%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%20Tourist%20Family",
     "status": "review",
     "updated_at": "2026-06-07T05:18:57.844786+00:00"
+  },
+  "テキサステナーイリノイジャケーストーリー::1992::::アーサーエルゴート": {
+    "candidate": {
+      "director": "マイケル・ゴードン",
+      "reasons": [
+        "title_partial",
+        "director_mismatch"
+      ],
+      "runtime": "101",
+      "score": 0,
+      "support": 0,
+      "title": "テキサス",
+      "url": "https://filmarks.com/movies/6959",
+      "year": ""
+    },
+    "candidate_count": 34,
+    "filmarks_url": "",
+    "query": "テキサス・テナー:イリノイ・ジャケー・ストーリー",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "director_mismatch"
+    ],
+    "score": 0,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%86%E3%82%AD%E3%82%B5%E3%82%B9%E3%83%BB%E3%83%86%E3%83%8A%E3%83%BC%3A%E3%82%A4%E3%83%AA%E3%83%8E%E3%82%A4%E3%83%BB%E3%82%B8%E3%83%A3%E3%82%B1%E3%83%BC%E3%83%BB%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:20.997975+00:00"
   },
   "テレグラフヒルの家::::93::": {
     "candidate": {
@@ -61492,6 +61950,37 @@
     "status": "accepted",
     "updated_at": "2026-07-24T23:27:52.654576+00:00"
   },
+  "ドンバス::2018::121::セルゲイロズニツァ": {
+    "candidate": {
+      "director": "セルゲイ・ロズニツァ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "121",
+      "score": 12,
+      "support": 2,
+      "title": "ドンバス",
+      "url": "https://filmarks.com/movies/80603",
+      "year": "2022"
+    },
+    "candidate_count": 22,
+    "filmarks_url": "https://filmarks.com/movies/80603",
+    "query": "ドンバス",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%89%E3%83%B3%E3%83%90%E3%82%B9",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:24.856480+00:00"
+  },
   "ドンバス::2018::121::谢尔盖·洛兹尼察": {
     "candidate": {
       "director": "セルゲイ・ロズニツァ",
@@ -63242,6 +63731,37 @@
     "status": "accepted",
     "updated_at": "2026-10-16T16:20:18.057299+00:00"
   },
+  "ハウスメイド::2025::131::ポールフェイグ": {
+    "candidate": {
+      "director": "ポール・フェイグ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "131",
+      "score": 12,
+      "support": 2,
+      "title": "ハウスメイド",
+      "url": "https://filmarks.com/movies/124970",
+      "year": "2026"
+    },
+    "candidate_count": 31,
+    "filmarks_url": "https://filmarks.com/movies/124970",
+    "query": "ハウスメイド",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%8F%E3%82%A6%E3%82%B9%E3%83%A1%E3%82%A4%E3%83%89",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:22:55.117675+00:00"
+  },
   "ハウスメイド::2026::131::ポールフェイグ": {
     "candidate": {
       "director": "ポール・フェイグ",
@@ -64555,6 +65075,37 @@
     "status": "review",
     "updated_at": "2026-11-23T02:47:22.237474+00:00"
   },
+  "バビヤール::2021::121::セルゲイロズニツァ": {
+    "candidate": {
+      "director": "セルゲイ・ロズニツァ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "121",
+      "score": 12,
+      "support": 2,
+      "title": "バビ・ヤール",
+      "url": "https://filmarks.com/movies/100931",
+      "year": "2022"
+    },
+    "candidate_count": 26,
+    "filmarks_url": "https://filmarks.com/movies/100931",
+    "query": "バビ・ヤール",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%90%E3%83%93%E3%83%BB%E3%83%A4%E3%83%BC%E3%83%AB",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:26.099498+00:00"
+  },
   "バビル2世シリーズ::::100::": {
     "candidate": {
       "director": "佐々木康",
@@ -65793,6 +66344,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%92%E3%83%9D%E3%82%AF%E3%83%A9%E3%83%86%E3%82%B9%E3%81%AE%E7%9B%B2%E7%82%B9%E3%80%902026%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E7%89%88%E3%80%91",
     "status": "review",
     "updated_at": "2026-11-11T02:12:15.759089+00:00"
+  },
+  "ヒポクラテスの盲点【2026年アップデート版】::2026::120::大西隼": {
+    "candidate": {
+      "director": "トマ・リルティ",
+      "reasons": [
+        "title_partial",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "102",
+      "score": -4,
+      "support": 0,
+      "title": "ヒポクラテス",
+      "url": "https://filmarks.com/movies/61255",
+      "year": ""
+    },
+    "candidate_count": 27,
+    "filmarks_url": "",
+    "query": "ヒポクラテスの盲点【2026年アップデート版】",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -4,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%92%E3%83%9D%E3%82%AF%E3%83%A9%E3%83%86%E3%82%B9%E3%81%AE%E7%9B%B2%E7%82%B9%E3%80%902026%E5%B9%B4%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E7%89%88%E3%80%91",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:45.679185+00:00"
   },
   "ヒルコ妖怪ハンター::1991::89::塚本晋也": {
     "candidate": {
@@ -72589,6 +73169,35 @@
     "status": "review",
     "updated_at": "2026-08-29T04:00:53.983751+00:00"
   },
+  "ミスロンリネス::2026::75::戸巻のぞみ": {
+    "candidate": {
+      "director": "ソニー・カルヴェント",
+      "reasons": [
+        "title_miss",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "16",
+      "score": -19,
+      "support": 0,
+      "title": "エクスキューズミー、ミス、ミス、ミス",
+      "url": "https://filmarks.com/movies/96164",
+      "year": ""
+    },
+    "candidate_count": 30,
+    "filmarks_url": "",
+    "query": "ミス・ロンリネス",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": -19,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%9F%E3%82%B9%E3%83%BB%E3%83%AD%E3%83%B3%E3%83%AA%E3%83%8D%E3%82%B9",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:04.928836+00:00"
+  },
   "ミックスモダン::2025::106::藤原稔三": {
     "candidate": {
       "director": "藤原稔三",
@@ -77806,6 +78415,37 @@
     "status": "review",
     "updated_at": "2026-10-19T00:24:27.185106+00:00"
   },
+  "レニン復讐の血戦::2026::159::ムラリキショールアッブール": {
+    "candidate": {
+      "director": "ムラリ・キショール・アッブール",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "159",
+      "score": 21,
+      "support": 3,
+      "title": "レニン 復讐の血戦",
+      "url": "https://filmarks.com/movies/129378",
+      "year": "2026"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "https://filmarks.com/movies/129378",
+    "query": "レニン 復讐の血戦",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AC%E3%83%8B%E3%83%B3%20%E5%BE%A9%E8%AE%90%E3%81%AE%E8%A1%80%E6%88%A6",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:22:57.117563+00:00"
+  },
   "レネットとミラベル四つの冒険::1986::99::": {
     "candidate": {
       "director": "エリック・ロメール",
@@ -78657,6 +79297,37 @@
     "status": "review",
     "updated_at": "2026-11-22T02:20:54.178150+00:00"
   },
+  "ロンガの海::2026::83::小西晴子": {
+    "candidate": {
+      "director": "小西晴子",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "83",
+      "score": 21,
+      "support": 3,
+      "title": "ロンガの海",
+      "url": "https://filmarks.com/movies/129218",
+      "year": "2026"
+    },
+    "candidate_count": 28,
+    "filmarks_url": "https://filmarks.com/movies/129218",
+    "query": "ロンガの海",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AD%E3%83%B3%E3%82%AC%E3%81%AE%E6%B5%B7",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:32.954537+00:00"
+  },
   "ロングウォーク::2025::108::フランシスローレンス": {
     "candidate": {
       "director": "フランシス・ローレンス",
@@ -79047,6 +79718,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E3%83%AF%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%9E%E3%83%B3",
     "status": "review",
     "updated_at": "2026-06-07T05:10:00.864396+00:00"
+  },
+  "ワーズアイウォントトゥセイ::2026::70::宮本亮": {
+    "candidate": {
+      "director": "マット・ジェイスル",
+      "reasons": [
+        "title_miss",
+        "runtime_near",
+        "director_mismatch"
+      ],
+      "runtime": "71",
+      "score": -14,
+      "support": 1,
+      "title": "Amityville AI（原題）",
+      "url": "https://filmarks.com/movies/125829",
+      "year": ""
+    },
+    "candidate_count": 31,
+    "filmarks_url": "",
+    "query": "ワーズ・アイ・ウォント・トゥ・セイ",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "runtime_near",
+      "director_mismatch"
+    ],
+    "score": -14,
+    "search_url": "https://filmarks.com/search/movies?q=%E3%83%AF%E3%83%BC%E3%82%BA%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%BB%E3%82%A6%E3%82%A9%E3%83%B3%E3%83%88%E3%83%BB%E3%83%88%E3%82%A5%E3%83%BB%E3%82%BB%E3%82%A4",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:07.471818+00:00"
   },
   "ワールドクラシック＠シネマ2011オペラばらの騎士バーデンバーデン祝祭劇場::2011::211::cノーランの史上最高傑作": {
     "candidate": {
@@ -80908,6 +81608,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E4%B8%96%E3%81%AB%E3%82%82%E9%9D%A2%E7%99%BD%E3%81%84%E7%94%B7%E3%81%AE%E4%B8%80%E7%94%9F%20%E6%A1%82%E6%98%A5%E5%9B%A3%E6%B2%BB",
     "status": "accepted",
     "updated_at": "2026-08-28T06:25:33.442670+00:00"
+  },
+  "世界::2004::133::ジャジャンクー": {
+    "candidate": {
+      "director": "塚田万理奈",
+      "reasons": [
+        "title_exact",
+        "runtime_mismatch",
+        "director_mismatch"
+      ],
+      "runtime": "38",
+      "score": 1,
+      "support": 0,
+      "title": "世界",
+      "url": "https://filmarks.com/movies/108668",
+      "year": ""
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "世界",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_mismatch",
+      "director_mismatch"
+    ],
+    "score": 1,
+    "search_url": "https://filmarks.com/search/movies?q=%E4%B8%96%E7%95%8C",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:12.337433+00:00"
   },
   "世界::2004::140::ジャジャンクー": {
     "candidate": {
@@ -82855,6 +83584,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E4%BA%BA%E9%96%93%E9%AD%9A%E9%9B%B7%E5%9B%9E%E5%A4%A9",
     "status": "review",
     "updated_at": "2026-06-11T00:00:29.632163+00:00"
+  },
+  "仁義なき戦い広島死闘篇::1973::100::深作欣二": {
+    "candidate": {
+      "director": "深作欣二",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "100",
+      "score": 21,
+      "support": 3,
+      "title": "仁義なき戦い 広島死闘篇",
+      "url": "https://filmarks.com/movies/23478",
+      "year": "1973"
+    },
+    "candidate_count": 32,
+    "filmarks_url": "https://filmarks.com/movies/23478",
+    "query": "仁義なき戦い 広島死闘篇",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E4%BB%81%E7%BE%A9%E3%81%AA%E3%81%8D%E6%88%A6%E3%81%84%20%E5%BA%83%E5%B3%B6%E6%AD%BB%E9%97%98%E7%AF%87",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:15.917223+00:00"
   },
   "今は昔、栄養映画館の旅::2025::120::竹田正明": {
     "candidate": {
@@ -91529,6 +92289,37 @@
     "status": "review",
     "updated_at": "2026-11-23T02:47:29.694925+00:00"
   },
+  "国葬::2019::135::セルゲイロズニツァ": {
+    "candidate": {
+      "director": "セルゲイ・ロズニツァ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "135",
+      "score": 12,
+      "support": 2,
+      "title": "国葬",
+      "url": "https://filmarks.com/movies/89253",
+      "year": "2020"
+    },
+    "candidate_count": 2,
+    "filmarks_url": "https://filmarks.com/movies/89253",
+    "query": "国葬",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%9B%BD%E8%91%AC",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:28.196705+00:00"
+  },
   "國分玲::2026::92::ロジャーdコーエン": {
     "candidate": {
       "director": "スタンリー・クワン",
@@ -93650,6 +94441,33 @@
     "search_url": "https://filmarks.com/search/movies?q=%E5%A4%A7%E7%B5%B1%E9%A0%98%E3%81%AE%E8%AA%98%E6%8B%90",
     "status": "review",
     "updated_at": "2026-10-16T16:23:40.510336+00:00"
+  },
+  "天に至る9つの寺::2026::140::ソムポットチットケーソーンポン": {
+    "candidate": {
+      "director": "ジェイ・チョウ",
+      "reasons": [
+        "title_miss",
+        "director_mismatch"
+      ],
+      "runtime": "",
+      "score": -15,
+      "support": 0,
+      "title": "天台 RooFToP",
+      "url": "https://filmarks.com/movies/58194",
+      "year": ""
+    },
+    "candidate_count": 31,
+    "filmarks_url": "",
+    "query": "天に至る9つの寺",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "director_mismatch"
+    ],
+    "score": -15,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%A4%A9%E3%81%AB%E8%87%B3%E3%82%8B9%E3%81%A4%E3%81%AE%E5%AF%BA",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:11.084250+00:00"
   },
   "天使たち::2025::86::木村ナイマ": {
     "candidate": {
@@ -99781,6 +100599,35 @@
     "status": "review",
     "updated_at": "2026-07-23T23:23:57.481890+00:00"
   },
+  "影なき男::1934::90::ウィリアムsヴァンダイク": {
+    "candidate": {
+      "director": "W・S・ヴァン・ダイク",
+      "reasons": [
+        "title_exact",
+        "runtime_near",
+        "director_mismatch"
+      ],
+      "runtime": "92",
+      "score": 6,
+      "support": 1,
+      "title": "影なき男",
+      "url": "https://filmarks.com/movies/29515",
+      "year": ""
+    },
+    "candidate_count": 28,
+    "filmarks_url": "",
+    "query": "影なき男",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_near",
+      "director_mismatch"
+    ],
+    "score": 6,
+    "search_url": "https://filmarks.com/search/movies?q=%E5%BD%B1%E3%81%AA%E3%81%8D%E7%94%B7",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:38.805051+00:00"
+  },
   "影なき男::1934::91::w.s.vandyke": {
     "candidate": {
       "director": "W・S・ヴァン・ダイク",
@@ -103586,6 +104433,37 @@
     "status": "accepted",
     "updated_at": "2026-10-16T16:19:15.990568+00:00"
   },
+  "我が心の香港映画監督アンホイ::2020::119::マンリムチョン": {
+    "candidate": {
+      "director": "マン・リムチョン",
+      "reasons": [
+        "title_partial",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "119",
+      "score": 7,
+      "support": 2,
+      "title": "我が心の香港　映画監督アン・ホイ／映画をつづける",
+      "url": "https://filmarks.com/movies/96017",
+      "year": "2021"
+    },
+    "candidate_count": 29,
+    "filmarks_url": "",
+    "query": "我が心の香港 映画監督アン・ホイ",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_partial",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 7,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%88%91%E3%81%8C%E5%BF%83%E3%81%AE%E9%A6%99%E6%B8%AF%20%E6%98%A0%E7%94%BB%E7%9B%A3%E7%9D%A3%E3%82%A2%E3%83%B3%E3%83%BB%E3%83%9B%E3%82%A4",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:19.550999+00:00"
+  },
   "我が心の香港映画監督アンホイ好好拍電影＜真實電影院在場一日影展＞::::::": {
     "candidate": {
       "director": "マン・リムチョン",
@@ -103902,6 +104780,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E6%88%A6%E5%A0%B4%E3%81%AB%E3%81%AA%E3%81%8C%E3%82%8C%E3%82%8B%E6%AD%8C",
     "status": "accepted",
     "updated_at": "2026-07-19T23:17:22.103291+00:00"
+  },
+  "戦場のボヘミアンカメラマン石川文洋::2026::88::河邑厚徳": {
+    "candidate": {
+      "director": "河邑厚徳",
+      "reasons": [
+        "title_miss",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "88",
+      "score": 1,
+      "support": 3,
+      "title": "戦場のボヘミアン カメラマン ⽯川⽂洋",
+      "url": "https://filmarks.com/movies/128506",
+      "year": "2026"
+    },
+    "candidate_count": 27,
+    "filmarks_url": "",
+    "query": "戦場のボヘミアン カメラマン 石川文洋",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 1,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%88%A6%E5%A0%B4%E3%81%AE%E3%83%9C%E3%83%98%E3%83%9F%E3%82%A2%E3%83%B3%20%E3%82%AB%E3%83%A1%E3%83%A9%E3%83%9E%E3%83%B3%20%E7%9F%B3%E5%B7%9D%E6%96%87%E6%B4%8B",
+    "status": "review",
+    "updated_at": "2026-11-27T04:22:59.479998+00:00"
   },
   "戦場のボヘミアンカメラマン石川文洋::::::河邑厚徳": {
     "candidate": {
@@ -116959,6 +117868,35 @@
     "status": "accepted",
     "updated_at": "2026-11-18T03:56:06.519787+00:00"
   },
+  "溺れる香り::2026::90::塩出太志": {
+    "candidate": {
+      "director": "池田敏春",
+      "reasons": [
+        "title_miss",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "90",
+      "score": -12,
+      "support": 1,
+      "title": "魔性の香り",
+      "url": "https://filmarks.com/movies/22056",
+      "year": ""
+    },
+    "candidate_count": 35,
+    "filmarks_url": "",
+    "query": "溺れる香り",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": -12,
+    "search_url": "https://filmarks.com/search/movies?q=%E6%BA%BA%E3%82%8C%E3%82%8B%E9%A6%99%E3%82%8A",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:00.707187+00:00"
+  },
   "滝の白糸::1952::97::野淵昶": {
     "candidate": {
       "director": "島耕二",
@@ -117905,6 +118843,35 @@
     "search_url": "https://filmarks.com/search/movies?q=%E7%84%A1%E6%B0%97%E5%8A%9B%E3%82%B7%E3%83%B3%E3%83%89%E3%83%AD%E3%83%BC%E3%83%A0%20%D0%90%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%B8%D0%BD%D0%B4%D1%80%D0%BE%D0%BC",
     "status": "review",
     "updated_at": "2026-10-29T02:01:08.649845+00:00"
+  },
+  "無気力症シンドローム::1989::153::キーラムラートワ": {
+    "candidate": {
+      "director": "キラ・ムラトヴァ",
+      "reasons": [
+        "title_exact",
+        "runtime",
+        "director_mismatch"
+      ],
+      "runtime": "153",
+      "score": 8,
+      "support": 1,
+      "title": "無気力症シンドローム",
+      "url": "https://filmarks.com/movies/65368",
+      "year": ""
+    },
+    "candidate_count": 25,
+    "filmarks_url": "",
+    "query": "無気力症シンドローム",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime",
+      "director_mismatch"
+    ],
+    "score": 8,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%84%A1%E6%B0%97%E5%8A%9B%E7%97%87%E3%82%B7%E3%83%B3%E3%83%89%E3%83%AD%E3%83%BC%E3%83%A0",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:35.087902+00:00"
   },
   "無気力症シンドロームастеническийсиндром::::::": {
     "candidate": {
@@ -119700,6 +120667,35 @@
     "status": "accepted",
     "updated_at": "2026-10-19T00:23:59.828988+00:00"
   },
+  "獣たちの熱い夜ある帰還兵の記録::1981::92::アンホイ": {
+    "candidate": {
+      "director": "アン・ホイ",
+      "reasons": [
+        "title_exact",
+        "runtime_mismatch",
+        "director"
+      ],
+      "runtime": "98",
+      "score": 11,
+      "support": 1,
+      "title": "獣たちの熱い夜／ある帰還兵の記録",
+      "url": "https://filmarks.com/movies/45185",
+      "year": ""
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "獣たちの熱い夜 ある帰還兵の記録",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "runtime_mismatch",
+      "director"
+    ],
+    "score": 11,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%8D%A3%E3%81%9F%E3%81%A1%E3%81%AE%E7%86%B1%E3%81%84%E5%A4%9C%20%E3%81%82%E3%82%8B%E5%B8%B0%E9%82%84%E5%85%B5%E3%81%AE%E8%A8%98%E9%8C%B2",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:09.832679+00:00"
+  },
   "獣兵衛忍風帖::1993::92::川尻善昭": {
     "candidate": {
       "director": "川尻善昭",
@@ -120395,6 +121391,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E7%94%B7%E3%81%AE%E9%AD%82",
     "status": "accepted",
     "updated_at": "2026-08-01T23:23:37.416563+00:00"
+  },
+  "男はつらいよ寅次郎忘れな草::1973::99::山田洋次": {
+    "candidate": {
+      "director": "山田洋次",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "99",
+      "score": 21,
+      "support": 3,
+      "title": "男はつらいよ 寅次郎忘れな草",
+      "url": "https://filmarks.com/movies/18001",
+      "year": "1973"
+    },
+    "candidate_count": 35,
+    "filmarks_url": "https://filmarks.com/movies/18001",
+    "query": "男はつらいよ 寅次郎忘れな草",
+    "query_field": "clean_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%94%B7%E3%81%AF%E3%81%A4%E3%82%89%E3%81%84%E3%82%88%20%E5%AF%85%E6%AC%A1%E9%83%8E%E5%BF%98%E3%82%8C%E3%81%AA%E8%8D%89",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:13.670758+00:00"
   },
   "異国の出来事::1948::116::ビリーワイルダー": {
     "candidate": {
@@ -124390,6 +125417,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E7%B2%92%E5%AD%90%E3%81%AE%E3%83%80%E3%83%B3%E3%82%B9%20%E7%9B%A3%E7%9D%A3%E3%83%88%E3%83%BC%E3%82%AF%E4%BB%98%E3%81%8D%E4%B8%8A%E6%98%A0%2012%EF%BC%9A15%20%E3%81%95%E3%82%88%E3%81%AA%E3%82%89%E3%80%81%E5%83%95%E3%81%AE%E8%8B%B1%E9%9B%84%20Den%20sidste%20viking%20%E3%83%8B%E3%83%9B%E3%83%B3%E3%82%B8%E3%83%B3%20Eu%20e%20Meu%20Av%C3%B4%20Nihonjin",
     "status": "review",
     "updated_at": "2026-09-04T00:13:54.976751+00:00"
+  },
+  "粛清裁判::2018::123::セルゲイロズニツァ": {
+    "candidate": {
+      "director": "セルゲイ・ロズニツァ",
+      "reasons": [
+        "title_exact",
+        "year_mismatch",
+        "runtime",
+        "director"
+      ],
+      "runtime": "123",
+      "score": 12,
+      "support": 2,
+      "title": "粛清裁判",
+      "url": "https://filmarks.com/movies/89254",
+      "year": "2020"
+    },
+    "candidate_count": 29,
+    "filmarks_url": "https://filmarks.com/movies/89254",
+    "query": "粛清裁判",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year_mismatch",
+      "runtime",
+      "director"
+    ],
+    "score": 12,
+    "search_url": "https://filmarks.com/search/movies?q=%E7%B2%9B%E6%B8%85%E8%A3%81%E5%88%A4",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:29.099410+00:00"
   },
   "粛清裁判::2018::128::": {
     "candidate": {
@@ -134359,6 +135417,33 @@
     "status": "review",
     "updated_at": "2026-06-09T23:44:14.430661+00:00"
   },
+  "長い見送り::1971::::キラムラートワ": {
+    "candidate": {
+      "director": "ケン・アナキン",
+      "reasons": [
+        "title_miss",
+        "director_mismatch"
+      ],
+      "runtime": "115",
+      "score": -15,
+      "support": 0,
+      "title": "長い長い決闘",
+      "url": "https://filmarks.com/movies/15489",
+      "year": ""
+    },
+    "candidate_count": 25,
+    "filmarks_url": "",
+    "query": "長い見送り",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss",
+      "director_mismatch"
+    ],
+    "score": -15,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%95%B7%E3%81%84%E8%A6%8B%E9%80%81%E3%82%8A",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:34.100134+00:00"
+  },
   "長い見送りдолгиепроводы::::::": {
     "candidate": {
       "director": "伊藤秀裕",
@@ -135634,6 +136719,37 @@
     "search_url": "https://filmarks.com/search/movies?q=%E9%9B%B7%E9%9B%BB",
     "status": "accepted",
     "updated_at": "2026-11-21T03:23:53.297172+00:00"
+  },
+  "雷電::2026::96::芝暢佑": {
+    "candidate": {
+      "director": "芝暢佑",
+      "reasons": [
+        "title_exact",
+        "year",
+        "runtime",
+        "director"
+      ],
+      "runtime": "96",
+      "score": 21,
+      "support": 3,
+      "title": "雷電",
+      "url": "https://filmarks.com/movies/130610",
+      "year": "2026"
+    },
+    "candidate_count": 4,
+    "filmarks_url": "https://filmarks.com/movies/130610",
+    "query": "雷電",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_exact",
+      "year",
+      "runtime",
+      "director"
+    ],
+    "score": 21,
+    "search_url": "https://filmarks.com/search/movies?q=%E9%9B%B7%E9%9B%BB",
+    "status": "accepted",
+    "updated_at": "2026-11-27T04:23:22.533401+00:00"
   },
   "霧のごとく::2025::134::チェンユーシュン": {
     "candidate": {
@@ -140942,6 +142058,31 @@
     "status": "review",
     "updated_at": "2026-06-30T23:38:49.578381+00:00"
   },
+  "ｱｯﾄｻﾞﾍﾞﾝﾁ劇場公開2周年記念::::::": {
+    "candidate": {
+      "director": "奥⼭由之",
+      "reasons": [
+        "title_miss"
+      ],
+      "runtime": "86",
+      "score": -10,
+      "support": 0,
+      "title": "アット・ザ・ベンチ",
+      "url": "https://filmarks.com/movies/118542",
+      "year": "2024"
+    },
+    "candidate_count": 26,
+    "filmarks_url": "",
+    "query": "ｱｯﾄ･ｻﾞ･ﾍﾞﾝﾁ 劇場公開2周年記念",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss"
+    ],
+    "score": -10,
+    "search_url": "https://filmarks.com/search/movies?q=%EF%BD%B1%EF%BD%AF%EF%BE%84%EF%BD%A5%EF%BD%BB%EF%BE%9E%EF%BD%A5%EF%BE%8D%EF%BE%9E%EF%BE%9D%EF%BE%81%20%E5%8A%87%E5%A0%B4%E5%85%AC%E9%96%8B2%E5%91%A8%E5%B9%B4%E8%A8%98%E5%BF%B5",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:44.191528+00:00"
+  },
   "ｲﾝﾋﾞｼﾞﾌﾞﾙﾊｰﾌ0622先行特別上映::::::": {
     "candidate": {
       "director": "西山将貴",
@@ -141241,6 +142382,31 @@
     "search_url": "https://filmarks.com/search/movies?q=%EF%BE%84%EF%BD%B0%EF%BD%B7%EF%BD%AE%EF%BD%B0%EF%BE%85%EF%BD%B2%EF%BE%84%EF%BE%8C%EF%BD%AB%EF%BD%B0%EF%BE%99%5B0807%E8%88%9E%E5%8F%B0%E6%8C%A8%E6%8B%B6%5D",
     "status": "review",
     "updated_at": "2026-07-31T23:29:32.335223+00:00"
+  },
+  "ﾌｧｰｻﾞｰﾏｻﾞｰｼｽﾀｰﾌﾞﾗｻﾞｰ::::::": {
+    "candidate": {
+      "director": "ジム・ジャームッシュ",
+      "reasons": [
+        "title_miss"
+      ],
+      "runtime": "111",
+      "score": -10,
+      "support": 0,
+      "title": "ファーザー マザー シスター ブラザー",
+      "url": "https://filmarks.com/movies/124339",
+      "year": "2026"
+    },
+    "candidate_count": 33,
+    "filmarks_url": "",
+    "query": "ﾌｧｰｻﾞｰﾏｻﾞｰｼｽﾀｰﾌﾞﾗｻﾞｰ",
+    "query_field": "movie_title_jp",
+    "reasons": [
+      "title_miss"
+    ],
+    "score": -10,
+    "search_url": "https://filmarks.com/search/movies?q=%EF%BE%8C%EF%BD%A7%EF%BD%B0%EF%BD%BB%EF%BE%9E%EF%BD%B0%EF%BE%8F%EF%BD%BB%EF%BE%9E%EF%BD%B0%EF%BD%BC%EF%BD%BD%EF%BE%80%EF%BD%B0%EF%BE%8C%EF%BE%9E%EF%BE%97%EF%BD%BB%EF%BE%9E%EF%BD%B0",
+    "status": "review",
+    "updated_at": "2026-11-27T04:23:40.064599+00:00"
   },
   "ﾏﾙｾﾙ&ﾑｯｼｭ::::::": {
     "candidate": {

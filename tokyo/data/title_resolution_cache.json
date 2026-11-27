@@ -338,12 +338,12 @@
   },
   "1971、ハイジャック事件": {
     "ai_provider": "deepseek",
-    "confidence": 0.95,
+    "confidence": 0.9,
     "country": "韓国",
     "director": "キム・ソンハン",
     "english_title": "Hijack 1971",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:53+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:22+00:00",
     "notes": "",
     "original_title": "Hijack 1971",
     "release_year": 2024
@@ -1079,6 +1079,7 @@
     "country": "Hong Kong",
     "director": null,
     "english_title": "Edhi Alice: Take",
+    "failed": true,
     "last_ai_attempt_at": "2026-11-26T04:21:50+00:00",
     "notes": "",
     "original_title": "Edhi Alice： Take",
@@ -1387,14 +1388,14 @@
   },
   "HEEL ヒール": {
     "ai_provider": "deepseek",
-    "confidence": 1.0,
+    "confidence": 0.9,
     "country": "ポーランド・イギリス合作",
     "director": "ヤン・コマサ",
     "english_title": "Good Boy",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:47+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:11+00:00",
     "notes": "",
-    "original_title": "Good Boy",
+    "original_title": "HEEL ヒール",
     "release_year": 2025
   },
   "HOUSE ハウス": {
@@ -1575,27 +1576,21 @@
   },
   "LOUDNESS「A Documentary of THUNDER IN THE EAST」": {
     "ai_provider": "deepseek",
-    "confidence": 0.7,
-    "country": "Japan",
-    "director": null,
-    "english_title": "A Documentary of THUNDER IN THE EAST",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:39+00:00",
-    "notes": "",
-    "original_title": "LOUDNESS「A Documentary of THUNDER IN THE EAST」",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "LOUDNESS「EUROBOUNDS」": {
     "ai_provider": "deepseek",
-    "confidence": 80,
-    "country": "Japan",
-    "director": null,
-    "english_title": "Eurobounds",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:34+00:00",
-    "notes": "",
-    "original_title": "LOUDNESS「EUROBOUNDS」",
-    "release_year": 1984
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "LV ﾐｭｰｼﾞｶﾙ『刀剣乱舞』～静かなる夜半の寝": {
     "confidence": 0.9,
@@ -1868,12 +1863,12 @@
   },
   "METライブビューイング2026-27 モーツァルト《コジ・ファン・トゥッテ》": {
     "ai_provider": "deepseek",
-    "confidence": 0.95,
+    "confidence": 0.9,
     "country": "アメリカ",
     "director": null,
     "english_title": "The Metropolitan Opera HD Live Season 20, Episode 1: Mozart - Cosi Fan Tutte",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:53+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:17+00:00",
     "notes": "",
     "original_title": "The Metropolitan Opera HD Live Season 20, Episode 1: Mozart - Cosi Fan Tutte",
     "release_year": 2026
@@ -1960,12 +1955,12 @@
   },
   "Man": {
     "ai_provider": "deepseek",
-    "confidence": 0.9,
+    "confidence": 0.7,
     "country": "日本",
     "director": "前田弘二",
     "english_title": "Man",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:03+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:32+00:00",
     "notes": "",
     "original_title": "Man",
     "release_year": 2026
@@ -2080,12 +2075,12 @@
   },
   "NTLive『みんな我が子』": {
     "ai_provider": "deepseek",
-    "confidence": 0.85,
+    "confidence": 0.9,
     "country": "United Kingdom",
     "director": null,
     "english_title": "All My Sons",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:39+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:09+00:00",
     "notes": "",
     "original_title": "All My Sons",
     "release_year": 2026
@@ -2203,7 +2198,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2459,7 +2454,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -2629,9 +2624,9 @@
     "director": "デニス・サンダース",
     "english_title": "Soul To Soul",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:08+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:37+00:00",
     "notes": "",
-    "original_title": "SOUL TO SOUL 魂の詩",
+    "original_title": "Soul To Soul",
     "release_year": 1971
   },
   "SUPER JUNIOR 20th Anniversary TOUR SJ-CORE in SEOUL LIVE VIEWING": {
@@ -2697,6 +2692,15 @@
     "notes": "",
     "original_title": "Smoke",
     "release_year": 1995
+  },
+  "Symphony No.0": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "S　※インターナショナル版": {
     "confidence": 0.9,
@@ -2982,6 +2986,18 @@
     "original_title": "The Spirit of Yokohama",
     "release_year": 2024
   },
+  "The World Before（英題）": {
+    "ai_provider": "deepseek",
+    "confidence": 0.8,
+    "country": null,
+    "director": "ユン・ダンビ",
+    "english_title": "The World Before",
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:20:11+00:00",
+    "notes": "",
+    "original_title": null,
+    "release_year": 2026
+  },
   "Tokyo Melody": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
@@ -3153,7 +3169,7 @@
     "director": "David Lam",
     "english_title": "Z Storm",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:39+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:09+00:00",
     "notes": "",
     "original_title": "Z風暴",
     "release_year": 2014
@@ -4150,7 +4166,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -4672,12 +4688,12 @@
   },
   "『カンダハール』リバイバル公開記念 モフセン・マフマルバフ監督特集": {
     "ai_provider": "deepseek",
-    "confidence": 0.6,
-    "country": null,
-    "director": "モフセン・マフマルバフ",
+    "confidence": 0.85,
+    "country": "Iran",
+    "director": "Mohsen Makhmalbaf",
     "english_title": "Kandahar",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:29+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:59+00:00",
     "notes": "",
     "original_title": "Kandahar",
     "release_year": 1991
@@ -5522,7 +5538,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -5713,7 +5729,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -6085,7 +6101,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -6984,7 +7000,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -7129,7 +7145,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -7536,7 +7552,7 @@
     "director": "キム・テヨン",
     "english_title": "Number One",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:53+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:22+00:00",
     "notes": "",
     "original_title": "Number One",
     "release_year": 2026
@@ -7604,6 +7620,15 @@
     "notes": "",
     "original_title": "あのとき",
     "release_year": 2020
+  },
+  "あの娘は地球外生命体だから": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "あの彼らの出会い": {
     "ai_provider": "deepseek",
@@ -7741,11 +7766,13 @@
   },
   "ある精肉店のはなし　2026アンコール上映": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
-    "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
-    "notes": "local_ai_no_result",
+    "confidence": 0.5,
+    "country": "Japan",
+    "director": null,
+    "english_title": "The Story of a Butcher Shop",
+    "last_ai_attempt_at": "2026-11-27T04:20:59+00:00",
+    "notes": "",
+    "original_title": "ある精肉店のはなし",
     "release_year": null
   },
   "あんさんぶるスターズ！！DREAM LIVE Tour 10th 𝄪ALL STARS!! ライブ・ビューイング": {
@@ -7763,7 +7790,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -7842,7 +7869,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -7872,7 +7899,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8028,7 +8055,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8149,6 +8176,15 @@
     "original_title": "こつまなんきん",
     "release_year": 1960
   },
+  "このごにおよんで愛など": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "この世界の（さらにいくつもの）片隅に": {
     "ai_provider": "deepseek",
     "confidence": 0.8,
@@ -8225,7 +8261,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8248,7 +8284,7 @@
     "director": "ジャンナ・アガラコワ",
     "english_title": "A Little Gray Wolf Will Come",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:42+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:06+00:00",
     "notes": "",
     "original_title": "A Little Gray Wolf Will Come",
     "release_year": 2025
@@ -8336,6 +8372,15 @@
     "notes": "",
     "original_title": "すべて、至るところにある",
     "release_year": 2023
+  },
+  "するとかしないとか": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "そして彼女たちは［監督Q＆A付］": {
     "confidence": 1.0,
@@ -8463,7 +8508,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8546,7 +8591,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -8980,11 +9025,11 @@
   "もうすぐ家だ / 快要到達家了 ＜真實電影院 在場・一日影展＞": {
     "ai_provider": "deepseek",
     "confidence": 0.6,
-    "country": "Hong Kong",
+    "country": null,
     "director": null,
     "english_title": "Almost Home",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:50+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:20+00:00",
     "notes": "",
     "original_title": "快要到達家了",
     "release_year": null
@@ -9270,12 +9315,12 @@
   },
   "アウステルリッツ": {
     "ai_provider": "deepseek",
-    "confidence": 95,
-    "country": "Germany",
-    "director": "Sergei Loznitsa",
+    "confidence": 1.0,
+    "country": "ドイツ",
+    "director": "セルゲイ・ロズニツァ",
     "english_title": "Austerlitz",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:23+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:37+00:00",
     "notes": "",
     "original_title": "Austerlitz",
     "release_year": 2016
@@ -9364,12 +9409,15 @@
   },
   "アニカの伝言": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 1.0,
+    "country": "アルゼンチン・スペイン・ウルグアイ合作",
+    "director": "イバン・フンド",
+    "english_title": "The Message",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-24T06:11:54+00:00",
-    "notes": "local_ai_no_result",
-    "release_year": null
+    "last_ai_attempt_at": "2026-11-27T04:20:00+00:00",
+    "notes": "",
+    "original_title": "El mensaje",
+    "release_year": 2025
   },
   "アニキ・ボボ": {
     "confidence": 1.0,
@@ -9503,7 +9551,7 @@
     "director": "ミゲル・アラオス・カルタヘナ",
     "english_title": "Karuara, La gente del río",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:37+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:00+00:00",
     "notes": "",
     "original_title": "Karuara, La gente del río",
     "release_year": 2024
@@ -9924,7 +9972,7 @@
     "director": "キム・ソク",
     "english_title": "The Informant",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:42+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:06+00:00",
     "notes": "",
     "original_title": "The Informant",
     "release_year": 2023
@@ -10040,7 +10088,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10101,7 +10149,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10142,7 +10190,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10347,7 +10395,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -10914,14 +10962,14 @@
   },
   "キエフ裁判": {
     "ai_provider": "deepseek",
-    "confidence": 95,
-    "country": "Netherlands, Ukraine",
-    "director": "Sergei Loznitsa",
+    "confidence": 1.0,
+    "country": "オランダ・ウクライナ合作",
+    "director": "セルゲイ・ロズニツァ",
     "english_title": "The Kiev Trial",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:23+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:37+00:00",
     "notes": "",
-    "original_title": "Київський процес",
+    "original_title": "The Kiev Trial",
     "release_year": 2022
   },
   "キノ・ライカ 小さな町の映画館": {
@@ -11076,12 +11124,12 @@
   },
   "クイーン　ブダペスト": {
     "ai_provider": "deepseek",
-    "confidence": 0.95,
+    "confidence": 0.9,
     "country": "アメリカ",
     "director": "ヤノーシュ・ソンブリアイ",
     "english_title": "Queen Budapest",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:53+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:22+00:00",
     "notes": "",
     "original_title": "Queen Budapest",
     "release_year": 2026
@@ -11210,9 +11258,21 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
+  },
+  "クローン人間ブルース・リー　怒りのスリードラゴン": {
+    "ai_provider": "deepseek",
+    "confidence": 1.0,
+    "country": "香港",
+    "director": "ジョセフ・コン",
+    "english_title": "The Clones of Bruce Lee",
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:20:17+00:00",
+    "notes": "",
+    "original_title": "神威三猛龍",
+    "release_year": 1980
   },
   "クンストカメラ": {
     "confidence": 1.0,
@@ -11511,6 +11571,29 @@
     "original_title": "Coffee and Cigarettes",
     "release_year": 2003
   },
+  "ゴッドファーザーPARTII": {
+    "ai_provider": "deepseek",
+    "confidence": 100,
+    "country": "USA",
+    "director": "Francis Ford Coppola",
+    "english_title": "The Godfather: Part II",
+    "last_ai_attempt_at": "2026-11-27T04:20:42+00:00",
+    "notes": "",
+    "original_title": "The Godfather: Part II",
+    "release_year": 1974
+  },
+  "ゴッドファーザー　最終章　マイケル・コルレオーネの最期": {
+    "ai_provider": "deepseek",
+    "confidence": 95,
+    "country": "USA",
+    "director": "Francis Ford Coppola",
+    "english_title": "The Godfather Coda: The Death of Michael Corleone",
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:20:42+00:00",
+    "notes": "",
+    "original_title": "The Godfather Coda: The Death of Michael Corleone",
+    "release_year": 2020
+  },
   "ゴリラホール": {
     "confidence": 0.95,
     "country": "Japan",
@@ -11751,7 +11834,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -12110,7 +12193,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -12149,7 +12232,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -12385,6 +12468,15 @@
     "original_title": "The 7th Voyage of Sinbad",
     "release_year": 1958
   },
+  "シークレット・ベイビー　大逆転": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "ジェイコブス・ラダー（1990）": {
     "confidence": 1.0,
     "country": "United States",
@@ -12471,10 +12563,10 @@
     "ai_provider": "deepseek",
     "confidence": 1.0,
     "country": "イギリス",
-    "director": "Nicholas Hytner",
+    "director": "ニコラス・ハイトナー",
     "english_title": "Giant",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:03+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:27+00:00",
     "notes": "",
     "original_title": "Giant",
     "release_year": 2025
@@ -12510,12 +12602,15 @@
   },
   "ジャック・ロジエ監督生誕100周年記念 35mmで甦る『オルエットの方へ』": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 0.9,
+    "country": "France",
+    "director": "Jacques Rozier",
+    "english_title": "Du côté d'Orouët",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
-    "notes": "local_ai_no_result",
-    "release_year": null
+    "last_ai_attempt_at": "2026-11-27T04:21:25+00:00",
+    "notes": "",
+    "original_title": "Du côté d'Orouët",
+    "release_year": 1971
   },
   "ジャーマン・イメージ": {
     "ai_provider": "deepseek",
@@ -12528,14 +12623,14 @@
   },
   "ジュディ・シル　贖罪のシンガーソングライター": {
     "ai_provider": "deepseek",
-    "confidence": 0.95,
+    "confidence": 1.0,
     "country": "アメリカ",
     "director": "ブライアン・リンドストローム",
     "english_title": "Lost Angel: The Genius of Judee Sill",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:58+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:27+00:00",
     "notes": "",
-    "original_title": "ジュディ・シル　贖罪のシンガーソングライター",
+    "original_title": "Lost Angel: The Genius of Judee Sill",
     "release_year": 2022
   },
   "ジュンについて": {
@@ -12745,7 +12840,7 @@
     "director": "ラモン・チュルヒャー",
     "english_title": "The Strange Little Cat",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:37+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:00+00:00",
     "notes": "",
     "original_title": "Das Merkwürdige Kätzchen",
     "release_year": 2013
@@ -12835,12 +12930,12 @@
   },
   "スリ 2Kレストア ＜ロベール・ブレッソン傑作選＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.99,
+    "confidence": 1.0,
     "country": "France",
     "director": "Robert Bresson",
     "english_title": "Pickpocket",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:44+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:14+00:00",
     "notes": "",
     "original_title": "Pickpocket",
     "release_year": 1959
@@ -12929,12 +13024,12 @@
     "confidence": 0.9,
     "country": "UK",
     "director": "Julien Temple",
-    "english_title": "The Filth and the Fury",
+    "english_title": "The Great Rock 'n' Roll Swindle",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "",
-    "original_title": "The Filth and the Fury",
-    "release_year": 2000
+    "original_title": "The Great Rock 'n' Roll Swindle",
+    "release_year": 1980
   },
   "セックス・ピストルズ　破壊の設計図": {
     "ai_provider": "deepseek",
@@ -13085,6 +13180,18 @@
     "notes": "",
     "original_title": null,
     "release_year": 1991
+  },
+  "タコピーの原罪": {
+    "ai_provider": "deepseek",
+    "confidence": 0.6,
+    "country": "Japan",
+    "director": null,
+    "english_title": "Takopi's Original Sin",
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:20:59+00:00",
+    "notes": "",
+    "original_title": "タコピーの原罪",
+    "release_year": null
   },
   "タシケントはパンの町": {
     "ai_provider": "deepseek",
@@ -13318,7 +13425,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -13327,18 +13434,18 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
   "チャイナ・バッド・ウーマン / 中華壞女人 ＜真實電影院 在場・一日影展＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.5,
+    "confidence": 0.7,
     "country": "China",
     "director": null,
     "english_title": "China Bad Woman",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-25T05:11:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:20+00:00",
     "notes": "",
     "original_title": "中華壞女人",
     "release_year": null
@@ -13377,7 +13484,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -13536,6 +13643,15 @@
     "notes": "",
     "original_title": "Take Me Somewhere Nice",
     "release_year": 2019
+  },
+  "テキサス・テナー:イリノイ・ジャケー・ストーリー": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "テルマがゆく！ 93歳のやさしいリベンジ": {
     "ai_provider": "deepseek",
@@ -14008,7 +14124,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -14098,12 +14214,12 @@
   },
   "ナショナル・シアター・ライブ「みんな我が子」": {
     "ai_provider": "deepseek",
-    "confidence": 1.0,
+    "confidence": 0.9,
     "country": "イギリス",
     "director": null,
     "english_title": "National Theatre Live: All My Sons",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:03+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:32+00:00",
     "notes": "",
     "original_title": "National Theatre Live: All My Sons",
     "release_year": 2026
@@ -14397,6 +14513,17 @@
     "original_title": "No Rest for the Wicked",
     "release_year": 2026
   },
+  "ハウスメイド": {
+    "ai_provider": "deepseek",
+    "confidence": 1.0,
+    "country": "アメリカ",
+    "director": "ポール・フェイグ",
+    "english_title": "The Housemaid",
+    "last_ai_attempt_at": "2026-11-27T04:20:00+00:00",
+    "notes": "",
+    "original_title": "The Housemaid",
+    "release_year": 2025
+  },
   "ハウス・オブ・ザ・デビル": {
     "confidence": 1.0,
     "country": "United States",
@@ -14646,14 +14773,14 @@
   },
   "バビ・ヤール": {
     "ai_provider": "deepseek",
-    "confidence": 95,
-    "country": "Netherlands, Ukraine",
-    "director": "Sergei Loznitsa",
+    "confidence": 1.0,
+    "country": "オランダ・ウクライナ合作",
+    "director": "セルゲイ・ロズニツァ",
     "english_title": "Babi Yar. Context",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:23+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:37+00:00",
     "notes": "",
-    "original_title": "Бабин Яр. Контекст",
+    "original_title": "Babi Yar. Context",
     "release_year": 2021
   },
   "バラの刺青": {
@@ -14699,12 +14826,12 @@
   },
   "バルタザールどこへ行く 4Kレストア ＜ロベール・ブレッソン傑作選＞": {
     "ai_provider": "deepseek",
-    "confidence": 1.0,
+    "confidence": 0.95,
     "country": "France",
     "director": "Robert Bresson",
-    "english_title": "Au hasard Balthazar",
+    "english_title": "Au Hasard Balthazar",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:50+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:20+00:00",
     "notes": "",
     "original_title": "Au hasard Balthazar",
     "release_year": 1966
@@ -14996,7 +15123,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -15006,6 +15133,15 @@
     "english_title": null,
     "failed": true,
     "last_ai_attempt_at": "2026-11-19T03:28:04+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
+  "ヒポクラテスの盲点【2026年アップデート版】": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -15637,7 +15773,7 @@
     "director": "ジャ・ジャンクー",
     "english_title": "Platform",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:47+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:17+00:00",
     "notes": "",
     "original_title": "站台",
     "release_year": 2000
@@ -16624,12 +16760,12 @@
   },
   "ミスター・ランズベルギス": {
     "ai_provider": "deepseek",
-    "confidence": 0.8,
-    "country": "リトアニア・オランダ",
+    "confidence": 0.9,
+    "country": "Lithuania, Netherlands",
     "director": null,
     "english_title": "Mr. Landsbergis",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:29+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:59+00:00",
     "notes": "",
     "original_title": "Misteris Landsbergis",
     "release_year": 2021
@@ -16657,6 +16793,15 @@
     "original_title": "Мисс Менд",
     "release_year": 1926
   },
+  "ミス・ロンリネス": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "ミッシェル・オスロ監督特集 動き出す世界たち": {
     "confidence": 0.9,
     "country": "France",
@@ -16682,7 +16827,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -16745,7 +16890,7 @@
     "director": "ピーター・ジャクソン",
     "english_title": "Meet the Feebles",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:42+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:06+00:00",
     "notes": "",
     "original_title": "Meet the Feebles",
     "release_year": 1989
@@ -17102,7 +17247,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -17405,12 +17550,12 @@
   },
   "ラルジャン 2Kレストア ＜ロベール・ブレッソン傑作選＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.99,
+    "confidence": 1.0,
     "country": "France",
     "director": "Robert Bresson",
     "english_title": "L'Argent",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:44+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:14+00:00",
     "notes": "",
     "original_title": "L'argent",
     "release_year": 1983
@@ -17557,12 +17702,12 @@
   },
   "リベラ・メ リストア版": {
     "ai_provider": "deepseek",
-    "confidence": 1.0,
+    "confidence": 0.9,
     "country": "France",
     "director": "Alain Cavalier",
     "english_title": "Libera me",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:18+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:53+00:00",
     "notes": "",
     "original_title": "Libera me",
     "release_year": 1993
@@ -17802,11 +17947,22 @@
     "country": null,
     "director": null,
     "english_title": "Lenin",
-    "failed": true,
-    "last_ai_attempt_at": "2026-11-25T05:10:35+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:59+00:00",
     "notes": "",
-    "original_title": "レニン",
+    "original_title": "Ленин",
     "release_year": null
+  },
+  "レニン　復讐の血戦": {
+    "ai_provider": "deepseek",
+    "confidence": 1.0,
+    "country": "インド",
+    "director": "ムラリ・キショール・アッブール",
+    "english_title": "Lenin",
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:20:00+00:00",
+    "notes": "",
+    "original_title": "Lenin",
+    "release_year": 2026
   },
   "レニングラード・カウボーイズ、モーゼに会う": {
     "ai_provider": "deepseek",
@@ -18094,7 +18250,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -18120,6 +18276,15 @@
     "last_ai_attempt_at": "2026-08-28T06:23:24+00:00",
     "notes": "",
     "original_title": "ワン・ツー・スリー",
+    "release_year": null
+  },
+  "ワーズ・アイ・ウォント・トゥ・セイ": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "ワールドクラシック＠シネマ2011 オペラ 「ばらの騎士」　バーデン・バーデン祝祭劇場": {
@@ -18624,11 +18789,11 @@
     "confidence": 1.0,
     "country": "アメリカ",
     "director": "ロバート・ピロッシュ",
-    "english_title": "Go for Broke",
+    "english_title": "Go for Broke!",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:47+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:17+00:00",
     "notes": "",
-    "original_title": "Go for Broke",
+    "original_title": "Go for Broke!",
     "release_year": 1951
   },
   "二宮和也が選ぶ！シークレットシネマ": {
@@ -18655,7 +18820,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -18673,7 +18838,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -19209,7 +19374,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -19253,7 +19418,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -19753,12 +19918,12 @@
   },
   "千羽鶴": {
     "ai_provider": "deepseek",
-    "confidence": 85,
+    "confidence": 0.9,
     "country": "Japan",
-    "director": "Kōzaburō Yoshimura",
+    "director": "吉村公三郎",
     "english_title": "Thousand Cranes",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:34+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:04+00:00",
     "notes": "",
     "original_title": "千羽鶴",
     "release_year": 1953
@@ -19817,12 +19982,12 @@
   },
   "南極料理人 ４Kリマスター": {
     "ai_provider": "deepseek",
-    "confidence": 0.9,
-    "country": "日本",
-    "director": "沖田修一",
+    "confidence": 0.95,
+    "country": "Japan",
+    "director": "Shuichi Okita",
     "english_title": "The Chef of South Polar",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:29+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:59+00:00",
     "notes": "",
     "original_title": "南極料理人",
     "release_year": 2009
@@ -19864,7 +20029,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -19873,7 +20038,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -19891,7 +20056,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -20147,7 +20312,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -20241,14 +20406,14 @@
   },
   "国葬": {
     "ai_provider": "deepseek",
-    "confidence": 95,
-    "country": "Netherlands, Lithuania",
-    "director": "Sergei Loznitsa",
+    "confidence": 1.0,
+    "country": "オランダ・リトアニア合作",
+    "director": "セルゲイ・ロズニツァ",
     "english_title": "State Funeral",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:23+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:37+00:00",
     "notes": "",
-    "original_title": "Державні похорони",
+    "original_title": "State Funeral",
     "release_year": 2019
   },
   "國分玲": {
@@ -20355,14 +20520,11 @@
   },
   "地獄から来た花嫁（地獄新娘）": {
     "ai_provider": "deepseek",
-    "confidence": 0.7,
-    "country": null,
-    "director": null,
-    "english_title": "Bride from Hell",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:58+00:00",
-    "notes": "",
-    "original_title": "地獄新娘",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
     "release_year": null
   },
   "地獄の埠頭": {
@@ -20742,6 +20904,15 @@
     "original_title": "大菩薩峠",
     "release_year": 1966
   },
+  "天に至る9つの寺": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "天井 ／ 袋いっぱいの蚤": {
     "confidence": 0.0,
     "english_title": null,
@@ -20860,7 +21031,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -20878,7 +21049,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -20907,12 +21078,12 @@
   },
   "女ともだち 2K修復版 ＜アントニオーニ特集＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.98,
+    "confidence": 1.0,
     "country": "Italy",
     "director": "Michelangelo Antonioni",
     "english_title": "Le Amiche",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:44+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:14+00:00",
     "notes": "",
     "original_title": "Le amiche",
     "release_year": 1955
@@ -20985,7 +21156,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -21502,12 +21673,12 @@
   },
   "少女ムシェット 4Kレストア ＜ロベール・ブレッソン傑作選＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.99,
+    "confidence": 1.0,
     "country": "France",
     "director": "Robert Bresson",
     "english_title": "Mouchette",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:44+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:14+00:00",
     "notes": "",
     "original_title": "Mouchette",
     "release_year": 1967
@@ -22241,7 +22412,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -22259,7 +22430,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -22294,7 +22465,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -22409,12 +22580,12 @@
   },
   "情事 4K修復版 ＜アントニオーニ特集＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.99,
+    "confidence": 1.0,
     "country": "Italy",
     "director": "Michelangelo Antonioni",
     "english_title": "L'Avventura",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:44+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:14+00:00",
     "notes": "",
     "original_title": "L'avventura",
     "release_year": 1960
@@ -22502,7 +22673,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -22511,7 +22682,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -22546,15 +22717,12 @@
   },
   "愛と殺意 4K修復版 ＜アントニオーニ特集＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.7,
-    "country": "Italy",
-    "director": "Michelangelo Antonioni",
-    "english_title": "I Am Love and I Am Death",
+    "confidence": 0.0,
+    "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:50+00:00",
-    "notes": "",
-    "original_title": "L'amore e la rabbia",
-    "release_year": 1975
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "愛と破滅のアヴァンギャルド ATG 真夜中篇": {
     "confidence": 0.0,
@@ -22744,7 +22912,19 @@
     "director": "Man Lim-chung",
     "english_title": "Keep Rolling",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:50+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:20+00:00",
+    "notes": "",
+    "original_title": "好好拍電影",
+    "release_year": 2020
+  },
+  "我が心の香港　映画監督アン・ホイ": {
+    "ai_provider": "deepseek",
+    "confidence": 1.0,
+    "country": "香港",
+    "director": "マン・リムチョン",
+    "english_title": "Keep Rolling",
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:20:27+00:00",
     "notes": "",
     "original_title": "好好拍電影",
     "release_year": 2020
@@ -22785,6 +22965,15 @@
     "notes": "local_ai_no_result",
     "release_year": null
   },
+  "戦場のボヘミアン　カメラマン　石川文洋": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "戦火を越えて（1965）": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
@@ -22805,15 +22994,15 @@
   },
   "手回しオルガンのためのメロディー Мелодия для шарманки": {
     "ai_provider": "deepseek",
-    "confidence": 0.7,
+    "confidence": 0.9,
     "country": "Ukraine",
-    "director": null,
+    "director": "Kira Muratova",
     "english_title": "Melody for a Street Organ",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:54+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:25+00:00",
     "notes": "",
     "original_title": "Мелодия для шарманки",
-    "release_year": null
+    "release_year": 2009
   },
   "打ち上げ花火、下から見るか？横から見るか？（1993）": {
     "confidence": 1.0,
@@ -22950,14 +23139,14 @@
   },
   "撃たれた自由の声を撮れ": {
     "ai_provider": "deepseek",
-    "confidence": 0.9,
-    "country": "アフガニスタン",
-    "director": "ザイナブ・エンテザール",
+    "confidence": 1.0,
+    "country": "Afghanistan",
+    "director": "Zainab Entezar",
     "english_title": "Shot the Voice of Freedom",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-15T02:00:11+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:48+00:00",
     "notes": "",
-    "original_title": "撃たれた自由の声を撮れ",
+    "original_title": "Shot the Voice of Freedom",
     "release_year": 2024
   },
   "放浪の王者": {
@@ -22989,12 +23178,12 @@
   },
   "政党大会　陰謀のタイムループ": {
     "ai_provider": "deepseek",
-    "confidence": 0.95,
-    "country": "インド",
-    "director": "ベンカト・プラブ",
+    "confidence": 1.0,
+    "country": "India",
+    "director": "Venkat Prabhu",
     "english_title": "Maanaadu",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:13+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:48+00:00",
     "notes": "",
     "original_title": "Maanaadu",
     "release_year": 2021
@@ -23012,12 +23201,12 @@
   },
   "敗北者たち 2K修復版 ＜アントニオーニ特集＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.96,
+    "confidence": 1.0,
     "country": "Italy",
     "director": "Michelangelo Antonioni",
     "english_title": "I Vinti",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:44+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:14+00:00",
     "notes": "",
     "original_title": "I vinti",
     "release_year": 1953
@@ -23127,7 +23316,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -23209,6 +23398,7 @@
     "country": "ベルギー・オランダ",
     "director": null,
     "english_title": "The New Russia",
+    "failed": true,
     "last_ai_attempt_at": "2026-11-26T04:21:29+00:00",
     "notes": "",
     "original_title": null,
@@ -24789,7 +24979,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -25116,7 +25306,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -25213,14 +25403,14 @@
   },
   "済州島　声たち": {
     "ai_provider": "deepseek",
-    "confidence": 1.0,
-    "country": "韓国",
-    "director": "チ・ヘウォン",
+    "confidence": 90,
+    "country": "South Korea",
+    "director": "Ji Hye-won",
     "english_title": "Voices",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:08+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:42+00:00",
     "notes": "",
-    "original_title": "済州島　声たち",
+    "original_title": "Voices",
     "release_year": 2024
   },
   "渚のシンドバッド【ゆっきゅんセレクト】": {
@@ -25270,6 +25460,15 @@
     "notes": "",
     "original_title": "Casa de Lava",
     "release_year": 1994
+  },
+  "溺れる香り": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
   },
   "演歌の坂道": {
     "ai_provider": "deepseek",
@@ -25401,17 +25600,29 @@
     "original_title": "Астенический синдром",
     "release_year": null
   },
-  "無気力症シンドローム Астенический синдром": {
+  "無気力症シンドローム": {
     "ai_provider": "deepseek",
-    "confidence": 0.7,
+    "confidence": 90,
     "country": "Soviet Union",
-    "director": null,
-    "english_title": "Astenicheskiy sindrom",
+    "director": "Kira Muratova",
+    "english_title": "The Asthenic Syndrome",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:54+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:42+00:00",
     "notes": "",
     "original_title": "Астенический синдром",
-    "release_year": null
+    "release_year": 1989
+  },
+  "無気力症シンドローム Астенический синдром": {
+    "ai_provider": "deepseek",
+    "confidence": 0.95,
+    "country": "Soviet Union",
+    "director": "Kira Muratova",
+    "english_title": "The Asthenic Syndrome",
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:25+00:00",
+    "notes": "",
+    "original_title": "Астенический синдром",
+    "release_year": 1989
   },
   "無言歌": {
     "confidence": 0.95,
@@ -25585,7 +25796,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -25891,7 +26102,16 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
+  "獣たちの熱い夜　ある帰還兵の記録": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -25985,12 +26205,12 @@
   },
   "男なら振りむくな": {
     "ai_provider": "deepseek",
-    "confidence": 1.0,
+    "confidence": 0.9,
     "country": "日本",
     "director": "野村芳太郎",
     "english_title": "The Pace that Thrills",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:03+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:32+00:00",
     "notes": "",
     "original_title": "男なら振りむくな",
     "release_year": 1967
@@ -26117,12 +26337,12 @@
   },
   "白夜 4Kレストア ＜ロベール・ブレッソン傑作選＞": {
     "ai_provider": "deepseek",
-    "confidence": 0.97,
+    "confidence": 1.0,
     "country": "France",
     "director": "Robert Bresson",
     "english_title": "Four Nights of a Dreamer",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:44+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:14+00:00",
     "notes": "",
     "original_title": "Quatre nuits d'un rêveur",
     "release_year": 1971
@@ -26180,7 +26400,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -26279,12 +26499,15 @@
   },
   "短い出会い": {
     "ai_provider": "deepseek",
-    "confidence": 0.0,
-    "english_title": null,
+    "confidence": 90,
+    "country": "Soviet Union",
+    "director": "Kira Muratova",
+    "english_title": "Brief Encounters",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-24T06:11:54+00:00",
-    "notes": "local_ai_no_result",
-    "release_year": null
+    "last_ai_attempt_at": "2026-11-27T04:20:42+00:00",
+    "notes": "",
+    "original_title": "Короткие встречи",
+    "release_year": 1967
   },
   "短編集（水魚之交、豆腐の家、メルヒェン）五十嵐耕平監督特集上映": {
     "ai_provider": "deepseek",
@@ -26340,9 +26563,9 @@
     "director": "セルゲイ・ロズニツァ",
     "english_title": "The Natural History of Destruction",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:08+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:37+00:00",
     "notes": "",
-    "original_title": "破壊の自然史",
+    "original_title": "The Natural History of Destruction",
     "release_year": 2022
   },
   "破局 リストア版": {
@@ -26508,7 +26731,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -26909,7 +27132,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -26984,14 +27207,14 @@
   },
   "粛清裁判": {
     "ai_provider": "deepseek",
-    "confidence": 0.7,
-    "country": "オランダ・ロシア",
-    "director": null,
+    "confidence": 1.0,
+    "country": "オランダ・ロシア合作",
+    "director": "セルゲイ・ロズニツァ",
     "english_title": "The Trial",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:29+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:37+00:00",
     "notes": "",
-    "original_title": "Protsess",
+    "original_title": "The Trial",
     "release_year": 2018
   },
   "精神の声 ＜アレクサンドル・ソクーロフ特集★オールナイト＞": {
@@ -27290,7 +27513,7 @@
     "director": "Delphine Seyrig",
     "english_title": "Be Pretty and Shut Up!",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:18+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:53+00:00",
     "notes": "",
     "original_title": "Sois belle et tais-toi",
     "release_year": 1976
@@ -28079,7 +28302,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -28358,15 +28581,15 @@
   },
   "調律師 Настройщик": {
     "ai_provider": "deepseek",
-    "confidence": 0.6,
+    "confidence": 0.9,
     "country": "Russia",
-    "director": null,
+    "director": "Kira Muratova",
     "english_title": "The Tuner",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:54+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:25+00:00",
     "notes": "",
     "original_title": "Настройщик",
-    "release_year": null
+    "release_year": 2004
   },
   "谷口善太郎　たたかう小説": {
     "ai_provider": "deepseek",
@@ -28452,7 +28675,7 @@
     "director": "Michelangelo Antonioni",
     "english_title": "Red Desert",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:50+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:14+00:00",
     "notes": "",
     "original_title": "Il deserto rosso",
     "release_year": 1964
@@ -28863,7 +29086,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -29092,17 +29315,29 @@
     "original_title": "Zerkalo",
     "release_year": 1975
   },
-  "長い見送り Долгие проводы": {
+  "長い見送り": {
     "ai_provider": "deepseek",
-    "confidence": 0.8,
+    "confidence": 95,
     "country": "Soviet Union",
-    "director": null,
-    "english_title": "Long Farewells",
+    "director": "Kira Muratova",
+    "english_title": "The Long Farewell",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:21:54+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:42+00:00",
     "notes": "",
     "original_title": "Долгие проводы",
-    "release_year": null
+    "release_year": 1971
+  },
+  "長い見送り Долгие проводы": {
+    "ai_provider": "deepseek",
+    "confidence": 0.95,
+    "country": "Soviet Union",
+    "director": "Kira Muratova",
+    "english_title": "Long Farewells",
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:25+00:00",
+    "notes": "",
+    "original_title": "Долгие проводы",
+    "release_year": 1971
   },
   "長孫―家族の季節": {
     "confidence": 1.0,
@@ -29154,7 +29389,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -29379,7 +29614,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -29573,7 +29808,7 @@
     "director": null,
     "english_title": "Frankenstein",
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:20:42+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:20:06+00:00",
     "notes": "",
     "original_title": "Frankenstein",
     "release_year": 2024
@@ -30141,7 +30376,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -30150,7 +30385,7 @@
     "confidence": 0.0,
     "english_title": null,
     "failed": true,
-    "last_ai_attempt_at": "2026-11-26T04:22:02+00:00",
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
     "notes": "local_ai_no_result",
     "release_year": null
   },
@@ -30893,6 +31128,15 @@
     "original_title": "｢アヴァンギャルド広告｣シリーズより",
     "release_year": 1921
   },
+  "ｱｯﾄ･ｻﾞ･ﾍﾞﾝﾁ 劇場公開2周年記念": {
+    "ai_provider": "deepseek",
+    "confidence": 0.0,
+    "english_title": null,
+    "failed": true,
+    "last_ai_attempt_at": "2026-11-27T04:21:33+00:00",
+    "notes": "local_ai_no_result",
+    "release_year": null
+  },
   "ｲﾝﾋﾞｼﾞﾌﾞﾙﾊｰﾌ[0622先行特別上映]": {
     "ai_provider": "deepseek",
     "confidence": 0.0,
@@ -31012,6 +31256,17 @@
     "failed": true,
     "last_ai_attempt_at": "2026-08-07T01:53:51+00:00",
     "notes": "local_ai_no_result",
+    "release_year": null
+  },
+  "ﾌｧｰｻﾞｰﾏｻﾞｰｼｽﾀｰﾌﾞﾗｻﾞｰ": {
+    "ai_provider": "deepseek",
+    "confidence": 0.5,
+    "country": null,
+    "director": null,
+    "english_title": "Father Mother Sister Brother",
+    "last_ai_attempt_at": "2026-11-27T04:20:59+00:00",
+    "notes": "",
+    "original_title": "Father Mother Sister Brother",
     "release_year": null
   },
   "ﾌﾞﾙｯｸﾘﾝでZ級監督[0214ｲﾍﾞﾝﾄ]": {
