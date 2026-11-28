@@ -293,6 +293,13 @@ jobs:
         run: |
           echo "::warning::Healthy listings were saved for publication, but some cinema sources need attention. See the scrape health report."
 
+      # Runs after publication so listings still go out without AI. An exhausted
+      # DeepSeek balance went unnoticed for 12 days (27 Oct - 8 Nov 2026) while the
+      # site showed Japanese in English mode; this makes the run red instead.
+      - name: Check AI translation provider
+        if: steps.mode.outputs.run_scraper == 'true'
+        run: python publication_health.py --check-ai
+
       # Public-site incidents are reviewed by the two-day Codex check.
       # A single source warning must not send email or fail a healthy publication.
       - name: Create Auto-Fix Issue
